@@ -1,8 +1,24 @@
-\documentclass[aspectratio=169,10pt]{beamer}
+\documentclass[aspectratio=169,9pt]{beamer}
 
 % Packages
 \usepackage{fontspec}
-\setsansfont{Segoe UI}
+\setsansfont{Montserrat}[
+  Path = ./fonts/ ,
+  Extension = .ttf ,
+  UprightFont = *-Regular ,
+  BoldFont = *-Bold ,
+  ItalicFont = *-Italic ,
+  BoldItalicFont = *-BoldItalic
+]
+\newfontfamily\titlefont{OpenSans}[
+  Path = ./fonts/ ,
+  Extension = .ttf ,
+  UprightFont = *-Regular ,
+  BoldFont = *-Bold ,
+  ItalicFont = *-Italic ,
+  BoldItalicFont = *-BoldItalic
+]
+
 \usepackage{xcolor}
 \usepackage{booktabs}
 \usepackage{array}
@@ -20,6 +36,7 @@
 % Itemize Settings: Exactly matching Sprint 1 style (Standard black round bullet)
 \setbeamertemplate{navigation symbols}{}
 \setbeamercolor{normal text}{fg=black,bg=white}
+\setbeamerfont{normal text}{size=\fontsize{9pt}{11.5pt}\selectfont}
 \setbeamercolor{structure}{fg=bkblue}
 \setbeamertemplate{itemize item}{\scriptsize\raisebox{0.15ex}{$\bullet$}}
 \setbeamertemplate{itemize subitem}{\scriptsize\raisebox{0.15ex}{$\circ$}}
@@ -31,27 +48,27 @@
   \includegraphics[width=\paperwidth,height=\paperheight]{assets/bg_template.jpg}%
 }
 
-% Frametitle Template: Deep Navy Banner with White Text matching Sprint 1
+% Frametitle Template: Deep Navy Banner with Open Sans font size 14.3pt
 \setbeamercolor{frametitle}{bg=bkblue,fg=white}
 \setbeamertemplate{frametitle}{%
   \nointerlineskip%
-  \begin{beamercolorbox}[wd=\paperwidth,ht=3.8ex,dp=1.4ex,leftskip=1ex]{frametitle}%
-    \hspace{0.5cm}\textbf{\large\insertframetitle}%
+  \begin{beamercolorbox}[wd=\paperwidth,ht=4.2ex,dp=1.5ex,leftskip=1ex]{frametitle}%
+    \hspace{0.5cm}{\titlefont\fontsize{14.3pt}{17pt}\selectfont\bfseries\color{white}\insertframetitle}%
   \end{beamercolorbox}%
 }
 
-% Footline Template: Exactly matching Sprint 1 with space for authentic BK logo
+% Footline Template: Montserrat font size 6pt with space for authentic BK logo
 \setbeamertemplate{footline}{%
   \leavevmode%
   \hbox{%
-    \begin{beamercolorbox}[wd=.38\paperwidth,ht=2.3ex,dp=1.1ex,center]{author in head/foot}%
-      \color{white}\scriptsize\textbf{Nguyen Quang Huy, Nguyen Quang Tung}
+    \begin{beamercolorbox}[wd=.38\paperwidth,ht=2.1ex,dp=0.8ex,center]{author in head/foot}%
+      \color{white}\fontsize{6pt}{7.5pt}\selectfont\textbf{Nguyen Quang Huy, Nguyen Quang Tung}
     \end{beamercolorbox}%
-    \begin{beamercolorbox}[wd=.26\paperwidth,ht=2.3ex,dp=1.1ex,center]{title in head/foot}%
-      \color{white}\scriptsize\textbf{DACN}
+    \begin{beamercolorbox}[wd=.26\paperwidth,ht=2.1ex,dp=0.8ex,center]{title in head/foot}%
+      \color{white}\fontsize{6pt}{7.5pt}\selectfont\textbf{DACN}
     \end{beamercolorbox}%
-    \begin{beamercolorbox}[wd=.36\paperwidth,ht=2.3ex,dp=1.1ex,right]{date in head/foot}%
-      \color{white}\scriptsize September 21, 2026 \hspace*{1.2em}
+    \begin{beamercolorbox}[wd=.36\paperwidth,ht=2.1ex,dp=0.8ex,right]{date in head/foot}%
+      \color{white}\fontsize{6pt}{7.5pt}\selectfont September 21, 2026 \hspace*{1.2em}
       \insertframenumber{} / \inserttotalframenumber \hspace*{3.8em}
     \end{beamercolorbox}%
   }%
@@ -84,7 +101,7 @@
 
   \vspace{0.6cm}
   \begin{center}
-    {\Large\textbf{\color{bkblue} Vietnamese Address Parsing and Resolution across an Administrative Temporal Boundary: A Benchmark Dataset and a Two-Stage Model}}\\[0.45cm]
+    {\titlefont\fontsize{14.3pt}{18pt}\selectfont\bfseries\color{bkblue} Vietnamese Address Parsing and Resolution across an Administrative Temporal Boundary: A Benchmark Dataset and a Two-Stage Model}\\[0.45cm]
 
     \small
     \textbf{Supervisor:} Quan Thanh Tho\\[0.12cm]
@@ -270,7 +287,7 @@
 \begin{frame}{Sprint 2}
   \vspace{1.5cm}
   \begin{center}
-    {\Huge\textbf{\color{bkblue} Sprint 2}}
+    {\titlefont\fontsize{24pt}{28pt}\selectfont\bfseries\color{bkblue} Sprint 2}
   \end{center}
 \end{frame}
 
