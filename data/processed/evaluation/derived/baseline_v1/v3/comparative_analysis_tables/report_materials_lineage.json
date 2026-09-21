@@ -1,0 +1,17 @@
+{
+  "run_id": "baseline_v1",
+  "parent_manifest_sha256": "0f63399b6c5344d6015277c07236267c71127a73bd1588efd4b326f100c223e1",
+  "selection_rule": "first error after sort(dataset, tool, LoaiLoi, ID), one record per group",
+  "output_hashes": {
+    "dataset_exact_metrics.csv": "65555719eaec39276056dc6d1e5eb576320fca328a25c7bd78632ed72203edad",
+    "data06_contract.csv": "ce4b08ba0cbb39e0a922677142c496e85d714e352e965d8a21d73594e6e0e993",
+    "data07_scope.csv": "60b5f30e18aeee276a4ea63b4324baff7392353b6e7870d5f997f66db9b944c2",
+    "case_studies.csv": "e9182baf41a45295c24b5cf8d87dfd466ce57ef546886070ffea2ea958118285",
+    "baseline_ambiguity_evidence_v3.md": "c66db1e4297c1e89474f42ddd9a0e381b55403dd63d76a63eaf322c8f6aea009",
+    "data_preparation_summary_v3.md": "12a9635df70688fdfe23af96b746bc2d8cf10727f9b428aeb4757cfd907fa4e2",
+    "chapter_01_research_motivation_v3.md": "bead4870544768a3d36048884fd75ca474dfed65b29fa62e675561e8bd64ce84",
+    "chapter_02_theoretical_foundation_v3.md": "45540a9d7c703dd4e4c2fa681f0881845abd340c2d98d1ace1a260561e72f045",
+    "report_materials_index_v3.md": "f6b93e87fb0f24e8766462a1bf326f24f97d3a8e595f00d6cb29e463bfda7894"
+  },
+  "derived_root": "data/processed/evaluation/derived/baseline_v1/v3"
+}

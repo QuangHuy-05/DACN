@@ -1,0 +1,6 @@
+pandas>=2.2,<3
+osmium>=4,<5
+pyarrow>=17,<24
+tqdm>=4.66,<5
+vietnamadminunits==1.0.4
+postal==1.1.11

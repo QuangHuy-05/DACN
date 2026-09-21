@@ -1,0 +1,801 @@
+﻿ChuoiDiaChi,SoNha,TenDuong,PhuongXa,QuanHuyen,TinhThanh,GT_SoNha,GT_TenDuong,GT_PhuongXa,GT_QuanHuyen,GT_TinhThanh,KieuThieu,HeQuyChieu
+"9, Ngách 1/88 Phạm Tuấn Tài, Phường Dịch Vọng Hậu, Hà Nội",9,Ngách 1/88 Phạm Tuấn Tài,Phường Dịch Vọng Hậu,,Hà Nội,9,Ngách 1/88 Phạm Tuấn Tài,Phường Dịch Vọng Hậu,Quận Cầu Giấy,Hà Nội,drop_district,cu
+"Đường Khả Lễ, Phường Võ Cường, T.Bắc Ninh",,Đường Khả Lễ,Phường Võ Cường,,T.Bắc Ninh,36,Đường Khả Lễ,Phường Võ Cường,,Tỉnh Bắc Ninh,drop_housenumber,moi
+"17-19, Đường Trần Lựu, Tỉnh Bắc Ninh",17-19,Đường Trần Lựu,,,Tỉnh Bắc Ninh,17-19,Đường Trần Lựu,Phường Vũ Ninh,,Tỉnh Bắc Ninh,drop_ward,moi
+"89, Hoa Lan, P.2, TP. HCM",89,Hoa Lan,P.2,,TP. HCM,89,Hoa Lan,Phường 2,Phú Nhuận,Thành phố Hồ Chí Minh,drop_district,cu
+"33, Hoàng Cầu, Đống Đa, Hà Nội",33,Hoàng Cầu,,Đống Đa,Hà Nội,33,Hoàng Cầu,Ô Chợ Dừa,Đống Đa,Hà Nội,drop_ward,cu
+"Đường Hoàng Quốc Việt, Phường Cổ Nhuế 1, Q. Bắc Từ Liêm, Hà Nội",,Đường Hoàng Quốc Việt,Phường Cổ Nhuế 1,Q. Bắc Từ Liêm,Hà Nội,501,Đường Hoàng Quốc Việt,Phường Cổ Nhuế 1,Quận Bắc Từ Liêm,Hà Nội,drop_housenumber,cu
+"Đường Mỹ Phú 1B, TPHCM",,Đường Mỹ Phú 1B,,,TPHCM,05,Đường Mỹ Phú 1B,Phường Tân Phú,,Thành phố Hồ Chí Minh,drop_housenumber_ward,moi
+"Phố Ngọc Hà, Quận Ba Đình, Hà Nội",,Phố Ngọc Hà,,Quận Ba Đình,Hà Nội,9A,Phố Ngọc Hà,Phường Đội Cấn,Quận Ba Đình,Hà Nội,drop_housenumber_ward,cu
+"Phố Láng Hạ, Thành Công, Ba Đình, HN",,Phố Láng Hạ,Thành Công,Ba Đình,HN,6B,Phố Láng Hạ,Thành Công,Ba Đình,Hà Nội,drop_housenumber,cu
+"23, Ngõ 425 Đường Hoàng Quốc Việt, Tỉnh Bắc Ninh",23,Ngõ 425 Đường Hoàng Quốc Việt,,,Tỉnh Bắc Ninh,23,Ngõ 425 Đường Hoàng Quốc Việt,Phường Vũ Ninh,,Tỉnh Bắc Ninh,drop_ward,moi
+"Quốc lộ 13, Hiệp Bình Chánh, TP. Thủ Đức, TP. Hồ Chí Minh",,Quốc lộ 13,Hiệp Bình Chánh,TP. Thủ Đức,TP. Hồ Chí Minh,79,Quốc lộ 13,Hiệp Bình Chánh,TP. Thủ Đức,TP. Hồ Chí Minh,drop_housenumber,cu
+"Đường Số 8, KDC Nam Long, P. Tân Thuận Đông, Quận 7, HỒ CHÍ MINH",,"Đường Số 8, KDC Nam Long",P. Tân Thuận Đông,Quận 7,HỒ CHÍ MINH,Số 147,"Đường Số 8, KDC Nam Long",P. Tân Thuận Đông,Quận 7,HỒ CHÍ MINH,drop_housenumber,cu
+"A58, Đường Nội Khu 1, Thành phố Hồ Chí Minh",A58,Đường Nội Khu 1,,,Thành phố Hồ Chí Minh,A58,Đường Nội Khu 1,Phường Tân Phú,,Thành phố Hồ Chí Minh,drop_ward,moi
+"Ngõ 4 Ô Cách, Đức Giang, Long Biên, Hà Nội",,Ngõ 4 Ô Cách,Đức Giang,Long Biên,Hà Nội,18,Ngõ 4 Ô Cách,Đức Giang,Long Biên,Hà Nội,drop_housenumber,cu
+"Đường Thiên Đức, Phường Kinh Bắc, Tỉnh Bắc Ninh",,Đường Thiên Đức,Phường Kinh Bắc,,Tỉnh Bắc Ninh,668,Đường Thiên Đức,Phường Kinh Bắc,,Tỉnh Bắc Ninh,drop_housenumber,moi
+"Đường Quang Trung, P Nhân Hòa, Tỉnh Bắc Ninh",,Đường Quang Trung,P Nhân Hòa,,Tỉnh Bắc Ninh,395,Đường Quang Trung,Phường Nhân Hòa,,Tỉnh Bắc Ninh,drop_housenumber,moi
+"Đường Mỹ Phú 1C, Phường Tân Phú, TPHCM",,Đường Mỹ Phú 1C,Phường Tân Phú,,TPHCM,10,Đường Mỹ Phú 1C,Phường Tân Phú,,Thành phố Hồ Chí Minh,drop_housenumber,moi
+"Hai Bà Trưng, Ninh Kiều, Cần Thơ",,Hai Bà Trưng,,Ninh Kiều,Cần Thơ,62,Hai Bà Trưng,Tân An,Ninh Kiều,Cần Thơ,drop_housenumber_ward,cu
+"Đường Nội Khu 02, P. Tân Phú, Quận 7, TP. HCM",,Đường Nội Khu 02,P. Tân Phú,Quận 7,TP. HCM,26,Đường Nội Khu 02,Phường Tân Phú,Quận 7,Thành phố Hồ Chí Minh,drop_housenumber,cu
+"Phố Xã Đàn, Nam Đồng, Đống Đa, HN",,Phố Xã Đàn,Nam Đồng,Đống Đa,HN,195,Phố Xã Đàn,Nam Đồng,Đống Đa,Hà Nội,drop_housenumber,cu
+"04, Đường Số 21, Thành phố Hồ Chí Minh",04,Đường Số 21,,,Thành phố Hồ Chí Minh,04,Đường Số 21,Phường Tân Phú,,Thành phố Hồ Chí Minh,drop_ward,moi
+"53, Đường Hoàng Quốc Việt, Thành phố Hà Nội",53,Đường Hoàng Quốc Việt,,,Thành phố Hà Nội,53,Đường Hoàng Quốc Việt,Phường Nghĩa Đô,,Thành phố Hà Nội,drop_ward,moi
+"Đường Dương Ổ, P. Võ Cường, Tỉnh Bắc Ninh",,Đường Dương Ổ,P. Võ Cường,,Tỉnh Bắc Ninh,122,Đường Dương Ổ,Phường Võ Cường,,Tỉnh Bắc Ninh,drop_housenumber,moi
+"Phố Yên Mẫn, Phường Kinh Bắc, T Bắc Ninh",,Phố Yên Mẫn,Phường Kinh Bắc,,T Bắc Ninh,34,Phố Yên Mẫn,Phường Kinh Bắc,,Tỉnh Bắc Ninh,drop_housenumber,moi
+"692/4B, Đường Đông Thành, Thi xã Dĩ An, Bình Dương",692/4B,Đường Đông Thành,,Thi xã Dĩ An,Bình Dương,692/4B,Đường Đông Thành,Phường Tân Đông Hiệp,Thi xã Dĩ An,Bình Dương,drop_ward,cu
+"Đường Hoàng Diệu, Phường Ba Đình, TP.HN",,Đường Hoàng Diệu,Phường Ba Đình,,TP.HN,26,Đường Hoàng Diệu,Phường Ba Đình,,Thành phố Hà Nội,drop_housenumber,moi
+"121, Phố Bà Triệu, Hai Bà Trưng, Hà Nội",121,Phố Bà Triệu,,Hai Bà Trưng,Hà Nội,121,Phố Bà Triệu,Nguyễn Du,Hai Bà Trưng,Hà Nội,drop_ward,cu
+"Phố Trần Bình Trọng, Phường Phương Liễu, Tỉnh Bắc Ninh",,Phố Trần Bình Trọng,Phường Phương Liễu,,Tỉnh Bắc Ninh,3,Phố Trần Bình Trọng,Phường Phương Liễu,,Tỉnh Bắc Ninh,drop_housenumber,moi
+"561, Đường Ngô Gia Tự, Tỉnh Bắc Ninh",561,Đường Ngô Gia Tự,,,Tỉnh Bắc Ninh,561,Đường Ngô Gia Tự,Phường Kinh Bắc,,Tỉnh Bắc Ninh,drop_ward,moi
+"21, Đường Nguyễn Văn Dung, P 6, HCM",21,Đường Nguyễn Văn Dung,P 6,,HCM,21,Đường Nguyễn Văn Dung,Phường 6,Gò Vấp,Hồ Chí Minh,drop_district,cu
+"Phố Lê Đại Hành, Lê Đại Hành, Hai Bà Trưng, Hà Nội",,Phố Lê Đại Hành,Lê Đại Hành,Hai Bà Trưng,Hà Nội,22,Phố Lê Đại Hành,Lê Đại Hành,Hai Bà Trưng,Hà Nội,drop_housenumber,cu
+"Phố Lý Khánh Văn, Tỉnh Bắc Ninh",,Phố Lý Khánh Văn,,,Tỉnh Bắc Ninh,70,Phố Lý Khánh Văn,Phường Từ Sơn,,Tỉnh Bắc Ninh,drop_housenumber_ward,moi
+"Đường Ngô Gia Tự, Thành phố Bắc Ninh, Bắc Ninh",,Đường Ngô Gia Tự,,Thành phố Bắc Ninh,Bắc Ninh,466,Đường Ngô Gia Tự,Phường Tiền Ninh Vệ,Thành phố Bắc Ninh,Bắc Ninh,drop_housenumber_ward,cu
+"Đường Đàm Văn Tiết, Phường Nam Sơn, Tỉnh Bắc Ninh",,Đường Đàm Văn Tiết,Phường Nam Sơn,,Tỉnh Bắc Ninh,760,Đường Đàm Văn Tiết,Phường Nam Sơn,,Tỉnh Bắc Ninh,drop_housenumber,moi
+"Phố Lê Hồng Phong, Phường Ba Đình, Thành phố Hà Nội",,Phố Lê Hồng Phong,Phường Ba Đình,,Thành phố Hà Nội,21,Phố Lê Hồng Phong,Phường Ba Đình,,Thành phố Hà Nội,drop_housenumber,moi
+"409, Đường Ngô Gia Tự, Thành phố Bắc Ninh, Bắc Ninh",409,Đường Ngô Gia Tự,,Thành phố Bắc Ninh,Bắc Ninh,409,Đường Ngô Gia Tự,Phường Tiền Ninh Vệ,Thành phố Bắc Ninh,Bắc Ninh,drop_ward,cu
+"3, Ngõ 223 Đường Trần Hưng Đạo, Bắc Ninh",3,Ngõ 223 Đường Trần Hưng Đạo,,,Bắc Ninh,3,Ngõ 223 Đường Trần Hưng Đạo,Phường Kinh Bắc,,Tỉnh Bắc Ninh,drop_ward,moi
+"96, Tân Chánh Hiệp 8, Phường Tân Chánh Hiệp, TPHCM",96,Tân Chánh Hiệp 8,Phường Tân Chánh Hiệp,,TPHCM,96,Tân Chánh Hiệp 8,Phường Tân Chánh Hiệp,Quận 12,Hồ Chí Minh City,drop_district,cu
+"343, Đường Nguyễn Quốc Ích, Tỉnh Bắc Ninh",343,Đường Nguyễn Quốc Ích,,,Tỉnh Bắc Ninh,343,Đường Nguyễn Quốc Ích,Phường Võ Cường,,Tỉnh Bắc Ninh,drop_ward,moi
+"Đường Mỹ Phú 1B, Phường Tân Phú, Quận 7, Thành phố Hồ Chí Minh",,Đường Mỹ Phú 1B,Phường Tân Phú,Quận 7,Thành phố Hồ Chí Minh,09,Đường Mỹ Phú 1B,Phường Tân Phú,Quận 7,Thành phố Hồ Chí Minh,drop_housenumber,cu
+"65, Phố Phạm Tuấn Tài, Quận Bắc Từ Liêm, Hà Nội",65,Phố Phạm Tuấn Tài,,Quận Bắc Từ Liêm,Hà Nội,65,Phố Phạm Tuấn Tài,Phường Cổ Nhuế 1,Quận Bắc Từ Liêm,Hà Nội,drop_ward,cu
+"Đường Hai Bà Trưng, Phường Kinh Bắc, Tỉnh Bắc Ninh",,Đường Hai Bà Trưng,Phường Kinh Bắc,,Tỉnh Bắc Ninh,150,Đường Hai Bà Trưng,Phường Kinh Bắc,,Tỉnh Bắc Ninh,drop_housenumber,moi
+"11, An Thượng 32, My An, Đà Nẵng",11,An Thượng 32,My An,,Đà Nẵng,11,An Thượng 32,My An,Ngu Hanh Son,Đà Nẵng,drop_district,cu
+"05, Đường Nội Khu Mỹ Phú 3A, Tân Phú, Thành phố Hồ Chí Minh",05,Đường Nội Khu Mỹ Phú 3A,Tân Phú,,Thành phố Hồ Chí Minh,05,Đường Nội Khu Mỹ Phú 3A,Tân Phú,Quận 7,Thành phố Hồ Chí Minh,drop_district,cu
+"18, Ngõ 28 Ông Ích Khiêm, Phường Điện Biên, TP. Hà Nội",18,Ngõ 28 Ông Ích Khiêm,Phường Điện Biên,,TP. Hà Nội,18,Ngõ 28 Ông Ích Khiêm,Phường Điện Biên,Quận Ba Đình,Hà Nội,drop_district,cu
+"22, Đường Lý Thái Tổ, Tỉnh Bắc Ninh",22,Đường Lý Thái Tổ,,,Tỉnh Bắc Ninh,22,Đường Lý Thái Tổ,Phường Võ Cường,,Tỉnh Bắc Ninh,drop_ward,moi
+"175, Phố Hà Liễu, Thị xã Quế Võ, Bắc Ninh",175,Phố Hà Liễu,,Thị xã Quế Võ,Bắc Ninh,175,Phố Hà Liễu,Phường Phương Liễu,Thị xã Quế Võ,Bắc Ninh,drop_ward,cu
+"Đường Cầu Tiên, Phường Võ Cường, Bắc Ninh",,Đường Cầu Tiên,Phường Võ Cường,,Bắc Ninh,46,Đường Cầu Tiên,Phường Võ Cường,,Tỉnh Bắc Ninh,drop_housenumber,moi
+"37, Ngõ 79 Phố Tây Am, Tỉnh Bắc Ninh",37,Ngõ 79 Phố Tây Am,,,Tỉnh Bắc Ninh,37,Ngõ 79 Phố Tây Am,Phường Đồng Nguyên,,Tỉnh Bắc Ninh,drop_ward,moi
+"Đường Nguyễn Trãi, Thanh Xuân Trung, Thanh Xuân, Hà Nội",,Đường Nguyễn Trãi,Thanh Xuân Trung,Thanh Xuân,Hà Nội,370,Đường Nguyễn Trãi,Thanh Xuân Trung,Thanh Xuân,Hà Nội,drop_housenumber,cu
+"26, Ngõ 28 Ông Ích Khiêm, Phường Điện Biên, TP.HN",26,Ngõ 28 Ông Ích Khiêm,Phường Điện Biên,,TP.HN,26,Ngõ 28 Ông Ích Khiêm,Phường Điện Biên,Quận Ba Đình,Hà Nội,drop_district,cu
+"39, Đường Lý Thái Tổ, P.Võ Cường, Bắc Ninh",39,Đường Lý Thái Tổ,P.Võ Cường,,Bắc Ninh,39,Đường Lý Thái Tổ,Phường Võ Cường,Thành phố Bắc Ninh,Bắc Ninh,drop_district,cu
+"Phố Trang Liệt 1, Phường Đồng Nguyên, Tỉnh Bắc Ninh",,Phố Trang Liệt 1,Phường Đồng Nguyên,,Tỉnh Bắc Ninh,103,Phố Trang Liệt 1,Phường Đồng Nguyên,,Tỉnh Bắc Ninh,drop_housenumber,moi
+"4, Phố Lý Khánh Văn, Tỉnh Bắc Ninh",4,Phố Lý Khánh Văn,,,Tỉnh Bắc Ninh,4,Phố Lý Khánh Văn,Phường Từ Sơn,,Tỉnh Bắc Ninh,drop_ward,moi
+"378, Phố Xã Đàn, Nam Đồng, Hà Nội",378,Phố Xã Đàn,Nam Đồng,,Hà Nội,378,Phố Xã Đàn,Nam Đồng,Đống Đa,Hà Nội,drop_district,cu
+"213, Phố Trần Quốc Hoàn, Quận Cầu Giấy, Hà Nội",213,Phố Trần Quốc Hoàn,,Quận Cầu Giấy,Hà Nội,213,Phố Trần Quốc Hoàn,Phường Dịch Vọng Hậu,Quận Cầu Giấy,Hà Nội,drop_ward,cu
+"Phố Huế, Hai Bà Trưng, HN",,Phố Huế,,Hai Bà Trưng,HN,146,Phố Huế,Nguyễn Du,Hai Bà Trưng,Hà Nội,drop_housenumber_ward,cu
+"45, Phố Phan Văn Trường, Quận Cầu Giấy, Hà Nội",45,Phố Phan Văn Trường,,Quận Cầu Giấy,Hà Nội,45,Phố Phan Văn Trường,Phường Dịch Vọng Hậu,Quận Cầu Giấy,Hà Nội,drop_ward,cu
+"1, Ngõ 1031 Đường Quang Trung, Tỉnh Bắc Ninh",1,Ngõ 1031 Đường Quang Trung,,,Tỉnh Bắc Ninh,1,Ngõ 1031 Đường Quang Trung,Phường Quế Võ,,Tỉnh Bắc Ninh,drop_ward,moi
+"5, Trịnh Khắc Lập, TP. Thủ Đức, Hồ Chí Minh",5,Trịnh Khắc Lập,,TP. Thủ Đức,Hồ Chí Minh,5,Trịnh Khắc Lập,phường Thạnh Mỹ Lợi,TP. Thủ Đức,Hồ Chí Minh,drop_ward,cu
+"119, Đường Phúc Sơn, Tỉnh Bắc Ninh",119,Đường Phúc Sơn,,,Tỉnh Bắc Ninh,119,Đường Phúc Sơn,Phường Vũ Ninh,,Tỉnh Bắc Ninh,drop_ward,moi
+"Ngõ 61 Phạm Tuấn Tài, P Cổ Nhuế 1, Quận Bắc Từ Liêm, Hà Nội",,Ngõ 61 Phạm Tuấn Tài,P Cổ Nhuế 1,Quận Bắc Từ Liêm,Hà Nội,12,Ngõ 61 Phạm Tuấn Tài,Phường Cổ Nhuế 1,Quận Bắc Từ Liêm,Hà Nội,drop_housenumber,cu
+"Đồng Nai, P. 15, Quận 10, Phường 15",,Đồng Nai,P. 15,Quận 10,Phường 15,27,Đồng Nai,Phường 15,Quận 10,Phường 15,drop_housenumber,cu
+"Phố Hạ Yên Quyết, Yên Hoà, Cầu Giấy, HN",,Phố Hạ Yên Quyết,Yên Hoà,Cầu Giấy,HN,2,Phố Hạ Yên Quyết,Yên Hoà,Cầu Giấy,Hà Nội,drop_housenumber,cu
+"Đường Nội Khu Mỹ Phú 3A, Tân Phú, Q 7, Thành phố Hồ Chí Minh",,Đường Nội Khu Mỹ Phú 3A,Tân Phú,Q 7,Thành phố Hồ Chí Minh,21,Đường Nội Khu Mỹ Phú 3A,Tân Phú,Quận 7,Thành phố Hồ Chí Minh,drop_housenumber,cu
+"176, Đường Trường Chinh, Đống Đa, TP.HN",176,Đường Trường Chinh,,Đống Đa,TP.HN,176,Đường Trường Chinh,Khương Thượng,Đống Đa,Hà Nội,drop_ward,cu
+"Đường Nguyễn Thủ Tiệp, P.Hạp Lĩnh, Tỉnh Bắc Ninh",,Đường Nguyễn Thủ Tiệp,P.Hạp Lĩnh,,Tỉnh Bắc Ninh,135,Đường Nguyễn Thủ Tiệp,Phường Hạp Lĩnh,,Tỉnh Bắc Ninh,drop_housenumber,moi
+"11, Phố Trần Hưng Đạo, Phan Chu Trinh, HN",11,Phố Trần Hưng Đạo,Phan Chu Trinh,,HN,11,Phố Trần Hưng Đạo,Phan Chu Trinh,Hoàn Kiếm,Hà Nội,drop_district,cu
+"06, Đặng Sỹ Vinh, Nghi Xuân, Hà Tĩnh",06,Đặng Sỹ Vinh,,Nghi Xuân,Hà Tĩnh,06,Đặng Sỹ Vinh,Nghi Xuân,Nghi Xuân,Hà Tĩnh,drop_ward,cu
+"15, Ngách 1/52 Phạm Tuấn Tài, Quận Cầu Giấy, TP. Hà Nội",15,Ngách 1/52 Phạm Tuấn Tài,,Quận Cầu Giấy,TP. Hà Nội,15,Ngách 1/52 Phạm Tuấn Tài,Phường Dịch Vọng Hậu,Quận Cầu Giấy,Hà Nội,drop_ward,cu
+"Đường Lý Thái Tổ, Phường Kinh Bắc, T.Bắc Ninh",,Đường Lý Thái Tổ,Phường Kinh Bắc,,T.Bắc Ninh,1,Đường Lý Thái Tổ,Phường Kinh Bắc,,Tỉnh Bắc Ninh,drop_housenumber,moi
+"Phố Pháo Đài Láng, Láng Thượng, Đống Đa, Hà Nội",,Phố Pháo Đài Láng,Láng Thượng,Đống Đa,Hà Nội,129,Phố Pháo Đài Láng,Láng Thượng,Đống Đa,Hà Nội,drop_housenumber,cu
+"55, Hoàng Việt, Tân Bình, TPHCM",55,Hoàng Việt,,Tân Bình,TPHCM,55,Hoàng Việt,Phường 4,Tân Bình,Thành phố Hồ Chí Minh,drop_ward,cu
+"Đường An Phước, Tỉnh Bắc Ninh",,Đường An Phước,,,Tỉnh Bắc Ninh,87,Đường An Phước,Phường Vũ Ninh,,Tỉnh Bắc Ninh,drop_housenumber_ward,moi
+"Phố Nguyễn Thái Học, Phường Ba Đình, Hà Nội",,Phố Nguyễn Thái Học,Phường Ba Đình,,Hà Nội,44,Phố Nguyễn Thái Học,Phường Ba Đình,,Thành phố Hà Nội,drop_housenumber,moi
+"1143, Đường Quang Trung, Tỉnh Bắc Ninh",1143,Đường Quang Trung,,,Tỉnh Bắc Ninh,1143,Đường Quang Trung,Phường Quế Võ,,Tỉnh Bắc Ninh,drop_ward,moi
+"Hẻm 199 đường 3/2, 11, 10, Hồ CHí Minh",,Hẻm 199 đường 3/2,11,10,Hồ CHí Minh,199/14B,Hẻm 199 đường 3/2,11,10,Hồ CHí Minh,drop_housenumber,cu
+"Phố Hà Liễu, Phương Liễu, T.Bắc Ninh",,Phố Hà Liễu,Phương Liễu,,T.Bắc Ninh,138,Phố Hà Liễu,Phường Phương Liễu,,Tỉnh Bắc Ninh,drop_housenumber,moi
+"Đường Dương Ổ, Võ Cường, Tỉnh Bắc Ninh",,Đường Dương Ổ,Võ Cường,,Tỉnh Bắc Ninh,88,Đường Dương Ổ,Phường Võ Cường,,Tỉnh Bắc Ninh,drop_housenumber,moi
+"Đường Phạm Hùng, Mai Dịch, Cầu Giấy, Hà Nội",,Đường Phạm Hùng,Mai Dịch,Cầu Giấy,Hà Nội,22,Đường Phạm Hùng,Mai Dịch,Cầu Giấy,Hà Nội,drop_housenumber,cu
+"22, Phố Song Tháp, Bắc Ninh",22,Phố Song Tháp,,,Bắc Ninh,22,Phố Song Tháp,Phường Phù Khê,,Tỉnh Bắc Ninh,drop_ward,moi
+"147/05, Lương Định Của, Phường Đông Hòa, Dĩ An - Bình Dương",147/05,Lương Định Của,Phường Đông Hòa,,Dĩ An - Bình Dương,147/05,Lương Định Của,Phường Đông Hòa,Thành phố Dĩ An,Dĩ An - Bình Dương,drop_district,cu
+"Phố Triệu Việt Vương, Hai Bà Trưng, TP.HN",,Phố Triệu Việt Vương,,Hai Bà Trưng,TP.HN,143,Phố Triệu Việt Vương,Nguyễn Du,Hai Bà Trưng,Hà Nội,drop_housenumber_ward,cu
+"Đường Trần Hưng Đạo, Phường Quế Võ, T Bắc Ninh",,Đường Trần Hưng Đạo,Phường Quế Võ,,T Bắc Ninh,195,Đường Trần Hưng Đạo,Phường Quế Võ,,Tỉnh Bắc Ninh,drop_housenumber,moi
+"28U, Hẻm 482/10 Nơ Trang Long, P.13, Thành phố Hồ Chí Minh",28U,Hẻm 482/10 Nơ Trang Long,P.13,,Thành phố Hồ Chí Minh,28U,Hẻm 482/10 Nơ Trang Long,Phường 13,Quận Bình Thạnh,Thành phố Hồ Chí Minh,drop_district,cu
+"NT03-30, Ngọc Trai 3, Gia Lâm, Hà Nội",NT03-30,Ngọc Trai 3,,Gia Lâm,Hà Nội,NT03-30,Ngọc Trai 3,Đa Tốn,Gia Lâm,Hà Nội,drop_ward,cu
+"Đường Hoàng Quốc Việt, P Vũ Ninh, Tỉnh Bắc Ninh",,Đường Hoàng Quốc Việt,P Vũ Ninh,,Tỉnh Bắc Ninh,736,Đường Hoàng Quốc Việt,Phường Vũ Ninh,,Tỉnh Bắc Ninh,drop_housenumber,moi
+"11, Ngõ 557 đường Nguyễn Văn Linh, Long Biên, TP.HN",11,Ngõ 557 đường Nguyễn Văn Linh,,Long Biên,TP.HN,11,Ngõ 557 đường Nguyễn Văn Linh,Sài Đồng,Long Biên,Hà Nội,drop_ward,cu
+"22, Phố Tôn Thất Thuyết, Phường Phương Liễu, Bắc Ninh",22,Phố Tôn Thất Thuyết,Phường Phương Liễu,,Bắc Ninh,22,Phố Tôn Thất Thuyết,Phường Phương Liễu,Thị xã Quế Võ,Bắc Ninh,drop_district,cu
+"Ngọc Trai 18, Đa Tốn, Gia Lâm, Hà Nội",,Ngọc Trai 18,Đa Tốn,Gia Lâm,Hà Nội,NT18-22,Ngọc Trai 18,Đa Tốn,Gia Lâm,Hà Nội,drop_housenumber,cu
+"88, Đường Dương Ổ, Tỉnh Bắc Ninh",88,Đường Dương Ổ,,,Tỉnh Bắc Ninh,88,Đường Dương Ổ,Phường Võ Cường,,Tỉnh Bắc Ninh,drop_ward,moi
+"1B, Phố Trần Nhân Tông, Nguyễn Du, Hà Nội",1B,Phố Trần Nhân Tông,Nguyễn Du,,Hà Nội,1B,Phố Trần Nhân Tông,Nguyễn Du,Hai Bà Trưng,Hà Nội,drop_district,cu
+"2, Ngõ 14 Hồ Đắc Di, Đống Đa, Hà Nội",2,Ngõ 14 Hồ Đắc Di,,Đống Đa,Hà Nội,2,Ngõ 14 Hồ Đắc Di,Phường Nam Đồng,Đống Đa,Hà Nội,drop_ward,cu
+"Đường Nguyễn Huy Tưởng, Thanh Xuân Trung, Thanh Xuân, Hà Nội",,Đường Nguyễn Huy Tưởng,Thanh Xuân Trung,Thanh Xuân,Hà Nội,282,Đường Nguyễn Huy Tưởng,Thanh Xuân Trung,Thanh Xuân,Hà Nội,drop_housenumber,cu
+"4, Quang Trung, Thành phố Hồ Chí Minh",4,Quang Trung,,,Thành phố Hồ Chí Minh,4,Quang Trung,Phường Thông Tây Hội,,Thành phố Hồ Chí Minh,drop_ward,moi
+"20, Phố Trần Bình Trọng, Tỉnh Bắc Ninh",20,Phố Trần Bình Trọng,,,Tỉnh Bắc Ninh,20,Phố Trần Bình Trọng,Phường Phương Liễu,,Tỉnh Bắc Ninh,drop_ward,moi
+"55A, Phố Trần Phú, Quận Ba Đình, TP. Hà Nội",55A,Phố Trần Phú,,Quận Ba Đình,TP. Hà Nội,55A,Phố Trần Phú,Phường Điện Biên,Quận Ba Đình,Hà Nội,drop_ward,cu
+"130, Đường Đàm Văn Tiết, Bắc Ninh",130,Đường Đàm Văn Tiết,,,Bắc Ninh,130,Đường Đàm Văn Tiết,Phường Nam Sơn,,Tỉnh Bắc Ninh,drop_ward,moi
+"Phố Khúc Hạo, Điện Biên, Quận Ba Đình, TP. Hà Nội",,Phố Khúc Hạo,Điện Biên,Quận Ba Đình,TP. Hà Nội,1,Phố Khúc Hạo,Phường Điện Biên,Quận Ba Đình,Hà Nội,drop_housenumber,cu
+"11, Ngõ 445 Hoàng Quốc Việt, Quận Bắc Từ Liêm, Hà Nội",11,Ngõ 445 Hoàng Quốc Việt,,Quận Bắc Từ Liêm,Hà Nội,11,Ngõ 445 Hoàng Quốc Việt,Phường Cổ Nhuế 1,Quận Bắc Từ Liêm,Hà Nội,drop_ward,cu
+"91, Đường Hoàng Quốc Việt, Thành phố Hà Nội",91,Đường Hoàng Quốc Việt,,,Thành phố Hà Nội,91,Đường Hoàng Quốc Việt,Phường Nghĩa Đô,,Thành phố Hà Nội,drop_ward,moi
+"Đường Quang Trung, P.Nhân Hòa, Tỉnh Bắc Ninh",,Đường Quang Trung,P.Nhân Hòa,,Tỉnh Bắc Ninh,72,Đường Quang Trung,Phường Nhân Hòa,,Tỉnh Bắc Ninh,drop_housenumber,moi
+"Đường Nội Khu 04, P Tân Phú, TP. HCM",,Đường Nội Khu 04,P Tân Phú,,TP. HCM,06,Đường Nội Khu 04,Phường Tân Phú,,Thành phố Hồ Chí Minh,drop_housenumber,moi
+"323, Đường Hoàng Quốc Việt, P.Thị Cầu, Bắc Ninh",323,Đường Hoàng Quốc Việt,P.Thị Cầu,,Bắc Ninh,323,Đường Hoàng Quốc Việt,Phường Thị Cầu,Thành phố Bắc Ninh,Bắc Ninh,drop_district,cu
+"32, Đường Lý Thường Kiệt, Tỉnh Bắc Ninh",32,Đường Lý Thường Kiệt,,,Tỉnh Bắc Ninh,32,Đường Lý Thường Kiệt,Xã Tiên Du,,Tỉnh Bắc Ninh,drop_ward,moi
+"24, Phố Ông Ích Khiêm, Thành phố Hà Nội",24,Phố Ông Ích Khiêm,,,Thành phố Hà Nội,24,Phố Ông Ích Khiêm,Phường Ba Đình,,Thành phố Hà Nội,drop_ward,moi
+"Đường Quang Trung, Thị xã Quế Võ, Bắc Ninh",,Đường Quang Trung,,Thị xã Quế Võ,Bắc Ninh,910,Đường Quang Trung,Phường Phố Mới,Thị xã Quế Võ,Bắc Ninh,drop_housenumber_ward,cu
+"Ngọc Trai 17, Đa Tốn, Gia Lâm, Hà Nội",,Ngọc Trai 17,Đa Tốn,Gia Lâm,Hà Nội,NT17-05,Ngọc Trai 17,Đa Tốn,Gia Lâm,Hà Nội,drop_housenumber,cu
+"Phố Lương Định Của, P.Phương Liễu, Thị xã Quế Võ, Bắc Ninh",,Phố Lương Định Của,P.Phương Liễu,Thị xã Quế Võ,Bắc Ninh,212,Phố Lương Định Của,Phường Phương Liễu,Thị xã Quế Võ,Bắc Ninh,drop_housenumber,cu
+"Ngõ 3 Phạm Tuấn Tài, Quận Bắc Từ Liêm, Hà Nội",,Ngõ 3 Phạm Tuấn Tài,,Quận Bắc Từ Liêm,Hà Nội,38,Ngõ 3 Phạm Tuấn Tài,Phường Cổ Nhuế 1,Quận Bắc Từ Liêm,Hà Nội,drop_housenumber_ward,cu
+"Phố Trần Hưng Đạo, Bạch Đằng, Hai Ba Trung, TP.HN",,Phố Trần Hưng Đạo,Bạch Đằng,Hai Ba Trung,TP.HN,1,Phố Trần Hưng Đạo,Bạch Đằng,Hai Ba Trung,Hà Nội,drop_housenumber,cu
+"54B/9, Đường số 26, Hiệp Bình Chánh, Hồ Chí Minh",54B/9,Đường số 26,Hiệp Bình Chánh,,Hồ Chí Minh,54B/9,Đường số 26,Hiệp Bình Chánh,Thủ Đức,Hồ Chí Minh,drop_district,cu
+"17, Đường Hoàng Quốc Việt, Thành phố Hà Nội",17,Đường Hoàng Quốc Việt,,,Thành phố Hà Nội,17,Đường Hoàng Quốc Việt,Phường Nghĩa Đô,,Thành phố Hà Nội,drop_ward,moi
+"Phố Kim Mã, Ngọc Khánh, Ba Đình, Hà Nội",,Phố Kim Mã,Ngọc Khánh,Ba Đình,Hà Nội,519,Phố Kim Mã,Ngọc Khánh,Ba Đình,Hà Nội,drop_housenumber,cu
+"77-79, Đường Hoàng Quốc Việt, Thành phố Hà Nội",77-79,Đường Hoàng Quốc Việt,,,Thành phố Hà Nội,77-79,Đường Hoàng Quốc Việt,Phường Nghĩa Đô,,Thành phố Hà Nội,drop_ward,moi
+"Đường Thiên Đức, Kinh Bắc, Bắc Ninh",,Đường Thiên Đức,Kinh Bắc,,Bắc Ninh,256,Đường Thiên Đức,Phường Kinh Bắc,,Tỉnh Bắc Ninh,drop_housenumber,moi
+"Đường Như Nguyệt, Tỉnh Bắc Ninh",,Đường Như Nguyệt,,,Tỉnh Bắc Ninh,150,Đường Như Nguyệt,Phường Vũ Ninh,,Tỉnh Bắc Ninh,drop_housenumber_ward,moi
+"Đường Võ Nguyên Giáp, Phước Mỹ, Sơn Trà, Đà Nẵng",,Đường Võ Nguyên Giáp,Phước Mỹ,Sơn Trà,Đà Nẵng,216,Đường Võ Nguyên Giáp,Phước Mỹ,Sơn Trà,Đà Nẵng,drop_housenumber,cu
+"128, Đường Dương Ổ, Tỉnh Bắc Ninh",128,Đường Dương Ổ,,,Tỉnh Bắc Ninh,128,Đường Dương Ổ,Phường Võ Cường,,Tỉnh Bắc Ninh,drop_ward,moi
+"Phố Hạ, P.Từ Sơn, Tỉnh Bắc Ninh",,Phố Hạ,P.Từ Sơn,,Tỉnh Bắc Ninh,1,Phố Hạ,Phường Từ Sơn,,Tỉnh Bắc Ninh,drop_housenumber,moi
+"280, Phố Lương Định Của, Thị xã Quế Võ, Bắc Ninh",280,Phố Lương Định Của,,Thị xã Quế Võ,Bắc Ninh,280,Phố Lương Định Của,Phường Phương Liễu,Thị xã Quế Võ,Bắc Ninh,drop_ward,cu
+"Ngách 282/4 Đường Nguyễn Văn Cừ, Tỉnh Bắc Ninh",,Ngách 282/4 Đường Nguyễn Văn Cừ,,,Tỉnh Bắc Ninh,19,Ngách 282/4 Đường Nguyễn Văn Cừ,Phường Võ Cường,,Tỉnh Bắc Ninh,drop_housenumber_ward,moi
+"Phan Chu Trinh, Ninh Kiều, Cần Thơ",,Phan Chu Trinh,,Ninh Kiều,Cần Thơ,9,Phan Chu Trinh,Tân An,Ninh Kiều,Cần Thơ,drop_housenumber_ward,cu
+"Đường Nguyễn Gia Thiều, TP.Bắc Ninh, Bắc Ninh",,Đường Nguyễn Gia Thiều,,TP.Bắc Ninh,Bắc Ninh,74,Đường Nguyễn Gia Thiều,Phường Suối Hoa,Thành phố Bắc Ninh,Bắc Ninh,drop_housenumber_ward,cu
+"Đường Phạm Văn Đồng, Mai Dịch, Q. Cầu Giấy, Hà Nội",,Đường Phạm Văn Đồng,Mai Dịch,Q. Cầu Giấy,Hà Nội,9,Đường Phạm Văn Đồng,Mai Dịch,Quận Cầu Giấy,Hà Nội,drop_housenumber,cu
+"Ngõ 84 Tứ Liên, Tứ Liên, Tây Hồ, Hà Nội",,Ngõ 84 Tứ Liên,Tứ Liên,Tây Hồ,Hà Nội,10B,Ngõ 84 Tứ Liên,Tứ Liên,Tây Hồ,Hà Nội,drop_housenumber,cu
+"26, Ngách 1/52 Phạm Tuấn Tài, P. Dịch Vọng Hậu, Hà Nội",26,Ngách 1/52 Phạm Tuấn Tài,P. Dịch Vọng Hậu,,Hà Nội,26,Ngách 1/52 Phạm Tuấn Tài,Phường Dịch Vọng Hậu,Quận Cầu Giấy,Hà Nội,drop_district,cu
+"146, Đường Như Nguyệt, T. Bắc Ninh",146,Đường Như Nguyệt,,,T. Bắc Ninh,146,Đường Như Nguyệt,Phường Vũ Ninh,,Tỉnh Bắc Ninh,drop_ward,moi
+"Phố Hàng Cót, Phường Hoàn Kiếm, HN",,Phố Hàng Cót,Phường Hoàn Kiếm,,HN,15A,Phố Hàng Cót,Phường Hoàn Kiếm,,Thành phố Hà Nội,drop_housenumber,moi
+"236, Đường Thiên Đức, Tỉnh Bắc Ninh",236,Đường Thiên Đức,,,Tỉnh Bắc Ninh,236,Đường Thiên Đức,Phường Kinh Bắc,,Tỉnh Bắc Ninh,drop_ward,moi
+"66, Phố Phó Đức Chính, Thành phố Hà Nội",66,Phố Phó Đức Chính,,,Thành phố Hà Nội,66,Phố Phó Đức Chính,Phường Ba Đình,,Thành phố Hà Nội,drop_ward,moi
+"Phố Lương Định Của, P Phương Liễu, TX.Quế Võ, Bắc Ninh",,Phố Lương Định Của,P Phương Liễu,TX.Quế Võ,Bắc Ninh,212,Phố Lương Định Của,Phường Phương Liễu,Thị xã Quế Võ,Bắc Ninh,drop_housenumber,cu
+"Thái Hà, Đống Đa, Hà Nội",,Thái Hà,,Đống Đa,Hà Nội,20A/98,Thái Hà,Trung Liệt,Đống Đa,Hà Nội,drop_housenumber_ward,cu
+"Đường Nội Khu 04, Tân Phú, HCM",,Đường Nội Khu 04,Tân Phú,,HCM,02,Đường Nội Khu 04,Phường Tân Phú,,Thành phố Hồ Chí Minh,drop_housenumber,moi
+"Đường Trần Phú, Phường Hải Châu 1, Q.Hải Châu, Đà Nẵng",,Đường Trần Phú,Phường Hải Châu 1,Q.Hải Châu,Đà Nẵng,33,Đường Trần Phú,Phường Hải Châu 1,Quận Hải Châu,Đà Nẵng,drop_housenumber,cu
+"Ngọc Trai 19, Gia Lâm, HN",,Ngọc Trai 19,,Gia Lâm,HN,NT19-17,Ngọc Trai 19,Đa Tốn,Gia Lâm,Hà Nội,drop_housenumber_ward,cu
+"69, Đường Lý Quốc Sư, Tỉnh Bắc Ninh",69,Đường Lý Quốc Sư,,,Tỉnh Bắc Ninh,69,Đường Lý Quốc Sư,Phường Võ Cường,,Tỉnh Bắc Ninh,drop_ward,moi
+"Phố Đoàn Trần Nghiệp, Nguyễn Du, Hai Bà Trưng, Hà Nội",,Phố Đoàn Trần Nghiệp,Nguyễn Du,Hai Bà Trưng,Hà Nội,10,Phố Đoàn Trần Nghiệp,Nguyễn Du,Hai Bà Trưng,Hà Nội,drop_housenumber,cu
+"Hàng Bạc, P. Hoàn Kiếm, Thành phố Hà Nội",,Hàng Bạc,P. Hoàn Kiếm,,Thành phố Hà Nội,96,Hàng Bạc,Phường Hoàn Kiếm,,Thành phố Hà Nội,drop_housenumber,moi
+"Phố Thợ Nhuộm, Hàng Bài, Hoàn Kiếm, Hà Nội",,Phố Thợ Nhuộm,Hàng Bài,Hoàn Kiếm,Hà Nội,93,Phố Thợ Nhuộm,Hàng Bài,Hoàn Kiếm,Hà Nội,drop_housenumber,cu
+"Ngách 1/48 Phạm Tuấn Tài, Quận Cầu Giấy, Hà Nội",,Ngách 1/48 Phạm Tuấn Tài,,Quận Cầu Giấy,Hà Nội,15,Ngách 1/48 Phạm Tuấn Tài,Phường Dịch Vọng Hậu,Quận Cầu Giấy,Hà Nội,drop_housenumber_ward,cu
+"Ngách 234/35 Hoàng Quốc Việt, Phường Cổ Nhuế 1, Quận Bắc Từ Liêm, Hà Nội",,Ngách 234/35 Hoàng Quốc Việt,Phường Cổ Nhuế 1,Quận Bắc Từ Liêm,Hà Nội,12,Ngách 234/35 Hoàng Quốc Việt,Phường Cổ Nhuế 1,Quận Bắc Từ Liêm,Hà Nội,drop_housenumber,cu
+"Phố Kim Đồng, Giáp Bát, Hoàng Mai, Hà Nội",,Phố Kim Đồng,Giáp Bát,Hoàng Mai,Hà Nội,6,Phố Kim Đồng,Giáp Bát,Hoàng Mai,Hà Nội,drop_housenumber,cu
+"Phố Song Tháp, Tỉnh Bắc Ninh",,Phố Song Tháp,,,Tỉnh Bắc Ninh,37,Phố Song Tháp,Phường Phù Khê,,Tỉnh Bắc Ninh,drop_housenumber_ward,moi
+"Lê Văn Sỹ, Phường Nhiêu Lộc, HCM",,Lê Văn Sỹ,Phường Nhiêu Lộc,,HCM,221/9,Lê Văn Sỹ,Phường Nhiêu Lộc,,Thành phố Hồ Chí Minh,drop_housenumber,moi
+"Đường Mỹ Phú 1B, HCM",,Đường Mỹ Phú 1B,,,HCM,09,Đường Mỹ Phú 1B,Phường Tân Phú,,Thành phố Hồ Chí Minh,drop_housenumber_ward,moi
+"Phố Lương Định Của, P.Phương Liễu, T.Bắc Ninh",,Phố Lương Định Của,P.Phương Liễu,,T.Bắc Ninh,230,Phố Lương Định Của,Phường Phương Liễu,,Tỉnh Bắc Ninh,drop_housenumber,moi
+"Đường Lý Thái Tổ, TP. Bắc Ninh, Bac Ninh",,Đường Lý Thái Tổ,,TP. Bắc Ninh,Bac Ninh,2,Đường Lý Thái Tổ,Phường Suối Hoa,Thành phố Bắc Ninh,Bac Ninh,drop_housenumber_ward,cu
+"112, Hồng Hà, P 2, TP.HCM",112,Hồng Hà,P 2,,TP.HCM,112,Hồng Hà,Phường 2,Tan Binh,Thành phố Hồ Chí Minh,drop_district,cu
+"32/D2, Bạch Thái Bưởi, Hà Đông, Hà Nội",32/D2,Bạch Thái Bưởi,,Hà Đông,Hà Nội,32/D2,Bạch Thái Bưởi,Phúc La,Hà Đông,Hà Nội,drop_ward,cu
+"San Hô 16, Đa Tốn, Gia Lâm, Hà Nội",,San Hô 16,Đa Tốn,Gia Lâm,Hà Nội,SH16-21,San Hô 16,Đa Tốn,Gia Lâm,Hà Nội,drop_housenumber,cu
+"74, Đường Nguyễn Đăng Đạo, Tỉnh Bắc Ninh",74,Đường Nguyễn Đăng Đạo,,,Tỉnh Bắc Ninh,74,Đường Nguyễn Đăng Đạo,Xã Tiên Du,,Tỉnh Bắc Ninh,drop_ward,moi
+"Phố Thái Thịnh, Thịnh Quang, Đống Đa, HN",,Phố Thái Thịnh,Thịnh Quang,Đống Đa,HN,27,Phố Thái Thịnh,Thịnh Quang,Đống Đa,Hà Nội,drop_housenumber,cu
+"103, Đường Nguyễn Công Trứ, Quận 1, Ho Chi Minh City",103,Đường Nguyễn Công Trứ,,Quận 1,Ho Chi Minh City,103,Đường Nguyễn Công Trứ,Phường Nguyễn Thái Bình,Quận 1,Ho Chi Minh City,drop_ward,cu
+"Đường Thiên Đức, P. Kinh Bắc, Tỉnh Bắc Ninh",,Đường Thiên Đức,P. Kinh Bắc,,Tỉnh Bắc Ninh,27,Đường Thiên Đức,Phường Kinh Bắc,,Tỉnh Bắc Ninh,drop_housenumber,moi
+"Đường Âu Cơ, P. Thuận Thành, Tỉnh Bắc Ninh",,Đường Âu Cơ,P. Thuận Thành,,Tỉnh Bắc Ninh,470,Đường Âu Cơ,Phường Thuận Thành,,Tỉnh Bắc Ninh,drop_housenumber,moi
+"Đường Nguyễn Gia Thiều, P Tiền Ninh Vệ, Thành phố Bắc Ninh, Bắc Ninh",,Đường Nguyễn Gia Thiều,P Tiền Ninh Vệ,Thành phố Bắc Ninh,Bắc Ninh,201,Đường Nguyễn Gia Thiều,Phường Tiền Ninh Vệ,Thành phố Bắc Ninh,Bắc Ninh,drop_housenumber,cu
+"Ngõ 12 Đường Như Nguyệt, Bắc Ninh",,Ngõ 12 Đường Như Nguyệt,,,Bắc Ninh,11,Ngõ 12 Đường Như Nguyệt,Phường Vũ Ninh,,Tỉnh Bắc Ninh,drop_housenumber_ward,moi
+"422/14/20, đức giang, Long biên, Hà Nội",,422/14/20,đức giang,Long biên,Hà Nội,12,422/14/20,đức giang,Long biên,Hà Nội,drop_housenumber,cu
+"114, Đường Bà Chúa Kho, Thành phố Bắc Ninh, Bắc Ninh",114,Đường Bà Chúa Kho,,Thành phố Bắc Ninh,Bắc Ninh,114,Đường Bà Chúa Kho,Phường Vũ Ninh,Thành phố Bắc Ninh,Bắc Ninh,drop_ward,cu
+"Đường Phan Châu Trinh, Quế Võ, Tỉnh Bắc Ninh",,Đường Phan Châu Trinh,Quế Võ,,Tỉnh Bắc Ninh,528,Đường Phan Châu Trinh,Phường Quế Võ,,Tỉnh Bắc Ninh,drop_housenumber,moi
+"Đường Phạm Văn Đồng, Phường Cổ Nhuế 1, Quận Bắc Từ Liêm, Hà Nội",,Đường Phạm Văn Đồng,Phường Cổ Nhuế 1,Quận Bắc Từ Liêm,Hà Nội,655,Đường Phạm Văn Đồng,Phường Cổ Nhuế 1,Quận Bắc Từ Liêm,Hà Nội,drop_housenumber,cu
+"70, Trần Vỹ, Mai Dịch, Hà Nội",70,Trần Vỹ,Mai Dịch,,Hà Nội,70,Trần Vỹ,Mai Dịch,Cầu Giấy,Hà Nội,drop_district,cu
+"Ngõ 28 Ông Ích Khiêm, Thành phố Hà Nội",,Ngõ 28 Ông Ích Khiêm,,,Thành phố Hà Nội,2,Ngõ 28 Ông Ích Khiêm,Phường Ba Đình,,Thành phố Hà Nội,drop_housenumber_ward,moi
+"Bình Chiểu, Thủ Đức, HCM",,Bình Chiểu,,Thủ Đức,HCM,2,Bình Chiểu,Bình Chiểu,Thủ Đức,Hồ Chí Minh,drop_housenumber_ward,cu
+"12, Phố Sơn Tây, Phường Điện Biên, Hà Nội",12,Phố Sơn Tây,Phường Điện Biên,,Hà Nội,12,Phố Sơn Tây,Phường Điện Biên,Quận Ba Đình,Hà Nội,drop_district,cu
+"Ngách 5/4 Hoàng Quốc Việt, Q Cầu Giấy, Hà Nội",,Ngách 5/4 Hoàng Quốc Việt,,Q Cầu Giấy,Hà Nội,38A,Ngách 5/4 Hoàng Quốc Việt,Phường Nghĩa Đô,Quận Cầu Giấy,Hà Nội,drop_housenumber_ward,cu
+"Phố Song Tháp, P.Phù Khê, Tỉnh Bắc Ninh",,Phố Song Tháp,P.Phù Khê,,Tỉnh Bắc Ninh,16,Phố Song Tháp,Phường Phù Khê,,Tỉnh Bắc Ninh,drop_housenumber,moi
+"Phố Song Tháp, P. Phù Khê, Tỉnh Bắc Ninh",,Phố Song Tháp,P. Phù Khê,,Tỉnh Bắc Ninh,37,Phố Song Tháp,Phường Phù Khê,,Tỉnh Bắc Ninh,drop_housenumber,moi
+"Đường Ngô Gia Tự, Phường Vũ Ninh, Tỉnh Bắc Ninh",,Đường Ngô Gia Tự,Phường Vũ Ninh,,Tỉnh Bắc Ninh,91,Đường Ngô Gia Tự,Phường Vũ Ninh,,Tỉnh Bắc Ninh,drop_housenumber,moi
+"Đường Trần Hưng Đạo, P. Võ Cường, Tỉnh Bắc Ninh",,Đường Trần Hưng Đạo,P. Võ Cường,,Tỉnh Bắc Ninh,12,Đường Trần Hưng Đạo,Phường Võ Cường,,Tỉnh Bắc Ninh,drop_housenumber,moi
+"472, Đường Thiên Đức, Tỉnh Bắc Ninh",472,Đường Thiên Đức,,,Tỉnh Bắc Ninh,472,Đường Thiên Đức,Phường Kinh Bắc,,Tỉnh Bắc Ninh,drop_ward,moi
+"Đường Mẹ Thứ, P.Hòa Xuân, Thành phố Đà Nẵng",,Đường Mẹ Thứ,P.Hòa Xuân,,Thành phố Đà Nẵng,60,Đường Mẹ Thứ,Phường Hòa Xuân,,Thành phố Đà Nẵng,drop_housenumber,moi
+"San Hô 12, Đa Tốn, Gia Lâm, TP. Hà Nội",,San Hô 12,Đa Tốn,Gia Lâm,TP. Hà Nội,SH12-08,San Hô 12,Đa Tốn,Gia Lâm,Hà Nội,drop_housenumber,cu
+"1, Ngách 272/45, Cổ Bi, TP. Hà Nội",1,Ngách 272/45,Cổ Bi,,TP. Hà Nội,1,Ngách 272/45,Cổ Bi,Gia  Lâm,Hà Nội,drop_district,cu
+"Đường Hoàng Quốc Việt, Quận Bắc Từ Liêm, Hà Nội",,Đường Hoàng Quốc Việt,,Quận Bắc Từ Liêm,Hà Nội,481,Đường Hoàng Quốc Việt,Phường Cổ Nhuế 1,Quận Bắc Từ Liêm,Hà Nội,drop_housenumber_ward,cu
+"Đường Nguyễn Trãi, Bắc Ninh",,Đường Nguyễn Trãi,,,Bắc Ninh,1432,Đường Nguyễn Trãi,Phường Hạp Lĩnh,,Tỉnh Bắc Ninh,drop_housenumber_ward,moi
+"Phố Ngọc Hà, Thành phố Hà Nội",,Phố Ngọc Hà,,,Thành phố Hà Nội,2,Phố Ngọc Hà,Phường Ba Đình,,Thành phố Hà Nội,drop_housenumber_ward,moi
+"4, Ngách 234/35 Hoàng Quốc Việt, Quận Bắc Từ Liêm, Hà Nội",4,Ngách 234/35 Hoàng Quốc Việt,,Quận Bắc Từ Liêm,Hà Nội,4,Ngách 234/35 Hoàng Quốc Việt,Phường Cổ Nhuế 1,Quận Bắc Từ Liêm,Hà Nội,drop_ward,cu
+"Đường Âu Cơ, Phường Kinh Bắc, T Bắc Ninh",,Đường Âu Cơ,Phường Kinh Bắc,,T Bắc Ninh,50,Đường Âu Cơ,Phường Kinh Bắc,,Tỉnh Bắc Ninh,drop_housenumber,moi
+"Đường Rạp Hát, Kinh Bắc, Bắc Ninh",,Đường Rạp Hát,Kinh Bắc,,Bắc Ninh,48,Đường Rạp Hát,Phường Kinh Bắc,,Tỉnh Bắc Ninh,drop_housenumber,moi
+"Phố Lê Hồng Phong, P.Điện Biên, Q. Ba Đình, Hà Nội",,Phố Lê Hồng Phong,P.Điện Biên,Q. Ba Đình,Hà Nội,87,Phố Lê Hồng Phong,Phường Điện Biên,Quận Ba Đình,Hà Nội,drop_housenumber,cu
+"10, Ngõ 33 Phạm Tuấn Tài, Q. Cầu Giấy, TP.HN",10,Ngõ 33 Phạm Tuấn Tài,,Q. Cầu Giấy,TP.HN,10,Ngõ 33 Phạm Tuấn Tài,Phường Dịch Vọng Hậu,Quận Cầu Giấy,Hà Nội,drop_ward,cu
+"Đường Thụy Khuê, P. Bưởi, Tây Hồ, Hà Nội",,Đường Thụy Khuê,P. Bưởi,Tây Hồ,Hà Nội,422,Đường Thụy Khuê,Phường Bưởi,Tây Hồ,Hà Nội,drop_housenumber,cu
+"Đường Nội Khu Mỹ Thái 3, Q 7, Thành phố Hồ Chí Minh",,Đường Nội Khu Mỹ Thái 3,,Q 7,Thành phố Hồ Chí Minh,13,Đường Nội Khu Mỹ Thái 3,Tân Phú,Quận 7,Thành phố Hồ Chí Minh,drop_housenumber_ward,cu
+"14G, Đường Lê Văn Thịnh, Thành phố Bắc Ninh, Bắc Ninh",14G,Đường Lê Văn Thịnh,,Thành phố Bắc Ninh,Bắc Ninh,14G,Đường Lê Văn Thịnh,Phường Suối Hoa,Thành phố Bắc Ninh,Bắc Ninh,drop_ward,cu
+"17, Ngách 238/2 Hoàng Quốc Việt, Quận Bắc Từ Liêm, Hà Nội",17,Ngách 238/2 Hoàng Quốc Việt,,Quận Bắc Từ Liêm,Hà Nội,17,Ngách 238/2 Hoàng Quốc Việt,Phường Cổ Nhuế 1,Quận Bắc Từ Liêm,Hà Nội,drop_ward,cu
+"Ngách 129 Ngõ Xã Đàn 2, Nam Đồng, Đống Đa, HN",,Ngách 129 Ngõ Xã Đàn 2,Nam Đồng,Đống Đa,HN,15,Ngách 129 Ngõ Xã Đàn 2,Nam Đồng,Đống Đa,Hà Nội,drop_housenumber,cu
+"Đường Nội Khu 2, Phường Tân Phú, TPHCM",,Đường Nội Khu 2,Phường Tân Phú,,TPHCM,A50,Đường Nội Khu 2,Phường Tân Phú,,Thành phố Hồ Chí Minh,drop_housenumber,moi
+"Phố Yên Mẫn, Kinh Bắc, Tỉnh Bắc Ninh",,Phố Yên Mẫn,Kinh Bắc,,Tỉnh Bắc Ninh,52,Phố Yên Mẫn,Phường Kinh Bắc,,Tỉnh Bắc Ninh,drop_housenumber,moi
+"250, Phố Lương Định Của, Tỉnh Bắc Ninh",250,Phố Lương Định Của,,,Tỉnh Bắc Ninh,250,Phố Lương Định Của,Phường Phương Liễu,,Tỉnh Bắc Ninh,drop_ward,moi
+"4, Ngõ 350 Đường Lý Thường Kiệt, Bắc Ninh",4,Ngõ 350 Đường Lý Thường Kiệt,,,Bắc Ninh,4,Ngõ 350 Đường Lý Thường Kiệt,Phường Phù Khê,,Tỉnh Bắc Ninh,drop_ward,moi
+"60, Đường Trần Hưng Đạo, Tỉnh Bắc Ninh",60,Đường Trần Hưng Đạo,,,Tỉnh Bắc Ninh,60,Đường Trần Hưng Đạo,Phường Võ Cường,,Tỉnh Bắc Ninh,drop_ward,moi
+"Phố Hoàng Đạo Thúy, Nhân Chính, Thanh Xuân, Hà Nội",,Phố Hoàng Đạo Thúy,Nhân Chính,Thanh Xuân,Hà Nội,2,Phố Hoàng Đạo Thúy,Nhân Chính,Thanh Xuân,Hà Nội,drop_housenumber,cu
+"Phố Khúc Hạo, P. Ba Đình, Thành phố Hà Nội",,Phố Khúc Hạo,P. Ba Đình,,Thành phố Hà Nội,15,Phố Khúc Hạo,Phường Ba Đình,,Thành phố Hà Nội,drop_housenumber,moi
+"50, Đường Dương Ổ, T Bắc Ninh",50,Đường Dương Ổ,,,T Bắc Ninh,50,Đường Dương Ổ,Phường Võ Cường,,Tỉnh Bắc Ninh,drop_ward,moi
+"Ngọc Trai 10, Đa Tốn, Gia Lâm, Hà Nội",,Ngọc Trai 10,Đa Tốn,Gia Lâm,Hà Nội,NT10-01,Ngọc Trai 10,Đa Tốn,Gia Lâm,Hà Nội,drop_housenumber,cu
+"85, Đường Cao Xuân Dục, 8, Hồ Chí Minh",85,Đường Cao Xuân Dục,,8,Hồ Chí Minh,85,Đường Cao Xuân Dục,12,8,Hồ Chí Minh,drop_ward,cu
+"90, Đường Hữu Chấp, Tỉnh Bắc Ninh",90,Đường Hữu Chấp,,,Tỉnh Bắc Ninh,90,Đường Hữu Chấp,Phường Kinh Bắc,,Tỉnh Bắc Ninh,drop_ward,moi
+"11, Đường Hoàng Hoa Thám, Tân Chính, Đà Nẵng",11,Đường Hoàng Hoa Thám,Tân Chính,,Đà Nẵng,11,Đường Hoàng Hoa Thám,Tân Chính,Thanh Khê,Đà Nẵng,drop_district,cu
+"100, Phố Mai Công, Thị xã Quế Võ, Bắc Ninh",100,Phố Mai Công,,Thị xã Quế Võ,Bắc Ninh,100,Phố Mai Công,Phường Phố Mới,Thị xã Quế Võ,Bắc Ninh,drop_ward,cu
+"Đường Giếng Ngọc, Phường Kinh Bắc, T.Bắc Ninh",,Đường Giếng Ngọc,Phường Kinh Bắc,,T.Bắc Ninh,78,Đường Giếng Ngọc,Phường Kinh Bắc,,Tỉnh Bắc Ninh,drop_housenumber,moi
+"252, P. Huế, Bùi Thị Xuân, Hà Nội",252,P. Huế,Bùi Thị Xuân,,Hà Nội,252,P. Huế,Bùi Thị Xuân,Hai Bà Trưng,Hà Nội,drop_district,cu
+"8, Phố Hàng Cót, Quận Hoàn Kiếm, Hà Nội",8,Phố Hàng Cót,,Quận Hoàn Kiếm,Hà Nội,8,Phố Hàng Cót,Phường Hàng Mã,Quận Hoàn Kiếm,Hà Nội,drop_ward,cu
+"Đường Nguyễn Quốc Ích, P.Võ Cường, Bắc Ninh",,Đường Nguyễn Quốc Ích,P.Võ Cường,,Bắc Ninh,209,Đường Nguyễn Quốc Ích,Phường Võ Cường,,Tỉnh Bắc Ninh,drop_housenumber,moi
+"Phố Bà Triệu, Lê Đại Hành, Hai Bà Trưng, Hà Nội",,Phố Bà Triệu,Lê Đại Hành,Hai Bà Trưng,Hà Nội,157,Phố Bà Triệu,Lê Đại Hành,Hai Bà Trưng,Hà Nội,drop_housenumber,cu
+"NT18-20, Ngọc Trai 18, Đa Tốn, HN",NT18-20,Ngọc Trai 18,Đa Tốn,,HN,NT18-20,Ngọc Trai 18,Đa Tốn,Gia Lâm,Hà Nội,drop_district,cu
+"208, Phạm Thái Bường, Thành phố Hồ Chí Minh",208,Phạm Thái Bường,,,Thành phố Hồ Chí Minh,208,Phạm Thái Bường,Phường Tân Hưng,,Thành phố Hồ Chí Minh,drop_ward,moi
+"71B, Lê Quang Định, TP. HCM",71B,Lê Quang Định,,,TP. HCM,71B,Lê Quang Định,Phường Bình Thạnh,,Thành phố Hồ Chí Minh,drop_ward,moi
+"Đường số 3, P. 26, Bình Thạnh, Hồ Chí Minh",,Đường số 3,P. 26,Bình Thạnh,Hồ Chí Minh,2,Đường số 3,Phường 26,Bình Thạnh,Hồ Chí Minh,drop_housenumber,cu
+"Hàng Bạc, P Hoàn Kiếm, Thành phố Hà Nội",,Hàng Bạc,P Hoàn Kiếm,,Thành phố Hà Nội,98,Hàng Bạc,Phường Hoàn Kiếm,,Thành phố Hà Nội,drop_housenumber,moi
+"Đường Nguyễn Trãi, T Bắc Ninh",,Đường Nguyễn Trãi,,,T Bắc Ninh,36,Đường Nguyễn Trãi,Phường Hạp Lĩnh,,Tỉnh Bắc Ninh,drop_housenumber_ward,moi
+"295, Đường Trần Hưng Đạo, Thành phố Bắc Ninh, Bắc Ninh",295,Đường Trần Hưng Đạo,,Thành phố Bắc Ninh,Bắc Ninh,295,Đường Trần Hưng Đạo,Phường Đại Phúc,Thành phố Bắc Ninh,Bắc Ninh,drop_ward,cu
+"1, Phố Vũ Huy Dực, Tỉnh Bắc Ninh",1,Phố Vũ Huy Dực,,,Tỉnh Bắc Ninh,1,Phố Vũ Huy Dực,Phường Quế Võ,,Tỉnh Bắc Ninh,drop_ward,moi
+"554, Đường Thụy Khuê, Tây Hồ, Hà Nội",554,Đường Thụy Khuê,,Tây Hồ,Hà Nội,554,Đường Thụy Khuê,Bưởi,Tây Hồ,Hà Nội,drop_ward,cu
+"Ngõ 2 Đường Trần Quốc Toản, P Kinh Bắc, Tỉnh Bắc Ninh",,Ngõ 2 Đường Trần Quốc Toản,P Kinh Bắc,,Tỉnh Bắc Ninh,64,Ngõ 2 Đường Trần Quốc Toản,Phường Kinh Bắc,,Tỉnh Bắc Ninh,drop_housenumber,moi
+"Đường Quang Trung, Phường Bồng Lai, Tỉnh Bắc Ninh",,Đường Quang Trung,Phường Bồng Lai,,Tỉnh Bắc Ninh,1847,Đường Quang Trung,Phường Bồng Lai,,Tỉnh Bắc Ninh,drop_housenumber,moi
+"37, Phố Song Tháp, Bắc Ninh",37,Phố Song Tháp,,,Bắc Ninh,37,Phố Song Tháp,Phường Phù Khê,,Tỉnh Bắc Ninh,drop_ward,moi
+"Phố Lê Phụng Hiểu, Tràng Tiền, Hoàn Kiếm, Hà Nội",,Phố Lê Phụng Hiểu,Tràng Tiền,Hoàn Kiếm,Hà Nội,5,Phố Lê Phụng Hiểu,Tràng Tiền,Hoàn Kiếm,Hà Nội,drop_housenumber,cu
+"Ngõ 507 Đường Hoàng Quốc Việt, P. Vũ Ninh, Tỉnh Bắc Ninh",,Ngõ 507 Đường Hoàng Quốc Việt,P. Vũ Ninh,,Tỉnh Bắc Ninh,21,Ngõ 507 Đường Hoàng Quốc Việt,Phường Vũ Ninh,,Tỉnh Bắc Ninh,drop_housenumber,moi
+"854, Đường Đàm Văn Tiết, Bắc Ninh",854,Đường Đàm Văn Tiết,,,Bắc Ninh,854,Đường Đàm Văn Tiết,Phường Nam Sơn,,Tỉnh Bắc Ninh,drop_ward,moi
+"Đường Lý Thái Tổ, Phường Kinh Bắc, T. Bắc Ninh",,Đường Lý Thái Tổ,Phường Kinh Bắc,,T. Bắc Ninh,28,Đường Lý Thái Tổ,Phường Kinh Bắc,,Tỉnh Bắc Ninh,drop_housenumber,moi
+"Phố Tông Đản, Hoàn Kiếm, Hà Nội",,Phố Tông Đản,,Hoàn Kiếm,Hà Nội,14,Phố Tông Đản,Tràng Tiền,Hoàn Kiếm,Hà Nội,drop_housenumber_ward,cu
+"Tân Túc, Bình Chánh, Hồ Chí Minh",,Tân Túc,,Bình Chánh,Hồ Chí Minh,350,Tân Túc,Tân Túc,Bình Chánh,Hồ Chí Minh,drop_housenumber_ward,cu
+"65, Phan Đình Phùng, Tân An, Cần Thơ",65,Phan Đình Phùng,Tân An,,Cần Thơ,65,Phan Đình Phùng,Tân An,Ninh Kiều,Cần Thơ,drop_district,cu
+"Nguyễn Cư Trinh, An Nghiệp, Ninh Kiều, Cần Thơ",,Nguyễn Cư Trinh,An Nghiệp,Ninh Kiều,Cần Thơ,45,Nguyễn Cư Trinh,An Nghiệp,Ninh Kiều,Cần Thơ,drop_housenumber,cu
+"Ngách 111 Ngõ Xã Đàn 2, Nam Đồng, Đống Đa, TP.HN",,Ngách 111 Ngõ Xã Đàn 2,Nam Đồng,Đống Đa,TP.HN,103 A3,Ngách 111 Ngõ Xã Đàn 2,Nam Đồng,Đống Đa,Hà Nội,drop_housenumber,cu
+"25, Đường D5, Thành phố Hồ Chí Minh",25,Đường D5,,,Thành phố Hồ Chí Minh,25,Đường D5,Phường Thạnh Mỹ Tây,,Thành phố Hồ Chí Minh,drop_ward,moi
+"Hàng Ngang, TP. Hà Nội",,Hàng Ngang,,,TP. Hà Nội,48,Hàng Ngang,Phường Hoàn Kiếm,,Thành phố Hà Nội,drop_housenumber_ward,moi
+"Đường Trần Nhật Duật, P Hoàn Kiếm, Hà Nội",,Đường Trần Nhật Duật,P Hoàn Kiếm,,Hà Nội,34,Đường Trần Nhật Duật,Phường Hoàn Kiếm,,Thành phố Hà Nội,drop_housenumber,moi
+"Bành Văn Trân, Phường Tân Sơn Nhất, HCM",,Bành Văn Trân,Phường Tân Sơn Nhất,,HCM,40,Bành Văn Trân,Phường Tân Sơn Nhất,,Thành phố Hồ Chí Minh,drop_housenumber,moi
+"137, Đường Ngô Gia Tự, Tỉnh Bắc Ninh",137,Đường Ngô Gia Tự,,,Tỉnh Bắc Ninh,137,Đường Ngô Gia Tự,Phường Vũ Ninh,,Tỉnh Bắc Ninh,drop_ward,moi
+"266, Đường Như Nguyệt, Tỉnh Bắc Ninh",266,Đường Như Nguyệt,,,Tỉnh Bắc Ninh,266,Đường Như Nguyệt,Phường Vũ Ninh,,Tỉnh Bắc Ninh,drop_ward,moi
+"15, Đường Phúc Sơn, Tỉnh Bắc Ninh",15,Đường Phúc Sơn,,,Tỉnh Bắc Ninh,15,Đường Phúc Sơn,Phường Vũ Ninh,,Tỉnh Bắc Ninh,drop_ward,moi
+"188, Phố Phó Đức Chính, Thành phố Hà Nội",188,Phố Phó Đức Chính,,,Thành phố Hà Nội,188,Phố Phó Đức Chính,Phường Ba Đình,,Thành phố Hà Nội,drop_ward,moi
+"Đường Đặng Huy Trứ, Quận Liên Chiểu, Đà Nẵng",,Đường Đặng Huy Trứ,,Quận Liên Chiểu,Đà Nẵng,86,Đường Đặng Huy Trứ,Phường Hòa Minh,Quận Liên Chiểu,Đà Nẵng,drop_housenumber_ward,cu
+"Đường Như Nguyệt, P.Vũ Ninh, Bắc Ninh",,Đường Như Nguyệt,P.Vũ Ninh,,Bắc Ninh,132,Đường Như Nguyệt,Phường Vũ Ninh,,Tỉnh Bắc Ninh,drop_housenumber,moi
+"Phố Huế, Hai Bà Trưng, Hà Nội",,Phố Huế,,Hai Bà Trưng,Hà Nội,332,Phố Huế,Phố Huế,Hai Bà Trưng,Hà Nội,drop_housenumber_ward,cu
+"132, Cộng Hòa, Tân Bình, TP.HCM",132,Cộng Hòa,,Tân Bình,TP.HCM,132,Cộng Hòa,Phường 4,Tân Bình,Thành phố Hồ Chí Minh,drop_ward,cu
+"146, Phố Huế, Nguyễn Du, Hà Nội",146,Phố Huế,Nguyễn Du,,Hà Nội,146,Phố Huế,Nguyễn Du,Hai Bà Trưng,Hà Nội,drop_district,cu
+"24, Ngách 238/29 Hoàng Quốc Việt, Quận Bắc Từ Liêm, Hà Nội",24,Ngách 238/29 Hoàng Quốc Việt,,Quận Bắc Từ Liêm,Hà Nội,24,Ngách 238/29 Hoàng Quốc Việt,Phường Cổ Nhuế 1,Quận Bắc Từ Liêm,Hà Nội,drop_ward,cu
+"Phố Xã Đàn, Nam Đồng, Đống Đa, Hà Nội",,Phố Xã Đàn,Nam Đồng,Đống Đa,Hà Nội,362C,Phố Xã Đàn,Nam Đồng,Đống Đa,Hà Nội,drop_housenumber,cu
+"Ngõ 507 Đường Hoàng Quốc Việt, Phường Vũ Ninh, Bắc Ninh",,Ngõ 507 Đường Hoàng Quốc Việt,Phường Vũ Ninh,,Bắc Ninh,26,Ngõ 507 Đường Hoàng Quốc Việt,Phường Vũ Ninh,,Tỉnh Bắc Ninh,drop_housenumber,moi
+"236, Hải Phòng, Tân Chính, Đà Nẵng",236,Hải Phòng,Tân Chính,,Đà Nẵng,236,Hải Phòng,Tân Chính,Thanh Khê,Đà Nẵng,drop_district,cu
+"575, Ngõ 575 Kim Mã, Quận Ba Đình, Hà Nội",575,Ngõ 575 Kim Mã,,Quận Ba Đình,Hà Nội,575,Ngõ 575 Kim Mã,Ngọc Khánh,Quận Ba Đình,Hà Nội,drop_ward,cu
+"Đường Hoàng Quốc Việt, Bắc Ninh",,Đường Hoàng Quốc Việt,,,Bắc Ninh,30,Đường Hoàng Quốc Việt,Phường Vũ Ninh,,Tỉnh Bắc Ninh,drop_housenumber_ward,moi
+"Ngõ 46 Vũ Xuân Thiều, Long Biên, TP. Hà Nội",,Ngõ 46 Vũ Xuân Thiều,,Long Biên,TP. Hà Nội,43,Ngõ 46 Vũ Xuân Thiều,Sài Đồng,Long Biên,Hà Nội,drop_housenumber_ward,cu
+"Phố Nguyễn Trãi, Phường Máy Tơ, Quận Ngô Quyền, Thành phố Hải Phòng",,Phố Nguyễn Trãi,Phường Máy Tơ,Quận Ngô Quyền,Thành phố Hải Phòng,83,Phố Nguyễn Trãi,Phường Máy Tơ,Quận Ngô Quyền,Thành phố Hải Phòng,drop_housenumber,cu
+"130, Đường Khả Lễ, Tỉnh Bắc Ninh",130,Đường Khả Lễ,,,Tỉnh Bắc Ninh,130,Đường Khả Lễ,Phường Võ Cường,,Tỉnh Bắc Ninh,drop_ward,moi
+"15, Ngách 421/4 Hoàng Quốc Việt, Phường Cổ Nhuế 1, HN",15,Ngách 421/4 Hoàng Quốc Việt,Phường Cổ Nhuế 1,,HN,15,Ngách 421/4 Hoàng Quốc Việt,Phường Cổ Nhuế 1,Quận Bắc Từ Liêm,Hà Nội,drop_district,cu
+"170, Đường Nguyễn Văn Hưởng, Thảo Điền, Hồ Chí Minh",170,Đường Nguyễn Văn Hưởng,Thảo Điền,,Hồ Chí Minh,170,Đường Nguyễn Văn Hưởng,Thảo Điền,Thủ Đức,Hồ Chí Minh,drop_district,cu
+"106, Ngõ 1 Phạm Tuấn Tài, P Dịch Vọng Hậu, TP. Hà Nội",106,Ngõ 1 Phạm Tuấn Tài,P Dịch Vọng Hậu,,TP. Hà Nội,106,Ngõ 1 Phạm Tuấn Tài,Phường Dịch Vọng Hậu,Quận Cầu Giấy,Hà Nội,drop_district,cu
+"171, Phố Xã Đàn, Đống Đa, Hà Nội",171,Phố Xã Đàn,,Đống Đa,Hà Nội,171,Phố Xã Đàn,Nam Đồng,Đống Đa,Hà Nội,drop_ward,cu
+"136, Phố Hà Liễu, Tỉnh Bắc Ninh",136,Phố Hà Liễu,,,Tỉnh Bắc Ninh,136,Phố Hà Liễu,Phường Phương Liễu,,Tỉnh Bắc Ninh,drop_ward,moi
+"772-774, Đường Nguyễn Trãi, Tỉnh Bắc Ninh",772-774,Đường Nguyễn Trãi,,,Tỉnh Bắc Ninh,772-774,Đường Nguyễn Trãi,Phường Hạp Lĩnh,,Tỉnh Bắc Ninh,drop_ward,moi
+"NT01-20, Ngọc Trai 1, Đa Tốn, Hà Nội",NT01-20,Ngọc Trai 1,Đa Tốn,,Hà Nội,NT01-20,Ngọc Trai 1,Đa Tốn,Gia Lâm,Hà Nội,drop_district,cu
+"Phố Phương Vỹ, Tỉnh Bắc Ninh",,Phố Phương Vỹ,,,Tỉnh Bắc Ninh,89,Phố Phương Vỹ,Phường Vũ Ninh,,Tỉnh Bắc Ninh,drop_housenumber_ward,moi
+"Kim Mã, Q.Ba Đình, Hà Nội",,Kim Mã,,Q.Ba Đình,Hà Nội,206,Kim Mã,Kim Mã,Quận Ba Đình,Hà Nội,drop_housenumber_ward,cu
+"Phố Triệu Việt Vương, Nguyễn Du, Hai Bà Trưng, Hà Nội",,Phố Triệu Việt Vương,Nguyễn Du,Hai Bà Trưng,Hà Nội,113,Phố Triệu Việt Vương,Nguyễn Du,Hai Bà Trưng,Hà Nội,drop_housenumber,cu
+"Đường Long Biên 1, Long Biên, HN",,Đường Long Biên 1,,Long Biên,HN,76,Đường Long Biên 1,Ngọc Lâm,Long Biên,Hà Nội,drop_housenumber_ward,cu
+"8, Phố Phạm Tuấn Tài, Quận Cầu Giấy, Hà Nội",8,Phố Phạm Tuấn Tài,,Quận Cầu Giấy,Hà Nội,8,Phố Phạm Tuấn Tài,Phường Dịch Vọng Hậu,Quận Cầu Giấy,Hà Nội,drop_ward,cu
+"Phố Trần Bình, Mỹ Đình 2, Nam Từ Liêm, HN",,Phố Trần Bình,Mỹ Đình 2,Nam Từ Liêm,HN,99,Phố Trần Bình,Mỹ Đình 2,Nam Từ Liêm,Hà Nội,drop_housenumber,cu
+"Đường Hữu Chấp, Kinh Bắc, Bắc Ninh",,Đường Hữu Chấp,Kinh Bắc,,Bắc Ninh,11,Đường Hữu Chấp,Phường Kinh Bắc,,Tỉnh Bắc Ninh,drop_housenumber,moi
+"Đường Nguyễn Duy Trinh, Tỉnh Bắc Ninh",,Đường Nguyễn Duy Trinh,,,Tỉnh Bắc Ninh,75,Đường Nguyễn Duy Trinh,Phường Phương Liễu,,Tỉnh Bắc Ninh,drop_housenumber_ward,moi
+"NT18-01, Ngọc Trai 18, Đa Tốn, Hà Nội",NT18-01,Ngọc Trai 18,Đa Tốn,,Hà Nội,NT18-01,Ngọc Trai 18,Đa Tốn,Gia Lâm,Hà Nội,drop_district,cu
+"Đường Nội Khu 04, Phường Tân Phú, Thành phố Hồ Chí Minh",,Đường Nội Khu 04,Phường Tân Phú,,Thành phố Hồ Chí Minh,12,Đường Nội Khu 04,Phường Tân Phú,,Thành phố Hồ Chí Minh,drop_housenumber,moi
+"504/58C, Đường Kinh Dương Vương, An Lạc A, TP.HCM",504/58C,Đường Kinh Dương Vương,An Lạc A,,TP.HCM,504/58C,Đường Kinh Dương Vương,An Lạc A,Bình Tân,Hồ Chí Minh,drop_district,cu
+"Phố Hoàng Cầu, Ô Chợ Dừa, HN",,Phố Hoàng Cầu,Ô Chợ Dừa,,HN,63,Phố Hoàng Cầu,Phường Ô Chợ Dừa,,Thành phố Hà Nội,drop_housenumber,moi
+"SH15-06, San Hô 15, Đa Tốn, TP. Hà Nội",SH15-06,San Hô 15,Đa Tốn,,TP. Hà Nội,SH15-06,San Hô 15,Đa Tốn,Gia Lâm,Hà Nội,drop_district,cu
+"Đường Nguyễn Văn Cừ, Tỉnh Bắc Ninh",,Đường Nguyễn Văn Cừ,,,Tỉnh Bắc Ninh,23,Đường Nguyễn Văn Cừ,Phường Kinh Bắc,,Tỉnh Bắc Ninh,drop_housenumber_ward,moi
+"197, Phố Lương Định Của, Tỉnh Bắc Ninh",197,Phố Lương Định Của,,,Tỉnh Bắc Ninh,197,Phố Lương Định Của,Phường Phương Liễu,,Tỉnh Bắc Ninh,drop_ward,moi
+"7, Đường Hoàng Quốc Việt, Thành phố Hà Nội",7,Đường Hoàng Quốc Việt,,,Thành phố Hà Nội,7,Đường Hoàng Quốc Việt,Phường Nghĩa Đô,,Thành phố Hà Nội,drop_ward,moi
+"Đường Nguyễn Trãi, P.Hạp Lĩnh, Bắc Ninh",,Đường Nguyễn Trãi,P.Hạp Lĩnh,,Bắc Ninh,1338,Đường Nguyễn Trãi,Phường Hạp Lĩnh,,Tỉnh Bắc Ninh,drop_housenumber,moi
+"Đường Lũy Bán Bích, Phú Thạnh, Tân Phú, Hồ Chí Minh",,Đường Lũy Bán Bích,Phú Thạnh,Tân Phú,Hồ Chí Minh,555,Đường Lũy Bán Bích,Phú Thạnh,Tân Phú,Hồ Chí Minh,drop_housenumber,cu
+"Đường Số 18, P. Tân Phú, Quận 7, Thành phố Hồ Chí Minh",,Đường Số 18,P. Tân Phú,Quận 7,Thành phố Hồ Chí Minh,35,Đường Số 18,Phường Tân Phú,Quận 7,Thành phố Hồ Chí Minh,drop_housenumber,cu
+"10, Phố Bà Huyện Thanh Quan, Hà Nội",10,Phố Bà Huyện Thanh Quan,,,Hà Nội,10,Phố Bà Huyện Thanh Quan,Phường Ba Đình,,Thành phố Hà Nội,drop_ward,moi
+"92, Phố Phù Lưu, T. Bắc Ninh",92,Phố Phù Lưu,,,T. Bắc Ninh,92,Phố Phù Lưu,Phường Từ Sơn,,Tỉnh Bắc Ninh,drop_ward,moi
+"72, Đường Thụy Khuê, Thụy Khuê, Hà Nội",72,Đường Thụy Khuê,Thụy Khuê,,Hà Nội,72,Đường Thụy Khuê,Thụy Khuê,Tây Hồ,Hà Nội,drop_district,cu
+"3, Đường Ngô Gia Tự, P Đức Giang, Hà Nội",3,Đường Ngô Gia Tự,P Đức Giang,,Hà Nội,3,Đường Ngô Gia Tự,Phường Đức Giang,Quận Long Biên,Thành phố Hà Nội,drop_district,cu
+"Đường Hữu Chấp, P.Kinh Bắc, Bắc Ninh",,Đường Hữu Chấp,P.Kinh Bắc,,Bắc Ninh,55,Đường Hữu Chấp,Phường Kinh Bắc,,Tỉnh Bắc Ninh,drop_housenumber,moi
+"Đường Quang Trung, Phường Quế Võ, Bắc Ninh",,Đường Quang Trung,Phường Quế Võ,,Bắc Ninh,880,Đường Quang Trung,Phường Quế Võ,,Tỉnh Bắc Ninh,drop_housenumber,moi
+"Hàng Cá, P.Hoàn Kiếm, TP. Hà Nội",,Hàng Cá,P.Hoàn Kiếm,,TP. Hà Nội,25,Hàng Cá,Phường Hoàn Kiếm,,Thành phố Hà Nội,drop_housenumber,moi
+"Lê Văn Hiến, Cổ Nhuế, Bắc Từ Liêm, TP.HN",,Lê Văn Hiến,Cổ Nhuế,Bắc Từ Liêm,TP.HN,số 18,Lê Văn Hiến,Cổ Nhuế,Bắc Từ Liêm,Hà Nội,drop_housenumber,cu
+"3, Ngõ 9 Đặng Thùy Trâm, P Cổ Nhuế 1, TP.HN",3,Ngõ 9 Đặng Thùy Trâm,P Cổ Nhuế 1,,TP.HN,3,Ngõ 9 Đặng Thùy Trâm,Phường Cổ Nhuế 1,Quận Bắc Từ Liêm,Hà Nội,drop_district,cu
+"SH02-09, San Hô 2, Gia Lâm, TP. Hà Nội",SH02-09,San Hô 2,,Gia Lâm,TP. Hà Nội,SH02-09,San Hô 2,Đa Tốn,Gia Lâm,Hà Nội,drop_ward,cu
+"Phố Trần Bình Trọng, P.Phương Liễu, Tỉnh Bắc Ninh",,Phố Trần Bình Trọng,P.Phương Liễu,,Tỉnh Bắc Ninh,54,Phố Trần Bình Trọng,Phường Phương Liễu,,Tỉnh Bắc Ninh,drop_housenumber,moi
+"Phố Tạ Hiện, Thành phố Hà Nội",,Phố Tạ Hiện,,,Thành phố Hà Nội,3,Phố Tạ Hiện,Phường Hoàn Kiếm,,Thành phố Hà Nội,drop_housenumber_ward,moi
+"Phố Trần Quý Khoáng, Phương Liễu, Tỉnh Bắc Ninh",,Phố Trần Quý Khoáng,Phương Liễu,,Tỉnh Bắc Ninh,34,Phố Trần Quý Khoáng,Phường Phương Liễu,,Tỉnh Bắc Ninh,drop_housenumber,moi
+"Ngọc Trai 18, Gia Lâm, Hà Nội",,Ngọc Trai 18,,Gia Lâm,Hà Nội,NT18-35,Ngọc Trai 18,Đa Tốn,Gia Lâm,Hà Nội,drop_housenumber_ward,cu
+"6/20 Ngách 44, Ngõ 460 Khương Đình, hạ đình, Hà Nội",6/20 Ngách 44,Ngõ 460 Khương Đình,hạ đình,,Hà Nội,6/20 Ngách 44,Ngõ 460 Khương Đình,hạ đình,Thanh Xuân,Hà Nội,drop_district,cu
+"229, Đường Nguyễn Gia Thiều, Thành phố Bắc Ninh, Bắc Ninh",229,Đường Nguyễn Gia Thiều,,Thành phố Bắc Ninh,Bắc Ninh,229,Đường Nguyễn Gia Thiều,Phường Tiền Ninh Vệ,Thành phố Bắc Ninh,Bắc Ninh,drop_ward,cu
+"66, Phố Hà Trung, Thành phố Hà Nội",66,Phố Hà Trung,,,Thành phố Hà Nội,66,Phố Hà Trung,Phường Hoàn Kiếm,,Thành phố Hà Nội,drop_ward,moi
+"Đường Chiến Thắng, Thanh Xuân, HN",,Đường Chiến Thắng,,Thanh Xuân,HN,67,Đường Chiến Thắng,Văn Quán,Thanh Xuân,Hà Nội,drop_housenumber_ward,cu
+"63, Phố Hoàng Cầu, P Ô Chợ Dừa, HN",63,Phố Hoàng Cầu,P Ô Chợ Dừa,,HN,63,Phố Hoàng Cầu,Phường Ô Chợ Dừa,Quận Đống Đa,Hà Nội,drop_district,cu
+"81, Phố Phan Văn Trường, Dịch Vọng Hậu, Hà Nội",81,Phố Phan Văn Trường,Dịch Vọng Hậu,,Hà Nội,81,Phố Phan Văn Trường,Phường Dịch Vọng Hậu,Quận Cầu Giấy,Hà Nội,drop_district,cu
+"Ngõ 133 Nguyễn Phong Sắc, P. Nghĩa Tân, Quận Cầu Giấy, Hà Nội",,Ngõ 133 Nguyễn Phong Sắc,P. Nghĩa Tân,Quận Cầu Giấy,Hà Nội,28,Ngõ 133 Nguyễn Phong Sắc,Phường Nghĩa Tân,Quận Cầu Giấy,Hà Nội,drop_housenumber,cu
+"86, Đường Dương Ổ, T. Bắc Ninh",86,Đường Dương Ổ,,,T. Bắc Ninh,86,Đường Dương Ổ,Phường Võ Cường,,Tỉnh Bắc Ninh,drop_ward,moi
+"1436, Đường Nguyễn Trãi, Tỉnh Bắc Ninh",1436,Đường Nguyễn Trãi,,,Tỉnh Bắc Ninh,1436,Đường Nguyễn Trãi,Phường Hạp Lĩnh,,Tỉnh Bắc Ninh,drop_ward,moi
+"Đường Nguyễn Gia Thiều, P. Kinh Bắc, Tỉnh Bắc Ninh",,Đường Nguyễn Gia Thiều,P. Kinh Bắc,,Tỉnh Bắc Ninh,201,Đường Nguyễn Gia Thiều,Phường Kinh Bắc,,Tỉnh Bắc Ninh,drop_housenumber,moi
+"282-288, Trần Não, Phường An Khánh, TP.HCM",282-288,Trần Não,Phường An Khánh,,TP.HCM,282-288,Trần Não,Phường An Khánh,Thành phố Thủ Đức,Thành phố Hồ Chí Minh,drop_district,cu
+"Đường Nguyễn Quốc Ích, Phường Võ Cường, Tỉnh Bắc Ninh",,Đường Nguyễn Quốc Ích,Phường Võ Cường,,Tỉnh Bắc Ninh,248,Đường Nguyễn Quốc Ích,Phường Võ Cường,,Tỉnh Bắc Ninh,drop_housenumber,moi
+"76, Phố Tô Hiến Thành, Lê Đại Hành, Hà Nội",76,Phố Tô Hiến Thành,Lê Đại Hành,,Hà Nội,76,Phố Tô Hiến Thành,Lê Đại Hành,Hai Bà Trưng,Hà Nội,drop_district,cu
+"1, Ngõ 6 Đặng Thai Mai, Quảng An, Hà Nội",1,Ngõ 6 Đặng Thai Mai,Quảng An,,Hà Nội,1,Ngõ 6 Đặng Thai Mai,Quảng An,Tây Hồ,Hà Nội,drop_district,cu
+"Đường Nguyễn Gia Thiều, Tỉnh Bắc Ninh",,Đường Nguyễn Gia Thiều,,,Tỉnh Bắc Ninh,233,Đường Nguyễn Gia Thiều,Phường Kinh Bắc,,Tỉnh Bắc Ninh,drop_housenumber_ward,moi
+"Ngõ 12 Đường Như Nguyệt, P. Vũ Ninh, T.Bắc Ninh",,Ngõ 12 Đường Như Nguyệt,P. Vũ Ninh,,T.Bắc Ninh,40,Ngõ 12 Đường Như Nguyệt,Phường Vũ Ninh,,Tỉnh Bắc Ninh,drop_housenumber,moi
+"Phố Lê Hồng Phong, P. Ba Đình, Thành phố Hà Nội",,Phố Lê Hồng Phong,P. Ba Đình,,Thành phố Hà Nội,18B,Phố Lê Hồng Phong,Phường Ba Đình,,Thành phố Hà Nội,drop_housenumber,moi
+"Đường Hoàng Quốc Việt, P.Vũ Ninh, Tỉnh Bắc Ninh",,Đường Hoàng Quốc Việt,P.Vũ Ninh,,Tỉnh Bắc Ninh,56,Đường Hoàng Quốc Việt,Phường Vũ Ninh,,Tỉnh Bắc Ninh,drop_housenumber,moi
+"485, Đường Lý Thường Kiệt, Tỉnh Bắc Ninh",485,Đường Lý Thường Kiệt,,,Tỉnh Bắc Ninh,485,Đường Lý Thường Kiệt,Phường Phù Khê,,Tỉnh Bắc Ninh,drop_ward,moi
+"13, Đường Nguyễn Đăng Đạo, Bắc Ninh",13,Đường Nguyễn Đăng Đạo,,,Bắc Ninh,13,Đường Nguyễn Đăng Đạo,Phường Võ Cường,,Tỉnh Bắc Ninh,drop_ward,moi
+"24, Đường Hoàng Quốc Việt, Tỉnh Bắc Ninh",24,Đường Hoàng Quốc Việt,,,Tỉnh Bắc Ninh,24,Đường Hoàng Quốc Việt,Phường Vũ Ninh,,Tỉnh Bắc Ninh,drop_ward,moi
+"Ngõ 238 Hoàng Quốc Việt, Phường Cổ Nhuế 1, Quận Bắc Từ Liêm, Hà Nội",,Ngõ 238 Hoàng Quốc Việt,Phường Cổ Nhuế 1,Quận Bắc Từ Liêm,Hà Nội,19,Ngõ 238 Hoàng Quốc Việt,Phường Cổ Nhuế 1,Quận Bắc Từ Liêm,Hà Nội,drop_housenumber,cu
+"97, Đường Giếng Ngọc, Bắc Ninh",97,Đường Giếng Ngọc,,,Bắc Ninh,97,Đường Giếng Ngọc,Phường Kinh Bắc,,Tỉnh Bắc Ninh,drop_ward,moi
+"59, Phố Láng Hạ, Thành Công, TP. Hà Nội",59,Phố Láng Hạ,Thành Công,,TP. Hà Nội,59,Phố Láng Hạ,Thành Công,Ba Đình,Hà Nội,drop_district,cu
+"Đường Mỹ Phú 1A, Tân Phú, Thành phố Hồ Chí Minh",,Đường Mỹ Phú 1A,Tân Phú,,Thành phố Hồ Chí Minh,03,Đường Mỹ Phú 1A,Phường Tân Phú,,Thành phố Hồ Chí Minh,drop_housenumber,moi
+"28, Đường Trần Hưng Đạo, Tỉnh Bắc Ninh",28,Đường Trần Hưng Đạo,,,Tỉnh Bắc Ninh,28,Đường Trần Hưng Đạo,Phường Quế Võ,,Tỉnh Bắc Ninh,drop_ward,moi
+"Đường Thiên Đức, Tỉnh Bắc Ninh",,Đường Thiên Đức,,,Tỉnh Bắc Ninh,256,Đường Thiên Đức,Phường Kinh Bắc,,Tỉnh Bắc Ninh,drop_housenumber_ward,moi
+"Đường Nguyễn Cao, P. Võ Cường, Tỉnh Bắc Ninh",,Đường Nguyễn Cao,P. Võ Cường,,Tỉnh Bắc Ninh,341,Đường Nguyễn Cao,Phường Võ Cường,,Tỉnh Bắc Ninh,drop_housenumber,moi
+"Ngõ 1 Phạm Tuấn Tài, Q Cầu Giấy, Hà Nội",,Ngõ 1 Phạm Tuấn Tài,,Q Cầu Giấy,Hà Nội,106,Ngõ 1 Phạm Tuấn Tài,Phường Dịch Vọng Hậu,Quận Cầu Giấy,Hà Nội,drop_housenumber_ward,cu
+"272, Phố Lương Định Của, Tỉnh Bắc Ninh",272,Phố Lương Định Của,,,Tỉnh Bắc Ninh,272,Phố Lương Định Của,Phường Phương Liễu,,Tỉnh Bắc Ninh,drop_ward,moi
+"Ngõ 12 Đường Như Nguyệt, Vũ Ninh, Tỉnh Bắc Ninh",,Ngõ 12 Đường Như Nguyệt,Vũ Ninh,,Tỉnh Bắc Ninh,31,Ngõ 12 Đường Như Nguyệt,Phường Vũ Ninh,,Tỉnh Bắc Ninh,drop_housenumber,moi
+"90, Đường Nguyễn Gia Thiều, Tỉnh Bắc Ninh",90,Đường Nguyễn Gia Thiều,,,Tỉnh Bắc Ninh,90,Đường Nguyễn Gia Thiều,Phường Kinh Bắc,,Tỉnh Bắc Ninh,drop_ward,moi
+"Phan Đình Giót, Tân Bình, TPHCM",,Phan Đình Giót,,Tân Bình,TPHCM,20,Phan Đình Giót,Phường 2,Tân Bình,Thành phố Hồ Chí Minh,drop_housenumber_ward,cu
+"44, Hàng Bè, Thành phố Hà Nội",44,Hàng Bè,,,Thành phố Hà Nội,44,Hàng Bè,Phường Hoàn Kiếm,,Thành phố Hà Nội,drop_ward,moi
+"Chử Đồng Tử, Vĩnh Thọ, Thành phố Nha Trang, Tỉnh Khánh Hòa",,Chử Đồng Tử,Vĩnh Thọ,Thành phố Nha Trang,Tỉnh Khánh Hòa,14,Chử Đồng Tử,Phường Vĩnh Thọ,Thành phố Nha Trang,Tỉnh Khánh Hòa,drop_housenumber,cu
+"Phố Nguyễn Thái Học, P. Ba Đình, TP. Hà Nội",,Phố Nguyễn Thái Học,P. Ba Đình,,TP. Hà Nội,66,Phố Nguyễn Thái Học,Phường Ba Đình,,Thành phố Hà Nội,drop_housenumber,moi
+"Võ Công Tồn, TT. Bến Lức, Bến Lức, Long An",,Võ Công Tồn,TT. Bến Lức,Bến Lức,Long An,1,Võ Công Tồn,TT. Bến Lức,Bến Lức,Long An,drop_housenumber,cu
+"Hải Thượng Lãn Ông, Tân An, Ninh Kiều, Cần Thơ",,Hải Thượng Lãn Ông,Tân An,Ninh Kiều,Cần Thơ,8,Hải Thượng Lãn Ông,Tân An,Ninh Kiều,Cần Thơ,drop_housenumber,cu
+"Đường Hoàng Quốc Việt, Phường Vũ Ninh, Tỉnh Bắc Ninh",,Đường Hoàng Quốc Việt,Phường Vũ Ninh,,Tỉnh Bắc Ninh,74,Đường Hoàng Quốc Việt,Phường Vũ Ninh,,Tỉnh Bắc Ninh,drop_housenumber,moi
+"Ngõ 195 Đường Vũ Ninh, P.Vũ Ninh, T. Bắc Ninh",,Ngõ 195 Đường Vũ Ninh,P.Vũ Ninh,,T. Bắc Ninh,20,Ngõ 195 Đường Vũ Ninh,Phường Vũ Ninh,,Tỉnh Bắc Ninh,drop_housenumber,moi
+"Đường Xuân Thủy, P Dịch Vọng Hậu, Quận Cầu Giấy, HN",,Đường Xuân Thủy,P Dịch Vọng Hậu,Quận Cầu Giấy,HN,93,Đường Xuân Thủy,Phường Dịch Vọng Hậu,Quận Cầu Giấy,Hà Nội,drop_housenumber,cu
+"Đường Lê Phụng Hiểu, P. Tiền Ninh Vệ, Thành phố Bắc Ninh, Bắc Ninh",,Đường Lê Phụng Hiểu,P. Tiền Ninh Vệ,Thành phố Bắc Ninh,Bắc Ninh,170,Đường Lê Phụng Hiểu,Phường Tiền Ninh Vệ,Thành phố Bắc Ninh,Bắc Ninh,drop_housenumber,cu
+"49, Phố Trần Phú, Điện Biên, Hà Nội",49,Phố Trần Phú,Điện Biên,,Hà Nội,49,Phố Trần Phú,Phường Điện Biên,Quận Ba Đình,Hà Nội,drop_district,cu
+"Đường Hai Bà Trưng, Xã Tiên Du, Tỉnh Bắc Ninh",,Đường Hai Bà Trưng,Xã Tiên Du,,Tỉnh Bắc Ninh,80,Đường Hai Bà Trưng,Xã Tiên Du,,Tỉnh Bắc Ninh,drop_housenumber,moi
+"Phố Sơn Tây, Thành phố Hà Nội",,Phố Sơn Tây,,,Thành phố Hà Nội,22,Phố Sơn Tây,Phường Ba Đình,,Thành phố Hà Nội,drop_housenumber_ward,moi
+"3, Đường Nguyễn Gia Thiều, Tỉnh Bắc Ninh",3,Đường Nguyễn Gia Thiều,,,Tỉnh Bắc Ninh,3,Đường Nguyễn Gia Thiều,Phường Kinh Bắc,,Tỉnh Bắc Ninh,drop_ward,moi
+"Ngọc Trai 11, Đa Tốn, Gia Lâm, HN",,Ngọc Trai 11,Đa Tốn,Gia Lâm,HN,NT11-21,Ngọc Trai 11,Đa Tốn,Gia Lâm,Hà Nội,drop_housenumber,cu
+"2, Đường Đấu Mã, Tỉnh Bắc Ninh",2,Đường Đấu Mã,,,Tỉnh Bắc Ninh,2,Đường Đấu Mã,Phường Vũ Ninh,,Tỉnh Bắc Ninh,drop_ward,moi
+"131, Đường Nguyễn Gia Thiều, Thành phố Bắc Ninh, Bắc Ninh",131,Đường Nguyễn Gia Thiều,,Thành phố Bắc Ninh,Bắc Ninh,131,Đường Nguyễn Gia Thiều,Phường Suối Hoa,Thành phố Bắc Ninh,Bắc Ninh,drop_ward,cu
+"Phố Đặng Thùy Trâm, Cổ Nhuế 1, Quận Bắc Từ Liêm, Hà Nội",,Phố Đặng Thùy Trâm,Cổ Nhuế 1,Quận Bắc Từ Liêm,Hà Nội,1,Phố Đặng Thùy Trâm,Phường Cổ Nhuế 1,Quận Bắc Từ Liêm,Hà Nội,drop_housenumber,cu
+"23, Ngách 238/11 Hoàng Quốc Việt, Quận Bắc Từ Liêm, TP. Hà Nội",23,Ngách 238/11 Hoàng Quốc Việt,,Quận Bắc Từ Liêm,TP. Hà Nội,23,Ngách 238/11 Hoàng Quốc Việt,Phường Cổ Nhuế 1,Quận Bắc Từ Liêm,Hà Nội,drop_ward,cu
+"48/38, Hẻm 48 Trần Ðình Xu, Quận 1, Thành phố Hồ Chí Minh",48/38,Hẻm 48 Trần Ðình Xu,,Quận 1,Thành phố Hồ Chí Minh,48/38,Hẻm 48 Trần Ðình Xu,Phường Cô Giang,Quận 1,Thành phố Hồ Chí Minh,drop_ward,cu
+"Phố Đức Chính, P. Ba Đình, TP. Hà Nội",,Phố Đức Chính,P. Ba Đình,,TP. Hà Nội,32,Phố Đức Chính,Phường Ba Đình,,Thành phố Hà Nội,drop_housenumber,moi
+"68C, Nguyễn Văn Tư, Bến Tre, Bến Tre",68C,Nguyễn Văn Tư,,Bến Tre,Bến Tre,68C,Nguyễn Văn Tư,Phường 7,Bến Tre,Bến Tre,drop_ward,cu
+"Đường Nguyễn Trãi, Hạp Lĩnh, Tỉnh Bắc Ninh",,Đường Nguyễn Trãi,Hạp Lĩnh,,Tỉnh Bắc Ninh,1258,Đường Nguyễn Trãi,Phường Hạp Lĩnh,,Tỉnh Bắc Ninh,drop_housenumber,moi
+"Phố Hoà Đình, P. Võ Cường, Bắc Ninh",,Phố Hoà Đình,P. Võ Cường,,Bắc Ninh,11,Phố Hoà Đình,Phường Võ Cường,,Tỉnh Bắc Ninh,drop_housenumber,moi
+"Đường Âu Cơ, P Thuận Thành, Tỉnh Bắc Ninh",,Đường Âu Cơ,P Thuận Thành,,Tỉnh Bắc Ninh,71,Đường Âu Cơ,Phường Thuận Thành,,Tỉnh Bắc Ninh,drop_housenumber,moi
+"4, Ngõ 246 Đường Khuất Duy Tiến, Tỉnh Bắc Ninh",4,Ngõ 246 Đường Khuất Duy Tiến,,,Tỉnh Bắc Ninh,4,Ngõ 246 Đường Khuất Duy Tiến,Phường Quế Võ,,Tỉnh Bắc Ninh,drop_ward,moi
+"Đường Hữu Chấp, Tỉnh Bắc Ninh",,Đường Hữu Chấp,,,Tỉnh Bắc Ninh,36B,Đường Hữu Chấp,Phường Kinh Bắc,,Tỉnh Bắc Ninh,drop_housenumber_ward,moi
+"25, Châu Văn Liêm, Ninh Kiều, Cần Thơ",25,Châu Văn Liêm,,Ninh Kiều,Cần Thơ,25,Châu Văn Liêm,Tân An,Ninh Kiều,Cần Thơ,drop_ward,cu
+"Ngõ 35 Đường Huyền Quang, P.Kinh Bắc, Tỉnh Bắc Ninh",,Ngõ 35 Đường Huyền Quang,P.Kinh Bắc,,Tỉnh Bắc Ninh,28,Ngõ 35 Đường Huyền Quang,Phường Kinh Bắc,,Tỉnh Bắc Ninh,drop_housenumber,moi
+"122, Ngô Gia Tự, Long Biên, Hà Nội",122,Ngô Gia Tự,,Long Biên,Hà Nội,122,Ngô Gia Tự,Đức Giang,Long Biên,Hà Nội,drop_ward,cu
+"Đường Thanh Sơn, Phường Vũ Ninh, Bắc Ninh",,Đường Thanh Sơn,Phường Vũ Ninh,,Bắc Ninh,44,Đường Thanh Sơn,Phường Vũ Ninh,,Tỉnh Bắc Ninh,drop_housenumber,moi
+"73, Đường Trần Hưng Đạo, Tỉnh Bắc Ninh",73,Đường Trần Hưng Đạo,,,Tỉnh Bắc Ninh,73,Đường Trần Hưng Đạo,Phường Võ Cường,,Tỉnh Bắc Ninh,drop_ward,moi
+"21, Ngõ 28 Ông Ích Khiêm, Thành phố Hà Nội",21,Ngõ 28 Ông Ích Khiêm,,,Thành phố Hà Nội,21,Ngõ 28 Ông Ích Khiêm,Phường Ba Đình,,Thành phố Hà Nội,drop_ward,moi
+"21B, Nguyễn Thị Huỳnh, Thành phố Hồ Chí Minh",21B,Nguyễn Thị Huỳnh,,,Thành phố Hồ Chí Minh,21B,Nguyễn Thị Huỳnh,Phường Chợ Quán,,Thành phố Hồ Chí Minh,drop_ward,moi
+"47-49, Phan Ngọc Hiển, 3, Tỉnh Bạc Liêu",47-49,Phan Ngọc Hiển,3,,Tỉnh Bạc Liêu,47-49,Phan Ngọc Hiển,Phường 3,Thành phố Bạc Liêu,Tỉnh Bạc Liêu,drop_district,cu
+"9, Ngách 41/6 Trần Quốc Hoàn, P Dịch Vọng Hậu, TP. Hà Nội",9,Ngách 41/6 Trần Quốc Hoàn,P Dịch Vọng Hậu,,TP. Hà Nội,9,Ngách 41/6 Trần Quốc Hoàn,Phường Dịch Vọng Hậu,Quận Cầu Giấy,Hà Nội,drop_district,cu
+"12, Đường Nguyên Phi Ỷ Lan, Thành phố Bắc Ninh, Bắc Ninh",12,Đường Nguyên Phi Ỷ Lan,,Thành phố Bắc Ninh,Bắc Ninh,12,Đường Nguyên Phi Ỷ Lan,Phường Suối Hoa,Thành phố Bắc Ninh,Bắc Ninh,drop_ward,cu
+"54, Đường Hoàng Tăng Bí, Thụy Phương, Hà Nội",54,Đường Hoàng Tăng Bí,Thụy Phương,,Hà Nội,54,Đường Hoàng Tăng Bí,Thụy Phương,Từ Liêm,Hà Nội,drop_district,cu
+"Phố Ngọc Hà, P.Ba Đình, TP. Hà Nội",,Phố Ngọc Hà,P.Ba Đình,,TP. Hà Nội,15A,Phố Ngọc Hà,Phường Ba Đình,,Thành phố Hà Nội,drop_housenumber,moi
+"62, Ngõ 195 Đường Vũ Ninh, Tỉnh Bắc Ninh",62,Ngõ 195 Đường Vũ Ninh,,,Tỉnh Bắc Ninh,62,Ngõ 195 Đường Vũ Ninh,Phường Vũ Ninh,,Tỉnh Bắc Ninh,drop_ward,moi
+"Phố Lý Khánh Văn, P. Đình Bảng, Thành phố Từ Sơn, Bắc Ninh",,Phố Lý Khánh Văn,P. Đình Bảng,Thành phố Từ Sơn,Bắc Ninh,24,Phố Lý Khánh Văn,Phường Đình Bảng,Thành phố Từ Sơn,Tỉnh Bắc Ninh,drop_housenumber,cu
+"730, Đường Hoàng Quốc Việt, Bắc Ninh",730,Đường Hoàng Quốc Việt,,,Bắc Ninh,730,Đường Hoàng Quốc Việt,Phường Vũ Ninh,,Tỉnh Bắc Ninh,drop_ward,moi
+"Phố Chu Văn An, P.Ba Đình, TP. Hà Nội",,Phố Chu Văn An,P.Ba Đình,,TP. Hà Nội,12,Phố Chu Văn An,Phường Ba Đình,,Thành phố Hà Nội,drop_housenumber,moi
+"Đường Nguyễn Trãi, P Hạp Lĩnh, Tỉnh Bắc Ninh",,Đường Nguyễn Trãi,P Hạp Lĩnh,,Tỉnh Bắc Ninh,610,Đường Nguyễn Trãi,Phường Hạp Lĩnh,,Tỉnh Bắc Ninh,drop_housenumber,moi
+"Đường Ngô Gia Tự, P Vũ Ninh, Tỉnh Bắc Ninh",,Đường Ngô Gia Tự,P Vũ Ninh,,Tỉnh Bắc Ninh,72,Đường Ngô Gia Tự,Phường Vũ Ninh,,Tỉnh Bắc Ninh,drop_housenumber,moi
+"122, Đường Dương Ổ, Bắc Ninh",122,Đường Dương Ổ,,,Bắc Ninh,122,Đường Dương Ổ,Phường Võ Cường,,Tỉnh Bắc Ninh,drop_ward,moi
+"Đường Kênh Nam, Phường Hạp Lĩnh, Bắc Ninh",,Đường Kênh Nam,Phường Hạp Lĩnh,,Bắc Ninh,68,Đường Kênh Nam,Phường Hạp Lĩnh,,Tỉnh Bắc Ninh,drop_housenumber,moi
+"Đường Hồ Ngọc Lân, Phường Kinh Bắc, Tỉnh Bắc Ninh",,Đường Hồ Ngọc Lân,Phường Kinh Bắc,,Tỉnh Bắc Ninh,163,Đường Hồ Ngọc Lân,Phường Kinh Bắc,,Tỉnh Bắc Ninh,drop_housenumber,moi
+"Ngõ 1 Phạm Tuấn Tài, P. Dịch Vọng Hậu, Quận Cầu Giấy, TP.HN",,Ngõ 1 Phạm Tuấn Tài,P. Dịch Vọng Hậu,Quận Cầu Giấy,TP.HN,84,Ngõ 1 Phạm Tuấn Tài,Phường Dịch Vọng Hậu,Quận Cầu Giấy,Hà Nội,drop_housenumber,cu
+"Đường Điện Biên Phủ, TP.HN",,Đường Điện Biên Phủ,,,TP.HN,37,Đường Điện Biên Phủ,Phường Ba Đình,,Thành phố Hà Nội,drop_housenumber_ward,moi
+"Ngõ 1 Phạm Tuấn Tài, Phường Dịch Vọng Hậu, Quận Cầu Giấy, Hà Nội",,Ngõ 1 Phạm Tuấn Tài,Phường Dịch Vọng Hậu,Quận Cầu Giấy,Hà Nội,84,Ngõ 1 Phạm Tuấn Tài,Phường Dịch Vọng Hậu,Quận Cầu Giấy,Hà Nội,drop_housenumber,cu
+"329, Đường Cổ Nhuế, Bắc Từ Liêm, Hà Nội",329,Đường Cổ Nhuế,,Bắc Từ Liêm,Hà Nội,329,Đường Cổ Nhuế,Cổ Nhuế 2,Bắc Từ Liêm,Hà Nội,drop_ward,cu
+"Đường Bà Chúa Kho, P. Vũ Ninh, Tỉnh Bắc Ninh",,Đường Bà Chúa Kho,P. Vũ Ninh,,Tỉnh Bắc Ninh,275,Đường Bà Chúa Kho,Phường Vũ Ninh,,Tỉnh Bắc Ninh,drop_housenumber,moi
+"1486, 3 Tháng 2, Q.11, Hồ Chí Minh",1486,3 Tháng 2,,Q.11,Hồ Chí Minh,1486,3 Tháng 2,Phường 2,Quận 11,Hồ Chí Minh,drop_ward,cu
+"Nguyễn Phong Sắc, Dịch Vọng, Cầu Giấy, Hà Nội",,Nguyễn Phong Sắc,Dịch Vọng,Cầu Giấy,Hà Nội,30,Nguyễn Phong Sắc,Dịch Vọng,Cầu Giấy,Hà Nội,drop_housenumber,cu
+"Đường Dương Ổ, Phường Võ Cường, Tỉnh Bắc Ninh",,Đường Dương Ổ,Phường Võ Cường,,Tỉnh Bắc Ninh,98,Đường Dương Ổ,Phường Võ Cường,,Tỉnh Bắc Ninh,drop_housenumber,moi
+"292, Đường Đinh Bộ Lĩnh, Thành phố Hồ Chí Minh",292,Đường Đinh Bộ Lĩnh,,,Thành phố Hồ Chí Minh,292,Đường Đinh Bộ Lĩnh,Phường Bình Thạnh,,Thành phố Hồ Chí Minh,drop_ward,moi
+"Đường Ngô Gia Tự, Phường Vũ Ninh, T Bắc Ninh",,Đường Ngô Gia Tự,Phường Vũ Ninh,,T Bắc Ninh,117,Đường Ngô Gia Tự,Phường Vũ Ninh,,Tỉnh Bắc Ninh,drop_housenumber,moi
+"Phố Nguyễn Sơn, Bồ Đề, Long Biên, Hà Nội",,Phố Nguyễn Sơn,Bồ Đề,Long Biên,Hà Nội,"SN 28, tổ22",Phố Nguyễn Sơn,Bồ Đề,Long Biên,Hà Nội,drop_housenumber,cu
+"103, Phố Dương Văn Bé, Hai Bà Trưng, TP.HN",103,Phố Dương Văn Bé,,Hai Bà Trưng,TP.HN,103,Phố Dương Văn Bé,Phường Vĩnh Tuy,Hai Bà Trưng,Hà Nội,drop_ward,cu
+"Phạm Hùng, Bình Hưng, Bình Chánh, Hồ Chí Minh",,Phạm Hùng,Bình Hưng,Bình Chánh,Hồ Chí Minh,C6/27,Phạm Hùng,Bình Hưng,Bình Chánh,Hồ Chí Minh,drop_housenumber,cu
+"Phố Lý Khánh Văn, P.Từ Sơn, Tỉnh Bắc Ninh",,Phố Lý Khánh Văn,P.Từ Sơn,,Tỉnh Bắc Ninh,70,Phố Lý Khánh Văn,Phường Từ Sơn,,Tỉnh Bắc Ninh,drop_housenumber,moi
+"Ngõ 28 Ông Ích Khiêm, Ba Đình, Thành phố Hà Nội",,Ngõ 28 Ông Ích Khiêm,Ba Đình,,Thành phố Hà Nội,29,Ngõ 28 Ông Ích Khiêm,Phường Ba Đình,,Thành phố Hà Nội,drop_housenumber,moi
+"Đường Như Nguyệt, T Bắc Ninh",,Đường Như Nguyệt,,,T Bắc Ninh,155,Đường Như Nguyệt,Phường Vũ Ninh,,Tỉnh Bắc Ninh,drop_housenumber_ward,moi
+"75, Phố Thành Bắc, Tỉnh Bắc Ninh",75,Phố Thành Bắc,,,Tỉnh Bắc Ninh,75,Phố Thành Bắc,Phường Kinh Bắc,,Tỉnh Bắc Ninh,drop_ward,moi
+"Ngô Gia Tự, đức giang, Long biên, Hà Nội",,Ngô Gia Tự,đức giang,Long biên,Hà Nội,số 7,Ngô Gia Tự,đức giang,Long biên,Hà Nội,drop_housenumber,cu
+"Đường Lê Phụng Hiểu, P. Kinh Bắc, Tỉnh Bắc Ninh",,Đường Lê Phụng Hiểu,P. Kinh Bắc,,Tỉnh Bắc Ninh,150,Đường Lê Phụng Hiểu,Phường Kinh Bắc,,Tỉnh Bắc Ninh,drop_housenumber,moi
+"Tân Túc, Bình Chánh, TP.HCM",,Tân Túc,,Bình Chánh,TP.HCM,349,Tân Túc,Tân Túc,Bình Chánh,Hồ Chí Minh,drop_housenumber_ward,cu
+"Ngách 133/32 Nguyễn Phong Sắc, Nghĩa Tân, Quận Cầu Giấy, TP.HN",,Ngách 133/32 Nguyễn Phong Sắc,Nghĩa Tân,Quận Cầu Giấy,TP.HN,9,Ngách 133/32 Nguyễn Phong Sắc,Phường Nghĩa Tân,Quận Cầu Giấy,Hà Nội,drop_housenumber,cu
+"68, Đường Trường Chinh, Phương Mai, TP.HN",68,Đường Trường Chinh,Phương Mai,,TP.HN,68,Đường Trường Chinh,Phương Mai,Đống Đa,Hà Nội,drop_district,cu
+"Đường Nguyễn Trãi, Tỉnh Bắc Ninh",,Đường Nguyễn Trãi,,,Tỉnh Bắc Ninh,919,Đường Nguyễn Trãi,Phường Hạp Lĩnh,,Tỉnh Bắc Ninh,drop_housenumber_ward,moi
+"Bành Văn Trân, 7, Quận Tân Bình, Thành phố Hồ Chí Minh",,Bành Văn Trân,7,Quận Tân Bình,Thành phố Hồ Chí Minh,86,Bành Văn Trân,Phường 7,Quận Tân Bình,Thành phố Hồ Chí Minh,drop_housenumber,cu
+"8, Đường Lê Quang Đạo, Bắc Ninh",8,Đường Lê Quang Đạo,,,Bắc Ninh,8,Đường Lê Quang Đạo,Phường Từ Sơn,,Tỉnh Bắc Ninh,drop_ward,moi
+"22, Đường Hoàng Quốc Việt, Phường Thị Cầu, Bắc Ninh",22,Đường Hoàng Quốc Việt,Phường Thị Cầu,,Bắc Ninh,22,Đường Hoàng Quốc Việt,Phường Thị Cầu,Thành phố Bắc Ninh,Bắc Ninh,drop_district,cu
+"Đường Phan Châu Trinh, Phường Quế Võ, Tỉnh Bắc Ninh",,Đường Phan Châu Trinh,Phường Quế Võ,,Tỉnh Bắc Ninh,3,Đường Phan Châu Trinh,Phường Quế Võ,,Tỉnh Bắc Ninh,drop_housenumber,moi
+"01, Đường Mỹ Phú 1A, Thành phố Hồ Chí Minh",01,Đường Mỹ Phú 1A,,,Thành phố Hồ Chí Minh,01,Đường Mỹ Phú 1A,Phường Tân Phú,,Thành phố Hồ Chí Minh,drop_ward,moi
+"Phố Mai Hắc Đế, Lê Đại Hành, Hai Bà Trưng, Hà Nội",,Phố Mai Hắc Đế,Lê Đại Hành,Hai Bà Trưng,Hà Nội,109,Phố Mai Hắc Đế,Lê Đại Hành,Hai Bà Trưng,Hà Nội,drop_housenumber,cu
+"38, Hàng Thiếc, HN",38,Hàng Thiếc,,,HN,38,Hàng Thiếc,Phường Hoàn Kiếm,,Thành phố Hà Nội,drop_ward,moi
+"Đường Rạp Hát, P. Tiền Ninh Vệ, Thành phố Bắc Ninh, Bắc Ninh",,Đường Rạp Hát,P. Tiền Ninh Vệ,Thành phố Bắc Ninh,Bắc Ninh,21,Đường Rạp Hát,Phường Tiền Ninh Vệ,Thành phố Bắc Ninh,Bắc Ninh,drop_housenumber,cu
+"Phố Nguyễn Du, Nguyễn Du, Hai Bà Trưng, HN",,Phố Nguyễn Du,Nguyễn Du,Hai Bà Trưng,HN,45,Phố Nguyễn Du,Nguyễn Du,Hai Bà Trưng,Hà Nội,drop_housenumber,cu
+"1, Đường Vũ Đạt, Bắc Ninh",1,Đường Vũ Đạt,,,Bắc Ninh,1,Đường Vũ Đạt,Phường Vũ Ninh,,Tỉnh Bắc Ninh,drop_ward,moi
+"Phố Lửa Hồng, Tỉnh Bắc Ninh",,Phố Lửa Hồng,,,Tỉnh Bắc Ninh,19,Phố Lửa Hồng,Phường Kinh Bắc,,Tỉnh Bắc Ninh,drop_housenumber_ward,moi
+"153, Đường Ngô Gia Tự, Thành phố Bắc Ninh, Bắc Ninh",153,Đường Ngô Gia Tự,,Thành phố Bắc Ninh,Bắc Ninh,153,Đường Ngô Gia Tự,Phường Vũ Ninh,Thành phố Bắc Ninh,Bắc Ninh,drop_ward,cu
+"Phố Lương Định Của, Tỉnh Bắc Ninh",,Phố Lương Định Của,,,Tỉnh Bắc Ninh,263,Phố Lương Định Của,Phường Phương Liễu,,Tỉnh Bắc Ninh,drop_housenumber_ward,moi
+"Phố Lương Định Của, P.Phương Liễu, TX Quế Võ, Bắc Ninh",,Phố Lương Định Của,P.Phương Liễu,TX Quế Võ,Bắc Ninh,195,Phố Lương Định Của,Phường Phương Liễu,Thị xã Quế Võ,Bắc Ninh,drop_housenumber,cu
+"Đường Điện Biên Phủ, Phường Ba Đình, Thành phố Hà Nội",,Đường Điện Biên Phủ,Phường Ba Đình,,Thành phố Hà Nội,37,Đường Điện Biên Phủ,Phường Ba Đình,,Thành phố Hà Nội,drop_housenumber,moi
+"Phố Nguyễn Hữu Nghiêm, P. Kinh Bắc, Bắc Ninh",,Phố Nguyễn Hữu Nghiêm,P. Kinh Bắc,,Bắc Ninh,67,Phố Nguyễn Hữu Nghiêm,Phường Kinh Bắc,,Tỉnh Bắc Ninh,drop_housenumber,moi
+"2A, 422/14/8, Long biên, Hà Nội",2A,422/14/8,,Long biên,Hà Nội,2A,422/14/8,đức giang,Long biên,Hà Nội,drop_ward,cu
+"235, Đường Nguyễn Quốc Ích, Tỉnh Bắc Ninh",235,Đường Nguyễn Quốc Ích,,,Tỉnh Bắc Ninh,235,Đường Nguyễn Quốc Ích,Phường Võ Cường,,Tỉnh Bắc Ninh,drop_ward,moi
+"Đường Quang Trung, P. Quế Võ, Bắc Ninh",,Đường Quang Trung,P. Quế Võ,,Bắc Ninh,634,Đường Quang Trung,Phường Quế Võ,,Tỉnh Bắc Ninh,drop_housenumber,moi
+"Phố Nguyễn Nhân Dư, T. Bắc Ninh",,Phố Nguyễn Nhân Dư,,,T. Bắc Ninh,9,Phố Nguyễn Nhân Dư,Phường Phương Liễu,,Tỉnh Bắc Ninh,drop_housenumber_ward,moi
+"Phố Hàng Cót, Phường Hoàn Kiếm, Hà Nội",,Phố Hàng Cót,Phường Hoàn Kiếm,,Hà Nội,12C,Phố Hàng Cót,Phường Hoàn Kiếm,,Thành phố Hà Nội,drop_housenumber,moi
+"Ngõ 1 Phạm Tuấn Tài, Quận Cầu Giấy, TP.HN",,Ngõ 1 Phạm Tuấn Tài,,Quận Cầu Giấy,TP.HN,22,Ngõ 1 Phạm Tuấn Tài,Phường Dịch Vọng Hậu,Quận Cầu Giấy,Hà Nội,drop_housenumber_ward,cu
+"Đường Bà Chúa Kho, Tỉnh Bắc Ninh",,Đường Bà Chúa Kho,,,Tỉnh Bắc Ninh,76,Đường Bà Chúa Kho,Phường Vũ Ninh,,Tỉnh Bắc Ninh,drop_housenumber_ward,moi
+"Đường Đống Đa, P Hải Châu, Thành phố Đà Nẵng",,Đường Đống Đa,P Hải Châu,,Thành phố Đà Nẵng,28d,Đường Đống Đa,Phường Hải Châu,,Thành phố Đà Nẵng,drop_housenumber,moi
+"Phố Phương Vỹ, Phường Vũ Ninh, Bắc Ninh",,Phố Phương Vỹ,Phường Vũ Ninh,,Bắc Ninh,6,Phố Phương Vỹ,Phường Vũ Ninh,,Tỉnh Bắc Ninh,drop_housenumber,moi
+"25, Hàng Cá, Thành phố Hà Nội",25,Hàng Cá,,,Thành phố Hà Nội,25,Hàng Cá,Phường Hoàn Kiếm,,Thành phố Hà Nội,drop_ward,moi
+"Phố Mã Mây, Phường Hoàn Kiếm, Thành phố Hà Nội",,Phố Mã Mây,Phường Hoàn Kiếm,,Thành phố Hà Nội,107,Phố Mã Mây,Phường Hoàn Kiếm,,Thành phố Hà Nội,drop_housenumber,moi
+"Bà Hom, P.Phú Lâm, TPHCM",,Bà Hom,P.Phú Lâm,,TPHCM,110/43/47,Bà Hom,Phường Phú Lâm,,Thành phố Hồ Chí Minh,drop_housenumber,moi
+"Đường Trần Hưng Đạo, Phường Kinh Bắc, Tỉnh Bắc Ninh",,Đường Trần Hưng Đạo,Phường Kinh Bắc,,Tỉnh Bắc Ninh,185,Đường Trần Hưng Đạo,Phường Kinh Bắc,,Tỉnh Bắc Ninh,drop_housenumber,moi
+"NT02-82, Ngọc Trai 2, Gia Lâm, Hà Nội",NT02-82,Ngọc Trai 2,,Gia Lâm,Hà Nội,NT02-82,Ngọc Trai 2,Đa Tốn,Gia Lâm,Hà Nội,drop_ward,cu
+"Phố Lương Định Của, Phường Phương Liễu, Tỉnh Bắc Ninh",,Phố Lương Định Của,Phường Phương Liễu,,Tỉnh Bắc Ninh,39,Phố Lương Định Của,Phường Phương Liễu,,Tỉnh Bắc Ninh,drop_housenumber,moi
+"26, Phố Trần Quốc Hoàn, Quận Cầu Giấy, Hà Nội",26,Phố Trần Quốc Hoàn,,Quận Cầu Giấy,Hà Nội,26,Phố Trần Quốc Hoàn,Phường Dịch Vọng Hậu,Quận Cầu Giấy,Hà Nội,drop_ward,cu
+"172B, Lê Bình, Ninh Kiều, Cần Thơ",172B,Lê Bình,,Ninh Kiều,Cần Thơ,172B,Lê Bình,Xuân Khánh,Ninh Kiều,Cần Thơ,drop_ward,cu
+"Đường Lý Thường Kiệt, Tỉnh Bắc Ninh",,Đường Lý Thường Kiệt,,,Tỉnh Bắc Ninh,104,Đường Lý Thường Kiệt,Xã Tiên Du,,Tỉnh Bắc Ninh,drop_housenumber_ward,moi
+"Bành Văn Trân, Thành phố Hồ Chí Minh",,Bành Văn Trân,,,Thành phố Hồ Chí Minh,59,Bành Văn Trân,Phường Tân Sơn Nhất,,Thành phố Hồ Chí Minh,drop_housenumber_ward,moi
+"1b, Phố Tô Tịch, TP. Hà Nội",1b,Phố Tô Tịch,,,TP. Hà Nội,1b,Phố Tô Tịch,Phường Hoàn Kiếm,,Thành phố Hà Nội,drop_ward,moi
+"Đường Nguyễn Trãi, Phường Hạp Lĩnh, Tỉnh Bắc Ninh",,Đường Nguyễn Trãi,Phường Hạp Lĩnh,,Tỉnh Bắc Ninh,614,Đường Nguyễn Trãi,Phường Hạp Lĩnh,,Tỉnh Bắc Ninh,drop_housenumber,moi
+"HH01, Phố Tố Hữu, Hà Đông, Hà Nội",HH01,Phố Tố Hữu,,Hà Đông,Hà Nội,HH01,Phố Tố Hữu,Vạn Phúc,Hà Đông,Hà Nội,drop_ward,cu
+"P401 Lo 20A, Lê Hồng Phong, Đằng Giang, Hải Phòng",P401 Lo 20A,Lê Hồng Phong,Đằng Giang,,Hải Phòng,P401 Lo 20A,Lê Hồng Phong,Đằng Giang,Ngo Quyen,Hải Phòng,drop_district,cu
+"110, Đường Nguyễn Cao, T. Bắc Ninh",110,Đường Nguyễn Cao,,,T. Bắc Ninh,110,Đường Nguyễn Cao,Phường Kinh Bắc,,Tỉnh Bắc Ninh,drop_ward,moi
+"Đường Hữu Chấp, Kinh Bắc, Tỉnh Bắc Ninh",,Đường Hữu Chấp,Kinh Bắc,,Tỉnh Bắc Ninh,12,Đường Hữu Chấp,Phường Kinh Bắc,,Tỉnh Bắc Ninh,drop_housenumber,moi
+"20, Đường Vạn An - Tam Đa, Tỉnh Bắc Ninh",20,Đường Vạn An - Tam Đa,,,Tỉnh Bắc Ninh,20,Đường Vạn An - Tam Đa,Phường Kinh Bắc,,Tỉnh Bắc Ninh,drop_ward,moi
+"15, Ngách 1/88 Phạm Tuấn Tài, Quận Cầu Giấy, TP. Hà Nội",15,Ngách 1/88 Phạm Tuấn Tài,,Quận Cầu Giấy,TP. Hà Nội,15,Ngách 1/88 Phạm Tuấn Tài,Phường Dịch Vọng Hậu,Quận Cầu Giấy,Hà Nội,drop_ward,cu
+"407, Đường Ngô Gia Tự, Thành phố Bắc Ninh, Bắc Ninh",407,Đường Ngô Gia Tự,,Thành phố Bắc Ninh,Bắc Ninh,407,Đường Ngô Gia Tự,Phường Tiền Ninh Vệ,Thành phố Bắc Ninh,Bắc Ninh,drop_ward,cu
+"xóm Lác, Xã Mai Hạ, Phú Thọ",,xóm Lác,Xã Mai Hạ,,Phú Thọ,Nhà 28,xóm Lác,Xã Mai Hạ,,Tỉnh Phú Thọ,drop_housenumber,moi
+"Phố Văn Miếu, Văn Miếu, Đống Đa, Hà Nội",,Phố Văn Miếu,Văn Miếu,Đống Đa,Hà Nội,11,Phố Văn Miếu,Văn Miếu,Đống Đa,Hà Nội,drop_housenumber,cu
+"254, Đường Đấu Mã, Tỉnh Bắc Ninh",254,Đường Đấu Mã,,,Tỉnh Bắc Ninh,254,Đường Đấu Mã,Phường Vũ Ninh,,Tỉnh Bắc Ninh,drop_ward,moi
+"Đường Ngô Gia Tự, P. Vũ Ninh, Tỉnh Bắc Ninh",,Đường Ngô Gia Tự,P. Vũ Ninh,,Tỉnh Bắc Ninh,147,Đường Ngô Gia Tự,Phường Vũ Ninh,,Tỉnh Bắc Ninh,drop_housenumber,moi
+"Đường Hoàng Quốc Việt, Phường Vũ Ninh, T. Bắc Ninh",,Đường Hoàng Quốc Việt,Phường Vũ Ninh,,T. Bắc Ninh,44,Đường Hoàng Quốc Việt,Phường Vũ Ninh,,Tỉnh Bắc Ninh,drop_housenumber,moi
+"Đường Nội Khu Mỹ Thái 3, Quận 7, Thành phố Hồ Chí Minh",,Đường Nội Khu Mỹ Thái 3,,Quận 7,Thành phố Hồ Chí Minh,08,Đường Nội Khu Mỹ Thái 3,Tân Phú,Quận 7,Thành phố Hồ Chí Minh,drop_housenumber_ward,cu
+"20, Phố Tuệ Tĩnh, Nguyễn Du, Hà Nội",20,Phố Tuệ Tĩnh,Nguyễn Du,,Hà Nội,20,Phố Tuệ Tĩnh,Nguyễn Du,Hai Bà Trưng,Hà Nội,drop_district,cu
+"Bành Văn Trân, P 7, Quận Tân Bình, TP. HCM",,Bành Văn Trân,P 7,Quận Tân Bình,TP. HCM,59B,Bành Văn Trân,Phường 7,Quận Tân Bình,Thành phố Hồ Chí Minh,drop_housenumber,cu
+"Đường Ngọc Hân Công Chúa, Kinh Bắc, T.Bắc Ninh",,Đường Ngọc Hân Công Chúa,Kinh Bắc,,T.Bắc Ninh,36,Đường Ngọc Hân Công Chúa,Phường Kinh Bắc,,Tỉnh Bắc Ninh,drop_housenumber,moi
+"53, Đường Hoàng Quốc Việt, Quận Cầu Giấy, Hà Nội",53,Đường Hoàng Quốc Việt,,Quận Cầu Giấy,Hà Nội,53,Đường Hoàng Quốc Việt,Phường Nghĩa Đô,Quận Cầu Giấy,Hà Nội,drop_ward,cu
+"Ngõ 1 Phạm Tuấn Tài, Phường Dịch Vọng Hậu, Q.Cầu Giấy, TP. Hà Nội",,Ngõ 1 Phạm Tuấn Tài,Phường Dịch Vọng Hậu,Q.Cầu Giấy,TP. Hà Nội,22,Ngõ 1 Phạm Tuấn Tài,Phường Dịch Vọng Hậu,Quận Cầu Giấy,Hà Nội,drop_housenumber,cu
+"8, Ngõ 2 Đặng Thùy Trâm, Quận Bắc Từ Liêm, Hà Nội",8,Ngõ 2 Đặng Thùy Trâm,,Quận Bắc Từ Liêm,Hà Nội,8,Ngõ 2 Đặng Thùy Trâm,Phường Cổ Nhuế 1,Quận Bắc Từ Liêm,Hà Nội,drop_ward,cu
+"9, Phố Thái Phiên, Hai Bà Trưng, HN",9,Phố Thái Phiên,,Hai Bà Trưng,HN,9,Phố Thái Phiên,Lê Đại Hành,Hai Bà Trưng,Hà Nội,drop_ward,cu
+"Cốm Vòng, Dịch Vọng, Hà Nội",,Cốm Vòng,,Dịch Vọng,Hà Nội,76,Cốm Vòng,Dịch Vọng Hậu,Dịch Vọng,Hà Nội,drop_housenumber_ward,cu
+"5, Ngách 61/44 Phạm Tuấn Tài, P.Cổ Nhuế 1, Hà Nội",5,Ngách 61/44 Phạm Tuấn Tài,P.Cổ Nhuế 1,,Hà Nội,5,Ngách 61/44 Phạm Tuấn Tài,Phường Cổ Nhuế 1,Quận Bắc Từ Liêm,Hà Nội,drop_district,cu
+"Phố Ngọc Hà, Quận Ba Đình, TP.HN",,Phố Ngọc Hà,,Quận Ba Đình,TP.HN,1D,Phố Ngọc Hà,Phường Đội Cấn,Quận Ba Đình,Hà Nội,drop_housenumber_ward,cu
+"167, Phạm Văn Hai, Phường 5, Thành phố Hồ Chí Minh",167,Phạm Văn Hai,Phường 5,,Thành phố Hồ Chí Minh,167,Phạm Văn Hai,Phường 5,Tân Bình,Thành phố Hồ Chí Minh,drop_district,cu
+"Ngõ 757 Nguyễn Văn Linh, Long Biên, HN",,Ngõ 757 Nguyễn Văn Linh,,Long Biên,HN,8,Ngõ 757 Nguyễn Văn Linh,Sài Đồng,Long Biên,Hà Nội,drop_housenumber_ward,cu
+"80, Ngõ 1 Phạm Tuấn Tài, Phường Dịch Vọng Hậu, TP.HN",80,Ngõ 1 Phạm Tuấn Tài,Phường Dịch Vọng Hậu,,TP.HN,80,Ngõ 1 Phạm Tuấn Tài,Phường Dịch Vọng Hậu,Quận Cầu Giấy,Hà Nội,drop_district,cu
+"Đường Đấu Mã, Tỉnh Bắc Ninh",,Đường Đấu Mã,,,Tỉnh Bắc Ninh,2A,Đường Đấu Mã,Phường Vũ Ninh,,Tỉnh Bắc Ninh,drop_housenumber_ward,moi
+"28, Đường Giếng Ngọc, Tỉnh Bắc Ninh",28,Đường Giếng Ngọc,,,Tỉnh Bắc Ninh,28,Đường Giếng Ngọc,Phường Kinh Bắc,,Tỉnh Bắc Ninh,drop_ward,moi
+"Đường Hoàng Quốc Việt, Thành phố Hà Nội",,Đường Hoàng Quốc Việt,,,Thành phố Hà Nội,3,Đường Hoàng Quốc Việt,Phường Nghĩa Đô,,Thành phố Hà Nội,drop_housenumber_ward,moi
+"Phố Chả Cá, HN",,Phố Chả Cá,,,HN,17,Phố Chả Cá,Phường Hoàn Kiếm,,Thành phố Hà Nội,drop_housenumber_ward,moi
+"Đường Hoàng Quốc Việt, P Vũ Ninh, T Bắc Ninh",,Đường Hoàng Quốc Việt,P Vũ Ninh,,T Bắc Ninh,390,Đường Hoàng Quốc Việt,Phường Vũ Ninh,,Tỉnh Bắc Ninh,drop_housenumber,moi
+"Đường Bùi Công Trừng, Nam cầu Nguyễn Tri Phương, Cẩm Lệ, Đà Nẵng",,Đường Bùi Công Trừng,Nam cầu Nguyễn Tri Phương,Cẩm Lệ,Đà Nẵng,71,Đường Bùi Công Trừng,Nam cầu Nguyễn Tri Phương,Cẩm Lệ,Đà Nẵng,drop_housenumber,cu
+"NT11-15, Ngọc Trai 11, Đa Tốn, Hà Nội",NT11-15,Ngọc Trai 11,Đa Tốn,,Hà Nội,NT11-15,Ngọc Trai 11,Đa Tốn,Gia Lâm,Hà Nội,drop_district,cu
+"Phố Hoàng Đạo Thúy, Thanh Xuân, Hà Nội",,Phố Hoàng Đạo Thúy,,Thanh Xuân,Hà Nội,6,Phố Hoàng Đạo Thúy,Nhân Chính,Thanh Xuân,Hà Nội,drop_housenumber_ward,cu
+"Ngõ 12 Đường Như Nguyệt, Phường Vũ Ninh, T. Bắc Ninh",,Ngõ 12 Đường Như Nguyệt,Phường Vũ Ninh,,T. Bắc Ninh,25,Ngõ 12 Đường Như Nguyệt,Phường Vũ Ninh,,Tỉnh Bắc Ninh,drop_housenumber,moi
+"6, Phố Kim Đồng, Giáp Bát, Hà Nội",6,Phố Kim Đồng,Giáp Bát,,Hà Nội,6,Phố Kim Đồng,Giáp Bát,Hoàng Mai,Hà Nội,drop_district,cu
+"Đường Hoàng Quốc Việt, Tỉnh Bắc Ninh",,Đường Hoàng Quốc Việt,,,Tỉnh Bắc Ninh,114,Đường Hoàng Quốc Việt,Phường Vũ Ninh,,Tỉnh Bắc Ninh,drop_housenumber_ward,moi
+"5, Phố Nguyễn Văn Trỗi, Phường Tiền Ninh Vệ, Bắc Ninh",5,Phố Nguyễn Văn Trỗi,Phường Tiền Ninh Vệ,,Bắc Ninh,5,Phố Nguyễn Văn Trỗi,Phường Tiền Ninh Vệ,Thành phố Bắc Ninh,Bắc Ninh,drop_district,cu
+"Đường Hai Bà Trưng, T. Bắc Ninh",,Đường Hai Bà Trưng,,,T. Bắc Ninh,86,Đường Hai Bà Trưng,Phường Kinh Bắc,,Tỉnh Bắc Ninh,drop_housenumber_ward,moi
+"35, Phố Trang Liệt 1, Bắc Ninh",35,Phố Trang Liệt 1,,,Bắc Ninh,35,Phố Trang Liệt 1,Phường Đồng Nguyên,,Tỉnh Bắc Ninh,drop_ward,moi
+"3, Đường Phúc Sơn, Thành phố Bắc Ninh, Bắc Ninh",3,Đường Phúc Sơn,,Thành phố Bắc Ninh,Bắc Ninh,3,Đường Phúc Sơn,Phường Vũ Ninh,Thành phố Bắc Ninh,Bắc Ninh,drop_ward,cu
+"SH16-21, San Hô 16, Đa Tốn, Hà Nội",SH16-21,San Hô 16,Đa Tốn,,Hà Nội,SH16-21,San Hô 16,Đa Tốn,Gia Lâm,Hà Nội,drop_district,cu
+"292, Phố Lương Định Của, TX. Quế Võ, Bắc Ninh",292,Phố Lương Định Của,,TX. Quế Võ,Bắc Ninh,292,Phố Lương Định Của,Phường Phương Liễu,Thị xã Quế Võ,Bắc Ninh,drop_ward,cu
+"101, Đường Hoàng Hoa Thám, Tỉnh Bắc Ninh",101,Đường Hoàng Hoa Thám,,,Tỉnh Bắc Ninh,101,Đường Hoàng Hoa Thám,Phường Võ Cường,,Tỉnh Bắc Ninh,drop_ward,moi
+"20A, Phố Chả Cá, Hoàn Kiếm, TP.HN",20A,Phố Chả Cá,,Hoàn Kiếm,TP.HN,20A,Phố Chả Cá,Phường Hàng Bồ,Hoàn Kiếm,Hà Nội,drop_ward,cu
+"Đường Đấu Mã, P.Vũ Ninh, Bắc Ninh",,Đường Đấu Mã,P.Vũ Ninh,,Bắc Ninh,5B,Đường Đấu Mã,Phường Vũ Ninh,,Tỉnh Bắc Ninh,drop_housenumber,moi
+"San Hô 11, Đa Tốn, Gia Lâm, Hà Nội",,San Hô 11,Đa Tốn,Gia Lâm,Hà Nội,SH11-18,San Hô 11,Đa Tốn,Gia Lâm,Hà Nội,drop_housenumber,cu
+"360, Phố Huế, Phố Huế, Hà Nội",360,Phố Huế,Phố Huế,,Hà Nội,360,Phố Huế,Phố Huế,Hai Bà Trưng,Hà Nội,drop_district,cu
+"Phố Hàng Cót, P.Hoàn Kiếm, Thành phố Hà Nội",,Phố Hàng Cót,P.Hoàn Kiếm,,Thành phố Hà Nội,11,Phố Hàng Cót,Phường Hoàn Kiếm,,Thành phố Hà Nội,drop_housenumber,moi
+"Ngõ 237 Đường Thiên Đức, Kinh Bắc, Tỉnh Bắc Ninh",,Ngõ 237 Đường Thiên Đức,Kinh Bắc,,Tỉnh Bắc Ninh,11,Ngõ 237 Đường Thiên Đức,Phường Kinh Bắc,,Tỉnh Bắc Ninh,drop_housenumber,moi
+"Ngõ 265 Đường Cô Mễ, P Vũ Ninh, T Bắc Ninh",,Ngõ 265 Đường Cô Mễ,P Vũ Ninh,,T Bắc Ninh,14A,Ngõ 265 Đường Cô Mễ,Phường Vũ Ninh,,Tỉnh Bắc Ninh,drop_housenumber,moi
+"Đường Số 16, P.Tân Phú, TP.HCM",,Đường Số 16,P.Tân Phú,,TP.HCM,31/1 Block M7,Đường Số 16,Phường Tân Phú,,Thành phố Hồ Chí Minh,drop_housenumber,moi
+"Ngõ 33 Phạm Tuấn Tài, Phường Dịch Vọng Hậu, Q. Cầu Giấy, Hà Nội",,Ngõ 33 Phạm Tuấn Tài,Phường Dịch Vọng Hậu,Q. Cầu Giấy,Hà Nội,16,Ngõ 33 Phạm Tuấn Tài,Phường Dịch Vọng Hậu,Quận Cầu Giấy,Hà Nội,drop_housenumber,cu
+"Phố Lương Định Của, Thị xã Quế Võ, Bắc Ninh",,Phố Lương Định Của,,Thị xã Quế Võ,Bắc Ninh,78,Phố Lương Định Của,Phường Phương Liễu,Thị xã Quế Võ,Bắc Ninh,drop_housenumber_ward,cu
+"Ngõ 68 Ngụy Như Kon Tum, Thành phố Hà Nội",,Ngõ 68 Ngụy Như Kon Tum,,,Thành phố Hà Nội,Số 80,Ngõ 68 Ngụy Như Kon Tum,Phường Thanh Xuân,,Thành phố Hà Nội,drop_housenumber_ward,moi
+"05, Đường Nội Khu 02, P. Tân Phú, Thành phố Hồ Chí Minh",05,Đường Nội Khu 02,P. Tân Phú,,Thành phố Hồ Chí Minh,05,Đường Nội Khu 02,Phường Tân Phú,Quận 7,Thành phố Hồ Chí Minh,drop_district,cu
+"10, Đường Lý Thái Tổ, Tỉnh Bắc Ninh",10,Đường Lý Thái Tổ,,,Tỉnh Bắc Ninh,10,Đường Lý Thái Tổ,Phường Kinh Bắc,,Tỉnh Bắc Ninh,drop_ward,moi
+"Đường Đàm Văn Tiết, Phường Nam Sơn, Bắc Ninh",,Đường Đàm Văn Tiết,Phường Nam Sơn,,Bắc Ninh,578,Đường Đàm Văn Tiết,Phường Nam Sơn,,Tỉnh Bắc Ninh,drop_housenumber,moi
+"11, Hàng Rươi, Thành phố Hà Nội",11,Hàng Rươi,,,Thành phố Hà Nội,11,Hàng Rươi,Phường Hoàn Kiếm,,Thành phố Hà Nội,drop_ward,moi
+"18, Ngách 28/2 Ông Ích Khiêm, TP.HN",18,Ngách 28/2 Ông Ích Khiêm,,,TP.HN,18,Ngách 28/2 Ông Ích Khiêm,Phường Ba Đình,,Thành phố Hà Nội,drop_ward,moi
+"16, Ngách 3/1 Phạm Tuấn Tài, Quận Cầu Giấy, HN",16,Ngách 3/1 Phạm Tuấn Tài,,Quận Cầu Giấy,HN,16,Ngách 3/1 Phạm Tuấn Tài,Phường Dịch Vọng Hậu,Quận Cầu Giấy,Hà Nội,drop_ward,cu
+"272, Đường Hoàng Quốc Việt, Bắc Ninh",272,Đường Hoàng Quốc Việt,,,Bắc Ninh,272,Đường Hoàng Quốc Việt,Phường Vũ Ninh,,Tỉnh Bắc Ninh,drop_ward,moi
+"83 Ma May Street, P.Hoàn Kiếm, Hà Nội",,83 Ma May Street,P.Hoàn Kiếm,,Hà Nội,83,83 Ma May Street,Phường Hoàn Kiếm,,Thành phố Hà Nội,drop_housenumber,moi
+"Phố Bát Sứ, P Hoàn Kiếm, Thành phố Hà Nội",,Phố Bát Sứ,P Hoàn Kiếm,,Thành phố Hà Nội,43,Phố Bát Sứ,Phường Hoàn Kiếm,,Thành phố Hà Nội,drop_housenumber,moi
+"Đường Số 23, Tân Phú, Quận 7, Thành phố Hồ Chí Minh",,Đường Số 23,Tân Phú,Quận 7,Thành phố Hồ Chí Minh,70,Đường Số 23,Tân Phú,Quận 7,Thành phố Hồ Chí Minh,drop_housenumber,cu
+"Đường Lý Thường Kiệt, Phường Vũ Ninh, Tỉnh Bắc Ninh",,Đường Lý Thường Kiệt,Phường Vũ Ninh,,Tỉnh Bắc Ninh,68,Đường Lý Thường Kiệt,Phường Vũ Ninh,,Tỉnh Bắc Ninh,drop_housenumber,moi
+"Phố Vạn Hạnh, P. Đình Bảng, Thành phố Từ Sơn, Bắc Ninh",,Phố Vạn Hạnh,P. Đình Bảng,Thành phố Từ Sơn,Bắc Ninh,26,Phố Vạn Hạnh,Phường Đình Bảng,Thành phố Từ Sơn,Bắc Ninh,drop_housenumber,cu
+"255, Đường Nguyễn Gia Thiều, Tỉnh Bắc Ninh",255,Đường Nguyễn Gia Thiều,,,Tỉnh Bắc Ninh,255,Đường Nguyễn Gia Thiều,Phường Kinh Bắc,,Tỉnh Bắc Ninh,drop_ward,moi
+"Ngõ 71 Lê Hồng Phong, Thành phố Hà Nội",,Ngõ 71 Lê Hồng Phong,,,Thành phố Hà Nội,4,Ngõ 71 Lê Hồng Phong,Phường Ba Đình,,Thành phố Hà Nội,drop_housenumber_ward,moi
+"Đường Thanh Sơn, Phường Vũ Ninh, Tỉnh Bắc Ninh",,Đường Thanh Sơn,Phường Vũ Ninh,,Tỉnh Bắc Ninh,14,Đường Thanh Sơn,Phường Vũ Ninh,,Tỉnh Bắc Ninh,drop_housenumber,moi
+"Đường Nguyễn Văn Cừ, Phường Võ Cường, T Bắc Ninh",,Đường Nguyễn Văn Cừ,Phường Võ Cường,,T Bắc Ninh,435,Đường Nguyễn Văn Cừ,Phường Võ Cường,,Tỉnh Bắc Ninh,drop_housenumber,moi
+"sn 11, tổ 13, Ngách 640/21/10 Nguyễn Văn Cừ, Gia Thụy, Hà Nội","sn 11, tổ 13",Ngách 640/21/10 Nguyễn Văn Cừ,Gia Thụy,,Hà Nội,"sn 11, tổ 13",Ngách 640/21/10 Nguyễn Văn Cừ,Gia Thụy,Long Biên,Hà Nội,drop_district,cu
+"Ngõ Hàng Bún, Phường Ba Đình, Thành phố Hà Nội",,Ngõ Hàng Bún,Phường Ba Đình,,Thành phố Hà Nội,55,Ngõ Hàng Bún,Phường Ba Đình,,Thành phố Hà Nội,drop_housenumber,moi
+"Phố Nguyễn Hữu Huân, Phường Hoàn Kiếm, Thành phố Hà Nội",,Phố Nguyễn Hữu Huân,Phường Hoàn Kiếm,,Thành phố Hà Nội,27,Phố Nguyễn Hữu Huân,Phường Hoàn Kiếm,,Thành phố Hà Nội,drop_housenumber,moi
+"55, Xuân Thuỷ, Thành phố Hồ Chí Minh",55,Xuân Thuỷ,,,Thành phố Hồ Chí Minh,55,Xuân Thuỷ,Phường An Khánh,,Thành phố Hồ Chí Minh,drop_ward,moi
+"Ngõ 4 Phố Trần Bình Trọng, Phường Phương Liễu, Thị xã Quế Võ, Bắc Ninh",,Ngõ 4 Phố Trần Bình Trọng,Phường Phương Liễu,Thị xã Quế Võ,Bắc Ninh,12,Ngõ 4 Phố Trần Bình Trọng,Phường Phương Liễu,Thị xã Quế Võ,Bắc Ninh,drop_housenumber,cu
+"1031, Đường Quang Trung, Bắc Ninh",1031,Đường Quang Trung,,,Bắc Ninh,1031,Đường Quang Trung,Phường Quế Võ,,Tỉnh Bắc Ninh,drop_ward,moi
+"Phố Nguyễn Thái Học, TP. Hà Nội",,Phố Nguyễn Thái Học,,,TP. Hà Nội,58,Phố Nguyễn Thái Học,Phường Ba Đình,,Thành phố Hà Nội,drop_housenumber_ward,moi
+"Phố Yên Mẫn, P. Kinh Bắc, Tỉnh Bắc Ninh",,Phố Yên Mẫn,P. Kinh Bắc,,Tỉnh Bắc Ninh,24,Phố Yên Mẫn,Phường Kinh Bắc,,Tỉnh Bắc Ninh,drop_housenumber,moi
+"Đường Đàm Văn Tiết, P. Nam Sơn, Bắc Ninh",,Đường Đàm Văn Tiết,P. Nam Sơn,,Bắc Ninh,364,Đường Đàm Văn Tiết,Phường Nam Sơn,,Tỉnh Bắc Ninh,drop_housenumber,moi
+"Đỗ Thừa Luông, Tân Quý, Tân Phú, TP. HCM",,Đỗ Thừa Luông,Tân Quý,Tân Phú,TP. HCM,61,Đỗ Thừa Luông,Tân Quý,Tân Phú,Hồ Chí Minh,drop_housenumber,cu
+"Đường Trần Hưng Đạo, Tỉnh Bắc Ninh",,Đường Trần Hưng Đạo,,,Tỉnh Bắc Ninh,242,Đường Trần Hưng Đạo,Phường Kinh Bắc,,Tỉnh Bắc Ninh,drop_housenumber_ward,moi
+"194, Đường Như Nguyệt, Bắc Ninh",194,Đường Như Nguyệt,,,Bắc Ninh,194,Đường Như Nguyệt,Phường Vũ Ninh,,Tỉnh Bắc Ninh,drop_ward,moi
+"Ngõ 46 Vũ Xuân Thiều, Sài Đồng, Long Biên, Hà Nội",,Ngõ 46 Vũ Xuân Thiều,Sài Đồng,Long Biên,Hà Nội,57,Ngõ 46 Vũ Xuân Thiều,Sài Đồng,Long Biên,Hà Nội,drop_housenumber,cu
+"Ba Mươi Tháng Tư, Bến Tre, Bến Tre",,Ba Mươi Tháng Tư,,Bến Tre,Bến Tre,109/1,Ba Mươi Tháng Tư,phường 4,Bến Tre,Bến Tre,drop_housenumber_ward,cu
+"Phố Văn Miếu, Đống Đa, Hà Nội",,Phố Văn Miếu,,Đống Đa,Hà Nội,32B,Phố Văn Miếu,Văn Miếu,Đống Đa,Hà Nội,drop_housenumber_ward,cu
+"Đường số 32, Bắc Tân Uyên, Bình Dương",,Đường số 32,,Bắc Tân Uyên,Bình Dương,12A,Đường số 32,Tân Bình,Bắc Tân Uyên,Bình Dương,drop_housenumber_ward,cu
+"45, Đường Quang Trung, Tỉnh Bắc Ninh",45,Đường Quang Trung,,,Tỉnh Bắc Ninh,45,Đường Quang Trung,Phường Nhân Hòa,,Tỉnh Bắc Ninh,drop_ward,moi
+"Đường Lê Văn Hiến, Đức Thắng, Bắc Từ Liêm, HN",,Đường Lê Văn Hiến,Đức Thắng,Bắc Từ Liêm,HN,5,Đường Lê Văn Hiến,Đức Thắng,Bắc Từ Liêm,Hà Nội,drop_housenumber,cu
+"Ngõ 35 Đường Huyền Quang, Phường Kinh Bắc, Bắc Ninh",,Ngõ 35 Đường Huyền Quang,Phường Kinh Bắc,,Bắc Ninh,28,Ngõ 35 Đường Huyền Quang,Phường Kinh Bắc,,Tỉnh Bắc Ninh,drop_housenumber,moi
+"490, Đường Âu Cơ, Tỉnh Bắc Ninh",490,Đường Âu Cơ,,,Tỉnh Bắc Ninh,490,Đường Âu Cơ,Phường Thuận Thành,,Tỉnh Bắc Ninh,drop_ward,moi
+"Hàng Bạc, Thành phố Hà Nội",,Hàng Bạc,,,Thành phố Hà Nội,74,Hàng Bạc,Phường Hoàn Kiếm,,Thành phố Hà Nội,drop_housenumber_ward,moi
+"Đường Số 19, Phường Tân Phú, Thành phố Hồ Chí Minh",,Đường Số 19,Phường Tân Phú,,Thành phố Hồ Chí Minh,49,Đường Số 19,Phường Tân Phú,,Thành phố Hồ Chí Minh,drop_housenumber,moi
+"Đường Mỹ Phú 1B, Phường Tân Phú, Thành phố Hồ Chí Minh",,Đường Mỹ Phú 1B,Phường Tân Phú,,Thành phố Hồ Chí Minh,06,Đường Mỹ Phú 1B,Phường Tân Phú,,Thành phố Hồ Chí Minh,drop_housenumber,moi
+"Đường Huyền Quang, Kinh Bắc, T. Bắc Ninh",,Đường Huyền Quang,Kinh Bắc,,T. Bắc Ninh,36,Đường Huyền Quang,Phường Kinh Bắc,,Tỉnh Bắc Ninh,drop_housenumber,moi
+"Đường Nguyễn Trãi, Thanh Xuân Nam, Thanh Xuân, TP. Hà Nội",,Đường Nguyễn Trãi,Thanh Xuân Nam,Thanh Xuân,TP. Hà Nội,497,Đường Nguyễn Trãi,Thanh Xuân Nam,Thanh Xuân,Hà Nội,drop_housenumber,cu
+"Đường Hữu Chấp, P.Kinh Bắc, Tỉnh Bắc Ninh",,Đường Hữu Chấp,P.Kinh Bắc,,Tỉnh Bắc Ninh,12A,Đường Hữu Chấp,Phường Kinh Bắc,,Tỉnh Bắc Ninh,drop_housenumber,moi
+"SH12-08, San Hô 12, Gia Lâm, Hà Nội",SH12-08,San Hô 12,,Gia Lâm,Hà Nội,SH12-08,San Hô 12,Đa Tốn,Gia Lâm,Hà Nội,drop_ward,cu
+"Phố Hàng Buồm, Phường Hoàn Kiếm, TP. Hà Nội",,Phố Hàng Buồm,Phường Hoàn Kiếm,,TP. Hà Nội,26,Phố Hàng Buồm,Phường Hoàn Kiếm,,Thành phố Hà Nội,drop_housenumber,moi
+"Đường Lê Văn Thịnh, P Kinh Bắc, T.Bắc Ninh",,Đường Lê Văn Thịnh,P Kinh Bắc,,T.Bắc Ninh,42,Đường Lê Văn Thịnh,Phường Kinh Bắc,,Tỉnh Bắc Ninh,drop_housenumber,moi
+"Phố Lê Đại Hành, Hai Bà Trưng, Hà Nội",,Phố Lê Đại Hành,,Hai Bà Trưng,Hà Nội,44,Phố Lê Đại Hành,Lê Đại Hành,Hai Bà Trưng,Hà Nội,drop_housenumber_ward,cu
+"Đường Nguyễn Đăng Đạo, Phường Kinh Bắc, Tỉnh Bắc Ninh",,Đường Nguyễn Đăng Đạo,Phường Kinh Bắc,,Tỉnh Bắc Ninh,10A,Đường Nguyễn Đăng Đạo,Phường Kinh Bắc,,Tỉnh Bắc Ninh,drop_housenumber,moi
+"Ngõ 267 Phố Lương Định Của, Bắc Ninh",,Ngõ 267 Phố Lương Định Của,,,Bắc Ninh,11,Ngõ 267 Phố Lương Định Của,Phường Phương Liễu,,Tỉnh Bắc Ninh,drop_housenumber_ward,moi
+"20, Phố Lương Định Của, Tỉnh Bắc Ninh",20,Phố Lương Định Của,,,Tỉnh Bắc Ninh,20,Phố Lương Định Của,Phường Võ Cường,,Tỉnh Bắc Ninh,drop_ward,moi
+"96, Ngõ 1 Phạm Tuấn Tài, Quận Cầu Giấy, TP.HN",96,Ngõ 1 Phạm Tuấn Tài,,Quận Cầu Giấy,TP.HN,96,Ngõ 1 Phạm Tuấn Tài,Phường Dịch Vọng Hậu,Quận Cầu Giấy,Hà Nội,drop_ward,cu
+"25, Phố Đoàn Trần Nghiệp, Lê Đại Hành, TP. Hà Nội",25,Phố Đoàn Trần Nghiệp,Lê Đại Hành,,TP. Hà Nội,25,Phố Đoàn Trần Nghiệp,Lê Đại Hành,Hai Bà Trưng,Hà Nội,drop_district,cu
+"76, Phố Lý Khánh Văn, Tỉnh Bắc Ninh",76,Phố Lý Khánh Văn,,,Tỉnh Bắc Ninh,76,Phố Lý Khánh Văn,Phường Từ Sơn,,Tỉnh Bắc Ninh,drop_ward,moi
+"117/131, Hẻm 117 Nguyễn Hữu Cảnh, Thành phố Hồ Chí Minh",117/131,Hẻm 117 Nguyễn Hữu Cảnh,,,Thành phố Hồ Chí Minh,117/131,Hẻm 117 Nguyễn Hữu Cảnh,Phường Thạnh Mỹ Tây,,Thành phố Hồ Chí Minh,drop_ward,moi
+"Tạ Hiện, Quận 2, TP. HCM",,Tạ Hiện,,Quận 2,TP. HCM,3,Tạ Hiện,phường Thạnh Mỹ Lợi,Quận 2,TP. Hồ Chí Minh,drop_housenumber_ward,cu
+"1, Phố Vũ Huy Dực, T. Bắc Ninh",1,Phố Vũ Huy Dực,,,T. Bắc Ninh,1,Phố Vũ Huy Dực,Phường Quế Võ,,Tỉnh Bắc Ninh,drop_ward,moi
+"Nguyễn Quang Diệu (Đường số 19), Tân Qúy, Tân Phú, Hồ Chí Minh",,Nguyễn Quang Diệu (Đường số 19),Tân Qúy,Tân Phú,Hồ Chí Minh,14/74,Nguyễn Quang Diệu (Đường số 19),Tân Qúy,Tân Phú,Hồ Chí Minh,drop_housenumber,cu
+"148, Phố Bùi Thị Xuân, Hai Bà Trưng, Hà Nội",148,Phố Bùi Thị Xuân,,Hai Bà Trưng,Hà Nội,148,Phố Bùi Thị Xuân,Nguyễn Du,Hai Bà Trưng,Hà Nội,drop_ward,cu
+"Đường Dương Ổ, P. Võ Cường, Bắc Ninh",,Đường Dương Ổ,P. Võ Cường,,Bắc Ninh,114,Đường Dương Ổ,Phường Võ Cường,,Tỉnh Bắc Ninh,drop_housenumber,moi
+"69, Phố Triệu Việt Vương, Nguyễn Du, Hà Nội",69,Phố Triệu Việt Vương,Nguyễn Du,,Hà Nội,69,Phố Triệu Việt Vương,Nguyễn Du,Hai Bà Trưng,Hà Nội,drop_district,cu
+"Đoàn Như Hài, Xóm Chiếu, HCM",,Đoàn Như Hài,Xóm Chiếu,,HCM,14,Đoàn Như Hài,Phường Xóm Chiếu,,Thành phố Hồ Chí Minh,drop_housenumber,moi
+"Đường Lý Đạo Thành, Phường Võ Cường, Thành phố Bắc Ninh, Bắc Ninh",,Đường Lý Đạo Thành,Phường Võ Cường,Thành phố Bắc Ninh,Bắc Ninh,196,Đường Lý Đạo Thành,Phường Võ Cường,Thành phố Bắc Ninh,Bắc Ninh,drop_housenumber,cu
+"Đường Nguyễn Quốc Ích, P.Võ Cường, Tỉnh Bắc Ninh",,Đường Nguyễn Quốc Ích,P.Võ Cường,,Tỉnh Bắc Ninh,391,Đường Nguyễn Quốc Ích,Phường Võ Cường,,Tỉnh Bắc Ninh,drop_housenumber,moi
+"56, Đường Hữu Chấp, Tỉnh Bắc Ninh",56,Đường Hữu Chấp,,,Tỉnh Bắc Ninh,56,Đường Hữu Chấp,Phường Kinh Bắc,,Tỉnh Bắc Ninh,drop_ward,moi
+"Ngõ 22 Phố Tôn Thất Thuyết, P.Phương Liễu, TX.Quế Võ, Bắc Ninh",,Ngõ 22 Phố Tôn Thất Thuyết,P.Phương Liễu,TX.Quế Võ,Bắc Ninh,18,Ngõ 22 Phố Tôn Thất Thuyết,Phường Phương Liễu,Thị xã Quế Võ,Bắc Ninh,drop_housenumber,cu
+"159, Đường Ngô Gia Tự, Tỉnh Bắc Ninh",159,Đường Ngô Gia Tự,,,Tỉnh Bắc Ninh,159,Đường Ngô Gia Tự,Phường Vũ Ninh,,Tỉnh Bắc Ninh,drop_ward,moi
+"Đường Hoàng Quốc Việt, Vũ Ninh, Tỉnh Bắc Ninh",,Đường Hoàng Quốc Việt,Vũ Ninh,,Tỉnh Bắc Ninh,390,Đường Hoàng Quốc Việt,Phường Vũ Ninh,,Tỉnh Bắc Ninh,drop_housenumber,moi
+"50, Đường Nguyễn Thị Bảy, Thanh Khê, Đà Nẵng",50,Đường Nguyễn Thị Bảy,,Thanh Khê,Đà Nẵng,50,Đường Nguyễn Thị Bảy,Thanh Khê Tây,Thanh Khê,Đà Nẵng,drop_ward,cu
+"Hẻm 199 đường 3/2, 11, 10, TP. HCM",,Hẻm 199 đường 3/2,11,10,TP. HCM,199/14B,Hẻm 199 đường 3/2,11,10,Hồ CHí Minh,drop_housenumber,cu
+"Đường Cầu Rồng, Võ Cường, T Bắc Ninh",,Đường Cầu Rồng,Võ Cường,,T Bắc Ninh,155,Đường Cầu Rồng,Phường Võ Cường,,Tỉnh Bắc Ninh,drop_housenumber,moi
+"Ngọc Trai 2, Đa Tốn, Gia Lâm, Hà Nội",,Ngọc Trai 2,Đa Tốn,Gia Lâm,Hà Nội,NT02-54,Ngọc Trai 2,Đa Tốn,Gia Lâm,Hà Nội,drop_housenumber,cu
+"85/4C, XUÂN THỚI SƠN 26, Thành phố Hồ Chí Minh",85/4C,XUÂN THỚI SƠN 26,,,Thành phố Hồ Chí Minh,85/4C,XUÂN THỚI SƠN 26,Xã Xuân Thới Sơn,,Thành phố Hồ Chí Minh,drop_ward,moi
+"37D, Phố Văn Miếu, Văn Miếu, Hà Nội",37D,Phố Văn Miếu,Văn Miếu,,Hà Nội,37D,Phố Văn Miếu,Văn Miếu,Đống Đa,Hà Nội,drop_district,cu
+"33, Phố Vũ Huy Dực, Tỉnh Bắc Ninh",33,Phố Vũ Huy Dực,,,Tỉnh Bắc Ninh,33,Phố Vũ Huy Dực,Phường Quế Võ,,Tỉnh Bắc Ninh,drop_ward,moi
+"Bùi Thị Xuân, 1, Tân Bình, TP.HCM",,Bùi Thị Xuân,1,Tân Bình,TP.HCM,193,Bùi Thị Xuân,Phường 1,Tân Bình,Hồ Chí Minh,drop_housenumber,cu
+"Đường Nội Khu 04, P. Tân Phú, TP.HCM",,Đường Nội Khu 04,P. Tân Phú,,TP.HCM,09,Đường Nội Khu 04,Phường Tân Phú,,Thành phố Hồ Chí Minh,drop_housenumber,moi
+"100, Đường Hữu Chấp, Tỉnh Bắc Ninh",100,Đường Hữu Chấp,,,Tỉnh Bắc Ninh,100,Đường Hữu Chấp,Phường Kinh Bắc,,Tỉnh Bắc Ninh,drop_ward,moi
+"Đường Số 19, Thành phố Hồ Chí Minh",,Đường Số 19,,,Thành phố Hồ Chí Minh,47,Đường Số 19,Phường Tân Phú,,Thành phố Hồ Chí Minh,drop_housenumber_ward,moi
+"Ngõ 810 Đường Đấu Mã, T. Bắc Ninh",,Ngõ 810 Đường Đấu Mã,,,T. Bắc Ninh,46,Ngõ 810 Đường Đấu Mã,Phường Võ Cường,,Tỉnh Bắc Ninh,drop_housenumber_ward,moi
+"Phố Song Tháp, Phù Khê, Tỉnh Bắc Ninh",,Phố Song Tháp,Phù Khê,,Tỉnh Bắc Ninh,12,Phố Song Tháp,Phường Phù Khê,,Tỉnh Bắc Ninh,drop_housenumber,moi
+"Đường số 4A, Bình Chánh, Hồ Chí Minh",,Đường số 4A,,Bình Chánh,Hồ Chí Minh,58,Đường số 4A,Phong Phú,Bình Chánh,Hồ Chí Minh,drop_housenumber_ward,cu
+"Ngách 643/40 Phạm Văn Đồng, P. Cổ Nhuế 1, Quận Bắc Từ Liêm, Hà Nội",,Ngách 643/40 Phạm Văn Đồng,P. Cổ Nhuế 1,Quận Bắc Từ Liêm,Hà Nội,10,Ngách 643/40 Phạm Văn Đồng,Phường Cổ Nhuế 1,Quận Bắc Từ Liêm,Hà Nội,drop_housenumber,cu
+"45, Đường Xuân Thủy, Phường Dịch Vọng Hậu, TP.HN",45,Đường Xuân Thủy,Phường Dịch Vọng Hậu,,TP.HN,45,Đường Xuân Thủy,Phường Dịch Vọng Hậu,Quận Cầu Giấy,Hà Nội,drop_district,cu
+"K96/146, Kiệt 96 Điện Biên Phủ, Thanh Khê, Đà Nẵng",K96/146,Kiệt 96 Điện Biên Phủ,,Thanh Khê,Đà Nẵng,K96/146,Kiệt 96 Điện Biên Phủ,Thanh Khê Đông,Thanh Khê,Đà Nẵng,drop_ward,cu
+"341, Đường Võ Văn Tần, TP. HCM",341,Đường Võ Văn Tần,,,TP. HCM,341,Đường Võ Văn Tần,Phường Bàn Cờ,,Thành phố Hồ Chí Minh,drop_ward,moi
+"119A, Đường Âu Cơ, Thành phố Bắc Ninh, Bắc Ninh",119A,Đường Âu Cơ,,Thành phố Bắc Ninh,Bắc Ninh,119A,Đường Âu Cơ,Phường Kinh Bắc,Thành phố Bắc Ninh,Bắc Ninh,drop_ward,cu
+"Đường Lý Thường Kiệt, Phù Khê, Tỉnh Bắc Ninh",,Đường Lý Thường Kiệt,Phù Khê,,Tỉnh Bắc Ninh,399,Đường Lý Thường Kiệt,Phường Phù Khê,,Tỉnh Bắc Ninh,drop_housenumber,moi
+"Phố Yên Mẫn, Phường Kinh Bắc, Thành phố Bắc Ninh, Bắc Ninh",,Phố Yên Mẫn,Phường Kinh Bắc,Thành phố Bắc Ninh,Bắc Ninh,41,Phố Yên Mẫn,Phường Kinh Bắc,Thành phố Bắc Ninh,Bắc Ninh,drop_housenumber,cu
+"Ngõ 50 Phố Trần Bình Trọng, Thị xã Quế Võ, Bắc Ninh",,Ngõ 50 Phố Trần Bình Trọng,,Thị xã Quế Võ,Bắc Ninh,7,Ngõ 50 Phố Trần Bình Trọng,Phường Phương Liễu,Thị xã Quế Võ,Bắc Ninh,drop_housenumber_ward,cu
+"Phố Nguyễn Văn Trỗi, Bắc Ninh",,Phố Nguyễn Văn Trỗi,,,Bắc Ninh,50,Phố Nguyễn Văn Trỗi,Phường Từ Sơn,,Tỉnh Bắc Ninh,drop_housenumber_ward,moi
+"Phố Ông Ích Khiêm, P.Ba Đình, HN",,Phố Ông Ích Khiêm,P.Ba Đình,,HN,8,Phố Ông Ích Khiêm,Phường Ba Đình,,Thành phố Hà Nội,drop_housenumber,moi
+"Phan Đình Phùng, Tân An, Ninh Kiều, Cần Thơ",,Phan Đình Phùng,Tân An,Ninh Kiều,Cần Thơ,104,Phan Đình Phùng,Tân An,Ninh Kiều,Cần Thơ,drop_housenumber,cu
+"Đường Đàm Văn Tiết, P.Nam Sơn, Tỉnh Bắc Ninh",,Đường Đàm Văn Tiết,P.Nam Sơn,,Tỉnh Bắc Ninh,274,Đường Đàm Văn Tiết,Phường Nam Sơn,,Tỉnh Bắc Ninh,drop_housenumber,moi
+"9, Ngách 643/9/28 Phạm Văn Đồng, P Cổ Nhuế 1, Hà Nội",9,Ngách 643/9/28 Phạm Văn Đồng,P Cổ Nhuế 1,,Hà Nội,9,Ngách 643/9/28 Phạm Văn Đồng,Phường Cổ Nhuế 1,Quận Bắc Từ Liêm,Hà Nội,drop_district,cu
+"Phố Triệu Việt Vương, Hai Bà Trưng, HN",,Phố Triệu Việt Vương,,Hai Bà Trưng,HN,57,Phố Triệu Việt Vương,Nguyễn Du,Hai Bà Trưng,Hà Nội,drop_housenumber_ward,cu
+"7, Đường Nguyễn Trí Phương, HN",7,Đường Nguyễn Trí Phương,,,HN,7,Đường Nguyễn Trí Phương,Phường Ba Đình,,Thành phố Hà Nội,drop_ward,moi
+"Mã Lò, Bình Trị Đông A, Bình Tân, TP.HCM",,Mã Lò,Bình Trị Đông A,Bình Tân,TP.HCM,160,Mã Lò,Bình Trị Đông A,Bình Tân,Hồ Chí Minh,drop_housenumber,cu
+"Phố Đa Vạn, Phường Phù Khê, Tỉnh Bắc Ninh",,Phố Đa Vạn,Phường Phù Khê,,Tỉnh Bắc Ninh,16,Phố Đa Vạn,Phường Phù Khê,,Tỉnh Bắc Ninh,drop_housenumber,moi
+"39, Phố Trần Quý Khoáng, Bắc Ninh",39,Phố Trần Quý Khoáng,,,Bắc Ninh,39,Phố Trần Quý Khoáng,Phường Phương Liễu,,Tỉnh Bắc Ninh,drop_ward,moi
+"46, Đường Giếng Ngọc, Tỉnh Bắc Ninh",46,Đường Giếng Ngọc,,,Tỉnh Bắc Ninh,46,Đường Giếng Ngọc,Phường Kinh Bắc,,Tỉnh Bắc Ninh,drop_ward,moi
+"155, Đường Cầu Rồng, Tỉnh Bắc Ninh",155,Đường Cầu Rồng,,,Tỉnh Bắc Ninh,155,Đường Cầu Rồng,Phường Võ Cường,,Tỉnh Bắc Ninh,drop_ward,moi
+"Đường Quang Trung, P.Nhân Hòa, Bắc Ninh",,Đường Quang Trung,P.Nhân Hòa,,Bắc Ninh,115,Đường Quang Trung,Phường Nhân Hòa,,Tỉnh Bắc Ninh,drop_housenumber,moi
+"Phố Huế, Phố Huế, Hai Bà Trưng, Hà Nội",,Phố Huế,Phố Huế,Hai Bà Trưng,Hà Nội,350,Phố Huế,Phố Huế,Hai Bà Trưng,Hà Nội,drop_housenumber,cu
+"Lương Văn Can, P Hoàn Kiếm, TP.HN",,Lương Văn Can,P Hoàn Kiếm,,TP.HN,14,Lương Văn Can,Phường Hoàn Kiếm,,Thành phố Hà Nội,drop_housenumber,moi
+"ấp Phú Khương, QL. 57B, Phú Túc, Bến Tre",ấp Phú Khương,QL. 57B,Phú Túc,,Bến Tre,ấp Phú Khương,QL. 57B,Phú Túc,Châu Thành,Bến Tre,drop_district,cu
+"Ngõ 2 Đường Trần Quốc Toản, Phường Kinh Bắc, Tỉnh Bắc Ninh",,Ngõ 2 Đường Trần Quốc Toản,Phường Kinh Bắc,,Tỉnh Bắc Ninh,62,Ngõ 2 Đường Trần Quốc Toản,Phường Kinh Bắc,,Tỉnh Bắc Ninh,drop_housenumber,moi
+"Đường Như Nguyệt, Vũ Ninh, T.Bắc Ninh",,Đường Như Nguyệt,Vũ Ninh,,T.Bắc Ninh,168,Đường Như Nguyệt,Phường Vũ Ninh,,Tỉnh Bắc Ninh,drop_housenumber,moi
+"Nguyễn Văn Tư, P 7, Bến Tre, Bến Tre",,Nguyễn Văn Tư,P 7,Bến Tre,Bến Tre,7,Nguyễn Văn Tư,Phường 7,Bến Tre,Bến Tre,drop_housenumber,cu
+"Nguyễn Trung Ngạn, Quận 1, TP.HCM",,Nguyễn Trung Ngạn,,Quận 1,TP.HCM,21,Nguyễn Trung Ngạn,Bến Nghé,Quận 1,Thành Phố Hồ Chí Minh,drop_housenumber_ward,cu
+"Hàng Rươi, Phường Hoàn Kiếm, Hà Nội",,Hàng Rươi,Phường Hoàn Kiếm,,Hà Nội,11,Hàng Rươi,Phường Hoàn Kiếm,,Thành phố Hà Nội,drop_housenumber,moi
+"30, Đường Văn Cao, Liễu Giai, HN",30,Đường Văn Cao,Liễu Giai,,HN,30,Đường Văn Cao,Liễu Giai,Ba Đình,Hà Nội,drop_district,cu
+"18, Ngách 234/1 Hoàng Quốc Việt, P Cổ Nhuế 1, Hà Nội",18,Ngách 234/1 Hoàng Quốc Việt,P Cổ Nhuế 1,,Hà Nội,18,Ngách 234/1 Hoàng Quốc Việt,Phường Cổ Nhuế 1,Quận Bắc Từ Liêm,Hà Nội,drop_district,cu
+"114, Đường Hoàng Quốc Việt, Tỉnh Bắc Ninh",114,Đường Hoàng Quốc Việt,,,Tỉnh Bắc Ninh,114,Đường Hoàng Quốc Việt,Phường Vũ Ninh,,Tỉnh Bắc Ninh,drop_ward,moi
+"11, Phố Thái Phiên, Hai Bà Trưng, Hà Nội",11,Phố Thái Phiên,,Hai Bà Trưng,Hà Nội,11,Phố Thái Phiên,Lê Đại Hành,Hai Bà Trưng,Hà Nội,drop_ward,cu
+"Đường Nội Khu 02, Quận 7, Thành phố Hồ Chí Minh",,Đường Nội Khu 02,,Quận 7,Thành phố Hồ Chí Minh,04,Đường Nội Khu 02,Phường Tân Phú,Quận 7,Thành phố Hồ Chí Minh,drop_housenumber_ward,cu
+"Phố Trần Bình Trọng, Phương Liễu, Tỉnh Bắc Ninh",,Phố Trần Bình Trọng,Phương Liễu,,Tỉnh Bắc Ninh,57,Phố Trần Bình Trọng,Phường Phương Liễu,,Tỉnh Bắc Ninh,drop_housenumber,moi
+"2, Đường Hồ Ngọc Lân, Tỉnh Bắc Ninh",2,Đường Hồ Ngọc Lân,,,Tỉnh Bắc Ninh,2,Đường Hồ Ngọc Lân,Phường Kinh Bắc,,Tỉnh Bắc Ninh,drop_ward,moi
+"8, Phố Lương Định Của, Tỉnh Bắc Ninh",8,Phố Lương Định Của,,,Tỉnh Bắc Ninh,8,Phố Lương Định Của,Phường Phương Liễu,,Tỉnh Bắc Ninh,drop_ward,moi
+"Đường Số 23, Tân Phú, Quận 7, TP.HCM",,Đường Số 23,Tân Phú,Quận 7,TP.HCM,78,Đường Số 23,Tân Phú,Quận 7,Thành phố Hồ Chí Minh,drop_housenumber,cu
+"113, Phố Ngọc Lâm, Long Biên, Hà Nội",113,Phố Ngọc Lâm,,Long Biên,Hà Nội,113,Phố Ngọc Lâm,Ngọc Lâm,Long Biên,Hà Nội,drop_ward,cu
+"Ngõ 12 Đường Như Nguyệt, Tỉnh Bắc Ninh",,Ngõ 12 Đường Như Nguyệt,,,Tỉnh Bắc Ninh,31,Ngõ 12 Đường Như Nguyệt,Phường Vũ Ninh,,Tỉnh Bắc Ninh,drop_housenumber_ward,moi
+"SH15-02, San Hô 15, Đa Tốn, Hà Nội",SH15-02,San Hô 15,Đa Tốn,,Hà Nội,SH15-02,San Hô 15,Đa Tốn,Gia Lâm,Hà Nội,drop_district,cu
+"56, Đường Hoàng Diệu, P.Điện Biên, Hà Nội",56,Đường Hoàng Diệu,P.Điện Biên,,Hà Nội,56,Đường Hoàng Diệu,Phường Điện Biên,Quận Ba Đình,Hà Nội,drop_district,cu
+"155, Đường Trần Hưng Đạo, Phường Phố Mới, Bắc Ninh",155,Đường Trần Hưng Đạo,Phường Phố Mới,,Bắc Ninh,155,Đường Trần Hưng Đạo,Phường Phố Mới,Thị xã Quế Võ,Bắc Ninh,drop_district,cu
+"Đường Thụy Khuê, Tây Hồ, Hà Nội",,Đường Thụy Khuê,,Tây Hồ,Hà Nội,520,Đường Thụy Khuê,Bưởi,Tây Hồ,Hà Nội,drop_housenumber_ward,cu
+"Ngọc Trai 5, Gia Lâm, TP.HN",,Ngọc Trai 5,,Gia Lâm,TP.HN,NT05-30,Ngọc Trai 5,Đa Tốn,Gia Lâm,Hà Nội,drop_housenumber_ward,cu
+"Đường Nguyễn Trọng Thế, Hậu Nghĩa, Đức Hòa, Long An",,Đường Nguyễn Trọng Thế,Hậu Nghĩa,Đức Hòa,Long An,76,Đường Nguyễn Trọng Thế,Hậu Nghĩa,Đức Hòa,Long An,drop_housenumber,cu
+"Lương Ngọc Quyến, P Hoàn Kiếm, Thành phố Hà Nội",,Lương Ngọc Quyến,P Hoàn Kiếm,,Thành phố Hà Nội,49,Lương Ngọc Quyến,Phường Hoàn Kiếm,,Thành phố Hà Nội,drop_housenumber,moi
+"Ngọc Trai 15, Gia Lâm, Hà Nội",,Ngọc Trai 15,,Gia Lâm,Hà Nội,NT15-05,Ngọc Trai 15,Đa Tốn,Gia Lâm,Hà Nội,drop_housenumber_ward,cu
+"Phố Lương Định Của, Phường Phương Liễu, T. Bắc Ninh",,Phố Lương Định Của,Phường Phương Liễu,,T. Bắc Ninh,71,Phố Lương Định Của,Phường Phương Liễu,,Tỉnh Bắc Ninh,drop_housenumber,moi
+"Đường Trần Quốc Toản, P. Kinh Bắc, Tỉnh Bắc Ninh",,Đường Trần Quốc Toản,P. Kinh Bắc,,Tỉnh Bắc Ninh,60,Đường Trần Quốc Toản,Phường Kinh Bắc,,Tỉnh Bắc Ninh,drop_housenumber,moi
+"Phố Lương Định Của, Phường Phương Liễu, T.Bắc Ninh",,Phố Lương Định Của,Phường Phương Liễu,,T.Bắc Ninh,39,Phố Lương Định Của,Phường Phương Liễu,,Tỉnh Bắc Ninh,drop_housenumber,moi
+"Đường Như Nguyệt, Phường Vũ Ninh, T. Bắc Ninh",,Đường Như Nguyệt,Phường Vũ Ninh,,T. Bắc Ninh,208,Đường Như Nguyệt,Phường Vũ Ninh,,Tỉnh Bắc Ninh,drop_housenumber,moi
+"Cây Keo, Tam Phú, Thủ Đức, Hồ Chí Minh",,Cây Keo,Tam Phú,Thủ Đức,Hồ Chí Minh,37,Cây Keo,Tam Phú,Thủ Đức,Hồ Chí Minh,drop_housenumber,cu
+"29, Liễu Giai, Quận Ba Đình, Hà Nội",29,Liễu Giai,,Quận Ba Đình,Hà Nội,29,Liễu Giai,Ngọc Khánh,Quận Ba Đình,Hà Nội,drop_ward,cu
+"1, Phố Hàng Cót, Thành phố Hà Nội",1,Phố Hàng Cót,,,Thành phố Hà Nội,1,Phố Hàng Cót,Phường Hoàn Kiếm,,Thành phố Hà Nội,drop_ward,moi
+"Đường Nguyễn Xiển, hạ đình, Thanh Xuân, HN",,Đường Nguyễn Xiển,hạ đình,Thanh Xuân,HN,32/133,Đường Nguyễn Xiển,hạ đình,Thanh Xuân,Hà Nội,drop_housenumber,cu
+"Phố Triệu Việt Vương, Nguyễn Du, Hai Bà Trưng, TP.HN",,Phố Triệu Việt Vương,Nguyễn Du,Hai Bà Trưng,TP.HN,67,Phố Triệu Việt Vương,Nguyễn Du,Hai Bà Trưng,Hà Nội,drop_housenumber,cu
+"32, Mã Mây, Thành phố Hà Nội",32,Mã Mây,,,Thành phố Hà Nội,32,Mã Mây,Phường Hoàn Kiếm,,Thành phố Hà Nội,drop_ward,moi
+"Phố Khúc Hạo, Phường Điện Biên, Q. Ba Đình, Hà Nội",,Phố Khúc Hạo,Phường Điện Biên,Q. Ba Đình,Hà Nội,11,Phố Khúc Hạo,Phường Điện Biên,Quận Ba Đình,Hà Nội,drop_housenumber,cu
+"31, Ngô Gia Tự, đức giang, Hà Nội",31,Ngô Gia Tự,đức giang,,Hà Nội,31,Ngô Gia Tự,đức giang,Long biên,Hà Nội,drop_district,cu
+"26, Ngách 61/21 Phạm Tuấn Tài, Quận Bắc Từ Liêm, Hà Nội",26,Ngách 61/21 Phạm Tuấn Tài,,Quận Bắc Từ Liêm,Hà Nội,26,Ngách 61/21 Phạm Tuấn Tài,Phường Cổ Nhuế 1,Quận Bắc Từ Liêm,Hà Nội,drop_ward,cu
+"Ngọc Trai 15, Đa Tốn, Gia Lâm, Hà Nội",,Ngọc Trai 15,Đa Tốn,Gia Lâm,Hà Nội,NT15-18,Ngọc Trai 15,Đa Tốn,Gia Lâm,Hà Nội,drop_housenumber,cu
+"Phố Hàng Cót, Thành phố Hà Nội",,Phố Hàng Cót,,,Thành phố Hà Nội,12G,Phố Hàng Cót,Phường Hoàn Kiếm,,Thành phố Hà Nội,drop_housenumber_ward,moi
+"Đường Hai Bà Trưng, Phường Kinh Bắc, T.Bắc Ninh",,Đường Hai Bà Trưng,Phường Kinh Bắc,,T.Bắc Ninh,148,Đường Hai Bà Trưng,Phường Kinh Bắc,,Tỉnh Bắc Ninh,drop_housenumber,moi
+"Đường Bất Chi Ly, P Vũ Ninh, Bắc Ninh",,Đường Bất Chi Ly,P Vũ Ninh,,Bắc Ninh,21,Đường Bất Chi Ly,Phường Vũ Ninh,,Tỉnh Bắc Ninh,drop_housenumber,moi
+"Phố Tô Hiến Thành, Hai Bà Trưng, Hà Nội",,Phố Tô Hiến Thành,,Hai Bà Trưng,Hà Nội,21,Phố Tô Hiến Thành,Nguyễn Du,Hai Bà Trưng,Hà Nội,drop_housenumber_ward,cu
+"Đường Nguyễn Trãi, P. Hạp Lĩnh, Tỉnh Bắc Ninh",,Đường Nguyễn Trãi,P. Hạp Lĩnh,,Tỉnh Bắc Ninh,1272,Đường Nguyễn Trãi,Phường Hạp Lĩnh,,Tỉnh Bắc Ninh,drop_housenumber,moi
+"Đường Huyền Quang, Phường Tiền Ninh Vệ, Thành phố Bắc Ninh, Bắc Ninh",,Đường Huyền Quang,Phường Tiền Ninh Vệ,Thành phố Bắc Ninh,Bắc Ninh,29,Đường Huyền Quang,Phường Tiền Ninh Vệ,Thành phố Bắc Ninh,Bắc Ninh,drop_housenumber,cu
+"Đường Trần Hưng Đạo, Phường Đại Phúc, Thành phố Bắc Ninh, Bắc Ninh",,Đường Trần Hưng Đạo,Phường Đại Phúc,Thành phố Bắc Ninh,Bắc Ninh,353,Đường Trần Hưng Đạo,Phường Đại Phúc,Thành phố Bắc Ninh,Bắc Ninh,drop_housenumber,cu
+"Ngách 238/2 Hoàng Quốc Việt, P.Cổ Nhuế 1, Quận Bắc Từ Liêm, Hà Nội",,Ngách 238/2 Hoàng Quốc Việt,P.Cổ Nhuế 1,Quận Bắc Từ Liêm,Hà Nội,5,Ngách 238/2 Hoàng Quốc Việt,Phường Cổ Nhuế 1,Quận Bắc Từ Liêm,Hà Nội,drop_housenumber,cu
+"037 - Tổ 11, Quốc lộ 4A, Cao Bằng, Cao Bằng",037 - Tổ 11,Quốc lộ 4A,,Cao Bằng,Cao Bằng,037 - Tổ 11,Quốc lộ 4A,Sông Hiến,Cao Bằng,Cao Bằng,drop_ward,cu
+"Đường Hoàng Quốc Việt, Phường Nghĩa Đô, HN",,Đường Hoàng Quốc Việt,Phường Nghĩa Đô,,HN,55,Đường Hoàng Quốc Việt,Phường Nghĩa Đô,,Thành phố Hà Nội,drop_housenumber,moi
+"260, Phố Lương Định Của, Tỉnh Bắc Ninh",260,Phố Lương Định Của,,,Tỉnh Bắc Ninh,260,Phố Lương Định Của,Phường Phương Liễu,,Tỉnh Bắc Ninh,drop_ward,moi
+"Đường Ngô Gia Tự, Phường Kinh Bắc, T Bắc Ninh",,Đường Ngô Gia Tự,Phường Kinh Bắc,,T Bắc Ninh,395,Đường Ngô Gia Tự,Phường Kinh Bắc,,Tỉnh Bắc Ninh,drop_housenumber,moi
+"Ngõ 28 Ông Ích Khiêm, Ba Đình, TP. Hà Nội",,Ngõ 28 Ông Ích Khiêm,Ba Đình,,TP. Hà Nội,29,Ngõ 28 Ông Ích Khiêm,Phường Ba Đình,,Thành phố Hà Nội,drop_housenumber,moi
+"Nguyễn An Ninh, Tân An, Ninh Kiều, Cần Thơ",,Nguyễn An Ninh,Tân An,Ninh Kiều,Cần Thơ,108,Nguyễn An Ninh,Tân An,Ninh Kiều,Cần Thơ,drop_housenumber,cu
+"Phố Phạm Ngọc Thạch, Kim Liên, Đống Đa, HN",,Phố Phạm Ngọc Thạch,Kim Liên,Đống Đa,HN,10B14,Phố Phạm Ngọc Thạch,Kim Liên,Đống Đa,Hà Nội,drop_housenumber,cu
+"Đường Trần Hưng Đạo, P Quế Võ, T.Bắc Ninh",,Đường Trần Hưng Đạo,P Quế Võ,,T.Bắc Ninh,195,Đường Trần Hưng Đạo,Phường Quế Võ,,Tỉnh Bắc Ninh,drop_housenumber,moi
+"Đường Hoàng Quốc Việt, Phường Cổ Nhuế 1, Quận Bắc Từ Liêm, Hà Nội",,Đường Hoàng Quốc Việt,Phường Cổ Nhuế 1,Quận Bắc Từ Liêm,Hà Nội,447,Đường Hoàng Quốc Việt,Phường Cổ Nhuế 1,Quận Bắc Từ Liêm,Hà Nội,drop_housenumber,cu
+"45, Nguyễn Cư Trinh, An Nghiệp, Cần Thơ",45,Nguyễn Cư Trinh,An Nghiệp,,Cần Thơ,45,Nguyễn Cư Trinh,An Nghiệp,Ninh Kiều,Cần Thơ,drop_district,cu
+"24, Đường Nội Khu 02, TPHCM",24,Đường Nội Khu 02,,,TPHCM,24,Đường Nội Khu 02,Phường Tân Phú,,Thành phố Hồ Chí Minh,drop_ward,moi
+"Đường Đấu Mã, Vũ Ninh, Bắc Ninh",,Đường Đấu Mã,Vũ Ninh,,Bắc Ninh,17,Đường Đấu Mã,Phường Vũ Ninh,,Tỉnh Bắc Ninh,drop_housenumber,moi
+"Đường Ngọc Hân Công Chúa, Tỉnh Bắc Ninh",,Đường Ngọc Hân Công Chúa,,,Tỉnh Bắc Ninh,36,Đường Ngọc Hân Công Chúa,Phường Kinh Bắc,,Tỉnh Bắc Ninh,drop_housenumber_ward,moi
+"251, Phố Lương Định Của, T Bắc Ninh",251,Phố Lương Định Của,,,T Bắc Ninh,251,Phố Lương Định Của,Phường Phương Liễu,,Tỉnh Bắc Ninh,drop_ward,moi
+"26-28, Nguyễn An Ninh, Ninh Kiều, Cần Thơ",26-28,Nguyễn An Ninh,,Ninh Kiều,Cần Thơ,26-28,Nguyễn An Ninh,Tân An,Ninh Kiều,Cần Thơ,drop_ward,cu
+"45A, Phố Mai Hắc Đế, Hai Bà Trưng, Hà Nội",45A,Phố Mai Hắc Đế,,Hai Bà Trưng,Hà Nội,45A,Phố Mai Hắc Đế,Nguyễn Du,Hai Bà Trưng,Hà Nội,drop_ward,cu
+"Hàng Bạc, Phường Hoàn Kiếm, Thành phố Hà Nội",,Hàng Bạc,Phường Hoàn Kiếm,,Thành phố Hà Nội,127,Hàng Bạc,Phường Hoàn Kiếm,,Thành phố Hà Nội,drop_housenumber,moi
+"Phố Hàng Cót, Phường Hoàn Kiếm, Thành phố Hà Nội",,Phố Hàng Cót,Phường Hoàn Kiếm,,Thành phố Hà Nội,5,Phố Hàng Cót,Phường Hoàn Kiếm,,Thành phố Hà Nội,drop_housenumber,moi
+"575, Ngõ 575 Kim Mã, Ngọc Khánh, TP. Hà Nội",575,Ngõ 575 Kim Mã,Ngọc Khánh,,TP. Hà Nội,575,Ngõ 575 Kim Mã,Ngọc Khánh,Quận Ba Đình,Hà Nội,drop_district,cu
+"Đường Bà Chúa Kho, Phường Thị Cầu, TP Bắc Ninh, Bắc Ninh",,Đường Bà Chúa Kho,Phường Thị Cầu,TP Bắc Ninh,Bắc Ninh,18,Đường Bà Chúa Kho,Phường Thị Cầu,Thành phố Bắc Ninh,Bắc Ninh,drop_housenumber,cu
+"38, Phố Y Na, Bắc Ninh",38,Phố Y Na,,,Bắc Ninh,38,Phố Y Na,Phường Kinh Bắc,,Tỉnh Bắc Ninh,drop_ward,moi
+"Đường Cầu Rồng, Võ Cường, Tỉnh Bắc Ninh",,Đường Cầu Rồng,Võ Cường,,Tỉnh Bắc Ninh,129,Đường Cầu Rồng,Phường Võ Cường,,Tỉnh Bắc Ninh,drop_housenumber,moi
+"192, Ngõ Xã Đàn 2, Đống Đa, Hà Nội",192,Ngõ Xã Đàn 2,,Đống Đa,Hà Nội,192,Ngõ Xã Đàn 2,Nam Đồng,Đống Đa,Hà Nội,drop_ward,cu
+"Đường Hữu Chấp, Phường Kinh Bắc, Tỉnh Bắc Ninh",,Đường Hữu Chấp,Phường Kinh Bắc,,Tỉnh Bắc Ninh,89,Đường Hữu Chấp,Phường Kinh Bắc,,Tỉnh Bắc Ninh,drop_housenumber,moi
+"San Hô 16, Đa Tốn, Gia Lâm, TP. Hà Nội",,San Hô 16,Đa Tốn,Gia Lâm,TP. Hà Nội,SH16-21,San Hô 16,Đa Tốn,Gia Lâm,Hà Nội,drop_housenumber,cu
+"Đường Nguyễn Trãi, P.Hạp Lĩnh, T. Bắc Ninh",,Đường Nguyễn Trãi,P.Hạp Lĩnh,,T. Bắc Ninh,628,Đường Nguyễn Trãi,Phường Hạp Lĩnh,,Tỉnh Bắc Ninh,drop_housenumber,moi
+"2, Ngõ 246 Đường Khuất Duy Tiến, T Bắc Ninh",2,Ngõ 246 Đường Khuất Duy Tiến,,,T Bắc Ninh,2,Ngõ 246 Đường Khuất Duy Tiến,Phường Quế Võ,,Tỉnh Bắc Ninh,drop_ward,moi
+"851, Đường Hùng Vương, Gia Lai",851,Đường Hùng Vương,,,Gia Lai,851,Đường Hùng Vương,Xã Chư Sê,,Tỉnh Gia Lai,drop_ward,moi
+"113, Phố Phan Văn Trường, P.Dịch Vọng Hậu, Hà Nội",113,Phố Phan Văn Trường,P.Dịch Vọng Hậu,,Hà Nội,113,Phố Phan Văn Trường,Phường Dịch Vọng Hậu,Quận Cầu Giấy,Hà Nội,drop_district,cu
+"429, Đường Ngô Gia Tự, TP Bắc Ninh, Bắc Ninh",429,Đường Ngô Gia Tự,,TP Bắc Ninh,Bắc Ninh,429,Đường Ngô Gia Tự,Phường Tiền Ninh Vệ,Thành phố Bắc Ninh,Bắc Ninh,drop_ward,cu
+"Đường Quang Trung, T Bắc Ninh",,Đường Quang Trung,,,T Bắc Ninh,116,Đường Quang Trung,Phường Nhân Hòa,,Tỉnh Bắc Ninh,drop_housenumber_ward,moi
+"Đường Ngô Gia Tự, Phường Vũ Ninh, Thành phố Bắc Ninh, Bắc Ninh",,Đường Ngô Gia Tự,Phường Vũ Ninh,Thành phố Bắc Ninh,Bắc Ninh,205,Đường Ngô Gia Tự,Phường Vũ Ninh,Thành phố Bắc Ninh,Bắc Ninh,drop_housenumber,cu
+"14, Ngõ 460 Khương Đình, hạ đình, HN",14,Ngõ 460 Khương Đình,hạ đình,,HN,14,Ngõ 460 Khương Đình,hạ đình,Thanh Xuân,Hà Nội,drop_district,cu
+"Đường Nguyễn Trãi, Hạp Lĩnh, Bắc Ninh",,Đường Nguyễn Trãi,Hạp Lĩnh,,Bắc Ninh,1434,Đường Nguyễn Trãi,Phường Hạp Lĩnh,,Tỉnh Bắc Ninh,drop_housenumber,moi
+"Nguyễn Thị Định, 2, TP.HCM",,Nguyễn Thị Định,,2,TP.HCM,245,Nguyễn Thị Định,Bình Trưng Tây,2,Hồ Chí Minh,drop_housenumber_ward,cu
+"Trần Văn Đang, Phường 11, Quận 3, TP. HCM",,Trần Văn Đang,Phường 11,Quận 3,TP. HCM,159/97/29,Trần Văn Đang,Phường 11,Quận 3,Thành phố Hồ Chí Minh,drop_housenumber,cu
+"592, Đường Hoàng Quốc Việt, Tỉnh Bắc Ninh",592,Đường Hoàng Quốc Việt,,,Tỉnh Bắc Ninh,592,Đường Hoàng Quốc Việt,Phường Vũ Ninh,,Tỉnh Bắc Ninh,drop_ward,moi
+"11, Đường Mỹ Phú 1C, Q.7, Thành phố Hồ Chí Minh",11,Đường Mỹ Phú 1C,,Q.7,Thành phố Hồ Chí Minh,11,Đường Mỹ Phú 1C,Phường Tân Phú,Quận 7,Thành phố Hồ Chí Minh,drop_ward,cu
+"Phố Hàng Bài, Hàng Bài, Hoàn Kiếm, TP. Hà Nội",,Phố Hàng Bài,Hàng Bài,Hoàn Kiếm,TP. Hà Nội,45,Phố Hàng Bài,Hàng Bài,Hoàn Kiếm,Hà Nội,drop_housenumber,cu
+"A58, Đường Nội Khu 1, Quận 7, Thành phố Hồ Chí Minh",A58,Đường Nội Khu 1,,Quận 7,Thành phố Hồ Chí Minh,A58,Đường Nội Khu 1,Phường Tân Phú,Quận 7,Thành phố Hồ Chí Minh,drop_ward,cu
+"Nguyễn Trường Tộ, HN",,Nguyễn Trường Tộ,,,HN,103,Nguyễn Trường Tộ,Phường Ba Đình,,Thành phố Hà Nội,drop_housenumber_ward,moi
+"Đường Mỹ Phú 1C, Phường Tân Phú, Thành phố Hồ Chí Minh",,Đường Mỹ Phú 1C,Phường Tân Phú,,Thành phố Hồ Chí Minh,10,Đường Mỹ Phú 1C,Phường Tân Phú,,Thành phố Hồ Chí Minh,drop_housenumber,moi
+"Đường Rạp Hát, P Tiền Ninh Vệ, Thành phố Bắc Ninh, Bắc Ninh",,Đường Rạp Hát,P Tiền Ninh Vệ,Thành phố Bắc Ninh,Bắc Ninh,33,Đường Rạp Hát,Phường Tiền Ninh Vệ,Thành phố Bắc Ninh,Bắc Ninh,drop_housenumber,cu
+"Ngõ Xã Đàn 2, Nam Đồng, Đống Đa, Hà Nội",,Ngõ Xã Đàn 2,Nam Đồng,Đống Đa,Hà Nội,157,Ngõ Xã Đàn 2,Nam Đồng,Đống Đa,Hà Nội,drop_housenumber,cu
+"42, Đường Khả Lễ, T.Bắc Ninh",42,Đường Khả Lễ,,,T.Bắc Ninh,42,Đường Khả Lễ,Phường Võ Cường,,Tỉnh Bắc Ninh,drop_ward,moi
+"97, Ngõ Xã Đàn 2, Nam Đồng, Hà Nội",97,Ngõ Xã Đàn 2,Nam Đồng,,Hà Nội,97,Ngõ Xã Đàn 2,Nam Đồng,Đống Đa,Hà Nội,drop_district,cu
+"1539a, Đường Huỳnh Tấn Phát, Phường Phú Mỹ, HCM",1539a,Đường Huỳnh Tấn Phát,Phường Phú Mỹ,,HCM,1539a,Đường Huỳnh Tấn Phát,Phường Phú Mỹ,Quận 7,Hồ Chí Minh,drop_district,cu
+"83, 83 Ma May Street, TP. Hà Nội",83,83 Ma May Street,,,TP. Hà Nội,83,83 Ma May Street,Phường Hoàn Kiếm,,Thành phố Hà Nội,drop_ward,moi
+"Đường Trần Hưng Đạo, Kinh Bắc, Tỉnh Bắc Ninh",,Đường Trần Hưng Đạo,Kinh Bắc,,Tỉnh Bắc Ninh,150,Đường Trần Hưng Đạo,Phường Kinh Bắc,,Tỉnh Bắc Ninh,drop_housenumber,moi
+"Đường Nguyễn Quốc Ích, Phường Võ Cường, T.Bắc Ninh",,Đường Nguyễn Quốc Ích,Phường Võ Cường,,T.Bắc Ninh,151,Đường Nguyễn Quốc Ích,Phường Võ Cường,,Tỉnh Bắc Ninh,drop_housenumber,moi
+"Phố Sơn Tây, Phường Ba Đình, Hà Nội",,Phố Sơn Tây,Phường Ba Đình,,Hà Nội,10,Phố Sơn Tây,Phường Ba Đình,,Thành phố Hà Nội,drop_housenumber,moi
+"Ngõ 28 Ông Ích Khiêm, Phường Điện Biên, Quận Ba Đình, Hà Nội",,Ngõ 28 Ông Ích Khiêm,Phường Điện Biên,Quận Ba Đình,Hà Nội,19,Ngõ 28 Ông Ích Khiêm,Phường Điện Biên,Quận Ba Đình,Hà Nội,drop_housenumber,cu
+"Đường Nguyễn Quốc Ích, P Võ Cường, Tỉnh Bắc Ninh",,Đường Nguyễn Quốc Ích,P Võ Cường,,Tỉnh Bắc Ninh,121,Đường Nguyễn Quốc Ích,Phường Võ Cường,,Tỉnh Bắc Ninh,drop_housenumber,moi
+"Ngõ 85 Sài Đồng, Sài Đồng, Long Biên, Hà Nội",,Ngõ 85 Sài Đồng,Sài Đồng,Long Biên,Hà Nội,26,Ngõ 85 Sài Đồng,Sài Đồng,Long Biên,Hà Nội,drop_housenumber,cu
+"34, Phố Trần Quý Khoáng, Bắc Ninh",34,Phố Trần Quý Khoáng,,,Bắc Ninh,34,Phố Trần Quý Khoáng,Phường Phương Liễu,,Tỉnh Bắc Ninh,drop_ward,moi
+"9A, Phố Phạm Hồng Thái, Hà Nội",9A,Phố Phạm Hồng Thái,,,Hà Nội,9A,Phố Phạm Hồng Thái,Phường Ba Đình,,Thành phố Hà Nội,drop_ward,moi
+"Phố Lương Định Của, P Phương Liễu, Tỉnh Bắc Ninh",,Phố Lương Định Của,P Phương Liễu,,Tỉnh Bắc Ninh,238,Phố Lương Định Của,Phường Phương Liễu,,Tỉnh Bắc Ninh,drop_housenumber,moi
+"2, Ngõ 61 Phạm Tuấn Tài, Quận Bắc Từ Liêm, HN",2,Ngõ 61 Phạm Tuấn Tài,,Quận Bắc Từ Liêm,HN,2,Ngõ 61 Phạm Tuấn Tài,Phường Cổ Nhuế 1,Quận Bắc Từ Liêm,Hà Nội,drop_ward,cu
+"Đường Hoàng Diệu, P.Ba Đình, Thành phố Hà Nội",,Đường Hoàng Diệu,P.Ba Đình,,Thành phố Hà Nội,2,Đường Hoàng Diệu,Phường Ba Đình,,Thành phố Hà Nội,drop_housenumber,moi
+"Đường Nguyễn Gia Thiều, Phường Kinh Bắc, Tỉnh Bắc Ninh",,Đường Nguyễn Gia Thiều,Phường Kinh Bắc,,Tỉnh Bắc Ninh,204,Đường Nguyễn Gia Thiều,Phường Kinh Bắc,,Tỉnh Bắc Ninh,drop_housenumber,moi
+"San Hô 3, Đa Tốn, Gia Lâm, HN",,San Hô 3,Đa Tốn,Gia Lâm,HN,SH03-17,San Hô 3,Đa Tốn,Gia Lâm,Hà Nội,drop_housenumber,cu
+"Phố Bà Triệu, Hai Bà Trưng, Hà Nội",,Phố Bà Triệu,,Hai Bà Trưng,Hà Nội,109,Phố Bà Triệu,Nguyễn Du,Hai Bà Trưng,Hà Nội,drop_housenumber_ward,cu
+"Hàng Quạt, Thành phố Hà Nội",,Hàng Quạt,,,Thành phố Hà Nội,3,Hàng Quạt,Phường Hoàn Kiếm,,Thành phố Hà Nội,drop_housenumber_ward,moi
+"Phố Yên Phụ, Yên Phụ, Tây Hồ, Hà Nội",,Phố Yên Phụ,Yên Phụ,Tây Hồ,Hà Nội,174 Yên phụ,Phố Yên Phụ,Yên Phụ,Tây Hồ,Hà Nội,drop_housenumber,cu
+"01, Đường Nội Khu Mỹ Thái 3, Tân Phú, TPHCM",01,Đường Nội Khu Mỹ Thái 3,Tân Phú,,TPHCM,01,Đường Nội Khu Mỹ Thái 3,Tân Phú,Quận 7,Thành phố Hồ Chí Minh,drop_district,cu
+"San Hô 12, Đa Tốn, Gia Lâm, Hà Nội",,San Hô 12,Đa Tốn,Gia Lâm,Hà Nội,SH12-23,San Hô 12,Đa Tốn,Gia Lâm,Hà Nội,drop_housenumber,cu
+"Ô Cách, Đức Giang, Long Biên, Hà Nội",,Ô Cách,Đức Giang,Long Biên,Hà Nội,12,Ô Cách,Đức Giang,Long Biên,Hà Nội,drop_housenumber,cu
+"180, Đường Trường Chinh, Đống Đa, Hà Nội",180,Đường Trường Chinh,,Đống Đa,Hà Nội,180,Đường Trường Chinh,Khương Thượng,Đống Đa,Hà Nội,drop_ward,cu
+"San Hô 5, Gia Lâm, Hà Nội",,San Hô 5,,Gia Lâm,Hà Nội,SH05-22,San Hô 5,Đa Tốn,Gia Lâm,Hà Nội,drop_housenumber_ward,cu
+"91, Phố Trần Hưng Đạo, Hoàn Kiếm, TP. Hà Nội",91,Phố Trần Hưng Đạo,,Hoàn Kiếm,TP. Hà Nội,91,Phố Trần Hưng Đạo,Trần Hưng Đạo,Hoàn Kiếm,Hà Nội,drop_ward,cu
+"Phố Bà Triệu, Hàng Bài, Hoàn Kiếm, TP. Hà Nội",,Phố Bà Triệu,Hàng Bài,Hoàn Kiếm,TP. Hà Nội,37,Phố Bà Triệu,Hàng Bài,Hoàn Kiếm,Hà Nội,drop_housenumber,cu
+"Đường Hùng Vương, Tỉnh Gia Lai",,Đường Hùng Vương,,,Tỉnh Gia Lai,912,Đường Hùng Vương,Xã Chư Sê,,Tỉnh Gia Lai,drop_housenumber_ward,moi
+"34B, Phố Sơn Tây, P.Điện Biên, Hà Nội",34B,Phố Sơn Tây,P.Điện Biên,,Hà Nội,34B,Phố Sơn Tây,Phường Điện Biên,Quận Ba Đình,Hà Nội,drop_district,cu
+"Phố Yên Mẫn, Phường Kinh Bắc, Bắc Ninh",,Phố Yên Mẫn,Phường Kinh Bắc,,Bắc Ninh,24,Phố Yên Mẫn,Phường Kinh Bắc,,Tỉnh Bắc Ninh,drop_housenumber,moi
+"17, Đường Nội Khu 04, Thành phố Hồ Chí Minh",17,Đường Nội Khu 04,,,Thành phố Hồ Chí Minh,17,Đường Nội Khu 04,Phường Tân Phú,,Thành phố Hồ Chí Minh,drop_ward,moi
+"97A, Khu dân cư số 9, Xuân Khánh, Cần Thơ",97A,Khu dân cư số 9,Xuân Khánh,,Cần Thơ,97A,Khu dân cư số 9,Xuân Khánh,Ninh Kiều,Cần Thơ,drop_district,cu
+"Phố Lê Hồng Phong, P.Ba Đình, Thành phố Hà Nội",,Phố Lê Hồng Phong,P.Ba Đình,,Thành phố Hà Nội,111,Phố Lê Hồng Phong,Phường Ba Đình,,Thành phố Hà Nội,drop_housenumber,moi
+"Phố Hoàng Như Tiếp, Bồ Đề, Long Biên, Hà Nội",,Phố Hoàng Như Tiếp,Bồ Đề,Long Biên,Hà Nội,108,Phố Hoàng Như Tiếp,Bồ Đề,Long Biên,Hà Nội,drop_housenumber,cu
+"Nguyễn Sơn, Phú Thọ Hòa, Tân Phú, Phường Phú Thọ Hòa",,Nguyễn Sơn,Phú Thọ Hòa,Tân Phú,Phường Phú Thọ Hòa,176,Nguyễn Sơn,Phú Thọ Hòa,Tân Phú,Phường Phú Thọ Hòa,drop_housenumber,cu
+"Phố Bà Triệu, Nguyễn Du, Hai Bà Trưng, TP.HN",,Phố Bà Triệu,Nguyễn Du,Hai Bà Trưng,TP.HN,99,Phố Bà Triệu,Nguyễn Du,Hai Bà Trưng,Hà Nội,drop_housenumber,cu
+"255, Đường Nguyễn Gia Thiều, Thành phố Bắc Ninh, Bắc Ninh",255,Đường Nguyễn Gia Thiều,,Thành phố Bắc Ninh,Bắc Ninh,255,Đường Nguyễn Gia Thiều,Phường Tiền Ninh Vệ,Thành phố Bắc Ninh,Bắc Ninh,drop_ward,cu
+"San Hô 16, Gia Lâm, TP.HN",,San Hô 16,,Gia Lâm,TP.HN,SH16-19,San Hô 16,Đa Tốn,Gia Lâm,Hà Nội,drop_housenumber_ward,cu
+"Phố Tân Hưng, P.Từ Sơn, Bắc Ninh",,Phố Tân Hưng,P.Từ Sơn,,Bắc Ninh,10,Phố Tân Hưng,Phường Từ Sơn,,Tỉnh Bắc Ninh,drop_housenumber,moi
+"Phố Triệu Việt Vương, Hai Bà Trưng, Hà Nội",,Phố Triệu Việt Vương,,Hai Bà Trưng,Hà Nội,54,Phố Triệu Việt Vương,Nguyễn Du,Hai Bà Trưng,Hà Nội,drop_housenumber_ward,cu
+"Đường Nội Khu 02, Tân Phú, Thành phố Hồ Chí Minh",,Đường Nội Khu 02,Tân Phú,,Thành phố Hồ Chí Minh,22,Đường Nội Khu 02,Phường Tân Phú,,Thành phố Hồ Chí Minh,drop_housenumber,moi
+"Phố Kim Mã, Ngọc Khánh, Ba Đình, TP.HN",,Phố Kim Mã,Ngọc Khánh,Ba Đình,TP.HN,531,Phố Kim Mã,Ngọc Khánh,Ba Đình,Hà Nội,drop_housenumber,cu
+"Tô Hiến Thành, Phường Hòa Hưng, Thành phố Hồ Chí Minh",,Tô Hiến Thành,Phường Hòa Hưng,,Thành phố Hồ Chí Minh,64,Tô Hiến Thành,Phường Hòa Hưng,,Thành phố Hồ Chí Minh,drop_housenumber,moi
+"Đường Thân Nhân Trung, P.Việt Yên, Tỉnh Bắc Ninh",,Đường Thân Nhân Trung,P.Việt Yên,,Tỉnh Bắc Ninh,422,Đường Thân Nhân Trung,Phường Việt Yên,,Tỉnh Bắc Ninh,drop_housenumber,moi
+"81, Khu dân cư số 9, Xuân Khánh, Cần Thơ",81,Khu dân cư số 9,Xuân Khánh,,Cần Thơ,81,Khu dân cư số 9,Xuân Khánh,Ninh Kiều,Cần Thơ,drop_district,cu
+"Phố Giang Liễu 2, Phường Phương Liễu, T.Bắc Ninh",,Phố Giang Liễu 2,Phường Phương Liễu,,T.Bắc Ninh,14,Phố Giang Liễu 2,Phường Phương Liễu,,Tỉnh Bắc Ninh,drop_housenumber,moi
+"75, Đường Trần Hưng Đạo, Phường Phố Mới, Bắc Ninh",75,Đường Trần Hưng Đạo,Phường Phố Mới,,Bắc Ninh,75,Đường Trần Hưng Đạo,Phường Phố Mới,Thị xã Quế Võ,Bắc Ninh,drop_district,cu
+"Đường Vũ Ninh, P. Vũ Ninh, Bắc Ninh",,Đường Vũ Ninh,P. Vũ Ninh,,Bắc Ninh,14,Đường Vũ Ninh,Phường Vũ Ninh,,Tỉnh Bắc Ninh,drop_housenumber,moi
+"102, Phố Sài Đồng, Long Biên, Hà Nội",102,Phố Sài Đồng,,Long Biên,Hà Nội,102,Phố Sài Đồng,Sài Đồng,Long Biên,Hà Nội,drop_ward,cu
+"sn 18, tổ 13, Hẻm 640/20/12 Nguyễn Văn Cừ, Gia Thụy, Hà Nội","sn 18, tổ 13",Hẻm 640/20/12 Nguyễn Văn Cừ,Gia Thụy,,Hà Nội,"sn 18, tổ 13",Hẻm 640/20/12 Nguyễn Văn Cừ,Gia Thụy,Long Biên,Hà Nội,drop_district,cu
+"Phố Hàng Bồ, HN",,Phố Hàng Bồ,,,HN,53,Phố Hàng Bồ,Phường Hoàn Kiếm,,Thành phố Hà Nội,drop_housenumber_ward,moi
+"Đường Hùng Vương, TP. Hà Nội",,Đường Hùng Vương,,,TP. Hà Nội,12,Đường Hùng Vương,Phường Ba Đình,,Thành phố Hà Nội,drop_housenumber_ward,moi
+"37A, Đường Hùng Vương, Thành phố Hà Nội",37A,Đường Hùng Vương,,,Thành phố Hà Nội,37A,Đường Hùng Vương,Phường Ba Đình,,Thành phố Hà Nội,drop_ward,moi
+"52, Đường Bà Chúa Kho, Tỉnh Bắc Ninh",52,Đường Bà Chúa Kho,,,Tỉnh Bắc Ninh,52,Đường Bà Chúa Kho,Phường Vũ Ninh,,Tỉnh Bắc Ninh,drop_ward,moi
+"Ngách 5/4 Hoàng Quốc Việt, Phường Nghĩa Đô, Quận Cầu Giấy, HN",,Ngách 5/4 Hoàng Quốc Việt,Phường Nghĩa Đô,Quận Cầu Giấy,HN,6,Ngách 5/4 Hoàng Quốc Việt,Phường Nghĩa Đô,Quận Cầu Giấy,Hà Nội,drop_housenumber,cu
+"Đường Hoàng Quốc Việt, Phường Nghĩa Đô, Thành phố Hà Nội",,Đường Hoàng Quốc Việt,Phường Nghĩa Đô,,Thành phố Hà Nội,3,Đường Hoàng Quốc Việt,Phường Nghĩa Đô,,Thành phố Hà Nội,drop_housenumber,moi
+"Phố Ngọc Khánh, Ba Đình, Hà Nội",,Phố Ngọc Khánh,,Ba Đình,Hà Nội,172,Phố Ngọc Khánh,Giảng Võ,Ba Đình,Hà Nội,drop_housenumber_ward,cu
+"4, Ngõ 42 Phố Trần Bình Trọng, TX Quế Võ, Bắc Ninh",4,Ngõ 42 Phố Trần Bình Trọng,,TX Quế Võ,Bắc Ninh,4,Ngõ 42 Phố Trần Bình Trọng,Phường Phương Liễu,Thị xã Quế Võ,Bắc Ninh,drop_ward,cu
+"Đường Kinh Bắc 44, P.Kinh Bắc, Tỉnh Bắc Ninh",,Đường Kinh Bắc 44,P.Kinh Bắc,,Tỉnh Bắc Ninh,13,Đường Kinh Bắc 44,Phường Kinh Bắc,,Tỉnh Bắc Ninh,drop_housenumber,moi
+"51, Phố Lý Thái Tổ, Tràng Tiền, Hà Nội",51,Phố Lý Thái Tổ,Tràng Tiền,,Hà Nội,51,Phố Lý Thái Tổ,Tràng Tiền,Hoàn Kiếm,Hà Nội,drop_district,cu
+"Quốc lộ 1, Phường An Phú Đông, Quận 12, TP. HCM",,Quốc lộ 1,Phường An Phú Đông,Quận 12,TP. HCM,1707,Quốc lộ 1,Phường An Phú Đông,Quận 12,Thành phố Hồ Chí Minh,drop_housenumber,cu
+"1, Đường Phúc Sơn, Tỉnh Bắc Ninh",1,Đường Phúc Sơn,,,Tỉnh Bắc Ninh,1,Đường Phúc Sơn,Phường Vũ Ninh,,Tỉnh Bắc Ninh,drop_ward,moi
+"Phố Thành Bắc, P.Kinh Bắc, Bắc Ninh",,Phố Thành Bắc,P.Kinh Bắc,,Bắc Ninh,87,Phố Thành Bắc,Phường Kinh Bắc,,Tỉnh Bắc Ninh,drop_housenumber,moi
+"Phố Khúc Hạo, Phường Ba Đình, Thành phố Hà Nội",,Phố Khúc Hạo,Phường Ba Đình,,Thành phố Hà Nội,10C,Phố Khúc Hạo,Phường Ba Đình,,Thành phố Hà Nội,drop_housenumber,moi
+"18, Ngõ 445 Hoàng Quốc Việt, P.Cổ Nhuế 1, HN",18,Ngõ 445 Hoàng Quốc Việt,P.Cổ Nhuế 1,,HN,18,Ngõ 445 Hoàng Quốc Việt,Phường Cổ Nhuế 1,Quận Bắc Từ Liêm,Hà Nội,drop_district,cu
+"11, Hoàng Tăng Bí, Xuân Đỉnh, TP. Hà Nội",11,Hoàng Tăng Bí,Xuân Đỉnh,,TP. Hà Nội,11,Hoàng Tăng Bí,Xuân Đỉnh,Bắc Từ Liêm,Hà Nội,drop_district,cu
+"569, Đường Hàn Thuyên, Tỉnh Bắc Ninh",569,Đường Hàn Thuyên,,,Tỉnh Bắc Ninh,569,Đường Hàn Thuyên,Phường Võ Cường,,Tỉnh Bắc Ninh,drop_ward,moi
+"Đường Hữu Chấp, Phường Kinh Bắc, Bắc Ninh",,Đường Hữu Chấp,Phường Kinh Bắc,,Bắc Ninh,37,Đường Hữu Chấp,Phường Kinh Bắc,,Tỉnh Bắc Ninh,drop_housenumber,moi
+"72, Phố Đồng Kỵ 3, Tỉnh Bắc Ninh",72,Phố Đồng Kỵ 3,,,Tỉnh Bắc Ninh,72,Phố Đồng Kỵ 3,Phường Đồng Nguyên,,Tỉnh Bắc Ninh,drop_ward,moi
+"Phố Lương Định Của, P. Phương Liễu, Bắc Ninh",,Phố Lương Định Của,P. Phương Liễu,,Bắc Ninh,197,Phố Lương Định Của,Phường Phương Liễu,,Tỉnh Bắc Ninh,drop_housenumber,moi
+"7, Đường Hoàng Quốc Việt, Quận Cầu Giấy, Hà Nội",7,Đường Hoàng Quốc Việt,,Quận Cầu Giấy,Hà Nội,7,Đường Hoàng Quốc Việt,Phường Nghĩa Đô,Quận Cầu Giấy,Hà Nội,drop_ward,cu
+"4, Ngõ 133 Nguyễn Phong Sắc, P. Nghĩa Tân, Hà Nội",4,Ngõ 133 Nguyễn Phong Sắc,P. Nghĩa Tân,,Hà Nội,4,Ngõ 133 Nguyễn Phong Sắc,Phường Nghĩa Tân,Quận Cầu Giấy,Hà Nội,drop_district,cu
+"66, Phố Trần Bình Trọng, Tỉnh Bắc Ninh",66,Phố Trần Bình Trọng,,,Tỉnh Bắc Ninh,66,Phố Trần Bình Trọng,Phường Phương Liễu,,Tỉnh Bắc Ninh,drop_ward,moi
+"Phố Trần Bình Trọng, P. Phương Liễu, Tỉnh Bắc Ninh",,Phố Trần Bình Trọng,P. Phương Liễu,,Tỉnh Bắc Ninh,21,Phố Trần Bình Trọng,Phường Phương Liễu,,Tỉnh Bắc Ninh,drop_housenumber,moi
+"Đường An Dương Vương, Thành phố Hồ Chí Minh",,Đường An Dương Vương,,,Thành phố Hồ Chí Minh,520,Đường An Dương Vương,Phường Bình Phú,,Thành phố Hồ Chí Minh,drop_housenumber_ward,moi
+"Đường Lạc Long Quân, Bình Thới, Thành phố Hồ Chí Minh",,Đường Lạc Long Quân,Bình Thới,,Thành phố Hồ Chí Minh,240,Đường Lạc Long Quân,Phường Bình Thới,,Thành phố Hồ Chí Minh,drop_housenumber,moi
+"Phố Nguyễn Nhân Bỉ, Phường Vũ Ninh, Tỉnh Bắc Ninh",,Phố Nguyễn Nhân Bỉ,Phường Vũ Ninh,,Tỉnh Bắc Ninh,30,Phố Nguyễn Nhân Bỉ,Phường Vũ Ninh,,Tỉnh Bắc Ninh,drop_housenumber,moi
+"29, Đường Hùng Vương, Quận Ba Đình, Hà Nội",29,Đường Hùng Vương,,Quận Ba Đình,Hà Nội,29,Đường Hùng Vương,Phường Điện Biên,Quận Ba Đình,Hà Nội,drop_ward,cu
+"Ngách 41/6 Trần Quốc Hoàn, P.Dịch Vọng Hậu, Q Cầu Giấy, Hà Nội",,Ngách 41/6 Trần Quốc Hoàn,P.Dịch Vọng Hậu,Q Cầu Giấy,Hà Nội,1,Ngách 41/6 Trần Quốc Hoàn,Phường Dịch Vọng Hậu,Quận Cầu Giấy,Hà Nội,drop_housenumber,cu
+"8, Phố Tôn Thất Thuyết, Nam Từ Liêm, Hà Nội",8,Phố Tôn Thất Thuyết,,Nam Từ Liêm,Hà Nội,8,Phố Tôn Thất Thuyết,Mỹ Đình,Nam Từ Liêm,Hà Nội,drop_ward,cu
+"Đường Thụy Khuê, Thụy Khuê, Tây Hồ, TP.HN",,Đường Thụy Khuê,Thụy Khuê,Tây Hồ,TP.HN,36,Đường Thụy Khuê,Thụy Khuê,Tây Hồ,Hà Nội,drop_housenumber,cu
+"4, Ngõ 3 Thành Thái, Cầu Giấy, Hà Nội",4,Ngõ 3 Thành Thái,,Cầu Giấy,Hà Nội,4,Ngõ 3 Thành Thái,Dịch Vọng,Cầu Giấy,Hà Nội,drop_ward,cu
+"Ngách 643/40 Phạm Văn Đồng, Quận Bắc Từ Liêm, Hà Nội",,Ngách 643/40 Phạm Văn Đồng,,Quận Bắc Từ Liêm,Hà Nội,12,Ngách 643/40 Phạm Văn Đồng,Phường Cổ Nhuế 1,Quận Bắc Từ Liêm,Hà Nội,drop_housenumber_ward,cu
+"77, Đường Trần Hưng Đạo, Tỉnh Bắc Ninh",77,Đường Trần Hưng Đạo,,,Tỉnh Bắc Ninh,77,Đường Trần Hưng Đạo,Phường Võ Cường,,Tỉnh Bắc Ninh,drop_ward,moi
+"15, Đường Nội Khu 04, Thành phố Hồ Chí Minh",15,Đường Nội Khu 04,,,Thành phố Hồ Chí Minh,15,Đường Nội Khu 04,Phường Tân Phú,,Thành phố Hồ Chí Minh,drop_ward,moi
+"Phố Lương Định Của, Phường Phương Liễu, Bắc Ninh",,Phố Lương Định Của,Phường Phương Liễu,,Bắc Ninh,260,Phố Lương Định Của,Phường Phương Liễu,,Tỉnh Bắc Ninh,drop_housenumber,moi
+"Đường Hai Bà Trưng, P.Kinh Bắc, T. Bắc Ninh",,Đường Hai Bà Trưng,P.Kinh Bắc,,T. Bắc Ninh,152,Đường Hai Bà Trưng,Phường Kinh Bắc,,Tỉnh Bắc Ninh,drop_housenumber,moi
+"Phạm Hùng, P 4, Quận 8, TP.HCM",,Phạm Hùng,P 4,Quận 8,TP.HCM,17A,Phạm Hùng,Phường 4,Quận 8,Thành phố Hồ Chí Minh,drop_housenumber,cu
+"68, Phố Nguyễn Thái Học, Quận Ba Đình, Hà Nội",68,Phố Nguyễn Thái Học,,Quận Ba Đình,Hà Nội,68,Phố Nguyễn Thái Học,Phường Điện Biên,Quận Ba Đình,Hà Nội,drop_ward,cu
+"500, Phố Xã Đàn, Đống Đa, HN",500,Phố Xã Đàn,,Đống Đa,HN,500,Phố Xã Đàn,Nam Đồng,Đống Đa,Hà Nội,drop_ward,cu
+"4a, Thanh Thuỳ, HN",4a,Thanh Thuỳ,,,HN,4a,Thanh Thuỳ,Phường Hoàn Kiếm,,Thành phố Hà Nội,drop_ward,moi
+"3, Đường Hoàng Quốc Việt, Quận Cầu Giấy, Hà Nội",3,Đường Hoàng Quốc Việt,,Quận Cầu Giấy,Hà Nội,3,Đường Hoàng Quốc Việt,Phường Nghĩa Đô,Quận Cầu Giấy,Hà Nội,drop_ward,cu
+"3, Ngách 61/44 Phạm Tuấn Tài, Quận Bắc Từ Liêm, Hà Nội",3,Ngách 61/44 Phạm Tuấn Tài,,Quận Bắc Từ Liêm,Hà Nội,3,Ngách 61/44 Phạm Tuấn Tài,Phường Cổ Nhuế 1,Quận Bắc Từ Liêm,Hà Nội,drop_ward,cu
+"14B, Đường Cô Mễ, Tỉnh Bắc Ninh",14B,Đường Cô Mễ,,,Tỉnh Bắc Ninh,14B,Đường Cô Mễ,Phường Vũ Ninh,,Tỉnh Bắc Ninh,drop_ward,moi
+"33, Phố Giang Liễu, Bắc Ninh",33,Phố Giang Liễu,,,Bắc Ninh,33,Phố Giang Liễu,Phường Phương Liễu,,Tỉnh Bắc Ninh,drop_ward,moi
+"Nguyễn Trãi, P. Nguyễn Cư Trinh, Quận 1, Thành phố Hồ Chí Minh",,Nguyễn Trãi,P. Nguyễn Cư Trinh,Quận 1,Thành phố Hồ Chí Minh,215B,Nguyễn Trãi,Phường Nguyễn Cư Trinh,Quận 1,Thành phố Hồ Chí Minh,drop_housenumber,cu
+"6, Ngách 61/21 Phạm Tuấn Tài, Quận Bắc Từ Liêm, Hà Nội",6,Ngách 61/21 Phạm Tuấn Tài,,Quận Bắc Từ Liêm,Hà Nội,6,Ngách 61/21 Phạm Tuấn Tài,Phường Cổ Nhuế 1,Quận Bắc Từ Liêm,Hà Nội,drop_ward,cu
+"205, Đường Xuân Thủy, Phường Dịch Vọng Hậu, TP.HN",205,Đường Xuân Thủy,Phường Dịch Vọng Hậu,,TP.HN,205,Đường Xuân Thủy,Phường Dịch Vọng Hậu,Quận Cầu Giấy,Hà Nội,drop_district,cu
+"Ngõ 3 Phạm Tuấn Tài, Cổ Nhuế 1, Q. Bắc Từ Liêm, Hà Nội",,Ngõ 3 Phạm Tuấn Tài,Cổ Nhuế 1,Q. Bắc Từ Liêm,Hà Nội,38,Ngõ 3 Phạm Tuấn Tài,Phường Cổ Nhuế 1,Quận Bắc Từ Liêm,Hà Nội,drop_housenumber,cu
+"504, Đường Nguyễn Tất Thành, P.18, TP Hồ Chí Minh",504,Đường Nguyễn Tất Thành,P.18,,TP Hồ Chí Minh,504,Đường Nguyễn Tất Thành,phường 18,quận 4,TP Hồ Chí Minh,drop_district,cu
+"Đường Mỹ Phú 1B, Tân Phú, TPHCM",,Đường Mỹ Phú 1B,Tân Phú,,TPHCM,11,Đường Mỹ Phú 1B,Phường Tân Phú,,Thành phố Hồ Chí Minh,drop_housenumber,moi
+"Phố Phan Huy Chú, Phan Chu Trinh, Hoàn Kiếm, Hà Nội",,Phố Phan Huy Chú,Phan Chu Trinh,Hoàn Kiếm,Hà Nội,11A,Phố Phan Huy Chú,Phan Chu Trinh,Hoàn Kiếm,Hà Nội,drop_housenumber,cu
+"80, Đường Lê Văn Thịnh, Thành phố Bắc Ninh, Bắc Ninh",80,Đường Lê Văn Thịnh,,Thành phố Bắc Ninh,Bắc Ninh,80,Đường Lê Văn Thịnh,Phường Suối Hoa,Thành phố Bắc Ninh,Bắc Ninh,drop_ward,cu
+"SH16-11, San Hô 16, Đa Tốn, HN",SH16-11,San Hô 16,Đa Tốn,,HN,SH16-11,San Hô 16,Đa Tốn,Gia Lâm,Hà Nội,drop_district,cu
+"19, Nguyễn Văn Tố, Thành phố Hà Nội",19,Nguyễn Văn Tố,,,Thành phố Hà Nội,19,Nguyễn Văn Tố,Phường Hoàn Kiếm,,Thành phố Hà Nội,drop_ward,moi
+"231, Đường Nguyễn Trãi, thanh xuân trung, hà nội",231,Đường Nguyễn Trãi,thanh xuân trung,,hà nội,231,Đường Nguyễn Trãi,thanh xuân trung,thanh xuân,hà nội,drop_district,cu
+"666/46, Hẻm 666 Đường 3 Tháng 2, P.14, TPHCM",666/46,Hẻm 666 Đường 3 Tháng 2,P.14,,TPHCM,666/46,Hẻm 666 Đường 3 Tháng 2,phường 14,10,Thành phố Hồ Chí Minh,drop_district,cu
+"170, Đường Lê Phụng Hiểu, T.Bắc Ninh",170,Đường Lê Phụng Hiểu,,,T.Bắc Ninh,170,Đường Lê Phụng Hiểu,Phường Kinh Bắc,,Tỉnh Bắc Ninh,drop_ward,moi
+"Đường Khả Lễ, P. Võ Cường, Tỉnh Bắc Ninh",,Đường Khả Lễ,P. Võ Cường,,Tỉnh Bắc Ninh,122,Đường Khả Lễ,Phường Võ Cường,,Tỉnh Bắc Ninh,drop_housenumber,moi
+"Nguyễn Văn Cừ, An Bình, Ninh Kiều, Cần Thơ",,Nguyễn Văn Cừ,An Bình,Ninh Kiều,Cần Thơ,62,Nguyễn Văn Cừ,An Bình,Ninh Kiều,Cần Thơ,drop_housenumber,cu
+"91, Đường Trần Hưng Đạo, P Phố Mới, Bắc Ninh",91,Đường Trần Hưng Đạo,P Phố Mới,,Bắc Ninh,91,Đường Trần Hưng Đạo,Phường Phố Mới,Thị xã Quế Võ,Bắc Ninh,drop_district,cu
+"Phố Trần Phú, Phường Ba Đình, Hà Nội",,Phố Trần Phú,Phường Ba Đình,,Hà Nội,35,Phố Trần Phú,Phường Ba Đình,,Thành phố Hà Nội,drop_housenumber,moi
+"678, Đường Hoàng Quốc Việt, Thành phố Bắc Ninh, Bắc Ninh",678,Đường Hoàng Quốc Việt,,Thành phố Bắc Ninh,Bắc Ninh,678,Đường Hoàng Quốc Việt,Phường Đáp Cầu,Thành phố Bắc Ninh,Bắc Ninh,drop_ward,cu
+"5, Hẻm 4 Ngách 111 Xã Đàn 2, Đống Đa, TP. Hà Nội",5,Hẻm 4 Ngách 111 Xã Đàn 2,,Đống Đa,TP. Hà Nội,5,Hẻm 4 Ngách 111 Xã Đàn 2,Nam Đồng,Đống Đa,Hà Nội,drop_ward,cu
+"Đường Ngô Đức Kế, Thanh Khê Tây, Thanh Khê, Đà Nẵng",,Đường Ngô Đức Kế,Thanh Khê Tây,Thanh Khê,Đà Nẵng,02,Đường Ngô Đức Kế,Thanh Khê Tây,Thanh Khê,Đà Nẵng,drop_housenumber,cu
+"Nguyễn Văn Cừ, An Hòa, Ninh Kiều, Cần Thơ",,Nguyễn Văn Cừ,An Hòa,Ninh Kiều,Cần Thơ,173,Nguyễn Văn Cừ,An Hòa,Ninh Kiều,Cần Thơ,drop_housenumber,cu
+"44, Đường Giếng Ngọc, Tỉnh Bắc Ninh",44,Đường Giếng Ngọc,,,Tỉnh Bắc Ninh,44,Đường Giếng Ngọc,Phường Kinh Bắc,,Tỉnh Bắc Ninh,drop_ward,moi
+"583, Sư Vạn Hạnh, 13, TP. HCM",583,Sư Vạn Hạnh,13,,TP. HCM,583,Sư Vạn Hạnh,13,10,TP.Hồ Chí Minh,drop_district,cu
+"Phố Hoa Lư, Lê Đại Hành, Hai Bà Trưng, Hà Nội",,Phố Hoa Lư,Lê Đại Hành,Hai Bà Trưng,Hà Nội,2,Phố Hoa Lư,Lê Đại Hành,Hai Bà Trưng,Hà Nội,drop_housenumber,cu
+"Ngô Hai Tuong, P. Hoàn Kiếm, HN",,Ngô Hai Tuong,P. Hoàn Kiếm,,HN,22,Ngô Hai Tuong,Phường Hoàn Kiếm,,Thành phố Hà Nội,drop_housenumber,moi
+"Đường Thanh Niên, Phường Ba Đình, HN",,Đường Thanh Niên,Phường Ba Đình,,HN,9,Đường Thanh Niên,Phường Ba Đình,,Thành phố Hà Nội,drop_housenumber,moi
+"43, Đường Số 19, P.Tân Phú, HCM",43,Đường Số 19,P.Tân Phú,,HCM,43,Đường Số 19,Phường Tân Phú,Quận 7,Thành phố Hồ Chí Minh,drop_district,cu

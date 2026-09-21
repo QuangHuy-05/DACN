@@ -1,0 +1,154 @@
+{
+  "manifest_version": "2.0",
+  "freeze_timestamp": "2026-09-19T14:48:18.462853+00:00",
+  "seed": 42,
+  "mapping_source": {
+    "file_name": "vietnam-sap-nhap-phuong-xa.csv",
+    "sha256": "22bd8278cf7b3f969f255e841271f33f63f6d9db1cdf02defcaaf7360a764e53",
+    "size_bytes": 1454124
+  },
+  "python_version": "3.14.4",
+  "runtime_packages": {
+    "pandas": "2.3.3",
+    "pyarrow": "23.0.1",
+    "osmium": "4.3.1",
+    "tqdm": "4.70.1"
+  },
+  "baseline_tools": {
+    "vietnamadminunits": "1.0.4",
+    "libpostal": "1.1.11",
+    "libpostal_model": "openvenues default",
+    "libpostal_c_commit": "25099c506612b34b23b1bfe286ca6321fcf06f35"
+  },
+  "protocol": "oracle mode for 01/02/03/04; both modes for 06; old-to-new conversion for 07",
+  "code_hashes": {
+    "src/evaluation/adapters/libpostal_adapter.py": "53817addaaf5bce4312b4823137e1a7e8d7c406a27a85eb7c6c88fbc9fa289a2",
+    "src/evaluation/adapters/vnadmin_adapter.py": "e95f25f6516724666f20a1f647710d068448386aec1d217a3c4ec398107215c8",
+    "src/evaluation/scorer.py": "15ea5f5fec0055d367b4374de3d99eba39aa26e3419f011ae59acaa786c8c5a1",
+    "src/evaluation/data_contract.py": "85f65d953394d9276604d8125538a7da03c3ab23e457ba9fb40cb2910f689d83",
+    "src/evaluation/manifest.py": "a57735b1a28cbac474b04af7940b7c299e81f5fe2565ab32be6cbb6ad89684fc",
+    "scripts/05_run_baseline_pilot.py": "1caf722200784261ee6b29ae9cddb694c8f809b486dd6e7bbad624729b0087dc",
+    "scripts/06_run_baseline_full.py": "c70b3b74cec8b405a8f0ea001bc6f2de2a6091823e23e1a610ce1917eb39f688",
+    "scripts/07_generate_baseline_report.py": "faef0e2aaba32e3699ebc905aa3f3add6fdaa9a70d39a3d7357c5a9ebf4de7f9",
+    "src/evaluation/reporter.py": "61e71da50f797f00ada3c5a0c133973dcddfc91ecc8da2129a285cb38e75a040"
+  },
+  "datasets": {
+    "01_full_address_new_verified.csv": {
+      "row_count": 1000,
+      "columns": [
+        "SoNha",
+        "TenDuong",
+        "PhuongXa",
+        "QuanHuyen",
+        "TinhThanh",
+        "ChuoiDiaChi",
+        "HeQuyChieu"
+      ],
+      "sha256": "7e2afd47828d04d108c67d29f45cb50b6a5321ae8feef595cf2b67229796a60d",
+      "size_bytes": 148656
+    },
+    "02_raw_noisy_synthetic_1000.csv": {
+      "row_count": 1000,
+      "columns": [
+        "ID",
+        "ChuoiDiaChi",
+        "ChuoiDiaChiGoc",
+        "SoNha",
+        "TenDuong",
+        "PhuongXa",
+        "QuanHuyen",
+        "TinhThanh",
+        "GT_SoNha",
+        "GT_TenDuong",
+        "GT_PhuongXa",
+        "GT_QuanHuyen",
+        "GT_TinhThanh",
+        "HeQuyChieu",
+        "MucDoNhieu",
+        "LoaiNhieu",
+        "SoPhepBienDoi",
+        "Seed",
+        "Nguon"
+      ],
+      "sha256": "bd425883f624c98e206d6ab197240b9642eb63352b56efd06723d04401751def",
+      "size_bytes": 352660
+    },
+    "03_real_address_old_1500.csv": {
+      "row_count": 1500,
+      "columns": [
+        "OSM_Type",
+        "OSM_ID",
+        "SoNha",
+        "TenDuong",
+        "PhuongXa",
+        "QuanHuyen",
+        "TinhThanh",
+        "ChuoiDiaChi",
+        "HinhHoc",
+        "VungMien",
+        "HeQuyChieu"
+      ],
+      "sha256": "d2748f4cedc498046100779a6f59fb1ef1e79c3049aeefe9d6d542afa79badda",
+      "size_bytes": 333196
+    },
+    "04_missing_fields_800.csv": {
+      "row_count": 800,
+      "columns": [
+        "ChuoiDiaChi",
+        "SoNha",
+        "TenDuong",
+        "PhuongXa",
+        "QuanHuyen",
+        "TinhThanh",
+        "GT_SoNha",
+        "GT_TenDuong",
+        "GT_PhuongXa",
+        "GT_QuanHuyen",
+        "GT_TinhThanh",
+        "KieuThieu",
+        "HeQuyChieu"
+      ],
+      "sha256": "46305aac4821c2f2bc96913cfaf3a89f3087dd91216f5093dc7f89b8541fc021",
+      "size_bytes": 160062
+    },
+    "06_hybrid_addresses_600.csv": {
+      "row_count": 600,
+      "columns": [
+        "ChuoiDiaChi",
+        "SoNha",
+        "TenDuong",
+        "PhuongXa",
+        "QuanHuyen",
+        "TinhThanh",
+        "KieuLai",
+        "HeQuyChieu",
+        "Span_He_Detail",
+        "LoaiAnhXa",
+        "QuanHe",
+        "HinhThucSapNhap",
+        "Nguon"
+      ],
+      "sha256": "6249b06941d6e89a8a731fc47d0b844ee89ed8dce5a902bfcaac13d2785ced8d",
+      "size_bytes": 215552
+    },
+    "07_bidirectional_pairs_verified.csv": {
+      "row_count": 600,
+      "columns": [
+        "ID_Node",
+        "DiaChi_Cu",
+        "DiaChi_Moi",
+        "LoaiAnhXa",
+        "QuanHe",
+        "HinhThucSapNhap",
+        "MaPhuongXaMoi",
+        "Nguon"
+      ],
+      "sha256": "3f11b0d02a05922662613c460014da34f89def7da1e7e1ba6ef496aa369245fc",
+      "size_bytes": 149499
+    }
+  },
+  "output_hashes": {
+    "baseline_predictions_unified.csv": "5cfef31abc8085522606869699b1f893c4afa83804ae3d7668802072c44d793f",
+    "baseline_raw_responses.jsonl": "6ec6c372c4bc1624af058234d85d6b128b536035eacd34fd08dee6288791563b"
+  }
+}

@@ -1,0 +1,23 @@
+# Kiểm tra chất lượng dữ liệu (17/09/2026)
+
+| Tập | Số dòng | Trạng thái |
+| --- | ---: | --- |
+| Snapshot hệ cũ đầy đủ | 26.961 | Toàn bộ node/way trước 30/06/2025; dùng làm nguồn đối chiếu ID cho OSM diff |
+| Snapshot hệ cũ cân bằng | 16.242 | 10.000 Bắc, 4.925 Nam, 1.317 Trung; dùng để lấy mẫu cho tập 03 |
+| 01 hệ mới | 1.000 | Có phường–tỉnh khớp bảng hành chính mới, không có cấp huyện |
+| 02 raw noise tổng hợp | 1.000 | 500 cũ/500 mới; có `ChuoiDiaChiGoc`, `GT_*`, mức/loại nhiễu và seed `42` để đo độ bền baseline |
+| 03 hệ cũ | 1.500 | Địa chỉ hệ cũ sạch hoàn toàn đủ 5 trường (SoNha, TenDuong, PhuongXa, QuanHuyen, TinhThanh), lấy mẫu từ 8.848 dòng sạch trong snapshot |
+| 04 thiếu trường | 800 | 400 cũ/400 mới sinh có kiểm soát từ nguồn sạch; chỉ xóa trường do KieuThieu chỉ định; GT_* nguyên vẹn; QuanHuyen rỗng ở hệ mới là cấu trúc 2 cấp |
+| 05 địa chỉ mốc | 0 | Chưa có nguồn thật/nhãn đủ để tạo |
+| 06 địa chỉ lai | 600 | 420 C1, 120 C2, 60 C3; 600 chuỗi duy nhất sau khi loại bề mặt trùng giữa C2/C3 |
+| 07 cặp hai chiều | 600 | 244 B/N-1, 356 M/M-N; 600 cặp OSM diff quan sát trực tiếp (100%), 0 cặp dựng từ snapshot |
+
+Tất cả CSV benchmark hiện tại dùng UTF-8-sig. Data 2 có 376 mẫu nhiễu nhẹ, 413 vừa và 211 nặng; các phép biến đổi gồm viết tắt, bỏ dấu, lỗi OCR một ký tự, thiếu trường, đảo thành phần hành chính và định dạng dấu phân cách. Không có chuỗi nhiễu trùng hoặc trùng chuỗi gốc. `configs/noise_params.json` được ước lượng từ 146 hóa đơn thật, chỉ hướng dẫn tần suất biến đổi khi sinh Data 2; đây không phải nhãn xác nhận thủ công. Báo cáo phân tích độ phủ đa chiều chi tiết (Nguồn, Quan hệ, Vùng miền, Hình học OSM, Hình thức sáp nhập) được tự động tạo tại `docs/benchmark_coverage_report.md`.
+
+Khi tái trích xuất OSM, snapshot đầy đủ ghi thêm `HinhHoc`; OSM diff ghi `HinhHoc_Cu`, `HinhHoc_Moi`, `HinhHocCoDuLieu` và `HinhHocThayDoi`. Đây là bằng chứng chẩn đoán cho audit: `HinhHocCoDuLieu=False` luôn có nghĩa là **chưa có bằng chứng**, không được diễn giải thành đối tượng đứng yên. Với `way`, fingerprint chỉ theo thứ tự node thành phần, nên một cạnh chưa xác minh vẫn cần kiểm tra thủ công/bảng hành chính trước khi kết luận là di chuyển hay thiếu cạnh nguồn.
+
+Chưa thể khẳng định đã hoàn thành đủ 7 tập con theo đề cương. Cần nguồn địa chỉ mốc có quyền sử dụng. Ánh xạ hành chính dùng `data/reference/administrative_units/vietnam-sap-nhap-phuong-xa.csv` dưới dạng đồ thị cạnh nguyên tử, có đủ quan hệ 1-1, 1-N, N-1 và M-N. Tập 07 hiện đạt 100% bằng chứng quan sát thực tế từ OSM diff (612 ứng viên hợp lệ, lấy mẫu phân tầng 600 cặp), không cần sử dụng cặp dựng suy diễn từ snapshot.
+
+Đánh giá baseline chỉ có ground truth 5 trường địa chỉ, chưa có nhãn span T0 11 lớp. Tập 03 là benchmark địa chỉ cũ sạch hoàn toàn 100% với đủ cả 5 trường (0 dòng thiếu tự nhiên), được lọc và lấy mẫu từ 8.848 ứng viên sạch trong snapshot. Tập 04 là benchmark thiếu trường có kiểm soát được tạo từ nguồn sạch (không còn hiện tượng thiếu tự nhiên ngoài trường khai báo), bảo toàn nguyên vẹn `GT_*` trước khi xóa; `QuanHuyen` rỗng ở các dòng hệ mới phản ánh cấu trúc hành chính hai cấp (không tính là lỗi thiếu trường). Tập 02 là nhiễu tổng hợp với nhiều phép biến đổi đồng xuất hiện; nhãn `dinh_dang_phan_cach` xuất hiện ở cả 1.000 dòng, nên bảng theo loại nhiễu không đo tác động riêng lẻ. Tập 07 chỉ bao gồm N-1/M-N và tập trung ở miền Bắc, xem `docs/benchmark_coverage_report.md`.
+
+Audit sau tái trích xuất có 1.631 diff: 612 `accepted_observed`; **0** `not_in_old_snapshot`; 325 `new_unit_not_found`; 188 `missing_old_ward`; 188 `house_or_street_changed`; 89 `missing_new_ward`; 19 `missing_old_district`; 161 bản trùng; và 49 cạnh lịch sử chưa xác minh được tách thành 14 `possible_geometry_move` cùng 35 `stationary_unverified_edge`. Hai nhóm 49 này bị loại khỏi benchmark, không được ép ghép. Chi tiết từng dòng, tag gốc, giá trị chuẩn hóa, alias áp dụng và trạng thái hình học nằm trong `data/processed/evaluation/osm_diff_filter_audit.csv`.

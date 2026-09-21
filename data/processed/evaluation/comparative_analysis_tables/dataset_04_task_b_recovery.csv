@@ -1,0 +1,9 @@
+﻿Tool,KieuThieu,n_records,total_dropped_fields,Recovered_Correct,Recovered_Wrong,Not_Filled
+libpostal,drop_ward,241,241,0/241 (0.0%),7/241 (2.9%),234/241 (97.1%)
+libpostal,drop_district,99,99,0/99 (0.0%),10/99 (10.1%),89/99 (89.9%)
+libpostal,drop_housenumber,348,348,2/348 (0.6%),48/348 (13.8%),298/348 (85.6%)
+libpostal,drop_housenumber_ward,112,224,0/224 (0.0%),19/224 (8.5%),205/224 (91.5%)
+vietnamadminunits,drop_ward,241,241,5/241 (2.1%),19/241 (7.9%),217/241 (90.0%)
+vietnamadminunits,drop_district,99,99,2/99 (2.0%),7/99 (7.1%),90/99 (90.9%)
+vietnamadminunits,drop_housenumber,348,348,1/348 (0.3%),0/348 (0.0%),347/348 (99.7%)
+vietnamadminunits,drop_housenumber_ward,112,224,6/224 (2.7%),14/224 (6.2%),204/224 (91.1%)

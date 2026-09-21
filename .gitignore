@@ -1,0 +1,40 @@
+# Virtual environments
+.venv/
+.venv_wsl/
+
+# Python cache & build
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Large raw & interim datasets (> 100MB / binary files)
+data/raw/
+data/interim/
+
+# Processed outputs: ignore large run dumps, but track benchmark datasets & evaluation summaries
+data/processed/osm/
+data/processed/evaluation/runs/
+data/processed/evaluation/baseline_raw_responses.jsonl
+data/processed/evaluation/baseline_pilot_raw_responses.jsonl
+
+# Third-party libraries / reference clones
+third_party/
+
+# Temporary scratch and render artifacts
+tmp/
+
+# LaTeX auxiliary files (auto-generated during slide compile)
+*.aux
+*.log
+*.nav
+*.out
+*.snm
+*.toc
+*.vrb
+*.synctex.gz
+
+# IDE & OS metadata
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

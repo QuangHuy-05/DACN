@@ -1,0 +1,3654 @@
+{
+  "data_01": {
+    "libpostal": {
+      "n": 1000,
+      "correct": 2,
+      "partial": 917,
+      "error": 81,
+      "correct_rate": 0.002,
+      "partial_rate": 0.917,
+      "error_rate": 0.081,
+      "field_prec": {
+        "SoNha": 0.9283551967709385,
+        "TenDuong": 0.3756345177664975,
+        "PhuongXa": 0.09090909090909091,
+        "QuanHuyen": 0.0,
+        "TinhThanh": 0.938
+      },
+      "field_rec": {
+        "SoNha": 0.92,
+        "TenDuong": 0.37,
+        "PhuongXa": 0.002,
+        "QuanHuyen": 0.0,
+        "TinhThanh": 0.938
+      },
+      "field_f1": {
+        "SoNha": 0.9241587142139629,
+        "TenDuong": 0.37279596977329976,
+        "PhuongXa": 0.003913894324853229,
+        "QuanHuyen": 0.0,
+        "TinhThanh": 0.938
+      },
+      "avg_f1": 0.44777371566242313,
+      "missing_cnt": 223,
+      "missing_rate": 0.223,
+      "halluc_cnt": 775,
+      "halluc_rate": 0.775
+    },
+    "libpostal_ci": [
+      0.0,
+      0.005
+    ],
+    "vietnamadminunits": {
+      "n": 1000,
+      "correct": 973,
+      "partial": 27,
+      "error": 0,
+      "correct_rate": 0.973,
+      "partial_rate": 0.027,
+      "error_rate": 0.0,
+      "field_prec": {
+        "SoNha": 0.9848331648129424,
+        "TenDuong": 0.973,
+        "PhuongXa": 1.0,
+        "QuanHuyen": 0.0,
+        "TinhThanh": 1.0
+      },
+      "field_rec": {
+        "SoNha": 0.974,
+        "TenDuong": 0.973,
+        "PhuongXa": 1.0,
+        "QuanHuyen": 0.0,
+        "TinhThanh": 1.0
+      },
+      "field_f1": {
+        "SoNha": 0.97938662644545,
+        "TenDuong": 0.973,
+        "PhuongXa": 1.0,
+        "QuanHuyen": 0.0,
+        "TinhThanh": 1.0
+      },
+      "avg_f1": 0.79047732528909,
+      "missing_cnt": 27,
+      "missing_rate": 0.027,
+      "halluc_cnt": 0,
+      "halluc_rate": 0.0
+    },
+    "vietnamadminunits_ci": [
+      0.962,
+      0.982
+    ],
+    "paired": {
+      "n": 1000,
+      "both_correct": 2,
+      "only_lp_correct": 0,
+      "only_vn_correct": 971,
+      "both_wrong": 27,
+      "mcnemar_stat": 969.0010298661174,
+      "p_value": 9.827222522204731e-213
+    },
+    "lp_label_counts": {
+      "house_number": 1040,
+      "road": 1000,
+      "city_district": 183,
+      "city": 1059,
+      "state": 640,
+      "state_district": 185,
+      "house": 21,
+      "suburb": 22
+    },
+    "d01_ward_as_city": 513,
+    "d01_ward_as_district": 263,
+    "d01_ward_as_suburb": 2,
+    "d01_fake_district_filled": 775
+  },
+  "data_02": {
+    "by_level": {
+      "nhe": {
+        "n": 376,
+        "lp_clean": {
+          "n": 376,
+          "correct": 1,
+          "partial": 287,
+          "error": 88,
+          "correct_rate": 0.0026595744680851063,
+          "partial_rate": 0.7632978723404256,
+          "error_rate": 0.23404255319148937,
+          "field_prec": {
+            "SoNha": 0.8064516129032258,
+            "TenDuong": 0.31197771587743733,
+            "PhuongXa": 0.038461538461538464,
+            "QuanHuyen": 0.07386363636363637,
+            "TinhThanh": 0.8924731182795699
+          },
+          "field_rec": {
+            "SoNha": 0.7978723404255319,
+            "TenDuong": 0.2978723404255319,
+            "PhuongXa": 0.0026595744680851063,
+            "QuanHuyen": 0.06532663316582915,
+            "TinhThanh": 0.8829787234042553
+          },
+          "field_f1": {
+            "SoNha": 0.8021390374331551,
+            "TenDuong": 0.3047619047619048,
+            "PhuongXa": 0.0049751243781094535,
+            "QuanHuyen": 0.06933333333333334,
+            "TinhThanh": 0.8877005347593583
+          },
+          "avg_f1": 0.41378198693317214,
+          "missing_cnt": 241,
+          "missing_rate": 0.6409574468085106,
+          "halluc_cnt": 133,
+          "halluc_rate": 0.3537234042553192
+        },
+        "lp_noisy": {
+          "n": 376,
+          "correct": 1,
+          "partial": 241,
+          "error": 134,
+          "correct_rate": 0.0026595744680851063,
+          "partial_rate": 0.6409574468085106,
+          "error_rate": 0.35638297872340424,
+          "field_prec": {
+            "SoNha": 0.806970509383378,
+            "TenDuong": 0.1917808219178082,
+            "PhuongXa": 0.16,
+            "QuanHuyen": 0.14556962025316456,
+            "TinhThanh": 0.7457142857142857
+          },
+          "field_rec": {
+            "SoNha": 0.800531914893617,
+            "TenDuong": 0.18617021276595744,
+            "PhuongXa": 0.010638297872340425,
+            "QuanHuyen": 0.11557788944723618,
+            "TinhThanh": 0.6941489361702128
+          },
+          "field_f1": {
+            "SoNha": 0.8037383177570092,
+            "TenDuong": 0.18893387314439944,
+            "PhuongXa": 0.0199501246882793,
+            "QuanHuyen": 0.12885154061624648,
+            "TinhThanh": 0.7190082644628099
+          },
+          "avg_f1": 0.3720964241337489,
+          "missing_cnt": 259,
+          "missing_rate": 0.6888297872340425,
+          "halluc_cnt": 108,
+          "halluc_rate": 0.2872340425531915
+        },
+        "vn_clean": {
+          "n": 376,
+          "correct": 325,
+          "partial": 47,
+          "error": 4,
+          "correct_rate": 0.8643617021276596,
+          "partial_rate": 0.125,
+          "error_rate": 0.010638297872340425,
+          "field_prec": {
+            "SoNha": 0.991044776119403,
+            "TenDuong": 0.8829787234042553,
+            "PhuongXa": 0.981081081081081,
+            "QuanHuyen": 0.9846938775510204,
+            "TinhThanh": 0.9973404255319149
+          },
+          "field_rec": {
+            "SoNha": 0.8829787234042553,
+            "TenDuong": 0.8829787234042553,
+            "PhuongXa": 0.9654255319148937,
+            "QuanHuyen": 0.9698492462311558,
+            "TinhThanh": 0.9973404255319149
+          },
+          "field_f1": {
+            "SoNha": 0.9338959212376935,
+            "TenDuong": 0.8829787234042553,
+            "PhuongXa": 0.9731903485254693,
+            "QuanHuyen": 0.9772151898734177,
+            "TinhThanh": 0.9973404255319149
+          },
+          "avg_f1": 0.9529241217145501,
+          "missing_cnt": 50,
+          "missing_rate": 0.13297872340425532,
+          "halluc_cnt": 0,
+          "halluc_rate": 0.0
+        },
+        "vn_noisy": {
+          "n": 376,
+          "correct": 111,
+          "partial": 261,
+          "error": 4,
+          "correct_rate": 0.29521276595744683,
+          "partial_rate": 0.6941489361702128,
+          "error_rate": 0.010638297872340425,
+          "field_prec": {
+            "SoNha": 0.9870689655172413,
+            "TenDuong": 0.3048128342245989,
+            "PhuongXa": 0.981029810298103,
+            "QuanHuyen": 0.9846938775510204,
+            "TinhThanh": 0.9973404255319149
+          },
+          "field_rec": {
+            "SoNha": 0.6090425531914894,
+            "TenDuong": 0.30319148936170215,
+            "PhuongXa": 0.9627659574468085,
+            "QuanHuyen": 0.9698492462311558,
+            "TinhThanh": 0.9973404255319149
+          },
+          "field_f1": {
+            "SoNha": 0.7532894736842105,
+            "TenDuong": 0.304,
+            "PhuongXa": 0.9718120805369127,
+            "QuanHuyen": 0.9772151898734177,
+            "TinhThanh": 0.9973404255319149
+          },
+          "avg_f1": 0.8007314339252911,
+          "missing_cnt": 264,
+          "missing_rate": 0.7021276595744681,
+          "halluc_cnt": 0,
+          "halluc_rate": 0.0
+        },
+        "lp_clean_correct_noisy_wrong": 1,
+        "lp_clean_wrong_noisy_correct": 1,
+        "vn_clean_correct_noisy_wrong": 214,
+        "vn_clean_wrong_noisy_correct": 0
+      },
+      "vua": {
+        "n": 413,
+        "lp_clean": {
+          "n": 413,
+          "correct": 0,
+          "partial": 336,
+          "error": 77,
+          "correct_rate": 0.0,
+          "partial_rate": 0.8135593220338984,
+          "error_rate": 0.1864406779661017,
+          "field_prec": {
+            "SoNha": 0.8799019607843137,
+            "TenDuong": 0.3275,
+            "PhuongXa": 0.0,
+            "QuanHuyen": 0.03535353535353535,
+            "TinhThanh": 0.8679706601466992
+          },
+          "field_rec": {
+            "SoNha": 0.8692493946731235,
+            "TenDuong": 0.3171912832929782,
+            "PhuongXa": 0.0,
+            "QuanHuyen": 0.03431372549019608,
+            "TinhThanh": 0.8595641646489104
+          },
+          "field_f1": {
+            "SoNha": 0.8745432399512789,
+            "TenDuong": 0.32226322263222634,
+            "PhuongXa": 0.0,
+            "QuanHuyen": 0.03482587064676617,
+            "TinhThanh": 0.8637469586374695
+          },
+          "avg_f1": 0.4190758583735482,
+          "missing_cnt": 251,
+          "missing_rate": 0.6077481840193705,
+          "halluc_cnt": 159,
+          "halluc_rate": 0.38498789346246975
+        },
+        "lp_noisy": {
+          "n": 413,
+          "correct": 0,
+          "partial": 204,
+          "error": 209,
+          "correct_rate": 0.0,
+          "partial_rate": 0.4939467312348668,
+          "error_rate": 0.5060532687651331,
+          "field_prec": {
+            "SoNha": 0.8796992481203008,
+            "TenDuong": 0.125,
+            "PhuongXa": 0.023809523809523808,
+            "QuanHuyen": 0.1,
+            "TinhThanh": 0.5526315789473685
+          },
+          "field_rec": {
+            "SoNha": 0.8498789346246973,
+            "TenDuong": 0.12106537530266344,
+            "PhuongXa": 0.002421307506053269,
+            "QuanHuyen": 0.0784313725490196,
+            "TinhThanh": 0.5084745762711864
+          },
+          "field_f1": {
+            "SoNha": 0.8645320197044336,
+            "TenDuong": 0.12300123001230014,
+            "PhuongXa": 0.004395604395604396,
+            "QuanHuyen": 0.0879120879120879,
+            "TinhThanh": 0.5296343001261034
+          },
+          "avg_f1": 0.32189504843010586,
+          "missing_cnt": 281,
+          "missing_rate": 0.6803874092009685,
+          "halluc_cnt": 115,
+          "halluc_rate": 0.2784503631961259
+        },
+        "vn_clean": {
+          "n": 413,
+          "correct": 356,
+          "partial": 49,
+          "error": 8,
+          "correct_rate": 0.8619854721549637,
+          "partial_rate": 0.11864406779661017,
+          "error_rate": 0.01937046004842615,
+          "field_prec": {
+            "SoNha": 0.9841269841269841,
+            "TenDuong": 0.8983050847457628,
+            "PhuongXa": 0.9678217821782178,
+            "QuanHuyen": 0.9595959595959596,
+            "TinhThanh": 0.9903147699757869
+          },
+          "field_rec": {
+            "SoNha": 0.9007263922518159,
+            "TenDuong": 0.8983050847457628,
+            "PhuongXa": 0.9467312348668281,
+            "QuanHuyen": 0.9313725490196079,
+            "TinhThanh": 0.9903147699757869
+          },
+          "field_f1": {
+            "SoNha": 0.9405815423514539,
+            "TenDuong": 0.8983050847457628,
+            "PhuongXa": 0.9571603427172583,
+            "QuanHuyen": 0.945273631840796,
+            "TinhThanh": 0.9903147699757869
+          },
+          "avg_f1": 0.9463270743262117,
+          "missing_cnt": 54,
+          "missing_rate": 0.13075060532687652,
+          "halluc_cnt": 0,
+          "halluc_rate": 0.0
+        },
+        "vn_noisy": {
+          "n": 413,
+          "correct": 94,
+          "partial": 310,
+          "error": 9,
+          "correct_rate": 0.22760290556900725,
+          "partial_rate": 0.7506053268765133,
+          "error_rate": 0.021791767554479417,
+          "field_prec": {
+            "SoNha": 0.975609756097561,
+            "TenDuong": 0.23529411764705882,
+            "PhuongXa": 0.9678217821782178,
+            "QuanHuyen": 0.9595959595959596,
+            "TinhThanh": 0.9903147699757869
+          },
+          "field_rec": {
+            "SoNha": 0.5811138014527845,
+            "TenDuong": 0.2324455205811138,
+            "PhuongXa": 0.9467312348668281,
+            "QuanHuyen": 0.9313725490196079,
+            "TinhThanh": 0.9903147699757869
+          },
+          "field_f1": {
+            "SoNha": 0.7283763277693475,
+            "TenDuong": 0.23386114494518878,
+            "PhuongXa": 0.9571603427172583,
+            "QuanHuyen": 0.945273631840796,
+            "TinhThanh": 0.9903147699757869
+          },
+          "avg_f1": 0.7709972434496755,
+          "missing_cnt": 316,
+          "missing_rate": 0.7651331719128329,
+          "halluc_cnt": 0,
+          "halluc_rate": 0.0
+        },
+        "lp_clean_correct_noisy_wrong": 0,
+        "lp_clean_wrong_noisy_correct": 0,
+        "vn_clean_correct_noisy_wrong": 262,
+        "vn_clean_wrong_noisy_correct": 0
+      },
+      "nang": {
+        "n": 211,
+        "lp_clean": {
+          "n": 211,
+          "correct": 0,
+          "partial": 158,
+          "error": 53,
+          "correct_rate": 0.0,
+          "partial_rate": 0.7488151658767772,
+          "error_rate": 0.25118483412322273,
+          "field_prec": {
+            "SoNha": 0.8047619047619048,
+            "TenDuong": 0.3613861386138614,
+            "PhuongXa": 0.0,
+            "QuanHuyen": 0.037383177570093455,
+            "TinhThanh": 0.8857142857142857
+          },
+          "field_rec": {
+            "SoNha": 0.8009478672985783,
+            "TenDuong": 0.3459715639810427,
+            "PhuongXa": 0.0,
+            "QuanHuyen": 0.041237113402061855,
+            "TinhThanh": 0.8815165876777251
+          },
+          "field_f1": {
+            "SoNha": 0.8028503562945367,
+            "TenDuong": 0.35351089588377727,
+            "PhuongXa": 0.0,
+            "QuanHuyen": 0.039215686274509796,
+            "TinhThanh": 0.8836104513064132
+          },
+          "avg_f1": 0.4158374779518474,
+          "missing_cnt": 118,
+          "missing_rate": 0.5592417061611374,
+          "halluc_cnt": 93,
+          "halluc_rate": 0.44075829383886256
+        },
+        "lp_noisy": {
+          "n": 211,
+          "correct": 0,
+          "partial": 70,
+          "error": 141,
+          "correct_rate": 0.0,
+          "partial_rate": 0.33175355450236965,
+          "error_rate": 0.6682464454976303,
+          "field_prec": {
+            "SoNha": 0.773972602739726,
+            "TenDuong": 0.16831683168316833,
+            "PhuongXa": 0.16666666666666666,
+            "QuanHuyen": 0.15151515151515152,
+            "TinhThanh": 0.5
+          },
+          "field_rec": {
+            "SoNha": 0.5355450236966824,
+            "TenDuong": 0.16113744075829384,
+            "PhuongXa": 0.009478672985781991,
+            "QuanHuyen": 0.10309278350515463,
+            "TinhThanh": 0.3886255924170616
+          },
+          "field_f1": {
+            "SoNha": 0.6330532212885153,
+            "TenDuong": 0.16464891041162227,
+            "PhuongXa": 0.017937219730941704,
+            "QuanHuyen": 0.12269938650306747,
+            "TinhThanh": 0.43733333333333335
+          },
+          "avg_f1": 0.27513441425349605,
+          "missing_cnt": 122,
+          "missing_rate": 0.5781990521327014,
+          "halluc_cnt": 43,
+          "halluc_rate": 0.2037914691943128
+        },
+        "vn_clean": {
+          "n": 211,
+          "correct": 181,
+          "partial": 26,
+          "error": 4,
+          "correct_rate": 0.8578199052132701,
+          "partial_rate": 0.12322274881516587,
+          "error_rate": 0.018957345971563982,
+          "field_prec": {
+            "SoNha": 0.9787234042553191,
+            "TenDuong": 0.8720379146919431,
+            "PhuongXa": 0.9757281553398058,
+            "QuanHuyen": 1.0,
+            "TinhThanh": 1.0
+          },
+          "field_rec": {
+            "SoNha": 0.8720379146919431,
+            "TenDuong": 0.8720379146919431,
+            "PhuongXa": 0.95260663507109,
+            "QuanHuyen": 0.9587628865979382,
+            "TinhThanh": 1.0
+          },
+          "field_f1": {
+            "SoNha": 0.9223057644110276,
+            "TenDuong": 0.8720379146919431,
+            "PhuongXa": 0.9640287769784173,
+            "QuanHuyen": 0.9789473684210526,
+            "TinhThanh": 1.0
+          },
+          "avg_f1": 0.9474639649004881,
+          "missing_cnt": 30,
+          "missing_rate": 0.14218009478672985,
+          "halluc_cnt": 0,
+          "halluc_rate": 0.0
+        },
+        "vn_noisy": {
+          "n": 211,
+          "correct": 12,
+          "partial": 123,
+          "error": 76,
+          "correct_rate": 0.05687203791469194,
+          "partial_rate": 0.5829383886255924,
+          "error_rate": 0.36018957345971564,
+          "field_prec": {
+            "SoNha": 0.9487179487179487,
+            "TenDuong": 0.17763157894736842,
+            "PhuongXa": 0.926829268292683,
+            "QuanHuyen": 0.953125,
+            "TinhThanh": 0.9705882352941176
+          },
+          "field_rec": {
+            "SoNha": 0.17535545023696683,
+            "TenDuong": 0.12796208530805686,
+            "PhuongXa": 0.5402843601895735,
+            "QuanHuyen": 0.6288659793814433,
+            "TinhThanh": 0.9383886255924171
+          },
+          "field_f1": {
+            "SoNha": 0.29600000000000004,
+            "TenDuong": 0.1487603305785124,
+            "PhuongXa": 0.6826347305389223,
+            "QuanHuyen": 0.7577639751552796,
+            "TinhThanh": 0.9542168674698795
+          },
+          "avg_f1": 0.5678751807485188,
+          "missing_cnt": 187,
+          "missing_rate": 0.8862559241706162,
+          "halluc_cnt": 0,
+          "halluc_rate": 0.0
+        },
+        "lp_clean_correct_noisy_wrong": 0,
+        "lp_clean_wrong_noisy_correct": 0,
+        "vn_clean_correct_noisy_wrong": 169,
+        "vn_clean_wrong_noisy_correct": 0
+      },
+      "all": {
+        "n": 1000,
+        "lp_clean": {
+          "n": 1000,
+          "correct": 1,
+          "partial": 781,
+          "error": 218,
+          "correct_rate": 0.001,
+          "partial_rate": 0.781,
+          "error_rate": 0.218,
+          "field_prec": {
+            "SoNha": 0.8363636363636363,
+            "TenDuong": 0.32882414151925077,
+            "PhuongXa": 0.010638297872340425,
+            "QuanHuyen": 0.0498960498960499,
+            "TinhThanh": 0.8809283551967709
+          },
+          "field_rec": {
+            "SoNha": 0.828,
+            "TenDuong": 0.316,
+            "PhuongXa": 0.001,
+            "QuanHuyen": 0.048,
+            "TinhThanh": 0.873
+          },
+          "field_f1": {
+            "SoNha": 0.8321608040201005,
+            "TenDuong": 0.322284548699643,
+            "PhuongXa": 0.0018281535648994518,
+            "QuanHuyen": 0.04892966360856269,
+            "TinhThanh": 0.8769462581617278
+          },
+          "avg_f1": 0.4164298856109867,
+          "missing_cnt": 610,
+          "missing_rate": 0.61,
+          "halluc_cnt": 385,
+          "halluc_rate": 0.385
+        },
+        "lp_noisy": {
+          "n": 1000,
+          "correct": 1,
+          "partial": 515,
+          "error": 484,
+          "correct_rate": 0.001,
+          "partial_rate": 0.515,
+          "error_rate": 0.484,
+          "field_prec": {
+            "SoNha": 0.8333333333333334,
+            "TenDuong": 0.1592554291623578,
+            "PhuongXa": 0.08860759493670886,
+            "QuanHuyen": 0.12760416666666666,
+            "TinhThanh": 0.6185682326621924
+          },
+          "field_rec": {
+            "SoNha": 0.765,
+            "TenDuong": 0.154,
+            "PhuongXa": 0.007,
+            "QuanHuyen": 0.098,
+            "TinhThanh": 0.553
+          },
+          "field_f1": {
+            "SoNha": 0.7977059436913452,
+            "TenDuong": 0.1565836298932384,
+            "PhuongXa": 0.012974976830398516,
+            "QuanHuyen": 0.11085972850678734,
+            "TinhThanh": 0.5839493136219642
+          },
+          "avg_f1": 0.3324147185087467,
+          "missing_cnt": 662,
+          "missing_rate": 0.662,
+          "halluc_cnt": 266,
+          "halluc_rate": 0.266
+        },
+        "vn_clean": {
+          "n": 1000,
+          "correct": 862,
+          "partial": 122,
+          "error": 16,
+          "correct_rate": 0.862,
+          "partial_rate": 0.122,
+          "error_rate": 0.016,
+          "field_prec": {
+            "SoNha": 0.9855715871254163,
+            "TenDuong": 0.887,
+            "PhuongXa": 0.9744897959183674,
+            "QuanHuyen": 0.9774127310061602,
+            "TinhThanh": 0.995
+          },
+          "field_rec": {
+            "SoNha": 0.888,
+            "TenDuong": 0.887,
+            "PhuongXa": 0.955,
+            "QuanHuyen": 0.952,
+            "TinhThanh": 0.995
+          },
+          "field_f1": {
+            "SoNha": 0.9342451341399263,
+            "TenDuong": 0.887,
+            "PhuongXa": 0.9646464646464646,
+            "QuanHuyen": 0.9645390070921986,
+            "TinhThanh": 0.995
+          },
+          "avg_f1": 0.949086121175718,
+          "missing_cnt": 134,
+          "missing_rate": 0.134,
+          "halluc_cnt": 0,
+          "halluc_rate": 0.0
+        },
+        "vn_noisy": {
+          "n": 1000,
+          "correct": 217,
+          "partial": 694,
+          "error": 89,
+          "correct_rate": 0.217,
+          "partial_rate": 0.694,
+          "error_rate": 0.089,
+          "field_prec": {
+            "SoNha": 0.9787234042553191,
+            "TenDuong": 0.25374732334047106,
+            "PhuongXa": 0.9676339285714286,
+            "QuanHuyen": 0.9694323144104804,
+            "TinhThanh": 0.9889224572004028
+          },
+          "field_rec": {
+            "SoNha": 0.506,
+            "TenDuong": 0.237,
+            "PhuongXa": 0.867,
+            "QuanHuyen": 0.888,
+            "TinhThanh": 0.982
+          },
+          "field_f1": {
+            "SoNha": 0.6671061305207646,
+            "TenDuong": 0.2450879007238883,
+            "PhuongXa": 0.9145569620253164,
+            "QuanHuyen": 0.9269311064718163,
+            "TinhThanh": 0.985449071751129
+          },
+          "avg_f1": 0.747826234298583,
+          "missing_cnt": 767,
+          "missing_rate": 0.767,
+          "halluc_cnt": 0,
+          "halluc_rate": 0.0
+        },
+        "lp_clean_correct_noisy_wrong": 1,
+        "lp_clean_wrong_noisy_correct": 1,
+        "vn_clean_correct_noisy_wrong": 645,
+        "vn_clean_wrong_noisy_correct": 0
+      }
+    },
+    "by_type": {
+      "viet_tat": {
+        "n": 603,
+        "lp_clean": {
+          "n": 603,
+          "correct": 1,
+          "partial": 482,
+          "error": 120,
+          "correct_rate": 0.001658374792703151,
+          "partial_rate": 0.7993366500829188,
+          "error_rate": 0.19900497512437812,
+          "field_prec": {
+            "SoNha": 0.8489932885906041,
+            "TenDuong": 0.3528399311531842,
+            "PhuongXa": 0.0196078431372549,
+            "QuanHuyen": 0.04437869822485207,
+            "TinhThanh": 0.9116666666666666
+          },
+          "field_rec": {
+            "SoNha": 0.8391376451077943,
+            "TenDuong": 0.33996683250414594,
+            "PhuongXa": 0.001658374792703151,
+            "QuanHuyen": 0.06696428571428571,
+            "TinhThanh": 0.9071310116086235
+          },
+          "field_f1": {
+            "SoNha": 0.8440366972477065,
+            "TenDuong": 0.3462837837837838,
+            "PhuongXa": 0.0030581039755351682,
+            "QuanHuyen": 0.05338078291814947,
+            "TinhThanh": 0.9093931837073981
+          },
+          "avg_f1": 0.4312305103265146,
+          "missing_cnt": 309,
+          "missing_rate": 0.5124378109452736,
+          "halluc_cnt": 291,
+          "halluc_rate": 0.48258706467661694
+        },
+        "lp_noisy": {
+          "n": 603,
+          "correct": 1,
+          "partial": 274,
+          "error": 328,
+          "correct_rate": 0.001658374792703151,
+          "partial_rate": 0.45439469320066334,
+          "error_rate": 0.5439469320066335,
+          "field_prec": {
+            "SoNha": 0.8397085610200364,
+            "TenDuong": 0.11375212224108659,
+            "PhuongXa": 0.16666666666666666,
+            "QuanHuyen": 0.15019762845849802,
+            "TinhThanh": 0.544921875
+          },
+          "field_rec": {
+            "SoNha": 0.7645107794361525,
+            "TenDuong": 0.1111111111111111,
+            "PhuongXa": 0.009950248756218905,
+            "QuanHuyen": 0.16964285714285715,
+            "TinhThanh": 0.4626865671641791
+          },
+          "field_f1": {
+            "SoNha": 0.8003472222222221,
+            "TenDuong": 0.11241610738255033,
+            "PhuongXa": 0.018779342723004692,
+            "QuanHuyen": 0.15932914046121596,
+            "TinhThanh": 0.5004484304932735
+          },
+          "avg_f1": 0.3182640486564533,
+          "missing_cnt": 358,
+          "missing_rate": 0.593698175787728,
+          "halluc_cnt": 185,
+          "halluc_rate": 0.3067993366500829
+        },
+        "vn_clean": {
+          "n": 603,
+          "correct": 549,
+          "partial": 46,
+          "error": 8,
+          "correct_rate": 0.9104477611940298,
+          "partial_rate": 0.07628524046434494,
+          "error_rate": 0.013266998341625208,
+          "field_prec": {
+            "SoNha": 0.9876106194690265,
+            "TenDuong": 0.9237147595356551,
+            "PhuongXa": 0.9865092748735245,
+            "QuanHuyen": 0.981651376146789,
+            "TinhThanh": 0.9983416252072969
+          },
+          "field_rec": {
+            "SoNha": 0.9253731343283582,
+            "TenDuong": 0.9237147595356551,
+            "PhuongXa": 0.9701492537313433,
+            "QuanHuyen": 0.9553571428571429,
+            "TinhThanh": 0.9983416252072969
+          },
+          "field_f1": {
+            "SoNha": 0.9554794520547946,
+            "TenDuong": 0.9237147595356551,
+            "PhuongXa": 0.9782608695652173,
+            "QuanHuyen": 0.9683257918552036,
+            "TinhThanh": 0.9983416252072969
+          },
+          "avg_f1": 0.9648244996436335,
+          "missing_cnt": 54,
+          "missing_rate": 0.08955223880597014,
+          "halluc_cnt": 0,
+          "halluc_rate": 0.0
+        },
+        "vn_noisy": {
+          "n": 603,
+          "correct": 143,
+          "partial": 401,
+          "error": 59,
+          "correct_rate": 0.23714759535655058,
+          "partial_rate": 0.6650082918739635,
+          "error_rate": 0.0978441127694859,
+          "field_prec": {
+            "SoNha": 0.9843260188087775,
+            "TenDuong": 0.2826475849731664,
+            "PhuongXa": 0.9776119402985075,
+            "QuanHuyen": 0.9751243781094527,
+            "TinhThanh": 0.9916666666666667
+          },
+          "field_rec": {
+            "SoNha": 0.5207296849087893,
+            "TenDuong": 0.2620232172470978,
+            "PhuongXa": 0.8689883913764511,
+            "QuanHuyen": 0.875,
+            "TinhThanh": 0.9867330016583747
+          },
+          "field_f1": {
+            "SoNha": 0.6811279826464207,
+            "TenDuong": 0.2719449225473322,
+            "PhuongXa": 0.9201053555750658,
+            "QuanHuyen": 0.9223529411764706,
+            "TinhThanh": 0.9891936824605153
+          },
+          "avg_f1": 0.7569449768811609,
+          "missing_cnt": 453,
+          "missing_rate": 0.7512437810945274,
+          "halluc_cnt": 0,
+          "halluc_rate": 0.0
+        }
+      },
+      "bo_dau": {
+        "n": 455,
+        "lp_clean": {
+          "n": 455,
+          "correct": 0,
+          "partial": 362,
+          "error": 93,
+          "correct_rate": 0.0,
+          "partial_rate": 0.7956043956043956,
+          "error_rate": 0.2043956043956044,
+          "field_prec": {
+            "SoNha": 0.8622222222222222,
+            "TenDuong": 0.33793103448275863,
+            "PhuongXa": 0.0,
+            "QuanHuyen": 0.03404255319148936,
+            "TinhThanh": 0.8691796008869179
+          },
+          "field_rec": {
+            "SoNha": 0.8527472527472527,
+            "TenDuong": 0.3230769230769231,
+            "PhuongXa": 0.0,
+            "QuanHuyen": 0.03864734299516908,
+            "TinhThanh": 0.8615384615384616
+          },
+          "field_f1": {
+            "SoNha": 0.8574585635359117,
+            "TenDuong": 0.33033707865168543,
+            "PhuongXa": 0.0,
+            "QuanHuyen": 0.03619909502262444,
+            "TinhThanh": 0.8653421633554085
+          },
+          "avg_f1": 0.41786738011312596,
+          "missing_cnt": 259,
+          "missing_rate": 0.5692307692307692,
+          "halluc_cnt": 195,
+          "halluc_rate": 0.42857142857142855
+        },
+        "lp_noisy": {
+          "n": 455,
+          "correct": 0,
+          "partial": 183,
+          "error": 272,
+          "correct_rate": 0.0,
+          "partial_rate": 0.4021978021978022,
+          "error_rate": 0.5978021978021978,
+          "field_prec": {
+            "SoNha": 0.8622448979591837,
+            "TenDuong": 0.13333333333333333,
+            "PhuongXa": 0.05555555555555555,
+            "QuanHuyen": 0.05917159763313609,
+            "TinhThanh": 0.5012345679012346
+          },
+          "field_rec": {
+            "SoNha": 0.7428571428571429,
+            "TenDuong": 0.12747252747252746,
+            "PhuongXa": 0.004395604395604396,
+            "QuanHuyen": 0.04830917874396135,
+            "TinhThanh": 0.4461538461538462
+          },
+          "field_f1": {
+            "SoNha": 0.7981109799291618,
+            "TenDuong": 0.13033707865168542,
+            "PhuongXa": 0.00814663951120163,
+            "QuanHuyen": 0.05319148936170213,
+            "TinhThanh": 0.4720930232558139
+          },
+          "avg_f1": 0.29237584214191303,
+          "missing_cnt": 283,
+          "missing_rate": 0.621978021978022,
+          "halluc_cnt": 127,
+          "halluc_rate": 0.27912087912087913
+        },
+        "vn_clean": {
+          "n": 455,
+          "correct": 398,
+          "partial": 48,
+          "error": 9,
+          "correct_rate": 0.8747252747252747,
+          "partial_rate": 0.1054945054945055,
+          "error_rate": 0.01978021978021978,
+          "field_prec": {
+            "SoNha": 0.9832535885167464,
+            "TenDuong": 0.9010989010989011,
+            "PhuongXa": 0.9707207207207207,
+            "QuanHuyen": 0.9798994974874372,
+            "TinhThanh": 0.9912087912087912
+          },
+          "field_rec": {
+            "SoNha": 0.9032967032967033,
+            "TenDuong": 0.9010989010989011,
+            "PhuongXa": 0.9472527472527472,
+            "QuanHuyen": 0.9420289855072463,
+            "TinhThanh": 0.9912087912087912
+          },
+          "field_f1": {
+            "SoNha": 0.9415807560137457,
+            "TenDuong": 0.9010989010989011,
+            "PhuongXa": 0.9588431590656283,
+            "QuanHuyen": 0.960591133004926,
+            "TinhThanh": 0.9912087912087912
+          },
+          "avg_f1": 0.9506645480783986,
+          "missing_cnt": 54,
+          "missing_rate": 0.11868131868131868,
+          "halluc_cnt": 0,
+          "halluc_rate": 0.0
+        },
+        "vn_noisy": {
+          "n": 455,
+          "correct": 83,
+          "partial": 313,
+          "error": 59,
+          "correct_rate": 0.1824175824175824,
+          "partial_rate": 0.6879120879120879,
+          "error_rate": 0.12967032967032968,
+          "field_prec": {
+            "SoNha": 0.9672897196261683,
+            "TenDuong": 0.22982885085574573,
+            "PhuongXa": 0.9635416666666666,
+            "QuanHuyen": 0.9719101123595506,
+            "TinhThanh": 0.9867256637168141
+          },
+          "field_rec": {
+            "SoNha": 0.45494505494505494,
+            "TenDuong": 0.20659340659340658,
+            "PhuongXa": 0.8131868131868132,
+            "QuanHuyen": 0.8357487922705314,
+            "TinhThanh": 0.9802197802197802
+          },
+          "field_f1": {
+            "SoNha": 0.6188340807174888,
+            "TenDuong": 0.2175925925925926,
+            "PhuongXa": 0.8820023837902264,
+            "QuanHuyen": 0.8987012987012988,
+            "TinhThanh": 0.9834619625137816
+          },
+          "avg_f1": 0.7201184636630776,
+          "missing_cnt": 364,
+          "missing_rate": 0.8,
+          "halluc_cnt": 0,
+          "halluc_rate": 0.0
+        }
+      },
+      "loi_ocr_ky_tu": {
+        "n": 90,
+        "lp_clean": {
+          "n": 90,
+          "correct": 0,
+          "partial": 65,
+          "error": 25,
+          "correct_rate": 0.0,
+          "partial_rate": 0.7222222222222222,
+          "error_rate": 0.2777777777777778,
+          "field_prec": {
+            "SoNha": 0.797752808988764,
+            "TenDuong": 0.27906976744186046,
+            "PhuongXa": 0.0,
+            "QuanHuyen": 0.043478260869565216,
+            "TinhThanh": 0.8888888888888888
+          },
+          "field_rec": {
+            "SoNha": 0.7888888888888889,
+            "TenDuong": 0.26666666666666666,
+            "PhuongXa": 0.0,
+            "QuanHuyen": 0.044444444444444446,
+            "TinhThanh": 0.8888888888888888
+          },
+          "field_f1": {
+            "SoNha": 0.7932960893854749,
+            "TenDuong": 0.2727272727272727,
+            "PhuongXa": 0.0,
+            "QuanHuyen": 0.04395604395604395,
+            "TinhThanh": 0.8888888888888888
+          },
+          "avg_f1": 0.3997736589915361,
+          "missing_cnt": 51,
+          "missing_rate": 0.5666666666666667,
+          "halluc_cnt": 39,
+          "halluc_rate": 0.43333333333333335
+        },
+        "lp_noisy": {
+          "n": 90,
+          "correct": 0,
+          "partial": 22,
+          "error": 68,
+          "correct_rate": 0.0,
+          "partial_rate": 0.24444444444444444,
+          "error_rate": 0.7555555555555555,
+          "field_prec": {
+            "SoNha": 0.7419354838709677,
+            "TenDuong": 0.08235294117647059,
+            "PhuongXa": 0.16666666666666666,
+            "QuanHuyen": 0.2222222222222222,
+            "TinhThanh": 0.5344827586206896
+          },
+          "field_rec": {
+            "SoNha": 0.5111111111111111,
+            "TenDuong": 0.07777777777777778,
+            "PhuongXa": 0.011111111111111112,
+            "QuanHuyen": 0.08888888888888889,
+            "TinhThanh": 0.34444444444444444
+          },
+          "field_f1": {
+            "SoNha": 0.6052631578947368,
+            "TenDuong": 0.08,
+            "PhuongXa": 0.020833333333333336,
+            "QuanHuyen": 0.12698412698412698,
+            "TinhThanh": 0.4189189189189189
+          },
+          "avg_f1": 0.2503999074262232,
+          "missing_cnt": 53,
+          "missing_rate": 0.5888888888888889,
+          "halluc_cnt": 11,
+          "halluc_rate": 0.12222222222222222
+        },
+        "vn_clean": {
+          "n": 90,
+          "correct": 75,
+          "partial": 15,
+          "error": 0,
+          "correct_rate": 0.8333333333333334,
+          "partial_rate": 0.16666666666666666,
+          "error_rate": 0.0,
+          "field_prec": {
+            "SoNha": 0.9615384615384616,
+            "TenDuong": 0.8333333333333334,
+            "PhuongXa": 1.0,
+            "QuanHuyen": 1.0,
+            "TinhThanh": 1.0
+          },
+          "field_rec": {
+            "SoNha": 0.8333333333333334,
+            "TenDuong": 0.8333333333333334,
+            "PhuongXa": 0.9888888888888889,
+            "QuanHuyen": 1.0,
+            "TinhThanh": 1.0
+          },
+          "field_f1": {
+            "SoNha": 0.8928571428571429,
+            "TenDuong": 0.8333333333333334,
+            "PhuongXa": 0.9944134078212291,
+            "QuanHuyen": 1.0,
+            "TinhThanh": 1.0
+          },
+          "avg_f1": 0.9441207768023411,
+          "missing_cnt": 15,
+          "missing_rate": 0.16666666666666666,
+          "halluc_cnt": 0,
+          "halluc_rate": 0.0
+        },
+        "vn_noisy": {
+          "n": 90,
+          "correct": 2,
+          "partial": 44,
+          "error": 44,
+          "correct_rate": 0.022222222222222223,
+          "partial_rate": 0.4888888888888889,
+          "error_rate": 0.4888888888888889,
+          "field_prec": {
+            "SoNha": 0.9090909090909091,
+            "TenDuong": 0.12280701754385964,
+            "PhuongXa": 0.868421052631579,
+            "QuanHuyen": 0.96,
+            "TinhThanh": 0.927710843373494
+          },
+          "field_rec": {
+            "SoNha": 0.1111111111111111,
+            "TenDuong": 0.07777777777777778,
+            "PhuongXa": 0.36666666666666664,
+            "QuanHuyen": 0.5333333333333333,
+            "TinhThanh": 0.8555555555555555
+          },
+          "field_f1": {
+            "SoNha": 0.198019801980198,
+            "TenDuong": 0.09523809523809523,
+            "PhuongXa": 0.515625,
+            "QuanHuyen": 0.6857142857142858,
+            "TinhThanh": 0.8901734104046242
+          },
+          "avg_f1": 0.4769541186674406,
+          "missing_cnt": 76,
+          "missing_rate": 0.8444444444444444,
+          "halluc_cnt": 0,
+          "halluc_rate": 0.0
+        }
+      },
+      "thieu_": {
+        "n": 148,
+        "lp_clean": {
+          "n": 148,
+          "correct": 0,
+          "partial": 110,
+          "error": 38,
+          "correct_rate": 0.0,
+          "partial_rate": 0.7432432432432432,
+          "error_rate": 0.25675675675675674,
+          "field_prec": {
+            "SoNha": 0.8027210884353742,
+            "TenDuong": 0.3986013986013986,
+            "PhuongXa": 0.0,
+            "QuanHuyen": 0.039473684210526314,
+            "TinhThanh": 0.8648648648648649
+          },
+          "field_rec": {
+            "SoNha": 0.7972972972972973,
+            "TenDuong": 0.38513513513513514,
+            "PhuongXa": 0.0,
+            "QuanHuyen": 0.04411764705882353,
+            "TinhThanh": 0.8648648648648649
+          },
+          "field_f1": {
+            "SoNha": 0.7999999999999999,
+            "TenDuong": 0.3917525773195876,
+            "PhuongXa": 0.0,
+            "QuanHuyen": 0.04166666666666667,
+            "TinhThanh": 0.8648648648648649
+          },
+          "avg_f1": 0.41965682177022384,
+          "missing_cnt": 85,
+          "missing_rate": 0.5743243243243243,
+          "halluc_cnt": 63,
+          "halluc_rate": 0.42567567567567566
+        },
+        "lp_noisy": {
+          "n": 148,
+          "correct": 0,
+          "partial": 43,
+          "error": 105,
+          "correct_rate": 0.0,
+          "partial_rate": 0.2905405405405405,
+          "error_rate": 0.7094594594594594,
+          "field_prec": {
+            "SoNha": 0.7764705882352941,
+            "TenDuong": 0.1702127659574468,
+            "PhuongXa": 0.2222222222222222,
+            "QuanHuyen": 0.16666666666666666,
+            "TinhThanh": 0.5092592592592593
+          },
+          "field_rec": {
+            "SoNha": 0.44594594594594594,
+            "TenDuong": 0.16216216216216217,
+            "PhuongXa": 0.013513513513513514,
+            "QuanHuyen": 0.10294117647058823,
+            "TinhThanh": 0.3716216216216216
+          },
+          "field_f1": {
+            "SoNha": 0.5665236051502146,
+            "TenDuong": 0.16608996539792387,
+            "PhuongXa": 0.025477707006369428,
+            "QuanHuyen": 0.12727272727272726,
+            "TinhThanh": 0.4296875
+          },
+          "avg_f1": 0.26301030096544703,
+          "missing_cnt": 83,
+          "missing_rate": 0.5608108108108109,
+          "halluc_cnt": 26,
+          "halluc_rate": 0.17567567567567569
+        },
+        "vn_clean": {
+          "n": 148,
+          "correct": 123,
+          "partial": 22,
+          "error": 3,
+          "correct_rate": 0.831081081081081,
+          "partial_rate": 0.14864864864864866,
+          "error_rate": 0.02027027027027027,
+          "field_prec": {
+            "SoNha": 0.9767441860465116,
+            "TenDuong": 0.8513513513513513,
+            "PhuongXa": 0.9722222222222222,
+            "QuanHuyen": 1.0,
+            "TinhThanh": 1.0
+          },
+          "field_rec": {
+            "SoNha": 0.8513513513513513,
+            "TenDuong": 0.8513513513513513,
+            "PhuongXa": 0.9459459459459459,
+            "QuanHuyen": 0.9558823529411765,
+            "TinhThanh": 1.0
+          },
+          "field_f1": {
+            "SoNha": 0.9097472924187726,
+            "TenDuong": 0.8513513513513514,
+            "PhuongXa": 0.9589041095890412,
+            "QuanHuyen": 0.9774436090225563,
+            "TinhThanh": 1.0
+          },
+          "avg_f1": 0.9394892724763444,
+          "missing_cnt": 25,
+          "missing_rate": 0.16891891891891891,
+          "halluc_cnt": 0,
+          "halluc_rate": 0.0
+        },
+        "vn_noisy": {
+          "n": 148,
+          "correct": 0,
+          "partial": 79,
+          "error": 69,
+          "correct_rate": 0.0,
+          "partial_rate": 0.5337837837837838,
+          "error_rate": 0.46621621621621623,
+          "field_prec": {
+            "SoNha": 0.75,
+            "TenDuong": 0.15789473684210525,
+            "PhuongXa": 0.8823529411764706,
+            "QuanHuyen": 0.925,
+            "TinhThanh": 0.9574468085106383
+          },
+          "field_rec": {
+            "SoNha": 0.02027027027027027,
+            "TenDuong": 0.10135135135135136,
+            "PhuongXa": 0.40540540540540543,
+            "QuanHuyen": 0.5441176470588235,
+            "TinhThanh": 0.9121621621621622
+          },
+          "field_f1": {
+            "SoNha": 0.03947368421052632,
+            "TenDuong": 0.1234567901234568,
+            "PhuongXa": 0.5555555555555556,
+            "QuanHuyen": 0.6851851851851851,
+            "TinhThanh": 0.9342560553633218
+          },
+          "avg_f1": 0.46758545408760915,
+          "missing_cnt": 136,
+          "missing_rate": 0.918918918918919,
+          "halluc_cnt": 0,
+          "halluc_rate": 0.0
+        }
+      },
+      "dao_thu_tu_hanh_chinh": {
+        "n": 95,
+        "lp_clean": {
+          "n": 95,
+          "correct": 0,
+          "partial": 72,
+          "error": 23,
+          "correct_rate": 0.0,
+          "partial_rate": 0.7578947368421053,
+          "error_rate": 0.24210526315789474,
+          "field_prec": {
+            "SoNha": 0.7894736842105263,
+            "TenDuong": 0.31868131868131866,
+            "PhuongXa": 0.0,
+            "QuanHuyen": 0.08888888888888889,
+            "TinhThanh": 0.9468085106382979
+          },
+          "field_rec": {
+            "SoNha": 0.7894736842105263,
+            "TenDuong": 0.30526315789473685,
+            "PhuongXa": 0.0,
+            "QuanHuyen": 0.08888888888888889,
+            "TinhThanh": 0.9368421052631579
+          },
+          "field_f1": {
+            "SoNha": 0.7894736842105263,
+            "TenDuong": 0.31182795698924726,
+            "PhuongXa": 0.0,
+            "QuanHuyen": 0.08888888888888889,
+            "TinhThanh": 0.9417989417989417
+          },
+          "avg_f1": 0.4263978943775208,
+          "missing_cnt": 56,
+          "missing_rate": 0.5894736842105263,
+          "halluc_cnt": 39,
+          "halluc_rate": 0.4105263157894737
+        },
+        "lp_noisy": {
+          "n": 95,
+          "correct": 0,
+          "partial": 30,
+          "error": 65,
+          "correct_rate": 0.0,
+          "partial_rate": 0.3157894736842105,
+          "error_rate": 0.6842105263157895,
+          "field_prec": {
+            "SoNha": 0.7419354838709677,
+            "TenDuong": 0.17582417582417584,
+            "PhuongXa": 0.25,
+            "QuanHuyen": 0.24242424242424243,
+            "TinhThanh": 0.4857142857142857
+          },
+          "field_rec": {
+            "SoNha": 0.4842105263157895,
+            "TenDuong": 0.16842105263157894,
+            "PhuongXa": 0.021052631578947368,
+            "QuanHuyen": 0.17777777777777778,
+            "TinhThanh": 0.35789473684210527
+          },
+          "field_f1": {
+            "SoNha": 0.5859872611464969,
+            "TenDuong": 0.17204301075268816,
+            "PhuongXa": 0.038834951456310676,
+            "QuanHuyen": 0.20512820512820512,
+            "TinhThanh": 0.4121212121212121
+          },
+          "avg_f1": 0.2828229281209826,
+          "missing_cnt": 55,
+          "missing_rate": 0.5789473684210527,
+          "halluc_cnt": 17,
+          "halluc_rate": 0.17894736842105263
+        },
+        "vn_clean": {
+          "n": 95,
+          "correct": 79,
+          "partial": 14,
+          "error": 2,
+          "correct_rate": 0.8315789473684211,
+          "partial_rate": 0.14736842105263157,
+          "error_rate": 0.021052631578947368,
+          "field_prec": {
+            "SoNha": 0.9647058823529412,
+            "TenDuong": 0.8631578947368421,
+            "PhuongXa": 0.9565217391304348,
+            "QuanHuyen": 1.0,
+            "TinhThanh": 1.0
+          },
+          "field_rec": {
+            "SoNha": 0.8631578947368421,
+            "TenDuong": 0.8631578947368421,
+            "PhuongXa": 0.9263157894736842,
+            "QuanHuyen": 0.9555555555555556,
+            "TinhThanh": 1.0
+          },
+          "field_f1": {
+            "SoNha": 0.9111111111111111,
+            "TenDuong": 0.8631578947368422,
+            "PhuongXa": 0.9411764705882354,
+            "QuanHuyen": 0.9772727272727273,
+            "TinhThanh": 1.0
+          },
+          "avg_f1": 0.9385436407417831,
+          "missing_cnt": 16,
+          "missing_rate": 0.16842105263157894,
+          "halluc_cnt": 0,
+          "halluc_rate": 0.0
+        },
+        "vn_noisy": {
+          "n": 95,
+          "correct": 4,
+          "partial": 64,
+          "error": 27,
+          "correct_rate": 0.042105263157894736,
+          "partial_rate": 0.6736842105263158,
+          "error_rate": 0.28421052631578947,
+          "field_prec": {
+            "SoNha": 0.8823529411764706,
+            "TenDuong": 0.15942028985507245,
+            "PhuongXa": 0.9661016949152542,
+            "QuanHuyen": 0.9375,
+            "TinhThanh": 0.989247311827957
+          },
+          "field_rec": {
+            "SoNha": 0.15789473684210525,
+            "TenDuong": 0.11578947368421053,
+            "PhuongXa": 0.6,
+            "QuanHuyen": 0.6666666666666666,
+            "TinhThanh": 0.968421052631579
+          },
+          "field_f1": {
+            "SoNha": 0.26785714285714285,
+            "TenDuong": 0.13414634146341464,
+            "PhuongXa": 0.7402597402597403,
+            "QuanHuyen": 0.7792207792207793,
+            "TinhThanh": 0.9787234042553192
+          },
+          "avg_f1": 0.5800414816112792,
+          "missing_cnt": 88,
+          "missing_rate": 0.9263157894736842,
+          "halluc_cnt": 0,
+          "halluc_rate": 0.0
+        }
+      },
+      "dinh_dang_phan_cach": {
+        "n": 1000,
+        "lp_clean": {
+          "n": 1000,
+          "correct": 1,
+          "partial": 781,
+          "error": 218,
+          "correct_rate": 0.001,
+          "partial_rate": 0.781,
+          "error_rate": 0.218,
+          "field_prec": {
+            "SoNha": 0.8363636363636363,
+            "TenDuong": 0.32882414151925077,
+            "PhuongXa": 0.010638297872340425,
+            "QuanHuyen": 0.0498960498960499,
+            "TinhThanh": 0.8809283551967709
+          },
+          "field_rec": {
+            "SoNha": 0.828,
+            "TenDuong": 0.316,
+            "PhuongXa": 0.001,
+            "QuanHuyen": 0.048,
+            "TinhThanh": 0.873
+          },
+          "field_f1": {
+            "SoNha": 0.8321608040201005,
+            "TenDuong": 0.322284548699643,
+            "PhuongXa": 0.0018281535648994518,
+            "QuanHuyen": 0.04892966360856269,
+            "TinhThanh": 0.8769462581617278
+          },
+          "avg_f1": 0.4164298856109867,
+          "missing_cnt": 610,
+          "missing_rate": 0.61,
+          "halluc_cnt": 385,
+          "halluc_rate": 0.385
+        },
+        "lp_noisy": {
+          "n": 1000,
+          "correct": 1,
+          "partial": 515,
+          "error": 484,
+          "correct_rate": 0.001,
+          "partial_rate": 0.515,
+          "error_rate": 0.484,
+          "field_prec": {
+            "SoNha": 0.8333333333333334,
+            "TenDuong": 0.1592554291623578,
+            "PhuongXa": 0.08860759493670886,
+            "QuanHuyen": 0.12760416666666666,
+            "TinhThanh": 0.6185682326621924
+          },
+          "field_rec": {
+            "SoNha": 0.765,
+            "TenDuong": 0.154,
+            "PhuongXa": 0.007,
+            "QuanHuyen": 0.098,
+            "TinhThanh": 0.553
+          },
+          "field_f1": {
+            "SoNha": 0.7977059436913452,
+            "TenDuong": 0.1565836298932384,
+            "PhuongXa": 0.012974976830398516,
+            "QuanHuyen": 0.11085972850678734,
+            "TinhThanh": 0.5839493136219642
+          },
+          "avg_f1": 0.3324147185087467,
+          "missing_cnt": 662,
+          "missing_rate": 0.662,
+          "halluc_cnt": 266,
+          "halluc_rate": 0.266
+        },
+        "vn_clean": {
+          "n": 1000,
+          "correct": 862,
+          "partial": 122,
+          "error": 16,
+          "correct_rate": 0.862,
+          "partial_rate": 0.122,
+          "error_rate": 0.016,
+          "field_prec": {
+            "SoNha": 0.9855715871254163,
+            "TenDuong": 0.887,
+            "PhuongXa": 0.9744897959183674,
+            "QuanHuyen": 0.9774127310061602,
+            "TinhThanh": 0.995
+          },
+          "field_rec": {
+            "SoNha": 0.888,
+            "TenDuong": 0.887,
+            "PhuongXa": 0.955,
+            "QuanHuyen": 0.952,
+            "TinhThanh": 0.995
+          },
+          "field_f1": {
+            "SoNha": 0.9342451341399263,
+            "TenDuong": 0.887,
+            "PhuongXa": 0.9646464646464646,
+            "QuanHuyen": 0.9645390070921986,
+            "TinhThanh": 0.995
+          },
+          "avg_f1": 0.949086121175718,
+          "missing_cnt": 134,
+          "missing_rate": 0.134,
+          "halluc_cnt": 0,
+          "halluc_rate": 0.0
+        },
+        "vn_noisy": {
+          "n": 1000,
+          "correct": 217,
+          "partial": 694,
+          "error": 89,
+          "correct_rate": 0.217,
+          "partial_rate": 0.694,
+          "error_rate": 0.089,
+          "field_prec": {
+            "SoNha": 0.9787234042553191,
+            "TenDuong": 0.25374732334047106,
+            "PhuongXa": 0.9676339285714286,
+            "QuanHuyen": 0.9694323144104804,
+            "TinhThanh": 0.9889224572004028
+          },
+          "field_rec": {
+            "SoNha": 0.506,
+            "TenDuong": 0.237,
+            "PhuongXa": 0.867,
+            "QuanHuyen": 0.888,
+            "TinhThanh": 0.982
+          },
+          "field_f1": {
+            "SoNha": 0.6671061305207646,
+            "TenDuong": 0.2450879007238883,
+            "PhuongXa": 0.9145569620253164,
+            "QuanHuyen": 0.9269311064718163,
+            "TinhThanh": 0.985449071751129
+          },
+          "avg_f1": 0.747826234298583,
+          "missing_cnt": 767,
+          "missing_rate": 0.767,
+          "halluc_cnt": 0,
+          "halluc_rate": 0.0
+        }
+      }
+    }
+  },
+  "data_03": {
+    "libpostal": {
+      "n": 1500,
+      "correct": 1,
+      "partial": 936,
+      "error": 563,
+      "correct_rate": 0.0006666666666666666,
+      "partial_rate": 0.624,
+      "error_rate": 0.37533333333333335,
+      "field_prec": {
+        "SoNha": 0.728894989704873,
+        "TenDuong": 0.2656359803232607,
+        "PhuongXa": 0.018867924528301886,
+        "QuanHuyen": 0.2692307692307692,
+        "TinhThanh": 0.8341264445955132
+      },
+      "field_rec": {
+        "SoNha": 0.708,
+        "TenDuong": 0.252,
+        "PhuongXa": 0.0033333333333333335,
+        "QuanHuyen": 0.042,
+        "TinhThanh": 0.818
+      },
+      "field_f1": {
+        "SoNha": 0.7182955698342915,
+        "TenDuong": 0.25863838522066374,
+        "PhuongXa": 0.005665722379603399,
+        "QuanHuyen": 0.07266435986159171,
+        "TinhThanh": 0.8259845169976439
+      },
+      "avg_f1": 0.37624971085875886,
+      "missing_cnt": 1474,
+      "missing_rate": 0.9826666666666667,
+      "halluc_cnt": 0,
+      "halluc_rate": 0.0
+    },
+    "libpostal_ci": [
+      0.0,
+      0.002
+    ],
+    "vietnamadminunits": {
+      "n": 1500,
+      "correct": 1094,
+      "partial": 372,
+      "error": 34,
+      "correct_rate": 0.7293333333333333,
+      "partial_rate": 0.248,
+      "error_rate": 0.02266666666666667,
+      "field_prec": {
+        "SoNha": 0.9671052631578947,
+        "TenDuong": 0.78,
+        "PhuongXa": 0.9334719334719335,
+        "QuanHuyen": 0.9850847457627119,
+        "TinhThanh": 0.9826666666666667
+      },
+      "field_rec": {
+        "SoNha": 0.784,
+        "TenDuong": 0.78,
+        "PhuongXa": 0.898,
+        "QuanHuyen": 0.9686666666666667,
+        "TinhThanh": 0.9826666666666667
+      },
+      "field_f1": {
+        "SoNha": 0.8659793814432989,
+        "TenDuong": 0.78,
+        "PhuongXa": 0.9153924566768603,
+        "QuanHuyen": 0.9768067226890755,
+        "TinhThanh": 0.9826666666666667
+      },
+      "avg_f1": 0.9041690454951803,
+      "missing_cnt": 394,
+      "missing_rate": 0.26266666666666666,
+      "halluc_cnt": 0,
+      "halluc_rate": 0.0
+    },
+    "vietnamadminunits_ci": [
+      0.7059833333333333,
+      0.7513333333333333
+    ],
+    "paired": {
+      "n": 1500,
+      "both_correct": 1,
+      "only_lp_correct": 0,
+      "only_vn_correct": 1093,
+      "both_wrong": 406,
+      "mcnemar_stat": 1091.0009149130833,
+      "p_value": 2.9839517288852617e-239
+    },
+    "d03_vn_house_empty": 284,
+    "d03_vn_boundary": 330
+  },
+  "data_04": {
+    "task_a_extraction": {
+      "libpostal": {
+        "n": 800,
+        "correct": 120,
+        "partial": 213,
+        "error": 467,
+        "correct_rate": 0.15,
+        "partial_rate": 0.26625,
+        "error_rate": 0.58375,
+        "field_prec": {
+          "SoNha": 0.7367088607594937,
+          "TenDuong": 0.29015544041450775,
+          "PhuongXa": 0.06666666666666667,
+          "QuanHuyen": 0.16845878136200718,
+          "TinhThanh": 0.7547425474254743
+        },
+        "field_rec": {
+          "SoNha": 0.8558823529411764,
+          "TenDuong": 0.28,
+          "PhuongXa": 0.006711409395973154,
+          "QuanHuyen": 0.15614617940199335,
+          "TinhThanh": 0.69625
+        },
+        "field_f1": {
+          "SoNha": 0.7918367346938776,
+          "TenDuong": 0.28498727735368956,
+          "PhuongXa": 0.012195121951219511,
+          "QuanHuyen": 0.16206896551724137,
+          "TinhThanh": 0.7243172951885566
+        },
+        "avg_f1": 0.39508107894091693,
+        "missing_cnt": 318,
+        "missing_rate": 0.3975,
+        "halluc_cnt": 264,
+        "halluc_rate": 0.33
+      },
+      "libpostal_ci": [
+        0.12625,
+        0.175
+      ],
+      "vietnamadminunits": {
+        "n": 800,
+        "correct": 208,
+        "partial": 246,
+        "error": 346,
+        "correct_rate": 0.26,
+        "partial_rate": 0.3075,
+        "error_rate": 0.4325,
+        "field_prec": {
+          "SoNha": 0.1,
+          "TenDuong": 0.4799426934097421,
+          "PhuongXa": 0.7532467532467533,
+          "QuanHuyen": 0.930921052631579,
+          "TinhThanh": 0.785
+        },
+        "field_rec": {
+          "SoNha": 0.0029411764705882353,
+          "TenDuong": 0.41875,
+          "PhuongXa": 0.6487695749440716,
+          "QuanHuyen": 0.9401993355481728,
+          "TinhThanh": 0.785
+        },
+        "field_f1": {
+          "SoNha": 0.005714285714285714,
+          "TenDuong": 0.44726301735647533,
+          "PhuongXa": 0.6971153846153846,
+          "QuanHuyen": 0.9355371900826446,
+          "TinhThanh": 0.785
+        },
+        "avg_f1": 0.574125975553758,
+        "missing_cnt": 483,
+        "missing_rate": 0.60375,
+        "halluc_cnt": 54,
+        "halluc_rate": 0.0675
+      },
+      "vietnamadminunits_ci": [
+        0.23,
+        0.2887812499999998
+      ],
+      "paired": {
+        "n": 800,
+        "both_correct": 0,
+        "only_lp_correct": 120,
+        "only_vn_correct": 208,
+        "both_wrong": 472,
+        "mcnemar_stat": 23.076219512195124,
+        "p_value": 1.5570460331307786e-06
+      }
+    },
+    "task_b_recovery": {
+      "libpostal": {
+        "drop_ward": {
+          "n_records": 241,
+          "total_dropped_fields": 241,
+          "recovered_correct": 0,
+          "recovered_wrong": 7,
+          "not_filled": 234
+        },
+        "drop_district": {
+          "n_records": 99,
+          "total_dropped_fields": 99,
+          "recovered_correct": 0,
+          "recovered_wrong": 10,
+          "not_filled": 89
+        },
+        "drop_housenumber": {
+          "n_records": 348,
+          "total_dropped_fields": 348,
+          "recovered_correct": 2,
+          "recovered_wrong": 48,
+          "not_filled": 298
+        },
+        "drop_housenumber_ward": {
+          "n_records": 112,
+          "total_dropped_fields": 224,
+          "recovered_correct": 0,
+          "recovered_wrong": 19,
+          "not_filled": 205
+        },
+        "all": {
+          "correct": 2,
+          "wrong": 84,
+          "empty": 826,
+          "total_dropped": 912
+        }
+      },
+      "vietnamadminunits": {
+        "drop_ward": {
+          "n_records": 241,
+          "total_dropped_fields": 241,
+          "recovered_correct": 5,
+          "recovered_wrong": 19,
+          "not_filled": 217
+        },
+        "drop_district": {
+          "n_records": 99,
+          "total_dropped_fields": 99,
+          "recovered_correct": 2,
+          "recovered_wrong": 7,
+          "not_filled": 90
+        },
+        "drop_housenumber": {
+          "n_records": 348,
+          "total_dropped_fields": 348,
+          "recovered_correct": 1,
+          "recovered_wrong": 0,
+          "not_filled": 347
+        },
+        "drop_housenumber_ward": {
+          "n_records": 112,
+          "total_dropped_fields": 224,
+          "recovered_correct": 6,
+          "recovered_wrong": 14,
+          "not_filled": 204
+        },
+        "all": {
+          "correct": 14,
+          "wrong": 40,
+          "empty": 858,
+          "total_dropped": 912
+        }
+      }
+    }
+  },
+  "data_06": {
+    "C1": {
+      "n": 420,
+      "libpostal": {
+        "n": 420,
+        "correct": 0,
+        "partial": 331,
+        "error": 89,
+        "correct_rate": 0.0,
+        "partial_rate": 0.7880952380952381,
+        "error_rate": 0.2119047619047619,
+        "field_prec": {
+          "SoNha": 0.908433734939759,
+          "TenDuong": 0.27970297029702973,
+          "PhuongXa": 0.0,
+          "QuanHuyen": 0.6772727272727272,
+          "TinhThanh": 0.7651331719128329
+        },
+        "field_rec": {
+          "SoNha": 0.8976190476190476,
+          "TenDuong": 0.26904761904761904,
+          "PhuongXa": 0.0,
+          "QuanHuyen": 0.3547619047619048,
+          "TinhThanh": 0.7523809523809524
+        },
+        "field_f1": {
+          "SoNha": 0.9029940119760479,
+          "TenDuong": 0.27427184466019416,
+          "PhuongXa": 0.0,
+          "QuanHuyen": 0.465625,
+          "TinhThanh": 0.758703481392557
+        },
+        "avg_f1": 0.4803188676057598,
+        "missing_cnt": 412,
+        "missing_rate": 0.9809523809523809,
+        "halluc_cnt": 0,
+        "halluc_rate": 0.0
+      },
+      "vn_from_2025": {
+        "n": 420,
+        "correct": 0,
+        "partial": 417,
+        "error": 3,
+        "correct_rate": 0.0,
+        "partial_rate": 0.9928571428571429,
+        "error_rate": 0.007142857142857143,
+        "field_prec": {
+          "SoNha": 0.9878345498783455,
+          "TenDuong": 0.7214285714285714,
+          "PhuongXa": 0.7523809523809524,
+          "QuanHuyen": 0.0,
+          "TinhThanh": 0.9952380952380953
+        },
+        "field_rec": {
+          "SoNha": 0.9666666666666667,
+          "TenDuong": 0.7214285714285714,
+          "PhuongXa": 0.7523809523809524,
+          "QuanHuyen": 0.0,
+          "TinhThanh": 0.9952380952380953
+        },
+        "field_f1": {
+          "SoNha": 0.9771359807460891,
+          "TenDuong": 0.7214285714285713,
+          "PhuongXa": 0.7523809523809524,
+          "QuanHuyen": 0.0,
+          "TinhThanh": 0.9952380952380953
+        },
+        "avg_f1": 0.6892367199587416,
+        "missing_cnt": 420,
+        "missing_rate": 1.0,
+        "halluc_cnt": 0,
+        "halluc_rate": 0.0
+      },
+      "vn_legacy": {
+        "n": 420,
+        "correct": 262,
+        "partial": 158,
+        "error": 0,
+        "correct_rate": 0.6238095238095238,
+        "partial_rate": 0.3761904761904762,
+        "error_rate": 0.0,
+        "field_prec": {
+          "SoNha": 0.9812734082397003,
+          "TenDuong": 0.6238095238095238,
+          "PhuongXa": 0.9887640449438202,
+          "QuanHuyen": 1.0,
+          "TinhThanh": 1.0
+        },
+        "field_rec": {
+          "SoNha": 0.6238095238095238,
+          "TenDuong": 0.6238095238095238,
+          "PhuongXa": 0.6285714285714286,
+          "QuanHuyen": 1.0,
+          "TinhThanh": 1.0
+        },
+        "field_f1": {
+          "SoNha": 0.7627365356622999,
+          "TenDuong": 0.6238095238095238,
+          "PhuongXa": 0.7685589519650654,
+          "QuanHuyen": 1.0,
+          "TinhThanh": 1.0
+        },
+        "avg_f1": 0.8310210022873779,
+        "missing_cnt": 158,
+        "missing_rate": 0.3761904761904762,
+        "halluc_cnt": 0,
+        "halluc_rate": 0.0
+      }
+    },
+    "C2": {
+      "n": 120,
+      "libpostal": {
+        "n": 120,
+        "correct": 0,
+        "partial": 114,
+        "error": 6,
+        "correct_rate": 0.0,
+        "partial_rate": 0.95,
+        "error_rate": 0.05,
+        "field_prec": {
+          "SoNha": 0.9152542372881356,
+          "TenDuong": 0.27586206896551724,
+          "PhuongXa": 0.0,
+          "QuanHuyen": 0.7256637168141593,
+          "TinhThanh": 0.9333333333333333
+        },
+        "field_rec": {
+          "SoNha": 0.9,
+          "TenDuong": 0.26666666666666666,
+          "PhuongXa": 0.0,
+          "QuanHuyen": 0.6833333333333333,
+          "TinhThanh": 0.9333333333333333
+        },
+        "field_f1": {
+          "SoNha": 0.9075630252100839,
+          "TenDuong": 0.2711864406779661,
+          "PhuongXa": 0.0,
+          "QuanHuyen": 0.703862660944206,
+          "TinhThanh": 0.9333333333333333
+        },
+        "avg_f1": 0.5631890920331178,
+        "missing_cnt": 119,
+        "missing_rate": 0.9916666666666667,
+        "halluc_cnt": 0,
+        "halluc_rate": 0.0
+      },
+      "vn_from_2025": {
+        "n": 120,
+        "correct": 0,
+        "partial": 120,
+        "error": 0,
+        "correct_rate": 0.0,
+        "partial_rate": 1.0,
+        "error_rate": 0.0,
+        "field_prec": {
+          "SoNha": 0.9661016949152542,
+          "TenDuong": 0.7083333333333334,
+          "PhuongXa": 0.7583333333333333,
+          "QuanHuyen": 0.0,
+          "TinhThanh": 1.0
+        },
+        "field_rec": {
+          "SoNha": 0.95,
+          "TenDuong": 0.7083333333333334,
+          "PhuongXa": 0.7583333333333333,
+          "QuanHuyen": 0.0,
+          "TinhThanh": 1.0
+        },
+        "field_f1": {
+          "SoNha": 0.957983193277311,
+          "TenDuong": 0.7083333333333334,
+          "PhuongXa": 0.7583333333333333,
+          "QuanHuyen": 0.0,
+          "TinhThanh": 1.0
+        },
+        "avg_f1": 0.6849299719887956,
+        "missing_cnt": 120,
+        "missing_rate": 1.0,
+        "halluc_cnt": 0,
+        "halluc_rate": 0.0
+      },
+      "vn_legacy": {
+        "n": 120,
+        "correct": 97,
+        "partial": 22,
+        "error": 1,
+        "correct_rate": 0.8083333333333333,
+        "partial_rate": 0.18333333333333332,
+        "error_rate": 0.008333333333333333,
+        "field_prec": {
+          "SoNha": 0.97,
+          "TenDuong": 0.8083333333333333,
+          "PhuongXa": 1.0,
+          "QuanHuyen": 0.9916666666666667,
+          "TinhThanh": 1.0
+        },
+        "field_rec": {
+          "SoNha": 0.8083333333333333,
+          "TenDuong": 0.8083333333333333,
+          "PhuongXa": 0.8333333333333334,
+          "QuanHuyen": 0.9916666666666667,
+          "TinhThanh": 1.0
+        },
+        "field_f1": {
+          "SoNha": 0.8818181818181818,
+          "TenDuong": 0.8083333333333333,
+          "PhuongXa": 0.9090909090909091,
+          "QuanHuyen": 0.9916666666666667,
+          "TinhThanh": 1.0
+        },
+        "avg_f1": 0.9181818181818182,
+        "missing_cnt": 23,
+        "missing_rate": 0.19166666666666668,
+        "halluc_cnt": 0,
+        "halluc_rate": 0.0
+      }
+    },
+    "C3": {
+      "n": 60,
+      "libpostal": {
+        "n": 60,
+        "correct": 2,
+        "partial": 53,
+        "error": 5,
+        "correct_rate": 0.03333333333333333,
+        "partial_rate": 0.8833333333333333,
+        "error_rate": 0.08333333333333333,
+        "field_prec": {
+          "SoNha": 0.9322033898305084,
+          "TenDuong": 0.35,
+          "PhuongXa": 0.5,
+          "QuanHuyen": 0.4230769230769231,
+          "TinhThanh": 0.9166666666666666
+        },
+        "field_rec": {
+          "SoNha": 0.9166666666666666,
+          "TenDuong": 0.35,
+          "PhuongXa": 0.06666666666666667,
+          "QuanHuyen": 0.36666666666666664,
+          "TinhThanh": 0.9166666666666666
+        },
+        "field_f1": {
+          "SoNha": 0.9243697478991596,
+          "TenDuong": 0.35,
+          "PhuongXa": 0.11764705882352941,
+          "QuanHuyen": 0.3928571428571428,
+          "TinhThanh": 0.9166666666666666
+        },
+        "avg_f1": 0.5403081232492997,
+        "missing_cnt": 58,
+        "missing_rate": 0.9666666666666667,
+        "halluc_cnt": 0,
+        "halluc_rate": 0.0
+      },
+      "vn_from_2025": {
+        "n": 60,
+        "correct": 0,
+        "partial": 19,
+        "error": 41,
+        "correct_rate": 0.0,
+        "partial_rate": 0.31666666666666665,
+        "error_rate": 0.6833333333333333,
+        "field_prec": {
+          "SoNha": 0.8636363636363636,
+          "TenDuong": 0.0,
+          "PhuongXa": 0.0,
+          "QuanHuyen": 0.0,
+          "TinhThanh": 1.0
+        },
+        "field_rec": {
+          "SoNha": 0.31666666666666665,
+          "TenDuong": 0.0,
+          "PhuongXa": 0.0,
+          "QuanHuyen": 0.0,
+          "TinhThanh": 1.0
+        },
+        "field_f1": {
+          "SoNha": 0.46341463414634154,
+          "TenDuong": 0.0,
+          "PhuongXa": 0.0,
+          "QuanHuyen": 0.0,
+          "TinhThanh": 1.0
+        },
+        "avg_f1": 0.2926829268292683,
+        "missing_cnt": 60,
+        "missing_rate": 1.0,
+        "halluc_cnt": 0,
+        "halluc_rate": 0.0
+      },
+      "vn_legacy": {
+        "n": 60,
+        "correct": 56,
+        "partial": 3,
+        "error": 1,
+        "correct_rate": 0.9333333333333333,
+        "partial_rate": 0.05,
+        "error_rate": 0.016666666666666666,
+        "field_prec": {
+          "SoNha": 0.9491525423728814,
+          "TenDuong": 0.9333333333333333,
+          "PhuongXa": 1.0,
+          "QuanHuyen": 0.9833333333333333,
+          "TinhThanh": 1.0
+        },
+        "field_rec": {
+          "SoNha": 0.9333333333333333,
+          "TenDuong": 0.9333333333333333,
+          "PhuongXa": 0.9833333333333333,
+          "QuanHuyen": 0.9833333333333333,
+          "TinhThanh": 1.0
+        },
+        "field_f1": {
+          "SoNha": 0.9411764705882353,
+          "TenDuong": 0.9333333333333333,
+          "PhuongXa": 0.9915966386554621,
+          "QuanHuyen": 0.9833333333333333,
+          "TinhThanh": 1.0
+        },
+        "avg_f1": 0.9698879551820727,
+        "missing_cnt": 4,
+        "missing_rate": 0.06666666666666667,
+        "halluc_cnt": 0,
+        "halluc_rate": 0.0
+      }
+    },
+    "all": {
+      "n": 600,
+      "libpostal": {
+        "n": 600,
+        "correct": 2,
+        "partial": 498,
+        "error": 100,
+        "correct_rate": 0.0033333333333333335,
+        "partial_rate": 0.83,
+        "error_rate": 0.16666666666666666,
+        "field_prec": {
+          "SoNha": 0.9121621621621622,
+          "TenDuong": 0.28620689655172415,
+          "PhuongXa": 0.038834951456310676,
+          "QuanHuyen": 0.6571428571428571,
+          "TinhThanh": 0.8145025295109612
+        },
+        "field_rec": {
+          "SoNha": 0.9,
+          "TenDuong": 0.27666666666666667,
+          "PhuongXa": 0.006666666666666667,
+          "QuanHuyen": 0.4216666666666667,
+          "TinhThanh": 0.805
+        },
+        "field_f1": {
+          "SoNha": 0.9060402684563759,
+          "TenDuong": 0.28135593220338984,
+          "PhuongXa": 0.011379800853485065,
+          "QuanHuyen": 0.5137055837563452,
+          "TinhThanh": 0.809723386420788
+        },
+        "avg_f1": 0.5044409943380769,
+        "missing_cnt": 589,
+        "missing_rate": 0.9816666666666667,
+        "halluc_cnt": 0,
+        "halluc_rate": 0.0
+      },
+      "vn_from_2025": {
+        "n": 600,
+        "correct": 0,
+        "partial": 556,
+        "error": 44,
+        "correct_rate": 0.0,
+        "partial_rate": 0.9266666666666666,
+        "error_rate": 0.07333333333333333,
+        "field_prec": {
+          "SoNha": 0.9782214156079855,
+          "TenDuong": 0.6466666666666666,
+          "PhuongXa": 0.7229129662522202,
+          "QuanHuyen": 0.0,
+          "TinhThanh": 0.9966666666666667
+        },
+        "field_rec": {
+          "SoNha": 0.8983333333333333,
+          "TenDuong": 0.6466666666666666,
+          "PhuongXa": 0.6783333333333333,
+          "QuanHuyen": 0.0,
+          "TinhThanh": 0.9966666666666667
+        },
+        "field_f1": {
+          "SoNha": 0.9365768896611641,
+          "TenDuong": 0.6466666666666666,
+          "PhuongXa": 0.6999140154772141,
+          "QuanHuyen": 0.0,
+          "TinhThanh": 0.9966666666666667
+        },
+        "avg_f1": 0.6559648476943424,
+        "missing_cnt": 600,
+        "missing_rate": 1.0,
+        "halluc_cnt": 0,
+        "halluc_rate": 0.0
+      },
+      "vn_legacy": {
+        "n": 600,
+        "correct": 415,
+        "partial": 183,
+        "error": 2,
+        "correct_rate": 0.6916666666666667,
+        "partial_rate": 0.305,
+        "error_rate": 0.0033333333333333335,
+        "field_prec": {
+          "SoNha": 0.9741784037558685,
+          "TenDuong": 0.6916666666666667,
+          "PhuongXa": 0.9929577464788732,
+          "QuanHuyen": 0.9966666666666667,
+          "TinhThanh": 1.0
+        },
+        "field_rec": {
+          "SoNha": 0.6916666666666667,
+          "TenDuong": 0.6916666666666667,
+          "PhuongXa": 0.705,
+          "QuanHuyen": 0.9966666666666667,
+          "TinhThanh": 1.0
+        },
+        "field_f1": {
+          "SoNha": 0.8089668615984406,
+          "TenDuong": 0.6916666666666667,
+          "PhuongXa": 0.8245614035087719,
+          "QuanHuyen": 0.9966666666666667,
+          "TinhThanh": 1.0
+        },
+        "avg_f1": 0.864372319688109,
+        "missing_cnt": 185,
+        "missing_rate": 0.30833333333333335,
+        "halluc_cnt": 0,
+        "halluc_rate": 0.0
+      }
+    }
+  },
+  "data_07": {
+    "N-1": {
+      "n": 244,
+      "correct": 242,
+      "correct_rate": 0.9918032786885246,
+      "wrong_target": 0,
+      "wrong_target_rate": 0.0,
+      "empty": 2,
+      "empty_rate": 0.00819672131147541
+    },
+    "M-N": {
+      "n": 356,
+      "correct": 344,
+      "correct_rate": 0.9662921348314607,
+      "wrong_target": 12,
+      "wrong_target_rate": 0.033707865168539325,
+      "empty": 0,
+      "empty_rate": 0.0
+    },
+    "all": {
+      "n": 600,
+      "correct": 586,
+      "correct_rate": 0.9766666666666667,
+      "wrong_target": 12,
+      "wrong_target_rate": 0.02,
+      "empty": 2,
+      "empty_rate": 0.0033333333333333335
+    }
+  },
+  "all_datasets_summary": [
+    {
+      "dataset": "Data 01 (Mới sạch)",
+      "tool": "libpostal",
+      "n": 1000,
+      "exact": 0.002,
+      "partial": 0.917,
+      "error": 0.081,
+      "avg_f1": 0.44777371566242313,
+      "missing": 0.223,
+      "hallucination": 0.775
+    },
+    {
+      "dataset": "Data 01 (Mới sạch)",
+      "tool": "vietnamadminunits",
+      "n": 1000,
+      "exact": 0.973,
+      "partial": 0.027,
+      "error": 0.0,
+      "avg_f1": 0.79047732528909,
+      "missing": 0.027,
+      "hallucination": 0.0
+    },
+    {
+      "dataset": "Data 02 Clean",
+      "tool": "libpostal",
+      "n": 1000,
+      "exact": 0.001,
+      "partial": 0.781,
+      "error": 0.218,
+      "avg_f1": 0.4164298856109867,
+      "missing": 0.61,
+      "hallucination": 0.385
+    },
+    {
+      "dataset": "Data 02 Clean",
+      "tool": "vietnamadminunits",
+      "n": 1000,
+      "exact": 0.862,
+      "partial": 0.122,
+      "error": 0.016,
+      "avg_f1": 0.949086121175718,
+      "missing": 0.134,
+      "hallucination": 0.0
+    },
+    {
+      "dataset": "Data 02 Noisy",
+      "tool": "libpostal",
+      "n": 1000,
+      "exact": 0.001,
+      "partial": 0.515,
+      "error": 0.484,
+      "avg_f1": 0.3324147185087467,
+      "missing": 0.662,
+      "hallucination": 0.266
+    },
+    {
+      "dataset": "Data 02 Noisy",
+      "tool": "vietnamadminunits",
+      "n": 1000,
+      "exact": 0.217,
+      "partial": 0.694,
+      "error": 0.089,
+      "avg_f1": 0.747826234298583,
+      "missing": 0.767,
+      "hallucination": 0.0
+    },
+    {
+      "dataset": "Data 03 (Cũ sạch)",
+      "tool": "libpostal",
+      "n": 1500,
+      "exact": 0.0006666666666666666,
+      "partial": 0.624,
+      "error": 0.37533333333333335,
+      "avg_f1": 0.37624971085875886,
+      "missing": 0.9826666666666667,
+      "hallucination": 0.0
+    },
+    {
+      "dataset": "Data 03 (Cũ sạch)",
+      "tool": "vietnamadminunits",
+      "n": 1500,
+      "exact": 0.7293333333333333,
+      "partial": 0.248,
+      "error": 0.02266666666666667,
+      "avg_f1": 0.9041690454951803,
+      "missing": 0.26266666666666666,
+      "hallucination": 0.0
+    },
+    {
+      "dataset": "Data 04 (Thiếu trường Task A)",
+      "tool": "libpostal",
+      "n": 800,
+      "exact": 0.15,
+      "partial": 0.26625,
+      "error": 0.58375,
+      "avg_f1": 0.39508107894091693,
+      "missing": 0.3975,
+      "hallucination": 0.33
+    },
+    {
+      "dataset": "Data 04 (Thiếu trường Task A)",
+      "tool": "vietnamadminunits",
+      "n": 800,
+      "exact": 0.26,
+      "partial": 0.3075,
+      "error": 0.4325,
+      "avg_f1": 0.574125975553758,
+      "missing": 0.60375,
+      "hallucination": 0.0675
+    },
+    {
+      "dataset": "Data 06 (Lai - VN FROM_2025)",
+      "tool": "libpostal",
+      "n": 600,
+      "exact": 0.0033333333333333335,
+      "partial": 0.83,
+      "error": 0.16666666666666666,
+      "avg_f1": 0.5044409943380769,
+      "missing": 0.9816666666666667,
+      "hallucination": 0.0
+    },
+    {
+      "dataset": "Data 06 (Lai - VN FROM_2025)",
+      "tool": "vietnamadminunits",
+      "n": 600,
+      "exact": 0.0,
+      "partial": 0.9266666666666666,
+      "error": 0.07333333333333333,
+      "avg_f1": 0.6559648476943424,
+      "missing": 1.0,
+      "hallucination": 0.0
+    },
+    {
+      "dataset": "Data 06 (Lai - VN LEGACY)",
+      "tool": "libpostal",
+      "n": 600,
+      "exact": 0.0033333333333333335,
+      "partial": 0.83,
+      "error": 0.16666666666666666,
+      "avg_f1": 0.5044409943380769,
+      "missing": 0.9816666666666667,
+      "hallucination": 0.0
+    },
+    {
+      "dataset": "Data 06 (Lai - VN LEGACY)",
+      "tool": "vietnamadminunits",
+      "n": 600,
+      "exact": 0.6916666666666667,
+      "partial": 0.305,
+      "error": 0.0033333333333333335,
+      "avg_f1": 0.864372319688109,
+      "missing": 0.30833333333333335,
+      "hallucination": 0.0
+    }
+  ],
+  "error_taxonomy": {
+    "libpostal": {
+      "missing_field": 3876,
+      "hallucination_over_imputation": 1690,
+      "parse_boundary_error": 133,
+      "none": 127,
+      "abbreviation_misunderstood": 74
+    },
+    "vietnamadminunits": {
+      "none": 4355,
+      "missing_field": 2592,
+      "parse_boundary_error": 63,
+      "hallucination_over_imputation": 54,
+      "abbreviation_misunderstood": 24,
+      "wrong_target": 12
+    }
+  },
+  "cases": {
+    "lp_failures": [
+      {
+        "id": "D01_0000",
+        "dataset": "01_full_address_new_verified",
+        "raw_input": "394, Đường Lý Thường Kiệt, Phường Phù Khê, Tỉnh Bắc Ninh",
+        "ground_truth": {
+          "SoNha": "394",
+          "TenDuong": "Đường Lý Thường Kiệt",
+          "PhuongXa": "Phường Phù Khê",
+          "QuanHuyen": "",
+          "TinhThanh": "Tỉnh Bắc Ninh"
+        },
+        "lp_pred": {
+          "SoNha": "394",
+          "TenDuong": "đường lý thường kiệt",
+          "PhuongXa": "",
+          "QuanHuyen": "phường phù",
+          "TinhThanh": "tỉnh bắc ninh"
+        },
+        "lp_status": "PARTIAL",
+        "lp_error_type": "hallucination_over_imputation",
+        "lp_raw": [
+          [
+            "394",
+            "house_number"
+          ],
+          [
+            "đường lý thường kiệt",
+            "road"
+          ],
+          [
+            "phường phù",
+            "city_district"
+          ],
+          [
+            "khê",
+            "city"
+          ],
+          [
+            "tỉnh bắc ninh",
+            "state"
+          ]
+        ],
+        "root_cause": "Libpostal gắn nhãn phường là city/city_district; adapter ánh xạ city thành QuanHuyen gây ra lỗi tự điền huyện (hệ mới không có huyện) và bỏ sót PhuongXa."
+      },
+      {
+        "id": "D01_0001",
+        "dataset": "01_full_address_new_verified",
+        "raw_input": "19, Đường Hai Bà Trưng, Phường Võ Cường, Tỉnh Bắc Ninh",
+        "ground_truth": {
+          "SoNha": "19",
+          "TenDuong": "Đường Hai Bà Trưng",
+          "PhuongXa": "Phường Võ Cường",
+          "QuanHuyen": "",
+          "TinhThanh": "Tỉnh Bắc Ninh"
+        },
+        "lp_pred": {
+          "SoNha": "19",
+          "TenDuong": "đường hai bà trưng",
+          "PhuongXa": "",
+          "QuanHuyen": "võ cường",
+          "TinhThanh": "tỉnh bắc ninh"
+        },
+        "lp_status": "PARTIAL",
+        "lp_error_type": "hallucination_over_imputation",
+        "lp_raw": [
+          [
+            "19",
+            "house_number"
+          ],
+          [
+            "đường hai bà trưng",
+            "road"
+          ],
+          [
+            "phường",
+            "city"
+          ],
+          [
+            "võ cường",
+            "state_district"
+          ],
+          [
+            "tỉnh bắc ninh",
+            "state"
+          ]
+        ],
+        "root_cause": "Libpostal gắn nhãn phường là city/city_district; adapter ánh xạ city thành QuanHuyen gây ra lỗi tự điền huyện (hệ mới không có huyện) và bỏ sót PhuongXa."
+      },
+      {
+        "id": "D01_0005",
+        "dataset": "01_full_address_new_verified",
+        "raw_input": "266, Phố Lương Định Của, Phường Phương Liễu, Tỉnh Bắc Ninh",
+        "ground_truth": {
+          "SoNha": "266",
+          "TenDuong": "Phố Lương Định Của",
+          "PhuongXa": "Phường Phương Liễu",
+          "QuanHuyen": "",
+          "TinhThanh": "Tỉnh Bắc Ninh"
+        },
+        "lp_pred": {
+          "SoNha": "266",
+          "TenDuong": "phố lương định của",
+          "PhuongXa": "",
+          "QuanHuyen": "phường phương",
+          "TinhThanh": "tỉnh bắc ninh"
+        },
+        "lp_status": "PARTIAL",
+        "lp_error_type": "hallucination_over_imputation",
+        "lp_raw": [
+          [
+            "266",
+            "house_number"
+          ],
+          [
+            "phố lương định của",
+            "road"
+          ],
+          [
+            "phường phương",
+            "city_district"
+          ],
+          [
+            "liễu",
+            "city"
+          ],
+          [
+            "tỉnh bắc ninh",
+            "state"
+          ]
+        ],
+        "root_cause": "Libpostal gắn nhãn phường là city/city_district; adapter ánh xạ city thành QuanHuyen gây ra lỗi tự điền huyện (hệ mới không có huyện) và bỏ sót PhuongXa."
+      },
+      {
+        "id": "D01_0006",
+        "dataset": "01_full_address_new_verified",
+        "raw_input": "65, Phố Hàng Điếu, Phường Hoàn Kiếm, Thành phố Hà Nội",
+        "ground_truth": {
+          "SoNha": "65",
+          "TenDuong": "Phố Hàng Điếu",
+          "PhuongXa": "Phường Hoàn Kiếm",
+          "QuanHuyen": "",
+          "TinhThanh": "Thành phố Hà Nội"
+        },
+        "lp_pred": {
+          "SoNha": "65",
+          "TenDuong": "phố hàng điếu",
+          "PhuongXa": "",
+          "QuanHuyen": "hoàn kiếm",
+          "TinhThanh": "phường thành phố hà nội"
+        },
+        "lp_status": "PARTIAL",
+        "lp_error_type": "hallucination_over_imputation",
+        "lp_raw": [
+          [
+            "65",
+            "house_number"
+          ],
+          [
+            "phố hàng điếu",
+            "road"
+          ],
+          [
+            "phường",
+            "city"
+          ],
+          [
+            "hoàn kiếm",
+            "state_district"
+          ],
+          [
+            "thành phố hà nội",
+            "city"
+          ]
+        ],
+        "root_cause": "Libpostal gắn nhãn phường là city/city_district; adapter ánh xạ city thành QuanHuyen gây ra lỗi tự điền huyện (hệ mới không có huyện) và bỏ sót PhuongXa."
+      },
+      {
+        "id": "D01_0007",
+        "dataset": "01_full_address_new_verified",
+        "raw_input": "10, Đường Nội Khu 02, Phường Tân Phú, Thành phố Hồ Chí Minh",
+        "ground_truth": {
+          "SoNha": "10",
+          "TenDuong": "Đường Nội Khu 02",
+          "PhuongXa": "Phường Tân Phú",
+          "QuanHuyen": "",
+          "TinhThanh": "Thành phố Hồ Chí Minh"
+        },
+        "lp_pred": {
+          "SoNha": "10 02",
+          "TenDuong": "đường nội khu",
+          "PhuongXa": "",
+          "QuanHuyen": "phường tân phú",
+          "TinhThanh": "thành phố hồ chí minh"
+        },
+        "lp_status": "ERROR",
+        "lp_error_type": "hallucination_over_imputation",
+        "lp_raw": [
+          [
+            "10",
+            "house_number"
+          ],
+          [
+            "đường nội khu",
+            "road"
+          ],
+          [
+            "02",
+            "house_number"
+          ],
+          [
+            "phường tân phú",
+            "city_district"
+          ],
+          [
+            "thành phố hồ chí minh",
+            "city"
+          ]
+        ],
+        "root_cause": "Libpostal gắn nhãn phường là city/city_district; adapter ánh xạ city thành QuanHuyen gây ra lỗi tự điền huyện (hệ mới không có huyện) và bỏ sót PhuongXa."
+      }
+    ],
+    "vn_failures": [
+      {
+        "id": "D03_0000",
+        "dataset": "03_real_address_old_1500",
+        "raw_input": "NT02-29, Ngọc Trai 2, Đa Tốn, Gia Lâm, Hà Nội",
+        "ground_truth": {
+          "SoNha": "NT02-29",
+          "TenDuong": "Ngọc Trai 2",
+          "PhuongXa": "Đa Tốn",
+          "QuanHuyen": "Gia Lâm",
+          "TinhThanh": "Hà Nội"
+        },
+        "vn_pred": {
+          "SoNha": "",
+          "TenDuong": "Nt02 - 29, Ngọc Trai 2",
+          "PhuongXa": "Xã Đa Tốn",
+          "QuanHuyen": "Huyện Gia Lâm",
+          "TinhThanh": "Thành phố Hà Nội"
+        },
+        "vn_status": "PARTIAL",
+        "vn_error_type": "missing_field",
+        "vn_raw": {
+          "address": "Nt02 - 29, Ngọc Trai 2, Xã Đa Tốn, Huyện Gia Lâm, Thành phố Hà Nội",
+          "province": "Thành phố Hà Nội",
+          "district": "Huyện Gia Lâm",
+          "ward": "Xã Đa Tốn",
+          "street": "Nt02 - 29, Ngọc Trai 2",
+          "mode": "LEGACY"
+        },
+        "root_cause": "Số nhà có ký tự chữ (vd NT02-29) không khớp regex ^(\\d+[\\w\\/\\-]*), khiến số nhà bị rỗng và bị đẩy cả vào TenDuong."
+      },
+      {
+        "id": "D03_0001",
+        "dataset": "03_real_address_old_1500",
+        "raw_input": "NT02-35, Ngọc Trai 2, Đa Tốn, Gia Lâm, Hà Nội",
+        "ground_truth": {
+          "SoNha": "NT02-35",
+          "TenDuong": "Ngọc Trai 2",
+          "PhuongXa": "Đa Tốn",
+          "QuanHuyen": "Gia Lâm",
+          "TinhThanh": "Hà Nội"
+        },
+        "vn_pred": {
+          "SoNha": "",
+          "TenDuong": "Nt02 - 35, Ngọc Trai 2",
+          "PhuongXa": "Xã Đa Tốn",
+          "QuanHuyen": "Huyện Gia Lâm",
+          "TinhThanh": "Thành phố Hà Nội"
+        },
+        "vn_status": "PARTIAL",
+        "vn_error_type": "missing_field",
+        "vn_raw": {
+          "address": "Nt02 - 35, Ngọc Trai 2, Xã Đa Tốn, Huyện Gia Lâm, Thành phố Hà Nội",
+          "province": "Thành phố Hà Nội",
+          "district": "Huyện Gia Lâm",
+          "ward": "Xã Đa Tốn",
+          "street": "Nt02 - 35, Ngọc Trai 2",
+          "mode": "LEGACY"
+        },
+        "root_cause": "Số nhà có ký tự chữ (vd NT02-29) không khớp regex ^(\\d+[\\w\\/\\-]*), khiến số nhà bị rỗng và bị đẩy cả vào TenDuong."
+      },
+      {
+        "id": "D04_0000",
+        "dataset": "04_missing_fields_800",
+        "raw_input": "9, Ngách 1/88 Phạm Tuấn Tài, Phường Dịch Vọng Hậu, Hà Nội",
+        "ground_truth": {
+          "SoNha": "9",
+          "TenDuong": "Ngách 1/88 Phạm Tuấn Tài",
+          "PhuongXa": "Phường Dịch Vọng Hậu",
+          "QuanHuyen": "",
+          "TinhThanh": "Hà Nội"
+        },
+        "vn_pred": {
+          "SoNha": "",
+          "TenDuong": "9",
+          "PhuongXa": "",
+          "QuanHuyen": "",
+          "TinhThanh": "Thành phố Hà Nội"
+        },
+        "vn_status": "ERROR",
+        "vn_error_type": "missing_field",
+        "vn_raw": {
+          "address": "9, Thành phố Hà Nội",
+          "province": "Thành phố Hà Nội",
+          "district": null,
+          "ward": null,
+          "street": "9",
+          "mode": "LEGACY"
+        },
+        "root_cause": "Khi quận/huyện bị lược bỏ, số dấu phẩy giảm xuống < 3 trong mode LEGACY, khiến bộ phân tích của thư viện không nhận dạng được phường xã và cắt cụt street."
+      },
+      {
+        "id": "D04_0003",
+        "dataset": "04_missing_fields_800",
+        "raw_input": "89, Hoa Lan, P.2, TP. HCM",
+        "ground_truth": {
+          "SoNha": "89",
+          "TenDuong": "Hoa Lan",
+          "PhuongXa": "P.2",
+          "QuanHuyen": "",
+          "TinhThanh": "TP. HCM"
+        },
+        "vn_pred": {
+          "SoNha": "",
+          "TenDuong": "89",
+          "PhuongXa": "",
+          "QuanHuyen": "",
+          "TinhThanh": "Thành phố Hồ Chí Minh"
+        },
+        "vn_status": "ERROR",
+        "vn_error_type": "abbreviation_misunderstood",
+        "vn_raw": {
+          "address": "89, Thành phố Hồ Chí Minh",
+          "province": "Thành phố Hồ Chí Minh",
+          "district": null,
+          "ward": null,
+          "street": "89",
+          "mode": "LEGACY"
+        },
+        "root_cause": "Khi quận/huyện bị lược bỏ, số dấu phẩy giảm xuống < 3 trong mode LEGACY, khiến bộ phân tích của thư viện không nhận dạng được phường xã và cắt cụt street."
+      },
+      {
+        "id": "D07_0018_M-N",
+        "dataset": "07_bidirectional_pairs_verified",
+        "raw_input": "36, Phố Trần Phú, Phường Điện Biên, Quận Ba Đình, Hà Nội",
+        "ground_truth": {
+          "SoNha": "",
+          "TenDuong": "",
+          "PhuongXa": "Phường Ba Đình",
+          "QuanHuyen": "",
+          "TinhThanh": "Thành phố Hà Nội"
+        },
+        "vn_pred": {
+          "SoNha": "36",
+          "TenDuong": "Phố Trần Phú",
+          "PhuongXa": "Phường Hoàn Kiếm",
+          "QuanHuyen": "",
+          "TinhThanh": "Thành phố Hà Nội"
+        },
+        "vn_status": "ERROR",
+        "vn_error_type": "wrong_target",
+        "vn_raw": {
+          "address": "36, Phố Trần Phú, Phường Hoàn Kiếm, Thành phố Hà Nội",
+          "province": "Thành phố Hà Nội",
+          "ward": "Phường Hoàn Kiếm",
+          "street": "36, Phố Trần Phú"
+        },
+        "root_cause": "Quan hệ M-N chia tách phức hợp: địa chỉ cũ được chuyển đổi sai đích do bộ giải quyết đa trị (geocoder/default fallback) chọn phường khác trong cụm sáp nhập."
+      }
+    ],
+    "lp_correct_vn_wrong": [
+      {
+        "id": "D04_0002",
+        "dataset": "04_missing_fields_800",
+        "raw_input": "17-19, Đường Trần Lựu, Tỉnh Bắc Ninh",
+        "ground_truth": {
+          "SoNha": "17-19",
+          "TenDuong": "Đường Trần Lựu",
+          "PhuongXa": "",
+          "QuanHuyen": "",
+          "TinhThanh": "Tỉnh Bắc Ninh"
+        },
+        "lp_pred": {
+          "SoNha": "17-19",
+          "TenDuong": "đường trần lựu",
+          "PhuongXa": "",
+          "QuanHuyen": "",
+          "TinhThanh": "tỉnh bắc ninh"
+        },
+        "lp_status": "CORRECT",
+        "lp_error_type": "none",
+        "lp_raw": [
+          [
+            "17-19",
+            "house_number"
+          ],
+          [
+            "đường trần lựu",
+            "road"
+          ],
+          [
+            "tỉnh bắc ninh",
+            "state"
+          ]
+        ],
+        "vn_pred": {
+          "SoNha": "17",
+          "TenDuong": "- 19",
+          "PhuongXa": "",
+          "QuanHuyen": "",
+          "TinhThanh": "Tỉnh Bắc Ninh"
+        },
+        "vn_status": "ERROR",
+        "vn_error_type": "missing_field",
+        "vn_raw": {
+          "address": "17 - 19, Tỉnh Bắc Ninh",
+          "province": "Tỉnh Bắc Ninh",
+          "district": null,
+          "ward": null,
+          "street": "17 - 19",
+          "mode": "FROM_2025"
+        },
+        "root_cause": "Trong ca thiếu trường (drop_housenumber hoặc drop_ward), Libpostal trích xuất đúng các thực thể còn lại trên bề mặt nhờ mô hình CRF linh hoạt theo chuỗi token, trong khi VNAdmin phụ thuộc số dấu phẩy và cấu trúc đủ cấp."
+      },
+      {
+        "id": "D04_0006",
+        "dataset": "04_missing_fields_800",
+        "raw_input": "Đường Mỹ Phú 1B, TPHCM",
+        "ground_truth": {
+          "SoNha": "",
+          "TenDuong": "Đường Mỹ Phú 1B",
+          "PhuongXa": "",
+          "QuanHuyen": "",
+          "TinhThanh": "TPHCM"
+        },
+        "lp_pred": {
+          "SoNha": "",
+          "TenDuong": "đường mỹ phú 1b",
+          "PhuongXa": "",
+          "QuanHuyen": "",
+          "TinhThanh": "tphcm"
+        },
+        "lp_status": "CORRECT",
+        "lp_error_type": "none",
+        "lp_raw": [
+          [
+            "đường mỹ phú 1b",
+            "road"
+          ],
+          [
+            "tphcm",
+            "city"
+          ]
+        ],
+        "vn_pred": {
+          "SoNha": "",
+          "TenDuong": "",
+          "PhuongXa": "",
+          "QuanHuyen": "",
+          "TinhThanh": "Thành phố Hồ Chí Minh"
+        },
+        "vn_status": "ERROR",
+        "vn_error_type": "parse_boundary_error",
+        "vn_raw": {
+          "address": "Thành phố Hồ Chí Minh",
+          "province": "Thành phố Hồ Chí Minh",
+          "district": null,
+          "ward": null,
+          "street": null,
+          "mode": "FROM_2025"
+        },
+        "root_cause": "Trong ca thiếu trường (drop_housenumber hoặc drop_ward), Libpostal trích xuất đúng các thực thể còn lại trên bề mặt nhờ mô hình CRF linh hoạt theo chuỗi token, trong khi VNAdmin phụ thuộc số dấu phẩy và cấu trúc đủ cấp."
+      },
+      {
+        "id": "D04_0012",
+        "dataset": "04_missing_fields_800",
+        "raw_input": "A58, Đường Nội Khu 1, Thành phố Hồ Chí Minh",
+        "ground_truth": {
+          "SoNha": "A58",
+          "TenDuong": "Đường Nội Khu 1",
+          "PhuongXa": "",
+          "QuanHuyen": "",
+          "TinhThanh": "Thành phố Hồ Chí Minh"
+        },
+        "lp_pred": {
+          "SoNha": "a58",
+          "TenDuong": "đường nội khu 1",
+          "PhuongXa": "",
+          "QuanHuyen": "",
+          "TinhThanh": "thành phố hồ chí minh"
+        },
+        "lp_status": "CORRECT",
+        "lp_error_type": "none",
+        "lp_raw": [
+          [
+            "a58",
+            "house_number"
+          ],
+          [
+            "đường nội khu 1",
+            "road"
+          ],
+          [
+            "thành phố hồ chí minh",
+            "city"
+          ]
+        ],
+        "vn_pred": {
+          "SoNha": "",
+          "TenDuong": "A58",
+          "PhuongXa": "",
+          "QuanHuyen": "",
+          "TinhThanh": "Thành phố Hồ Chí Minh"
+        },
+        "vn_status": "ERROR",
+        "vn_error_type": "missing_field",
+        "vn_raw": {
+          "address": "A58, Thành phố Hồ Chí Minh",
+          "province": "Thành phố Hồ Chí Minh",
+          "district": null,
+          "ward": null,
+          "street": "A58",
+          "mode": "FROM_2025"
+        },
+        "root_cause": "Trong ca thiếu trường (drop_housenumber hoặc drop_ward), Libpostal trích xuất đúng các thực thể còn lại trên bề mặt nhờ mô hình CRF linh hoạt theo chuỗi token, trong khi VNAdmin phụ thuộc số dấu phẩy và cấu trúc đủ cấp."
+      },
+      {
+        "id": "D04_0020",
+        "dataset": "04_missing_fields_800",
+        "raw_input": "04, Đường Số 21, Thành phố Hồ Chí Minh",
+        "ground_truth": {
+          "SoNha": "04",
+          "TenDuong": "Đường Số 21",
+          "PhuongXa": "",
+          "QuanHuyen": "",
+          "TinhThanh": "Thành phố Hồ Chí Minh"
+        },
+        "lp_pred": {
+          "SoNha": "04",
+          "TenDuong": "đường số 21",
+          "PhuongXa": "",
+          "QuanHuyen": "",
+          "TinhThanh": "thành phố hồ chí minh"
+        },
+        "lp_status": "CORRECT",
+        "lp_error_type": "none",
+        "lp_raw": [
+          [
+            "04",
+            "house_number"
+          ],
+          [
+            "đường số 21",
+            "road"
+          ],
+          [
+            "thành phố hồ chí minh",
+            "city"
+          ]
+        ],
+        "vn_pred": {
+          "SoNha": "",
+          "TenDuong": "04",
+          "PhuongXa": "",
+          "QuanHuyen": "",
+          "TinhThanh": "Thành phố Hồ Chí Minh"
+        },
+        "vn_status": "ERROR",
+        "vn_error_type": "missing_field",
+        "vn_raw": {
+          "address": "04, Thành phố Hồ Chí Minh",
+          "province": "Thành phố Hồ Chí Minh",
+          "district": null,
+          "ward": null,
+          "street": "04",
+          "mode": "FROM_2025"
+        },
+        "root_cause": "Trong ca thiếu trường (drop_housenumber hoặc drop_ward), Libpostal trích xuất đúng các thực thể còn lại trên bề mặt nhờ mô hình CRF linh hoạt theo chuỗi token, trong khi VNAdmin phụ thuộc số dấu phẩy và cấu trúc đủ cấp."
+      },
+      {
+        "id": "D04_0021",
+        "dataset": "04_missing_fields_800",
+        "raw_input": "53, Đường Hoàng Quốc Việt, Thành phố Hà Nội",
+        "ground_truth": {
+          "SoNha": "53",
+          "TenDuong": "Đường Hoàng Quốc Việt",
+          "PhuongXa": "",
+          "QuanHuyen": "",
+          "TinhThanh": "Thành phố Hà Nội"
+        },
+        "lp_pred": {
+          "SoNha": "53",
+          "TenDuong": "đường hoàng quốc việt",
+          "PhuongXa": "",
+          "QuanHuyen": "",
+          "TinhThanh": "thành phố hà nội"
+        },
+        "lp_status": "CORRECT",
+        "lp_error_type": "none",
+        "lp_raw": [
+          [
+            "53",
+            "house_number"
+          ],
+          [
+            "đường hoàng quốc việt",
+            "road"
+          ],
+          [
+            "thành phố hà nội",
+            "city"
+          ]
+        ],
+        "vn_pred": {
+          "SoNha": "",
+          "TenDuong": "53",
+          "PhuongXa": "Xã Dương Hòa",
+          "QuanHuyen": "",
+          "TinhThanh": "Thành phố Hà Nội"
+        },
+        "vn_status": "ERROR",
+        "vn_error_type": "hallucination_over_imputation",
+        "vn_raw": {
+          "address": "53, Xã Dương Hòa, Thành phố Hà Nội",
+          "province": "Thành phố Hà Nội",
+          "district": null,
+          "ward": "Xã Dương Hòa",
+          "street": "53",
+          "mode": "FROM_2025"
+        },
+        "root_cause": "Trong ca thiếu trường (drop_housenumber hoặc drop_ward), Libpostal trích xuất đúng các thực thể còn lại trên bề mặt nhờ mô hình CRF linh hoạt theo chuỗi token, trong khi VNAdmin phụ thuộc số dấu phẩy và cấu trúc đủ cấp."
+      }
+    ],
+    "vn_correct_lp_wrong": [
+      {
+        "id": "D01_0000",
+        "dataset": "01_full_address_new_verified",
+        "raw_input": "394, Đường Lý Thường Kiệt, Phường Phù Khê, Tỉnh Bắc Ninh",
+        "ground_truth": {
+          "SoNha": "394",
+          "TenDuong": "Đường Lý Thường Kiệt",
+          "PhuongXa": "Phường Phù Khê",
+          "QuanHuyen": "",
+          "TinhThanh": "Tỉnh Bắc Ninh"
+        },
+        "lp_pred": {
+          "SoNha": "394",
+          "TenDuong": "đường lý thường kiệt",
+          "PhuongXa": "",
+          "QuanHuyen": "phường phù",
+          "TinhThanh": "tỉnh bắc ninh"
+        },
+        "lp_status": "PARTIAL",
+        "lp_error_type": "hallucination_over_imputation",
+        "lp_raw": [
+          [
+            "394",
+            "house_number"
+          ],
+          [
+            "đường lý thường kiệt",
+            "road"
+          ],
+          [
+            "phường phù",
+            "city_district"
+          ],
+          [
+            "khê",
+            "city"
+          ],
+          [
+            "tỉnh bắc ninh",
+            "state"
+          ]
+        ],
+        "vn_pred": {
+          "SoNha": "394",
+          "TenDuong": "Đường Lý Thường Kiệt",
+          "PhuongXa": "Phường Phù Khê",
+          "QuanHuyen": "",
+          "TinhThanh": "Tỉnh Bắc Ninh"
+        },
+        "vn_status": "CORRECT",
+        "vn_error_type": "none",
+        "vn_raw": {
+          "address": "394, Đường Lý Thường Kiệt, Phường Phù Khê, Tỉnh Bắc Ninh",
+          "province": "Tỉnh Bắc Ninh",
+          "district": null,
+          "ward": "Phường Phù Khê",
+          "street": "394, Đường Lý Thường Kiệt",
+          "mode": "FROM_2025"
+        },
+        "root_cause": "VNAdmin được cung cấp mode FROM_2025 và có cơ sở dữ liệu hành chính chuẩn hóa khớp chính xác tên phường xã và tỉnh thành; Libpostal gắn nhãn phường thành city/city_district và bị adapter ép sang QuanHuyen."
+      },
+      {
+        "id": "D01_0001",
+        "dataset": "01_full_address_new_verified",
+        "raw_input": "19, Đường Hai Bà Trưng, Phường Võ Cường, Tỉnh Bắc Ninh",
+        "ground_truth": {
+          "SoNha": "19",
+          "TenDuong": "Đường Hai Bà Trưng",
+          "PhuongXa": "Phường Võ Cường",
+          "QuanHuyen": "",
+          "TinhThanh": "Tỉnh Bắc Ninh"
+        },
+        "lp_pred": {
+          "SoNha": "19",
+          "TenDuong": "đường hai bà trưng",
+          "PhuongXa": "",
+          "QuanHuyen": "võ cường",
+          "TinhThanh": "tỉnh bắc ninh"
+        },
+        "lp_status": "PARTIAL",
+        "lp_error_type": "hallucination_over_imputation",
+        "lp_raw": [
+          [
+            "19",
+            "house_number"
+          ],
+          [
+            "đường hai bà trưng",
+            "road"
+          ],
+          [
+            "phường",
+            "city"
+          ],
+          [
+            "võ cường",
+            "state_district"
+          ],
+          [
+            "tỉnh bắc ninh",
+            "state"
+          ]
+        ],
+        "vn_pred": {
+          "SoNha": "19",
+          "TenDuong": "Đường Hai Bà Trưng",
+          "PhuongXa": "Phường Võ Cường",
+          "QuanHuyen": "",
+          "TinhThanh": "Tỉnh Bắc Ninh"
+        },
+        "vn_status": "CORRECT",
+        "vn_error_type": "none",
+        "vn_raw": {
+          "address": "19, Đường Hai Bà Trưng, Phường Võ Cường, Tỉnh Bắc Ninh",
+          "province": "Tỉnh Bắc Ninh",
+          "district": null,
+          "ward": "Phường Võ Cường",
+          "street": "19, Đường Hai Bà Trưng",
+          "mode": "FROM_2025"
+        },
+        "root_cause": "VNAdmin được cung cấp mode FROM_2025 và có cơ sở dữ liệu hành chính chuẩn hóa khớp chính xác tên phường xã và tỉnh thành; Libpostal gắn nhãn phường thành city/city_district và bị adapter ép sang QuanHuyen."
+      },
+      {
+        "id": "D01_0002",
+        "dataset": "01_full_address_new_verified",
+        "raw_input": "314, Nguyễn Văn Linh, Phường Tân Thuận, Thành phố Hồ Chí Minh",
+        "ground_truth": {
+          "SoNha": "314",
+          "TenDuong": "Nguyễn Văn Linh",
+          "PhuongXa": "Phường Tân Thuận",
+          "QuanHuyen": "",
+          "TinhThanh": "Thành phố Hồ Chí Minh"
+        },
+        "lp_pred": {
+          "SoNha": "314",
+          "TenDuong": "nguyễn văn linh phường tân thuận",
+          "PhuongXa": "",
+          "QuanHuyen": "",
+          "TinhThanh": "thành phố hồ chí minh"
+        },
+        "lp_status": "PARTIAL",
+        "lp_error_type": "missing_field",
+        "lp_raw": [
+          [
+            "314",
+            "house_number"
+          ],
+          [
+            "nguyễn văn linh phường tân thuận",
+            "road"
+          ],
+          [
+            "thành phố hồ chí minh",
+            "city"
+          ]
+        ],
+        "vn_pred": {
+          "SoNha": "314",
+          "TenDuong": "Nguyễn Văn Linh",
+          "PhuongXa": "Phường Tân Thuận",
+          "QuanHuyen": "",
+          "TinhThanh": "Thành phố Hồ Chí Minh"
+        },
+        "vn_status": "CORRECT",
+        "vn_error_type": "none",
+        "vn_raw": {
+          "address": "314, Nguyễn Văn Linh, Phường Tân Thuận, Thành phố Hồ Chí Minh",
+          "province": "Thành phố Hồ Chí Minh",
+          "district": null,
+          "ward": "Phường Tân Thuận",
+          "street": "314, Nguyễn Văn Linh",
+          "mode": "FROM_2025"
+        },
+        "root_cause": "VNAdmin được cung cấp mode FROM_2025 và có cơ sở dữ liệu hành chính chuẩn hóa khớp chính xác tên phường xã và tỉnh thành; Libpostal gắn nhãn phường thành city/city_district và bị adapter ép sang QuanHuyen."
+      },
+      {
+        "id": "D01_0003",
+        "dataset": "01_full_address_new_verified",
+        "raw_input": "105, Phố Lê Hồng Phong, Phường Ba Đình, Thành phố Hà Nội",
+        "ground_truth": {
+          "SoNha": "105",
+          "TenDuong": "Phố Lê Hồng Phong",
+          "PhuongXa": "Phường Ba Đình",
+          "QuanHuyen": "",
+          "TinhThanh": "Thành phố Hà Nội"
+        },
+        "lp_pred": {
+          "SoNha": "105",
+          "TenDuong": "phố lê hồng phong phường ba đình",
+          "PhuongXa": "",
+          "QuanHuyen": "",
+          "TinhThanh": "thành phố hà nội"
+        },
+        "lp_status": "PARTIAL",
+        "lp_error_type": "missing_field",
+        "lp_raw": [
+          [
+            "105",
+            "house_number"
+          ],
+          [
+            "phố lê hồng phong phường ba đình",
+            "road"
+          ],
+          [
+            "thành phố hà nội",
+            "city"
+          ]
+        ],
+        "vn_pred": {
+          "SoNha": "105",
+          "TenDuong": "Phố Lê Hồng Phong",
+          "PhuongXa": "Phường Ba Đình",
+          "QuanHuyen": "",
+          "TinhThanh": "Thành phố Hà Nội"
+        },
+        "vn_status": "CORRECT",
+        "vn_error_type": "none",
+        "vn_raw": {
+          "address": "105, Phố Lê Hồng Phong, Phường Ba Đình, Thành phố Hà Nội",
+          "province": "Thành phố Hà Nội",
+          "district": null,
+          "ward": "Phường Ba Đình",
+          "street": "105, Phố Lê Hồng Phong",
+          "mode": "FROM_2025"
+        },
+        "root_cause": "VNAdmin được cung cấp mode FROM_2025 và có cơ sở dữ liệu hành chính chuẩn hóa khớp chính xác tên phường xã và tỉnh thành; Libpostal gắn nhãn phường thành city/city_district và bị adapter ép sang QuanHuyen."
+      },
+      {
+        "id": "D01_0004",
+        "dataset": "01_full_address_new_verified",
+        "raw_input": "59, Bành Văn Trân, Phường Tân Sơn Nhất, Thành phố Hồ Chí Minh",
+        "ground_truth": {
+          "SoNha": "59",
+          "TenDuong": "Bành Văn Trân",
+          "PhuongXa": "Phường Tân Sơn Nhất",
+          "QuanHuyen": "",
+          "TinhThanh": "Thành phố Hồ Chí Minh"
+        },
+        "lp_pred": {
+          "SoNha": "59",
+          "TenDuong": "",
+          "PhuongXa": "",
+          "QuanHuyen": "",
+          "TinhThanh": "thành phố hồ chí minh"
+        },
+        "lp_status": "PARTIAL",
+        "lp_error_type": "missing_field",
+        "lp_raw": [
+          [
+            "59",
+            "house_number"
+          ],
+          [
+            "bành văn trân phường tân sơn nhất",
+            "house"
+          ],
+          [
+            "thành phố hồ chí minh",
+            "city"
+          ]
+        ],
+        "vn_pred": {
+          "SoNha": "59",
+          "TenDuong": "Bành Văn Trân",
+          "PhuongXa": "Phường Tân Sơn Nhất",
+          "QuanHuyen": "",
+          "TinhThanh": "Thành phố Hồ Chí Minh"
+        },
+        "vn_status": "CORRECT",
+        "vn_error_type": "none",
+        "vn_raw": {
+          "address": "59, Bành Văn Trân, Phường Tân Sơn Nhất, Thành phố Hồ Chí Minh",
+          "province": "Thành phố Hồ Chí Minh",
+          "district": null,
+          "ward": "Phường Tân Sơn Nhất",
+          "street": "59, Bành Văn Trân",
+          "mode": "FROM_2025"
+        },
+        "root_cause": "VNAdmin được cung cấp mode FROM_2025 và có cơ sở dữ liệu hành chính chuẩn hóa khớp chính xác tên phường xã và tỉnh thành; Libpostal gắn nhãn phường thành city/city_district và bị adapter ép sang QuanHuyen."
+      }
+    ],
+    "both_wrong": [
+      {
+        "id": "D03_0000",
+        "dataset": "03_real_address_old_1500",
+        "raw_input": "NT02-29, Ngọc Trai 2, Đa Tốn, Gia Lâm, Hà Nội",
+        "ground_truth": {
+          "SoNha": "NT02-29",
+          "TenDuong": "Ngọc Trai 2",
+          "PhuongXa": "Đa Tốn",
+          "QuanHuyen": "Gia Lâm",
+          "TinhThanh": "Hà Nội"
+        },
+        "lp_pred": {
+          "SoNha": "2",
+          "TenDuong": "nt02-29 ngọc trai đa tốn gia lâm",
+          "PhuongXa": "",
+          "QuanHuyen": "",
+          "TinhThanh": "hà nội"
+        },
+        "lp_status": "ERROR",
+        "lp_error_type": "missing_field",
+        "lp_raw": [
+          [
+            "nt02-29 ngọc trai",
+            "road"
+          ],
+          [
+            "2",
+            "house_number"
+          ],
+          [
+            "đa tốn gia lâm",
+            "road"
+          ],
+          [
+            "hà nội",
+            "city"
+          ]
+        ],
+        "vn_pred": {
+          "SoNha": "",
+          "TenDuong": "Nt02 - 29, Ngọc Trai 2",
+          "PhuongXa": "Xã Đa Tốn",
+          "QuanHuyen": "Huyện Gia Lâm",
+          "TinhThanh": "Thành phố Hà Nội"
+        },
+        "vn_status": "PARTIAL",
+        "vn_error_type": "missing_field",
+        "vn_raw": {
+          "address": "Nt02 - 29, Ngọc Trai 2, Xã Đa Tốn, Huyện Gia Lâm, Thành phố Hà Nội",
+          "province": "Thành phố Hà Nội",
+          "district": "Huyện Gia Lâm",
+          "ward": "Xã Đa Tốn",
+          "street": "Nt02 - 29, Ngọc Trai 2",
+          "mode": "LEGACY"
+        },
+        "root_cause": "Địa chỉ có cấu trúc phức tạp (số nhà kèm chữ/tên khu đô thị), khiến cả regex của VNAdmin và mô hình token của Libpostal đều cắt sai ranh giới giữa số nhà và tên đường."
+      },
+      {
+        "id": "D03_0001",
+        "dataset": "03_real_address_old_1500",
+        "raw_input": "NT02-35, Ngọc Trai 2, Đa Tốn, Gia Lâm, Hà Nội",
+        "ground_truth": {
+          "SoNha": "NT02-35",
+          "TenDuong": "Ngọc Trai 2",
+          "PhuongXa": "Đa Tốn",
+          "QuanHuyen": "Gia Lâm",
+          "TinhThanh": "Hà Nội"
+        },
+        "lp_pred": {
+          "SoNha": "2",
+          "TenDuong": "nt02-35 ngọc trai đa tốn gia lâm",
+          "PhuongXa": "",
+          "QuanHuyen": "",
+          "TinhThanh": "hà nội"
+        },
+        "lp_status": "ERROR",
+        "lp_error_type": "missing_field",
+        "lp_raw": [
+          [
+            "nt02-35 ngọc trai",
+            "road"
+          ],
+          [
+            "2",
+            "house_number"
+          ],
+          [
+            "đa tốn gia lâm",
+            "road"
+          ],
+          [
+            "hà nội",
+            "city"
+          ]
+        ],
+        "vn_pred": {
+          "SoNha": "",
+          "TenDuong": "Nt02 - 35, Ngọc Trai 2",
+          "PhuongXa": "Xã Đa Tốn",
+          "QuanHuyen": "Huyện Gia Lâm",
+          "TinhThanh": "Thành phố Hà Nội"
+        },
+        "vn_status": "PARTIAL",
+        "vn_error_type": "missing_field",
+        "vn_raw": {
+          "address": "Nt02 - 35, Ngọc Trai 2, Xã Đa Tốn, Huyện Gia Lâm, Thành phố Hà Nội",
+          "province": "Thành phố Hà Nội",
+          "district": "Huyện Gia Lâm",
+          "ward": "Xã Đa Tốn",
+          "street": "Nt02 - 35, Ngọc Trai 2",
+          "mode": "LEGACY"
+        },
+        "root_cause": "Địa chỉ có cấu trúc phức tạp (số nhà kèm chữ/tên khu đô thị), khiến cả regex của VNAdmin và mô hình token của Libpostal đều cắt sai ranh giới giữa số nhà và tên đường."
+      },
+      {
+        "id": "D03_0002",
+        "dataset": "03_real_address_old_1500",
+        "raw_input": "59, Khương Trung, Khương Trung, Thanh Xuân, Hà Nội",
+        "ground_truth": {
+          "SoNha": "59",
+          "TenDuong": "Khương Trung",
+          "PhuongXa": "Khương Trung",
+          "QuanHuyen": "Thanh Xuân",
+          "TinhThanh": "Hà Nội"
+        },
+        "lp_pred": {
+          "SoNha": "59",
+          "TenDuong": "khương trung khương trung thanh xuân",
+          "PhuongXa": "",
+          "QuanHuyen": "",
+          "TinhThanh": "hà nội"
+        },
+        "lp_status": "PARTIAL",
+        "lp_error_type": "missing_field",
+        "lp_raw": [
+          [
+            "59",
+            "house_number"
+          ],
+          [
+            "khương trung khương trung thanh xuân",
+            "road"
+          ],
+          [
+            "hà nội",
+            "city"
+          ]
+        ],
+        "vn_pred": {
+          "SoNha": "",
+          "TenDuong": "59",
+          "PhuongXa": "Phường Khương Trung",
+          "QuanHuyen": "Quận Thanh Xuân",
+          "TinhThanh": "Thành phố Hà Nội"
+        },
+        "vn_status": "PARTIAL",
+        "vn_error_type": "missing_field",
+        "vn_raw": {
+          "address": "59, Phường Khương Trung, Quận Thanh Xuân, Thành phố Hà Nội",
+          "province": "Thành phố Hà Nội",
+          "district": "Quận Thanh Xuân",
+          "ward": "Phường Khương Trung",
+          "street": "59",
+          "mode": "LEGACY"
+        },
+        "root_cause": "Địa chỉ có cấu trúc phức tạp (số nhà kèm chữ/tên khu đô thị), khiến cả regex của VNAdmin và mô hình token của Libpostal đều cắt sai ranh giới giữa số nhà và tên đường."
+      }
+    ],
+    "both_correct": [
+      {
+        "id": "D01_0069",
+        "dataset": "01_full_address_new_verified",
+        "raw_input": "208/118, Hẻm 208 đường số 5, Phường Bình Hưng Hòa, Thành phố Hồ Chí Minh",
+        "ground_truth": {
+          "SoNha": "208/118",
+          "TenDuong": "Hẻm 208 đường số 5",
+          "PhuongXa": "Phường Bình Hưng Hòa",
+          "QuanHuyen": "",
+          "TinhThanh": "Thành phố Hồ Chí Minh"
+        },
+        "lp_pred": {
+          "SoNha": "208/118",
+          "TenDuong": "hẻm 208 đường số 5",
+          "PhuongXa": "phường bình hưng hòa",
+          "QuanHuyen": "",
+          "TinhThanh": "thành phố hồ chí minh"
+        },
+        "lp_status": "CORRECT",
+        "lp_error_type": "none",
+        "lp_raw": [
+          [
+            "208/118",
+            "house_number"
+          ],
+          [
+            "hẻm 208 đường số 5",
+            "road"
+          ],
+          [
+            "phường bình hưng hòa",
+            "suburb"
+          ],
+          [
+            "thành phố hồ chí minh",
+            "city"
+          ]
+        ],
+        "vn_pred": {
+          "SoNha": "208/118",
+          "TenDuong": "Hẻm 208 Đường Số 5",
+          "PhuongXa": "Phường Bình Hưng Hòa",
+          "QuanHuyen": "",
+          "TinhThanh": "Thành phố Hồ Chí Minh"
+        },
+        "vn_status": "CORRECT",
+        "vn_error_type": "none",
+        "vn_raw": {
+          "address": "208/118, Hẻm 208 Đường Số 5, Phường Bình Hưng Hòa, Thành phố Hồ Chí Minh",
+          "province": "Thành phố Hồ Chí Minh",
+          "district": null,
+          "ward": "Phường Bình Hưng Hòa",
+          "street": "208/118, Hẻm 208 Đường Số 5",
+          "mode": "FROM_2025"
+        },
+        "root_cause": "Địa chỉ tiêu chuẩn, số nhà thuần số, tên đường rõ ràng, phường xã được Libpostal nhận diện đúng suburb/neighbourhood và VNAdmin khớp từ điển."
+      },
+      {
+        "id": "D01_0819",
+        "dataset": "01_full_address_new_verified",
+        "raw_input": "801/7, Hẻm 801 Xô viết Nghệ Tĩnh, Phường Bình Thạnh, Thành phố Hồ Chí Minh",
+        "ground_truth": {
+          "SoNha": "801/7",
+          "TenDuong": "Hẻm 801 Xô viết Nghệ Tĩnh",
+          "PhuongXa": "Phường Bình Thạnh",
+          "QuanHuyen": "",
+          "TinhThanh": "Thành phố Hồ Chí Minh"
+        },
+        "lp_pred": {
+          "SoNha": "801/7",
+          "TenDuong": "hẻm 801 xô viết nghệ tĩnh",
+          "PhuongXa": "phường bình thạnh",
+          "QuanHuyen": "",
+          "TinhThanh": "thành phố hồ chí minh"
+        },
+        "lp_status": "CORRECT",
+        "lp_error_type": "none",
+        "lp_raw": [
+          [
+            "801/7",
+            "house_number"
+          ],
+          [
+            "hẻm 801 xô viết nghệ tĩnh",
+            "road"
+          ],
+          [
+            "phường bình thạnh",
+            "suburb"
+          ],
+          [
+            "thành phố hồ chí minh",
+            "city"
+          ]
+        ],
+        "vn_pred": {
+          "SoNha": "801/7",
+          "TenDuong": "Hẻm 801 Xô Viết Nghệ Tĩnh",
+          "PhuongXa": "Phường Bình Thạnh",
+          "QuanHuyen": "",
+          "TinhThanh": "Thành phố Hồ Chí Minh"
+        },
+        "vn_status": "CORRECT",
+        "vn_error_type": "none",
+        "vn_raw": {
+          "address": "801/7, Hẻm 801 Xô Viết Nghệ Tĩnh, Phường Bình Thạnh, Thành phố Hồ Chí Minh",
+          "province": "Thành phố Hồ Chí Minh",
+          "district": null,
+          "ward": "Phường Bình Thạnh",
+          "street": "801/7, Hẻm 801 Xô Viết Nghệ Tĩnh",
+          "mode": "FROM_2025"
+        },
+        "root_cause": "Địa chỉ tiêu chuẩn, số nhà thuần số, tên đường rõ ràng, phường xã được Libpostal nhận diện đúng suburb/neighbourhood và VNAdmin khớp từ điển."
+      }
+    ]
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "benchmark_hashes": {
+    "01_full_address_new_verified.csv": {
+      "rows": 1000,
+      "sha256": "7e2afd47828d04d108c67d29f45cb50b6a5321ae8feef595cf2b67229796a60d"
+    },
+    "02_raw_noisy_synthetic_1000.csv": {
+      "rows": 1000,
+      "sha256": "bd425883f624c98e206d6ab197240b9642eb63352b56efd06723d04401751def"
+    },
+    "03_real_address_old_1500.csv": {
+      "rows": 1500,
+      "sha256": "d2748f4cedc498046100779a6f59fb1ef1e79c3049aeefe9d6d542afa79badda"
+    },
+    "04_missing_fields_800.csv": {
+      "rows": 800,
+      "sha256": "46305aac4821c2f2bc96913cfaf3a89f3087dd91216f5093dc7f89b8541fc021"
+    },
+    "06_hybrid_addresses_600.csv": {
+      "rows": 600,
+      "sha256": "6249b06941d6e89a8a731fc47d0b844ee89ed8dce5a902bfcaac13d2785ced8d"
+    },
+    "07_bidirectional_pairs_verified.csv": {
+      "rows": 600,
+      "sha256": "3f11b0d02a05922662613c460014da34f89def7da1e7e1ba6ef496aa369245fc"
+    }
+  },
+  "data_03_audit": {
+    "row_count": 1500,
+    "duplicate_ChuoiDiaChi": 0,
+    "missing_SoNha": 0,
+    "missing_TenDuong": 0,
+    "missing_PhuongXa": 0,
+    "missing_QuanHuyen": 0,
+    "missing_TinhThanh": 0,
+    "he_quy_chieu_set": [
+      "cu"
+    ]
+  },
+  "data_04_audit": {
+    "row_count": 800,
+    "counts_by_system_and_kind": {
+      "cu|drop_district": 99,
+      "cu|drop_housenumber": 146,
+      "cu|drop_housenumber_ward": 57,
+      "cu|drop_ward": 98,
+      "moi|drop_housenumber": 202,
+      "moi|drop_housenumber_ward": 55,
+      "moi|drop_ward": 143
+    },
+    "kieu_thieu_violations": 0,
+    "unexpected_empty_surface": 0,
+    "gt_missing_required": 0,
+    "gt_new_district_not_empty": 0
+  },
+  "data_06_audit": {
+    "row_count": 600,
+    "missing_SoNha": 0,
+    "missing_TenDuong": 0,
+    "missing_PhuongXa": 0,
+    "missing_QuanHuyen": 0,
+    "missing_TinhThanh": 0
+  },
+  "data_02_audit": {
+    "row_count": 1000,
+    "gt_missing_SoNha": 0,
+    "gt_missing_TenDuong": 0,
+    "gt_missing_PhuongXa": 0,
+    "gt_missing_TinhThanh": 0,
+    "gt_cu_missing_QuanHuyen": 0,
+    "gt_moi_nonempty_QuanHuyen": 0
+  }
+}

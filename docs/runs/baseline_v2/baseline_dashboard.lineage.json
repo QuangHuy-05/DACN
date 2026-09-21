@@ -1,0 +1,6 @@
+{
+  "run_id": "baseline_v2",
+  "parent_manifest_sha256": "f870c0bc4d0317c45008a792a6be0f220e23818f2e0e738f972d1b25ffc9c7bf",
+  "dashboard_builder_sha256": "721c1fb99ad44bd303f38c691944f1aa55d3c25797a6b3cb10f1fd5615c74b2a",
+  "dashboard_sha256": "94dd91a876e554f1a94eab1133ab26dbe43f050cbfa56083bdac84028fe7c0b2"
+}

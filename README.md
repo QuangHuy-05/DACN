@@ -1,0 +1,264 @@
+# Vietnamese Address Benchmark (DACN)
+
+Dự án tạo dữ liệu địa chỉ tiếng Việt trước/sau thay đổi hành chính 2025.
+
+## Cấu trúc dự án
+
+```text
+DACN/
+├── configs/noise_params.json                 Tham số và thống kê nhiễu hóa đơn
+├── data/
+│   ├── raw/                                  Dữ liệu nguồn OSM/Viet-Receipt-VQA; không chỉnh sửa
+│   ├── reference/administrative_units/       Bảng sáp nhập hành chính 2025
+│   ├── interim/osm/                          Snapshot cũ đầy đủ/cân bằng, dữ liệu hiện hành và lịch sử OSM
+│   ├── interim/vqa/                          Hóa đơn thật sau lọc, chỉ dùng đo phân bố nhiễu/kiểm tra ngoài
+│   └── processed/
+│       ├── osm/                              Địa chỉ sạch và OSM diff
+│       └── benchmark/                        Các tập benchmark đầu ra (01–07; 05 chưa có nguồn)
+├── docs/
+│   ├── proposal/                             Đề cương đồ án và tài liệu yêu cầu
+│   ├── data_quality.md                       Số lượng và giới hạn chất lượng dữ liệu
+│   ├── runs/<run_id>/                        Báo cáo, dashboard và tài liệu sinh từ một run
+│   ├── baseline_parallel_comparative_analysis.md  Báo cáo phân tích song song chính thức (v1, frozen)
+│   └── VERSIONING.md                         Quy ước phiên bản và dọn output cũ
+├── notebooks/exploration/                    Notebook kiểm tra dữ liệu
+├── scripts/
+│   ├── 01_extract_osm.py                     Trích xuất snapshot và OSM diff
+│   ├── 02_filter_vqa_receipts.py             Lọc địa chỉ từ Viet-Receipt-VQA
+│   ├── 03_generate_benchmarks.py             Sinh các tập benchmark
+│   ├── 04_audit_osm_diff_filters.py          Audit lý do giữ/loại từng OSM diff
+│   ├── 05_run_baseline_pilot.py              Pilot phân tầng
+│   ├── 06_run_baseline_full.py               Chạy toàn bộ baseline
+│   └── 07_generate_baseline_report.py       Sinh báo cáo từ prediction CSV
+├── src/
+│   ├── data/administrative_mapping.py       Đồ thị ánh xạ đơn vị hành chính 2025
+│   ├── data/administrative_alias.py          Alias OSM đã xác minh, có vết audit
+│   ├── data/coverage_reporter.py             Báo cáo độ phủ benchmark đa chiều
+│   ├── data/osm_extractor.py                 Đọc lịch sử OSM và làm sạch tag
+│   ├── data/noise_profiler.py                Thống kê dạng nhiễu địa chỉ
+│   ├── data/synthetic/                       Sinh dữ liệu thiếu, lai và cặp ánh xạ
+│   └── utils/text_normalize.py               Chuẩn hóa văn bản và vùng miền
+├── tests/test_data_pipeline.py               Kiểm thử tự động cho các hàm chính
+├── third_party/                              Mã và bảng đơn vị hành chính bên thứ ba
+├── requirements.txt                          Phụ thuộc Python
+└── README.md                                 Hướng dẫn dự án
+```
+
+Các thư mục `.venv/`, `.venv_wsl/`, `__pycache__/` và dữ liệu nguồn lớn phục vụ chạy cục bộ, không phải mã nguồn cần chỉnh sửa.
+
+## Hướng dẫn Cài đặt và Chạy từ Đầu (Step-by-Step Guide)
+
+### 1. Yêu cầu hệ thống (Prerequisites)
+- **Hệ điều hành:** Linux, macOS, hoặc Windows (khuyến nghị sử dụng **WSL2 Ubuntu** để tối ưu hóa việc cài đặt thư viện NLP và Libpostal).
+- **Python:** Phiên bản `>= 3.10` (khuyến nghị Python 3.10 hoặc 3.11).
+- **Git:** Để quản lý mã nguồn và kéo dự án về máy.
+- **(Tùy chọn) XeLaTeX / MiKTeX / TeX Live:** Nếu muốn chỉnh sửa và biên dịch slide báo cáo thuyết trình `docs/slides_hcmut.tex`.
+
+---
+
+### 2. Tải mã nguồn về máy (Clone Repository)
+Mở Terminal trên máy tính của bạn và chạy lệnh:
+```bash
+git clone https://github.com/<username>/<repo-name>.git
+cd <repo-name>
+```
+
+---
+
+### 3. Khởi tạo môi trường ảo Python và Cài đặt Thư viện
+
+#### Cách A: Trên WSL2 / Linux (Môi trường khuyến nghị)
+```bash
+# Tạo môi trường ảo
+python3 -m venv .venv
+
+# Kích hoạt môi trường
+source .venv/bin/activate
+
+# Nâng cấp pip và cài đặt toàn bộ dependencies
+pip install --upgrade pip
+pip install -r requirements.txt
+```
+
+#### Cách B: Trên Windows (PowerShell)
+```powershell
+# Tạo môi trường ảo
+python -m venv .venv
+
+# Kích hoạt môi trường (nếu gặp lỗi policy, chạy: Set-ExecutionPolicy -Scope CurrentUser RemoteSigned)
+.venv\Scripts\Activate.ps1
+
+# Nâng cấp pip và cài đặt dependencies
+python -m pip install --upgrade pip
+pip install -r requirements.txt
+```
+
+---
+
+### 4. Kiểm thử Xác thực Môi trường (Verify Setup)
+Trước khi chạy bất kỳ pipeline nào, hãy chạy bộ kiểm thử hồi quy tự động để đảm bảo môi trường và các hàm xử lý hoạt động chuẩn xác:
+```bash
+python -m unittest discover -s tests -v
+```
+*(Yêu cầu: Toàn bộ 38 bài test trong `tests/` phải vượt qua thành công: `Ran 38 tests ... OK`).*
+
+---
+
+### 5. Hướng dẫn Chạy Thử nghiệm & Baseline (Dành cho Thành viên Mới / Partner)
+
+Dự án đã tích hợp sẵn **Bộ 6 tập dữ liệu Benchmark v2.0** ($5.500$ mẫu chuẩn) tại thư mục `data/processed/benchmark/`. Bạn **không cần tải các file thô nặng Gigabyte** mà có thể bắt đầu chạy đánh giá ngay lập tức:
+
+#### Bước 5.1: Chạy thử nghiệm mẫu nhỏ (Pilot Run - 20 mẫu/tập)
+Dùng để kiểm tra nhanh luồng chạy của các bộ phân tích địa chỉ mà không tốn nhiều thời gian:
+```bash
+python -m scripts.05_run_baseline_pilot --run-id baseline_v2_pilot
+```
+
+#### Bước 5.2: Chạy đánh giá toàn diện ($13.000$ lượt dự đoán)
+Chạy toàn bộ dữ liệu trên các baseline đã tích hợp:
+```bash
+python -m scripts.06_run_baseline_full --run-id baseline_v2
+```
+
+#### Bước 5.3: Xuất báo cáo, bảng chỉ số và Dashboard trực quan
+Sau khi chạy xong dự đoán, sinh toàn bộ bảng phân tích thống kê và giao diện dashboard HTML:
+```bash
+# Sinh báo cáo Markdown chi tiết
+python -m scripts.07_generate_baseline_report --run-id baseline_v2
+
+# Tổng hợp bảng so sánh, ma trận đối đầu và nghiên cứu ca lỗi
+python -m scripts.08_generate_report_materials --run-id baseline_v2
+
+# Xây dựng Dashboard HTML trực quan
+python -m scripts.build_baseline_dashboard --run-id baseline_v2
+```
+*Kết quả:* Mở file `docs/runs/baseline_v2/dashboard.html` bằng trình duyệt web để xem trực quan biểu đồ và các ca lỗi thực tế.
+
+---
+
+### 6. (Tùy chọn) Tái tạo Toàn bộ Pipeline Dữ liệu Thô từ Đầu (Full Raw Data Reproduction)
+
+Chỉ thực hiện phần này nếu bạn muốn tự trích xuất lại dữ liệu từ tệp lịch sử OpenStreetMap và Parquet hóa đơn gốc:
+
+1. **Chuẩn bị file nguồn:**
+   - Tải file OSM full-history `vietnam-internal.osh.pbf` (khoảng 756 MB) đặt vào thư mục `data/raw/osm/`.
+   - Tải các file Parquet Viet-Receipt-VQA đặt vào thư mục `data/raw/viet_receipt_vqa/`.
+2. **Chạy tuần tự các script trích xuất:**
+   ```bash
+   # Bước 1: Quét lịch sử OSM, trích snapshot cũ mốc 30/06/2025 và OSM diff
+   python -m scripts.01_extract_osm
+
+   # Bước 2: Lọc địa chỉ hóa đơn Viet-Receipt-VQA và đo phân bố nhiễu
+   python -m scripts.02_filter_vqa_receipts
+
+   # Bước 3: Sinh 6 tập benchmark chính thức (Data 01-07)
+   python -m scripts.03_generate_benchmarks
+
+   # Bước 4: Xuất báo cáo audit chi tiết lý do giữ/loại từng OSM diff
+   python -m scripts.04_audit_osm_diff_filters
+   ```
+
+---
+
+### 7. (Tùy chọn) Cài đặt Thư viện C Libpostal trên WSL/Ubuntu
+
+Để chạy baseline CRF của **Libpostal** thật sự, bạn cần biên dịch thư viện C theo tài liệu OpenVenues trên WSL:
+```bash
+# Cài đặt công cụ biên dịch
+sudo apt-get update
+sudo apt-get install -y build-essential libsnappy-dev autoconf automake libtool pkg-config git curl
+
+# Clone và build Libpostal C library (cần ~2GB RAM & dung lượng ổ cứng để tải model dữ liệu)
+git clone https://github.com/openvenues/libpostal
+cd libpostal
+./bootstrap.sh
+./configure --datadir=$HOME/.local/share
+make -j4
+make install
+sudo ldconfig
+
+# Nạp đường dẫn thư viện động trước khi chạy code Python
+export LD_LIBRARY_PATH="$HOME/.local/lib${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}"
+```
+
+---
+
+### 8. Biên dịch Slide Báo cáo Thuyết trình (Beamer HCMUT)
+
+Slide báo cáo tiến độ đồ án được thiết kế chuyên nghiệp bằng LaTeX Beamer theo template chuẩn Trường Đại học Bách Khoa - ĐHQG-HCM:
+- **File mã nguồn:** `docs/slides_hcmut.tex`
+- **File ảnh nền & logo:** `docs/assets/`
+
+Để biên dịch slide ra file PDF:
+```bash
+cd docs
+xelatex -interaction=nonstopmode slides_hcmut.tex
+```
+*Kết quả xuất ra tại:* `docs/slides_hcmut.pdf`.
+
+## Kiểm thử
+
+`tests/test_data_pipeline.py` là bộ kiểm thử hồi quy cho pipeline. File này không sinh benchmark; nó tạo dữ liệu nhỏ tạm thời để kiểm tra các quy tắc quan trọng trước khi chạy trên dữ liệu lớn:
+
+- Làm sạch tag OSM, giữ tiếng Việt và loại chữ ngoài Latin.
+- Không tạo cặp khi phiên bản mới bị xóa hoặc không còn tag địa chỉ.
+- Sinh dữ liệu thiếu trường đúng tỷ lệ, giữ `GT_*` và cho kết quả lặp lại với cùng seed.
+- Sinh Data 2 nhiễu tổng hợp có ground truth, cân bằng hai hệ quy chiếu và không giữ nguyên chuỗi sạch.
+- Tra cứu tỉnh mới và từ chối tỉnh không xác định.
+- Kiểm tra thống kê nhiễu có mẫu số rõ ràng.
+- Kiểm tra đồ thị ánh xạ giữ đúng quan hệ 1-N, N-1 và M-N; chỉ dữ liệu có bằng chứng trực tiếp mới dùng đích của ca mơ hồ.
+- Giữ cặp OSM diff có ID chỉ nằm trong snapshot đầy đủ, không làm mất chúng vì snapshot cân bằng của tập 03.
+- Ghi vết alias hành chính và không nhầm "chưa có hình học" với "hình học không đổi" trong audit.
+
+Chạy kiểm thử từ thư mục gốc:
+
+```powershell
+python -m unittest discover -s tests -v
+```
+
+## Nguyên tắc chất lượng
+
+- Không làm giả dữ liệu quan sát. Riêng Data 2 là nhiễu tổng hợp có kiểm soát: phải giữ chuỗi gốc, `GT_*`, seed và loại nhiễu để phục vụ đo độ bền baseline.
+- `configs/noise_params.json` là ước lượng regex trên chuỗi hóa đơn, không phải nhãn xác nhận thủ công.
+- Data 03 là benchmark sạch hoàn toàn của hệ cũ: 1.500 dòng đủ cả 5 trường (`SoNha`, `TenDuong`, `PhuongXa`, `QuanHuyen`, `TinhThanh`), không có dòng thiếu tự nhiên.
+- Data 04 là benchmark thiếu trường có kiểm soát: 800 dòng (400 cũ, 400 mới) sinh từ nguồn sạch rồi mới xóa trường theo `KieuThieu`, bảo toàn nguyên vẹn `GT_*` trước khi xóa; `QuanHuyen` rỗng ở hệ mới phản ánh cấu trúc hai cấp (không tính là lỗi).
+- `vietnam-sap-nhap-phuong-xa.csv` là nguồn chuẩn duy nhất cho ánh xạ 2025. Mỗi dòng là một cạnh: tỉnh cũ + quận/huyện cũ + phường/xã cũ → tỉnh mới + phường/xã mới.
+- Không thu gọn đồ thị thành từ điển tên phường. Quan hệ được tính bằng bậc hai đầu mút: `C/1-1`, `A/1-N`, `B/N-1`, `M/M-N`.
+- Cặp từ OSM diff có thể thuộc mọi quan hệ, vì đối tượng OSM đã ghi nhận đích thực tế. Cặp dựng từ snapshot cũ chỉ dùng khi đơn vị cũ có đúng một đích xác minh (`B` hoặc `C`); `A` và `M` không được suy đoán khi không có hình học/toạ độ.
+- CSV xuất UTF-8-sig; generator dùng seed cố định để tái lập.
+
+## Trạng thái nguồn hiện tại
+
+- Snapshot hệ cũ đầy đủ: 26.961 đối tượng hợp lệ trước 30/06/2025, dùng để đối chiếu ID OSM diff.
+- Snapshot hệ cũ cân bằng: 16.242 đối tượng (10.000 Bắc, 1.317 Trung, 4.925 Nam), trong đó có 8.848 đối tượng sạch đủ cả 5 trường dùng để lấy mẫu cho tập 03 và các tập con dựng an toàn.
+- Hệ mới hai cấp: 1.000 địa chỉ đã xác minh và lấy mẫu có seed cố định.
+- Data 2: 1.000 chuỗi nhiễu tổng hợp (500 hệ cũ/500 hệ mới), sinh tái lập bằng seed `42` từ nguồn sạch; baseline chỉ đọc `ChuoiDiaChi`, còn `GT_*` là đáp án chấm điểm.
+- Hóa đơn thật: 146 chuỗi sau lọc từ 1.659 bản ghi thô, dùng để ước lượng phân bố nhiễu và làm kiểm tra ngoài, không còn là Data 2 chính thức.
+- Bảng chuẩn có 10.602 cạnh, 10.040 đơn vị cũ và 3.321 đơn vị mới: 137 cạnh 1-1, 3 cạnh 1-N, 9.432 cạnh N-1 và 1.030 cạnh M-N.
+- Audit OSM diff hiện có 1.631 dòng: 612 cặp quan sát được xác minh; không còn nhóm `not_in_old_snapshot` vì audit tra ID trên snapshot đầy đủ. Alias được ghi trong `AliasDaApDung`; các cạnh không xác minh được không bị ép ghép.
+- Tập 07 hiện có 600 cặp OSM diff trực tiếp đã lấy mẫu phân tầng: 244 `B/N-1`, 356 `M/M-N`, 0 `C/1-1`, 0 `A/1-N`. Tập không nhân bản mẫu để đạt quota; xem [báo cáo coverage](docs/benchmark_coverage_report.md) để biết các khoảng trống bằng chứng và độ lệch vùng miền.
+- Tập 05 địa chỉ dựa trên mốc chưa có nguồn đã xác minh nên chưa xuất.
+- Tập 06 sau kiểm tra nhãn không còn chuỗi đầu vào trùng giữa C2/C3.
+
+## Đánh giá baseline
+
+Baseline dùng `vietnamadminunits==1.0.4` và Libpostal thật qua `postal==1.1.11`. Python binding cần thư viện C và model data Libpostal được cài trước theo [hướng dẫn chính thức của OpenVenues](https://github.com/openvenues/libpostal#installation-maclinux) và [Python binding](https://github.com/openvenues/pypostal#installation). Trong WSL hiện tại, thư viện C và model mặc định nằm dưới `~/.local`; nạp thư viện động trước khi chạy:
+
+Bản C dùng cho lần đánh giá này lấy từ commit `25099c506612b34b23b1bfe286ca6321fcf06f35` của OpenVenues; model mặc định (không dùng bản Senzing). Hệ thống cần vài GB dung lượng trống và Python development headers để build binding.
+
+```bash
+cd /mnt/d/DACN
+source ~/.venv_dacn/bin/activate
+export LD_LIBRARY_PATH="$HOME/.local/lib${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}"
+pip install -r requirements.txt
+python -m unittest discover -s tests -v
+python -m scripts.05_run_baseline_pilot --run-id baseline_v2_pilot
+python -m scripts.06_run_baseline_full --run-id baseline_v2
+python -m scripts.07_generate_baseline_report --run-id baseline_v2
+python -m scripts.08_generate_report_materials --run-id baseline_v2
+python -m scripts.build_baseline_dashboard --run-id baseline_v2
+```
+
+`05` và `06` kiểm tra schema, BOM, hash, nhãn và tính duy nhất của 6 CSV trước khi gọi công cụ. Pilot chọn phân tầng 20 dòng/tập; full run lưu prediction 9 cột, raw response và manifest riêng tại `data/processed/evaluation/runs/<run_id>/`. Cùng run ID, `07`, `08` và dashboard sinh report/tables/case có truy vết tại `docs/runs/<run_id>/`. Data 01/02/03/04 cung cấp trước mode hệ quy chiếu cho VietnamAdminUnits; Data 06 thử cả hai mode; Data 07 chỉ chấm chuyển đổi cũ → mới trên phường/xã và tỉnh/thành. Không có phép đo tự động T1 hoặc chiều chuyển đổi ngược. Runner từ chối ghi đè run trừ khi truyền `--overwrite-run` rõ ràng.
+
+Đề cương: [docs/proposal/de-cuong-dacn-dia-chi-tieng-viet.pdf](docs/proposal/de-cuong-dacn-dia-chi-tieng-viet.pdf).

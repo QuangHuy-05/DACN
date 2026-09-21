@@ -1,0 +1,43 @@
+{
+  "sample_size": 146,
+  "method": "regex weak-label estimates; missing means no detectable marker, not verified field absence",
+  "noise_probabilities": {
+    "abbreviations": {
+      "ward_P": 0.486301,
+      "ward_F": 0.0,
+      "district_Q": 0.212329,
+      "district_H": 0.006849,
+      "district_TX": 0.020548,
+      "district_TP": 0.40411,
+      "city_TPHCM": 0.068493,
+      "city_TP": 0.40411
+    },
+    "missing_rates": {
+      "drop_ward": 0.390411,
+      "drop_district": 0.335616,
+      "drop_housenumber": 0.541096,
+      "drop_housenumber_ward": 0.164384
+    }
+  },
+  "counts": {
+    "abbreviations": {
+      "ward_P": 71,
+      "ward_F": 0,
+      "district_Q": 31,
+      "district_H": 1,
+      "district_TX": 3,
+      "district_TP": 59,
+      "city_TPHCM": 10,
+      "city_TP": 59,
+      "ward_full": 18,
+      "district_full": 22,
+      "housenumber": 67
+    },
+    "missing_rates": {
+      "drop_ward": 57,
+      "drop_district": 49,
+      "drop_housenumber": 79,
+      "drop_housenumber_ward": 24
+    }
+  }
+}
