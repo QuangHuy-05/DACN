@@ -48,24 +48,24 @@
   \includegraphics[width=\paperwidth,height=\paperheight]{assets/bg_template.jpg}%
 }
 
-% Frametitle Template: Deep Navy Banner with Open Sans font size 14.3pt
+% Frametitle Template: Deep Navy Banner with Open Sans font size 14.3pt (Regular weight)
 \setbeamercolor{frametitle}{bg=bkblue,fg=white}
 \setbeamertemplate{frametitle}{%
   \nointerlineskip%
   \begin{beamercolorbox}[wd=\paperwidth,ht=4.2ex,dp=1.5ex,leftskip=1ex]{frametitle}%
-    \hspace{0.5cm}{\titlefont\fontsize{14.3pt}{17pt}\selectfont\bfseries\color{white}\insertframetitle}%
+    \hspace{0.5cm}{\titlefont\fontsize{14.3pt}{17pt}\selectfont\color{white}\insertframetitle}%
   \end{beamercolorbox}%
 }
 
-% Footline Template: Montserrat font size 6pt with space for authentic BK logo
+% Footline Template: Montserrat font size 6pt (Regular weight) with space for authentic BK logo
 \setbeamertemplate{footline}{%
   \leavevmode%
   \hbox{%
     \begin{beamercolorbox}[wd=.38\paperwidth,ht=2.1ex,dp=0.8ex,center]{author in head/foot}%
-      \color{white}\fontsize{6pt}{7.5pt}\selectfont\textbf{Nguyen Quang Huy, Nguyen Quang Tung}
+      \color{white}\fontsize{6pt}{7.5pt}\selectfont Nguyen Quang Huy, Nguyen Quang Tung
     \end{beamercolorbox}%
     \begin{beamercolorbox}[wd=.26\paperwidth,ht=2.1ex,dp=0.8ex,center]{title in head/foot}%
-      \color{white}\fontsize{6pt}{7.5pt}\selectfont\textbf{DACN}
+      \color{white}\fontsize{6pt}{7.5pt}\selectfont DACN
     \end{beamercolorbox}%
     \begin{beamercolorbox}[wd=.36\paperwidth,ht=2.1ex,dp=0.8ex,right]{date in head/foot}%
       \color{white}\fontsize{6pt}{7.5pt}\selectfont September 21, 2026 \hspace*{1.2em}
@@ -101,7 +101,7 @@
 
   \vspace{0.6cm}
   \begin{center}
-    {\titlefont\fontsize{14.3pt}{18pt}\selectfont\bfseries\color{bkblue} Vietnamese Address Parsing and Resolution across an Administrative Temporal Boundary: A Benchmark Dataset and a Two-Stage Model}\\[0.45cm]
+    {\titlefont\fontsize{14.3pt}{18pt}\selectfont\color{bkblue} Vietnamese Address Parsing and Resolution across an Administrative Temporal Boundary: A Benchmark Dataset and a Two-Stage Model}\\[0.45cm]
 
     \small
     \textbf{Supervisor:} Quan Thanh Tho\\[0.12cm]
@@ -121,7 +121,7 @@
 }
 
 % ==========================================
-% SLIDE 2: TABLE OF CONTENTS (Sprint 1 Original)
+% SLIDE 2: TABLE OF CONTENTS
 % ==========================================
 \begin{frame}{Table of Contents}
   \vspace{0.4cm}
@@ -137,173 +137,18 @@
 \end{frame}
 
 % ==========================================
-% SLIDE 3: INTRODUCTION (Sprint 1 Original)
-% ==========================================
-\begin{frame}{Introduction}
-  \vspace{0.05cm}
-  \centerline{\large\textbf{Sự mơ hồ không gian - thời gian trong địa chỉ Việt Nam}}
-  \vspace{0.2cm}
-
-  \begin{itemize}
-    \setlength{\itemsep}{6pt}
-    \item \textbf{Đặc thù dữ liệu thực tế:} Địa chỉ Việt Nam thường xuyên thiếu trường, viết tắt tùy tiện và định vị bằng ``mốc'' thay vì địa danh chuẩn (VD: ``đối diện chợ Bà Chiểu'').
-    \item \textbf{Cú sốc cải cách hành chính 2025:} Rút gọn còn 34 tỉnh, xóa bỏ cấp huyện và sáp nhập diện rộng tạo ra sự tồn tại song song của hai hệ quy chiếu.
-  \end{itemize}
-
-  \vspace{0.2cm}
-  \textbf{4 tình huống mơ hồ cốt lõi:}
-  \begin{itemize}
-    \setlength{\itemsep}{3pt}
-    \item \textbf{(A) Cũ sang Mới}
-    \item \textbf{(B) Mới về Cũ:} Khó khăn trong chuyển đổi và tra cứu ngược hồ sơ.
-    \item \textbf{(C) Địa chỉ lai:} Trộn lẫn thành phần cũ - mới trong cùng một câu.
-    \item \textbf{(D) Trùng lặp danh pháp:} Tên giống nhau nhưng phạm vi đã thay đổi.
-  \end{itemize}
-\end{frame}
-
-% ==========================================
-% SLIDE 4: BÀI TOÁN, MỤC TIÊU & PHẠM VI (Sprint 1 Original)
-% ==========================================
-\begin{frame}{Bài toán, Mục tiêu \& Phạm vi nghiên cứu}
-  \vspace{0.15cm}
-  \begin{itemize}
-    \setlength{\itemsep}{8pt}
-    \item \textbf{Bài toán (Đầu vào - Đầu ra):} Từ chuỗi địa chỉ tiếng Việt tự do, hệ thống thực hiện 4 tác vụ: Bóc tách thực thể (T0), Phân loại hệ quy chiếu (T1), Ánh xạ hai chiều (T2), và Đối sánh thực thể qua thời gian (T3).
-    \item \textbf{Mục tiêu nghiên cứu cốt lõi:} Xây dựng bộ dữ liệu benchmark và Gazetteer đa phiên bản. Đề xuất mô hình hai tầng có khả năng nhận thức chiều thời gian.
-    \item \textbf{Phạm vi thực hiện:} Tập trung xử lý văn bản địa chỉ dân dụng/thương mại xoay quanh đợt cải cách 2025. Không bao gồm OCR, định tuyến giao hàng hay dữ liệu cá nhân.
-    \item \textbf{Ràng buộc triển khai:} Đảm bảo tính khả thi cao, mô hình có thể huấn luyện và vận hành trên GPU đơn 16GB (Colab/Kaggle) mà không phụ thuộc API trả phí.
-  \end{itemize}
-\end{frame}
-
-% ==========================================
-% SLIDE 5: KHẢO SÁT HƯỚNG TIẾP CẬN (Sprint 1 Original)
-% ==========================================
-\begin{frame}{Khảo sát các hướng tiếp cận \& Hạn chế}
-  \textbf{Nhánh Phân tích địa chỉ (Parsing):}
-  \begin{itemize}
-    \setlength{\itemsep}{2.5pt}
-    \item Các mô hình SOTA (Libpostal, Deepparse, GTBERT, LLM): Chủ yếu tối ưu cho tiếng Anh/Trung, hiệu năng giảm mạnh khi khuyết trường.
-    \item Điểm mù: Hoàn toàn không có khái niệm thời gian ở tầng mô hình. Baseline tiếng Việt hiện tại (\texttt{vietnamadminunits}) chỉ dựa trên luật cứng và không hỗ trợ nội suy hai chiều.
-  \end{itemize}
-
-  \vspace{0.15cm}
-  \textbf{Nhánh Gazetteer có chiều thời gian:}
-  \begin{itemize}
-    \setlength{\itemsep}{2.5pt}
-    \item Cung cấp mô hình dữ liệu tốt nhưng thiếu phương pháp học máy.
-    \item Lợi thế bối cảnh: Thay vì phải đoán mốc thời gian như nghiên cứu nước ngoài, cải cách 2025 của Việt Nam cung cấp mốc pháp lý chính xác tuyệt đối (điều kiện thí nghiệm lý tưởng).
-  \end{itemize}
-
-  \vspace{0.15cm}
-  \textbf{Nhánh Liên kết bản ghi theo thời gian (Temporal Record Linkage):}
-  \begin{itemize}
-    \setlength{\itemsep}{2.5pt}
-    \item Điểm mù: Các mô hình kinh điển (Time decay, Mutation) giả định sự thay đổi diễn ra dần dần và ngẫu nhiên. Trong khi đó, sáp nhập 2025 là biến đổi gián đoạn, đồng loạt và nhảy bậc.
-  \end{itemize}
-\end{frame}
-
-% ==========================================
-% SLIDE 6: RESEARCH GAPS (Refined G1 per Item 11)
-% ==========================================
-\begin{frame}{Research Gaps}
-  \textbf{Về Dữ liệu \& Đánh giá (G1, G3, G4):}
-  \begin{itemize}
-    \setlength{\itemsep}{2.5pt}
-    \item \textbf{G1:} Chưa có bộ dữ liệu benchmark địa chỉ dân dụng gắn nhãn hệ quy chiếu thời gian và hỗ trợ cấu trúc phân cấp biến đổi (các nghiên cứu trước như Bui \& Tran 2019 chỉ phân tích tĩnh trên hệ cũ).
-    \item \textbf{G3, G4:} Chưa đo lường được tỷ lệ lỗi đối với các mốc định vị tự do và các trường hợp 1 đơn vị cũ tách thành N đơn vị mới (gây lỗi im lặng).
-  \end{itemize}
-
-  \vspace{0.2cm}
-  \textbf{Về Kỹ thuật mô hình hóa (G2):}
-  \begin{itemize}
-    \setlength{\itemsep}{2.5pt}
-    \item Cơ chế linh hoạt như Gazetteer Adapter (của GTBERT) chưa từng được áp dụng và kiểm chứng trên dữ liệu tiếng Việt.
-  \end{itemize}
-
-  \vspace{0.2cm}
-  \textbf{Khoảng trống giao thoa trọng tâm (G5):}
-  \begin{itemize}
-    \setlength{\itemsep}{2.5pt}
-    \item Chưa có công trình nào kết nối giữa việc phân loại hệ quy chiếu thời gian và gazetteer đa phiên bản sử dụng mô hình thay đổi gián đoạn. Đây chính là không gian giải pháp của đồ án.
-  \end{itemize}
-\end{frame}
-
-% ==========================================
-% SLIDE 7: SCHEMA NHÃN ĐỀ XUẤT (Sprint 1 Original)
-% ==========================================
-\begin{frame}{Schema nhãn đề xuất}
-  \vspace{0.05cm}
-  \begin{table}
-    \centering
-    \resizebox{0.95\textwidth}{!}{%
-    \begin{tabular}{|p{3.8cm}|p{1.3cm}|p{5.4cm}|p{3.2cm}|}
-      \hline
-      \rowcolor{tableheader}
-      \textbf{Tập con} & \textbf{Quy mô} & \textbf{Nguồn} & \textbf{Công gán nhãn} \\
-      \hline
-      Địa chỉ đầy đủ, hệ mới & $\sim$1.000 & OpenStreetMap Việt Nam & Thấp, trường đã tách sẵn trong tag \\
-      \hline
-      Địa chỉ thật, bẩn, hệ cũ & $\sim$2.000 & Viet-Receipt-VQA trên HuggingFace (dẫn xuất từ MC-OCR 2021) & Cao \\
-      \hline
-      Địa chỉ thiếu trường & $\sim$800 & Sinh từ hai tập trên bằng cách xóa trường có kiểm soát & Không, sinh tự động \\
-      \hline
-      Địa chỉ mô tả bằng mốc & $\sim$500 & Thu thập công khai kết hợp sinh tổng hợp có rà soát tay & Trung bình \\
-      \hline
-      Địa chỉ lai (mới) & $\sim$600 & Sinh từ cặp ánh xạ cũ/mới bằng cách trộn thành phần theo tỷ lệ kiểm soát & Không, sinh tự động \\
-      \hline
-      Cặp ánh xạ hai chiều (mới) & $\sim$600 & Đối chiếu gazetteer hai phiên bản; chia đều A (1 cũ sang N mới) và B (1 mới sang N cũ) & Thấp, dẫn xuất từ bảng chính thức \\
-      \hline
-    \end{tabular}%
-    }
-  \end{table}
-\end{frame}
-
-% ==========================================
-% SLIDE 8: NHIỆM VỤ 2 TUẦN TIẾP (Sprint 1 Plan)
-% ==========================================
-\begin{frame}{Nhiệm vụ của 2 tuần tiếp}
-  \small
-  \textbf{\normalsize Phát triển \& Gán nhãn Bộ dữ liệu Benchmark}\\[0.03cm]
-  \textbf{Mục tiêu:} Xây dựng hoàn chỉnh 5 tập dữ liệu cốt lõi bằng cả phương pháp tự động (viết code) và thủ công (gán nhãn).
-  \begin{itemize}
-    \setlength{\itemsep}{1.5pt}
-    \item \textbf{Xử lý bằng Code (Tự động hóa):} Viết Python script sinh ra $\sim$800 mẫu thiếu trường (chủ động xóa Quận/Phường), $\sim$600 mẫu địa chỉ lai (trộn Cũ - Mới có kiểm soát) và $\sim$600 cặp ánh xạ hai chiều (dựa trên bảng từ điển sáp nhập).
-    \item \textbf{Xử lý thủ công/Bán thủ công (Label Studio):} Đẩy $\sim$2.000 mẫu hóa đơn bẩn hệ cũ (Viet-Receipt) lên công cụ để gán nhãn tay từng thành phần. Đồng thời, thu thập và rà soát bằng mắt $\sim$500 mẫu định vị bằng mốc.
-  \end{itemize}
-
-  \vspace{0.15cm}
-  \textbf{\normalsize Thực nghiệm Baseline \& Chốt Lý thuyết}\\[0.03cm]
-  \textbf{Mục tiêu:} Đóng gói chương Động lực nghiên cứu (Chương 1) và Cơ sở lý thuyết (Chương 2).
-  \begin{itemize}
-    \setlength{\itemsep}{1.5pt}
-    \item \textbf{Đánh giá Baseline:} Chạy mẫu thô qua \texttt{vietnamadminunits} và \texttt{Libpostal}, lập bảng ghi nhận các ca lỗi thực tế phủ đủ 4 tình huống mơ hồ (A, B, C, D) để làm bằng chứng bảo vệ đề tài.
-    \item \textbf{Chốt kiến trúc:} Khớp nối kết quả khảo sát từ 3 nhánh nghiên cứu để chốt dứt điểm Schema 11 nhãn và cấu trúc dữ liệu cho Gazetteer đa phiên bản.
-  \end{itemize}
-\end{frame}
-
-% ==========================================
-% SLIDE 9: SPRINT 2 TRANSITION (Section Divider)
-% ==========================================
-\begin{frame}{Sprint 2}
-  \vspace{1.5cm}
-  \begin{center}
-    {\titlefont\fontsize{24pt}{28pt}\selectfont\bfseries\color{bkblue} Sprint 2}
-  \end{center}
-\end{frame}
-
-% ==========================================
-% SLIDE 10: SPRINT 2: MỤC TIÊU VS KẾT QUẢ ĐẠT ĐƯỢC (Required per Item 10)
+% SLIDE 3: SPRINT 2: MỤC TIÊU VS KẾT QUẢ ĐẠT ĐƯỢC
 % ==========================================
 \begin{frame}{Sprint 2: Mục tiêu vs Kết quả Đạt được}
   \vspace{-0.05cm}
-  \centerline{\large\textbf{Đối chiếu Trực tiếp với Kế hoạch Cam kết ở Slide 8}}
+  \centerline{\large\textbf{Tổng kết Hạng mục Công việc \& Kết quả Thực hiện trong Sprint 2}}
   \vspace{0.1cm}
 
   {\small
-  \textbf{1. Về Phát triển Dữ liệu Benchmark (Cam kết tự động hóa \& lọc dữ liệu):}
+  \textbf{1. Về Phát triển Dữ liệu Benchmark (Tự động hóa \& lọc dữ liệu):}
   \begin{itemize}
     \setlength{\itemsep}{1.2pt}
-    \item \textbf{Cam kết ở Slide 8:} Sinh $\sim$800 thiếu trường, $\sim$600 địa chỉ lai, $\sim$600 cặp ánh xạ; lọc OSM full-history mốc 30/06/2025.
+    \item \textbf{Mục tiêu đặt ra:} Sinh $\sim$800 thiếu trường, $\sim$600 địa chỉ lai, $\sim$600 cặp ánh xạ; trích xuất snapshot và diff từ OSM full-history.
     \item \textbf{Đạt được:} Hoàn thành 100\% qua code: đúng \textbf{800 mẫu thiếu trường} (Data 04), \textbf{600 mẫu địa chỉ lai} (Data 06) và \textbf{600 cặp ánh xạ hai chiều} (Data 07) được đối chiếu thực tế qua OSM diff.
     \item \textbf{Nghiệm thu:} Đóng băng Bộ 6 tập benchmark ($5.500$ mẫu) kèm mã băm SHA-256 xác thực bất biến trong \texttt{run\_manifest.json}.
   \end{itemize}
@@ -312,7 +157,7 @@
   \textbf{2. Về Thực nghiệm Baseline \& Đóng gói Lý thuyết:}
   \begin{itemize}
     \setlength{\itemsep}{1.2pt}
-    \item \textbf{Cam kết ở Slide 8:} Chạy \texttt{vietnamadminunits} và \texttt{Libpostal}, lập bảng số liệu phủ đủ 4 ca mơ hồ (A, B, C, D).
+    \item \textbf{Mục tiêu đặt ra:} Đánh giá baseline \texttt{vietnamadminunits} và \texttt{Libpostal}, thu thập số liệu và ca lỗi thực tế phủ đủ 4 ca mơ hồ (A, B, C, D).
     \item \textbf{Đạt được:} Chạy \textbf{13.000 lượt dự đoán} sơ bộ trên 2 hệ baseline, lưu $100\%$ log phản hồi thô không crash; thu thập đầy đủ bằng chứng định lượng và các ca lỗi thực tế phủ đủ A, B, C, D.
     \item \textbf{Đạt được:} Hoàn thành bản thảo chi tiết \textbf{Chương 1} (Động lực) và \textbf{Chương 2} (Cơ sở lý thuyết).
   \end{itemize}
@@ -320,7 +165,59 @@
 \end{frame}
 
 % ==========================================
-% SLIDE 11: PROBLEM STATEMENT (4 Scenarios)
+% SLIDE 4: RESEARCH GAPS (HIỆU CHỈNH & BỔ SUNG SPRINT 2 - PART 1)
+% ==========================================
+\begin{frame}{Research Gaps (Hiệu chỉnh): Tiền lệ \& Hệ quy chiếu Ẩn}
+  \vspace{-0.05cm}
+  \centerline{\large\textbf{Làm rõ Giới hạn Tiền lệ \& Bản chất Chuỗi Địa chỉ Tự do}}
+  \vspace{0.15cm}
+
+  \begin{itemize}
+    \setlength{\itemsep}{8pt}
+    \item \textbf{G1 (Hiệu chỉnh — Giới hạn Tiền lệ \& Đóng góp Đề tài):}
+      \begin{itemize}
+        \setlength{\itemsep}{2.5pt}
+        \item Đã có tiền lệ chuẩn hóa địa chỉ tiếng Việt (Bui \& Tran 2019) và các thư viện cộng đồng (\texttt{vietnamadminunits}, \texttt{undertheseanlp/address}).
+        \item Tuy nhiên, \textbf{CHƯA có benchmark học thuật} trên địa chỉ dân dụng thật, được \textbf{gắn nhãn hệ quy chiếu thời gian ở cấp bản ghi}.
+      \end{itemize}
+
+    \item \textbf{G6 (Khoảng trống Mô hình hóa Hệ quy chiếu Ẩn):}
+      \begin{itemize}
+        \setlength{\itemsep}{2.5pt}
+        \item Các hướng liên quan (\textit{temporal Entity Resolution}, typology biến đổi đơn vị, LUT/GCT, gazetteer theo thời điểm) đều giả định: \textit{đơn vị đã có mã $\cdot$ biết rõ hệ quy chiếu $\cdot$ số cấp cố định}.
+        \item \textbf{Chưa hướng nào áp dụng cho chuỗi địa chỉ tự do có hệ quy chiếu ẩn}, người dùng viết tự nhiên không khai báo mốc thời gian.
+      \end{itemize}
+  \end{itemize}
+\end{frame}
+
+% ==========================================
+% SLIDE 5: RESEARCH GAPS (BỔ SUNG SPRINT 2 - PART 2)
+% ==========================================
+\begin{frame}{Research Gaps (Bổ sung): Biến đổi Tầng Khung \& Hai chiều}
+  \vspace{-0.05cm}
+  \centerline{\large\textbf{Đặc thù Đột phá của Đợt Sáp nhập 2025 tại Việt Nam}}
+  \vspace{0.15cm}
+
+  \begin{itemize}
+    \setlength{\itemsep}{8pt}
+    \item \textbf{G7 (Khoảng trống Tầng Cấu trúc Khung 3 $\to$ 2 cấp):}
+      \begin{itemize}
+        \setlength{\itemsep}{2.5pt}
+        \item Cải cách hành chính năm 2025 tại Việt Nam \textbf{xóa hẳn một cấp hành chính trung gian} ($3 \to 2$ cấp: xóa cấp quận/huyện trong hệ mới).
+        \item Đây là thay đổi ở \textbf{tầng KHUNG cấu trúc phân cấp}, không phải tầng đơn vị. \textbf{Chưa có bất kỳ công trình nào} trong và ngoài nước xử lý trường hợp bỏ hẳn một cấp hành chính.
+      \end{itemize}
+
+    \item \textbf{G8 (Khoảng trống Mất mát Thông tin khi Phân giải Hai chiều):}
+      \begin{itemize}
+        \setlength{\itemsep}{2.5pt}
+        \item Quá trình phân giải hai chiều bị mất thông tin bản chất: quan hệ gộp ($N \to 1$) khi đảo chiều ngược lại sẽ thành tách ($1 \to N$), dẫn tới phân rã bất định nếu thiếu số nhà hoặc mốc định vị.
+        \item \textbf{Chưa có công trình nào đo lường mức độ mất mát thông tin này} trên dữ liệu thực nghiệm thực tế.
+      \end{itemize}
+  \end{itemize}
+\end{frame}
+
+% ==========================================
+% SLIDE 6: PROBLEM STATEMENT (4 Scenarios)
 % ==========================================
 \begin{frame}{Problem Statement}
   \vspace{0.05cm}
@@ -337,7 +234,7 @@
 \end{frame}
 
 % ==========================================
-% SLIDE 12: WORK 1 (Rule-based: vietnamadminunits)
+% SLIDE 7: WORK 1 (Rule-based: vietnamadminunits)
 % ==========================================
 \begin{frame}{Work 1}
   \vspace{0.05cm}
@@ -365,7 +262,7 @@
 \end{frame}
 
 % ==========================================
-% SLIDE 13: WORK 2 (CRF: Libpostal)
+% SLIDE 8: WORK 2 (CRF: Libpostal)
 % ==========================================
 \begin{frame}{Work 2}
   \vspace{0.05cm}
@@ -392,7 +289,7 @@
 \end{frame}
 
 % ==========================================
-% SLIDE 14: TABLE OF CONTENTS (Proposed Method Highlighted)
+% SLIDE 9: TABLE OF CONTENTS (Proposed Method Highlighted)
 % ==========================================
 \begin{frame}{Table of Contents}
   \vspace{0.4cm}
@@ -408,7 +305,7 @@
 \end{frame}
 
 % ==========================================
-% SLIDE 15: OVERVIEW (Architecture Flowchart)
+% SLIDE 10: OVERVIEW (Architecture Flowchart)
 % ==========================================
 \begin{frame}{Overview}
   \vspace{0.05cm}
@@ -448,7 +345,7 @@
 \end{frame}
 
 % ==========================================
-% SLIDE 16: COMPONENT 1 (OSM Extraction - Clarified Denominators per Item 8)
+% SLIDE 11: COMPONENT 1 (OSM Extraction - Clarified Denominators per Item 8)
 % ==========================================
 \begin{frame}{Component 1}
   \vspace{0.05cm}
@@ -476,7 +373,7 @@
 \end{frame}
 
 % ==========================================
-% SLIDE 17: COMPONENT 2 (Noise Profiling)
+% SLIDE 12: COMPONENT 2 (Noise Profiling)
 % ==========================================
 \begin{frame}{Component 2}
   \vspace{0.05cm}
@@ -516,7 +413,7 @@
 \end{frame}
 
 % ==========================================
-% SLIDE 18: COMPONENT 3 (Synthetic Datasets)
+% SLIDE 13: COMPONENT 3 (Synthetic Datasets)
 % ==========================================
 \begin{frame}{Component 3}
   \vspace{0.05cm}
@@ -546,7 +443,7 @@
 \end{frame}
 
 % ==========================================
-% SLIDE 19: TABLE OF CONTENTS (Experiments and Results Highlighted)
+% SLIDE 14: TABLE OF CONTENTS (Experiments and Results Highlighted)
 % ==========================================
 \begin{frame}{Table of Contents}
   \vspace{0.4cm}
@@ -562,7 +459,7 @@
 \end{frame}
 
 % ==========================================
-% SLIDE 20: DATASETS (Benchmark Sets)
+% SLIDE 15: DATASETS (Benchmark Sets)
 % ==========================================
 \begin{frame}{Datasets}
   \vspace{0.05cm}
@@ -600,7 +497,7 @@
 \end{frame}
 
 % ==========================================
-% SLIDE 21: METRICS (Evaluation Metrics)
+% SLIDE 16: METRICS (Evaluation Metrics)
 % ==========================================
 \begin{frame}{Metrics}
   \vspace{0.05cm}
@@ -623,7 +520,7 @@
 \end{frame}
 
 % ==========================================
-% SLIDE 22: KẾT QUẢ SƠ BỘ SPRINT 2 (Renamed per Item 9)
+% SLIDE 17: KẾT QUẢ SƠ BỘ SPRINT 2 (Renamed per Item 9)
 % ==========================================
 \begin{frame}{Kết quả Sơ bộ Sprint 2}
   \vspace{0.05cm}
@@ -665,7 +562,7 @@
 \end{frame}
 
 % ==========================================
-% SLIDE 23: SECOND RESULT (Case Studies)
+% SLIDE 18: SECOND RESULT (Case Studies)
 % ==========================================
 \begin{frame}{Second Result}
   \vspace{0.05cm}
@@ -674,7 +571,7 @@
 
   \begin{table}
     \centering
-    \resizebox{\textwidth}{!}{%
+    \resizebox{0.95\textwidth}{!}{%
     \fontsize{7.5pt}{9.2pt}\selectfont
     \begin{tabular}{|p{2.0cm}|p{2.8cm}|p{2.7cm}|p{2.6cm}|p{3.5cm}|}
       \hline
@@ -683,7 +580,7 @@
       \hline
       \textbf{D01\_0000}\newline Ảo giác Quận & \textit{394, Đường Lý Thường Kiệt, Phường Phù Khê, Bắc Ninh} & \textbf{Libpostal:}\newline Phường: \textit{(rỗng)}\newline Quận: \textbf{``phường phù''} & Phường: \textbf{Phù Khê}\newline Quận: \textbf{(rỗng - hệ 2 cấp)} & Cắt xén cụm từ Phường để bịa Quận do học vẹt mô hình 3 cấp cũ. \\
       \hline
-      \textbf{D02\_N0005}\newline Sụp đổ do OCR & \textit{Số 12 Duong Le Loi, P.Ben Nghe, Q1, TPHCM} & \textbf{VietnamAdminUnits:}\newline Bỏ sót toàn bộ Phường/Quận & Phường: \textbf{Bến Nghé}\newline Quận: \textbf{Quận 1} & Mất dấu tiếng Việt khiến cây tra từ điển trượt dài. \\
+      \textbf{D02\_N0005}\newline Sụp đổ do OCR & \textit{Số 12 Duong Le Loi, P.Ben Nghe, Q1, TPHCM} & \textbf{VNAdminUnits:}\newline Bỏ sót toàn bộ Phường/Quận & Phường: \textbf{Bến Nghé}\newline Quận: \textbf{Quận 1} & Mất dấu tiếng Việt khiến cây tra từ điển trượt dài. \\
       \hline
       \textbf{D06\_0000}\newline Địa chỉ lai & \textit{6, Ngõ 42 Trần Bình Trọng, P.Phương Liễu, TX.Quế Võ, Bắc Ninh} & \textbf{VNAdmin (mode 2025):}\newline Đường: \textit{...P.Phương Liễu}\newline Phường: \textbf{Quế Võ} & Phường: \textbf{Phương Liễu}\newline Quận: \textbf{TX. Quế Võ} & Parser 2025 thấy cấp quận cũ thì nuốt cả phường vào đường. \\
       \hline
@@ -695,16 +592,32 @@
 \end{frame}
 
 % ==========================================
-% SLIDE 24: VƯỚNG MẮC & RỦI RO (BLOCKERS) (Required per Item 10)
+% SLIDE 19: TABLE OF CONTENTS (Conclusion Highlighted)
+% ==========================================
+\begin{frame}{Table of Contents}
+  \vspace{0.4cm}
+  \begin{enumerate}[\bfseries 1]
+    \setlength{\itemsep}{0.35cm}
+    \item \color{gray} Introduction
+    \item \color{gray} Preliminaries and Problem Statement
+    \item \color{gray} Related Works
+    \item \color{gray} Proposed Method
+    \item \color{gray} Experiments and Results
+    \item \textbf{\color{bkblue} Conclusion}
+  \end{enumerate}
+\end{frame}
+
+% ==========================================
+% SLIDE 20: VƯỚNG MẮC & RỦI RO (BLOCKERS)
 % ==========================================
 \begin{frame}{Vướng mắc \& Rủi ro (Blockers)}
-  \vspace{-0.05cm}
+  \vspace{-0.1cm}
   \centerline{\large\textbf{Nhận diện Các Điểm nghẽn Kỹ thuật \& Giải pháp Tháo gỡ}}
-  \vspace{0.15cm}
+  \vspace{0.08cm}
 
   {\small
   \begin{itemize}
-    \setlength{\itemsep}{3.5pt}
+    \setlength{\itemsep}{1.8pt}
     \item \textbf{Khối lượng gán nhãn thủ công lớn (Label Studio):} Tập hóa đơn thật Viet-Receipt ($\sim$2.000 mẫu) và tập mốc định vị ($\sim$500 mẫu) đòi hỏi nhiều nhân lực gán nhãn span 11 lớp và đo độ đồng thuận Cohen's Kappa.\\
       $\to$ \textit{Giải pháp tháo gỡ:} Áp dụng cơ chế tiền gán nhãn bán tự động (Weak supervision / Regex pre-annotation) để tăng tốc độ gán nhãn tay.
     \item \textbf{Mơ hồ trong quan hệ chia tách $M - N$ khi thiếu số nhà:} Điểm gãy lớn nhất là khi một xã cũ phân rã thành nhiều phường mới (như 12 ca sai ở Data 07), nếu chuỗi đầu vào không có số nhà thì không thể xác định ranh giới bằng luật.\\
@@ -716,7 +629,7 @@
 \end{frame}
 
 % ==========================================
-% SLIDE 25: KẾ HOẠCH TRIỂN KHAI SPRINT 3 (Required per Item 10)
+% SLIDE 21: KẾ HOẠCH TRIỂN KHAI SPRINT 3
 % ==========================================
 \begin{frame}{Kế hoạch Triển khai Sprint 3}
   \vspace{0.05cm}
@@ -748,23 +661,7 @@
 \end{frame}
 
 % ==========================================
-% SLIDE 26: TABLE OF CONTENTS (Conclusion Highlighted)
-% ==========================================
-\begin{frame}{Table of Contents}
-  \vspace{0.4cm}
-  \begin{enumerate}[\bfseries 1]
-    \setlength{\itemsep}{0.35cm}
-    \item \color{gray} Introduction
-    \item \color{gray} Preliminaries and Problem Statement
-    \item \color{gray} Related Works
-    \item \color{gray} Proposed Method
-    \item \color{gray} Experiments and Results
-    \item \textbf{\color{bkblue} Conclusion}
-  \end{enumerate}
-\end{frame}
-
-% ==========================================
-% SLIDE 27: -THEEND- (Acknowledgements & Contact)
+% SLIDE 22: -THEEND- (Acknowledgements & Contact)
 % ==========================================
 {
 \setbeamertemplate{footline}{}
