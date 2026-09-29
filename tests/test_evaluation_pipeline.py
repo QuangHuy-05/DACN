@@ -1,5 +1,6 @@
 """Unit tests for the baseline evaluation pipeline."""
 
+import importlib.util
 import json
 from pathlib import Path
 import tempfile
@@ -11,7 +12,10 @@ from src.evaluation.adapters.vnadmin_adapter import VietnamAdminUnitsAdapter, _c
 from src.evaluation.data_contract import validate_benchmarks
 from src.evaluation.manifest import generate_manifest
 from src.evaluation.materials import select_traceable_cases, validate_case_table
-from src.evaluation.protocol import scenario_for_dataset07
+from src.evaluation.protocol import (
+    DATASET07_SCORED_FIELDS,
+    scenario_for_dataset07,
+)
 from src.evaluation.run_artifacts import RunArtifacts, prepare_run_directory
 from src.evaluation.schema import (
     STANDARD_FIELDS,
@@ -19,7 +23,14 @@ from src.evaluation.schema import (
     StandardPrediction,
     UnifiedEvaluationRecord,
 )
-from src.evaluation.scorer import compare_fields, compute_aggregate_metrics, evaluate_record
+from src.evaluation.scorer import (
+    aggregate_prediction_pairs,
+    compare_fields,
+    compute_aggregate_metrics,
+    evaluate_record,
+    normalized_edit_similarity,
+    score_prediction_pair,
+)
 
 
 class EvaluationPipelineTests(unittest.TestCase):
@@ -70,6 +81,95 @@ class EvaluationPipelineTests(unittest.TestCase):
         comp_halluc = compare_fields(pred_halluc, truth)
         self.assertEqual(comp_halluc["QuanHuyen"], "FP")
         self.assertEqual(compare_fields(dict(pred, PhuongXa="Phường 2"), truth)["PhuongXa"], "MISMATCH")
+
+    def test_fuzzy_similarity_normalization_and_empty_policy(self):
+        self.assertEqual(normalized_edit_similarity(" Đường A  ", "đường a"), 1.0)
+        self.assertEqual(normalized_edit_similarity("", ""), None)
+        self.assertEqual(normalized_edit_similarity("12", ""), 0.0)
+        self.assertEqual(normalized_edit_similarity("Lê Lợi", "Lê Loi"), 5 / 6)
+
+    def test_fuzzy_metrics_keep_admin_type_strict_and_report_denominators(self):
+        prediction = {
+            "SoNha": "",
+            "TenDuong": "Đường Lê Lợi",
+            "PhuongXa": "Xã Ba Đình",
+            "QuanHuyen": "",
+            "TinhThanh": "Hà Nội",
+        }
+        truth = {
+            "SoNha": "",
+            "TenDuong": "Đường Lê Lơi",
+            "PhuongXa": "Phường Ba Đình",
+            "QuanHuyen": "",
+            "TinhThanh": "Hà Nội",
+        }
+        scored = score_prediction_pair(prediction, truth, DATASET07_SCORED_FIELDS)
+        self.assertFalse(scored["exact_match"])
+        self.assertEqual(scored["field_metrics"]["TinhThanh"]["fuzzy_scored"], True)
+        self.assertEqual(scored["field_metrics"]["PhuongXa"]["exact_comparison"], "MISMATCH")
+        self.assertLess(scored["field_metrics"]["PhuongXa"]["fuzzy_similarity"], 1.0)
+
+        aggregate = aggregate_prediction_pairs(
+            [
+                (
+                    {"SoNha": "", "TenDuong": "Đường Lê Lợi"},
+                    {"SoNha": "", "TenDuong": "Đường Lê Lơi"},
+                ),
+                (
+                    {"SoNha": "12", "TenDuong": ""},
+                    {"SoNha": "", "TenDuong": ""},
+                ),
+            ],
+            ("SoNha", "TenDuong"),
+        )
+        self.assertEqual(aggregate["field_metrics"]["SoNha"]["fuzzy_similarity_n"], 1)
+        self.assertEqual(aggregate["field_metrics"]["SoNha"]["mean_fuzzy_similarity"], 0.0)
+        self.assertEqual(aggregate["field_metrics"]["TenDuong"]["fuzzy_similarity_n"], 1)
+        self.assertEqual(aggregate["field_metrics"]["SoNha"]["exact_n"], 2)
+
+    def test_fuzzy_similarity_does_not_make_wrong_dataset07_target_correct(self):
+        prediction = StandardPrediction(
+            phuong_xa="Phường Ba Đin",
+            tinh_thanh="Thành phố Hà Nội",
+        )
+        truth = {
+            "PhuongXa": "Phường Ba Đình",
+            "TinhThanh": "Thành phố Hà Nội",
+        }
+        result = evaluate_record(
+            "D07_1",
+            "input",
+            "vietnamadminunits",
+            prediction,
+            truth,
+            scored_fields=DATASET07_SCORED_FIELDS,
+        )
+        self.assertEqual(result.dung_sai, "ERROR")
+        self.assertNotEqual(result.loai_loi, "none")
+
+    def test_dataset07_truth_lookup_uses_official_target_code(self):
+        script_path = Path(__file__).resolve().parents[1] / "scripts" / "06_run_baseline_full.py"
+        spec = importlib.util.spec_from_file_location("baseline_full_runner", script_path)
+        module = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(module)
+        with tempfile.TemporaryDirectory() as folder:
+            mapping_path = Path(folder) / "mapping.csv"
+            pd.DataFrame([
+                {
+                    "Mã phường/xã mới": "00004",
+                    "Phường/Xã mới (từ 1/7/2025)": "Phường Ba Đình",
+                    "Tỉnh/TP mới": "Thành phố Hà Nội",
+                },
+                {
+                    "Mã phường/xã mới": "00004",
+                    "Phường/Xã mới (từ 1/7/2025)": "Phường Ba Đình",
+                    "Tỉnh/TP mới": "Thành phố Hà Nội",
+                },
+            ]).to_csv(mapping_path, index=False, encoding="utf-8-sig")
+            self.assertEqual(
+                module._load_new_targets_by_code(mapping_path),
+                {"00004": ("Phường Ba Đình", "Thành phố Hà Nội")},
+            )
 
     def test_evaluate_record_assigns_correct_status_and_errors(self):
         pred = StandardPrediction(so_nha="12", ten_duong="Lê Lợi", phuong_xa="Phường 1", quan_huyen="", tinh_thanh="Hà Nội")
@@ -199,6 +299,99 @@ class EvaluationPipelineTests(unittest.TestCase):
         md = generate_baseline_report_markdown(df_dummy)
         self.assertIn("# Đánh giá baseline địa chỉ Việt Nam 2025", md)
         self.assertIn("vietnamadminunits", md)
+        self.assertIn("normalized_levenshtein", md)
+        self.assertIn("Fuzzy mean / n cặp", md)
+
+    def test_report_materials_use_shared_metrics_and_keep_uncertainty_axes_separate(self):
+        script_path = Path(__file__).resolve().parents[1] / "scripts" / "08_generate_report_materials.py"
+        spec = importlib.util.spec_from_file_location("report_materials", script_path)
+        module = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(module)
+        complete_prediction = '{"SoNha": "12", "TenDuong": "Đường A", "PhuongXa": "Phường B", "QuanHuyen": "", "TinhThanh": "Hà Nội"}'
+        predictions = pd.DataFrame([
+            {
+                "ID": "D01_0001",
+                "CongCu": "test_tool",
+                "TruongDuDoan": complete_prediction,
+                "TruongDung": complete_prediction,
+                "DungSai": "CORRECT",
+            },
+            {
+                "ID": "D04_0000",
+                "CongCu": "test_tool",
+                "TruongDuDoan": complete_prediction,
+                "TruongDung": complete_prediction,
+                "DungSai": "CORRECT",
+            },
+            {
+                "ID": "D06_0000_m25",
+                "CongCu": "vietnamadminunits",
+                "TruongDuDoan": complete_prediction,
+                "TruongDung": complete_prediction,
+                "DungSai": "CORRECT",
+            },
+            {
+                "ID": "D07_0000_N-1",
+                "CongCu": "vietnamadminunits",
+                "TruongDuDoan": '{"PhuongXa": "Phường Ba Đin", "TinhThanh": "Tỉnh Bắc Ninh"}',
+                "TruongDung": '{"PhuongXa": "Phường Ba Đình", "TinhThanh": "Tỉnh Bắc Ninh"}',
+                "DungSai": "ERROR",
+            },
+        ])
+        metrics, fields = module._metric_rows(
+            predictions,
+            data04=pd.DataFrame([{"KieuThieu": "drop_ward"}]),
+            data06=pd.DataFrame([{"KieuLai": "C2_both_new"}]),
+        )
+        row = metrics.loc[metrics["dataset_condition"].eq("Data 01|all")].iloc[0]
+        self.assertEqual(row["exact_match_rate"], 1.0)
+        self.assertEqual(row["micro_mean_fuzzy_similarity"], 1.0)
+        self.assertEqual(
+            int(fields.loc[fields["dataset_condition"].eq("Data 01|all"), "exact_n"].iloc[0]),
+            1,
+        )
+        data07_row = metrics.loc[metrics["dataset_condition"].eq("Data 07|old_to_new")].iloc[0]
+        self.assertEqual(data07_row["scored_fields"], "PhuongXa,TinhThanh")
+        self.assertEqual(data07_row["exact_match_rate"], 0.0)
+        structural = module._structure_scenario_rows(metrics)
+        self.assertEqual(len(structural), 2)
+        self.assertEqual(set(structural["diagnostic_axis"]), {"structural_scenario"})
+        self.assertIn("interpretation", module._spatial_trace_rows(
+            predictions[predictions["ID"].str.startswith("D01_")],
+            [],
+            pd.DataFrame(columns=["QuanHe", "MaPhuongXaMoi"]),
+        )[1].columns)
+
+    def test_spatial_trace_report_is_diagnostic_and_uses_exact_target_match(self):
+        script_path = Path(__file__).resolve().parents[1] / "scripts" / "08_generate_report_materials.py"
+        spec = importlib.util.spec_from_file_location("report_materials_spatial", script_path)
+        module = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(module)
+        predictions = pd.DataFrame([{
+            "ID": "D07_0000_N-1",
+            "CongCu": "vietnamadminunits",
+            "TruongDuDoan": '{"PhuongXa": "Phường Ba Đin", "TinhThanh": "Tỉnh Bắc Ninh"}',
+            "TruongDung": '{"PhuongXa": "Phường Ba Đình", "TinhThanh": "Tỉnh Bắc Ninh"}',
+        }])
+        raw_logs = [{
+            "id": "D07_0000_N-1",
+            "tool": "vietnamadminunits",
+            "status": "success",
+            "trace": {
+                "candidate_count": 2,
+                "selection_path": "divided_geospatial_selection",
+                "geocoder_status": "resolved",
+                "fallback_used": False,
+            },
+        }]
+        data07 = pd.DataFrame([{
+            "QuanHe": "N-1",
+            "MaPhuongXaMoi": "12345",
+        }])
+        cases, summary = module._spatial_trace_rows(predictions, raw_logs, data07)
+        self.assertFalse(bool(cases.iloc[0]["exact_target_match"]))
+        self.assertEqual(cases.iloc[0]["candidate_count"], 2)
+        self.assertIn("not calibrated", summary.iloc[0]["interpretation"])
 
     def test_data_contract_rejects_empty_data03_fields(self):
         """validate_benchmarks must reject Data 03 if any standard field is empty."""

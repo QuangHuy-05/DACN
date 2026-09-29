@@ -25,6 +25,8 @@ tmp/
 
 # LaTeX auxiliary files (auto-generated during slide compile)
 *.aux
+*.fdb_latexmk
+*.fls
 *.log
 *.nav
 *.out

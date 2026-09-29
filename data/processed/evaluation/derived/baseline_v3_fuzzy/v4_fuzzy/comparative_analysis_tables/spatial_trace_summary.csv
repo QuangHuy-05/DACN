@@ -1,0 +1,5 @@
+﻿diagnostic_axis,CongCu,QuanHe,candidate_count,selection_path,geocoder_status,fallback_used,n,exact_target_correct,exact_target_match_rate,interpretation
+spatial_converter_trace,vietnamadminunits,M-N,2,divided_geospatial_selection,resolved,False,55,49,0.8909090909090909,Observed converter trace stratum; not calibrated model uncertainty or geometric boundary ambiguity.
+spatial_converter_trace,vietnamadminunits,M-N,3,divided_geospatial_selection,resolved,False,2,1,0.5,Observed converter trace stratum; not calibrated model uncertainty or geometric boundary ambiguity.
+spatial_converter_trace,vietnamadminunits,M-N,4,divided_geospatial_selection,resolved,False,299,294,0.9832775919732442,Observed converter trace stratum; not calibrated model uncertainty or geometric boundary ambiguity.
+spatial_converter_trace,vietnamadminunits,N-1,0,unique_dictionary_or_unresolved,not_applicable,False,244,242,0.9918032786885246,Observed converter trace stratum; not calibrated model uncertainty or geometric boundary ambiguity.

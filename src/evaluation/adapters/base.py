@@ -5,7 +5,7 @@ from __future__ import annotations
 from abc import ABC, abstractmethod
 from typing import Any
 
-from src.evaluation.schema import StandardPrediction
+from src.evaluation.schema import SpanModelOutput, StandardPrediction
 
 
 class BaseAddressParser(ABC):
@@ -24,4 +24,21 @@ class BaseAddressParser(ABC):
         Returns:
             tuple of (StandardPrediction, raw_response_data)
         """
+        pass
+
+
+class BaseSpanAddressParser(ABC):
+    """Abstract interface for T0/T1 span-based address parsers."""
+
+    @property
+    @abstractmethod
+    def tool_name(self) -> str:
+        """Name of the baseline or proposed model."""
+        pass
+
+    @abstractmethod
+    def parse_spans(
+        self, raw_address: str, sample_id: str = "", **kwargs: Any
+    ) -> SpanModelOutput:
+        """Parse raw address string into 11-span and T1 system output."""
         pass

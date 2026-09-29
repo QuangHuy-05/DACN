@@ -13,6 +13,7 @@ if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
 from src.evaluation.manifest import compute_sha256
+from src.evaluation.protocol import SCORING_PROTOCOL_VERSION
 from src.evaluation.reporter import generate_baseline_report_markdown
 from src.evaluation.run_artifacts import RunArtifacts, verify_run_outputs
 
@@ -23,6 +24,13 @@ def generate_report(run_id: str) -> Path:
     manifest = verify_run_outputs(artifacts)
     if manifest.get("run_id") != run_id:
         raise ValueError(f"Manifest run ID mismatch: expected {run_id}, got {manifest.get('run_id')}")
+    scoring_version = manifest.get("scoring", {}).get("protocol_version")
+    if scoring_version != SCORING_PROTOCOL_VERSION:
+        raise ValueError(
+            f"Run {run_id} uses scoring protocol {scoring_version!r}; "
+            f"report generation requires {SCORING_PROTOCOL_VERSION!r}. "
+            "Create a new baseline run instead of reinterpreting existing outputs."
+        )
 
     df_eval = pd.read_csv(artifacts.predictions_path, dtype=str, keep_default_na=False, encoding="utf-8-sig")
     if manifest.get("output_hashes", {}).get(artifacts.raw_log_path.name) != compute_sha256(artifacts.raw_log_path):

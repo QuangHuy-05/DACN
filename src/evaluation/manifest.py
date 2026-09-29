@@ -12,6 +12,13 @@ import platform
 import subprocess
 import pandas as pd
 
+from src.evaluation.protocol import (
+    FUZZY_EMPTY_POLICY,
+    FUZZY_NORMALIZATION,
+    FUZZY_SIMILARITY_METHOD,
+    SCORING_PROTOCOL_VERSION,
+)
+
 
 BENCHMARK_FILES = (
     "01_full_address_new_verified.csv",
@@ -91,7 +98,7 @@ def build_manifest(
     )
 
     manifest = {
-        "manifest_version": "3.0",
+        "manifest_version": "4.0",
         "freeze_timestamp": now_iso,
         "run_id": run_id,
         "run_kind": run_kind,
@@ -106,7 +113,21 @@ def build_manifest(
             "libpostal_model": "openvenues default",
             "libpostal_c_commit": source_commit,
         },
-        "protocol": "oracle mode for 01/02/03/04; both modes for 06; old-to-new conversion for 07",
+        "protocol": (
+            "oracle mode for 01/02/03/04; both modes for 06; old-to-new conversion for 07; "
+            "strict exact metrics plus normalized Levenshtein similarity; Data 07 targets "
+            "resolved from MaPhuongXaMoi in the authoritative mapping"
+        ),
+        "scoring": {
+            "protocol_version": SCORING_PROTOCOL_VERSION,
+            "fuzzy_similarity_method": FUZZY_SIMILARITY_METHOD,
+            "fuzzy_similarity_normalization": FUZZY_NORMALIZATION,
+            "fuzzy_empty_policy": FUZZY_EMPTY_POLICY,
+            "administrative_target_rule": (
+                "fuzzy similarity is descriptive only; target identity remains strict after "
+                "normalization, with Data 07 gold ward/province resolved by official target code"
+            ),
+        },
         "code_hashes": {name: compute_sha256(code_root / name) for name in code_files},
         "datasets": files_info,
     }

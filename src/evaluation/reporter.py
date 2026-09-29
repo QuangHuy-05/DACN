@@ -7,8 +7,14 @@ from pathlib import Path
 
 import pandas as pd
 
-from src.evaluation.scorer import _norm
+from src.evaluation.scorer import _norm, aggregate_prediction_pairs
 from src.evaluation.schema import STANDARD_FIELDS
+from src.evaluation.protocol import (
+    DATASET07_SCORED_FIELDS,
+    FUZZY_EMPTY_POLICY,
+    FUZZY_NORMALIZATION,
+    FUZZY_SIMILARITY_METHOD,
+)
 
 
 def _pct(numerator: int, denominator: int) -> str:
@@ -28,31 +34,55 @@ def _pred(row: pd.Series) -> dict[str, str]:
     return json.loads(row["TruongDuDoan"])
 
 
+def _aggregate_frame(frame: pd.DataFrame, fields: tuple[str, ...] = STANDARD_FIELDS) -> dict:
+    pairs = [
+        (_pred(row), json.loads(row["TruongDung"]))
+        for _, row in frame.iterrows()
+    ]
+    return aggregate_prediction_pairs(pairs, fields)
+
+
+def _exact_and_fuzzy_summary(frame: pd.DataFrame) -> tuple[str, str]:
+    """Return record exact count and fuzzy mean with its denominator."""
+    metrics = _aggregate_frame(frame)
+    exact = f"{metrics['exact_record_correct']} / {metrics['record_count']}"
+    fuzzy_mean = metrics["micro_mean_fuzzy_similarity"]
+    fuzzy = (
+        "n/a"
+        if fuzzy_mean is None
+        else f"{fuzzy_mean:.3f} / {metrics['fuzzy_scored_field_values']}"
+    )
+    return exact, fuzzy
+
+
 def _field_f1(frame: pd.DataFrame, field: str | None = None) -> float | None:
-    """Micro F1; a wrong nonempty value contributes both FP and FN."""
-    tp = fp = fn = 0
+    """Read strict F1 from the shared scorer for one or all fields."""
     fields = (field,) if field else STANDARD_FIELDS
-    for _, row in frame.iterrows():
-        prediction, truth = _pred(row), json.loads(row["TruongDung"])
-        for name in fields:
-            p, t = _norm(prediction.get(name, "")), _norm(truth.get(name, ""))
-            if p and p == t:
-                tp += 1
-            elif p and t:
-                fp += 1
-                fn += 1
-            elif p:
-                fp += 1
-            elif t:
-                fn += 1
-    return 2 * tp / (2 * tp + fp + fn) if 2 * tp + fp + fn else None
+    metrics = _aggregate_frame(frame, fields)
+    if field:
+        return metrics["field_metrics"][field]["f1"]
+    return metrics["micro_f1_scored_fields"]
 
 
-def _field_f1_table(frame: pd.DataFrame) -> list[str]:
-    lines = ["| Công cụ | SoNha F1 | TenDuong F1 | PhuongXa F1 | QuanHuyen F1 | TinhThanh F1 |", "| --- | ---: | ---: | ---: | ---: | ---: |"]
-    for tool, sub in frame.groupby("CongCu"):
-        values = [_field_f1(sub, field) for field in STANDARD_FIELDS]
-        lines.append("| `" + tool + "` | " + " | ".join("n/a" if value is None else f"{value:.3f}" for value in values) + " |")
+def _field_metric_table(frame: pd.DataFrame, fields: tuple[str, ...] = STANDARD_FIELDS) -> list[str]:
+    lines = [
+        "| Công cụ | Trường | Exact đúng / n | Exact rate | Fuzzy mean / n cặp | F1 strict |",
+        "| --- | --- | ---: | ---: | ---: | ---: |",
+    ]
+    for tool, sub in frame.groupby("CongCu", sort=True):
+        metrics = _aggregate_frame(sub, fields)
+        for field in fields:
+            field_metric = metrics["field_metrics"][field]
+            exact_rate = field_metric["exact_match_rate"]
+            fuzzy_mean = field_metric["mean_fuzzy_similarity"]
+            fuzzy_count = field_metric["fuzzy_similarity_n"]
+            fuzzy_text = "n/a" if fuzzy_mean is None else f"{fuzzy_mean:.3f} / {fuzzy_count}"
+            exact_text = f"{field_metric['exact_correct']} / {field_metric['exact_n']}"
+            exact_value = "n/a" if exact_rate is None else f"{exact_rate:.3f}"
+            lines.append(
+                f"| {tool} | {field} | {exact_text} | {exact_value} | "
+                f"{fuzzy_text} | {field_metric['f1']:.3f} |"
+            )
     return lines
 
 
@@ -76,6 +106,7 @@ def generate_baseline_report_markdown(
         "- VietnamAdminUnits nhận mode do protocol cung cấp ở Data 01/02/03/04, chạy hai mode ở Data 06 và convert cũ → mới ở Data 07. Đây không phải phép đo phân loại T1 tự động.",
         "- `libpostal` gọi Python binding của thư viện C và model data mặc định; raw nhãn Libpostal được lưu riêng trước khi ánh xạ sang 5 trường.",
         "- `exact_match_rate` yêu cầu mọi trường được chấm khớp sau chuẩn hóa. `micro_f1_scored_fields` gộp TP/FP/FN trên các trường được chấm; một MISMATCH đóng góp một FP và một FN.",
+        f"- Fuzzy: `{FUZZY_SIMILARITY_METHOD}`; {FUZZY_NORMALIZATION} {FUZZY_EMPTY_POLICY} Fuzzy similarity đo độ gần chuỗi, không xác nhận đúng thực thể hành chính.",
         "",
         "## 1. Dữ liệu và khả năng tái lập",
         "",
@@ -99,16 +130,18 @@ def generate_baseline_report_markdown(
         f"- Python `{manifest_data.get('python_version', 'unknown')}`; thư viện chạy: `{json.dumps(manifest_data.get('runtime_packages', {}), ensure_ascii=False)}`.",
         f"- Hash mã khi chạy prediction: `{json.dumps(manifest_data.get('code_hashes', {}), ensure_ascii=False)}`.",
         f"- Hash mã tạo báo cáo: `{manifest_data.get('reporter_sha256', 'unknown')}`.",
+        "- Data 04/06 được phân tầng theo KieuThieu/KieuLai; tỷ lệ theo nhóm là diagnostic strata, không phải xác suất uncertainty.",
+        "- Trace converter Data 07 là tín hiệu chẩn đoán; candidate count không phải confidence hay khoảng cách tới ranh giới. Chưa có nhãn uncertainty hoặc hình học biên giới để tính calibration/ECE.",
         "- Data 07 chỉ có N-1/M-N và tập trung ở miền Bắc; không suy rộng sang 1-1/1-N hay các vùng chưa có mẫu.",
         "",
         "## 2. Parse địa chỉ theo các tập 01, 03, 04 và 06",
         "",
-        "Tỷ lệ dưới đây là exact match 5 trường. Data 03 là benchmark hệ cũ sạch hoàn toàn có đủ 5 trường (không còn dòng thiếu tự nhiên). Riêng Data 04 chấm trích xuất các trường còn trên chuỗi bề mặt (phục hồi trường bị lược được phân tích riêng ở Mục 4); Data 06 báo hai mode VietnamAdminUnits riêng.",
+        "Các bảng báo exact cùng fuzzy theo trường. Data 03 là benchmark hệ cũ sạch hoàn toàn có đủ 5 trường (không còn dòng thiếu tự nhiên). Riêng Data 04 chấm trích xuất các trường còn trên chuỗi bề mặt (phục hồi trường bị lược được phân tích riêng ở Mục 4); Data 06 báo hai mode VietnamAdminUnits riêng.",
         "",
     ]
     for prefix, title in (("D01_", "01 mới"), ("D03_", "03 cũ"), ("D04_", "04 thiếu trường")):
         sub = df_eval[df_eval["ID"].str.startswith(prefix)]
-        lines += [f"### Data {title}", "", *_table_counts(sub, title), "", "Micro F1 từng trường:", "", *_field_f1_table(sub), ""]
+        lines += [f"### Data {title}", "", *_table_counts(sub, title), "", "Metric strict và fuzzy từng trường (fuzzy mean kèm số cặp):", "", *_field_metric_table(sub), ""]
     hybrid = df_eval[df_eval["ID"].str.startswith("D06_")].copy()
     if not hybrid.empty:
         hybrid["mode"] = hybrid["ID"].map(lambda x: "FROM_2025" if x.endswith("_m25") else ("LEGACY" if x.endswith("_mleg") else "single parse"))
@@ -117,11 +150,14 @@ def generate_baseline_report_markdown(
             lines += [f"**{mode}**", "", *_table_counts(sub, mode), ""]
         hybrid_source = pd.read_csv(benchmark_dir / "06_hybrid_addresses_600.csv", dtype=str, keep_default_na=False, encoding="utf-8-sig")
         hybrid["kind"] = hybrid["ID"].map(lambda value: hybrid_source.iloc[int(value.split("_")[1])]["KieuLai"].split("_")[0])
-        lines += ["Theo kiểu lai:", "", "| Công cụ | Mode | Kiểu | n | Đúng toàn phần |", "| --- | --- | --- | ---: | ---: |"]
+        lines += ["Theo kiểu lai:", "", "| Công cụ | Mode | Kiểu | n | Đúng toàn phần | Fuzzy mean | Cặp fuzzy |", "| --- | --- | --- | ---: | ---: | ---: | ---: |"]
         for (tool, mode, kind), sub in hybrid.groupby(["CongCu", "mode", "kind"], sort=True):
-            lines.append(f"| `{tool}` | {mode} | {kind} | {len(sub)} | {_pct(int(sub['DungSai'].eq('CORRECT').sum()), len(sub))} |")
+            fuzzy = _aggregate_frame(sub)
+            fuzzy_mean = fuzzy["micro_mean_fuzzy_similarity"]
+            fuzzy_text = "n/a" if fuzzy_mean is None else f"{fuzzy_mean:.3f}"
+            lines.append(f"| {tool} | {mode} | {kind} | {len(sub)} | {_pct(int(sub['DungSai'].eq('CORRECT').sum()), len(sub))} | {fuzzy_text} | {fuzzy['fuzzy_scored_field_values']} |")
 
-    lines += ["## 3. Data 02: độ bền trên cặp sạch và nhiễu", "", "Các nhóm nhiễu có thể đồng xuất hiện. `dinh_dang_phan_cach` có ở mọi dòng, nên bảng theo loại không diễn giải quan hệ nhân quả riêng của từng phép biến đổi. F1 trong mục này là `micro_f1_scored_fields`.", "", "| Công cụ | Mức | n | Sạch đúng | Nhiễu đúng | Micro F1 sạch | Micro F1 nhiễu | Sạch đúng → nhiễu sai |", "| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: |"]
+    lines += ["## 3. Data 02: độ bền trên cặp sạch và nhiễu", "", "Các nhóm nhiễu có thể đồng xuất hiện. `dinh_dang_phan_cach` có ở mọi dòng, nên bảng theo loại không diễn giải quan hệ nhân quả riêng của từng phép biến đổi. Exact hiển thị số bản ghi đúng/mẫu số; fuzzy hiển thị trung bình/số cặp trường được chấm; F1 là `micro_f1_scored_fields`.", "", "| Công cụ | Mức | n | Exact sạch đúng/n | Exact nhiễu đúng/n | Fuzzy sạch mean/n cặp | Fuzzy nhiễu mean/n cặp | Micro F1 sạch | Micro F1 nhiễu | Sạch đúng → nhiễu sai |", "| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |"]
     d02 = df_eval[df_eval["ID"].str.startswith("D02_")].copy()
     if not d02.empty:
         meta = pd.read_csv(benchmark_dir / "02_raw_noisy_synthetic_1000.csv", dtype=str, keep_default_na=False, encoding="utf-8-sig").set_index("ID")
@@ -138,8 +174,10 @@ def generate_baseline_report_markdown(
                 c_ok, n_ok = c["DungSai"].eq("CORRECT"), n["DungSai"].eq("CORRECT")
                 flips = int((c_ok & ~n_ok).sum())
                 clean_f1, noisy_f1 = _field_f1(c), _field_f1(n)
-                lines.append(f"| `{tool}` | {level} | {len(ids)} | {_pct(int(c_ok.sum()), len(ids))} | {_pct(int(n_ok.sum()), len(ids))} | {clean_f1:.3f} | {noisy_f1:.3f} | {flips} |")
-        lines += ["", "### Nhóm phép biến đổi đồng xuất hiện", "", "Một dòng có thể thuộc nhiều nhóm, do đó không cộng các mẫu số và không xem chênh lệch là hiệu ứng nhân quả.", "", "| Công cụ | Phép biến đổi | n | Sạch đúng | Nhiễu đúng | F1 sạch | F1 nhiễu |", "| --- | --- | ---: | ---: | ---: | ---: | ---: |"]
+                clean_exact, clean_fuzzy = _exact_and_fuzzy_summary(c)
+                noisy_exact, noisy_fuzzy = _exact_and_fuzzy_summary(n)
+                lines.append(f"| `{tool}` | {level} | {len(ids)} | {clean_exact} | {noisy_exact} | {clean_fuzzy} | {noisy_fuzzy} | {clean_f1:.3f} | {noisy_f1:.3f} | {flips} |")
+        lines += ["", "### Nhóm phép biến đổi đồng xuất hiện", "", "Một dòng có thể thuộc nhiều nhóm, do đó không cộng các mẫu số và không xem chênh lệch là hiệu ứng nhân quả.", "", "| Công cụ | Phép biến đổi | n | Exact sạch đúng/n | Exact nhiễu đúng/n | Fuzzy sạch mean/n cặp | Fuzzy nhiễu mean/n cặp | F1 sạch | F1 nhiễu |", "| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |"]
         for tool in sorted(d02["CongCu"].unique()):
             sub = d02[d02["CongCu"] == tool]
             clean = sub[sub["ID"].str.endswith("_clean")].set_index("base_id")
@@ -149,7 +187,9 @@ def generate_baseline_report_markdown(
                 if not len(ids):
                     continue
                 c, n = clean.loc[ids], noisy.loc[ids]
-                lines.append(f"| `{tool}` | `{operation}` | {len(ids)} | {_pct(int(c['DungSai'].eq('CORRECT').sum()), len(ids))} | {_pct(int(n['DungSai'].eq('CORRECT').sum()), len(ids))} | {_field_f1(c):.3f} | {_field_f1(n):.3f} |")
+                clean_exact, clean_fuzzy = _exact_and_fuzzy_summary(c)
+                noisy_exact, noisy_fuzzy = _exact_and_fuzzy_summary(n)
+                lines.append(f"| `{tool}` | `{operation}` | {len(ids)} | {clean_exact} | {noisy_exact} | {clean_fuzzy} | {noisy_fuzzy} | {_field_f1(c):.3f} | {_field_f1(n):.3f} |")
     lines += ["", "## 4. Data 04: phục hồi trường đã lược", "", "Bảng này tách khỏi điểm parse trường còn hiện diện. Điền đúng một trường đã lược là phục hồi đúng; điền sai mới là suy đoán sai.", "", "| Công cụ | Trường bị lược | n | Phục hồi đúng | Điền sai | Không điền |", "| --- | --- | ---: | ---: | ---: | ---: |"]
     missing = pd.read_csv(benchmark_dir / "04_missing_fields_800.csv", dtype=str, keep_default_na=False, encoding="utf-8-sig")
     drop_fields = {"drop_ward": ("PhuongXa",), "drop_district": ("QuanHuyen",), "drop_housenumber": ("SoNha",), "drop_housenumber_ward": ("SoNha", "PhuongXa")}
@@ -166,16 +206,19 @@ def generate_baseline_report_markdown(
         for kind, counts in (*by_kind.items(), ("tất cả", {key: sum(group[key] for group in by_kind.values()) for key in ("correct", "wrong", "empty")})):
             total = sum(counts.values())
             lines.append(f"| `{tool}` | {kind} | {total} | {counts['correct']} | {counts['wrong']} | {counts['empty']} |")
-    lines += ["", "## 5. Data 07: chuyển đổi hành chính cũ → mới", "", "Chỉ VietnamAdminUnits có API converter và chỉ hai trường `PhuongXa`, `TinhThanh` được chấm. Không có thử nghiệm chiều mới → cũ; API hiện tại không cung cấp tác vụ đó.", "", "| Quan hệ | n | Đúng cặp đơn vị | Sai đích có output | Trả rỗng |", "| --- | ---: | ---: | ---: | ---: |"]
+    lines += ["", "## 5. Data 07: chuyển đổi hành chính cũ → mới", "", "Chỉ VietnamAdminUnits có API converter và chỉ hai trường `PhuongXa`, `TinhThanh` được chấm. Không có thử nghiệm chiều mới → cũ; API hiện tại không cung cấp tác vụ đó. Fuzzy là chẩn đoán gần chuỗi; đúng cặp đơn vị vẫn dùng exact match.", "", "| Quan hệ | n | Đúng cặp đơn vị | Fuzzy mean / cặp | Sai đích có output | Trả rỗng |", "| --- | ---: | ---: | ---: | ---: | ---: |"]
     d07 = df_eval[df_eval["ID"].str.startswith("D07_")]
     for relation in ("N-1", "M-N"):
         sub = d07[d07["ID"].str.endswith(relation)]
         if sub.empty:
-            lines.append(f"| {relation} | 0 | n/a | n/a | n/a |")
+            lines.append(f"| {relation} | 0 | n/a | n/a | n/a | n/a |")
             continue
-        correct = int(sub["DungSai"].eq("CORRECT").sum())
+        pair_metrics = _aggregate_frame(sub, DATASET07_SCORED_FIELDS)
+        correct = pair_metrics["exact_record_correct"]
         empty = int(sub.apply(lambda row: not _pred(row).get("PhuongXa", ""), axis=1).sum())
-        lines.append(f"| {relation} | {len(sub)} | {correct} ({_pct(correct, len(sub))}) | {len(sub) - correct - empty} | {empty} |")
+        fuzzy_mean = pair_metrics["micro_mean_fuzzy_similarity"]
+        fuzzy_text = "n/a" if fuzzy_mean is None else f"{fuzzy_mean:.3f} / {pair_metrics['fuzzy_scored_field_values']}"
+        lines.append(f"| {relation} | {len(sub)} | {correct} ({_pct(correct, len(sub))}) | {fuzzy_text} | {len(sub) - correct - empty} | {empty} |")
     lines += ["", "## 6. Mẫu lỗi truy vết", "", "Các dòng sau lấy trực tiếp từ CSV dự đoán; `ID` dùng để tra raw response cùng khóa ID/công cụ.", "", "| ID | Công cụ | Input | Dự đoán | Đáp án |", "| --- | --- | --- | --- | --- |"]
     for prefix in ("D01_", "D03_", "D04_", "D06_", "D07_"):
         subset = df_eval[df_eval["ID"].str.startswith(prefix) & df_eval["DungSai"].ne("CORRECT")]

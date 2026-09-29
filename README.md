@@ -6,20 +6,28 @@ Dự án tạo dữ liệu địa chỉ tiếng Việt trước/sau thay đổi 
 
 ```text
 DACN/
-├── configs/noise_params.json                 Tham số và thống kê nhiễu hóa đơn
+├── configs/
+│   ├── noise_params.json                      Tham số và thống kê nhiễu hóa đơn
+│   ├── label_studio_span11.xml                Cấu hình gán nhãn T0 11 span
+│   └── span11_rare_seed_examples.json          Ví dụ tổng hợp có kiểm soát cho pilot
 ├── data/
 │   ├── raw/                                  Dữ liệu nguồn OSM/Viet-Receipt-VQA; không chỉnh sửa
 │   ├── reference/administrative_units/       Bảng sáp nhập hành chính 2025
 │   ├── interim/osm/                          Snapshot cũ đầy đủ/cân bằng, dữ liệu hiện hành và lịch sử OSM
 │   ├── interim/vqa/                          Hóa đơn thật sau lọc, chỉ dùng đo phân bố nhiễu/kiểm tra ngoài
+│   ├── interim/annotation/sprint03/          Batch ứng viên T0, manifest và import pilot Label Studio
 │   └── processed/
 │       ├── osm/                              Địa chỉ sạch và OSM diff
-│       └── benchmark/                        Các tập benchmark đầu ra (01–07; 05 chưa có nguồn)
+│       ├── benchmark/                        Các tập benchmark đầu ra (01–07; 05 chưa có nguồn)
+│       ├── annotation/sprint03/              Pilot gold T0 đã duyệt và manifest
+│       ├── gazetteer/s3_v1/                  Gazetteer đa phiên bản một phần
+│       └── evaluation/                       Run và bảng đánh giá baseline
 ├── docs/
+│   ├── sprints/sprint_02/                   Tài liệu tổng kết Sprint 2
+│   ├── sprints/sprint_03/                   Hồ sơ, kế hoạch và hướng dẫn Sprint 3
 │   ├── proposal/                             Đề cương đồ án và tài liệu yêu cầu
 │   ├── data_quality.md                       Số lượng và giới hạn chất lượng dữ liệu
 │   ├── runs/<run_id>/                        Báo cáo, dashboard và tài liệu sinh từ một run
-│   ├── baseline_parallel_comparative_analysis.md  Báo cáo phân tích song song chính thức (v1, frozen)
 │   └── VERSIONING.md                         Quy ước phiên bản và dọn output cũ
 ├── notebooks/exploration/                    Notebook kiểm tra dữ liệu
 ├── scripts/
@@ -29,7 +37,16 @@ DACN/
 │   ├── 04_audit_osm_diff_filters.py          Audit lý do giữ/loại từng OSM diff
 │   ├── 05_run_baseline_pilot.py              Pilot phân tầng
 │   ├── 06_run_baseline_full.py               Chạy toàn bộ baseline
-│   └── 07_generate_baseline_report.py       Sinh báo cáo từ prediction CSV
+│   ├── 07_generate_baseline_report.py        Sinh báo cáo từ prediction CSV
+│   ├── 08_generate_report_materials.py       Sinh bảng phân tích theo run
+│   ├── 09_audit_baseline_runs.py             Kiểm kê và xác minh run baseline
+│   ├── 10_prepare_span_annotation.py         Chọn batch 01 T0 (ghi output cố định)
+│   ├── 11_convert_label_studio_pilot.py      QA/chuyển export pilot thành canonical
+│   ├── 12_prepare_vqa_review.py              Tạo queue rà soát VQA
+│   ├── 13_build_temporal_gazetteer.py        Dựng/tra cứu gazetteer s3_v1
+│   ├── 14_prepare_pilot_answer_key.py        Tạo đáp án ứng viên cho pilot
+│   ├── 15_import_pilot_predictions.py        Import prediction pilot vào Label Studio
+│   └── build_baseline_dashboard.py            Sinh dashboard theo run
 ├── src/
 │   ├── data/administrative_mapping.py       Đồ thị ánh xạ đơn vị hành chính 2025
 │   ├── data/administrative_alias.py          Alias OSM đã xác minh, có vết audit
@@ -37,8 +54,9 @@ DACN/
 │   ├── data/osm_extractor.py                 Đọc lịch sử OSM và làm sạch tag
 │   ├── data/noise_profiler.py                Thống kê dạng nhiễu địa chỉ
 │   ├── data/synthetic/                       Sinh dữ liệu thiếu, lai và cặp ánh xạ
-│   └── utils/text_normalize.py               Chuẩn hóa văn bản và vùng miền
-├── tests/test_data_pipeline.py               Kiểm thử tự động cho các hàm chính
+│   ├── evaluation/                            Adapter, contract, scorer và manifest run
+│   └── utils/text_normalize.py                Chuẩn hóa văn bản và vùng miền
+├── tests/                                     Kiểm thử pipeline, evaluation và span
 ├── third_party/                              Mã và bảng đơn vị hành chính bên thứ ba
 ├── requirements.txt                          Phụ thuộc Python
 └── README.md                                 Hướng dẫn dự án
@@ -52,7 +70,7 @@ Các thư mục `.venv/`, `.venv_wsl/`, `__pycache__/` và dữ liệu nguồn l
 - **Hệ điều hành:** Linux, macOS, hoặc Windows (khuyến nghị sử dụng **WSL2 Ubuntu** để tối ưu hóa việc cài đặt thư viện NLP và Libpostal).
 - **Python:** Phiên bản `>= 3.10` (khuyến nghị Python 3.10 hoặc 3.11).
 - **Git:** Để quản lý mã nguồn và kéo dự án về máy.
-- **(Tùy chọn) XeLaTeX / MiKTeX / TeX Live:** Nếu muốn chỉnh sửa và biên dịch slide báo cáo thuyết trình `docs/slides_hcmut.tex`.
+- **(Tùy chọn) XeLaTeX / MiKTeX / TeX Live:** Nếu muốn chỉnh sửa và biên dịch slide báo cáo thuyết trình `docs/sprints/sprint_02/slides_hcmut.tex`.
 
 ---
 
@@ -100,7 +118,7 @@ Trước khi chạy bất kỳ pipeline nào, hãy chạy bộ kiểm thử hồ
 ```bash
 python -m unittest discover -s tests -v
 ```
-*(Yêu cầu: Toàn bộ 38 bài test trong `tests/` phải vượt qua thành công: `Ran 38 tests ... OK`).*
+Kết quả cần là toàn bộ test hiện có vượt qua (`OK`); số lượng test có thể thay đổi theo phiên bản repository.
 
 ---
 
@@ -132,7 +150,7 @@ python -m scripts.08_generate_report_materials --run-id baseline_v2
 # Xây dựng Dashboard HTML trực quan
 python -m scripts.build_baseline_dashboard --run-id baseline_v2
 ```
-*Kết quả:* Mở file `docs/runs/baseline_v2/dashboard.html` bằng trình duyệt web để xem trực quan biểu đồ và các ca lỗi thực tế.
+*Kết quả:* Mở file `docs/runs/baseline_v2/baseline_dashboard.html` bằng trình duyệt web để xem biểu đồ và các ca lỗi.
 
 ---
 
@@ -186,15 +204,15 @@ export LD_LIBRARY_PATH="$HOME/.local/lib${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}"
 ### 8. Biên dịch Slide Báo cáo Thuyết trình (Beamer HCMUT)
 
 Slide báo cáo tiến độ đồ án được thiết kế chuyên nghiệp bằng LaTeX Beamer theo template chuẩn Trường Đại học Bách Khoa - ĐHQG-HCM:
-- **File mã nguồn:** `docs/slides_hcmut.tex`
+- **File mã nguồn:** `docs/sprints/sprint_02/slides_hcmut.tex`
 - **File ảnh nền & logo:** `docs/assets/`
 
 Để biên dịch slide ra file PDF:
 ```bash
 cd docs
-xelatex -interaction=nonstopmode slides_hcmut.tex
+xelatex -output-directory=sprints/sprint_02 -interaction=nonstopmode sprints/sprint_02/slides_hcmut.tex
 ```
-*Kết quả xuất ra tại:* `docs/slides_hcmut.pdf`.
+*Kết quả xuất ra tại:* `docs/sprints/sprint_02/slides_hcmut.pdf`.
 
 ## Kiểm thử
 
@@ -260,5 +278,29 @@ python -m scripts.build_baseline_dashboard --run-id baseline_v2
 ```
 
 `05` và `06` kiểm tra schema, BOM, hash, nhãn và tính duy nhất của 6 CSV trước khi gọi công cụ. Pilot chọn phân tầng 20 dòng/tập; full run lưu prediction 9 cột, raw response và manifest riêng tại `data/processed/evaluation/runs/<run_id>/`. Cùng run ID, `07`, `08` và dashboard sinh report/tables/case có truy vết tại `docs/runs/<run_id>/`. Data 01/02/03/04 cung cấp trước mode hệ quy chiếu cho VietnamAdminUnits; Data 06 thử cả hai mode; Data 07 chỉ chấm chuyển đổi cũ → mới trên phường/xã và tỉnh/thành. Không có phép đo tự động T1 hoặc chiều chuyển đổi ngược. Runner từ chối ghi đè run trừ khi truyền `--overwrite-run` rõ ràng.
+
+#### Đánh giá theo protocol fuzzy mới
+
+Run `baseline_v2` là kết quả frozen theo protocol cũ. Để tạo kết quả mới, dùng run ID riêng; script báo cáo sẽ từ chối áp dụng protocol mới lên manifest cũ. Protocol mới giữ exact match và thêm normalized Levenshtein similarity liên tục, báo rõ mẫu số, chuẩn hóa NFC/casefold/khoảng trắng và giữ dấu cùng tiền tố loại đơn vị. Data 07 vẫn xác định đúng đích hành chính bằng đối chiếu exact sau chuẩn hóa an toàn; độ giống chuỗi chỉ là chẩn đoán.
+
+Kiểm toán Sprint 3 đã xác nhận `baseline_v3_fuzzy` là mốc baseline 5 trường theo protocol này; `baseline_v2` vẫn frozen và chưa xác minh được toàn bộ snapshot mã lịch sử. Xem [báo cáo kiểm toán](docs/sprints/sprint_03/baseline_run_audit.md) và [ma trận mô hình Sprint 3](docs/sprints/sprint_03/model_matrix.md) trước khi so các cấu hình tiếp theo.
+
+Đối với T0, [hướng dẫn vận hành S3-01 đến S3-03](docs/sprints/sprint_03/03_s3_01_03_operations.md) mô tả pilot 68 mẫu trên Label Studio, cổng kiểm duyệt VQA/Data 05 và gói gazetteer đa phiên bản một phần. [Pilot gold T0 68 mẫu](data/processed/annotation/sprint03/pilot_gold_v1.jsonl) đã được duyệt ngày 29/09/2026 với [biên bản và hash](docs/sprints/sprint_03/pilot_gold_approval.md). 100 ứng viên test T0 vẫn giữ riêng và chưa gán nhãn; chưa thể báo F1 T0 trên test. Các script `11_convert_label_studio_pilot.py`, `12_prepare_vqa_review.py`, `13_build_temporal_gazetteer.py` lần lượt kiểm export, chuẩn bị queue VQA và dựng gazetteer. Data 05 quan sát vẫn chưa được duyệt.
+
+```bash
+python -m unittest discover -s tests -v
+python -m scripts.05_run_baseline_pilot --run-id baseline_v3_fuzzy_pilot
+python -m scripts.06_run_baseline_full --run-id baseline_v3_fuzzy
+python -m scripts.07_generate_baseline_report --run-id baseline_v3_fuzzy
+python -m scripts.08_generate_report_materials --run-id baseline_v3_fuzzy --materials-id v4_fuzzy
+```
+
+Materials v4 xuất metric theo điều kiện/trường và hai bảng chẩn đoán tách biệt: strata cấu trúc `KieuThieu`/`KieuLai` và trace converter không gian Data 07. Đây không phải xác suất uncertainty, calibration/ECE hay bằng chứng gần ranh giới. Report v4 chỉ chạy với manifest mang scoring protocol mới; không ghi đè hoặc tái diễn giải run v2.
+
+## Bắt đầu theo dõi Sprint 3
+
+Đọc [mục lục Sprint 3](docs/sprints/sprint_03/README.md) trước khi chạy script. Hiện đã có baseline `baseline_v3_fuzzy` được audit trong track 5 trường, pilot gold T0 68 mẫu đã duyệt và gazetteer `s3_v1` ở trạng thái một phần. 100 ứng viên benchmark test T0 vẫn được giữ riêng; chưa có kết quả F1 T0 trên test. Xem [kế hoạch bàn giao agent cho corpus/split và gazetteer](docs/sprints/sprint_03/05_s3_04_s3_03_agent_execution_plan.md) để tiếp tục Sprint 3.
+
+Lưu ý vận hành: `scripts/10_prepare_span_annotation.py` và lệnh `build` của `scripts/13_build_temporal_gazetteer.py` ghi vào các đường dẫn cố định. Không chạy lại trên artifact hiện hành; kế hoạch Sprint 3 quy định tạo batch/gazetteer phiên bản mới. Việc thu thập địa chỉ mốc/hướng thật hiện được tạm hoãn.
 
 Đề cương: [docs/proposal/de-cuong-dacn-dia-chi-tieng-viet.pdf](docs/proposal/de-cuong-dacn-dia-chi-tieng-viet.pdf).

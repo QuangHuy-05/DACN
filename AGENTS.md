@@ -89,11 +89,16 @@ data/
   reference/administrative_units/           vietnam-sap-nhap-phuong-xa.csv (nguồn chuẩn 2025)
   interim/osm/                              Snapshot cũ, dữ liệu hiện hành, lịch sử đã trích
   interim/vqa/                              Hóa đơn thật sau lọc: chỉ profile nhiễu/kiểm tra ngoài
+  interim/annotation/sprint03/              Queue, import/export Label Studio và QA tạm
   processed/osm/                            OSM diff và địa chỉ sạch
   processed/benchmark/                      Tập benchmark 01-07
+  processed/annotation/sprint03/            Pilot gold T0 và manifest đã duyệt
+  processed/gazetteer/s3_v1/                Gazetteer thời gian một phần; mã cũ còn chưa xác minh
 
 docs/
   proposal/                                 Đề cương đồ án
+  sprints/sprint_02/                        Hồ sơ lưu trữ Sprint 2
+  sprints/sprint_03/                        Baseline audit, guideline, pilot và kế hoạch Sprint 3
   data_quality.md                           Số lượng, nguồn và giới hạn dữ liệu hiện tại
 
 scripts/
@@ -101,6 +106,17 @@ scripts/
   02_filter_vqa_receipts.py                 Làm sạch/lọc địa chỉ hóa đơn
   03_generate_benchmarks.py                 Điều phối sinh benchmark
   04_audit_osm_diff_filters.py              Giải thích từng bước lọc OSM diff
+  05_run_baseline_pilot.py                  Chạy pilot baseline
+  06_run_baseline_full.py                   Chạy baseline đầy đủ
+  07_generate_baseline_report.py            Báo cáo từ prediction CSV
+  08_generate_report_materials.py           Bảng và tài liệu theo run
+  09_audit_baseline_runs.py                 Audit manifest/hash và kết quả baseline
+  10_prepare_span_annotation.py              Chuẩn bị batch span 01; có output cố định
+  11_convert_label_studio_pilot.py           QA/chuyển export pilot
+  12_prepare_vqa_review.py                  Tạo queue rà soát; không phải clearance
+  13_build_temporal_gazetteer.py            Build/lookup s3_v1; build ghi output cố định
+  14_prepare_pilot_answer_key.py             Tạo candidate đáp án pilot
+  15_import_pilot_predictions.py             Import prediction pilot vào Label Studio
 
 src/
   data/administrative_mapping.py            Nạp/kiểm tra đồ thị ánh xạ hành chính nguyên tử
@@ -112,10 +128,13 @@ src/
   data/synthetic/missing_fields.py          Sinh tập thiếu trường
   data/synthetic/hybrid_address.py          Sinh địa chỉ lai từ cạnh có một đích xác minh
   data/synthetic/bidirectional.py           Sinh cặp ánh xạ với bằng chứng OSM hoặc đích duy nhất
+  evaluation/                               Adapter, scorer, protocol và run manifest
   utils/text_normalize.py                   Chuẩn hóa văn bản và vùng miền
 
 tests/
   test_data_pipeline.py                     Kiểm thử hồi quy pipeline
+  test_evaluation_pipeline.py                Kiểm thử protocol, manifest và báo cáo
+  test_span_evaluation.py                    Kiểm thử scorer span T0
 
 third_party/
   vietnamadminunits/                        Bảng đối chiếu đơn vị hành chính cũ/mới
@@ -196,14 +215,19 @@ Repository hiện chưa có cấu hình linter/formatter Python riêng. Không t
 - Trích xuất snapshot OSM cũ và các thay đổi địa chỉ từ lịch sử OSM.
 - Lọc địa chỉ Viet-Receipt-VQA, khử trùng lặp và đo phân bố nhiễu để sinh Data 2 tổng hợp có ground truth.
 - Sinh benchmark hệ cũ/hệ mới, thiếu trường, địa chỉ lai và cặp ánh xạ có thể truy nguyên nguồn.
+- `baseline_v3_fuzzy` đã qua audit trong track benchmark 5 trường; `baseline_v2` được giữ frozen. Đây chưa phải kết quả T0 11 span hoặc T1.
+- Pilot gold T0 68 mẫu đã được duyệt ở `data/processed/annotation/sprint03/pilot_gold_v1.jsonl`, schema `s3-span-v1.1`; manifest lưu hash và người duyệt.
+- Gazetteer `data/processed/gazetteer/s3_v1/` có entity, alias, cạnh và lookup theo ngày nhưng là bản một phần. Mã cũ từ bên thứ ba vẫn là candidate chưa xác minh; không gọi là mã chính thức.
 - Kiểm thử hồi quy cho các logic nền.
 
 Chưa hoàn thiện hoặc chưa có nguồn đủ mạnh:
 
-- Tập 05 địa chỉ mô tả bằng mốc.
-- Gazetteer đa phiên bản hoàn chỉnh có mã đơn vị, tên thay thế, thời gian hiệu lực và tọa độ.
-- Gán nhãn span bằng Label Studio và đo Cohen's Kappa.
-- Baseline parsing, T1 phân loại hệ quy chiếu, T2 phân giải ngữ cảnh và T3 đối sánh qua thời gian.
+- Corpus T0/T1 train/dev/test đầy đủ; 100 ứng viên test T0 vẫn được giữ riêng, chưa gán nhãn. Pilot 68 không thay thế test.
+- Agreement giữa người gán `NOT_MEASURED` vì mới có một người gán độc lập.
+- Rà soát PII/quyền sử dụng và ID tài liệu của VQA; không dùng VQA cho train/dev/test khi chưa qua clearance.
+- Data 05 địa chỉ thật có mốc và hướng đang tạm hoãn; ví dụ tổng hợp không được tính là dữ liệu quan sát.
+- Gazetteer đa phiên bản hoàn chỉnh: còn thiếu nguồn chính thức xác minh mã cũ, tọa độ/hình học, và cần biểu diễn riêng các chuyển đổi không có khóa ward cũ.
+- Các baseline Sprint 3 còn lại, T1 tự động, T2 phân giải ngữ cảnh và T3 đối sánh qua thời gian.
 - Mô hình PhoBERT/adapters, tầng LLM + RAG và API FastAPI/Docker là phạm vi các giai đoạn tiếp theo.
 
 Đọc `docs/data_quality.md` trước khi lấy số lượng mẫu làm kết luận, vì các tập được sinh lại từ nguồn trung gian có thể thay đổi theo phiên bản dữ liệu.

@@ -2,9 +2,10 @@
 
 ## Phiên bản đang dùng
 
-- Báo cáo chính thức hiện hành: `baseline_parallel_comparative_analysis.md` — **v1, frozen**.
+- Báo cáo v1 đã phát hành: `docs/sprints/sprint_02/baseline_parallel_comparative_analysis.md` — **v1, frozen**.
+- Mốc baseline 5 trường cho Sprint 3: `baseline_v3_fuzzy` — **đạt kiểm toán ngày 25/09/2026** trong phạm vi oracle mode và protocol fuzzy v2.0; xem `docs/sprints/sprint_03/baseline_run_audit.md`. Đây không phải kết quả T0 11 span hoặc T1 tự động.
 - Artifact v1 đã được sao lưu có hash tại `data/processed/evaluation/runs/baseline_v1/`; `freeze_record.json` liệt kê SHA-256 của prediction, raw log, manifest và bảng v1.
-- Tài liệu v2 được giữ để truy cứu lịch sử nhưng không được phát hành vì review đã phát hiện case không truy vết được và mô tả Data 06 sai. Bản sửa sinh tự động dùng hậu tố v3 trong `docs/runs/<run_id>/`.
+- Run v2 giữ frozen làm mốc lịch sử. Kiểm toán Sprint 3 xác nhận hash, gold/mode và scorer replay nhưng thiếu snapshot khớp hash của hai tệp mã nguồn nên khả năng tái lập toàn bộ là `UNVERIFIABLE`. Tài liệu v2 được giữ để truy cứu lịch sử nhưng không được phát hành vì review đã phát hiện case không truy vết được và mô tả Data 06 sai. Bản sửa sinh tự động dùng hậu tố v3 trong `docs/runs/<run_id>/`.
 
 ## Quy tắc khi có thay đổi
 
