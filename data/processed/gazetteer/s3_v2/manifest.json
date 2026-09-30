@@ -1,0 +1,56 @@
+{
+  "version": "s3-gazetteer-v2-partial",
+  "effective_boundary": "2025-07-01",
+  "release_status": "PARTIAL_OLD_CODES_UNVERIFIED",
+  "build_script_sha256": "c1be079cde953d48e70827212e82478fb7c688e436e74d45095f6ac1dbd727e8",
+  "source_files": {
+    "mapping": {
+      "path": "data\\reference\\administrative_units\\vietnam-sap-nhap-phuong-xa.csv",
+      "sha256": "22bd8278cf7b3f969f255e841271f33f63f6d9db1cdf02defcaaf7360a764e53",
+      "role": "official_mapping_authority"
+    },
+    "legacy_candidate": {
+      "path": "third_party\\vietnamadminunits\\data\\interim\\legacy_63-province-10040-ward_with_location_and_key.csv",
+      "sha256": "18cfb24f4381fa7e42b3c65fb99f4809c0b49a680d86dd2ca9de28cf8e36cf24",
+      "role": "candidate_old_codes_only"
+    },
+    "audited_aliases": {
+      "path": "src\\data\\administrative_alias.py",
+      "sha256": "93b5e6d374ff140ed0cb77b0712b688854b2a7b034946a97b74dee50db7c7755",
+      "role": "audited_aliases_authority"
+    }
+  },
+  "counts": {
+    "source_rows": 10602,
+    "atomic_edges": 10597,
+    "non_atomic_transitions": 5,
+    "entities": 14149,
+    "aliases": 187,
+    "relations": {
+      "B/N-1": 9432,
+      "C/1-1": 132,
+      "M/M-N": 1030,
+      "A/1-N": 3
+    },
+    "legacy_join_rows": {
+      "unique_name_join": 10597
+    }
+  },
+  "limitations": [
+    "All entity_id values are internal stable IDs, not official government codes.",
+    "Old ward codes from third_party are unverified candidate codes; 0 verified official old codes in repo.",
+    "No coordinates or geometry polygons are included.",
+    "Old valid_from date is unknown; old version valid_to ends on 2025-06-30.",
+    "5 island district-to-special-zone transitions are non-atomic and preserved in non_atomic_transitions.csv.",
+    "The repository does not document the external publication URL or reuse license of the mapping CSV; verified_source means verified against that CSV only."
+  ],
+  "output_sha256": {
+    "entities.csv": "8f7d04d80a65e2a8a64495c7c36889aa82a06b09ff2012ad2835467ab060c6a4",
+    "edges.csv": "f42c59d63254a243422b62cf5857b17d0dba995affb8180ee75373b19f4d43eb",
+    "aliases.csv": "0147a68673990da0233586e11e2a423348eb1fc4f6140fbe68ef6219a79e6c06",
+    "non_atomic_transitions.csv": "91fecdfa064e82e2dff07d5d22c64df597897bc4d4371d7fadda2fa6a12cc853",
+    "source_register.csv": "d9e68d3b92161e73e1527b4384549bd553b6a0b61dc500bc6bb6d1dc9981cdf4",
+    "coverage_report.json": "f934852019614a18960e2c9d57bd1204790dac3828183a575b004b10a427386d",
+    "lookup_examples.json": "d43da164219a4db00bbc3e074210c37ab1f522fb111053be743c799a73c9d1df"
+  }
+}

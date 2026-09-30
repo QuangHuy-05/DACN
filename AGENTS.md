@@ -94,6 +94,7 @@ data/
   processed/benchmark/                      Tập benchmark 01-07
   processed/annotation/sprint03/            Pilot gold T0 và manifest đã duyệt
   processed/gazetteer/s3_v1/                Gazetteer thời gian một phần; mã cũ còn chưa xác minh
+  processed/gazetteer/s3_v2/                Gazetteer thời gian v2; tách mã cũ candidate, 5 chuyển đổi phi nguyên tử
 
 docs/
   proposal/                                 Đề cương đồ án
@@ -117,6 +118,11 @@ scripts/
   13_build_temporal_gazetteer.py            Build/lookup s3_v1; build ghi output cố định
   14_prepare_pilot_answer_key.py             Tạo candidate đáp án pilot
   15_import_pilot_predictions.py             Import prediction pilot vào Label Studio
+  16_prepare_t0_corpus_batch.py              Sinh batch 02 train/dev (232 mẫu) và import Label Studio
+  17_convert_span_annotation_batch.py        QA/chuyển export Label Studio tổng quát theo batch/role
+  18_audit_corpus_split.py                  Audit rò rỉ group, benchmark và gần trùng SequenceMatcher
+  19_build_temporal_gazetteer_v2.py          Build/lookup gazetteer s3_v2 độc lập, tách mã cũ candidate
+  20_prepare_batch02_predictions.py           Gợi ý span từ text cho batch 02 train/dev; không dùng test
 
 src/
   data/administrative_mapping.py            Nạp/kiểm tra đồ thị ánh xạ hành chính nguyên tử
@@ -217,16 +223,17 @@ Repository hiện chưa có cấu hình linter/formatter Python riêng. Không t
 - Sinh benchmark hệ cũ/hệ mới, thiếu trường, địa chỉ lai và cặp ánh xạ có thể truy nguyên nguồn.
 - `baseline_v3_fuzzy` đã qua audit trong track benchmark 5 trường; `baseline_v2` được giữ frozen. Đây chưa phải kết quả T0 11 span hoặc T1.
 - Pilot gold T0 68 mẫu đã được duyệt ở `data/processed/annotation/sprint03/pilot_gold_v1.jsonl`, schema `s3-span-v1.1`; manifest lưu hash và người duyệt.
-- Gazetteer `data/processed/gazetteer/s3_v1/` có entity, alias, cạnh và lookup theo ngày nhưng là bản một phần. Mã cũ từ bên thứ ba vẫn là candidate chưa xác minh; không gọi là mã chính thức.
-- Kiểm thử hồi quy cho các logic nền.
+- Batch 02 có 232 ứng viên train/dev, test hold có 100 mẫu benchmark. Import Label Studio chỉ chứa `sample_id` và `text`. Preflight phân bổ 240 train / 60 dev / 100 test, đăng ký 172 nguồn cha và yêu cầu phân xử 138 cặp gần giống. Prediction chỉ tạo cho batch 02 train/dev.
+- Gazetteer `data/processed/gazetteer/s3_v2/` gồm 14.149 entity, 10.597 cạnh cấp xã, 187 alias audit, và 5 chuyển đổi cấp huyện→đặc khu tra được qua lookup. 10.035 mã xã cũ vẫn là ứng viên bên thứ ba. Mã xã mới khớp bảng ánh xạ trong repo; xuất xứ và giấy phép bên ngoài của bảng còn cần xác minh. Trạng thái `PARTIAL_OLD_CODES_UNVERIFIED`.
+- Các kiểm thử Sprint 3 liên quan đã qua; bộ kiểm thử toàn repo cần chạy trong WSL có `osmium` và `vietnamadminunits`.
 
 Chưa hoàn thiện hoặc chưa có nguồn đủ mạnh:
 
-- Corpus T0/T1 train/dev/test đầy đủ; 100 ứng viên test T0 vẫn được giữ riêng, chưa gán nhãn. Pilot 68 không thay thế test.
+- Corpus T0 train/dev/test hoàn chỉnh: Batch 02 (232 mẫu), test benchmark (100 mẫu) và 138 cặp gần giống đang chờ người gán/duyệt trước khi ghép thành `corpus_v1/`.
 - Agreement giữa người gán `NOT_MEASURED` vì mới có một người gán độc lập.
-- Rà soát PII/quyền sử dụng và ID tài liệu của VQA; không dùng VQA cho train/dev/test khi chưa qua clearance.
-- Data 05 địa chỉ thật có mốc và hướng đang tạm hoãn; ví dụ tổng hợp không được tính là dữ liệu quan sát.
-- Gazetteer đa phiên bản hoàn chỉnh: còn thiếu nguồn chính thức xác minh mã cũ, tọa độ/hình học, và cần biểu diễn riêng các chuyển đổi không có khóa ward cũ.
+- Rà soát PII/quyền sử dụng và ID tài liệu của VQA; không dùng VQA cho train/dev/test khi chưa qua clearance (trạng thái `HOLD`).
+- Data 05 địa chỉ thật có mốc và hướng đang tạm hoãn (`DEFERRED_BY_USER`); ví dụ tổng hợp không được tính là dữ liệu quan sát.
+- Danh mục mã hành chính cũ chính thức từ Nghị định/Quyết định Nhà nước (hiện chưa có nguồn chính thức trong repo; mã cũ đang ở trạng thái candidate).
 - Các baseline Sprint 3 còn lại, T1 tự động, T2 phân giải ngữ cảnh và T3 đối sánh qua thời gian.
 - Mô hình PhoBERT/adapters, tầng LLM + RAG và API FastAPI/Docker là phạm vi các giai đoạn tiếp theo.
 

@@ -1,6 +1,7 @@
 import tempfile
 import unittest
 import importlib.util
+import csv
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -29,6 +30,19 @@ class FakeElement:
 
 
 class DataPipelineTests(unittest.TestCase):
+    def test_gazetteer_v2_island_transitions_have_district_entities(self):
+        root = Path(__file__).resolve().parents[1]
+        package = root / "data/processed/gazetteer/s3_v2"
+        with (package / "entities.csv").open("r", encoding="utf-8-sig", newline="") as stream:
+            entities = {row["entity_id"]: row for row in csv.DictReader(stream)}
+        with (package / "non_atomic_transitions.csv").open("r", encoding="utf-8-sig", newline="") as stream:
+            transitions = list(csv.DictReader(stream))
+        self.assertEqual(len(transitions), 5)
+        for row in transitions:
+            self.assertEqual(entities[row["old_entity_id"]]["level"], "district")
+            self.assertEqual(entities[row["new_entity_id"]]["level"], "ward")
+            self.assertEqual(row["status"], "NOT_WARD_EDGE")
+
     def test_non_latin_rejected_and_street_tail_cleaned(self):
         self.assertEqual(clean_tag("Đường Số 10, "), "Đường Số 10")
         self.assertEqual(clean_tag("شارع السلام"), "")

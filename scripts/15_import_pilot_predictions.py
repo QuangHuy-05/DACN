@@ -59,12 +59,12 @@ def authorization_header(base_url: str, token_kind: str) -> str:
     return f"Bearer {access}"
 
 
-def validate_candidates(path: Path) -> dict[str, dict]:
+def validate_candidates(path: Path, expected_count: int = 68) -> dict[str, dict]:
     if not path.is_file():
         raise FileNotFoundError(path)
     records = json.loads(path.read_text(encoding="utf-8-sig"))
-    if not isinstance(records, list) or len(records) != 68:
-        raise ValueError("Expected exactly 68 pilot candidates")
+    if not isinstance(records, list) or len(records) != expected_count:
+        raise ValueError(f"Expected exactly {expected_count} candidates")
     result = {}
     for record in records:
         sample_id, text = record.get("sample_id"), record.get("text")
@@ -112,7 +112,10 @@ def prediction_results(record: dict) -> list[dict]:
         # The shared region ID connects the required system choice to its span.
         results.append({
             "id": region_id, "from_name": "span_system", "to_name": "address_text",
-            "type": "choices", "value": {"choices": [span["system"]]},
+            "type": "choices", "value": {
+                "start": span["start"], "end": span["end"], "text": span["text"],
+                "choices": [span["system"]],
+            },
         })
     if record["address_system"] is not None:
         results.append({
@@ -132,8 +135,8 @@ def prediction_results(record: dict) -> list[dict]:
     return results
 
 
-def validate_project(project: dict) -> None:
-    if project.get("title") != EXPECTED_PROJECT_TITLE:
+def validate_project(project: dict, expected_title: str = EXPECTED_PROJECT_TITLE) -> None:
+    if project.get("title") != expected_title:
         raise ValueError(f"Wrong project title: {project.get('title')!r}")
     config = project.get("label_config")
     if not isinstance(config, str):
@@ -149,6 +152,12 @@ def validate_project(project: dict) -> None:
         raise ValueError("Project span systems differ from the candidate schema")
     if controls["span_system"].get("perRegion") != "true":
         raise ValueError("Project span_system is not per-region")
+    if controls["span_system"].get("required") != "true":
+        raise ValueError("Project span_system must be required")
+    if {choice.get("value") for choice in controls["address_system"]} != ADDRESS_SYSTEMS:
+        raise ValueError("Project address systems differ from the locked XML")
+    if {choice.get("value") for choice in controls["review_flag"]} != REVIEW_FLAGS:
+        raise ValueError("Project review flags differ from the locked XML")
 
 
 def fetch_tasks(base_url: str, project_id: int, authorization: str) -> list[dict]:
@@ -181,17 +190,27 @@ def main() -> None:
     parser.add_argument("--token-kind", choices=("legacy", "pat"), default="legacy")
     parser.add_argument("--sample-id", help="Import only one sample first for UI inspection")
     parser.add_argument("--apply", action="store_true", help="Write predictions to existing tasks")
+    parser.add_argument("--expected-count", type=int, default=68)
+    parser.add_argument("--project-title", default=EXPECTED_PROJECT_TITLE)
+    parser.add_argument("--model-version", default=MODEL_VERSION)
     args = parser.parse_args()
     url = urllib.parse.urlparse(args.base_url)
     if url.scheme != "http" or url.hostname not in {"localhost", "127.0.0.1"} or url.path.strip("/"):
         raise ValueError("Only a local http://localhost:8080 Label Studio URL is accepted")
     base_url = args.base_url.rstrip("/")
-    candidates = validate_candidates(args.candidates)
+    if args.expected_count < 1 or "TEST" in args.project_title.upper():
+        raise ValueError("Predictions are restricted to train/dev projects")
+    candidates = validate_candidates(args.candidates, expected_count=args.expected_count)
+    hold_manifest = ROOT / "data/interim/annotation/sprint03/test_hold_manifest_v1.json"
+    if hold_manifest.is_file():
+        held_out_ids = {row["sample_id"] for row in json.loads(hold_manifest.read_text(encoding="utf-8"))["samples"]}
+        if set(candidates) & held_out_ids:
+            raise ValueError("Candidate IDs overlap the frozen benchmark test hold")
     if args.sample_id and args.sample_id not in candidates:
         raise ValueError(f"Unknown sample_id: {args.sample_id}")
     authorization = authorization_header(base_url, args.token_kind)
     project = request_json(base_url, f"/api/projects/{args.project_id}/", authorization=authorization)
-    validate_project(project)
+    validate_project(project, expected_title=args.project_title)
     tasks = fetch_tasks(base_url, args.project_id, authorization)
     by_sample = {}
     for task in tasks:
@@ -200,8 +219,8 @@ def main() -> None:
         if sample_id in by_sample:
             raise ValueError(f"Duplicate task sample_id in project: {sample_id}")
         by_sample[sample_id] = task
-    if len(tasks) != 68 or set(by_sample) != set(candidates):
-        raise ValueError("Project tasks differ from the 68 candidate sample IDs; no upload performed")
+    if len(tasks) != args.expected_count or set(by_sample) != set(candidates):
+        raise ValueError("Project tasks differ from candidate sample IDs; no upload performed")
     for sample_id, task in by_sample.items():
         if task["data"].get("text") != candidates[sample_id]["text"]:
             raise ValueError(f"{sample_id}: task text differs from candidate; no upload performed")
@@ -218,7 +237,7 @@ def main() -> None:
             raise ValueError(f"{sample_id}: full annotation/prediction fields unavailable")
         if annotation_count > 0 or task.get("annotations"):
             annotated.append(sample_id)
-        elif any(prediction.get("model_version") == MODEL_VERSION for prediction in predictions):
+        elif any(prediction.get("model_version") == args.model_version for prediction in predictions):
             existing.append(sample_id)
         else:
             pending.append((task["id"], sample_id))
@@ -232,7 +251,7 @@ def main() -> None:
     if not args.apply or not pending:
         return
     payload = [
-        {"task": task_id, "model_version": MODEL_VERSION,
+        {"task": task_id, "model_version": args.model_version,
          "result": prediction_results(candidates[sample_id])}
         for task_id, sample_id in pending
     ]

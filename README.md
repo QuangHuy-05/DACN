@@ -21,6 +21,7 @@ DACN/
 │       ├── benchmark/                        Các tập benchmark đầu ra (01–07; 05 chưa có nguồn)
 │       ├── annotation/sprint03/              Pilot gold T0 đã duyệt và manifest
 │       ├── gazetteer/s3_v1/                  Gazetteer đa phiên bản một phần
+│       ├── gazetteer/s3_v2/                  Gazetteer thời gian v2 (source register, phi nguyên tử)
 │       └── evaluation/                       Run và bảng đánh giá baseline
 ├── docs/
 │   ├── sprints/sprint_02/                   Tài liệu tổng kết Sprint 2
@@ -46,6 +47,11 @@ DACN/
 │   ├── 13_build_temporal_gazetteer.py        Dựng/tra cứu gazetteer s3_v1
 │   ├── 14_prepare_pilot_answer_key.py        Tạo đáp án ứng viên cho pilot
 │   ├── 15_import_pilot_predictions.py        Import prediction pilot vào Label Studio
+│   ├── 16_prepare_t0_corpus_batch.py         Sinh batch 02 train/dev (232 mẫu) và task Label Studio
+│   ├── 17_convert_span_annotation_batch.py   QA/chuyển export Label Studio theo batch/role
+│   ├── 18_audit_corpus_split.py              Audit rò rỉ group, benchmark và gần trùng SequenceMatcher
+│   ├── 19_build_temporal_gazetteer_v2.py     Dựng/tra cứu gazetteer s3_v2 độc lập, tách mã cũ candidate
+│   ├── 20_prepare_batch02_predictions.py     Gợi ý span từ text cho batch 02 train/dev
 │   └── build_baseline_dashboard.py            Sinh dashboard theo run
 ├── src/
 │   ├── data/administrative_mapping.py       Đồ thị ánh xạ đơn vị hành chính 2025
@@ -299,7 +305,7 @@ Materials v4 xuất metric theo điều kiện/trường và hai bảng chẩn �
 
 ## Bắt đầu theo dõi Sprint 3
 
-Đọc [mục lục Sprint 3](docs/sprints/sprint_03/README.md) trước khi chạy script. Hiện đã có baseline `baseline_v3_fuzzy` được audit trong track 5 trường, pilot gold T0 68 mẫu đã duyệt và gazetteer `s3_v1` ở trạng thái một phần. 100 ứng viên benchmark test T0 vẫn được giữ riêng; chưa có kết quả F1 T0 trên test. Xem [kế hoạch bàn giao agent cho corpus/split và gazetteer](docs/sprints/sprint_03/05_s3_04_s3_03_agent_execution_plan.md) để tiếp tục Sprint 3.
+Đọc [mục lục Sprint 3](docs/sprints/sprint_03/README.md) trước khi chạy script. Hiện đã có baseline `baseline_v3_fuzzy` trong track 5 trường, pilot gold T0 68 mẫu đã duyệt, batch 02 gồm 232 task train/dev và gazetteer `s3_v2` ở trạng thái một phần. Review split phát hiện 138 cặp gần giống cần người phân xử; 100 test T0 vẫn gán mù và chưa có F1 T0 trên test. [Báo cáo review và hướng dẫn bàn giao](docs/sprints/sprint_03/06_s3_04_s3_03_review_and_handover.md) ghi các bước gán, export, QA và giới hạn nguồn.
 
 Lưu ý vận hành: `scripts/10_prepare_span_annotation.py` và lệnh `build` của `scripts/13_build_temporal_gazetteer.py` ghi vào các đường dẫn cố định. Không chạy lại trên artifact hiện hành; kế hoạch Sprint 3 quy định tạo batch/gazetteer phiên bản mới. Việc thu thập địa chỉ mốc/hướng thật hiện được tạm hoãn.
 

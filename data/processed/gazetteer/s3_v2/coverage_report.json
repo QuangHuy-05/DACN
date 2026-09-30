@@ -1,0 +1,29 @@
+{
+  "version": "s3-gazetteer-v2-partial",
+  "total_entities": 14149,
+  "entities_by_level": {
+    "district": 696,
+    "province": 97,
+    "ward": 13356
+  },
+  "entities_by_system": {
+    "cu": 10794,
+    "moi": 3355
+  },
+  "old_wards_total": 10035,
+  "old_wards_with_candidate_code": 10035,
+  "old_wards_with_official_verified_code": 0,
+  "new_wards_total": 3321,
+  "new_wards_with_official_verified_code": 3321,
+  "new_wards_with_source_table_code": 3321,
+  "atomic_edges_total": 10597,
+  "edge_relations": {
+    "B/N-1": 9432,
+    "C/1-1": 132,
+    "M/M-N": 1030,
+    "A/1-N": 3
+  },
+  "non_atomic_transitions_count": 5,
+  "aliases_count": 187,
+  "release_status": "PARTIAL_OLD_CODES_UNVERIFIED"
+}
