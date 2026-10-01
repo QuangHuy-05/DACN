@@ -1,0 +1,602 @@
+[
+  {
+    "data": {
+      "sample_id": "s3_a66e21b407d25ee0",
+      "text": "8, Ngõ 28 Ông Ích Khiêm, Phường Ba Đình, Thành phố Hà Nội"
+    }
+  },
+  {
+    "data": {
+      "sample_id": "s3_7ec507813be1cede",
+      "text": "52, Đường Hoàng Quốc Việt, Phường Vũ Ninh, Tỉnh Bắc Ninh"
+    }
+  },
+  {
+    "data": {
+      "sample_id": "s3_156b56e3b067f033",
+      "text": "18, Đường Kênh Nam, Phường Hạp Lĩnh, Tỉnh Bắc Ninh"
+    }
+  },
+  {
+    "data": {
+      "sample_id": "s3_68696d10fe3860d8",
+      "text": "48C, Bành Văn Trân, Phường Tân Sơn Nhất, Thành phố Hồ Chí Minh"
+    }
+  },
+  {
+    "data": {
+      "sample_id": "s3_1eee2933ccd21ad0",
+      "text": "873, Đường Âu Cơ, Phường Thuận Thành, Tỉnh Bắc Ninh"
+    }
+  },
+  {
+    "data": {
+      "sample_id": "s3_3a0ea0e324d98283",
+      "text": "89, Phố Lý Khánh Văn, Phường Từ Sơn, Tỉnh Bắc Ninh"
+    }
+  },
+  {
+    "data": {
+      "sample_id": "s3_7fe0e02ac7e41cdc",
+      "text": "9, Mã Mây, Phường Hoàn Kiếm, Thành phố Hà Nội"
+    }
+  },
+  {
+    "data": {
+      "sample_id": "s3_d864dd12a9c169d6",
+      "text": "51, Phố Lê Hồng Phong, Phường Ba Đình, Thành phố Hà Nội"
+    }
+  },
+  {
+    "data": {
+      "sample_id": "s3_406fc7891f05bc2a",
+      "text": "25, Đường Dương Ổ, Phường Võ Cường, Tỉnh Bắc Ninh"
+    }
+  },
+  {
+    "data": {
+      "sample_id": "s3_f76f49f8d6885522",
+      "text": "7, Phố Bà Huyện Thanh Quan, Phường Ba Đình, Thành phố Hà Nội"
+    }
+  },
+  {
+    "data": {
+      "sample_id": "s3_6816f0907984be0a",
+      "text": "1350, Đường Nguyễn Trãi, Phường Hạp Lĩnh, Tỉnh Bắc Ninh"
+    }
+  },
+  {
+    "data": {
+      "sample_id": "s3_c68b1ca96c4f5be4",
+      "text": "40, Bành Văn Trân, Phường Tân Sơn Nhất, Thành phố Hồ Chí Minh"
+    }
+  },
+  {
+    "data": {
+      "sample_id": "s3_4e5c8d58266fb206",
+      "text": "2, Đường Phúc Sơn, Phường Vũ Ninh, Tỉnh Bắc Ninh"
+    }
+  },
+  {
+    "data": {
+      "sample_id": "s3_5230a7d17ed4760a",
+      "text": "3, Ngõ 267 Phố Lương Định Của, Phường Phương Liễu, Tỉnh Bắc Ninh"
+    }
+  },
+  {
+    "data": {
+      "sample_id": "s3_438e4e50f599cd2f",
+      "text": "199, Phố Lương Định Của, Phường Phương Liễu, Tỉnh Bắc Ninh"
+    }
+  },
+  {
+    "data": {
+      "sample_id": "s3_ddbc91b9f3260d86",
+      "text": "1213, Đường Quang Trung, Phường Quế Võ, Tỉnh Bắc Ninh"
+    }
+  },
+  {
+    "data": {
+      "sample_id": "s3_224bae3f36763271",
+      "text": "788, Đường Đàm Văn Tiết, Phường Nam Sơn, Tỉnh Bắc Ninh"
+    }
+  },
+  {
+    "data": {
+      "sample_id": "s3_7bfd74301b1fbda6",
+      "text": "101, Phố Quán Thánh, Phường Ba Đình, Thành phố Hà Nội"
+    }
+  },
+  {
+    "data": {
+      "sample_id": "s3_dd14723b5bd3ca76",
+      "text": "29, Phố Hàng Phèn, Phường Hoàn Kiếm, Thành phố Hà Nội"
+    }
+  },
+  {
+    "data": {
+      "sample_id": "s3_193ee8bba9df8734",
+      "text": "40, Đường Rạp Hát, Phường Kinh Bắc, Tỉnh Bắc Ninh"
+    }
+  },
+  {
+    "data": {
+      "sample_id": "s3_ce1215ffa66c136f",
+      "text": "25 - Đường Rạp Hát - P. Kinh Bắc - Bắc Ninh"
+    }
+  },
+  {
+    "data": {
+      "sample_id": "s3_7d9d2bd6ff632625",
+      "text": "32,Ngõ 33 Phạm Tuấn Tài,Dịch Vọng Hậu,Quận Cầu Giấy,TP.HN"
+    }
+  },
+  {
+    "data": {
+      "sample_id": "s3_9fe1a97170d5ce7d",
+      "text": "10,Đường Nguyễn Đăng Đạo,Kinh Bắc,Tỉnh Bắc Ninh"
+    }
+  },
+  {
+    "data": {
+      "sample_id": "s3_49069bc9cf530230",
+      "text": "15,Đường Rạp Hát,P.Tiền Ninh Vệ,Thành phố Bắc Ninh,Bắc Ninh"
+    }
+  },
+  {
+    "data": {
+      "sample_id": "s3_b489935e347b0113",
+      "text": "99,An Dương Vương,16,Quận 8,Thành phố Hồ Chí Minh"
+    }
+  },
+  {
+    "data": {
+      "sample_id": "s3_3dfc3828c9e52f8c",
+      "text": "140; Hùng Vương; An Hội; Vĩnh Long"
+    }
+  },
+  {
+    "data": {
+      "sample_id": "s3_8469a2812a3c9768",
+      "text": "A51 - Đường Nội Khu 1 - P.Tân Phú - Quận 7 - TPHCM"
+    }
+  },
+  {
+    "data": {
+      "sample_id": "s3_39dc8c823d62eb7d",
+      "text": "23B - Phố Lê Hồng Phong - Điện Biên - Quan Ba Dinh - Hà Nội"
+    }
+  },
+  {
+    "data": {
+      "sample_id": "s3_c653b940f299c3cf",
+      "text": "1346; Đường Nguyễn Trãi; P.Hạp Lĩnh; T Bac Ninh"
+    }
+  },
+  {
+    "data": {
+      "sample_id": "s3_e705dab3c4063df5",
+      "text": "37,Đường Lý Thái Tổ,P. Vo Cuong,T. Bắc Ninh"
+    }
+  },
+  {
+    "data": {
+      "sample_id": "s3_e192f19b0b238432",
+      "text": "SH02-07,San Ho 2,Đa Tốn,Gia Lâm,Hà Nội"
+    }
+  },
+  {
+    "data": {
+      "sample_id": "s3_224ae519b196f730",
+      "text": "31 - Núi Thành - Phường 13 - Tân Bình - Thành phố Hồ Chí Minh"
+    }
+  },
+  {
+    "data": {
+      "sample_id": "s3_35525b63dc71e55a",
+      "text": "12 - Phố Nguyễn Xuân Chính - P. Kinh Bac - Tỉnh Bắc Ninh"
+    }
+  },
+  {
+    "data": {
+      "sample_id": "s3_bba5eaeea86f9f12",
+      "text": "01; Đường Nội Khu Mỹ Phú 3A; Tân Phú; Quận 7; Thành phố Hồ Chí Minh"
+    }
+  },
+  {
+    "data": {
+      "sample_id": "s3_9b9eccb66aa33520",
+      "text": "83; Đường Nguyễn Thủ Tiệp; Bac Ninh"
+    }
+  },
+  {
+    "data": {
+      "sample_id": "s3_b4c966dd68e1fd73",
+      "text": "Hẻm 640/20/12 Nguyễn Văn Cừ - Gia Thuy - Long Biên - Hà Nội"
+    }
+  },
+  {
+    "data": {
+      "sample_id": "s3_218d3a425b8b0cee",
+      "text": "Đường Kênh Nam; Phuong Hap Linh; Bắc Ninh"
+    }
+  },
+  {
+    "data": {
+      "sample_id": "s3_ef1a4fc427e9e5da",
+      "text": "22; Ngõ 359 Đường Nguyễn Văn Cừ; Tỉnh Bắc Ninh; P.Vo Cuong"
+    }
+  },
+  {
+    "data": {
+      "sample_id": "s3_7ec6e1bd932176ef",
+      "text": "02; Đường Nội Khu Mỹ Phú 3B; Tân Phú; Quan 7; Thành phố Hồ Chí Minh"
+    }
+  },
+  {
+    "data": {
+      "sample_id": "s3_67e768989943548a",
+      "text": "33; Đường Nguyễn Đăng Đạo; Tỉnh Bắc Ninh"
+    }
+  },
+  {
+    "data": {
+      "sample_id": "s3_747c2f7b136f23cf",
+      "text": "15, Đường Cổ Bi, Cổ Bi, Gia Lâm, Hà Nội"
+    }
+  },
+  {
+    "data": {
+      "sample_id": "s3_22aeaf4ee2f0f604",
+      "text": "359, Đường Nguyễn Văn Cừ, Phường Võ Cường, Thành phố Bắc Ninh, Bắc Ninh"
+    }
+  },
+  {
+    "data": {
+      "sample_id": "s3_d0413145910c2af9",
+      "text": "55, Phố Lê Đại Hành, Lê Đại Hành, Hai Bà Trưng, Hà Nội"
+    }
+  },
+  {
+    "data": {
+      "sample_id": "s3_a1426dafb034e5f6",
+      "text": "18, Ngõ 1 Phạm Tuấn Tài, Phường Dịch Vọng Hậu, Quận Cầu Giấy, Hà Nội"
+    }
+  },
+  {
+    "data": {
+      "sample_id": "s3_878554ae9b7f8f0b",
+      "text": "237/4/66, Hẻm 237/4 Hòa Bình, Hiệp Tân, Tân Phú, Hồ Chí Minh"
+    }
+  },
+  {
+    "data": {
+      "sample_id": "s3_c3abeb01e2e73e91",
+      "text": "961, Đường Hậu Giang, Phường 11, Quận 6, Phường 11"
+    }
+  },
+  {
+    "data": {
+      "sample_id": "s3_1fe92bd0e0b5664f",
+      "text": "44, Phố Trần Phú, Phường Điện Biên, Quận Ba Đình, Hà Nội"
+    }
+  },
+  {
+    "data": {
+      "sample_id": "s3_134df3cb96064476",
+      "text": "4, Ngõ 282 Đường Nguyễn Văn Cừ, Phường Võ Cường, Thành phố Bắc Ninh, Bắc Ninh"
+    }
+  },
+  {
+    "data": {
+      "sample_id": "s3_3271d5524fc50164",
+      "text": "số 02, Công Trường Công Xã Paris, Bến Nghé, Quận 1, Thành phố Hồ Chí Minh"
+    }
+  },
+  {
+    "data": {
+      "sample_id": "s3_3293fb2944eae4f3",
+      "text": "7, Đường Nguyễn Trí Phương, Phường Điện Biên, Quận Ba Đình, Hà Nội"
+    }
+  },
+  {
+    "data": {
+      "sample_id": "s3_39a5dfd0ab38f906",
+      "text": "T2-4, Đường D1, Khu Công Nghệ Cao, Phường Tân Phú, Quận 9, Hồ Chí Minh"
+    }
+  },
+  {
+    "data": {
+      "sample_id": "s3_9ee844c9de7c6718",
+      "text": "837, Đường Tỉnh Lộ 10, Bình Trị Đông B, Bình Tân, Hồ Chí Minh"
+    }
+  },
+  {
+    "data": {
+      "sample_id": "s3_c8b9e756db71e71e",
+      "text": "11, Phố Ngọc Hà, Phường Đội Cấn, Quận Ba Đình, Hà Nội"
+    }
+  },
+  {
+    "data": {
+      "sample_id": "s3_813d3b0d62e9319c",
+      "text": "44B, Phố Lý Thường Kiệt, Trần Hưng Đạo, Hoàn Kiếm, Hà Nội"
+    }
+  },
+  {
+    "data": {
+      "sample_id": "s3_485eed351f54670e",
+      "text": "69, Phố Lãng Yên, Thanh Lương, Hai Bà Trưng, Hà Nội"
+    }
+  },
+  {
+    "data": {
+      "sample_id": "s3_9dfd7906c1c267f5",
+      "text": "435, Đường Nguyễn Văn Cừ, Phường Võ Cường, Thành phố Bắc Ninh, Bắc Ninh"
+    }
+  },
+  {
+    "data": {
+      "sample_id": "s3_2a0462b435133743",
+      "text": "1, Phố Trịnh Hoài Đức, Phường Cát Linh, Quận Đống Đa, Hà Nội"
+    }
+  },
+  {
+    "data": {
+      "sample_id": "s3_2b4e0c5a974f6e81",
+      "text": "21, Ngách 421/4 Hoàng Quốc Việt, Phường Cổ Nhuế 1, Quận Bắc Từ Liêm, Hà Nội"
+    }
+  },
+  {
+    "data": {
+      "sample_id": "s3_0d4334f683047c72",
+      "text": "18, Phố Cao Bá Quát, Phường Điện Biên, Quận Ba Đình, Hà Nội"
+    }
+  },
+  {
+    "data": {
+      "sample_id": "s3_6651e65c6000214b",
+      "text": "11, Phố Khúc Hạo, Phường Điện Biên, Quận Ba Đình, Hà Nội"
+    }
+  },
+  {
+    "data": {
+      "sample_id": "s3_609083843fc9fad7",
+      "text": "6, Phố Kim Đồng, Giáp Bát, Hà Nội"
+    }
+  },
+  {
+    "data": {
+      "sample_id": "s3_98d58db06330840b",
+      "text": "97A, Khu dân cư số 9, Xuân Khánh, Cần Thơ"
+    }
+  },
+  {
+    "data": {
+      "sample_id": "s3_8dd4536611f09a74",
+      "text": "76, Phố Tô Hiến Thành, Lê Đại Hành, Hà Nội"
+    }
+  },
+  {
+    "data": {
+      "sample_id": "s3_895748de4265665a",
+      "text": "9, Ngách 41/6 Trần Quốc Hoàn, P Dịch Vọng Hậu, TP. Hà Nội"
+    }
+  },
+  {
+    "data": {
+      "sample_id": "s3_c9ceb4918634b3b6",
+      "text": "65, Phan Đình Phùng, Tân An, Cần Thơ"
+    }
+  },
+  {
+    "data": {
+      "sample_id": "s3_f5ce444c590a9470",
+      "text": "Phố Hoà Đình, P. Võ Cường, Bắc Ninh"
+    }
+  },
+  {
+    "data": {
+      "sample_id": "s3_46fc075129e61ead",
+      "text": "Đường Cầu Rồng, Võ Cường, Tỉnh Bắc Ninh"
+    }
+  },
+  {
+    "data": {
+      "sample_id": "s3_d2f8365c992a0602",
+      "text": "Đường Phạm Văn Đồng, Mai Dịch, Q. Cầu Giấy, Hà Nội"
+    }
+  },
+  {
+    "data": {
+      "sample_id": "s3_acf4b641c53cef77",
+      "text": "Đường Nguyễn Thủ Tiệp, P.Hạp Lĩnh, Tỉnh Bắc Ninh"
+    }
+  },
+  {
+    "data": {
+      "sample_id": "s3_0c36533dbc209916",
+      "text": "Đường Kinh Bắc 44, P.Kinh Bắc, Tỉnh Bắc Ninh"
+    }
+  },
+  {
+    "data": {
+      "sample_id": "s3_65c8148f6e5255cd",
+      "text": "8, Phố Phạm Tuấn Tài, Quận Cầu Giấy, Hà Nội"
+    }
+  },
+  {
+    "data": {
+      "sample_id": "s3_d6c4799c4af226c5",
+      "text": "91, Đường Hoàng Quốc Việt, Thành phố Hà Nội"
+    }
+  },
+  {
+    "data": {
+      "sample_id": "s3_e5236850d0f001b7",
+      "text": "90, Đường Hữu Chấp, Tỉnh Bắc Ninh"
+    }
+  },
+  {
+    "data": {
+      "sample_id": "s3_36ce325b8153d921",
+      "text": "26, Phố Trần Quốc Hoàn, Quận Cầu Giấy, Hà Nội"
+    }
+  },
+  {
+    "data": {
+      "sample_id": "s3_d60e564cebfafcfa",
+      "text": "100, Đường Hữu Chấp, Tỉnh Bắc Ninh"
+    }
+  },
+  {
+    "data": {
+      "sample_id": "s3_876e4794db1a2ac5",
+      "text": "Ngõ 71 Lê Hồng Phong, Thành phố Hà Nội"
+    }
+  },
+  {
+    "data": {
+      "sample_id": "s3_edc2f440402d8a1b",
+      "text": "Đường Nội Khu 02, Quận 7, Thành phố Hồ Chí Minh"
+    }
+  },
+  {
+    "data": {
+      "sample_id": "s3_1ab8c7508e67a681",
+      "text": "Đường Nội Khu Mỹ Thái 3, Q 7, Thành phố Hồ Chí Minh"
+    }
+  },
+  {
+    "data": {
+      "sample_id": "s3_436cbb10fbd8413e",
+      "text": "Phố Lương Định Của, Thị xã Quế Võ, Bắc Ninh"
+    }
+  },
+  {
+    "data": {
+      "sample_id": "s3_551f805f01393c90",
+      "text": "Đường Hai Bà Trưng, T. Bắc Ninh"
+    }
+  },
+  {
+    "data": {
+      "sample_id": "s3_38b0ef3084056c55",
+      "text": "18, Phố Hàng Cót, Phường Hoàn Kiếm, Quận Hoàn Kiếm, Hà Nội"
+    }
+  },
+  {
+    "data": {
+      "sample_id": "s3_b67a4b92a2bc3594",
+      "text": "37, Đường Đặng Thùy Trâm, Phường Bình Lợi Trung, Quận Bình Thạnh, Thành Phố Hồ Chí Minh"
+    }
+  },
+  {
+    "data": {
+      "sample_id": "s3_d56c59553ff6e798",
+      "text": "147, Đường Trần Lựu, Phường Vũ Ninh, Thành phố Bắc Ninh, Bắc Ninh"
+    }
+  },
+  {
+    "data": {
+      "sample_id": "s3_b31fcec975e1a8f5",
+      "text": "24, Phố Lý Khánh Văn, Phường Từ Sơn, Thành phố Từ Sơn, Tỉnh Bắc Ninh"
+    }
+  },
+  {
+    "data": {
+      "sample_id": "s3_50949186430b2944",
+      "text": "37, Phố Đức Chính, Phường Ba Đình, Quận Ba Đình, Hà Nội"
+    }
+  },
+  {
+    "data": {
+      "sample_id": "s3_6a0b280666d42f74",
+      "text": "1A, Đường Võ Cường 10, Phường Võ Cường, Thành phố Bắc Ninh, Bắc Ninh"
+    }
+  },
+  {
+    "data": {
+      "sample_id": "s3_4f0e478a2150998f",
+      "text": "57, Đường Trần Hưng Đạo, Phường Kinh Bắc, Thành phố Bắc Ninh, Bắc Ninh"
+    }
+  },
+  {
+    "data": {
+      "sample_id": "s3_090d7550452b1e57",
+      "text": "3, Ngõ 50 Phố Trần Bình Trọng, Phường Phương Liễu, Thị xã Quế Võ, Bắc Ninh"
+    }
+  },
+  {
+    "data": {
+      "sample_id": "s3_63b0f7baf1789d3a",
+      "text": "109, Bành Văn Trân, Phường Tân Sơn Nhất, Quận Tân Bình, Thành phố Hồ Chí Minh"
+    }
+  },
+  {
+    "data": {
+      "sample_id": "s3_60b94ebe212ff6f7",
+      "text": "678, Đường Hoàng Quốc Việt, Phường Vũ Ninh, Thành phố Bắc Ninh, Bắc Ninh"
+    }
+  },
+  {
+    "data": {
+      "sample_id": "s3_e64a931f475f80a7",
+      "text": "114, Phố Bồ Sơn, Phường Võ Cường, Thành phố Bắc Ninh, Tỉnh Bắc Ninh"
+    }
+  },
+  {
+    "data": {
+      "sample_id": "s3_c37e081c3cf296c2",
+      "text": "4, Ngõ 267 Phố Lương Định Của, Phường Phương Liễu, Thị xã Quế Võ, Tỉnh Bắc Ninh"
+    }
+  },
+  {
+    "data": {
+      "sample_id": "s3_286f57285d727381",
+      "text": "41, Đường Trần Hưng Đạo, Phường Kinh Bắc, Thành phố Bắc Ninh, Tỉnh Bắc Ninh"
+    }
+  },
+  {
+    "data": {
+      "sample_id": "s3_e4d8bcc1bbebe2e4",
+      "text": "52, Đường Đấu Mã, Phường Vũ Ninh, Thành phố Bắc Ninh, Tỉnh Bắc Ninh"
+    }
+  },
+  {
+    "data": {
+      "sample_id": "s3_e7cca64b0cdaf324",
+      "text": "432, Đường Hoàng Quốc Việt, Phường Vũ Ninh, Thành phố Bắc Ninh, Tỉnh Bắc Ninh"
+    }
+  },
+  {
+    "data": {
+      "sample_id": "s3_e51c371f88c1390a",
+      "text": "164, Đường Hai Bà Trưng, Phường Tiền Ninh Vệ, Thành phố Bắc Ninh, Tỉnh Bắc Ninh"
+    }
+  },
+  {
+    "data": {
+      "sample_id": "s3_de54eab9bef0ac8c",
+      "text": "185, Đường Trần Hưng Đạo, Phường Tiền Ninh Vệ, Thành phố Bắc Ninh, Tỉnh Bắc Ninh"
+    }
+  },
+  {
+    "data": {
+      "sample_id": "s3_d6c824a334a8c994",
+      "text": "898, Đường Quang Trung, Phường Phượng Mao, Thị xã Quế Võ, Tỉnh Bắc Ninh"
+    }
+  },
+  {
+    "data": {
+      "sample_id": "s3_8a678089c5da3fde",
+      "text": "167, Đường Nguyễn Cao, Phường Tiền Ninh Vệ, Thành phố Bắc Ninh, Tỉnh Bắc Ninh"
+    }
+  },
+  {
+    "data": {
+      "sample_id": "s3_ba7418c98bb7cc84",
+      "text": "148, Đường Hai Bà Trưng, Phường Tiền Ninh Vệ, Thành phố Bắc Ninh, Tỉnh Bắc Ninh"
+    }
+  }
+]

@@ -2,6 +2,8 @@
 
 Dự án tạo dữ liệu địa chỉ tiếng Việt trước/sau thay đổi hành chính 2025.
 
+**Bàn giao gán nhãn Sprint 3 (01/10/2026):** chủ dự án theo [hướng dẫn 68/232 có prediction](docs/sprints/sprint_03/09_label_studio_400_step_by_step.md); partner nhận [gói 100 test mù có task/XML/guideline](docs/sprints/sprint_03/annotation_handoff/test100_v1/README.md) trên nhánh `print3_label100test`. GitHub cung cấp tệp; Label Studio chạy trên máy người gán. Gói test đã qua preflight với 138 quyết định người, sẵn sàng gán theo protocol v1.0; annotation vẫn cần QA và duyệt gold sau export.
+
 ## Cấu trúc dự án
 
 ```text
@@ -52,6 +54,7 @@ DACN/
 │   ├── 18_audit_corpus_split.py              Audit rò rỉ group, benchmark và gần trùng SequenceMatcher
 │   ├── 19_build_temporal_gazetteer_v2.py     Dựng/tra cứu gazetteer s3_v2 độc lập, tách mã cũ candidate
 │   ├── 20_prepare_batch02_predictions.py     Gợi ý span từ text cho batch 02 train/dev
+│   ├── 21_prepare_source_reannotation.py      Candidate 68/232 có trace nguồn và kiểm ranh giới
 │   └── build_baseline_dashboard.py            Sinh dashboard theo run
 ├── src/
 │   ├── data/administrative_mapping.py       Đồ thị ánh xạ đơn vị hành chính 2025

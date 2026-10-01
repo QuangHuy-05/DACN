@@ -123,11 +123,13 @@ scripts/
   18_audit_corpus_split.py                  Audit rò rỉ group, benchmark và gần trùng SequenceMatcher
   19_build_temporal_gazetteer_v2.py          Build/lookup gazetteer s3_v2 độc lập, tách mã cũ candidate
   20_prepare_batch02_predictions.py           Gợi ý span từ text cho batch 02 train/dev; không dùng test
+  21_prepare_source_reannotation.py           Gói candidate 68/232 có trace; output version riêng
 
 src/
   data/administrative_mapping.py            Nạp/kiểm tra đồ thị ánh xạ hành chính nguyên tử
   data/administrative_alias.py              Alias OSM đã kiểm chứng; ghi vết từng thay đổi khi audit
   data/coverage_reporter.py                 Tổng hợp coverage theo nguồn, quan hệ, vùng, hình học, hình thức
+  data/span_trace.py                        Render/align component với offset; abstain khi match mơ hồ
   data/osm_extractor.py                     Parse lịch sử OSM, làm sạch tag
   data/noise_profiler.py                    Đo nhiễu trên tập hóa đơn
   data/synthetic/raw_noisy.py               Sinh Data 2 nhiễu tổng hợp có ground truth
@@ -226,10 +228,11 @@ Repository hiện chưa có cấu hình linter/formatter Python riêng. Không t
 - Batch 02 có 232 ứng viên train/dev, test hold có 100 mẫu benchmark. Import Label Studio chỉ chứa `sample_id` và `text`. Preflight phân bổ 240 train / 60 dev / 100 test, đăng ký 172 nguồn cha và yêu cầu phân xử 138 cặp gần giống. Prediction chỉ tạo cho batch 02 train/dev.
 - Gazetteer `data/processed/gazetteer/s3_v2/` gồm 14.149 entity, 10.597 cạnh cấp xã, 187 alias audit, và 5 chuyển đổi cấp huyện→đặc khu tra được qua lookup. 10.035 mã xã cũ vẫn là ứng viên bên thứ ba. Mã xã mới khớp bảng ánh xạ trong repo; xuất xứ và giấy phép bên ngoài của bảng còn cần xác minh. Trạng thái `PARTIAL_OLD_CODES_UNVERIFIED`.
 - Các kiểm thử Sprint 3 liên quan đã qua; bộ kiểm thử toàn repo cần chạy trong WSL có `osmium` và `vietnamadminunits`.
+- Ngày 01/10/2026, bộ kiểm thử toàn repo đạt 64/64 trong WSL. Gói `reannotation_v2_release1` giữ nguyên 68 + 232 ID/text, có 245 + 1.059 span và 473 mục review; một thành phần số nhà được abstain vì ranh giới. Chủ dự án chọn prediction cho cả 68 và 232, nên agreement độc lập `NOT_MEASURED`. Gói test-only có version/hash tại `docs/sprints/sprint_03/annotation_handoff/test100_v1/`, nhánh `print3_label100test`, sẵn sàng gán mù theo protocol v1.0 trong lần bàn giao do chủ dự án yêu cầu. 138 quyết định `distinct` có lý do/người duyệt Huy đã được áp dụng; preflight mới đạt `AUDIT_PASS_WITH_HUMAN_NEAR_DUP_REVIEW` trong `split_preflight_review_20261001/`.
 
 Chưa hoàn thiện hoặc chưa có nguồn đủ mạnh:
 
-- Corpus T0 train/dev/test hoàn chỉnh: Batch 02 (232 mẫu), test benchmark (100 mẫu) và 138 cặp gần giống đang chờ người gán/duyệt trước khi ghép thành `corpus_v1/`.
+- Corpus T0 train/dev/test hoàn chỉnh: lượt rà 68 pilot, Batch 02 (232 mẫu) và test benchmark (100 mẫu) đang chờ export/người duyệt trước khi ghép thành `corpus_v1/`; cổng 138 cặp gần giống đã qua preflight với quyết định người ngày 01/10, cần audit lại theo gold cuối khi đóng gói.
 - Agreement giữa người gán `NOT_MEASURED` vì mới có một người gán độc lập.
 - Rà soát PII/quyền sử dụng và ID tài liệu của VQA; không dùng VQA cho train/dev/test khi chưa qua clearance (trạng thái `HOLD`).
 - Data 05 địa chỉ thật có mốc và hướng đang tạm hoãn (`DEFERRED_BY_USER`); ví dụ tổng hợp không được tính là dữ liệu quan sát.

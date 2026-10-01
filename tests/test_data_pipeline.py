@@ -1,9 +1,13 @@
 import tempfile
 import unittest
 import importlib.util
+import importlib
 import csv
+import json
+import sys
 from datetime import datetime, timezone
 from pathlib import Path
+from unittest.mock import patch
 
 import pandas as pd
 
@@ -19,6 +23,7 @@ from src.data.synthetic.missing_fields import (
     validate_missing_surface,
 )
 from src.data.synthetic.raw_noisy import generate_raw_noisy_addresses
+from src.data.span_trace import Component, align_unique, render_components
 
 
 class FakeElement:
@@ -527,6 +532,72 @@ class DataPipelineTests(unittest.TestCase):
         run1 = generate_missing_fields(old, new, target_size=10, seed=123)
         run2 = generate_missing_fields(old, new, target_size=10, seed=123)
         self.assertEqual(run1.to_csv(index=False), run2.to_csv(index=False))
+
+
+class SourceReannotationTests(unittest.TestCase):
+    def test_component_offsets_and_ambiguous_repeated_surface(self):
+        components = [Component("SoNha", "12", "12", "cu"),
+                      Component("TenDuong", "Đường 12", "Đường 12", "cu")]
+        text, placed = render_components(components)
+        self.assertEqual(text, "12, Đường 12")
+        self.assertEqual([(p["start"], p["end"]) for p in placed], [(0, 2), (4, 12)])
+        self.assertEqual(align_unique("Phường 7, Phường 7", [
+            Component("PhuongXa", "Phường 7", "Phường 7", "cu")])[1],
+            "ambiguous_or_missing_ordered_surface")
+
+    def test_frozen_reannotation_package_has_trace_and_no_leakage(self):
+        generator = importlib.import_module("scripts.21_prepare_source_reannotation")
+        prediction_import = importlib.import_module("scripts.15_import_pilot_predictions")
+        with tempfile.TemporaryDirectory() as folder:
+            output = Path(folder) / "v2"
+            with patch.object(sys, "argv", ["prepare", "--output-dir", str(output)]):
+                generator.main()
+            with patch.object(sys, "argv", ["prepare", "--output-dir", str(output)]):
+                with self.assertRaises(FileExistsError):
+                    generator.main()
+            pilot = json.loads((output / "pilot68_candidates.json").read_text(encoding="utf-8"))
+            batch = json.loads((output / "batch232_candidates.json").read_text(encoding="utf-8"))
+            self.assertEqual(len(pilot), 68)
+            self.assertEqual(len(batch), 232)
+            prediction_import.validate_candidates(output / "pilot68_candidates.json", 68)
+            prediction_import.validate_candidates(output / "batch232_candidates.json", 232)
+            trace = {row["sample_id"]: row for row in (
+                json.loads(line) for line in (output / "trace.jsonl").read_text(encoding="utf-8").splitlines())}
+            self.assertEqual(len(trace), 300)
+            frozen_test = {row["sample_id"] for row in json.loads(
+                (generator.BASE / "test_hold_manifest_v1.json").read_text(encoding="utf-8"))["samples"]}
+            self.assertFalse({record["sample_id"] for record in pilot + batch} & frozen_test)
+            for name, records in (("pilot68", pilot), ("batch232", batch)):
+                tasks = json.loads((output / f"{name}_import.json").read_text(encoding="utf-8"))
+                self.assertEqual([task["data"] for task in tasks], [
+                    {"sample_id": record["sample_id"], "text": record["text"]} for record in records])
+                self.assertTrue(all(set(task) == {"data"} and set(task["data"]) == {"sample_id", "text"}
+                                    for task in tasks))
+            for record in pilot + batch:
+                item_trace = trace[record["sample_id"]]
+                traced = {(part["start"], part["end"], part["field"]): part
+                          for part in item_trace["components"] if part["match_status"] == "exact"}
+                previous_end = 0
+                for span in record["spans"]:
+                    self.assertGreaterEqual(span["start"], previous_end)
+                    self.assertEqual(record["text"][span["start"]:span["end"]], span["text"])
+                    self.assertIn(span["label"], generator.LABELS)
+                    self.assertIn(span["system"], generator.SYSTEMS)
+                    if span["label"] in {"SoNha", "TenDuong"}:
+                        self.assertEqual(span["system"], "khong_xac_dinh")
+                    if span["label"] == "QuanHuyen":
+                        self.assertEqual(span["system"], "cu")
+                    part = traced[(span["start"], span["end"], span["label"])]
+                    self.assertEqual(part["span_system_candidate"], span["system"])
+                    self.assertIn("evidence", part)
+                    previous_end = span["end"]
+                if item_trace["stratum"] == "osm_new_2tier":
+                    self.assertNotIn("QuanHuyen", [span["label"] for span in record["spans"]])
+                if item_trace["stratum"] == "synthetic_missing":
+                    missing = [part["field"] for part in item_trace["components"]
+                               if part["match_status"] == "absent_by_generator"]
+                    self.assertEqual(len(missing), 1)
+                    self.assertNotIn(missing[0], [span["label"] for span in record["spans"]])
 
 
 if __name__ == "__main__":
