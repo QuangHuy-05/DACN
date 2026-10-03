@@ -1,0 +1,20 @@
+{
+  "model_family": "DP-FT-FT",
+  "status": "TEMPLATE_PENDING_NOT_VERIFIED",
+  "components": {
+    "base_checkpoint": {
+      "path": "data/interim/modeling/resources/deepparse_cache",
+      "revision": null,
+      "license_status": "PENDING",
+      "files": {},
+      "source_url": "https://huggingface.co/deepparse/fasttext-base"
+    },
+    "embedding": {
+      "path": "data/interim/modeling/resources/deepparse_cache",
+      "revision": null,
+      "license_status": "PENDING",
+      "files": {},
+      "source_url": "https://deepparse.org/get_started/get_started.html"
+    }
+  }
+}

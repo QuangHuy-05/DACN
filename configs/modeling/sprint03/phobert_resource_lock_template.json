@@ -1,0 +1,27 @@
+{
+  "model_family": "PHOBERT",
+  "status": "TEMPLATE_PENDING_NOT_VERIFIED",
+  "components": {
+    "encoder": {
+      "path": "data/interim/modeling/resources/encoder",
+      "revision": null,
+      "license_status": "PENDING",
+      "files": {},
+      "source_url": "https://huggingface.co/vinai/phobert-base"
+    },
+    "tokenizer": {
+      "path": "data/interim/modeling/resources/tokenizer",
+      "revision": null,
+      "license_status": "PENDING",
+      "files": {},
+      "source_url": "https://huggingface.co/vinai/phobert-base"
+    },
+    "segmenter": {
+      "path": "data/interim/modeling/resources/segmenter",
+      "revision": null,
+      "license_status": "PENDING",
+      "files": {},
+      "source_url": "https://github.com/vncorenlp/VnCoreNLP"
+    }
+  }
+}

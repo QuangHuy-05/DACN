@@ -1,0 +1,25 @@
+{
+  "version": "dp_native_literal_v1",
+  "model_id": "DP-ZS-FT",
+  "status": "IMPLEMENTED_NOT_VALIDATED_WITH_REAL_MODEL_BLOCKED_RAM",
+  "mapping": {
+    "StreetNumber": {"label": "SoNha", "reason": "Native house-number tag; literal predicted token group"},
+    "StreetName": {"label": "TenDuong", "reason": "Native street-name tag; literal predicted token group"},
+    "Municipality": {"label": null, "rule": "Explicit ward/district/province prefix only; city/tp and bare names abstain"},
+    "Province": {"label": null, "rule": "Same explicit surface-prefix rule; native tag alone does not identify Vietnamese level"},
+    "Unit": {"label": null, "reason": "Unit is broader than a building/apartment under span11"},
+    "Orientation": {"label": null, "reason": "Postal orientation does not establish a movement direction"},
+    "GeneralDelivery": {"label": null, "reason": "Native tag does not establish Khac or GhiChu"},
+    "PostalCode": {"label": null, "reason": "No postal-code target class"},
+    "EOS": {"label": null, "reason": "Control tag"}
+  },
+  "administrative_prefixes": {
+    "PhuongXa": ["phường", "xã", "thị trấn", "đặc khu", "p.", "x.", "tt."],
+    "QuanHuyen": ["quận", "huyện", "thị xã", "q.", "h.", "tx."],
+    "TinhThanh": ["tỉnh"]
+  },
+  "alignment": "Complete ordered raw whitespace/non-comma token stream; lowercase must preserve character lengths; groups never cross commas; reject mismatches and multiple explicit admin units in a native group",
+  "zero_shot": true,
+  "t1_implemented": false,
+  "source": "https://deepparse.org/_modules/deepparse/parser/formatted_parsed_address.html"
+}

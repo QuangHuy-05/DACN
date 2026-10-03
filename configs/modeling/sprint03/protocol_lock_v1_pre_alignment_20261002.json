@@ -1,0 +1,19 @@
+{
+  "version": "s3-training-v1",
+  "locked_at": "2026-10-02",
+  "training_executed": false,
+  "config_canonical_sha256": {
+    "dp_ft_ft_v1.json": "7b4c2f8661a5f9dd340bf4e98c414709283c6bfedd031f40e94b632581207cb3",
+    "phobert_crf_v1.json": "b4fcc80bbf6e4af886e029364bc221779d0b1208908c49d1996ea9cdd3ca9f37",
+    "proposed_dyn_v1.json": "fe7591488fe8eb42fdccbb1eac82165c0d0f713217effcef7e7eeecc053fc378",
+    "proposed_no_constraint_v1.json": "9318bb14e18d4307ea441a2f33d4f1b5a7445e50399d08a45d825fa970f7254f"
+  },
+  "file_sha256": {
+    "dp_ft_ft_v1.json": "b9a0d85ae884eb0d9652e480418b2f76e69bbe61693b53bf53328f3e0e524067",
+    "phobert_crf_v1.json": "fefe9e0746dd7e1c09187481cf10a0a7c57f648efbf04a1f132264fd559bc8a4",
+    "proposed_dyn_v1.json": "89fcd119308de1b5f87ffa43fde75282ef8592a03ec2c870c93e79036e15d2f9",
+    "proposed_no_constraint_v1.json": "4f4f0e7c4bc45e0464378e884935f45117ac223172c0e6c455706b0f1097abfb",
+    "tuning_protocol_v1.json": "9af07df05c3026dd468e60a4cccb25607f25ebd895f757b4d30484a393875b5d"
+  },
+  "document_sha256": "f22834131d5305666b74b43a61ca01a61e02c0ebad7ee786ec313cbbef557ef6"
+}

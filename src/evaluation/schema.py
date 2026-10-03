@@ -124,6 +124,9 @@ class SpanModelOutput:
     abstain: bool = False
     latency_ms: float = 0.0
     trace: dict[str, Any] = field(default_factory=dict)
+    status: str = "ok"
+    raw_output: Any = None
+    error: str | None = None
 
     def to_dict(self) -> dict[str, Any]:
         return {
@@ -134,6 +137,9 @@ class SpanModelOutput:
             "abstain": self.abstain,
             "latency_ms": self.latency_ms,
             "trace": self.trace,
+            "status": self.status,
+            "raw_output": self.raw_output,
+            "error": self.error,
         }
 
     def to_standard_5_fields(self) -> StandardPrediction:

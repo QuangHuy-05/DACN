@@ -1,0 +1,20 @@
+{
+  "version": "s3-light-followup-v1",
+  "seed": 42,
+  "corpus": "data/processed/annotation/sprint03/corpus_train_dev_v2",
+  "gazetteer": "data/processed/gazetteer/s3_v4_nso_dual_snapshot",
+  "heur_new_rule_versions": ["heur_jw_compact_prefix_dual_snapshot_v4"],
+  "heur_threshold_grid": [0.82, 0.86, 0.90, 0.94, 0.98, 1.0],
+  "heur_margin": 0.02,
+  "heur_selection": "max all-schema dev exact-span micro F1, ties higher threshold",
+  "crf_new_feature_versions": ["surface_admin_segment_cue_v2"],
+  "crf_context_grid": [1, 2],
+  "crf_regularization_pairs": [[0.05, 0.1], [0.1, 0.1], [0.1, 1.0], [0.5, 1.0]],
+  "crf_max_iterations": 100,
+  "crf_selection": "max all-schema dev exact-span micro F1, ties smaller context, larger c2, larger c1",
+  "trial_budget": {"heur_new_runs": 6, "crf_new_runs": 8},
+  "projection": "existing literal span labels to five fields; source order, comma joined repeats",
+  "benchmark_selection": "NOT_PERMITTED: all config choices frozen before five-field scoring",
+  "test100": "NOT_READ_NOT_USED",
+  "neural_training": "DEFERRED_BY_USER"
+}

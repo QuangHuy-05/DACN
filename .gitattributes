@@ -1,2 +1,9 @@
 # Preserve the bytes referenced by the portable annotation package SHA-256 manifest.
 docs/sprints/sprint_03/annotation_handoff/test100_v1/* -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+# These profiles/configs are locked by byte hashes and must survive Windows clones.
+configs/modeling/sprint03/*.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+configs/colab/sprint03/* -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+configs/experiments/sprint03/*.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+configs/deepparse_native_mapping_v1.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+notebooks/sprint03/*.ipynb -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+docs/sprints/sprint_03/17_training_protocol_v1.md -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol

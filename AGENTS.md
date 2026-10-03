@@ -124,6 +124,16 @@ scripts/
   19_build_temporal_gazetteer_v2.py          Build/lookup gazetteer s3_v2 độc lập, tách mã cũ candidate
   20_prepare_batch02_predictions.py           Gợi ý span từ text cho batch 02 train/dev; không dùng test
   21_prepare_source_reannotation.py           Gói candidate 68/232 có trace; output version riêng
+  22_review_and_package_train_dev.py          Review nội dung, audit frozen split, candidate có cách ly
+  23_run_span_dev.py                          Runner dev chỉ nhận text-only và corpus đã qua gate
+  24_score_span_dev.py                        Chấm T0/T1 dev riêng sau inference; kiểm hash/version
+  25_publish_train_dev.py                     Phát hành train/dev đã duyệt, kiểm hash, giữ ngoại lệ và từ chối ghi đè
+  30_prepare_model_training_data.py            Alignment/BIO dẫn xuất 240/60; không tải model hoặc train
+  31_train_deepparse_finetuned.py              Pipeline DP-FT-FT có resource/API gate; native integration pending
+  32_train_phobert_crf.py                      Pipeline encoder + CRF thật; Torch/processor integration pending
+  33_train_proposed_dynamic.py                 T0/T1 mask + giải mã confidence + cùng-checkpoint ablation
+  34_audit_modeling_artifacts.py               Audit read-only preparation/checkpoint/prediction và frozen hash
+  35_verify_gazetteer_sources.py               Reference verifier exact theo cha/ngày; không sửa s3_v2
 
 src/
   data/administrative_mapping.py            Nạp/kiểm tra đồ thị ánh xạ hành chính nguyên tử
@@ -138,6 +148,7 @@ src/
   data/synthetic/bidirectional.py           Sinh cặp ánh xạ với bằng chứng OSM hoặc đích duy nhất
   evaluation/                               Adapter, scorer, protocol và run manifest
   utils/text_normalize.py                   Chuẩn hóa văn bản và vùng miền
+  modeling/                                Alignment, BIO, trainer, CRF, T1, checkpoint, protocol và resource gate
 
 tests/
   test_data_pipeline.py                     Kiểm thử hồi quy pipeline
@@ -218,6 +229,8 @@ Repository hiện chưa có cấu hình linter/formatter Python riêng. Không t
 
 ## 9. Trạng thái thực hiện
 
+**P0/U1–U6 trước Colab, lượt tiếp tục 03/10/2026:** evidence `data/interim/modeling/sprint03/pre_colab_20261003_resume_v1/`. SOAP NSO 30/06/2025:63/686/9843;1429 row parent-link gaps không promote. Exact verified8607 mã cũ (62 tỉnh/561 huyện/7984 xã),2187 unresolved. Gazetteer mới `s3_v4_nso_dual_snapshot` và metadata release `s3_v4_nso_dual_snapshot_release2`, giữ14149entity/10597edge/187alias/5non-atomic, tổng11962 code evidence cùng3355 mã mới từ v3; chỉ hai snapshot cu2025-06-30/moi2025-07-01, không suy legal interval. Nguồn/CSV redistributionterms chưa rõ nên rawsource và gói mới giữ local. HEURrulev4 sweep6candidate F1dev88.01% (không cải thiện); CRFfeaturev2 grid8candidate chosenctx1,c1=.1,c2=1 F1dev90.56%, T1NOT_IMPLEMENTED. Track5field4800rows excluded100hold F181.99%/85.59%. Mọi inference text-only; task543maskT1,giữT0.16newruns audited,550frozenhash+4rawsize unchanged;actualalignment300/300 evidencehash verified. Không cài package/model mới local (0bytes); chuẩn bị CUDA128profile riêng/Python3.11, notebook,bundles,code CLI DPzero gatedlicense/hash/10GiBhostRAM, không nativefullpretrained run. Colab/neuraltraining/test100 NOT_EXECUTED. Đọc reports31–36/readiness final để lấy tests/GitSHA/GB thực đo; không suy Sprint3 hoàn tất chỉ vì bàn giao code. Giữ nhánh partner `print3_label100test`, code lên `sprint3_huy`; không stage rawexport/venv/cache/weights/interim/source chưa rõ quyền dùng.
+
 Đã có trong repository:
 
 - Trích xuất snapshot OSM cũ và các thay đổi địa chỉ từ lịch sử OSM.
@@ -229,16 +242,23 @@ Repository hiện chưa có cấu hình linter/formatter Python riêng. Không t
 - Gazetteer `data/processed/gazetteer/s3_v2/` gồm 14.149 entity, 10.597 cạnh cấp xã, 187 alias audit, và 5 chuyển đổi cấp huyện→đặc khu tra được qua lookup. 10.035 mã xã cũ vẫn là ứng viên bên thứ ba. Mã xã mới khớp bảng ánh xạ trong repo; xuất xứ và giấy phép bên ngoài của bảng còn cần xác minh. Trạng thái `PARTIAL_OLD_CODES_UNVERIFIED`.
 - Các kiểm thử Sprint 3 liên quan đã qua; bộ kiểm thử toàn repo cần chạy trong WSL có `osmium` và `vietnamadminunits`.
 - Ngày 01/10/2026, bộ kiểm thử toàn repo đạt 64/64 trong WSL. Gói `reannotation_v2_release1` giữ nguyên 68 + 232 ID/text, có 245 + 1.059 span và 473 mục review; một thành phần số nhà được abstain vì ranh giới. Chủ dự án chọn prediction cho cả 68 và 232, nên agreement độc lập `NOT_MEASURED`. Gói test-only có version/hash tại `docs/sprints/sprint_03/annotation_handoff/test100_v1/`, nhánh `print3_label100test`, sẵn sàng gán mù theo protocol v1.0 trong lần bàn giao do chủ dự án yêu cầu. 138 quyết định `distinct` có lý do/người duyệt Huy đã được áp dụng; preflight mới đạt `AUDIT_PASS_WITH_HUMAN_NEAR_DUP_REVIEW` trong `split_preflight_review_20261001/`.
+- Ngày 02/10/2026, nhiệm vụ 1–4 đã phát hành `data/processed/annotation/sprint03/corpus_train_dev_v2/`: 240 train / 60 dev, 1.057 / 284 span, `TRAIN_DEV_APPROVED_TEST_PENDING`. Snapshot batch cuối `e4d4f60b...`; QA 68/68 + 232/232, audit 138 cặp PASS và canonical khớp raw. Chủ dự án chốt giữ 537/543; 543 giữ PhuongXa/cu cùng T1 moi nên ghi ngoại lệ `APPROVED_WITH_DECLARED_EXCEPTIONS`, chỉ mask T1 (ID `s3_60931c369cbd85ef`), giữ toàn bộ T0. Agent huấn luyện/chấm sau này phải đọc `evaluation_exclusions.t1`; không sửa nhãn raw hoặc mặc định coi ngoại lệ là gold T1 nhất quán. Script 22/25 ghi quyết định gắn hash và phát hành bất biến; 23/24 tách inference text-only khỏi gold và tự mask T1 khi chấm. 87/87 test toàn repo, 18/18 span/CLI Python 3.11 PASS. Xem `docs/sprints/sprint_03/13_tasks_01_04_completion_20261002.md`.
+
+**Cập nhật U1–U7 ngày02/10/2026:** đã triển khai `src/modeling/`, ba adapter neural, scripts30–35, configs/protocol `s3-training-v1` khóa hash và verifier mã hành chính. Derivative hiện hành `data/interim/modeling/sprint03/seven_priorities_20261002_v1/prepared_v3/`: raw và DP surface **240/240 + 60/60 EXACT**, giữ1057+284 span,0 unrepresentable; T1eligible206/53 theo manifest, giữ T0 của543. PhoBERT raw-offset processor có fixture tests nhưng coverage tokenizer/segmenter thật vẫn pending. Không cài/tải dependency hoặc pretrained mới; Torch/Transformers/Deepparse/Poutyne/py-vncorenlp/Java thiếu, RAM fullFastText và đĩa lưu checkpoint chưa đủ. Tất cả neural integration `INTEGRATION_PENDING_RESOURCE`, training `TRAINING_DEFERRED_BY_USER`; chưa có prediction/metric neural thật. Bộ49 test mới **42 PASS/7 SKIP**; toàn repo **151=143 PASS+8 SKIP**, runtime3.11 **80=73 PASS+7 SKIP**,0FAIL. AST28file/import27module/help6/preflight3 PASS; preflight thiếu tài nguyên exit2. Audit246file frozen giữ nguyên hash. Gazetteer giữ partial,0 mã mới được nâng trạng thái; lookup/verifier giữ zero đầu, khóa cha, ngày và mọi đích. Xem `docs/sprints/sprint_03/19_seven_priorities_implementation_report.md`, protocol17, inventory18 và nguồn20. Colab và mọi công việc test100 tạm gác. Không gọi code/unit test là tích hợp pretrained đã xác minh; không mở training trước khi được phép và các cổng resource/integration đã qua.
 
 Chưa hoàn thiện hoặc chưa có nguồn đủ mạnh:
 
-- Corpus T0 train/dev/test hoàn chỉnh: lượt rà 68 pilot, Batch 02 (232 mẫu) và test benchmark (100 mẫu) đang chờ export/người duyệt trước khi ghép thành `corpus_v1/`; cổng 138 cặp gần giống đã qua preflight với quyết định người ngày 01/10, cần audit lại theo gold cuối khi đóng gói.
+**Follow-up sáu việc 03/10/2026 (thay trạng thái resource pending cũ):** đã audit615ca (584xã+26huyện+5huyện thiếu mã), tái tạo counts;0mã mới verified, nguồn export/quyền dùng còn gap, không phát hành gazetteer mới. Source/register/report24, frozen error analysis25 tách T0/5field, không chạy hoặc chấm lại baseline. Runtime `data/interim/modeling/sprint03/runtime_neural_d_v1/` Python3.11.16 + Torch2.8.0+cpu/Transformers4.57.1/Deepparse0.11.0/Poutyne1.17.4/py-vncorenlp0.1.4 cài riêng trênD, không thay env hiện có. Resources localD: PhoBERT revision01daacda68afe13d83023d16ec647239e344a1e6, VnCoreNLP commit62bbc58fe5d113c898eae112656be97dcf50b3a0, TemurinJRE17.0.20.1+1. Actual API PASS; PhoBERT segmentation/BPE alignment217/240train+54/60dev exact,29reject do thay vị trí dấu; không bỏ mẫu/sửa gold. Pretrained short CPU forward PASS, không train/predict benchmark/metric mới. Fix checkpoint tempfile và NFC chỉ cho segmenter input, giữ raw offsets. Test159=151PASS+8SKIP trong env chính;50/50neuralD và13/13CRF PASS,251frozenhash giữ nguyên. Tổng cài/cache/resources2.453.588.804bytes=2,453588804GB=2,285082642GiB; ngoại lệ một log Ubuntu Pro có sẵn bị login shell cập nhật, lệnh tiếp dùng `bash --noprofile --norc`. Xem reports26/27 và evidence `task_01_06_20261003_v1/`. Không mở train trước policy29ca/resource/disk gates và quyền train. FullFastText vẫn RAM/license blocked; Colab/test100 tạm gác. Các đoạn trạng thái ngày02/10 phía dưới là lịch sử.
+
+**Cập nhật thực nghiệm 02/10/2026:** [inventory](docs/sprints/sprint_03/14_experiment_01_04_environment.md) ghi runtime WSL cô lập `data/interim/evaluation/sprint03/runtime_py311`, Python3.11.16, python-crfsuite0.9.12; không thay env hiện hữu. HEUR-JW dùng explicit s3_v2, dual_snapshot, threshold0.86, margin0.02 và reject/tie trace; T0 dev F1 **88.01%**. CRF-INDEP train240/dev60, BIO23, context2,c1=0.05,c2=0.1; T0 dev F1 **89.82%**, T1 `NOT_IMPLEMENTED`. Track5 trường text-only chấm4.800 hàng01/02/03/04/06 sau loại100 hold bằng source_line-2/text hash, micro F1 **82.04%/85.41%**. DP-ZS-FT có adapter/mapping/test nhưng **chưa chạy pretrained**: WSL RAM3.64GiB+swap1GiB thấp hơn full FastText8–10GB; license weights cần xác minh. Không cài Deepparse/Torch/Transformers hay thay cấu hình toàn máy. Scripts26/27/28 train/sweep/infer-score, script29 audit cuối; resource/model/input/output/code hashes trong mỗi run. **101 test toàn repo:100 pass+1 skip**, **31/31** trong runtime CRF. [Báo cáo thực nghiệm và tái lập](docs/sprints/sprint_03/15_baseline_experiments_20261002.md). Không gọi điểm dev là test cuối hoặc bỏ mask T1 của543.
+
+- Chưa có corpus đủ ba split: train/dev v2 đã phát hành; test100 vẫn pending. Chưa phát hành `corpus_v1` ba split hoặc chấm test cuối. HEUR-JW/CRF đã có điểm dev frozen; các neural pipeline U1–U7 còn chờ tích hợp resource thật. Dev có0 MocDinhVi,0 ToaNha/CanHo,1 HuongDi; không dùng điểm nhãn ít/không support để kết luận vững. VQA/Data05 giữ hoãn/hold; không đọc hoặc thao tác test100 trong lượt U1–U7.
 - Agreement giữa người gán `NOT_MEASURED` vì mới có một người gán độc lập.
 - Rà soát PII/quyền sử dụng và ID tài liệu của VQA; không dùng VQA cho train/dev/test khi chưa qua clearance (trạng thái `HOLD`).
 - Data 05 địa chỉ thật có mốc và hướng đang tạm hoãn (`DEFERRED_BY_USER`); ví dụ tổng hợp không được tính là dữ liệu quan sát.
 - Danh mục mã hành chính cũ chính thức từ Nghị định/Quyết định Nhà nước (hiện chưa có nguồn chính thức trong repo; mã cũ đang ở trạng thái candidate).
 - Các baseline Sprint 3 còn lại, T1 tự động, T2 phân giải ngữ cảnh và T3 đối sánh qua thời gian.
-- Mô hình PhoBERT/adapters, tầng LLM + RAG và API FastAPI/Docker là phạm vi các giai đoạn tiếp theo.
+- PhoBERT/adapters đã có mã ở U1–U7, nhưng tích hợp tokenizer/segmenter/encoder thật và training chưa thực hiện. Tầng LLM + RAG, API FastAPI/Docker vẫn ngoài phạm vi Sprint3 hiện hành.
 
 Đọc `docs/data_quality.md` trước khi lấy số lượng mẫu làm kết luận, vì các tập được sinh lại từ nguồn trung gian có thể thay đổi theo phiên bản dữ liệu.
 

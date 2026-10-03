@@ -2,9 +2,19 @@
 
 Dự án tạo dữ liệu địa chỉ tiếng Việt trước/sau thay đổi hành chính 2025.
 
+**Cập nhật bàn giao trước Colab:** đã xác minh **8.607 mã cũ** theo NSO 30/06/2025, giữ **3.355 mã mới** ở 01/07/2025; Gazetteer hai snapshot còn **2.187 entity cũ chưa xác minh**. CRF mới đạt **90,56% F1 T0 dev**, HEUR giữ **88,01%**; đây là kết quả phát triển. Xem [nguồn](docs/sprints/sprint_03/31_pre_colab_source_verification.md), [Gazetteer](docs/sprints/sprint_03/32_temporal_gazetteer_release.md), [baseline](docs/sprints/sprint_03/34_light_baseline_followup.md), [nghiệm thu](docs/sprints/sprint_03/35_pre_colab_acceptance.md) và [bàn giao Label Studio/Colab](docs/sprints/sprint_03/36_label100_and_colab_handoff.md). Không cài thêm local; notebook đã chuẩn bị, chưa chạy Colab/neural/test100. Gói dữ liệu/resources trong interim phải nhận riêng; clone GitHub không tự có các artifact đó. Các đoạn trạng thái trước bên dưới là lịch sử.
+
+**Hiện hành 03/10/2026:** đã đối chiếu export chính thức NSO và phát hành [gazetteer s3_v3 snapshot 01/07/2025](data/processed/gazetteer/s3_v3_nso_2025_snapshot/manifest.json): xác minh 34 mã tỉnh mới + 3.321 mã xã/phường mới; các mã cũ vẫn chưa đủ nguồn. [Báo cáo và hash nguồn](docs/sprints/sprint_03/29_nso_official_snapshot_gazetteer_release_20261003.md). Sáu việc follow-up neural đã được [kiểm tra và bàn giao](docs/sprints/sprint_03/27_tasks_01_06_completion_20261003.md): PhoBERT/VnCoreNLP/Java đã cài trên D:, API Deepparse PASS, alignment đủ 300/300 train/dev sau xử lý 29 ca dấu, short pretrained PhoBERT forward PASS. Chưa train/chấm neural, không sử dụng Colab/test100.
+
 **Bàn giao gán nhãn Sprint 3 (01/10/2026):** chủ dự án theo [hướng dẫn 68/232 có prediction](docs/sprints/sprint_03/09_label_studio_400_step_by_step.md); partner nhận [gói 100 test mù có task/XML/guideline](docs/sprints/sprint_03/annotation_handoff/test100_v1/README.md) trên nhánh `print3_label100test`. GitHub cung cấp tệp; Label Studio chạy trên máy người gán. Gói test đã qua preflight với 138 quyết định người, sẵn sàng gán theo protocol v1.0; annotation vẫn cần QA và duyệt gold sau export.
 
+**Nghiệm thu nhiệm vụ 1–4 ngày 02/10/2026:** đã phát hành [corpus_train_dev_v2](data/processed/annotation/sprint03/corpus_train_dev_v2/manifest.json), **240 train / 60 dev**, **1.057 + 284 span**, `TRAIN_DEV_APPROVED_TEST_PENDING`. Export batch cuối có hash `e4d4f60b...`; QA 68/68 + 232/232 và audit 138 cặp PASS. Chủ dự án giữ 537/543; task 543 có ngoại lệ mâu thuẫn hệ, giữ T0 và mask T1 theo manifest (`APPROVED_WITH_DECLARED_EXCEPTIONS`). Runner/scorer và script phát hành đã kiểm; 87/87 test toàn repo, 18/18 span/CLI Python 3.11 PASS. Xem [báo cáo nghiệm thu và bàn giao](docs/sprints/sprint_03/13_tasks_01_04_completion_20261002.md). Có thể bắt đầu HEUR-JW dev; 100 test còn chờ partner.
+
+**Triển khai U1–U7 ngày 02/10/2026:** đã thêm core alignment/BIO, bộ đọc train/dev, training code DP-FT-FT/PhoBERT-CRF/proposed, protocol khóa, checkpoint/adapter/audit và verifier mã hành chính. Raw và Deepparse surface round-trip đủ **240/240 train + 60/60 dev**, giữ **1.341 span**, T1 eligible **206/53**. Kiểm thử toàn repo: **143 PASS / 8 SKIP / 0 FAIL**; runtime3.11: **73 PASS / 7 SKIP / 0 FAIL**. Torch/Deepparse/tokenizer/segmenter thật chưa có nên neural integration **PENDING_RESOURCE**, chưa train hoặc tạo metric neural. Gazetteer giữ partial, **0 mã mới được xác minh**. Xem [báo cáo U1–U7 và artifact](docs/sprints/sprint_03/19_seven_priorities_implementation_report.md), [protocol và lệnh](docs/sprints/sprint_03/17_training_protocol_v1.md), [inventory](docs/sprints/sprint_03/18_modeling_resource_inventory.md), [audit nguồn](docs/sprints/sprint_03/20_gazetteer_source_audit.md). Colab/test100 tạm gác; 246 file corpus/baseline/gazetteer/run đã khóa giữ nguyên hash.
+
 ## Cấu trúc dự án
+
+**Thực nghiệm baseline ngày 02/10/2026:** HEUR-JW dev exact-span F1 **88.01%**, CRF-INDEP **89.82%** trên60 mẫu; track5 trường text-only **82.04% / 85.41%** micro F1 trên4.800 hàng sau loại100 hold. DP-ZS-FT chưa chạy vì giới hạn RAM và provenance/license pretrained cần xác minh. Đây là kết quả phát triển, **test gold đang chờ partner**. [Kết quả, artifact và cách chạy lại](docs/sprints/sprint_03/15_baseline_experiments_20261002.md), [inventory trước cài](docs/sprints/sprint_03/14_experiment_01_04_environment.md). Kiểm thử mới:101 test toàn repo,100 pass +1 skip;31/31 trong runtime CRF.
 
 ```text
 DACN/
@@ -18,12 +28,14 @@ DACN/
 │   ├── interim/osm/                          Snapshot cũ đầy đủ/cân bằng, dữ liệu hiện hành và lịch sử OSM
 │   ├── interim/vqa/                          Hóa đơn thật sau lọc, chỉ dùng đo phân bố nhiễu/kiểm tra ngoài
 │   ├── interim/annotation/sprint03/          Batch ứng viên T0, manifest và import pilot Label Studio
+│   ├── interim/modeling/sprint03/            Alignment dẫn xuất, preflight và bằng chứng kiểm thử U1–U7
 │   └── processed/
 │       ├── osm/                              Địa chỉ sạch và OSM diff
 │       ├── benchmark/                        Các tập benchmark đầu ra (01–07; 05 chưa có nguồn)
 │       ├── annotation/sprint03/              Pilot gold T0 đã duyệt và manifest
 │       ├── gazetteer/s3_v1/                  Gazetteer đa phiên bản một phần
 │       ├── gazetteer/s3_v2/                  Gazetteer thời gian v2 (source register, phi nguyên tử)
+│       ├── gazetteer/s3_v3_nso_2025_snapshot/ Mã mới được đối chiếu export NSO có ngày
 │       └── evaluation/                       Run và bảng đánh giá baseline
 ├── docs/
 │   ├── sprints/sprint_02/                   Tài liệu tổng kết Sprint 2
@@ -55,6 +67,10 @@ DACN/
 │   ├── 19_build_temporal_gazetteer_v2.py     Dựng/tra cứu gazetteer s3_v2 độc lập, tách mã cũ candidate
 │   ├── 20_prepare_batch02_predictions.py     Gợi ý span từ text cho batch 02 train/dev
 │   ├── 21_prepare_source_reannotation.py      Candidate 68/232 có trace nguồn và kiểm ranh giới
+│   ├── 22_review_and_package_train_dev.py     Log nội dung, audit split và candidate train/dev có cách ly
+│   ├── 23_run_span_dev.py                    Inference dev nhận text-only; từ chối corpus chưa duyệt
+│   ├── 24_score_span_dev.py                  Chấm T0/T1 dev riêng sau khi freeze prediction
+│   ├── 25_publish_train_dev.py               Phát hành version processed từ candidate đã duyệt, giữ hash và mask T1
 │   └── build_baseline_dashboard.py            Sinh dashboard theo run
 ├── src/
 │   ├── data/administrative_mapping.py       Đồ thị ánh xạ đơn vị hành chính 2025
@@ -308,7 +324,7 @@ Materials v4 xuất metric theo điều kiện/trường và hai bảng chẩn �
 
 ## Bắt đầu theo dõi Sprint 3
 
-Đọc [mục lục Sprint 3](docs/sprints/sprint_03/README.md) trước khi chạy script. Hiện đã có baseline `baseline_v3_fuzzy` trong track 5 trường, pilot gold T0 68 mẫu đã duyệt, batch 02 gồm 232 task train/dev và gazetteer `s3_v2` ở trạng thái một phần. Review split phát hiện 138 cặp gần giống cần người phân xử; 100 test T0 vẫn gán mù và chưa có F1 T0 trên test. [Báo cáo review và hướng dẫn bàn giao](docs/sprints/sprint_03/06_s3_04_s3_03_review_and_handover.md) ghi các bước gán, export, QA và giới hạn nguồn.
+Đọc [mục lục Sprint 3](docs/sprints/sprint_03/README.md) trước khi chạy script. Train/dev hiện hành là `corpus_train_dev_v2` (240/60); 68 + 232 đã được duyệt và 138 cặp gần giống đã qua phân xử. HEUR-JW/CRF-INDEP có kết quả dev; gazetteer `s3_v2` vẫn partial. U1–U7 đã có mã/protocol và bằng chứng kiểm thử độc lập, còn chờ tài nguyên để tích hợp neural thật. [Báo cáo U1–U7](docs/sprints/sprint_03/19_seven_priorities_implementation_report.md) ghi phạm vi hoàn thành và blocker; Colab và mọi công việc test100 tạm gác trong lượt này. Các báo cáo gán nhãn trước là lịch sử, không yêu cầu gán lại 300 mẫu.
 
 Lưu ý vận hành: `scripts/10_prepare_span_annotation.py` và lệnh `build` của `scripts/13_build_temporal_gazetteer.py` ghi vào các đường dẫn cố định. Không chạy lại trên artifact hiện hành; kế hoạch Sprint 3 quy định tạo batch/gazetteer phiên bản mới. Việc thu thập địa chỉ mốc/hướng thật hiện được tạm hoãn.
 

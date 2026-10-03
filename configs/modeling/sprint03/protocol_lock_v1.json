@@ -1,0 +1,23 @@
+{
+  "version": "s3-training-v1",
+  "locked_at": "2026-10-02",
+  "training_executed": false,
+  "config_canonical_sha256": {
+    "dp_ft_ft_v1.json": "7b4c2f8661a5f9dd340bf4e98c414709283c6bfedd031f40e94b632581207cb3",
+    "phobert_crf_v1.json": "8d93b91b7ee7dfb0be6e8c3e85c8b6be3bc12c1fab49dd1a00d849eaa1711977",
+    "proposed_dyn_v1.json": "1c08dbc5e98e1b0eda92d8e1b22ce25aa3da6ee43c1f97058df45c5afc93e26c",
+    "proposed_no_constraint_v1.json": "27e1a24009cb7b2272a11740d9d1897b115d5574042326554fd4a0812e70828c"
+  },
+  "file_sha256": {
+    "dp_ft_ft_v1.json": "b9a0d85ae884eb0d9652e480418b2f76e69bbe61693b53bf53328f3e0e524067",
+    "phobert_crf_v1.json": "d1a0215a5124ba774a75f45ce807469af94a44dd27281cbb30593350d46fafb5",
+    "proposed_dyn_v1.json": "5b4e9ee68b300b17e6c1696697f1bdc6bc23450ffb83eb062ff53e3a6f8c321d",
+    "proposed_no_constraint_v1.json": "639da8b3e737b4178f10514c63c69207dded8fdc4e1115718dbf9cc54cd07d41",
+    "tuning_protocol_v1.json": "9af07df05c3026dd468e60a4cccb25607f25ebd895f757b4d30484a393875b5d"
+  },
+  "document_sha256": "dd5f4033f34047208b2c7f5c3692d59d003943e4683bfbca1f127cb621c8fccf",
+  "lock_revision": 2,
+  "amended_at": "2026-10-03",
+  "amendment": "PhoBERT processor v2 adds verified within-syllable tone relocation alignment; train/dev split and training budgets unchanged; no training run executed.",
+  "previous_lock_sha256": "a1d531e3ded2a4640f649b2d1111bcd2388b17734170df2e1acb7f951d4b630e"
+}
