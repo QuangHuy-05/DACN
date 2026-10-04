@@ -4,7 +4,7 @@ import json
 from pathlib import Path
 import tempfile
 import unittest
-from src.modeling.kaggle_artifacts import output_path, stream_response, parse_kernel_ref, selected_output, verify_selected_output, reuse_verified_file
+from src.modeling.kaggle_artifacts import output_path, stream_response, parse_kernel_ref, selected_output, verify_selected_output, reuse_verified_file, transfer_with_retry
 
 
 class ResponseFixture:
@@ -26,6 +26,35 @@ class ResponseFixture:
 
 
 class KaggleArtifactTests(unittest.TestCase):
+    def test_transient_transfer_refreshes_url_without_leaking_it(self):
+        class FixtureError(OSError):
+            response = type("Status", (), {"status_code": 502})()
+        with tempfile.TemporaryDirectory() as folder:
+            calls = []
+            def response(url):
+                calls.append(url)
+                if len(calls) == 1:
+                    raise FixtureError("signed-url-secret")
+                return ResponseFixture([b"ok"], 2)
+            result = transfer_with_retry("initial", response, lambda: "refreshed", Path(folder) / "file", 10, FixtureError)
+            self.assertEqual(calls, ["initial", "refreshed"])
+            self.assertEqual(result["transfer_retries"][0]["http_status"], 502)
+            self.assertNotIn("signed-url-secret", json.dumps(result))
+
+    def test_retry_is_bounded_and_error_does_not_expose_signed_url(self):
+        class FixtureError(OSError):
+            response = type("Status", (), {"status_code": 403})()
+        with tempfile.TemporaryDirectory() as folder:
+            calls = []
+            def response(url):
+                calls.append(url)
+                raise FixtureError("signed-url-secret")
+            with self.assertRaisesRegex(RuntimeError, "KAGGLE_ARTIFACT_TRANSFER_FAILED:FixtureError:HTTP403") as caught:
+                transfer_with_retry("initial", response, lambda: "fresh", Path(folder) / "file", 10, FixtureError)
+            self.assertEqual(len(calls), 3)
+            self.assertNotIn("signed-url-secret", str(caught.exception))
+            self.assertEqual(list(Path(folder).iterdir()), [])
+
     def test_cached_file_requires_fresh_index_hash(self):
         with tempfile.TemporaryDirectory() as folder:
             root = Path(folder)

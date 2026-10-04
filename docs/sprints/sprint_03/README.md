@@ -1,8 +1,8 @@
 # Hồ sơ Sprint 3
 
-**05/10/2026 — Test đã duyệt và GPU đã xác minh:** [47 — corpus240/60/100 release2,446span test,mask16T1, GPU smoke thật hai model và các lượt full](47_test_gold_release_and_kaggle_20261005.md). Không cần gán lại100; train/dev/split/raw/old runs giữ nguyên. Release2 sửa báo cáo nguồn, không đổi annotation. Test inference/scoring chưa chạy; các dòng blocked trước bên dưới là lịch sử.
+**05/10/2026 — Test đã duyệt và GPU đã xác minh:** [47 — corpus240/60/100 release2,446span test,mask16T1, GPU smoke và4 full run đã nghiệm thu, locks/preflight sẵn sàng](47_test_gold_release_and_kaggle_20261005.md). Không cần gán lại100; train/dev/split/raw/old runs giữ nguyên. Release2 sửa báo cáo nguồn, không đổi annotation. Test inference/scoring chưa chạy; các dòng blocked trước bên dưới là lịch sử.
 
-**Hiện hành local L1–L5, round2:** đủ100 task/103 annotation, 99 converted/1 multiple tại695, không còn mẫu thiếu. Giữ JSON nguyên trạng; release chờ lựa chọn annotation và phán quyết T1. Đã có publisher, final-test pipeline fixture, training/resource ZIP mới có đủ dependency và hai notebook tách train/dev khỏi final test. Fullsuite239PASS/8SKIP,1313frozenhash+4rawsize/mtime không đổi; 0 cài mới. Chưa train/chấm test/chạy Colab.
+**Lịch sử local L1–L5, round2:** đủ100 task/103 annotation, 99 converted/1 multiple tại695, không còn mẫu thiếu. Giữ JSON nguyên trạng; release chờ lựa chọn annotation và phán quyết T1. Đã có publisher, final-test pipeline fixture, training/resource ZIP mới có đủ dependency và hai notebook tách train/dev khỏi final test. Fullsuite239PASS/8SKIP,1313frozenhash+4rawsize/mtime không đổi; 0 cài mới. Chưa train/chấm test/chạy Colab.
 
 - [44 — Inventory tái dùng, nguồn/license và cổng Deepparse](44_local_finish_resource_inventory.md)
 - [45 — Thao tác QA/release và Colab giai đoạn cuối](45_local_release_and_colab_operations.md)

@@ -109,6 +109,24 @@ def reuse_verified_file(source, target, expected_hash):
             "transfer_bytes": 0, "method": "hardlink_existing_artifact_verified_against_fresh_remote_index"}
 
 
+def transfer_with_retry(url, open_response, refresh_url, target, budget, request_error):
+    warnings = []
+    for attempt in range(3):
+        try:
+            result = stream_response(open_response(url), target, budget)
+            result["transfer_retries"] = warnings
+            return result
+        except request_error as error:
+            status = getattr(getattr(error, "response", None), "status_code", None)
+            warnings.append({"attempt": attempt + 1, "error_type": type(error).__name__, "http_status": status})
+            if attempt == 2:
+                raise RuntimeError("KAGGLE_ARTIFACT_TRANSFER_FAILED:" + type(error).__name__ +
+                                   ":HTTP" + str(status)) from None
+            # Refresh the URL from the same pinned SDK page. Signed URLs and
+            # raw exception messages are never written to reports.
+            url = refresh_url()
+
+
 def download_output(api, kernel_ref, output_dir, profile="all", reuse_dir=None):
     """Use version_label for every page; do not fall back to latest output."""
     import requests
@@ -148,13 +166,19 @@ def download_output(api, kernel_ref, output_dir, profile="all", reuse_dir=None):
                 total += result["bytes"]
                 records.append({"path": item.file_name, **result})
                 continue
-            try:
-                response = requests.get(item.url, stream=True, timeout=(30, 90))
-                budget = min(19 * 1024**3 - total, shutil.disk_usage(output_dir).free - 256 * 1024**2)
-                result = stream_response(response, target, budget)
-            except requests.RequestException:
-                # Signed download URLs must not appear in logs/exception tracebacks.
-                raise RuntimeError("KAGGLE_ARTIFACT_TRANSFER_FAILED") from None
+            def refresh_current_url():
+                with api.build_kaggle_client() as client:
+                    retry = ApiListKernelSessionOutputRequest()
+                    retry.user_name, retry.kernel_slug, retry.version_label = owner, slug, version
+                    retry.page_size, retry.page_token = 20, token
+                    updated = client.kernels.kernels_api_client.list_kernel_session_output(retry)
+                matches = [entry.url for entry in updated.files or [] if entry.file_name == item.file_name]
+                if len(matches) != 1:
+                    raise ValueError("PINNED_REMOTE_FILE_DISAPPEARED")
+                return matches[0]
+            budget = min(19 * 1024**3 - total, shutil.disk_usage(output_dir).free - 256 * 1024**2)
+            result = transfer_with_retry(item.url, lambda url: requests.get(url, stream=True, timeout=(30, 90)),
+                                         refresh_current_url, target, budget, requests.RequestException)
             total += result["bytes"]
             transferred += result["bytes"]
             records.append({"path": item.file_name, **result})
