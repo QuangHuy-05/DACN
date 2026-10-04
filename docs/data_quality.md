@@ -1,4 +1,12 @@
-# Kiểm tra chất lượng dữ liệu (cập nhật 04/10/2026)
+# Kiểm tra chất lượng dữ liệu (cập nhật 05/10/2026)
+
+## Hiện hành sau phán quyết test và GPU smoke
+
+Đã phát hành `corpus_v1_release2/` đủ240train/60dev/100test và `test_gold_v1_release2/` đủ100mẫu/446span. Task695 chọn annotation694;16 trường hợp chỉ mask T1/structure, mọi T0 giữ nguyên. Test64 T1eligible,20null,16excluded; tổng manifest17 mask kể cả543 ở dev. Raw round2 giữ hashd51b69c9..., train/dev bytes giữ nguyên; audit split138 cặp PASS. AI-assisted human review, IAA NOT_MEASURED.
+
+Publisher sửa lỗi nguồn hỗn hợp `observed_or_existing_benchmark`: không đếm observed100, giữ unverified_provenance cùng dataset/stratum20mẫu mỗi nhóm. Registry300train/dev truy nguồn queue đã pin. Test0support cho ToaNha/CanHo,MocDinhVi,HuongDi,GhiChu; không dùng làm bằng chứng chất lượng các nhãn này. Source metadata không vào inference, nhãn test không dùng chọn model.
+
+GPU Kaggle thật2TeslaT4: smoke PhoBERT-CRF/PROPOSED-DYN save/reload/optimizer PASS; actualalignment240/240+60/60, T1eligible206/53. Full runs chỉtrain/dev, chưa chấm test. [Báo cáo47](sprints/sprint_03/47_test_gold_release_and_kaggle_20261005.md) ghi hồ sơ duyệt, source/hash, lỗi runtime/CLI, kiểm thử/dung lượng và trạng thái cloud. Các phần pending trước dưới đây là lịch sử.
 
 ## Hiện hành sau local L1–L5
 

@@ -16,6 +16,24 @@ from src.evaluation.dev_runner import file_hash, write_json
 
 
 class TestCorpusReleaseTests(unittest.TestCase):
+    def test_ambiguous_benchmark_provenance_is_not_observed(self):
+        self.assertEqual(release.provenance_kind({"derivation": "observed_or_existing_benchmark"}),
+                         "unverified_provenance")
+        for derivation, kind in (("observed_osm", "observed"), ("derived_verified_unique_admin_mapping", "derived"),
+                                 ("controlled_synthetic_fixture", "synthetic")):
+            self.assertEqual(release.provenance_kind({"derivation": derivation}), kind)
+
+    def test_source_metadata_uses_pinned_queues_and_rejects_changed_hash(self):
+        source = self.root / "data/processed/annotation/sprint03/source"
+        source.mkdir(parents=True)
+        queue = self.root / "annotation_queue_fixture.csv"
+        queue.write_text("sample_id,text,group_id,derivation\nx,text,g,observed_osm\n")
+        manifest = {"input_sha256": {queue.name: file_hash(queue)}}
+        self.assertEqual(release.locked_source_metadata(source, manifest)["x"]["group_id"], "g")
+        queue.write_text(queue.read_text() + "y,other,h,observed_osm\n")
+        with self.assertRaisesRegex(ValueError, "PROVENANCE_QUEUE_CHANGED"):
+            release.locked_source_metadata(source, manifest)
+
     def setUp(self):
         self.fixture = qa_fixture.TestAnnotationQATests(methodName="runTest")
         self.fixture.setUp()

@@ -979,6 +979,16 @@ class SourceReconciliationDiagnosticTests(unittest.TestCase):
 
 
 class DatedCatalogueRegression(unittest.TestCase):
+    def test_kaggle_remote_artifact_paths_cannot_escape(self):
+        from src.modeling.kaggle_artifacts import output_path
+        with self.assertRaises(ValueError):
+            output_path(Path.cwd(), "../outside_checkpoint.pt")
+
+    def test_mixed_benchmark_source_does_not_claim_observation(self):
+        from src.data.test_corpus_release import provenance_kind
+        self.assertEqual(provenance_kind({"derivation": "observed_or_existing_benchmark"}),
+                         "unverified_provenance")
+
     def test_test_release_temporal_findings_are_not_silently_approved(self):
         from src.data.test_corpus_release import validate_approval
         with self.assertRaisesRegex(ValueError, "APPROVAL"):

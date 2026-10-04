@@ -33,6 +33,39 @@ def text_hash(text):
     return hashlib.sha256(text.encode("utf-8")).hexdigest()
 
 
+def provenance_kind(metadata):
+    derivation = metadata.get("derivation", "").casefold()
+    # This queue value explicitly mixes observation and existing benchmark children.
+    if derivation == "observed_or_existing_benchmark":
+        return "unverified_provenance"
+    if derivation.startswith("observed"):
+        return "observed"
+    if derivation.startswith("derived"):
+        return "derived"
+    if derivation.startswith(("synthetic", "controlled_synthetic")):
+        return "synthetic"
+    return "unverified_provenance"
+
+
+def locked_source_metadata(train_dev_dir, source_manifest):
+    """Read provenance only from source queues already pinned by the train/dev release."""
+    root = Path(train_dev_dir).resolve().parents[4]
+    result = {}
+    for relative, expected in source_manifest.get("input_sha256", {}).items():
+        if not Path(relative).name.startswith("annotation_queue_") or not relative.endswith(".csv"):
+            continue
+        path = (root / relative).resolve()
+        path.relative_to(root)
+        if file_hash(path) != expected:
+            raise ValueError("TRAIN_DEV_PROVENANCE_QUEUE_CHANGED")
+        for row in read_csv(path, {"sample_id", "text", "group_id"}):
+            sid = row["sample_id"]
+            if sid in result and result[sid] != row:
+                raise ValueError("CONFLICTING_LOCKED_PROVENANCE_QUEUE")
+            result[sid] = row
+    return result
+
+
 def selected_fingerprint(record, converted):
     value = {"canonical": annotation_fingerprint(record),
              "review_flags": converted["review_flags"], "review_note": converted["review_note"]}
@@ -249,22 +282,26 @@ def publish_test_corpus(qa_dir, queue_path, hold_path, assisted_manifest_path, t
     write_json(output_dir / "split_audit_report.json", audit)
     write_json(output_dir / "train_dev_source_manifest.json", source)
     test_coverage = coverage(records, queue)
+    test_coverage["source_kind"] = dict(Counter(provenance_kind(queue[r["sample_id"]]) for r in records))
+    test_coverage["provenance_note"] = (
+        "observed_or_existing_benchmark is ambiguous and remains unverified_provenance; "
+        "source_dataset and stratum are retained, without claiming all test rows were observed.")
     test_coverage["t1_eligible"] = sum(r["address_system"] is not None and r["sample_id"] not in excluded for r in records)
     test_coverage["t1_excluded_ids"] = excluded
     write_json(output_dir / "coverage.json", {"train_dev": load_json(Path(train_dev_dir) / "coverage.json"),
                                              "test": test_coverage})
     registry = []
+    source_metadata = locked_source_metadata(train_dev_dir, source)
     for split, rows in {**splits, "test": records}.items():
         for row in rows:
-            metadata = queue.get(row["sample_id"], {})
+            metadata = (queue if split == "test" else source_metadata).get(row["sample_id"], {})
+            if metadata and (metadata["text"] != row["text"] or metadata["group_id"] != row["source_group"]):
+                raise ValueError("PROVENANCE_IDENTITY_MISMATCH")
             registry.append({"sample_id": row["sample_id"], "source_group": row["source_group"],
                 "split": split, "text_sha256": text_hash(row["text"]),
                 "source_dataset": metadata.get("source_dataset", "see_train_dev_source_manifest"),
                 "stratum": metadata.get("stratum", "not_recorded"),
-                "source_kind": ("observed" if metadata.get("derivation", "").startswith("observed") else
-                    "derived" if metadata.get("derivation", "").startswith("derived") else
-                    "synthetic" if metadata.get("derivation", "").startswith(("synthetic", "controlled_synthetic")) else
-                    "unverified_provenance"),
+                "source_kind": provenance_kind(metadata),
                 "derivation": metadata.get("derivation", "not_recorded"),
                 "feature_permission": "scorer_sidecar_only_never_inference"})
     write_jsonl(output_dir / "identity_registry.jsonl", registry)

@@ -2,6 +2,8 @@
 
 Ngày triển khai: 04/10/2026. Mục tiêu: kiểm GPU/runtime, chạy smoke pretrained rồi mới cho phép các job training đầy đủ. Corpus vẫn **240 train / 60 dev**, không chứa test100. Kho mã local đã có pipeline; trạng thái thực nghiệm phải đọc báo cáo job, không suy từ việc push thành công.
 
+**Cập nhật 05/10:** GPU smoke thật đã đạt và các job full train/dev đã được mở; xem [báo cáo47](47_test_gold_release_and_kaggle_20261005.md). Các trạng thái không có GPU ở mục2 là lịch sử. Fetch hiện dùng script60 tải từng chunk và pin SDK `version_label=v1`, không dùng đường tải buffer của CLI2.2.4.
+
 ## 1. Những thành phần đã hiện thực
 
 - `scripts/50_kaggle_pipeline.py`: prepare, xác thực, kiểm quota, upload private, submit, status, inspect và fetch có kiểm hash. Secret chỉ vào môi trường subprocess, không vào bundle hoặc báo cáo. API rejection bị coi là lỗi cả khi Kaggle CLI trả exit 0.
@@ -61,7 +63,11 @@ $PY -m scripts.50_kaggle_pipeline fetch --package-dir "$PACKAGE" \
   --credentials "$CREDS"
 ```
 
-Lệnh fetch từ chối ghi đè. Nếu phiên bản này đã được agent tải, đọc thư mục đó; không chạy lặp. `kernels status/output` hỗ trợ version; `inspect` đọc metadata latest để chẩn đoán, không coi metadata latest là bằng chứng một version cũ.
+Lệnh fetch từ chối ghi đè. Nếu phiên bản này đã được agent tải, đọc thư mục đó; không chạy lặp. Fetch50/60 pin version qua SDK (`1` → `v1`), kiểm identity/hash. CLI2.2.4 có lỗi bỏ qua version ở đường status/output; status chỉ dùng chẩn đoán latest, không chứng minh version cũ. Các job mới dùng slug riêng và duy nhất version1. `inspect` cũng đọc metadata latest.
+
+Với output đầy đủ nhiều checkpoint, có thể thêm `--artifact-profile selection`: tải mọi báo cáo/sidecar và trọng số `best.pt`/`last.pt`; checkpoint epoch khác giữ trên remote, danh sách/hash khai báo trong report. Trạng thái `SELECTED_ARTIFACTS_HASH_VERIFIED` chỉ xác minh phần đã tải, không tuyên bố toàn output được xác minh local. Mặc định `all` vẫn yêu cầu đủ từng file/hash. Chọn profile trước khi tải vào thư mục mới.
+
+Nếu đã tải một phần vào thư mục khác, thêm `--reuse-dir THU_MUC_CU`: manifest luôn tải mới theo version; chỉ tái sử dụng file có SHA khớp index mới bằng hardlink trên D. Không đổi hoặc xóa bản cũ, không dùng `.download.part`. Report tách byte chuyển qua mạng, byte tái dùng và byte logical resident.
 
 ## 5. Điều kiện smoke đạt
 

@@ -38,14 +38,15 @@ def credential_environment(path=None):
     return env, secret_values
 
 
-def kaggle_call(arguments, runtime=DEFAULT_RUNTIME, credentials=None, report=None, timeout=900):
+def kaggle_call(arguments, runtime=DEFAULT_RUNTIME, credentials=None, report=None, timeout=900, entry_module=None):
     if report and Path(report).exists():
         raise FileExistsError(report)
     env, secrets = credential_environment(credentials)
-    executable = Path(runtime) / "bin/kaggle"
+    executable = Path(runtime) / ("bin/python" if entry_module else "bin/kaggle")
     if not executable.is_file():
         raise FileNotFoundError("Install the inventoried Kaggle CLI environment first")
-    result = subprocess.run([str(executable), *arguments], cwd=ROOT, env=env,
+    command = [str(executable), "-m", entry_module, *arguments] if entry_module else [str(executable), *arguments]
+    result = subprocess.run(command, cwd=ROOT, env=env,
                             capture_output=True, text=True, timeout=timeout)
     output = result.stdout + result.stderr
     for secret in secrets:
@@ -54,7 +55,8 @@ def kaggle_call(arguments, runtime=DEFAULT_RUNTIME, credentials=None, report=Non
     code = result.returncode
     if code == 0 and any(marker in output for marker in ("Kernel push error:", "not valid dataset sources")):
         code = 2
-    record = {"timestamp": datetime.now(timezone.utc).isoformat(), "command": ["kaggle", *arguments],
+    record = {"timestamp": datetime.now(timezone.utc).isoformat(),
+              "command": ["python", "-m", entry_module, *arguments] if entry_module else ["kaggle", *arguments],
               "returncode": code, "process_returncode": result.returncode, "output": output,
               "status": "API_COMMAND_SUCCEEDED" if code == 0 else "API_COMMAND_FAILED"}
     if report:
@@ -80,6 +82,8 @@ def main():
     parser.add_argument("--report", type=Path)
     parser.add_argument("--output-dir", type=Path)
     parser.add_argument("--kernel-ref", help="owner/slug/version for an exact remote run")
+    parser.add_argument("--artifact-profile", choices=("all", "selection"), default="all")
+    parser.add_argument("--reuse-dir", type=Path)
     parser.add_argument("--mode", choices=("preflight", "smoke", "full"), default="smoke")
     parser.add_argument("--allow-full-training", action="store_true")
     parser.add_argument("--smoke-evidence", type=Path)
@@ -134,12 +138,18 @@ def main():
         args.output_dir.resolve().relative_to((ROOT / "data/interim/modeling/sprint03").resolve())
         if args.output_dir.exists():
             raise FileExistsError("Fetch into a new directory; never overwrite old artifacts")
-        args.output_dir.mkdir(parents=True)
-        command = ["kernels", "output", args.kernel_ref or manifest["kernel_id"], "-p", str(args.output_dir.resolve())]
+        if not args.kernel_ref:
+            parser.error("fetch requires --kernel-ref owner/slug/version")
+        command = ["--package-dir", str(args.package_dir.resolve()), "--kernel-ref", args.kernel_ref,
+                   "--output-dir", str(args.output_dir.resolve()), "--report",
+                   str(args.output_dir.with_name(args.output_dir.name + "_transfer.json").resolve()),
+                   "--profile", args.artifact_profile]
+        if args.reuse_dir:
+            command.extend(["--reuse-dir", str(args.reuse_dir.resolve())])
+        result = kaggle_call(command, args.runtime, args.credentials, args.report, timeout=7200,
+                             entry_module="scripts.60_download_kaggle_artifacts")
+        raise SystemExit(result["returncode"])
     result = kaggle_call(command, args.runtime, args.credentials, args.report)
-    if args.action == "fetch" and result["returncode"] == 0:
-        from src.modeling.kaggle_handoff import verify_download
-        print(json.dumps(verify_download(args.output_dir.resolve(), manifest), ensure_ascii=False))
     raise SystemExit(result["returncode"])
 
 
