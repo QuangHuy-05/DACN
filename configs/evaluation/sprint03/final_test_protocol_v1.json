@@ -1,0 +1,19 @@
+{
+  "version": "s3-final-test-v1",
+  "scope": "Local implementation/fixtures now; real test only after final dev selection",
+  "models": ["HEUR-JW", "DP-ZS-FT", "DP-FT-FT", "CRF-INDEP", "PHOBERT-CRF", "PROPOSED-DYN"],
+  "ablation": {"model_id": "PROPOSED-NO-CONSTRAINT", "same_checkpoint": true, "selection_decoder": "unconstrained"},
+  "training_protocol": "configs/modeling/sprint03/tuning_protocol_v1.json",
+  "annotation_mode": "AI_ASSISTED_HUMAN_REVIEW",
+  "agreement": "NOT_MEASURED",
+  "selection": "full11 exact-span micro F1 on dev; gold-supported macro; earlier epoch; earlier candidate",
+  "inference_input": ["sample_id", "text"],
+  "inference_gold_access": false,
+  "t0": {"all_11_labels": true, "unsupported_gold": "FN", "missing_output": "reject", "runtime_error": "empty scored spans and explicit abstain"},
+  "t1": {"classes": ["cu", "moi", "Lai"], "abstain": "khong_ro", "mask": "manifest.evaluation_exclusions.t1 plus gold null", "not_implemented_metrics": null},
+  "district_hallucination": {"denominator": "eligible gold T1 moi with no gold QuanHuyen", "numerator": "addresses with any predicted QuanHuyen", "zero_denominator": null},
+  "five_field": {"track": "separate existing benchmark protocol in model_matrix.md", "projection": "SpanModelOutput.to_standard_5_fields", "not_equivalent_to_t0": true},
+  "stability": {"planned_seeds": [42, 1337, 2025], "status": "NOT_EXECUTED"},
+  "real_test_execution": "NOT_EXECUTED",
+  "selection_lock_status_before_dev": "PENDING_DEV_SELECTION"
+}

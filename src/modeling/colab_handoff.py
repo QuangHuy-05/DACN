@@ -1,14 +1,42 @@
 """Build/check explicit train/dev bundles; no test tasks, neural load or training."""
 
 import ast
+import hashlib
 import json
-from pathlib import Path
+from pathlib import Path, PurePosixPath
 import shutil
 import zipfile
 
 from src.evaluation.dev_runner import ROOT, file_hash, write_json
 from src.modeling.datasets import load_corpus
 from src.modeling.resources import validate_resource_lock
+
+TRAIN_DEPENDENCIES = (
+    "data/interim/annotation/sprint03/reannotation_v2_release1/trace.jsonl",
+    "data/interim/annotation/sprint03/reannotation_v2_release1/generation_manifest.json",
+    "data/interim/annotation/sprint03/annotation_queue_batch02_train_dev.csv",
+)
+
+
+def _safe_name(name):
+    path = PurePosixPath(name)
+    return bool(name) and "\\" not in name and ":" not in name and not path.is_absolute() and ".." not in path.parts
+
+
+def _unique_object(pairs):
+    result = {}
+    for key, value in pairs:
+        if key in result:
+            raise ValueError("DUPLICATE_MANIFEST_KEY")
+        result[key] = value
+    return result
+
+
+def _stream_hash(stream):
+    digest = hashlib.sha256()
+    for chunk in iter(lambda: stream.read(1024 * 1024), b""):
+        digest.update(chunk)
+    return digest.hexdigest()
 
 
 def check_bundle(directory, manifest_name="code_bundle_manifest.json"):
@@ -25,19 +53,33 @@ def safe_extract(archive, destination, expected_sha256, manifest_name="code_bund
         raise ValueError("ARCHIVE_HASH_MISMATCH")
     destination.mkdir(parents=True, exist_ok=True)
     with zipfile.ZipFile(archive) as stream:
+        names = [entry.filename for entry in stream.infolist()]
+        if len(set(names)) != len(names):
+            raise ValueError("DUPLICATE_ZIP_MEMBER")
         for entry in stream.infolist():
             target = (destination / entry.filename).resolve()
-            if "\\" in entry.filename or not target.is_relative_to(destination.resolve()):
+            if not _safe_name(entry.filename) or not target.is_relative_to(destination.resolve()):
                 raise ValueError("UNSAFE_ARCHIVE_PATH")
             if (entry.external_attr >> 16) & 0o170000 == 0o120000:
                 raise ValueError("ARCHIVE_SYMLINK_FORBIDDEN")
             if target.exists():
                 if target.is_dir() and entry.is_dir():
                     continue
-                import hashlib
-                if target.is_file() and hashlib.sha256(target.read_bytes()).digest() == hashlib.sha256(stream.read(entry)).digest():
-                    continue
+                if target.is_file():
+                    with stream.open(entry) as member:
+                        if file_hash(target) == _stream_hash(member):
+                            continue
                 raise FileExistsError(target)
+        if not _safe_name(manifest_name) or manifest_name not in names:
+            raise ValueError("ARCHIVE_MANIFEST_MISSING_OR_UNSAFE")
+        manifest = json.loads(stream.read(manifest_name), object_pairs_hook=_unique_object)
+        members = {entry.filename for entry in stream.infolist() if not entry.is_dir()}
+        if members != set(manifest["files"]) | {manifest_name} or manifest_name in manifest["files"]:
+            raise ValueError("ARCHIVE_ALLOWLIST_MISMATCH")
+        for name, digest in manifest["files"].items():
+            with stream.open(name) as member:
+                if _stream_hash(member) != digest:
+                    raise ValueError("ARCHIVE_MEMBER_HASH_MISMATCH")
         stream.extractall(destination)
         for entry in stream.infolist():
             if not entry.is_dir():
@@ -47,9 +89,14 @@ def safe_extract(archive, destination, expected_sha256, manifest_name="code_bund
     return check_bundle(destination, manifest_name)
 
 
-def write_archive(path, files, extra, manifest_name="code_bundle_manifest.json"):
+def write_archive(path, files, extra, manifest_name="code_bundle_manifest.json", *, allow_source_symlinks=False):
     if path.exists():
         raise FileExistsError(path)
+    if not _safe_name(manifest_name) or manifest_name in files or any(not _safe_name(name) for name in files):
+        raise ValueError("UNSAFE_OR_COLLIDING_ARCHIVE_MEMBER")
+    if any(not source.is_file() or (source.is_symlink() and (
+            not allow_source_symlinks or not source.resolve().is_relative_to(ROOT.resolve()))) for source in files.values()):
+        raise ValueError("ARCHIVE_SOURCE_MISSING_OR_SYMLINK")
     manifest = {"version": "s3-colab-bundle-v1", **extra,
                 "files": {relative: file_hash(source) for relative, source in files.items()}}
     with zipfile.ZipFile(path, "w", compression=zipfile.ZIP_DEFLATED, compresslevel=1) as stream:
@@ -230,13 +277,23 @@ else:
     return {"cells": cells, "metadata": {"kernelspec": {"display_name": "Python 3", "language": "python", "name": "python3"}}, "nbformat": 4, "nbformat_minor": 5}
 
 
-def build_handoff(output_dir):
+def build_handoff(output_dir, notebook_path=None, version="v1"):
+    output_dir = Path(output_dir)
+    notebook = Path(notebook_path) if notebook_path else ROOT / "notebooks/sprint03/preflight_and_train_dev.ipynb"
+    if not notebook.is_absolute():
+        notebook = ROOT / notebook
+    if not notebook.resolve().is_relative_to((ROOT / "notebooks/sprint03").resolve()):
+        raise ValueError("NOTEBOOK_MUST_BE_IN_SPRINT03")
+    if not version.replace("_", "").isalnum():
+        raise ValueError("INVALID_BUNDLE_VERSION")
+    if notebook.exists():
+        raise FileExistsError(notebook)
     if output_dir.exists():
         raise FileExistsError(output_dir)
     output_dir.mkdir(parents=True)
     load_corpus(ROOT / "data/processed/annotation/sprint03/corpus_train_dev_v2")
     files = {}
-    for folder in ("src", "scripts", "configs/modeling", "configs/colab"):
+    for folder in ("src", "scripts", "configs/modeling", "configs/colab", "configs/evaluation"):
         for path in (ROOT / folder).rglob("*"):
             if path.is_file() and path.suffix in (".py", ".json", ".txt"):
                 files[path.relative_to(ROOT).as_posix()] = path
@@ -246,6 +303,14 @@ def build_handoff(output_dir):
     for path in (ROOT / "data/processed/annotation/sprint03/corpus_train_dev_v2").iterdir():
         if path.is_file():
             files[path.relative_to(ROOT).as_posix()] = path
+    for relative in TRAIN_DEPENDENCIES:
+        path = ROOT / relative
+        if not path.is_file():
+            raise FileNotFoundError(path)
+        files[relative] = path
+    from src.modeling.datasets import prepare_data
+    # This exact call verifies both dependency closure and their pinned hashes.
+    prepare_data(ROOT / "data/processed/annotation/sprint03/corpus_train_dev_v2", output_dir / "source_preparation")
     lock_path = ROOT / "data/interim/modeling/sprint03/task_01_06_20261003_v1/resource_lock_local_v1.json"
     lock = validate_resource_lock(lock_path, "PHOBERT-CRF")
     files[lock_path.relative_to(ROOT).as_posix()] = lock_path
@@ -254,7 +319,7 @@ def build_handoff(output_dir):
         if not path.is_file():
             raise FileNotFoundError(path)
         files[path.relative_to(ROOT).as_posix()] = path
-    code = write_archive(output_dir / "dacn_train_dev_bundle_v1.zip", files, {"scope": "train240/dev60/code/config only; no test100/raw export/venv", "git_identity": "working tree file hashes; upload bundle rather than assuming HEAD includes dirty source"})
+    code = write_archive(output_dir / ("dacn_train_dev_bundle_" + version + ".zip"), files, {"scope": "train240/dev60/code/config only; no test100/raw export/venv", "git_identity": "working tree file hashes; upload bundle rather than assuming HEAD includes dirty source"})
     resources = {}
     for entry in list(lock["components"].values()) + [lock["java"]]:
         for name, digest in entry["files"].items():
@@ -262,14 +327,16 @@ def build_handoff(output_dir):
             if file_hash(path) != digest:
                 raise ValueError("RESOURCE_BUNDLE_HASH_MISMATCH")
             resources[path.relative_to(ROOT).as_posix()] = path
-    resource = write_archive(output_dir / "dacn_phobert_resources_v1.zip", resources,
+    resource = write_archive(output_dir / ("dacn_phobert_resources_" + version + ".zip"), resources,
                              {"scope": "declared PhoBERT MIT, VnCoreNLP GPL and JRE legal files; no FastText/DP weights or cache", "upstream_sources": lock},
-                             "resource_bundle_manifest.json")
-    notebook = ROOT / "notebooks/sprint03/preflight_and_train_dev.ipynb"
+                             "resource_bundle_manifest.json", allow_source_symlinks=True)
     notebook.parent.mkdir(parents=True, exist_ok=True)
-    if notebook.exists():
-        raise FileExistsError(notebook)
-    write_json(notebook, notebook_content(code, resource))
+    if version == "v1":
+        content = notebook_content(code, resource)
+    else:
+        from src.modeling.colab_local_handoff import training_notebook
+        content = training_notebook(code, resource)
+    write_json(notebook, content)
     write_json(output_dir / "handoff_manifest.json", {"code_archive": code, "resource_archive": resource,
                "notebook": notebook.relative_to(ROOT).as_posix(), "notebook_sha256": file_hash(notebook),
                "colab_execution": "NOT_EXECUTED", "training": "NOT_EXECUTED", "test100": "NOT_INCLUDED_NOT_READ"})

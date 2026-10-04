@@ -29,6 +29,10 @@ from src.data.annotation_release import (
     load_human_adjudications, load_manual_findings,
     publish_release, validate_canonical_annotation, write_json, write_jsonl,
 )
+from src.data.test_assisted_annotation import (
+    align_segments, build_candidates, file_hash as assisted_file_hash,
+    read_locked_tasks, ward_system, write_package,
+)
 
 
 class FakeElement:
@@ -40,6 +44,72 @@ class FakeElement:
 
 
 class DataPipelineTests(unittest.TestCase):
+    def test_test_annotation_review_conflict_is_read_only(self):
+        record = {"sample_id": "fictional-test-fixture", "text": "Quận A",
+                  "address_system": "moi", "spans": [
+                      {"start": 0, "end": 6, "label": "QuanHuyen", "system": "cu"}]}
+        original = json.dumps(record, ensure_ascii=False, sort_keys=True)
+        self.assertTrue(any(f["code"] == "new_address_contains_district" for f in content_findings(record)))
+        self.assertEqual(json.dumps(record, ensure_ascii=False, sort_keys=True), original)
+
+    def test_assisted_test_requires_explicit_amendment(self):
+        with self.assertRaisesRegex(ValueError, "ACKNOWLEDGE_ASSISTED_TEST_REQUIRED"):
+            write_package(Path("unused"), Path("unused"), acknowledge=False)
+
+    def test_assisted_test_rejects_hidden_metadata_and_duplicate_ids(self):
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / "input.json"
+            for tasks in (
+                [{"data": {"sample_id": "fixture", "text": "1", "GT_SoNha": "1"}}],
+                [{"data": {"sample_id": "fixture", "text": "1"}},
+                 {"data": {"sample_id": "fixture", "text": "2"}}],
+            ):
+                path.write_text(json.dumps(tasks), encoding="utf-8")
+                with self.assertRaises(ValueError):
+                    read_locked_tasks(path, assisted_file_hash(path), len(tasks))
+            with self.assertRaisesRegex(ValueError, "HASH_MISMATCH"):
+                read_locked_tasks(path, "0" * 64, 2)
+
+    def test_assisted_test_aligns_repeated_literal_without_repairing_raw_text(self):
+        text = "1, Đường A, Phường B, Quận C, Phường B"
+        spans = align_segments(text, [["house", "1"], ["road", "Đường A"],
+            ["ward", "Phường B"], ["district", "Quận C"], ["ward", "Phường B"]])
+        self.assertEqual(spans[-1]["start"], text.rindex("Phường B"))
+        self.assertEqual(spans[-2]["system"], "cu")
+        self.assertTrue(all(text[s["start"]:s["end"]] == s["text"] for s in spans))
+        with self.assertRaisesRegex(ValueError, "UNEXPLAINED_UNLABELED_CONTENT"):
+            align_segments("Đường A, Phường B", [["ward", "Phường B"]])
+
+    def test_assisted_test_shared_name_and_parent_gap_abstain(self):
+        old = [{"level": "ward", "official_name": "Phường A", "province_name": "Tỉnh B",
+                "district_name": "Quận C", "validation_status": "PARENT_CODE_LINK_PASS",
+                "official_code": "001"}]
+        new = [{"level": "ward", "province": "Tỉnh B", "canonical_ward": "Phường A",
+                "official_ward_name": "Phường A", "code": "002"}]
+        system, trace = ward_system("P. A", "Tỉnh B", "Quận C", old, new)
+        self.assertEqual(system, "khong_xac_dinh")
+        self.assertEqual(trace["reason"], "NAME_PRESENT_IN_BOTH_SNAPSHOTS")
+        old[0]["validation_status"] = "PARENT_CODE_LINK_FAIL"
+        system, trace = ward_system("Phường A", "Tỉnh B", "Quận C", old, new)
+        self.assertEqual(system, "khong_xac_dinh")
+        self.assertEqual(trace["reason"], "OLD_REFERENCE_PARENT_LINK_GAP")
+
+    def test_assisted_test_t1_separate_from_neutral_spans(self):
+        tasks = [{"data": {"sample_id": "fictional", "text": "1, Đường A, Phường B, Quận C, Hà Nội"}}]
+        proposals = {"rows": [["fictional", [["house", "1"], ["road", "Đường A"],
+                     ["ward", "Phường B"], ["district", "Quận C"], ["province", "Hà Nội"]], ""]]}
+        new = [{"level": "ward", "province": "Thành phố Hà Nội", "canonical_ward": "Phường B",
+                "official_ward_name": "Phường B", "code": "fixture", "source_id": "fixture",
+                "source_locator": "fixture"}]
+        record = build_candidates(tasks, proposals, [], new)[0]
+        self.assertEqual(record["address_system"], "Lai")
+        self.assertEqual(record["status"], "candidate_not_gold")
+        self.assertEqual([s["system"] for s in record["spans"]],
+                         ["khong_xac_dinh", "khong_xac_dinh", "moi", "cu", "khong_xac_dinh"])
+        proposals["rows"][0][0] = "not-the-frozen-id"
+        with self.assertRaisesRegex(ValueError, "PROPOSAL_IDS_DIFFER"):
+            build_candidates(tasks, proposals, [], new)
+
     def test_annotation_review_road_prefix_and_repeated_ward(self):
         text = "12, Tỉnh lộ 8, Phường 7, Phường 7"
         road_start = text.index("Tỉnh")
@@ -909,6 +979,11 @@ class SourceReconciliationDiagnosticTests(unittest.TestCase):
 
 
 class DatedCatalogueRegression(unittest.TestCase):
+    def test_test_release_temporal_findings_are_not_silently_approved(self):
+        from src.data.test_corpus_release import validate_approval
+        with self.assertRaisesRegex(ValueError, "APPROVAL"):
+            validate_approval({}, {}, {"fixture": {}}, [], {})
+
     def test_old_ward_without_district_is_not_verified(self):
         from src.data.nso_soap_catalog import build_reference
         entry = {"sha256": "fixture", "response_file": "fixture.xml"}

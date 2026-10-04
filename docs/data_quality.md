@@ -1,4 +1,18 @@
-# Kiểm tra chất lượng dữ liệu (cập nhật 03/10/2026)
+# Kiểm tra chất lượng dữ liệu (cập nhật 04/10/2026)
+
+## Hiện hành sau local L1–L5
+
+Raw `test100_assisted_round2.json` SHA-256 `d51b69c981e775e0e51ac3ed5a3ef4c91d845f5e7a900c2f3d4c79f98ca758a4` có **100 task / 103 annotation**, không thiếu ID. Task602/653 có các bản hoàn toàn tương đương; task695 còn hai bản khác flag nên cần lựa chọn của người duyệt. QA có **99 converted / 1 multiple / 0 missing**, không lỗi offset/label/system/overlap trong bản được chọn. Đây là canonical candidate, chưa phải 100 gold. Findings round1 thiếu mẫu đã đóng; không yêu cầu gán lại300 train/dev.
+
+16 trường hợp T1 còn thiếu căn cứ hoặc xung đột nguồn (14 ca chưa có căn cứ thời kỳ, task663/664). Đề xuất giữ raw, khai báo ngoại lệ và loại riêng khỏi T1/chẩn đoán cấu trúc, giữ toàn bộ T0; **chưa áp dụng khi chưa được chủ dự án xác nhận**. Flags được giữ khi có phán quyết/lý do. Test dùng AI-assisted human review; IAA `NOT_MEASURED`. Publisher chặn thiếu approval hoặc canonical khác raw; source-identity/split audit240/60/100 đạt PASS với138 quyết định đã có, chưa đồng nghĩa nhãn test đã được duyệt.
+
+Train/dev giữ240/60,1.057/284 span, T1eligible206/53 và mask543 chỉ ở T1. Không đổi Gazetteer/runs, không đọc test để chọn model. Training ZIP mới chỉ có240/60 và phụ thuộc trace/manifest/queue232; không có test/gold/raw export. CPU preparation từ gói giải nén EXACT240/240+60/60; bằng chứng PhoBERT thật300/300 cũ được giữ. Full suite239PASS/8SKIP/0FAIL; Torch73/73 và CRF50/50 là các suite có phần chồng lặp, không cộng vào tổng. 1.313 frozen hash +4 raw size/mtime không đổi. Chưa chạy pretrained GPU smoke/training/test inference/scoring. [Báo cáo46](sprints/sprint_03/46_local_completion_report_20261004.md) và [hướng dẫn45](sprints/sprint_03/45_local_release_and_colab_operations.md) là trạng thái mới nhất; các mục cũ bên dưới là lịch sử.
+
+**QA raw test export, 04/10/2026:** file round1 có 99 task/102 annotation. Kiểm đầu 96 converted/1 missing/3 multiple; sau map hai cặp hoàn toàn tương đương, 98 converted/1 missing/1 multiple. Cấu trúc các bản được chọn đạt nhưng task 663/664 cần sửa/chốt hệ, 14 task cần căn cứ T1 và task 683 cần lý do privacy flag. Chưa duyệt gold/chấm test; train 240/dev 60 giữ nguyên. [QA và thao tác](sprints/sprint_03/41_test100_export_qa_20261004.md), [lộ trình local/Colab](sprints/sprint_03/42_remaining_local_then_colab.md). IAA NOT_MEASURED, test theo phương thức AI-assisted human review.
+
+**Kaggle 04/10/2026:** pipeline training chỉ đóng gói corpus approved240/60 và tài nguyên PhoBERT đã cleared. Không upload/read/train/tune/score test100 trong lượt này. Split/gold/ngoại lệ task543 không thay đổi. API nhận job không phải nghiệm thu mô hình; GPU smoke chưa qua nên chưa có metric neural mới hoặc full training. [Thao tác và bằng chứng](sprints/sprint_03/39_kaggle_pipeline_operations.md).
+
+**Annotation test cập nhật 04/10/2026:** chủ dự án yêu cầu AI gợi ý trước 100 mẫu rồi duyệt. Gói local `test100_assisted_v1/` giữ đúng ID/text frozen, có 446 span ứng viên, 15 ca ưu tiên nhãn/ranh giới và 56 T1 chưa đủ căn cứ. Chỉ QA cấu trúc prediction, chưa là human annotation/gold. [Protocol bổ sung và hướng dẫn](sprints/sprint_03/37_test100_ai_assisted_annotation.md). Phải báo AI-assisted human-reviewed sau nghiệm thu; không gọi gán mù/agreement độc lập. Train/dev, split, test blind gốc và các run không đổi; không train/tune/chấm test trong lượt gán này.
 
 ## Hiện hành sau P0/U1–U6 trước Colab
 

@@ -1,5 +1,23 @@
 # Hồ sơ Sprint 3
 
+**Hiện hành local L1–L5, round2:** đủ100 task/103 annotation, 99 converted/1 multiple tại695, không còn mẫu thiếu. Giữ JSON nguyên trạng; release chờ lựa chọn annotation và phán quyết T1. Đã có publisher, final-test pipeline fixture, training/resource ZIP mới có đủ dependency và hai notebook tách train/dev khỏi final test. Fullsuite239PASS/8SKIP,1313frozenhash+4rawsize/mtime không đổi; 0 cài mới. Chưa train/chấm test/chạy Colab.
+
+- [44 — Inventory tái dùng, nguồn/license và cổng Deepparse](44_local_finish_resource_inventory.md)
+- [45 — Thao tác QA/release và Colab giai đoạn cuối](45_local_release_and_colab_operations.md)
+- [46 — Kết quả từng L1–L5, kiểm thử, artifact, Git và phần owner còn chốt](46_local_completion_report_20261004.md)
+
+Các kết luận round1/báo cáo41 dưới đây được giữ làm lịch sử; ưu tiên round2/báo cáo46.
+
+**Prompt triển khai local trước Colab:** [43 — P0 và L1–L5, đầu ra, cổng nghiệm thu và bàn giao](43_agent_prompt_local_completion_before_colab.md). Agent triển khai QA/release/pipeline/gói chạy local; thực nghiệm Colab và chấm test thật là giai đoạn cuối.
+
+**QA test export 04/10/2026:** [41 — thiếu một mẫu, chọn annotation và rà hệ](41_test100_export_qa_20261004.md); [42 — các việc local trước, thực nghiệm Colab sau](42_remaining_local_then_colab.md). Hiện 98 candidate/100 sau chọn hai bản trùng tương đương; test gold chưa phát hành. Kaggle/Colab không chạy trong lượt QA này.
+
+**Kaggle 04/10/2026:** [38 — inventory cài CLI trên D](38_kaggle_install_inventory.md), [39 — pipeline private, preflight/smoke và gate full training](39_kaggle_pipeline_operations.md). Dùng train240/dev60, không có test100. Job đầu không có GPU; chưa có pretrained smoke PASS/full training. Báo cáo40 ghi kết quả cuối từng job và GB/GiB thực đo.
+
+[40 — Kết quả hai lượt remote, 194PASS/8SKIP, dung lượng và bước mở quyềnGPU](40_kaggle_pipeline_completion_20261004.md).
+
+**04/10/2026 — Test AI-assisted theo yêu cầu chủ dự án:** [37 — Gói 100 prediction, cấu hình, từng bước review/Submit/export và protocol bổ sung](37_test100_ai_assisted_annotation.md). Gói đáp án local trong interim; chưa có test gold hoặc test metric. Gói blind cũ được giữ nguyên làm hồ sơ trước đổi cách gán.
+
 **Bàn giao hiện hành P0/U1–U6:** Gazetteer hai snapshot thêm8.607 mã cũ exact, giữ3.355 mã mới và2.187 mã cũ chưa xác minh; CRF T0 dev90,56%, HEUR88,01%. Có notebook/bundle train/dev đã chuẩn bị, chưa chạy neural/Colab/test100. Cài local mới0bytes; artifact ngoàiGit phải nhận riêng.
 
 - [31 — Nguồn chính thức, kiểm cha/ngày và unresolved](31_pre_colab_source_verification.md)

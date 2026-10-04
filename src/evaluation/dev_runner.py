@@ -133,6 +133,16 @@ def run_dev_inference(adapter: object, samples: list[dict], config: dict, output
     """Core also supports local fixtures. The CLI enforces corpus approval."""
     validate_dev_samples(samples)
     validate_config(config)
+    return run_text_inference(adapter, samples, config, output_dir, input_manifest,
+                              split="dev", track="T0_T1_DEV")
+
+
+def run_text_inference(adapter, samples, config, output_dir, input_manifest,
+                       *, split, track):
+    """Shared text-only primitive. Public dev/test callers enforce their own gates."""
+    validate_dev_samples(samples)
+    if (split, track) not in {("dev", "T0_T1_DEV"), ("test", "T0_T1_FINAL_TEST")}:
+        raise ValueError("Unknown inference track")
     resources = resource_manifest(config)
     if output_dir.exists():
         raise FileExistsError(f"Refusing to overwrite run: {output_dir}")
@@ -187,7 +197,7 @@ def run_dev_inference(adapter: object, samples: list[dict], config: dict, output
     write_json(output_dir / "model_config.json", config)
     latencies = sorted(row["latency_ms"] for row in predictions)
     manifest = {
-        "run_id": config["run_id"], "model_id": config["model_id"], "track": "T0_T1_DEV", "split": "dev",
+        "run_id": config["run_id"], "model_id": config["model_id"], "track": track, "split": split,
         "stage": "inference", "created_at_utc": datetime.now(timezone.utc).isoformat(),
         "sample_count": len(samples), "supported_labels": config["supported_labels"],
         "status_counts": dict(Counter(row["status"] for row in predictions)),
