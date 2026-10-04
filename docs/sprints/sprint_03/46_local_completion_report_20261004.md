@@ -99,6 +99,8 @@ Checkout chính giữ nhánh partner `print3_label100test`, HEAD `7e89f34d6b8ee3
 
 Commit/push và SHA remote thực lưu `git_handoff_record.json`; báo cáo chat ghi kết quả cuối. ZIP/evidence giữ local; cần nhận riêng, clone Git không tự có resources/dữ liệu.
 
+**Git đã thực hiện:** code commit `fd48b4986a156c2e9258c3541ea7c824f5bbf0ce` trên `sprint3_huy`; archive từ Git kiểm 152/152 file code/config/XML/guideline khớp bytes workspace đã test. Push thử bị chặn xác thực HTTPS (`could not read Username`), không phải commit thất bại. SHA remote kiểm thực vẫn `9c03785520a48e193ae8fb97e2828d2be06cb26f`; remote partner vẫn `7e89f34d6b8ee3b00cbfdede145e70601979f292`. Không có gh CLI sẵn để hoàn tất đăng nhập tự động. Sau khi dùng terminal Git đã đăng nhập, chạy `git push origin sprint3_huy` từ thư mục dự án; không cần chuyển branch của checkout đang làm việc. Một commit tài liệu kế tiếp ghi trạng thái bàn giao này; SHA local cuối trong record/chat.
+
 Diff có bốn file nguồn cũ chỉ khác cách lưu xuống dòng để khớp byte hash đã khóa; không thay logic OSM/VQA/normalize. Git diff-check báo ba khoảng trắng cuối dòng đã có trong script02; giữ nguyên source byte, không tự format rồi làm lệch selection/bundle hash.
 
 Owner chỉ cần chọn annotation694 hoặc695 của task695 và chấp nhận ngoại lệ16T1 hoặc cung cấp căn cứ đủ; có thể giữ raw và flag. Agent sẽ tạo approval/decision gắn hash, QA100/100, phát hành hai release và tạo hai gói final evaluation sau khi nhận phán quyết. Không yêu cầu gán lại300 hoặc sửa24 task đã xong.
