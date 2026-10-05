@@ -1,5 +1,21 @@
 # Kiểm tra chất lượng dữ liệu (cập nhật 05/10/2026)
 
+## Đánh giá cuối đã nghiệm thu — hiện hành
+
+Giữ nguyên corpus 240/60/100 và 446 span test; mọi model/ablation chạy được đã freeze 100 prediction trước khi scorer đọc gold. T1 chấm 64 mẫu, loại 20 null và 16 ngoại lệ; giữ toàn bộ T0. Test AI-assisted human review, IAA NOT_MEASURED, provenance kết hợp chưa xác minh. Không coi 100 benchmark child là 100 quan sát địa chỉ thật.
+
+T0 F1 test: HEUR 91,12%, CRF 90,76%, PhoBERT-CRF 98,43%, DYN 98,21%, DYN off 98,43%. Constraint giảm 0,22 điểm phần trăm, không đổi lỗi Quận 0/12 hoặc T1. DYN T1 accuracy 71,88%, macro-F1 56,26%, Lai F1=0 (support 5). Test có 0 support ToaNha/CanHo, MocDinhVi, HuongDi, GhiChu; không có kết luận chất lượng cho bốn nhãn đó. Một seed 42; điểm cao trên tập nhỏ/AI-assisted không chứng minh tổng quát hóa ngoài nguồn.
+
+Track 5 trường 4.800 hàng đã loại 100 hold: audit có 1 seen_train và 4.799 unseen_registered_site_key, không chứng nhận độc lập địa lý/nguồn từ khóa chưa gặp. Neural có 4 abstain vẫn giữ trong mẫu số. Hai Deepparse còn BLOCKED_CHECKPOINT_LICENSE_UNDECLARED. Gazetteer giữ partial, VQA HOLD, Data05 DEFERRED. [Báo cáo 49](sprints/sprint_03/49_sprint3_final_results.md), [tái lập 50](sprints/sprint_03/50_sprint3_reproduction_and_handoff.md). Kiểm 2.352 frozen hash và 4 raw size/mtime PASS; không sửa annotation/nguồn/split để đạt điểm. Các trạng thái trước chấm dưới đây giữ làm lịch sử.
+
+## Đánh giá cuối đã nghiệm thu — hiện hành
+
+Giữ nguyên corpus 240/60/100 và 446 span test; mọi model/ablation chạy được đã freeze 100 prediction trước khi scorer đọc gold. T1 chấm 64 mẫu, loại 20 null và 16 ngoại lệ; giữ toàn bộ T0. Test AI-assisted human review, IAA NOT_MEASURED, provenance kết hợp chưa xác minh. Không coi 100 benchmark child là 100 quan sát địa chỉ thật.
+
+T0 F1 test: HEUR 91,12%, CRF 90,76%, PhoBERT-CRF 98,43%, DYN 98,21%, DYN off 98,43%. Constraint giảm 0,22 điểm phần trăm, không đổi lỗi Quận 0/12 hoặc T1. DYN T1 accuracy 71,88%, macro-F1 56,26%, Lai F1=0 (support 5). Test có 0 support ToaNha/CanHo, MocDinhVi, HuongDi, GhiChu; không có kết luận chất lượng cho bốn nhãn đó. Một seed 42; điểm cao trên tập nhỏ/AI-assisted không chứng minh tổng quát hóa ngoài nguồn.
+
+Track 5 trường 4.800 hàng đã loại 100 hold: audit có 1 seen_train và 4.799 unseen_registered_site_key, không chứng nhận độc lập địa lý/nguồn từ khóa chưa gặp. Neural có 4 abstain vẫn giữ trong mẫu số. Hai Deepparse còn BLOCKED_CHECKPOINT_LICENSE_UNDECLARED. Gazetteer giữ partial, VQA HOLD, Data05 DEFERRED. [Báo cáo 49](sprints/sprint_03/49_sprint3_final_results.md), [tái lập 50](sprints/sprint_03/50_sprint3_reproduction_and_handoff.md). Kiểm 2.352 frozen hash và 4 raw size/mtime PASS; không sửa annotation/nguồn/split để đạt điểm. Các trạng thái trước chấm dưới đây giữ làm lịch sử.
+
 ## Hiện hành sau phán quyết test và thực nghiệm Kaggle
 
 Đã phát hành `corpus_v1_release2/` đủ240train/60dev/100test và `test_gold_v1_release2/` đủ100mẫu/446span. Task695 chọn annotation694;16 trường hợp chỉ mask T1/structure, mọi T0 giữ nguyên. Test64 T1eligible,20null,16excluded; tổng manifest17 mask kể cả543 ở dev. Raw round2 giữ hashd51b69c9..., train/dev bytes giữ nguyên; audit split138 cặp PASS. AI-assisted human review, IAA NOT_MEASURED.

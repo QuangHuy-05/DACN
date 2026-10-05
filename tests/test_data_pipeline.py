@@ -1004,5 +1004,32 @@ class DatedCatalogueRegression(unittest.TestCase):
         self.assertEqual(report["status"], "PARTIAL_PARENT_LINK_GAPS")
 
 
+class FinalInferenceSourceImmutabilityTests(unittest.TestCase):
+    def test_incomplete_inference_selection_preserves_benchmark_source_bytes(self):
+        from src.evaluation.benchmark_runner import BENCHMARKS
+        from src.evaluation.dev_runner import file_hash
+        from src.modeling.final_inference_handoff import prepare_fivefield_inputs
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            source = root / "data/processed/benchmark"
+            source.mkdir(parents=True)
+            for filename in BENCHMARKS.values():
+                with (source / filename).open("w", encoding="utf-8-sig", newline="") as stream:
+                    writer = csv.DictWriter(stream, fieldnames=("ChuoiDiaChi", "GT_SoNha"))
+                    writer.writeheader()
+                    writer.writerow({"ChuoiDiaChi": "12 Đường A", "GT_SoNha": "12"})
+            before = {p.name: file_hash(p) for p in source.iterdir()}
+            hold = root / "hold.json"
+            hold.write_text(json.dumps({"samples": []}))
+            output = root / "inference.jsonl"
+            with patch("src.modeling.final_inference_handoff.ROOT", root), patch(
+                "src.modeling.final_inference_handoff.reserved_rows", return_value={k: set() for k in BENCHMARKS}
+            ):
+                with self.assertRaisesRegex(ValueError, "UNEXPECTED_FIVEFIELD_COUNT"):
+                    prepare_fivefield_inputs(output, hold)
+            self.assertFalse(output.exists())
+            self.assertEqual(before, {p.name: file_hash(p) for p in source.iterdir()})
+
+
 if __name__ == "__main__":
     unittest.main()
