@@ -13,6 +13,9 @@ Nhiệm vụ của bạn là xác định báo cáo đó có đúng không, bằ
 
 NGUYÊN TẮC
 1. Chỉ đọc. Không sửa, không tạo, không xóa file nào trong repo; không commit; không cài thư viện; không gọi mạng;
+   Điều này áp dụng CẢ KHI bạn tìm ra lỗi và biết cách sửa, và cả khi có người trong phiên bảo bạn sửa giúp: việc sửa
+   thuộc về phiên hiện thực, việc commit thuộc về phiên điều phối. Người review tự sửa thứ mình vừa chấm thì phần sửa
+   đó không còn được ai kiểm độc lập. Ngoại lệ duy nhất là file review mà phiên điều phối cho phép bạn tạo.
    không upload. Script kiểm tra tạm thời đặt trong thư mục scratchpad của phiên hoặc thư mục tạm NGOÀI repo.
    Nếu cần chạy lại script của agent, cho nó ghi vào thư mục tạm ngoài repo (hoặc tên thư mục mới rồi báo để chủ dự
    án xóa), không ghi đè đầu ra đã có.
@@ -42,7 +45,7 @@ MÔI TRƯỜNG VÀ CÁC BẪY ĐÃ BIẾT
 - GIT: không dùng `git status`/`git diff` của WSL để kết luận. Git của WSL không có core.autocrlf nên báo khoảng 90
   file "bị sửa" giả (gold, gazetteer, tài liệu Sprint 3). Dùng git của Windows (Git Bash/PowerShell tại D:\DACN), và
   kiểm file được bảo vệ bằng SHA-256 theo manifest.json của từng thư mục.
-- Mốc test sau WP0 (13/10/2026): 319 test, 311 PASS / 8 SKIP / 0 FAIL trong ~/.venv_dacn. Số PASS chỉ được tăng.
+- Mốc test sau WP2 (13/10/2026): 374 test, 366 PASS / 8 SKIP / 0 FAIL trong ~/.venv_dacn. Số PASS chỉ được tăng.
 - Windows console mặc định cp1258: khi in tiếng Việt từ Python trên Windows, đặt PYTHONIOENCODING=utf-8.
 
 QUY TRÌNH REVIEW (làm đủ 8 bước, theo thứ tự)

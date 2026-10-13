@@ -53,8 +53,8 @@ Ràng buộc cứng:
    gom chung — Data 03: 879/1500 dòng, Data 04: 223/800, Data 06: 1/600, Data 01: 0. Mọi phép chia nhóm rời nhau chỉ
    được dùng các dòng có khóa ADM|...; dòng UNRESOLVED chỉ dùng cho đánh giá, không đưa vào huấn luyện, và phải đếm.
 
-Trước khi báo xong: chạy `python -m unittest discover -s tests -v` (toàn bộ; mốc đo ngày 13/10/2026 sau WP1
-trong ~/.venv_dacn là 349 test: 341 PASS / 8 SKIP / 0 FAIL — không được có FAIL và không được làm giảm số PASS cũ),
+Trước khi báo xong: chạy `python -m unittest discover -s tests -v` (toàn bộ; mốc đo ngày 13/10/2026 sau WP2
+trong ~/.venv_dacn là 374 test: 366 PASS / 8 SKIP / 0 FAIL — không được có FAIL và không được làm giảm số PASS cũ),
 chạy script của bạn từ đầu trên thư mục đầu ra mới để chứng minh tái lập, kiểm số dòng/cột/encoding/bản ghi trùng
 của mọi CSV đầu ra.
 
@@ -405,81 +405,161 @@ tái chạy tầng 1 cho cùng hash; bộ test đầy đủ không FAIL.
 
 ---
 
-## WP3 — Độ tin cậy T0/T1
+## WP3a — Khoảng tin cậy và kiểm định ghép cặp trên prediction đã freeze
 
 ```text
-NHIỆM VỤ: (3a) khoảng tin cậy và kiểm định ghép cặp trên prediction Sprint 3 đã freeze; (3b) chuẩn bị và chấm
-thí nghiệm đa seed 42/1337/2025 cho hai mô hình neural. Phụ thuộc: WP0.
+NHIỆM VỤ: báo độ bất định của kết quả T0/T1 Sprint 3 bằng bootstrap và kiểm định ghép cặp, chỉ trên prediction đã
+freeze. Không chạy mô hình, không huấn luyện. Chỉ cần runtime chính ~/.venv_dacn. Phụ thuộc: WP0 (src/evaluation/stats.py).
 
-File bạn sở hữu: scripts/69_bootstrap_frozen_results.py, scripts/70_prepare_multiseed_kaggle.py,
-tests/test_group1_reliability.py, src/modeling/cli.py (chỉ thêm --seed, xem 3b.1),
-data/processed/evaluation/sprint04/reliability_20261014_v1/, data/interim/modeling/sprint04/multiseed_20261015_v1/,
+File bạn sở hữu: scripts/69_bootstrap_frozen_results.py, src/evaluation/frozen_reliability.py,
+tests/test_group1_reliability.py, data/processed/evaluation/sprint04/reliability_20261014_v1/,
 docs/sprints/sprint_04/11_reliability_results.md.
 
-3a — CPU, làm ngay
-Đầu vào (chỉ đọc, kiểm SHA-256 với data/interim/modeling/sprint03/final_completion_20261005_v1/all_test_predictions_frozen.json
-trước khi tính):
-- HEUR-JW, CRF-INDEP: .../final_completion_20261005_v1/light_test_runs_v2/{heur-jw,crf-indep}/predictions.jsonl
-- PHOBERT-CRF, PROPOSED-DYN, PROPOSED-NO-CONSTRAINT: .../kaggle_final_output_v4/dacn_artifacts/
-  dacn-s3-final-infer-20261005-v4/workspace/data/interim/modeling/sprint03/dacn-s3-final-infer-20261005-v4/
-  {pcrf_test,dyn_test,dyn_off_test}/predictions.jsonl
-- Gold: data/processed/annotation/sprint03/test_gold_v1_release2/test_benchmark_t0.jsonl; mask T1 lấy từ
-  test_evaluation_exclusions trong manifest của corpus_v1_release2 (kỳ vọng 64 eligible / 20 null / 16 excluded).
-- Dev: prediction dev của các run đã chọn (đường dẫn trong selection_lock.json từng run) và dev.jsonl.
-- Track 5 trường: prediction *_5field trong cùng thư mục output v4 và light runs; 4.800 hàng; ghi rõ là track development.
+SỰ THẬT ĐÃ KIỂM NGÀY 13/10/2026 (bước đầu tiên là tái lập; lệch thì dừng và báo)
+- Gold test: data/processed/annotation/sprint03/corpus_v1_release2/test_benchmark_t0.jsonl (100 mẫu, 446 span).
+  Mask T1: manifest.json -> test_evaluation_exclusions (16 ID) => 64 eligible / 20 null / 16 excluded.
+- Mỗi mẫu test là một source_group riêng (100 nhóm khác nhau): bootstrap theo source_group TRÙNG với bootstrap theo mẫu.
+  Báo một lần, ghi rõ lý do; không trình bày như hai phân tích độc lập. Thay vào đó báo thêm CI theo cụm
+  source_dataset (5 cụm × 20 mẫu: 01_new, 02_noisy, 03_old, 04_missing, 06_hybrid, lấy từ identity_registry.jsonl) như
+  một bảng độ nhạy, ghi rõ 5 cụm là quá ít để CI đáng tin.
+- Hash prediction: data/interim/modeling/sprint03/final_completion_20261005_v1/all_test_predictions_frozen.json
+  (models -> predictions_sha256). Trường run_dir trong file đó của ba hệ neural trỏ tới một workspace đã bị dời;
+  đường dẫn thật (đã kiểm hash khớp):
+  · HEUR-JW:   .../final_completion_20261005_v1/light_test_runs_v2/heur-jw/predictions.jsonl
+  · CRF-INDEP: .../final_completion_20261005_v1/light_test_runs_v2/crf-indep/predictions.jsonl
+  · PHOBERT-CRF, PROPOSED-DYN, PROPOSED-NO-CONSTRAINT: .../final_completion_20261005_v1/kaggle_final_output_v4/
+    dacn_artifacts/dacn-s3-final-infer-20261005-v4/workspace/data/interim/modeling/sprint03/
+    dacn-s3-final-infer-20261005-v4/{pcrf_test,dyn_test,dyn_off_test}/predictions.jsonl
+- Dùng src/evaluation/dev_runner.py::load_predictions và src/evaluation/span_scorer.py::compute_exact_span_metrics
+  (tham số excluded_t1_sample_ids) phải ra đúng:
+  T0 P/R/F1: HEUR-JW 0,9512/0,8744/0,9112; CRF-INDEP 0,9234/0,8924/0,9076; PHOBERT-CRF 0,9843 cả ba;
+  PROPOSED-DYN 0,9821 cả ba; PROPOSED-NO-CONSTRAINT 0,9843 cả ba.
+  T1 accuracy/macro-F1 (64 eligible): HEUR-JW 0,9219/0,9249; DYN và DYN tắt ràng buộc 0,7188/0,5626.
+  CRF-INDEP và PHOBERT-CRF không có T1 (NOT_IMPLEMENTED): scorer trả 0,0 vì mọi mẫu là khong_ro — KHÔNG báo số 0 đó
+  như kết quả; ghi NOT_IMPLEMENTED. T1 của hai hệ này qua T1-PIPE đã có ở WP2 (docs/sprints/sprint_04/10_t1_h5_results.md).
+- Prediction dev: HEUR-JW ở data/processed/evaluation/sprint03/heur_jw_followup_20261003_v1/threshold_0.86/ và
+  CRF-INDEP ở data/processed/evaluation/sprint03/crf_followup_20261003_v1/ctx1_c10.1_c21/dev_run/ (đã kiểm tồn tại).
+  Dev của ba hệ neural: selection_lock.json trong từng thư mục *_test ghi selected_dev_run trỏ tới đường dẫn không còn
+  tồn tại; tìm bản sao bằng hash trong dev_evidence của lock đó dưới data/interim/modeling/sprint03/
+  release_and_kaggle_20261005_v1/. Không tìm được bản khớp hash thì ghi NOT_FOUND cho ô dev của hệ đó, không thay bằng
+  file khác. Gold dev: corpus_v1_release2/dev.jsonl, mask evaluation_exclusions (17 ID).
 
-Bước bắt buộc đầu tiên: dùng compute_exact_span_metrics (src/evaluation/span_scorer.py) tái lập đúng các số đã công bố
-(T0 F1: 0,9112 / 0,9076 / 0,9843 / 0,9821 / 0,9843; T1 HEUR 0,9219 / 0,9249; DYN 0,7188 / 0,5626). Lệch bất kỳ số nào
-thì dừng và báo, không tính CI.
+TẦNG 1 — BẮT BUỘC (test Sprint 3)
+1. Tái lập mọi số ở trên trước khi tính CI. Ghi bảng tái lập vào báo cáo.
+2. Biểu diễn theo mẫu: với mỗi hệ, mỗi mẫu có (tp, fp, fn) toàn bộ và theo từng nhãn, cờ exact-match cả địa chỉ,
+   và với T1: đúng/sai/abstain trên 64 mẫu eligible. Tổng theo mẫu phải bằng đúng tổng của scorer (kiểm trong test).
+3. CI 95% percentile bootstrap theo mẫu, B = 10.000, seed 20261014, bằng src/evaluation/stats.py:
+   T0 micro P, R, F1; F1 từng nhãn có support > 0 (nhãn support 0 ghi NOT_EVALUABLE_NO_GOLD_SUPPORT; support < 10 gắn
+   LOW_SUPPORT); exact-match cả địa chỉ; T1 accuracy, macro-F1 ba lớp, F1 lớp Lai (support 5: LOW_SUPPORT), coverage.
+   Macro-F1 trên một resample thiếu lớp: tính trên các lớp có mặt và đếm số resample như vậy; báo tỷ lệ.
+4. So sánh ghép cặp trên cùng 100 mẫu: PCRF–DYN, DYN bật–tắt ràng buộc, PCRF–CRF, PCRF–HEUR, CRF–HEUR (T0);
+   HEUR–DYN (T1, 64 mẫu). Mỗi cặp: delta, CI ghép cặp, tỷ lệ resample có delta <= 0, p hoán vị xấp xỉ (10.000 hoán vị),
+   McNemar chính xác trên exact-match (T0) hoặc đúng/sai (T1). Thêm cột p Holm trên toàn bộ họ so sánh và ghi số phép
+   so sánh. Cặp không có mẫu bất đồng: ghi trạng thái DEGENERATE từ stats.py, không bịa p.
+5. Độ nhạy: với mỗi cặp, nêu độ rộng CI ghép cặp như ước lượng hiệu nhỏ nhất phân biệt được với 100 mẫu / 446 span.
+6. T0 theo source_dataset (5 lát × 20 mẫu) cho từng hệ, kèm CI; ghi rõ mỗi lát chỉ 20 mẫu.
 
-Tính bằng src/evaluation/stats.py, B=10.000, seed 20261014:
-- Mỗi hệ: T0 micro P/R/F1, F1 từng nhãn có support > 0, exact-match cả địa chỉ, T1 accuracy và macro-F1, Lai F1;
-  CI 95% bootstrap theo mẫu và theo source_group (báo số cụm; nếu mỗi mẫu là một cụm thì ghi rõ hai CI trùng nhau).
-- Cặp: PCRF–DYN, DYN bật–tắt, PCRF–CRF, PCRF–HEUR, CRF–HEUR; với T1: HEUR–DYN. Mỗi cặp: delta, CI ghép cặp,
-  p hoán vị xấp xỉ, McNemar chính xác trên exact-match (T0) hoặc đúng/sai (T1).
-- Không hiệu chỉnh đa so sánh ngầm: liệt kê số phép so sánh và thêm cột p Holm.
-- Ghi chú độ nhạy: với 100 mẫu / 446 span, hiệu nhỏ nhất phát hiện được ước lượng từ độ rộng CI ghép cặp.
+TẦNG 2 — NÊN
+7. Lặp lại mục 3–4 trên dev (60 mẫu; 53 eligible T1) cho các hệ tìm được prediction dev khớp hash. Dev là tập đã dùng
+   để chọn mô hình: ghi nhãn SELECTION_SET, không dùng làm ước lượng không chệch.
+8. Track 5 trường (4.800 hàng): chỉ làm nếu tầng 1–2 đã xong. File prediction nặng 9–90 MB mỗi hệ; đọc theo dòng,
+   không nạp cả file. Dùng metric đã lưu theo hàng nếu có; nếu phải chấm lại thì dùng src/evaluation/scorer.py.
+   Ghi nhãn DEVELOPMENT_TRACK. Chưa làm thì ghi NOT_RUN.
 
-3b — đa seed
-1. Seed. KHÔNG tạo file config mới chỉ khác seed/run_id: src/modeling/protocol.py::load_config từ chối mọi config có
-   canonical hash không nằm trong configs/modeling/sprint03/protocol_lock_v1.json (CONFIG_CHANGED_AFTER_PROTOCOL_LOCK),
-   dù validate_training_config cho phép seed 1337 và 2025. Không sửa protocol_lock_v1.json (hash của nó được
-   hardware profile ghim và nằm trong sổ hash bảo vệ). Hướng thực hiện: thêm tham số `--seed` (chỉ nhận 42/1337/2025)
-   vào src/modeling/cli.py, áp seed SAU load_config lên bản sao config trong bộ nhớ, ghi seed thực và hash config gốc
-   vào run_manifest.json; chỉ chạm cli.py/training.py ở mức tối thiểu và thêm test chứng minh (i) config gốc và lock
-   không đổi, (ii) seed ngoài danh sách bị từ chối, (iii) không đổi seed thì kết quả/hash như cũ. Nếu cách này đòi
-   sửa file ngoài danh sách sở hữu, dừng và hỏi chủ dự án. Dùng ứng viên c02 đã khóa.
-   Nơi chạy (Kaggle hay máy cục bộ) do chủ dự án quyết định sau khi đo phần cứng; hardware profile hiện có yêu cầu
-   cứng GPU >= 8 GiB, float32, torch 2.8.0 cu128 nên KHÔNG dùng được cho RTX 3050 4 GB. Chạy CPU dùng thẳng
-   `device: cpu` có sẵn trong config gốc, không cần hardware profile.
-2. Seed 42: dùng lại run đã khóa, không huấn luyện lại. CRF-INDEP: L-BFGS tất định -> DETERMINISTIC_SEED_INVARIANT,
-   một dòng, không std. HEUR-JW: một cấu hình cố định.
-3a. NẾU chủ dự án chọn chạy cục bộ trên CPU (máy i7-12700H, 6 nhân P + 8 nhân E, WSL 7,6 GB RAM; đo ngày 13/10/2026):
-   - Bắt buộc đặt `OMP_NUM_THREADS=6 MKL_NUM_THREADS=6` và torch.set_num_threads(6) trước mọi lượt chạy. Đo thực tế:
-     6 luồng 1,05 s/bước, 10 luồng 1,23 s, 14 luồng 11,2 s (chậm gấp 10 lần do tranh chấp nhân). Không dùng mặc định.
-   - Chạy tuần tự từng lượt (mỗi tiến trình ~2,9 GB RSS); dùng runtime neural data/interim/modeling/sprint03/runtime_neural_d_v1
-     với device cpu có sẵn trong config, không dùng hardware profile CUDA (đòi VRAM >= 8 GiB).
-   - Chạy cả seed 42 cục bộ để ba seed cùng một môi trường; run Kaggle seed 42 của Sprint 3 báo thành hàng riêng
-     "độ nhạy phần cứng", không trộn vào mean ± std.
-   - Ước lượng thời gian: ~1 s mỗi micro-batch 4 mẫu, 60 micro-batch/epoch, tối đa 20 epoch (patience 5) => khoảng
-     15–30 phút/lượt. Đo thời gian epoch đầu thật rồi cập nhật ước lượng trước khi chạy hết.
-3. Dựng gói Kaggle bằng hạ tầng hiện có (scripts/50_kaggle_pipeline.py, 51_run_kaggle_remote.py, src/modeling/kaggle_*.py),
-   mỗi model/seed một job tuần tự; DYN tắt ràng buộc dùng lại trọng số và calibration của DYN bật cùng seed.
-   Ước lượng GPU-giờ từ log thời gian thực của các run c02 Sprint 3 và ghi vào kế hoạch chạy.
-4. DỪNG tại đây và hỏi chủ dự án: quota GPU đọc trên giao diện Kaggle, đồng ý upload. Không tự upload/submit.
-   Thứ tự ưu tiên nếu quota thiếu: PCRF-1337, DYN-1337, (DYN-T1-AUG của WP2), PCRF-2025, DYN-2025.
-5. Sau khi có artifact: kiểm hash checkpoint/prediction, chọn epoch theo quy tắc dev đã khóa
-   (full11 dev micro F1 -> gold-supported macro -> epoch sớm), suy luận test text-only, khóa prediction, rồi mới chấm
-   đúng một lần mỗi seed.
-6. Báo từng seed và mean ± std (ddof=1) cho T0 micro F1, T1 accuracy/macro-F1/Lai F1 trên dev và test; delta
-   PCRF–DYN và bật–tắt theo từng seed; thiếu seed ghi n thực và PARTIAL_SEEDS. Không báo riêng seed tốt nhất.
+BÁO CÁO 11 (phần a)
+- Bảng tái lập; bảng CI từng hệ; bảng so sánh ghép cặp; bảng theo source_dataset; (nếu có) dev và 5 trường.
+- Mỗi kết luận viết theo CI và dùng đúng từ: "không phân biệt được với dữ liệu này" khác "tương đương".
+  Với PCRF–DYN (chênh 1 span) và DYN bật–tắt (đổi 1 mẫu, 2 span), nêu thẳng kết luận mà CI cho phép.
+- Giới hạn: một bộ test 100 mẫu đã bị quan sát; gold một người gán có AI hỗ trợ, IAA chưa đo; một seed (đa seed là WP3b);
+  4 nhãn không có support; mẫu test lấy đều 20 từ mỗi nguồn nên không phải mẫu ngẫu nhiên của phân phối thật.
 
-Báo cáo 11: bảng CI, bảng kiểm định ghép cặp, bảng seed, và kết luận viết theo CI ("không phân biệt được" khác
-"tương đương"). Nêu giới hạn: một bộ test 100 mẫu, đã bị quan sát, gold một người gán có AI hỗ trợ.
+TEST
+- Tổng (tp, fp, fn) theo mẫu bằng tổng của scorer cho cả 5 hệ; tái lập đúng các điểm công bố (dùng dữ liệu thật, bỏ
+  qua bằng skipTest nếu file interim vắng).
+- CI tất định theo seed; mask T1 cho 64/20/16; hệ không có T1 được báo NOT_IMPLEMENTED chứ không phải 0.
+- Hash prediction sai thì script dừng trước khi tính.
 
-Test: tái lập điểm công bố trên fixture nhỏ; CI tất định theo seed; overlay config đúng; mask T1 64/20/16.
+XONG KHI: tầng 1 đầy đủ và tái chạy cho cùng hash; tầng 2 có số hoặc trạng thái; bộ test đầy đủ không FAIL.
+```
 
-XONG KHI: 3a đầy đủ và tái lập; 3b có số hoặc trạng thái PENDING_KAGGLE / PARTIAL_SEEDS kèm gói và lệnh chạy.
+---
+
+## WP3b — Đa seed trên CPU cục bộ
+
+```text
+NHIỆM VỤ: huấn luyện PHOBERT-CRF và PROPOSED-DYN (ứng viên c02 đã khóa) với ba seed 42 / 1337 / 2025 trên CPU cục bộ,
+chấm dev và test, báo mean ± std. Phụ thuộc: WP3a (dùng lại frozen_reliability.py và stats.py).
+Chạy sau khi chủ dự án đồng ý bắt đầu: tổng thời gian ước lượng 2–4 giờ máy, và cần đóng ứng dụng nặng trên Windows.
+
+File bạn sở hữu: scripts/70_run_multiseed_local.py, tests/test_group1_multiseed.py,
+data/interim/modeling/sprint04/multiseed_20261015_v1/ (checkpoint, log, prediction),
+data/processed/evaluation/sprint04/multiseed_20261015_v1/ (metric, bảng, manifest),
+và phần b của docs/sprints/sprint_04/11_reliability_results.md. KHÔNG sửa file nào trong src/modeling/, configs/ hay
+src/evaluation/adapters/.
+
+SỰ THẬT ĐÃ KIỂM NGÀY 13/10/2026
+- Không cần sửa mã đã khóa để đổi seed: src/modeling/protocol.py::load_config chỉ kiểm hash của file config; sau khi
+  nạp, lấy config = candidate_config(load_config(path), "c02"), gán config["seed"] trên bản sao trong bộ nhớ
+  (validate_training_config cho phép 42/1337/2025), rồi gọi thẳng src/modeling/training.py::train_model(config,
+  resource_path, corpus_dir, run_dir). Không dùng src/modeling/cli.py (nó ép thư mục đầu ra về sprint03 và không có --seed).
+  Config gốc: configs/modeling/sprint03/phobert_crf_v1.json và proposed_dyn_v1.json; device gốc đã là "cpu".
+- Corpus cho huấn luyện phải là data/processed/annotation/sprint03/corpus_train_dev_v2: manifest của nó có SHA-256
+  9c91b77f… đúng bằng hằng số CORPUS_MANIFEST_SHA256 được ghim. corpus_v1_release2 bị từ chối (BLOCKED_INPUT_HASH).
+  Kiểm rằng train.jsonl và dev.jsonl của hai thư mục giống hệt nhau (so SHA-256) và ghi kết quả.
+- Preflight trên CPU với runtime neural (data/interim/modeling/sprint03/runtime_neural_d_v1/bin/python, torch 2.8.0+cpu)
+  và resource lock cục bộ data/interim/modeling/sprint03/task_01_06_20261003_v1/resource_lock_local_v1.json:
+  resource_lock_verified = true; KHÔNG có blocker CUDA. Hai blocker đã thấy và cách xử lý:
+  · JAVA_MISSING_FOR_VNCORENLP: Java nằm ở data/interim/modeling/sprint03/resources_d_v1/java17/jdk-17.0.20.1+1-jre/bin;
+    thêm thư mục đó vào PATH (và đặt JAVA_HOME) trong môi trường của tiến trình con. Không cài Java.
+  · BLOCKED_INPUT_HASH: do truyền corpus_v1_release2; dùng corpus_train_dev_v2.
+  Preflight đòi 21,5 GB đĩa trống; ổ D còn khoảng 22–32 GB.
+- Mỗi epoch lưu một checkpoint (~540 MB) cộng một checkpoint resume: một lượt 20 epoch có thể chiếm hơn 10 GB.
+  Ổ đĩa không đủ cho 6 lượt nếu giữ hết. Sau MỖI lượt: ghi SHA-256 và kích thước của mọi checkpoint vào manifest của
+  lượt, giữ best.pt (+ best.pt.json) và training_log.jsonl, rồi xóa các epoch_*.pt và resume_*.pt CỦA CHÍNH LƯỢT ĐÓ.
+  Chỉ xóa file trong data/interim/modeling/sprint04/multiseed_20261015_v1/. Kiểm đĩa trống trước mỗi lượt; dưới 15 GB thì dừng.
+- Tốc độ đo trên máy này (mô hình cùng kích thước, micro-batch 4 × 48 token): 6 luồng 1,05 s/bước; 10 luồng 1,23 s;
+  14 luồng 11,2 s. Bắt buộc OMP_NUM_THREADS=6, MKL_NUM_THREADS=6 và torch.set_num_threads(6). Ước lượng 15–30 phút/lượt;
+  trên Kaggle T4 một lượt c02 mất khoảng 12 phút và dừng ở epoch 11.
+- Checkpoint Sprint 3 (huấn luyện trên Kaggle với device cuda:0) không nạp được trên CPU cục bộ
+  (CUDA_NOT_AVAILABLE / RESUME_CONFIG_MISMATCH, xem data/processed/evaluation/sprint04/t1_h5_20261015_v1/tier2/status.json).
+  Vì vậy seed 42 phải được huấn luyện lại cục bộ; kết quả Kaggle seed 42 (T0 F1 PCRF 0,9843, DYN 0,9821; DYN T1
+  0,7188/0,5626) báo thành hàng riêng "Sprint 3, GPU T4" và KHÔNG vào mean ± std.
+- Train huấn luyện trên dev làm tập chọn epoch (selection_key: full11 dev micro F1 -> macro nhãn có support -> epoch sớm);
+  quy tắc này nằm sẵn trong train_model, không tự chọn lại.
+- Ngưỡng giải mã của DYN: dùng nguyên policy đã khóa threshold 0,7 / margin 0,2 cho mọi seed, không hiệu chỉnh lại theo
+  seed (dev chỉ có 8 Lai, dưới mức 10 của protocol). Ghi rõ đây là lựa chọn và báo thêm T1 argmax thuần như số chẩn đoán.
+
+CÁC BƯỚC
+1. Smoke (bắt buộc, trước mọi lượt đầy đủ): chạy preflight cho cả hai mô hình; rồi một lượt PHOBERT-CRF seed 42 với
+   max_epochs đầy đủ nhưng DỪNG TAY sau epoch 1 chỉ để đo thời gian một epoch và dung lượng checkpoint — làm trong thư
+   mục smoke riêng và xóa sau khi ghi số đo. Nếu không thể dừng sạch sau một epoch mà không sửa mã khóa thì bỏ bước dừng
+   tay: chạy thẳng lượt đầy đủ đầu tiên và đo epoch 1 từ log. Nếu preflight hay huấn luyện lỗi vì lý do không xử lý được
+   bằng môi trường (PATH, biến môi trường, tham số gọi hàm): ghi BLOCKED_LOCAL_TRAINING kèm nguyên văn lỗi và DỪNG.
+   Không sửa mã khóa, không đổi hash, không vòng qua kiểm tra.
+2. Cập nhật ước lượng tổng thời gian và dung lượng từ số đo thật; nếu tổng vượt 6 giờ hoặc đĩa không đủ, dừng và báo
+   để chủ dự án quyết định (cắt seed hay chuyển Kaggle).
+3. Thứ tự chạy, tuần tự từng lượt một: PCRF-42, DYN-42, PCRF-1337, DYN-1337, PCRF-2025, DYN-2025. Mỗi lượt một tiến
+   trình riêng, run_dir = .../multiseed_20261015_v1/<model>_seed<seed>/. Ghi thời gian, số epoch, epoch tốt nhất, dev key.
+   PROPOSED-NO-CONSTRAINT không huấn luyện: dùng lại best.pt của DYN cùng seed với ràng buộc tắt.
+4. Suy luận test (text-only, test_input.jsonl của corpus_v1_release2) bằng adapter của mã khóa
+   (PhoBERTCRFAdapter / ProposedDynamicAdapter qua experiment_config.modeling_config + dev_runner.build_adapter, hoặc
+   dựng adapter trực tiếp với model/processor đã nạp) với đúng config của seed đó. Khóa prediction (ghi SHA-256) TRƯỚC
+   khi đọc gold; chấm đúng một lần mỗi seed bằng compute_exact_span_metrics với mask 64/20/16.
+5. Kiểm tất định: chạy lại PCRF-42 lần hai nếu thời gian cho phép và so prediction; nếu khác, báo mức khác và ghi
+   NONDETERMINISTIC_ON_CPU thay vì giả định tất định.
+6. Bảng: từng seed × {dev T0 F1, test T0 P/R/F1, exact-match, test T1 accuracy / macro-F1 / Lai F1, coverage, epoch
+   tốt nhất, thời gian}; mean ± std (ddof=1, n ghi rõ); delta PCRF−DYN và DYN bật−tắt theo từng seed và trung bình;
+   hàng riêng cho Sprint 3 GPU T4. CRF-INDEP: một dòng DETERMINISTIC_SEED_INVARIANT; HEUR-JW: một cấu hình cố định.
+   Thiếu seed thì ghi n thực và PARTIAL_SEEDS. Không báo riêng seed tốt nhất, không chọn gì bằng test.
+7. Diễn giải: so độ lệch chuẩn giữa các seed với chênh lệch PCRF−DYN và với độ rộng CI của WP3a; nêu kết luận mà số
+   cho phép. Ghi rõ khác biệt phần cứng (CPU cục bộ so với GPU T4) và rằng test đã bị quan sát.
+
+TEST: seed ngoài {42, 1337, 2025} bị từ chối; file config gốc và protocol_lock_v1.json không đổi hash sau khi chạy;
+hàm dọn checkpoint chỉ xóa trong thư mục của gói và không xóa best.pt; mean ± std tính đúng trên ví dụ tay; hàng
+Sprint 3 GPU không vào trung bình.
+
+XONG KHI: có đủ 6 lượt (hoặc PARTIAL_SEEDS / BLOCKED_LOCAL_TRAINING kèm lý do và số đo), prediction được khóa trước khi
+chấm, bảng và phần b của báo cáo 11 đã viết, đĩa đã dọn, bộ test đầy đủ không FAIL.
 ```
 
 ---
