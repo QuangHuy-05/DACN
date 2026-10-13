@@ -1,0 +1,1269 @@
+{
+  "status": "AUDIT_PASS_WITH_HUMAN_NEAR_DUP_REVIEW",
+  "sample_counts": {
+    "train": 240,
+    "dev": 60,
+    "test": 100
+  },
+  "group_counts": {
+    "train": 235,
+    "dev": 60,
+    "test": 100
+  },
+  "duplicate_sample_ids": [],
+  "missing_source_group_ids": [],
+  "group_collisions": {},
+  "benchmark_leakage_groups": [],
+  "exact_text_collisions_count": 0,
+  "exact_text_collisions": {},
+  "normalized_text_collisions": {},
+  "near_duplicates_count": 138,
+  "near_duplicates_review_queue": [
+    {
+      "first_split": "train",
+      "first_sample_id": "s3_0165ad0d14792eab",
+      "first_text": "NT09-09, Ngọc Trai 9, Đa Tốn, Gia Lâm, Hà Nội",
+      "second_split": "dev",
+      "second_sample_id": "s3_66ca8ca32a7f7aab",
+      "second_text": "NT10-10, Ngọc Trai 10, Đa Tốn, Gia Lâm, Hà Nội",
+      "similarity": 0.9231
+    },
+    {
+      "first_split": "train",
+      "first_sample_id": "s3_02a993520b96bdfb",
+      "first_text": "NT03-21, Ngọc Trai 3, Đa Tốn, Gia Lâm, HN",
+      "second_split": "dev",
+      "second_sample_id": "s3_66ca8ca32a7f7aab",
+      "second_text": "NT10-10, Ngọc Trai 10, Đa Tốn, Gia Lâm, Hà Nội",
+      "similarity": 0.8736
+    },
+    {
+      "first_split": "train",
+      "first_sample_id": "s3_059c4a08f7b4be8f",
+      "first_text": "05, Đường Mỹ Phú 1C, Phường Tân Mỹ, Thành phố Hồ Chí Minh",
+      "second_split": "dev",
+      "second_sample_id": "s3_2073d8b7d317aa31",
+      "second_text": "25, Đường Nội Khu 04, Phường Tân Mỹ, Thành phố Hồ Chí Minh",
+      "similarity": 0.887
+    },
+    {
+      "first_split": "train",
+      "first_sample_id": "s3_059c4a08f7b4be8f",
+      "first_text": "05, Đường Mỹ Phú 1C, Phường Tân Mỹ, Thành phố Hồ Chí Minh",
+      "second_split": "dev",
+      "second_sample_id": "s3_5e8746dc62ddb454",
+      "second_text": "06, Đường Mỹ Phú 1A, Phường Tân Mỹ, Quận 7, Thành phố Hồ Chí Minh",
+      "similarity": 0.9016
+    },
+    {
+      "first_split": "train",
+      "first_sample_id": "s3_059c4a08f7b4be8f",
+      "first_text": "05, Đường Mỹ Phú 1C, Phường Tân Mỹ, Thành phố Hồ Chí Minh",
+      "second_split": "dev",
+      "second_sample_id": "s3_653200e0481ff4d2",
+      "second_text": "36, Đường Số 19, Phường Tân Mỹ, Thành phố Hồ Chí Minh",
+      "similarity": 0.8727
+    },
+    {
+      "first_split": "train",
+      "first_sample_id": "s3_071e01f6117129b2",
+      "first_text": "SH10-08, San Hô 10, Đa Tốn, Hà Nội",
+      "second_split": "dev",
+      "second_sample_id": "s3_3a279cd4591119bf",
+      "second_text": "SH16-07, San Hô 16, Đa Tốn, Hà Nội",
+      "similarity": 0.9118
+    },
+    {
+      "first_split": "train",
+      "first_sample_id": "s3_12255839d959ddc8",
+      "first_text": "NT02-68, Ngọc Trai 2, Đa Tốn, Gia Lâm, Hà Nội",
+      "second_split": "dev",
+      "second_sample_id": "s3_66ca8ca32a7f7aab",
+      "second_text": "NT10-10, Ngọc Trai 10, Đa Tốn, Gia Lâm, Hà Nội",
+      "similarity": 0.9011
+    },
+    {
+      "first_split": "train",
+      "first_sample_id": "s3_13e5938f780a06d8",
+      "first_text": "14, Đường Mỹ Phú 1B, Phường Tân Mỹ, Thành phố Hồ Chí Minh",
+      "second_split": "dev",
+      "second_sample_id": "s3_2073d8b7d317aa31",
+      "second_text": "25, Đường Nội Khu 04, Phường Tân Mỹ, Thành phố Hồ Chí Minh",
+      "similarity": 0.8696
+    },
+    {
+      "first_split": "train",
+      "first_sample_id": "s3_13e5938f780a06d8",
+      "first_text": "14, Đường Mỹ Phú 1B, Phường Tân Mỹ, Thành phố Hồ Chí Minh",
+      "second_split": "dev",
+      "second_sample_id": "s3_5e8746dc62ddb454",
+      "second_text": "06, Đường Mỹ Phú 1A, Phường Tân Mỹ, Quận 7, Thành phố Hồ Chí Minh",
+      "similarity": 0.8852
+    },
+    {
+      "first_split": "train",
+      "first_sample_id": "s3_13e5938f780a06d8",
+      "first_text": "14, Đường Mỹ Phú 1B, Phường Tân Mỹ, Thành phố Hồ Chí Minh",
+      "second_split": "dev",
+      "second_sample_id": "s3_653200e0481ff4d2",
+      "second_text": "36, Đường Số 19, Phường Tân Mỹ, Thành phố Hồ Chí Minh",
+      "similarity": 0.8727
+    },
+    {
+      "first_split": "train",
+      "first_sample_id": "s3_2346571109036960",
+      "first_text": "SH12-01, San Hô 12, Đa Tốn, Hà Nội",
+      "second_split": "dev",
+      "second_sample_id": "s3_3a279cd4591119bf",
+      "second_text": "SH16-07, San Hô 16, Đa Tốn, Hà Nội",
+      "similarity": 0.9118
+    },
+    {
+      "first_split": "train",
+      "first_sample_id": "s3_24f7b087d3e771f5",
+      "first_text": "07, Đường Mỹ Phú 1C, Phường Tân Mỹ, Thành phố Hồ Chí Minh",
+      "second_split": "dev",
+      "second_sample_id": "s3_2073d8b7d317aa31",
+      "second_text": "25, Đường Nội Khu 04, Phường Tân Mỹ, Thành phố Hồ Chí Minh",
+      "similarity": 0.8696
+    },
+    {
+      "first_split": "train",
+      "first_sample_id": "s3_24f7b087d3e771f5",
+      "first_text": "07, Đường Mỹ Phú 1C, Phường Tân Mỹ, Thành phố Hồ Chí Minh",
+      "second_split": "dev",
+      "second_sample_id": "s3_5e8746dc62ddb454",
+      "second_text": "06, Đường Mỹ Phú 1A, Phường Tân Mỹ, Quận 7, Thành phố Hồ Chí Minh",
+      "similarity": 0.9016
+    },
+    {
+      "first_split": "train",
+      "first_sample_id": "s3_24f7b087d3e771f5",
+      "first_text": "07, Đường Mỹ Phú 1C, Phường Tân Mỹ, Thành phố Hồ Chí Minh",
+      "second_split": "dev",
+      "second_sample_id": "s3_653200e0481ff4d2",
+      "second_text": "36, Đường Số 19, Phường Tân Mỹ, Thành phố Hồ Chí Minh",
+      "similarity": 0.8727
+    },
+    {
+      "first_split": "train",
+      "first_sample_id": "s3_24f7b087d3e771f5",
+      "first_text": "07, Đường Mỹ Phú 1C, Phường Tân Mỹ, Thành phố Hồ Chí Minh",
+      "second_split": "dev",
+      "second_sample_id": "s3_977502f14fee8de6",
+      "second_text": "7B, Đường Tân Phú, Phường Tân Mỹ, Quận 7, Thành phố Hồ Chí Minh",
+      "similarity": 0.85
+    },
+    {
+      "first_split": "train",
+      "first_sample_id": "s3_29d818e1063b8093",
+      "first_text": "05, Đường Mỹ Phú 1A, Phường Tân Mỹ, Quận 7, Thành phố Hồ Chí Minh",
+      "second_split": "dev",
+      "second_sample_id": "s3_5e8746dc62ddb454",
+      "second_text": "06, Đường Mỹ Phú 1A, Phường Tân Mỹ, Quận 7, Thành phố Hồ Chí Minh",
+      "similarity": 0.9846
+    },
+    {
+      "first_split": "train",
+      "first_sample_id": "s3_29d818e1063b8093",
+      "first_text": "05, Đường Mỹ Phú 1A, Phường Tân Mỹ, Quận 7, Thành phố Hồ Chí Minh",
+      "second_split": "dev",
+      "second_sample_id": "s3_977502f14fee8de6",
+      "second_text": "7B, Đường Tân Phú, Phường Tân Mỹ, Quận 7, Thành phố Hồ Chí Minh",
+      "similarity": 0.9062
+    },
+    {
+      "first_split": "train",
+      "first_sample_id": "s3_29d818e1063b8093",
+      "first_text": "05, Đường Mỹ Phú 1A, Phường Tân Mỹ, Quận 7, Thành phố Hồ Chí Minh",
+      "second_split": "dev",
+      "second_sample_id": "s3_ed7afb628f835f2f",
+      "second_text": "1, Đường Số 9, Phường Tân Mỹ, Quận 7, Thành phố Hồ Chí Minh",
+      "similarity": 0.8871
+    },
+    {
+      "first_split": "train",
+      "first_sample_id": "s3_2e466dcd5885da64",
+      "first_text": "65, Bành Văn Trân, Phường Tân Sơn Nhất, Thành phố Hồ Chí Minh",
+      "second_split": "dev",
+      "second_sample_id": "s3_b72583b9ee99ce97",
+      "second_text": "26, Bành Văn Trân, Phường Tân Sơn Nhất, Thành phố Hồ Chí Minh",
+      "similarity": 0.9836
+    },
+    {
+      "first_split": "train",
+      "first_sample_id": "s3_2eb069392bd65fbc",
+      "first_text": "09, Đường Nội Khu 02, Phường Tân Phú, Quận 7, Thành phố Hồ Chí Minh",
+      "second_split": "dev",
+      "second_sample_id": "s3_5e8746dc62ddb454",
+      "second_text": "06, Đường Mỹ Phú 1A, Phường Tân Mỹ, Quận 7, Thành phố Hồ Chí Minh",
+      "similarity": 0.8636
+    },
+    {
+      "first_split": "train",
+      "first_sample_id": "s3_2eb069392bd65fbc",
+      "first_text": "09, Đường Nội Khu 02, Phường Tân Phú, Quận 7, Thành phố Hồ Chí Minh",
+      "second_split": "dev",
+      "second_sample_id": "s3_977502f14fee8de6",
+      "second_text": "7B, Đường Tân Phú, Phường Tân Mỹ, Quận 7, Thành phố Hồ Chí Minh",
+      "similarity": 0.8615
+    },
+    {
+      "first_split": "train",
+      "first_sample_id": "s3_2eb069392bd65fbc",
+      "first_text": "09, Đường Nội Khu 02, Phường Tân Phú, Quận 7, Thành phố Hồ Chí Minh",
+      "second_split": "dev",
+      "second_sample_id": "s3_ed7afb628f835f2f",
+      "second_text": "1, Đường Số 9, Phường Tân Mỹ, Quận 7, Thành phố Hồ Chí Minh",
+      "similarity": 0.8571
+    },
+    {
+      "first_split": "train",
+      "first_sample_id": "s3_30ae504e8158317d",
+      "first_text": "07, Đường Nội Khu 04, Phường Tân Mỹ, Thành phố Hồ Chí Minh",
+      "second_split": "dev",
+      "second_sample_id": "s3_2073d8b7d317aa31",
+      "second_text": "25, Đường Nội Khu 04, Phường Tân Mỹ, Thành phố Hồ Chí Minh",
+      "similarity": 0.9655
+    },
+    {
+      "first_split": "train",
+      "first_sample_id": "s3_30ae504e8158317d",
+      "first_text": "07, Đường Nội Khu 04, Phường Tân Mỹ, Thành phố Hồ Chí Minh",
+      "second_split": "dev",
+      "second_sample_id": "s3_653200e0481ff4d2",
+      "second_text": "36, Đường Số 19, Phường Tân Mỹ, Thành phố Hồ Chí Minh",
+      "similarity": 0.8649
+    },
+    {
+      "first_split": "train",
+      "first_sample_id": "s3_346faa8a23fcacb8",
+      "first_text": "10A, Đường Lê Thánh Tôn, Phường Sài Gòn, Thành phố Hồ Chí Minh",
+      "second_split": "dev",
+      "second_sample_id": "s3_9f6eaf17155ade15",
+      "second_text": "8, Đường Lê Thánh Tôn, Phường Sài Gòn, Thành phố Hồ Chí Minh",
+      "similarity": 0.9672
+    },
+    {
+      "first_split": "train",
+      "first_sample_id": "s3_3fe144bd93cb6074",
+      "first_text": "11, Đường Mỹ Phú 1A, Phường Tân Mỹ, Thành phố Hồ Chí Minh",
+      "second_split": "dev",
+      "second_sample_id": "s3_2073d8b7d317aa31",
+      "second_text": "25, Đường Nội Khu 04, Phường Tân Mỹ, Thành phố Hồ Chí Minh",
+      "similarity": 0.8696
+    },
+    {
+      "first_split": "train",
+      "first_sample_id": "s3_3fe144bd93cb6074",
+      "first_text": "11, Đường Mỹ Phú 1A, Phường Tân Mỹ, Thành phố Hồ Chí Minh",
+      "second_split": "dev",
+      "second_sample_id": "s3_5e8746dc62ddb454",
+      "second_text": "06, Đường Mỹ Phú 1A, Phường Tân Mỹ, Quận 7, Thành phố Hồ Chí Minh",
+      "similarity": 0.9016
+    },
+    {
+      "first_split": "train",
+      "first_sample_id": "s3_3fe144bd93cb6074",
+      "first_text": "11, Đường Mỹ Phú 1A, Phường Tân Mỹ, Thành phố Hồ Chí Minh",
+      "second_split": "dev",
+      "second_sample_id": "s3_653200e0481ff4d2",
+      "second_text": "36, Đường Số 19, Phường Tân Mỹ, Thành phố Hồ Chí Minh",
+      "similarity": 0.8727
+    },
+    {
+      "first_split": "train",
+      "first_sample_id": "s3_40bafe1a0fb7d41f",
+      "first_text": "68, Lê Công Kiều, Phường Nguyễn Thái Bình, Quận 1, Thành phố Hồ Chí Minh",
+      "second_split": "dev",
+      "second_sample_id": "s3_06fbe917bf662c86",
+      "second_text": "46, Lê Công Kiều, Phường Nguyễn Thái Bình, Quận 1, Thành phố Hồ Chí Minh",
+      "similarity": 0.9861
+    },
+    {
+      "first_split": "train",
+      "first_sample_id": "s3_50f5e6d32d60e99f",
+      "first_text": "03, Đường Mỹ Phú 1C, Phường Tân Mỹ, Thành phố Hồ Chí Minh",
+      "second_split": "dev",
+      "second_sample_id": "s3_2073d8b7d317aa31",
+      "second_text": "25, Đường Nội Khu 04, Phường Tân Mỹ, Thành phố Hồ Chí Minh",
+      "similarity": 0.8696
+    },
+    {
+      "first_split": "train",
+      "first_sample_id": "s3_50f5e6d32d60e99f",
+      "first_text": "03, Đường Mỹ Phú 1C, Phường Tân Mỹ, Thành phố Hồ Chí Minh",
+      "second_split": "dev",
+      "second_sample_id": "s3_5e8746dc62ddb454",
+      "second_text": "06, Đường Mỹ Phú 1A, Phường Tân Mỹ, Quận 7, Thành phố Hồ Chí Minh",
+      "similarity": 0.9016
+    },
+    {
+      "first_split": "train",
+      "first_sample_id": "s3_50f5e6d32d60e99f",
+      "first_text": "03, Đường Mỹ Phú 1C, Phường Tân Mỹ, Thành phố Hồ Chí Minh",
+      "second_split": "dev",
+      "second_sample_id": "s3_653200e0481ff4d2",
+      "second_text": "36, Đường Số 19, Phường Tân Mỹ, Thành phố Hồ Chí Minh",
+      "similarity": 0.8909
+    },
+    {
+      "first_split": "train",
+      "first_sample_id": "s3_5f6252858e13e4dd",
+      "first_text": "14, Đường Mỹ Phú 1C, Phường Tân Mỹ, Thành phố Hồ Chí Minh",
+      "second_split": "dev",
+      "second_sample_id": "s3_2073d8b7d317aa31",
+      "second_text": "25, Đường Nội Khu 04, Phường Tân Mỹ, Thành phố Hồ Chí Minh",
+      "similarity": 0.8696
+    },
+    {
+      "first_split": "train",
+      "first_sample_id": "s3_5f6252858e13e4dd",
+      "first_text": "14, Đường Mỹ Phú 1C, Phường Tân Mỹ, Thành phố Hồ Chí Minh",
+      "second_split": "dev",
+      "second_sample_id": "s3_5e8746dc62ddb454",
+      "second_text": "06, Đường Mỹ Phú 1A, Phường Tân Mỹ, Quận 7, Thành phố Hồ Chí Minh",
+      "similarity": 0.8852
+    },
+    {
+      "first_split": "train",
+      "first_sample_id": "s3_5f6252858e13e4dd",
+      "first_text": "14, Đường Mỹ Phú 1C, Phường Tân Mỹ, Thành phố Hồ Chí Minh",
+      "second_split": "dev",
+      "second_sample_id": "s3_653200e0481ff4d2",
+      "second_text": "36, Đường Số 19, Phường Tân Mỹ, Thành phố Hồ Chí Minh",
+      "similarity": 0.8727
+    },
+    {
+      "first_split": "train",
+      "first_sample_id": "s3_5f7089181adc09c0",
+      "first_text": "12, Đường Tân Trào, Phường Tân Mỹ, Thành phố Hồ Chí Minh",
+      "second_split": "dev",
+      "second_sample_id": "s3_2073d8b7d317aa31",
+      "second_text": "25, Đường Nội Khu 04, Phường Tân Mỹ, Thành phố Hồ Chí Minh",
+      "similarity": 0.8596
+    },
+    {
+      "first_split": "train",
+      "first_sample_id": "s3_5f7089181adc09c0",
+      "first_text": "12, Đường Tân Trào, Phường Tân Mỹ, Thành phố Hồ Chí Minh",
+      "second_split": "dev",
+      "second_sample_id": "s3_653200e0481ff4d2",
+      "second_text": "36, Đường Số 19, Phường Tân Mỹ, Thành phố Hồ Chí Minh",
+      "similarity": 0.8624
+    },
+    {
+      "first_split": "train",
+      "first_sample_id": "s3_76ee3b55dd5703a1",
+      "first_text": "82, Bành Văn Trân, Phường Tân Sơn Nhất, Thành phố Hồ Chí Minh",
+      "second_split": "dev",
+      "second_sample_id": "s3_b72583b9ee99ce97",
+      "second_text": "26, Bành Văn Trân, Phường Tân Sơn Nhất, Thành phố Hồ Chí Minh",
+      "similarity": 0.9836
+    },
+    {
+      "first_split": "train",
+      "first_sample_id": "s3_7e6897cf4f18786a",
+      "first_text": "276, Đường Điện Biên Phủ, Phường Gia Định, Thành phố Hồ Chí Minh",
+      "second_split": "dev",
+      "second_sample_id": "s3_a15eb32be0bc2ef2",
+      "second_text": "261, Đường Điện Biên Phủ, Phường Xuân Hòa, Thành phố Hồ Chí Minh",
+      "similarity": 0.9062
+    },
+    {
+      "first_split": "train",
+      "first_sample_id": "s3_8a70a7934f8f3ccd",
+      "first_text": "07, Đường Nội Khu 02, Phường Tân Phú, Quận 7, Thành phố Hồ Chí Minh",
+      "second_split": "dev",
+      "second_sample_id": "s3_5e8746dc62ddb454",
+      "second_text": "06, Đường Mỹ Phú 1A, Phường Tân Mỹ, Quận 7, Thành phố Hồ Chí Minh",
+      "similarity": 0.8636
+    },
+    {
+      "first_split": "train",
+      "first_sample_id": "s3_8a70a7934f8f3ccd",
+      "first_text": "07, Đường Nội Khu 02, Phường Tân Phú, Quận 7, Thành phố Hồ Chí Minh",
+      "second_split": "dev",
+      "second_sample_id": "s3_977502f14fee8de6",
+      "second_text": "7B, Đường Tân Phú, Phường Tân Mỹ, Quận 7, Thành phố Hồ Chí Minh",
+      "similarity": 0.8769
+    },
+    {
+      "first_split": "train",
+      "first_sample_id": "s3_8a70a7934f8f3ccd",
+      "first_text": "07, Đường Nội Khu 02, Phường Tân Phú, Quận 7, Thành phố Hồ Chí Minh",
+      "second_split": "dev",
+      "second_sample_id": "s3_ed7afb628f835f2f",
+      "second_text": "1, Đường Số 9, Phường Tân Mỹ, Quận 7, Thành phố Hồ Chí Minh",
+      "similarity": 0.8571
+    },
+    {
+      "first_split": "train",
+      "first_sample_id": "s3_8c41ff2d80eae0e6",
+      "first_text": "A53, Đường Nội Khu 1, Phường Tân Mỹ, Thành phố Hồ Chí Minh",
+      "second_split": "dev",
+      "second_sample_id": "s3_2073d8b7d317aa31",
+      "second_text": "25, Đường Nội Khu 04, Phường Tân Mỹ, Thành phố Hồ Chí Minh",
+      "similarity": 0.9483
+    },
+    {
+      "first_split": "train",
+      "first_sample_id": "s3_8c41ff2d80eae0e6",
+      "first_text": "A53, Đường Nội Khu 1, Phường Tân Mỹ, Thành phố Hồ Chí Minh",
+      "second_split": "dev",
+      "second_sample_id": "s3_653200e0481ff4d2",
+      "second_text": "36, Đường Số 19, Phường Tân Mỹ, Thành phố Hồ Chí Minh",
+      "similarity": 0.9009
+    },
+    {
+      "first_split": "train",
+      "first_sample_id": "s3_8cf7030ff89f8b3b",
+      "first_text": "03, Đường Nội Khu 04, Phường Tân Mỹ, Thành phố Hồ Chí Minh",
+      "second_split": "dev",
+      "second_sample_id": "s3_2073d8b7d317aa31",
+      "second_text": "25, Đường Nội Khu 04, Phường Tân Mỹ, Thành phố Hồ Chí Minh",
+      "similarity": 0.9655
+    },
+    {
+      "first_split": "train",
+      "first_sample_id": "s3_8cf7030ff89f8b3b",
+      "first_text": "03, Đường Nội Khu 04, Phường Tân Mỹ, Thành phố Hồ Chí Minh",
+      "second_split": "dev",
+      "second_sample_id": "s3_653200e0481ff4d2",
+      "second_text": "36, Đường Số 19, Phường Tân Mỹ, Thành phố Hồ Chí Minh",
+      "similarity": 0.8829
+    },
+    {
+      "first_split": "train",
+      "first_sample_id": "s3_9255916445eaffd9",
+      "first_text": "135-137, Hàm Nghi, Phường Nguyễn Thái Bình, Quận 1, Thành phố Hồ Chí Minh",
+      "second_split": "dev",
+      "second_sample_id": "s3_06fbe917bf662c86",
+      "second_text": "46, Lê Công Kiều, Phường Nguyễn Thái Bình, Quận 1, Thành phố Hồ Chí Minh",
+      "similarity": 0.8552
+    },
+    {
+      "first_split": "train",
+      "first_sample_id": "s3_963233db45532467",
+      "first_text": "123, Phạm Văn Hai, Phường Tân Sơn Hòa, Thành phố Hồ Chí Minh",
+      "second_split": "dev",
+      "second_sample_id": "s3_b72583b9ee99ce97",
+      "second_text": "26, Bành Văn Trân, Phường Tân Sơn Nhất, Thành phố Hồ Chí Minh",
+      "similarity": 0.8595
+    },
+    {
+      "first_split": "train",
+      "first_sample_id": "s3_99a456f9992630ed",
+      "first_text": "2, Đường C, Phường Tân Phú, Quận 7, Thành phố Hồ Chí Minh",
+      "second_split": "dev",
+      "second_sample_id": "s3_5e8746dc62ddb454",
+      "second_text": "06, Đường Mỹ Phú 1A, Phường Tân Mỹ, Quận 7, Thành phố Hồ Chí Minh",
+      "similarity": 0.8525
+    },
+    {
+      "first_split": "train",
+      "first_sample_id": "s3_99a456f9992630ed",
+      "first_text": "2, Đường C, Phường Tân Phú, Quận 7, Thành phố Hồ Chí Minh",
+      "second_split": "dev",
+      "second_sample_id": "s3_8a05148b5a9a2a7c",
+      "second_text": "1, Đường số 7, Phường Bình Phú, Quận 6, Thành phố Hồ Chí Minh",
+      "similarity": 0.8814
+    },
+    {
+      "first_split": "train",
+      "first_sample_id": "s3_99a456f9992630ed",
+      "first_text": "2, Đường C, Phường Tân Phú, Quận 7, Thành phố Hồ Chí Minh",
+      "second_split": "dev",
+      "second_sample_id": "s3_977502f14fee8de6",
+      "second_text": "7B, Đường Tân Phú, Phường Tân Mỹ, Quận 7, Thành phố Hồ Chí Minh",
+      "similarity": 0.8667
+    },
+    {
+      "first_split": "train",
+      "first_sample_id": "s3_99a456f9992630ed",
+      "first_text": "2, Đường C, Phường Tân Phú, Quận 7, Thành phố Hồ Chí Minh",
+      "second_split": "dev",
+      "second_sample_id": "s3_ed7afb628f835f2f",
+      "second_text": "1, Đường Số 9, Phường Tân Mỹ, Quận 7, Thành phố Hồ Chí Minh",
+      "similarity": 0.8966
+    },
+    {
+      "first_split": "train",
+      "first_sample_id": "s3_9a21925b8a187ad3",
+      "first_text": "16, Ðường Số 3, Phường 4, Quận 3, Thành phố Hồ Chí Minh",
+      "second_split": "dev",
+      "second_sample_id": "s3_653200e0481ff4d2",
+      "second_text": "36, Đường Số 19, Phường Tân Mỹ, Thành phố Hồ Chí Minh",
+      "similarity": 0.8519
+    },
+    {
+      "first_split": "train",
+      "first_sample_id": "s3_9a21925b8a187ad3",
+      "first_text": "16, Ðường Số 3, Phường 4, Quận 3, Thành phố Hồ Chí Minh",
+      "second_split": "dev",
+      "second_sample_id": "s3_8a05148b5a9a2a7c",
+      "second_text": "1, Đường số 7, Phường Bình Phú, Quận 6, Thành phố Hồ Chí Minh",
+      "similarity": 0.8621
+    },
+    {
+      "first_split": "train",
+      "first_sample_id": "s3_9a21925b8a187ad3",
+      "first_text": "16, Ðường Số 3, Phường 4, Quận 3, Thành phố Hồ Chí Minh",
+      "second_split": "dev",
+      "second_sample_id": "s3_ed7afb628f835f2f",
+      "second_text": "1, Đường Số 9, Phường Tân Mỹ, Quận 7, Thành phố Hồ Chí Minh",
+      "similarity": 0.8772
+    },
+    {
+      "first_split": "train",
+      "first_sample_id": "s3_9ada2da7d02647a1",
+      "first_text": "322, Đường An Dương Vương, Phường Bình Phú, Quận 6, Thành phố Hồ Chí Minh",
+      "second_split": "dev",
+      "second_sample_id": "s3_fafc25290a8bac5d",
+      "second_text": "805, Đường Hậu Giang, Phường Bình Phú, Quận 6, Thành phố Hồ Chí Minh",
+      "similarity": 0.8652
+    },
+    {
+      "first_split": "train",
+      "first_sample_id": "s3_9ade0e941992e8a4",
+      "first_text": "51, Đường Số 19, Phường Tân Mỹ, Thành phố Hồ Chí Minh",
+      "second_split": "dev",
+      "second_sample_id": "s3_2073d8b7d317aa31",
+      "second_text": "25, Đường Nội Khu 04, Phường Tân Mỹ, Thành phố Hồ Chí Minh",
+      "similarity": 0.8829
+    },
+    {
+      "first_split": "train",
+      "first_sample_id": "s3_9ade0e941992e8a4",
+      "first_text": "51, Đường Số 19, Phường Tân Mỹ, Thành phố Hồ Chí Minh",
+      "second_split": "dev",
+      "second_sample_id": "s3_653200e0481ff4d2",
+      "second_text": "36, Đường Số 19, Phường Tân Mỹ, Thành phố Hồ Chí Minh",
+      "similarity": 0.9623
+    },
+    {
+      "first_split": "train",
+      "first_sample_id": "s3_9ade0e941992e8a4",
+      "first_text": "51, Đường Số 19, Phường Tân Mỹ, Thành phố Hồ Chí Minh",
+      "second_split": "dev",
+      "second_sample_id": "s3_ed7afb628f835f2f",
+      "second_text": "1, Đường Số 9, Phường Tân Mỹ, Quận 7, Thành phố Hồ Chí Minh",
+      "similarity": 0.9107
+    },
+    {
+      "first_split": "train",
+      "first_sample_id": "s3_a429729f65e39030",
+      "first_text": "10, Đường Nội Khu 04, Phường Tân Mỹ, Thành phố Hồ Chí Minh",
+      "second_split": "dev",
+      "second_sample_id": "s3_2073d8b7d317aa31",
+      "second_text": "25, Đường Nội Khu 04, Phường Tân Mỹ, Thành phố Hồ Chí Minh",
+      "similarity": 0.9655
+    },
+    {
+      "first_split": "train",
+      "first_sample_id": "s3_a429729f65e39030",
+      "first_text": "10, Đường Nội Khu 04, Phường Tân Mỹ, Thành phố Hồ Chí Minh",
+      "second_split": "dev",
+      "second_sample_id": "s3_653200e0481ff4d2",
+      "second_text": "36, Đường Số 19, Phường Tân Mỹ, Thành phố Hồ Chí Minh",
+      "similarity": 0.8649
+    },
+    {
+      "first_split": "train",
+      "first_sample_id": "s3_a66a6e9d2d8c976d",
+      "first_text": "20, Đường Nội Khu 02, Phường Tân Mỹ, Quận 7, Thành phố Hồ Chí Minh",
+      "second_split": "dev",
+      "second_sample_id": "s3_2073d8b7d317aa31",
+      "second_text": "25, Đường Nội Khu 04, Phường Tân Mỹ, Thành phố Hồ Chí Minh",
+      "similarity": 0.9032
+    },
+    {
+      "first_split": "train",
+      "first_sample_id": "s3_a66a6e9d2d8c976d",
+      "first_text": "20, Đường Nội Khu 02, Phường Tân Mỹ, Quận 7, Thành phố Hồ Chí Minh",
+      "second_split": "dev",
+      "second_sample_id": "s3_5e8746dc62ddb454",
+      "second_text": "06, Đường Mỹ Phú 1A, Phường Tân Mỹ, Quận 7, Thành phố Hồ Chí Minh",
+      "similarity": 0.9008
+    },
+    {
+      "first_split": "train",
+      "first_sample_id": "s3_a66a6e9d2d8c976d",
+      "first_text": "20, Đường Nội Khu 02, Phường Tân Mỹ, Quận 7, Thành phố Hồ Chí Minh",
+      "second_split": "dev",
+      "second_sample_id": "s3_977502f14fee8de6",
+      "second_text": "7B, Đường Tân Phú, Phường Tân Mỹ, Quận 7, Thành phố Hồ Chí Minh",
+      "similarity": 0.8992
+    },
+    {
+      "first_split": "train",
+      "first_sample_id": "s3_a66a6e9d2d8c976d",
+      "first_text": "20, Đường Nội Khu 02, Phường Tân Mỹ, Quận 7, Thành phố Hồ Chí Minh",
+      "second_split": "dev",
+      "second_sample_id": "s3_ed7afb628f835f2f",
+      "second_text": "1, Đường Số 9, Phường Tân Mỹ, Quận 7, Thành phố Hồ Chí Minh",
+      "similarity": 0.896
+    },
+    {
+      "first_split": "train",
+      "first_sample_id": "s3_b2f171e776215d31",
+      "first_text": "12, Đường Mỹ Phú 1B, Phường Tân Mỹ, Thành phố Hồ Chí Minh",
+      "second_split": "dev",
+      "second_sample_id": "s3_2073d8b7d317aa31",
+      "second_text": "25, Đường Nội Khu 04, Phường Tân Mỹ, Thành phố Hồ Chí Minh",
+      "similarity": 0.887
+    },
+    {
+      "first_split": "train",
+      "first_sample_id": "s3_b2f171e776215d31",
+      "first_text": "12, Đường Mỹ Phú 1B, Phường Tân Mỹ, Thành phố Hồ Chí Minh",
+      "second_split": "dev",
+      "second_sample_id": "s3_5e8746dc62ddb454",
+      "second_text": "06, Đường Mỹ Phú 1A, Phường Tân Mỹ, Quận 7, Thành phố Hồ Chí Minh",
+      "similarity": 0.8852
+    },
+    {
+      "first_split": "train",
+      "first_sample_id": "s3_b2f171e776215d31",
+      "first_text": "12, Đường Mỹ Phú 1B, Phường Tân Mỹ, Thành phố Hồ Chí Minh",
+      "second_split": "dev",
+      "second_sample_id": "s3_653200e0481ff4d2",
+      "second_text": "36, Đường Số 19, Phường Tân Mỹ, Thành phố Hồ Chí Minh",
+      "similarity": 0.8727
+    },
+    {
+      "first_split": "train",
+      "first_sample_id": "s3_ba44f898b1e5141d",
+      "first_text": "01, Đường Nội Khu 02, Phường Tân Mỹ, Thành phố Hồ Chí Minh",
+      "second_split": "dev",
+      "second_sample_id": "s3_2073d8b7d317aa31",
+      "second_text": "25, Đường Nội Khu 04, Phường Tân Mỹ, Thành phố Hồ Chí Minh",
+      "similarity": 0.9483
+    },
+    {
+      "first_split": "train",
+      "first_sample_id": "s3_ba44f898b1e5141d",
+      "first_text": "01, Đường Nội Khu 02, Phường Tân Mỹ, Thành phố Hồ Chí Minh",
+      "second_split": "dev",
+      "second_sample_id": "s3_653200e0481ff4d2",
+      "second_text": "36, Đường Số 19, Phường Tân Mỹ, Thành phố Hồ Chí Minh",
+      "similarity": 0.8649
+    },
+    {
+      "first_split": "train",
+      "first_sample_id": "s3_ba6ed6336038ff61",
+      "first_text": "6, Tân Trào, Phường Tân Mỹ, Quận 7, Thành phố Hồ Chí Minh",
+      "second_split": "dev",
+      "second_sample_id": "s3_977502f14fee8de6",
+      "second_text": "7B, Đường Tân Phú, Phường Tân Mỹ, Quận 7, Thành phố Hồ Chí Minh",
+      "similarity": 0.8667
+    },
+    {
+      "first_split": "train",
+      "first_sample_id": "s3_ba6ed6336038ff61",
+      "first_text": "6, Tân Trào, Phường Tân Mỹ, Quận 7, Thành phố Hồ Chí Minh",
+      "second_split": "dev",
+      "second_sample_id": "s3_ed7afb628f835f2f",
+      "second_text": "1, Đường Số 9, Phường Tân Mỹ, Quận 7, Thành phố Hồ Chí Minh",
+      "similarity": 0.8793
+    },
+    {
+      "first_split": "train",
+      "first_sample_id": "s3_c55d7d5805be448f",
+      "first_text": "21, Đường Nội Khu 04, Phường Tân Mỹ, Thành phố Hồ Chí Minh",
+      "second_split": "dev",
+      "second_sample_id": "s3_2073d8b7d317aa31",
+      "second_text": "25, Đường Nội Khu 04, Phường Tân Mỹ, Thành phố Hồ Chí Minh",
+      "similarity": 0.9828
+    },
+    {
+      "first_split": "train",
+      "first_sample_id": "s3_c55d7d5805be448f",
+      "first_text": "21, Đường Nội Khu 04, Phường Tân Mỹ, Thành phố Hồ Chí Minh",
+      "second_split": "dev",
+      "second_sample_id": "s3_653200e0481ff4d2",
+      "second_text": "36, Đường Số 19, Phường Tân Mỹ, Thành phố Hồ Chí Minh",
+      "similarity": 0.8649
+    },
+    {
+      "first_split": "train",
+      "first_sample_id": "s3_c809b2233ac8fa92",
+      "first_text": "7, Đường Tân Phú, Phường Tân Mỹ, Quận 7, Thành phố Hồ Chí Minh",
+      "second_split": "dev",
+      "second_sample_id": "s3_5e8746dc62ddb454",
+      "second_text": "06, Đường Mỹ Phú 1A, Phường Tân Mỹ, Quận 7, Thành phố Hồ Chí Minh",
+      "similarity": 0.9134
+    },
+    {
+      "first_split": "train",
+      "first_sample_id": "s3_c809b2233ac8fa92",
+      "first_text": "7, Đường Tân Phú, Phường Tân Mỹ, Quận 7, Thành phố Hồ Chí Minh",
+      "second_split": "dev",
+      "second_sample_id": "s3_977502f14fee8de6",
+      "second_text": "7B, Đường Tân Phú, Phường Tân Mỹ, Quận 7, Thành phố Hồ Chí Minh",
+      "similarity": 0.992
+    },
+    {
+      "first_split": "train",
+      "first_sample_id": "s3_c809b2233ac8fa92",
+      "first_text": "7, Đường Tân Phú, Phường Tân Mỹ, Quận 7, Thành phố Hồ Chí Minh",
+      "second_split": "dev",
+      "second_sample_id": "s3_ed7afb628f835f2f",
+      "second_text": "1, Đường Số 9, Phường Tân Mỹ, Quận 7, Thành phố Hồ Chí Minh",
+      "similarity": 0.9091
+    },
+    {
+      "first_split": "train",
+      "first_sample_id": "s3_ca5641ab8bea5eab",
+      "first_text": "10, Đường Số 21, Phường Tân Mỹ, Quận 7, Thành phố Hồ Chí Minh",
+      "second_split": "dev",
+      "second_sample_id": "s3_5e8746dc62ddb454",
+      "second_text": "06, Đường Mỹ Phú 1A, Phường Tân Mỹ, Quận 7, Thành phố Hồ Chí Minh",
+      "similarity": 0.9048
+    },
+    {
+      "first_split": "train",
+      "first_sample_id": "s3_ca5641ab8bea5eab",
+      "first_text": "10, Đường Số 21, Phường Tân Mỹ, Quận 7, Thành phố Hồ Chí Minh",
+      "second_split": "dev",
+      "second_sample_id": "s3_653200e0481ff4d2",
+      "second_text": "36, Đường Số 19, Phường Tân Mỹ, Thành phố Hồ Chí Minh",
+      "similarity": 0.8772
+    },
+    {
+      "first_split": "train",
+      "first_sample_id": "s3_ca5641ab8bea5eab",
+      "first_text": "10, Đường Số 21, Phường Tân Mỹ, Quận 7, Thành phố Hồ Chí Minh",
+      "second_split": "dev",
+      "second_sample_id": "s3_8a05148b5a9a2a7c",
+      "second_text": "1, Đường số 7, Phường Bình Phú, Quận 6, Thành phố Hồ Chí Minh",
+      "similarity": 0.8689
+    },
+    {
+      "first_split": "train",
+      "first_sample_id": "s3_ca5641ab8bea5eab",
+      "first_text": "10, Đường Số 21, Phường Tân Mỹ, Quận 7, Thành phố Hồ Chí Minh",
+      "second_split": "dev",
+      "second_sample_id": "s3_977502f14fee8de6",
+      "second_text": "7B, Đường Tân Phú, Phường Tân Mỹ, Quận 7, Thành phố Hồ Chí Minh",
+      "similarity": 0.8871
+    },
+    {
+      "first_split": "train",
+      "first_sample_id": "s3_ca5641ab8bea5eab",
+      "first_text": "10, Đường Số 21, Phường Tân Mỹ, Quận 7, Thành phố Hồ Chí Minh",
+      "second_split": "dev",
+      "second_sample_id": "s3_ed7afb628f835f2f",
+      "second_text": "1, Đường Số 9, Phường Tân Mỹ, Quận 7, Thành phố Hồ Chí Minh",
+      "similarity": 0.9667
+    },
+    {
+      "first_split": "train",
+      "first_sample_id": "s3_ca97a0cae76bf83a",
+      "first_text": "12, Đường Số 21, Phường Tân Mỹ, Thành phố Hồ Chí Minh",
+      "second_split": "dev",
+      "second_sample_id": "s3_2073d8b7d317aa31",
+      "second_text": "25, Đường Nội Khu 04, Phường Tân Mỹ, Thành phố Hồ Chí Minh",
+      "similarity": 0.8829
+    },
+    {
+      "first_split": "train",
+      "first_sample_id": "s3_ca97a0cae76bf83a",
+      "first_text": "12, Đường Số 21, Phường Tân Mỹ, Thành phố Hồ Chí Minh",
+      "second_split": "dev",
+      "second_sample_id": "s3_653200e0481ff4d2",
+      "second_text": "36, Đường Số 19, Phường Tân Mỹ, Thành phố Hồ Chí Minh",
+      "similarity": 0.9434
+    },
+    {
+      "first_split": "train",
+      "first_sample_id": "s3_ca97a0cae76bf83a",
+      "first_text": "12, Đường Số 21, Phường Tân Mỹ, Thành phố Hồ Chí Minh",
+      "second_split": "dev",
+      "second_sample_id": "s3_ed7afb628f835f2f",
+      "second_text": "1, Đường Số 9, Phường Tân Mỹ, Quận 7, Thành phố Hồ Chí Minh",
+      "similarity": 0.8929
+    },
+    {
+      "first_split": "train",
+      "first_sample_id": "s3_d3a9aea31c29713e",
+      "first_text": "50B, Bành Văn Trân, Phường Tân Sơn Nhất, Thành phố Hồ Chí Minh",
+      "second_split": "dev",
+      "second_sample_id": "s3_b72583b9ee99ce97",
+      "second_text": "26, Bành Văn Trân, Phường Tân Sơn Nhất, Thành phố Hồ Chí Minh",
+      "similarity": 0.9593
+    },
+    {
+      "first_split": "train",
+      "first_sample_id": "s3_d5736cd1dc0855e6",
+      "first_text": "06, Đường Nội Khu 02, Phường Tân Mỹ, Thành phố Hồ Chí Minh",
+      "second_split": "dev",
+      "second_sample_id": "s3_2073d8b7d317aa31",
+      "second_text": "25, Đường Nội Khu 04, Phường Tân Mỹ, Thành phố Hồ Chí Minh",
+      "similarity": 0.9483
+    },
+    {
+      "first_split": "train",
+      "first_sample_id": "s3_d5736cd1dc0855e6",
+      "first_text": "06, Đường Nội Khu 02, Phường Tân Mỹ, Thành phố Hồ Chí Minh",
+      "second_split": "dev",
+      "second_sample_id": "s3_653200e0481ff4d2",
+      "second_text": "36, Đường Số 19, Phường Tân Mỹ, Thành phố Hồ Chí Minh",
+      "similarity": 0.8829
+    },
+    {
+      "first_split": "train",
+      "first_sample_id": "s3_d8d54d4df6371cb7",
+      "first_text": "38, Đường Số 19, Phường Tân Phú, Quận 7, Thành phố Hồ Chí Minh",
+      "second_split": "dev",
+      "second_sample_id": "s3_5e8746dc62ddb454",
+      "second_text": "06, Đường Mỹ Phú 1A, Phường Tân Mỹ, Quận 7, Thành phố Hồ Chí Minh",
+      "similarity": 0.8504
+    },
+    {
+      "first_split": "train",
+      "first_sample_id": "s3_d8d54d4df6371cb7",
+      "first_text": "38, Đường Số 19, Phường Tân Phú, Quận 7, Thành phố Hồ Chí Minh",
+      "second_split": "dev",
+      "second_sample_id": "s3_653200e0481ff4d2",
+      "second_text": "36, Đường Số 19, Phường Tân Mỹ, Thành phố Hồ Chí Minh",
+      "similarity": 0.8696
+    },
+    {
+      "first_split": "train",
+      "first_sample_id": "s3_d8d54d4df6371cb7",
+      "first_text": "38, Đường Số 19, Phường Tân Phú, Quận 7, Thành phố Hồ Chí Minh",
+      "second_split": "dev",
+      "second_sample_id": "s3_8a05148b5a9a2a7c",
+      "second_text": "1, Đường số 7, Phường Bình Phú, Quận 6, Thành phố Hồ Chí Minh",
+      "similarity": 0.8943
+    },
+    {
+      "first_split": "train",
+      "first_sample_id": "s3_d8d54d4df6371cb7",
+      "first_text": "38, Đường Số 19, Phường Tân Phú, Quận 7, Thành phố Hồ Chí Minh",
+      "second_split": "dev",
+      "second_sample_id": "s3_ed7afb628f835f2f",
+      "second_text": "1, Đường Số 9, Phường Tân Mỹ, Quận 7, Thành phố Hồ Chí Minh",
+      "similarity": 0.9256
+    },
+    {
+      "first_split": "train",
+      "first_sample_id": "s3_db11d2afc9164112",
+      "first_text": "13, Đường Nội Khu 04, Phường Tân Mỹ, Thành phố Hồ Chí Minh",
+      "second_split": "dev",
+      "second_sample_id": "s3_2073d8b7d317aa31",
+      "second_text": "25, Đường Nội Khu 04, Phường Tân Mỹ, Thành phố Hồ Chí Minh",
+      "similarity": 0.9655
+    },
+    {
+      "first_split": "train",
+      "first_sample_id": "s3_db11d2afc9164112",
+      "first_text": "13, Đường Nội Khu 04, Phường Tân Mỹ, Thành phố Hồ Chí Minh",
+      "second_split": "dev",
+      "second_sample_id": "s3_653200e0481ff4d2",
+      "second_text": "36, Đường Số 19, Phường Tân Mỹ, Thành phố Hồ Chí Minh",
+      "similarity": 0.8829
+    },
+    {
+      "first_split": "train",
+      "first_sample_id": "s3_dc325bdf884da782",
+      "first_text": "NT11-36, Ngọc Trai 11, Đa Tốn, Gia Lâm, Hà Nội",
+      "second_split": "dev",
+      "second_sample_id": "s3_66ca8ca32a7f7aab",
+      "second_text": "NT10-10, Ngọc Trai 10, Đa Tốn, Gia Lâm, Hà Nội",
+      "similarity": 0.913
+    },
+    {
+      "first_split": "train",
+      "first_sample_id": "s3_ed69b381322d68bb",
+      "first_text": "01, Đường Mỹ Phú 1B, Phường Tân Phú, Quận 7, Thành phố Hồ Chí Minh",
+      "second_split": "dev",
+      "second_sample_id": "s3_5e8746dc62ddb454",
+      "second_text": "06, Đường Mỹ Phú 1A, Phường Tân Mỹ, Quận 7, Thành phố Hồ Chí Minh",
+      "similarity": 0.9313
+    },
+    {
+      "first_split": "train",
+      "first_sample_id": "s3_ed69b381322d68bb",
+      "first_text": "01, Đường Mỹ Phú 1B, Phường Tân Phú, Quận 7, Thành phố Hồ Chí Minh",
+      "second_split": "dev",
+      "second_sample_id": "s3_8a05148b5a9a2a7c",
+      "second_text": "1, Đường số 7, Phường Bình Phú, Quận 6, Thành phố Hồ Chí Minh",
+      "similarity": 0.8504
+    },
+    {
+      "first_split": "train",
+      "first_sample_id": "s3_ed69b381322d68bb",
+      "first_text": "01, Đường Mỹ Phú 1B, Phường Tân Phú, Quận 7, Thành phố Hồ Chí Minh",
+      "second_split": "dev",
+      "second_sample_id": "s3_977502f14fee8de6",
+      "second_text": "7B, Đường Tân Phú, Phường Tân Mỹ, Quận 7, Thành phố Hồ Chí Minh",
+      "similarity": 0.8682
+    },
+    {
+      "first_split": "train",
+      "first_sample_id": "s3_ed69b381322d68bb",
+      "first_text": "01, Đường Mỹ Phú 1B, Phường Tân Phú, Quận 7, Thành phố Hồ Chí Minh",
+      "second_split": "dev",
+      "second_sample_id": "s3_ed7afb628f835f2f",
+      "second_text": "1, Đường Số 9, Phường Tân Mỹ, Quận 7, Thành phố Hồ Chí Minh",
+      "similarity": 0.864
+    },
+    {
+      "first_split": "train",
+      "first_sample_id": "s3_f03e9c3e6a0f87dd",
+      "first_text": "41, Đường Số 18, Phường Tân Phú, Quận 7, Thành phố Hồ Chí Minh",
+      "second_split": "dev",
+      "second_sample_id": "s3_5e8746dc62ddb454",
+      "second_text": "06, Đường Mỹ Phú 1A, Phường Tân Mỹ, Quận 7, Thành phố Hồ Chí Minh",
+      "similarity": 0.8504
+    },
+    {
+      "first_split": "train",
+      "first_sample_id": "s3_f03e9c3e6a0f87dd",
+      "first_text": "41, Đường Số 18, Phường Tân Phú, Quận 7, Thành phố Hồ Chí Minh",
+      "second_split": "dev",
+      "second_sample_id": "s3_8a05148b5a9a2a7c",
+      "second_text": "1, Đường số 7, Phường Bình Phú, Quận 6, Thành phố Hồ Chí Minh",
+      "similarity": 0.9106
+    },
+    {
+      "first_split": "train",
+      "first_sample_id": "s3_f03e9c3e6a0f87dd",
+      "first_text": "41, Đường Số 18, Phường Tân Phú, Quận 7, Thành phố Hồ Chí Minh",
+      "second_split": "dev",
+      "second_sample_id": "s3_ed7afb628f835f2f",
+      "second_text": "1, Đường Số 9, Phường Tân Mỹ, Quận 7, Thành phố Hồ Chí Minh",
+      "similarity": 0.9256
+    },
+    {
+      "first_split": "train",
+      "first_sample_id": "s3_f2722cdc4c579b6e",
+      "first_text": "34, Đường Số 19, Phường Tân Mỹ, Thành phố Hồ Chí Minh",
+      "second_split": "dev",
+      "second_sample_id": "s3_2073d8b7d317aa31",
+      "second_text": "25, Đường Nội Khu 04, Phường Tân Mỹ, Thành phố Hồ Chí Minh",
+      "similarity": 0.8649
+    },
+    {
+      "first_split": "train",
+      "first_sample_id": "s3_f2722cdc4c579b6e",
+      "first_text": "34, Đường Số 19, Phường Tân Mỹ, Thành phố Hồ Chí Minh",
+      "second_split": "dev",
+      "second_sample_id": "s3_653200e0481ff4d2",
+      "second_text": "36, Đường Số 19, Phường Tân Mỹ, Thành phố Hồ Chí Minh",
+      "similarity": 0.9811
+    },
+    {
+      "first_split": "train",
+      "first_sample_id": "s3_f2722cdc4c579b6e",
+      "first_text": "34, Đường Số 19, Phường Tân Mỹ, Thành phố Hồ Chí Minh",
+      "second_split": "dev",
+      "second_sample_id": "s3_6a9d6f5fda12eaee",
+      "second_text": "364, Đường Cộng Hoà, Phường Tân Bình, Thành phố Hồ Chí Minh",
+      "similarity": 0.8571
+    },
+    {
+      "first_split": "train",
+      "first_sample_id": "s3_f2722cdc4c579b6e",
+      "first_text": "34, Đường Số 19, Phường Tân Mỹ, Thành phố Hồ Chí Minh",
+      "second_split": "dev",
+      "second_sample_id": "s3_ed7afb628f835f2f",
+      "second_text": "1, Đường Số 9, Phường Tân Mỹ, Quận 7, Thành phố Hồ Chí Minh",
+      "similarity": 0.8929
+    },
+    {
+      "first_split": "train",
+      "first_sample_id": "s3_f390969f7483c34a",
+      "first_text": "14, Đường Nội Khu 04, Phường Tân Mỹ, Thành phố Hồ Chí Minh",
+      "second_split": "dev",
+      "second_sample_id": "s3_2073d8b7d317aa31",
+      "second_text": "25, Đường Nội Khu 04, Phường Tân Mỹ, Thành phố Hồ Chí Minh",
+      "similarity": 0.9655
+    },
+    {
+      "first_split": "train",
+      "first_sample_id": "s3_f390969f7483c34a",
+      "first_text": "14, Đường Nội Khu 04, Phường Tân Mỹ, Thành phố Hồ Chí Minh",
+      "second_split": "dev",
+      "second_sample_id": "s3_653200e0481ff4d2",
+      "second_text": "36, Đường Số 19, Phường Tân Mỹ, Thành phố Hồ Chí Minh",
+      "similarity": 0.8649
+    },
+    {
+      "first_split": "train",
+      "first_sample_id": "s3_f4c408186deec666",
+      "first_text": "145, Hàm Nghi, Phường Nguyễn Thái Bình, Quận 1, Thành phố Hồ Chí Minh",
+      "second_split": "dev",
+      "second_sample_id": "s3_06fbe917bf662c86",
+      "second_text": "46, Lê Công Kiều, Phường Nguyễn Thái Bình, Quận 1, Thành phố Hồ Chí Minh",
+      "similarity": 0.8936
+    },
+    {
+      "first_split": "train",
+      "first_sample_id": "s3_0d0a56a7faa57eb0",
+      "first_text": "23, Phố Lý Khánh Văn, Phường Từ Sơn, Thành phố Từ Sơn, Tỉnh Bắc Ninh",
+      "second_split": "test",
+      "second_sample_id": "s3_b31fcec975e1a8f5",
+      "second_text": "24, Phố Lý Khánh Văn, Phường Từ Sơn, Thành phố Từ Sơn, Tỉnh Bắc Ninh",
+      "similarity": 0.9853
+    },
+    {
+      "first_split": "train",
+      "first_sample_id": "s3_0d80185087cf91c5",
+      "first_text": "16, Ngách 238/29 Hoàng Quốc Việt, Phường Cổ Nhuế 1, Quận Bắc Từ Liêm, Hà Nội",
+      "second_split": "test",
+      "second_sample_id": "s3_2b4e0c5a974f6e81",
+      "second_text": "21, Ngách 421/4 Hoàng Quốc Việt, Phường Cổ Nhuế 1, Quận Bắc Từ Liêm, Hà Nội",
+      "similarity": 0.9404
+    },
+    {
+      "first_split": "train",
+      "first_sample_id": "s3_1551f86efac412e7",
+      "first_text": "10, Bành Văn Trân, Phường Tân Sơn Nhất, Quận Tân Bình, Thành phố Hồ Chí Minh",
+      "second_split": "test",
+      "second_sample_id": "s3_63b0f7baf1789d3a",
+      "second_text": "109, Bành Văn Trân, Phường Tân Sơn Nhất, Quận Tân Bình, Thành phố Hồ Chí Minh",
+      "similarity": 0.9935
+    },
+    {
+      "first_split": "train",
+      "first_sample_id": "s3_239cf69db92e23dc",
+      "first_text": "11, Phố Lý Khánh Văn, Phường Đình Bảng, Thành phố Từ Sơn, Tỉnh Bắc Ninh",
+      "second_split": "test",
+      "second_sample_id": "s3_b31fcec975e1a8f5",
+      "second_text": "24, Phố Lý Khánh Văn, Phường Từ Sơn, Thành phố Từ Sơn, Tỉnh Bắc Ninh",
+      "similarity": 0.8777
+    },
+    {
+      "first_split": "train",
+      "first_sample_id": "s3_2e466dcd5885da64",
+      "first_text": "65, Bành Văn Trân, Phường Tân Sơn Nhất, Thành phố Hồ Chí Minh",
+      "second_split": "test",
+      "second_sample_id": "s3_68696d10fe3860d8",
+      "second_text": "48C, Bành Văn Trân, Phường Tân Sơn Nhất, Thành phố Hồ Chí Minh",
+      "similarity": 0.9593
+    },
+    {
+      "first_split": "train",
+      "first_sample_id": "s3_2e466dcd5885da64",
+      "first_text": "65, Bành Văn Trân, Phường Tân Sơn Nhất, Thành phố Hồ Chí Minh",
+      "second_split": "test",
+      "second_sample_id": "s3_c68b1ca96c4f5be4",
+      "second_text": "40, Bành Văn Trân, Phường Tân Sơn Nhất, Thành phố Hồ Chí Minh",
+      "similarity": 0.9672
+    },
+    {
+      "first_split": "train",
+      "first_sample_id": "s3_2eb069392bd65fbc",
+      "first_text": "09, Đường Nội Khu 02, Phường Tân Phú, Quận 7, Thành phố Hồ Chí Minh",
+      "second_split": "test",
+      "second_sample_id": "s3_bba5eaeea86f9f12",
+      "second_text": "01; Đường Nội Khu Mỹ Phú 3A; Tân Phú; Quận 7; Thành phố Hồ Chí Minh",
+      "similarity": 0.8507
+    },
+    {
+      "first_split": "train",
+      "first_sample_id": "s3_2eb069392bd65fbc",
+      "first_text": "09, Đường Nội Khu 02, Phường Tân Phú, Quận 7, Thành phố Hồ Chí Minh",
+      "second_split": "test",
+      "second_sample_id": "s3_7ec6e1bd932176ef",
+      "second_text": "02; Đường Nội Khu Mỹ Phú 3B; Tân Phú; Quan 7; Thành phố Hồ Chí Minh",
+      "similarity": 0.8507
+    },
+    {
+      "first_split": "train",
+      "first_sample_id": "s3_76ee3b55dd5703a1",
+      "first_text": "82, Bành Văn Trân, Phường Tân Sơn Nhất, Thành phố Hồ Chí Minh",
+      "second_split": "test",
+      "second_sample_id": "s3_68696d10fe3860d8",
+      "second_text": "48C, Bành Văn Trân, Phường Tân Sơn Nhất, Thành phố Hồ Chí Minh",
+      "similarity": 0.9756
+    },
+    {
+      "first_split": "train",
+      "first_sample_id": "s3_76ee3b55dd5703a1",
+      "first_text": "82, Bành Văn Trân, Phường Tân Sơn Nhất, Thành phố Hồ Chí Minh",
+      "second_split": "test",
+      "second_sample_id": "s3_c68b1ca96c4f5be4",
+      "second_text": "40, Bành Văn Trân, Phường Tân Sơn Nhất, Thành phố Hồ Chí Minh",
+      "similarity": 0.9672
+    },
+    {
+      "first_split": "train",
+      "first_sample_id": "s3_8a70a7934f8f3ccd",
+      "first_text": "07, Đường Nội Khu 02, Phường Tân Phú, Quận 7, Thành phố Hồ Chí Minh",
+      "second_split": "test",
+      "second_sample_id": "s3_bba5eaeea86f9f12",
+      "second_text": "01; Đường Nội Khu Mỹ Phú 3A; Tân Phú; Quận 7; Thành phố Hồ Chí Minh",
+      "similarity": 0.8507
+    },
+    {
+      "first_split": "train",
+      "first_sample_id": "s3_8a70a7934f8f3ccd",
+      "first_text": "07, Đường Nội Khu 02, Phường Tân Phú, Quận 7, Thành phố Hồ Chí Minh",
+      "second_split": "test",
+      "second_sample_id": "s3_7ec6e1bd932176ef",
+      "second_text": "02; Đường Nội Khu Mỹ Phú 3B; Tân Phú; Quan 7; Thành phố Hồ Chí Minh",
+      "similarity": 0.8507
+    },
+    {
+      "first_split": "train",
+      "first_sample_id": "s3_a7268ed8e8088cec",
+      "first_text": "Đường Vũ Ninh, Phường Vũ Ninh, Thành phố Bắc Ninh, Bắc Ninh",
+      "second_split": "test",
+      "second_sample_id": "s3_d56c59553ff6e798",
+      "second_text": "147, Đường Trần Lựu, Phường Vũ Ninh, Thành phố Bắc Ninh, Bắc Ninh",
+      "similarity": 0.8548
+    },
+    {
+      "first_split": "train",
+      "first_sample_id": "s3_a7268ed8e8088cec",
+      "first_text": "Đường Vũ Ninh, Phường Vũ Ninh, Thành phố Bắc Ninh, Bắc Ninh",
+      "second_split": "test",
+      "second_sample_id": "s3_e4d8bcc1bbebe2e4",
+      "second_text": "52, Đường Đấu Mã, Phường Vũ Ninh, Thành phố Bắc Ninh, Tỉnh Bắc Ninh",
+      "similarity": 0.8571
+    },
+    {
+      "first_split": "train",
+      "first_sample_id": "s3_a7b073a8a4478843",
+      "first_text": "50, Bành Văn Trân, Phường Tân Sơn Nhất, Quận Tân Bình, Thành phố Hồ Chí Minh",
+      "second_split": "test",
+      "second_sample_id": "s3_63b0f7baf1789d3a",
+      "second_text": "109, Bành Văn Trân, Phường Tân Sơn Nhất, Quận Tân Bình, Thành phố Hồ Chí Minh",
+      "similarity": 0.9804
+    },
+    {
+      "first_split": "train",
+      "first_sample_id": "s3_ad448edf801230dd",
+      "first_text": "15, Phố Thái Phiên, Lê Đại Hành, Hai Bà Trưng, Hà Nội",
+      "second_split": "test",
+      "second_sample_id": "s3_d0413145910c2af9",
+      "second_text": "55, Phố Lê Đại Hành, Lê Đại Hành, Hai Bà Trưng, Hà Nội",
+      "similarity": 0.8785
+    },
+    {
+      "first_split": "train",
+      "first_sample_id": "s3_c51ff743ea2ab3ad",
+      "first_text": "19, Ngõ 260 Đường Nguyễn Cao, Phường Võ Cường, Thành phố Bắc Ninh, Bắc Ninh",
+      "second_split": "test",
+      "second_sample_id": "s3_22aeaf4ee2f0f604",
+      "second_text": "359, Đường Nguyễn Văn Cừ, Phường Võ Cường, Thành phố Bắc Ninh, Bắc Ninh",
+      "similarity": 0.8767
+    },
+    {
+      "first_split": "train",
+      "first_sample_id": "s3_c51ff743ea2ab3ad",
+      "first_text": "19, Ngõ 260 Đường Nguyễn Cao, Phường Võ Cường, Thành phố Bắc Ninh, Bắc Ninh",
+      "second_split": "test",
+      "second_sample_id": "s3_134df3cb96064476",
+      "second_text": "4, Ngõ 282 Đường Nguyễn Văn Cừ, Phường Võ Cường, Thành phố Bắc Ninh, Bắc Ninh",
+      "similarity": 0.9079
+    },
+    {
+      "first_split": "train",
+      "first_sample_id": "s3_c51ff743ea2ab3ad",
+      "first_text": "19, Ngõ 260 Đường Nguyễn Cao, Phường Võ Cường, Thành phố Bắc Ninh, Bắc Ninh",
+      "second_split": "test",
+      "second_sample_id": "s3_9dfd7906c1c267f5",
+      "second_text": "435, Đường Nguyễn Văn Cừ, Phường Võ Cường, Thành phố Bắc Ninh, Bắc Ninh",
+      "similarity": 0.863
+    },
+    {
+      "first_split": "train",
+      "first_sample_id": "s3_d3a9aea31c29713e",
+      "first_text": "50B, Bành Văn Trân, Phường Tân Sơn Nhất, Thành phố Hồ Chí Minh",
+      "second_split": "test",
+      "second_sample_id": "s3_68696d10fe3860d8",
+      "second_text": "48C, Bành Văn Trân, Phường Tân Sơn Nhất, Thành phố Hồ Chí Minh",
+      "similarity": 0.9516
+    },
+    {
+      "first_split": "train",
+      "first_sample_id": "s3_d3a9aea31c29713e",
+      "first_text": "50B, Bành Văn Trân, Phường Tân Sơn Nhất, Thành phố Hồ Chí Minh",
+      "second_split": "test",
+      "second_sample_id": "s3_c68b1ca96c4f5be4",
+      "second_text": "40, Bành Văn Trân, Phường Tân Sơn Nhất, Thành phố Hồ Chí Minh",
+      "similarity": 0.9756
+    },
+    {
+      "first_split": "train",
+      "first_sample_id": "s3_e702802daabf7ac5",
+      "first_text": "27, Ngõ 234 Hoàng Quốc Việt, Phường Cổ Nhuế 1, Quận Bắc Từ Liêm, Hà Nội",
+      "second_split": "test",
+      "second_sample_id": "s3_2b4e0c5a974f6e81",
+      "second_text": "21, Ngách 421/4 Hoàng Quốc Việt, Phường Cổ Nhuế 1, Quận Bắc Từ Liêm, Hà Nội",
+      "similarity": 0.9315
+    },
+    {
+      "first_split": "train",
+      "first_sample_id": "s3_f07a27d94b728408",
+      "first_text": "SH12-06, San Hô 12, Đa Tốn, Gia Lâm, Hà Nội",
+      "second_split": "test",
+      "second_sample_id": "s3_e192f19b0b238432",
+      "second_text": "SH02-07,San Ho 2,Đa Tốn,Gia Lâm,Hà Nội",
+      "similarity": 0.8889
+    },
+    {
+      "first_split": "train",
+      "first_sample_id": "s3_fca9e12b83e0a174",
+      "first_text": "19, Phố Kim Đài, Phường Từ Sơn, Thành phố Từ Sơn, Tỉnh Bắc Ninh",
+      "second_split": "test",
+      "second_sample_id": "s3_b31fcec975e1a8f5",
+      "second_text": "24, Phố Lý Khánh Văn, Phường Từ Sơn, Thành phố Từ Sơn, Tỉnh Bắc Ninh",
+      "similarity": 0.8702
+    },
+    {
+      "first_split": "dev",
+      "first_sample_id": "s3_1ef82ce4f684ffb3",
+      "first_text": "4, Ngõ 12 Phạm Tuấn Tài, P. Dịch Vọng Hậu, Q. Cầu Giấy, HN",
+      "second_split": "test",
+      "second_sample_id": "s3_a1426dafb034e5f6",
+      "second_text": "18, Ngõ 1 Phạm Tuấn Tài, Phường Dịch Vọng Hậu, Quận Cầu Giấy, Hà Nội",
+      "similarity": 0.8571
+    },
+    {
+      "first_split": "dev",
+      "first_sample_id": "s3_64fde5c52bd1a7cd",
+      "first_text": "20, Ngõ 2 Phố Trần Bình Trọng, Phường Phương Liễu, Thị xã Quế Võ, Bắc Ninh",
+      "second_split": "test",
+      "second_sample_id": "s3_090d7550452b1e57",
+      "second_text": "3, Ngõ 50 Phố Trần Bình Trọng, Phường Phương Liễu, Thị xã Quế Võ, Bắc Ninh",
+      "similarity": 0.9595
+    },
+    {
+      "first_split": "dev",
+      "first_sample_id": "s3_74d264e09a7a5be3",
+      "first_text": "44, Ngõ 1 Phạm Tuấn Tài, Phường Dịch Vọng Hậu, Q. Cầu Giấy, Hà Nội",
+      "second_split": "test",
+      "second_sample_id": "s3_a1426dafb034e5f6",
+      "second_text": "18, Ngõ 1 Phạm Tuấn Tài, Phường Dịch Vọng Hậu, Quận Cầu Giấy, Hà Nội",
+      "similarity": 0.9403
+    },
+    {
+      "first_split": "dev",
+      "first_sample_id": "s3_b72583b9ee99ce97",
+      "first_text": "26, Bành Văn Trân, Phường Tân Sơn Nhất, Thành phố Hồ Chí Minh",
+      "second_split": "test",
+      "second_sample_id": "s3_68696d10fe3860d8",
+      "second_text": "48C, Bành Văn Trân, Phường Tân Sơn Nhất, Thành phố Hồ Chí Minh",
+      "similarity": 0.9593
+    },
+    {
+      "first_split": "dev",
+      "first_sample_id": "s3_b72583b9ee99ce97",
+      "first_text": "26, Bành Văn Trân, Phường Tân Sơn Nhất, Thành phố Hồ Chí Minh",
+      "second_split": "test",
+      "second_sample_id": "s3_c68b1ca96c4f5be4",
+      "second_text": "40, Bành Văn Trân, Phường Tân Sơn Nhất, Thành phố Hồ Chí Minh",
+      "similarity": 0.9672
+    }
+  ],
+  "near_duplicate_decisions_sha256": "118afc7cd5d1bdb166482a8c0d77a2c26d8db0b8ae1ba20e9f0b5bcbcd892165",
+  "near_duplicate_pending_pairs": [],
+  "near_duplicate_same_site_pairs": [],
+  "reused_decisions_count": 138
+}

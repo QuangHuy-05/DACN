@@ -1,0 +1,31 @@
+{
+  "status": "AUDIT_PASS_WITH_HUMAN_NEAR_DUP_REVIEW",
+  "sample_counts": {
+    "train": 240,
+    "dev": 60,
+    "test": 100
+  },
+  "group_counts": {
+    "train": 235,
+    "dev": 60,
+    "test": 100
+  },
+  "duplicate_sample_ids": [],
+  "missing_source_group_ids": [],
+  "group_collisions": {},
+  "benchmark_leakage_groups": [],
+  "exact_text_collisions_count": 0,
+  "exact_text_collisions": {},
+  "normalized_text_collisions": {},
+  "near_duplicates_count": 138,
+  "near_duplicate_decisions_sha256": "118afc7cd5d1bdb166482a8c0d77a2c26d8db0b8ae1ba20e9f0b5bcbcd892165",
+  "near_duplicate_pending_pairs": [],
+  "near_duplicate_same_site_pairs": [],
+  "scope": "train/dev candidate vs frozen test identity; test gold pending",
+  "candidate_subset_sample_counts": {
+    "train": 240,
+    "dev": 60
+  },
+  "quarantined_sample_ids": [],
+  "subset_audit_policy": "The candidate is a subset of the audited frozen 300 identities. Removing samples cannot introduce cross-split leakage; all nominated pairs in the superset are adjudicated. Labels do not affect this identity audit."
+}
