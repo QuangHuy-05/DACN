@@ -135,6 +135,8 @@ Kiểm tra luật tái dùng: áp T1-PIPE lên chính span của HEUR-JW cho đ�
 | DYN gốc, T1-PIPE-PCRF, T1-PIPE-DYN, T1-HEAD-PROBE | | BLOCKED_LOCAL_NEURAL | | | | | |
 | DYN-T1-AUG | | DEFERRED_NEEDS_TRAINING_PROTOCOL_CHANGE | | | | | |
 
+Mốc một-đặc-trưng ở bảng này (1.293/2.195 = 0,5891) khác mốc 0,5995 (1.316/2.195) ở mục 3 vì **khác đặc trưng, cùng tập, cùng luật, không có abstain**: mục 3 dùng cột huyện có/không của metadata (chỉ để kiểm dữ liệu), còn bảng H5 dùng đặc trưng suy từ văn bản (tiền tố cấp huyện, hoặc một đoạn không phải đoạn cuối khớp chính xác tên một huyện cũ trong gazetteer). Chênh lệch đúng bằng 23 mẫu cu có cột huyện nhưng đặc trưng văn bản không nhận ra dấu hiệu cấp huyện, nên bị gán moi (cu→cu 964, cu→moi 23, moi→moi 329, `Lai`→cu 879).
+
 Ma trận HEUR-JW: cu→cu 824, cu→`khong_ro` 151, cu→`Lai` 10, cu→moi 2; moi→moi 10, **moi→`khong_ro` 319**; **`Lai`→cu 593**, `Lai`→`Lai` 259, `Lai`→moi 26, `Lai`→`khong_ro` 1.
 Chỉ phần có khóa `ADM` (1.325 mẫu, 88 cụm, bảng `h5_synth_eval_adm_only.csv`): HEUR-JW 0,290 [0,149; 0,571]; T1-FEAT 0,859 [0,753; 0,983]; T1-FEAT không gazetteer 0,796 [0,745; 0,907].
 
@@ -194,6 +196,8 @@ T1-FEAT và T1-FEAT không gazetteer được huấn luyện trên 105 dòng `t1
 |---|---|---|---|---|---|
 | T1-FEAT | 44 | macro-F1 0,8735 / acc 0,9670 | 0,8735 / 0,9670 | 0,8735 / 0,9670 | 1 (hòa → L2 lớn hơn, luật khai báo trước) |
 | T1-FEAT không gazetteer | 17 | 0,7821 / 0,9121 | 0,7821 / 0,9121 | 0,7781 / 0,9084 | 0,1 |
+
+Với T1-FEAT, ba giá trị L2 cho cùng một kết quả trên `t1_synth_dev` (273 dòng, chỉ 8 cu), nên việc "chọn bằng dev" **không mang thông tin phân biệt**: L2 = 1 được lấy chỉ theo luật hòa khai báo trước (hòa → L2 lớn hơn), không phải vì dev ủng hộ nó. Với biến thể không gazetteer, hai giá trị 0,01 và 0,1 cũng hòa nhau và 0,1 được lấy theo cùng luật hòa; dev chỉ loại được L2 = 1.
 
 ## 7. Tầng 2 — BLOCKED_LOCAL_NEURAL
 
