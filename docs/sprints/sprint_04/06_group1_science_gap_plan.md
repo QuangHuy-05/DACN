@@ -171,3 +171,47 @@ Các agent ghi vào tập file riêng (bảng mục 3), không hai agent nào c�
 | `Lai` F1 tăng nhờ học mẫu sinh (F5) | Báo riêng `t1_synth_eval` tách nhóm; test Sprint 3 chỉ là số phụ |
 | CI rộng làm mất "người thắng" | Chấp nhận; viết kết luận theo CI |
 | `vietnamadminunits` gọi geocoder mạng | Tắt geocoder, ghi nhánh fallback; không gọi dịch vụ ngoài |
+
+## 7. Lịch điều phối còn lại (lập 14/10/2026)
+
+Vòng lặp cho mỗi gói: phiên điều phối rà prompt trên dữ liệu thật → phiên hiện thực → phiên review độc lập → sửa theo review → phiên điều phối commit. Chủ dự án duyệt ở các cổng ghi trong bảng.
+
+**Mô hình theo vai (chủ dự án chốt 14/10):**
+
+| Vai | Mô hình | Ghi chú |
+|---|---|---|
+| Điều phối, rà prompt | Opus 5.5 | Phiên giữ bối cảnh và các số đã đo |
+| Hiện thực gói đã đặc tả kỹ (WP2 Tầng 2, WP4, WP6) | Sonnet 5.5, mức high | Tiết kiệm token |
+| Hiện thực gói nặng thiết kế (WP5) | Opus 5.5 | Xem lại khi tới lượt |
+| **Mọi phiên review** | **Opus 5.5, mức medium** | Áp dụng từ review WP3b trở đi; review WP3a đã khởi động bằng Sonnet high trước quyết định này và không chạy lại |
+
+**Trạng thái đầu vào:** WP0, WP1, WP2 (Tầng 1) đã review và commit. WP3a commit `5748a1f`, review đang chạy. WP3b commit `59b3dad` (đủ 6 lượt trên CPU), **chưa review**. Bảy checkpoint `best.pt` huấn luyện trên CPU nằm ở `data/interim/modeling/sprint04/multiseed_20261015_v1/` (3,7 GB).
+
+| Bước | Việc | Phiên / mô hình | Điều kiện bắt đầu | Cổng của chủ dự án |
+|---|---|---|---|---|
+| 1 | Nhận phán quyết review WP3a; gửi danh sách sửa cho phiên WP3a nếu có | Điều phối | Review WP3a xong | Duyệt phán quyết |
+| 2 | Review độc lập WP3b | Review, Opus 5.5 medium | Có thể chạy song song với bước 1 (chỉ đọc) | Bấm thẻ khởi động |
+| 3 | Sửa theo review WP3b; commit | Phiên WP3 + điều phối | Bước 2 xong | Duyệt phán quyết |
+| 4 | Rà và viết prompt "WP2 Tầng 2 trên checkpoint cục bộ" | Điều phối | Bước 3 xong (cần biết WP3b đứng vững) | — |
+| 5 | Hiện thực WP2 Tầng 2 | Hiện thực, Sonnet 5.5 high | Bước 4 | Bấm thẻ khởi động |
+| 6 | Review WP2 Tầng 2 | Review, Opus 5.5 medium | Bước 5 xong | Bấm thẻ; duyệt phán quyết |
+| 7 | Cập nhật báo cáo 10 (bảng H5, câu về tính không ổn định theo seed của T1); commit | Phiên WP2 Tầng 2 + điều phối | Bước 6 | — |
+| 8 | Rà prompt WP4 trên dữ liệu thật | Điều phối | Bước 7 xong (một phiên ghi mã tại một thời điểm) | — |
+| 9 | Hiện thực WP4 (H2, H3, E1, H4) | Hiện thực, Sonnet 5.5 high | Bước 8 | Bấm thẻ khởi động |
+| 10 | Review WP4 | Review, Opus 5.5 medium | Bước 9 xong | Bấm thẻ; duyệt phán quyết |
+| 11 | Sửa theo review; commit | Phiên WP4 + điều phối | Bước 10 | — |
+
+**Nội dung của bước 4–5 (WP2 Tầng 2).** Dùng lại `scripts/68b_run_t1_neural_local.py` và đầu vào đã lưu ở `data/processed/evaluation/sprint04/t1_h5_20261015_v1/tier2_inputs/`, thay checkpoint Sprint 3 (không nạp được trên CPU) bằng `dyn_seed42/checkpoints/best.pt` và `pcrf_seed42/checkpoints/best.pt` của WP3b. Kết quả ghi vào thư mục run mới, không ghi đè `t1_h5_20261015_v1`. Báo cả ba seed của DYN nếu thời gian cho phép, vì WP3b cho thấy T1 của DYN phụ thuộc seed rất mạnh; nếu chỉ chạy seed 42 thì ghi rõ. Mọi số phải mang nhãn "checkpoint huấn luyện lại trên CPU cục bộ, không phải checkpoint đã khóa của Sprint 3". Điều cần rà ở bước 4: `68b` có nhận đường dẫn checkpoint qua tham số không hay phải sửa; adapter có nạp được checkpoint cục bộ với resource lock cục bộ không (WP3b đã suy luận test bằng chính các checkpoint này, nên kỳ vọng là được).
+
+**Nội dung cần rà ở bước 8 (WP4), trước khi mở phiên.** Các giả định của khối WP4 hiện chưa được kiểm trên dữ liệu:
+- CRF-INDEP huấn luyện lại ở điều kiện gốc có tái lập test T0 F1 0,9076 không (đường dẫn checkpoint và siêu tham số: `crf_followup_20261003_v1/ctx1_c10.1_c21`; `feature_version` trong `model_metadata.json`).
+- Runtime CRF không có numpy/pandas: huấn luyện và suy luận CRF phải là tiến trình riêng.
+- H2: sau `leak_guard` và sau khi loại dòng có ngõ/hẻm và dòng `UNRESOLVED`, Data 04 còn bao nhiêu dòng để chia `aug_train` / `heldout_missing`. WP2 cho thấy bước loại theo lãnh thổ của dev/test cắt rất mạnh (2.531 → 854 dòng), nên N = 120 và 240 có thể không đạt.
+- H3 và E1: phép dựng lại chuỗi và ánh xạ offset có khả nghịch trên toàn bộ gold không (số span lồng nhau, số mẫu có văn bản ngoài span).
+- H4: dùng lại biểu diễn theo mẫu của `src/evaluation/frozen_reliability.py` (WP3a) thay vì viết lại.
+
+**Rủi ro vận hành.**
+- Giới hạn sử dụng: phiên hiện thực WP2 đã dừng giữa chừng một lần. Mọi prompt giữ yêu cầu "dừng ở mốc sạch và ghi rõ còn gì".
+- Ứng dụng không cho phiên điều phối tự mở phiên mới trong lượt do thông báo kích hoạt; khi đó phiên mới là thẻ đề xuất và chủ dự án phải bấm.
+- Phiên review không được sửa file của gói và không được commit (đã ghi vào `07b`); nếu review và hiện thực cùng do một phiên làm thì phần sửa không còn được kiểm độc lập.
+- Ổ D còn khoảng 27 GB; WP2 Tầng 2 và WP4 không huấn luyện mô hình neural nên không tăng đáng kể.
