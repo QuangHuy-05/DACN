@@ -42,10 +42,21 @@ Ràng buộc cứng:
    hành chính và điều kiện chống rò rỉ.
 9. Không upload, submit Kaggle, gọi dịch vụ mạng, commit hay push nếu gói việc không nêu rõ và chủ dự án chưa
    đồng ý trong phiên.
+10. Git: KHÔNG chạy `git status`, `git add`, `git diff` từ WSL để kết luận về thay đổi. Git của WSL không có
+   core.autocrlf nên báo khoảng 90 file "bị sửa" giả (gold, gazetteer, tài liệu Sprint 3) chỉ do khác ký tự xuống dòng.
+   Kiểm thay đổi bằng git của Windows (Git Bash/PowerShell tại D:\DACN) và kiểm file được bảo vệ bằng SHA-256 theo manifest.
+11. Kết quả WP0 đã nghiệm thu (13/10/2026), dùng lại, không viết lại: src/evaluation/stats.py (bootstrap_ci,
+   cluster_bootstrap_ci, paired_bootstrap_delta có cluster_ids, approximate_randomization, mcnemar_exact,
+   micro_f1_from_counts, exact_match_rate) và src/evaluation/leak_guard.py (normalize_for_overlap, build_exclusion_index,
+   filter_benchmark, admin_group_key). Giới hạn đã đo của admin_group_key: tên không có tiền tố hành chính
+   ("Đa Tốn" thay vì "Xã Đa Tốn") rơi vào khóa UNRESOLVED|..., khi đó dạng cũ và dạng mới của cùng lãnh thổ KHÔNG được
+   gom chung — Data 03: 879/1500 dòng, Data 04: 223/800, Data 06: 1/600, Data 01: 0. Mọi phép chia nhóm rời nhau chỉ
+   được dùng các dòng có khóa ADM|...; dòng UNRESOLVED chỉ dùng cho đánh giá, không đưa vào huấn luyện, và phải đếm.
 
-Trước khi báo xong: chạy `python -m unittest discover -s tests -v` (toàn bộ; mốc đo ngày 13/10/2026 trong
-~/.venv_dacn là 294 test: 286 PASS / 8 SKIP / 0 FAIL — không được có FAIL và không được làm giảm số PASS cũ), chạy script của bạn từ đầu trên thư mục đầu ra mới để chứng minh tái lập, kiểm số dòng/cột/
-encoding/bản ghi trùng của mọi CSV đầu ra.
+Trước khi báo xong: chạy `python -m unittest discover -s tests -v` (toàn bộ; mốc đo ngày 13/10/2026 sau WP0
+trong ~/.venv_dacn là 319 test: 311 PASS / 8 SKIP / 0 FAIL — không được có FAIL và không được làm giảm số PASS cũ),
+chạy script của bạn từ đầu trên thư mục đầu ra mới để chứng minh tái lập, kiểm số dòng/cột/encoding/bản ghi trùng
+của mọi CSV đầu ra.
 
 Báo cáo cuối (tiếng Việt, ngắn): trạng thái từng đầu ra (PASS / PARTIAL / NEGATIVE_RESULT / NOT_EVALUABLE / BLOCKED),
 bảng số chính, giới hạn, lệnh tái lập, danh sách file đã tạo, và mọi điểm bạn suy luận thay vì đo được.
@@ -115,34 +126,94 @@ Dữ liệu (chỉ đọc):
   entities.csv, aliases.csv, non_atomic_transitions.csv. Kiểm hash theo manifest.json. Có thể tái dùng
   DualSnapshotGazetteer (src/data/nso_dual_snapshot.py) và AdministrativeMapping (src/data/administrative_mapping.py).
 - data/processed/benchmark/06_hybrid_addresses_600.csv — cho phần H5.
-- data/processed/osm/osm_clean_addresses.csv — cho T2-STREET.
+- data/processed/benchmark/01_full_address_new_verified.csv và data/interim/osm/osm_latest_clean.csv — cho T2-STREET
+  (data/processed/osm/osm_clean_addresses.csv chỉ có 1.500 dòng, không có OSM ID; không dùng làm nguồn chính).
+- src/data/administrative_alias.py — alias đã kiểm chứng cho mức chuẩn hóa N2.
 
-Sự thật đã kiểm, bạn phải xử lý đúng (xem F1–F3 của kế hoạch):
+Sự thật đã kiểm trên repo ngày 13/10/2026, bạn phải xử lý đúng (xem F1–F3 của kế hoạch). Bước đầu tiên của bạn là
+tái lập các số này; số nào lệch thì dừng và báo trước khi viết hệ thống:
 - Data 07 chỉ có LoaiAnhXa M (356) và B (244). A và C trên Data 07 = NOT_EVALUABLE_NO_SUPPORT. Không gộp M vào A.
 - Chỉ 23 mã phường mới và 69 đơn vị cũ; 441/600 ở Hà Nội. Bắt buộc bootstrap theo cụm.
-- Data 07 được xác minh bằng chính CSV nguồn của edges.csv, nên candidate-recall gần 100% do cấu trúc.
-  Accuracy đo việc chọn đúng ứng viên, không đo độ phủ bảng. Viết rõ điều này trong báo cáo.
+  Cụm = khóa đơn vị nguồn của chiều đang xét (69 đơn vị cũ hoặc 23 phường mới), KHÔNG dùng admin_group_key: theo
+  thành phần liên thông Data 07 chỉ có 21 nhóm và một nhóm chiếm 73,5% số cặp, CI sẽ vô nghĩa. Báo thêm một bảng độ
+  nhạy với cụm = admin_group_key và ghi rõ số cụm ở mọi CI.
+- Data 07 được xác minh bằng chính CSV nguồn của edges.csv (qua alias đã kiểm chứng). Vì vậy với chuẩn hóa đủ mạnh,
+  candidate-recall tiến tới 100% do cấu trúc; phần còn lại của accuracy đo việc chọn đúng ứng viên, không đo độ phủ
+  bảng. Viết rõ điều này trong báo cáo.
+- Phía CŨ của Data 07 là chuỗi OSM thô, KHÔNG phải tên chuẩn (đo ngày 13/10/2026):
+  · tỉnh cũ viết "Hà Nội" (435), "Bắc Ninh" (148), "Thành phố Hà Nội" (4), "Ho Chi Minh City" (3), "Bac Ninh" (2)...,
+    trong khi edges.csv ghi "Thành phố Hà Nội", "Tỉnh Bắc Ninh";
+  · so chuỗi thô (tỉnh, huyện, phường) với edges.csv chỉ khớp 5/600; qua chuẩn hóa của AdministrativeMapping
+    (old_key/province_key/unit_key) khớp 535/600; 65 dòng còn lại (52 B, 13 M) cần alias đã kiểm chứng hoặc là NO_MATCH;
+  · phía MỚI khớp chuỗi thô 600/600.
+  Hệ quả: mức chuẩn hóa tên là một yếu tố thí nghiệm thật, phải báo riêng (xem "Mức chuẩn hóa").
+- Fan-out cũ→mới đo qua AdministrativeMapping: M có 299 dòng với 4 đích, 44 dòng với 2 đích, 13 dòng không khớp;
+  B có 192 dòng với 1 đích, 52 dòng không khớp. Tức 343/600 cặp có nhiều ứng viên ở chiều cũ→mới.
+- Tách theo dấu phẩy: 598 dòng có 5 hoặc 4 phần (cũ) / 4 hoặc 3 phần (mới); 2 dòng có dấu phẩy thừa trong phần
+  đầu (9 và 6 phần). Luôn lấy từ phải sang: cũ = [-1] tỉnh, [-2] huyện, [-3] phường; mới = [-1] tỉnh, [-2] phường.
+- Có hai bảng cạnh: gazetteer edges.csv (10.597 cạnh phường nguyên tử) và CSV tham chiếu nạp qua
+  load_administrative_mapping(default_mapping_path()) (10.602 = thêm 5 chuyển đổi phi nguyên tử; NewUnit có các trường
+  province, ward, unit_type, code, merger_form; có sẵn old_to_new và new_to_old). Bảng tra chính thức của T2 là
+  edges.csv; dùng hàm chuẩn hóa của administrative_mapping.py và đối chiếu chéo số cạnh với AdministrativeMapping
+  (chênh lệch kỳ vọng đúng 5 dòng phi nguyên tử, lệch khác thì dừng và báo).
+- merge_form theo quan hệ: B và C luôn "Hợp nhất toàn bộ"; M gồm "Tách — một phần" (562) và "Tách — nhập chủ yếu" (468);
+  A có 3 cạnh "Tách — nhập chủ yếu".
 
 Hệ thống (ghi vào run_manifest.json trước khi chấm, không thêm/bớt sau khi thấy kết quả):
 - T2-LOOKUP-STRICT: tra khóa đầy đủ; trả lời khi đúng một ứng viên; còn lại abstain kèm danh sách ứng viên và mã lý do
   (AMBIGUOUS / NO_MATCH / NON_ATOMIC).
-- T2-LOOKUP-DEFAULT: luôn chọn một ứng viên: ưu tiên merge_form "Hợp nhất toàn bộ" > "Tách — nhập chủ yếu" >
-  "Tách — một phần"; hòa thì source_row nhỏ nhất. Đây là "heuristic mặc định"; không trả cảnh báo.
-- T2-VNADMIN: VietnamAdminUnitsAdapter.convert_to_2025 (src/evaluation/adapters/vnadmin_adapter.py), chỉ cũ→mới.
-  Chặn mọi lời gọi geocoder mạng (thay get_geo_location bằng hàm trả None) và ghi nhánh fallback thực tế.
+- T2-LOOKUP-DEFAULT-MAIN: luôn chọn một ứng viên: ưu tiên merge_form "Hợp nhất toàn bộ" > "Tách — nhập chủ yếu" >
+  "Tách — một phần"; hòa thì source_row nhỏ nhất. Không trả cảnh báo.
+- T2-LOOKUP-DEFAULT-FIRST: luôn chọn ứng viên có source_row nhỏ nhất, không nhìn merge_form. Không trả cảnh báo.
+  Hai biến thể này cùng là "heuristic mặc định"; báo cả hai vì 335/356 cặp M của Data 07 có HinhThucSapNhap
+  "Tách — nhập chủ yếu", nên DEFAULT-MAIN có thể được lợi từ cách Data 07 được lấy mẫu. Không chọn biến thể đẹp hơn.
+- T2-VNADMIN: VietnamAdminUnitsAdapter.convert_to_2025 (src/evaluation/adapters/vnadmin_adapter.py), chỉ cũ→mới,
+  nhận nguyên chuỗi DiaChi_Cu. Chặn mạng: TRƯỚC khi tạo/gọi adapter, gán
+  `vietnamadminunits.converter.converter_2025.get_geo_location = lambda address: None` (adapter bọc đúng symbol này nên
+  sẽ bọc hàm giả); test khẳng định không có socket nào được mở. Khi đó trace ghi geocoder_status = "empty" và
+  selection_path = "divided_default_after_geocoder_unavailable" hoặc "divided_default_without_street" — đó chính là
+  nhánh "heuristic mặc định" của thư viện; báo tỷ lệ từng selection_path. Thư viện không trả mã phường: so khớp bằng
+  (tỉnh, phường) đã chuẩn hóa, và báo số dòng trả về rỗng/lỗi. Thư viện chỉ có trong ~/.venv_dacn.
   Chiều mới→cũ: NOT_SUPPORTED, vẫn có dòng trong bảng.
 - T2-SINGLE-VERSION: khớp tên phường của địa chỉ nguồn trên gazetteer của HỆ ĐÍCH mà không biết phiên bản
   (mô phỏng hệ thống không có khái niệm thời gian). Trả lời "hợp lệ" nếu tên tồn tại trong tỉnh đích.
 - T2-STREET (E2): khi có nhiều ứng viên, chọn ứng viên có tên đường của địa chỉ xuất hiện trong chỉ mục
-  (tên đường chuẩn hóa -> tập phường mới) dựng từ osm_clean_addresses.csv SAU KHI loại mọi OSM ID có trong Data 07;
-  không có bằng chứng thì rơi về luật mặc định và đánh dấu. Ghi kích thước chỉ mục và tỷ lệ mẫu có bằng chứng.
+  (tên đường chuẩn hóa -> tập phường mới); không có bằng chứng thì rơi về luật mặc định và đánh dấu.
+  Nguồn chỉ mục: data/processed/benchmark/01_full_address_new_verified.csv (1.000 dòng) và
+  data/interim/osm/osm_latest_clean.csv (cột SoNha, TenDuong, PhuongXa, QuanHuyen, TinhThanh, ChuoiDiaChi; lưu ý tên
+  phường mới đôi khi nằm ở cột QuanHuyen — chỉ nhận dòng có đúng một giá trị khớp một phường mới trong edges.csv).
+  KHÔNG nguồn nào có OSM ID, nên không thể loại theo ID. Chống rò rỉ bằng chuỗi, báo cả hai biến thể:
+  (i) loại mọi dòng có ChuoiDiaChi chuẩn hóa (normalize_for_overlap) bằng một DiaChi_Moi của Data 07;
+  (ii) nghiêm ngặt: loại thêm mọi dòng trùng cặp (số nhà, tên đường) với bất kỳ cặp nào của Data 07.
+  Data 07 có 153 tên đường khác nhau. Ghi kích thước chỉ mục sau lọc, tỷ lệ mẫu có bằng chứng, và nêu giới hạn:
+  hàng xóm cùng đường do cùng người đóng góp OSM vẫn có thể còn trong chỉ mục. Đây là mục [Nên]; nếu tỷ lệ có bằng
+  chứng dưới 20% thì báo NOT_EVALUABLE_LOW_EVIDENCE kèm số, không diễn giải.
+
+Mức chuẩn hóa tên (yếu tố thí nghiệm, áp cho các hệ T2-LOOKUP-*; khai báo trước trong run_manifest.json):
+- N0: so chuỗi thô sau khi chỉ strip khoảng trắng.
+- N1: khóa chuẩn hóa của administrative_mapping.py (old_key / new_key / resolve_new_province).
+- N2: N1, nếu không khớp thì thử alias đã kiểm chứng của src/data/administrative_alias.py
+  (resolve_province_alias / resolve_district_alias / resolve_ward_alias). Không tự sinh alias, không khớp mờ.
+Bảng chính báo ở N2; N0 và N1 báo trong một bảng độ nhạy (coverage, accuracy, NO_MATCH). Dòng không khớp khóa là
+NO_MATCH = thất bại CÓ cảnh báo, không tính là lỗi im lặng, và luôn nằm trong mẫu số.
 
 Điều kiện đầu vào:
 (a) oracle-segmentation: tách DiaChi_Cu/DiaChi_Moi theo dấu phẩy từ phải sang (cũ: ..., phường, huyện, tỉnh;
-    mới: ..., phường, tỉnh). Kiểm từng dòng khớp khóa gazetteer; báo số dòng không khớp và giữ chúng trong mẫu số.
-(b) pipeline: lấy span PhuongXa/QuanHuyen/TinhThanh từ HEUR-JW (cấu hình đã khóa trong
-    data/interim/modeling/sprint03/final_completion_20261005_v1/light_test_runs_v2/heur-jw/model_config.json)
-    và CRF-INDEP (model_config.json cùng thư mục crf-indep) rồi mới tra. Không huấn luyện lại.
+    mới: ..., phường, tỉnh). Báo số dòng không khớp khóa ở từng mức N0/N1/N2 và giữ chúng trong mẫu số.
+(b) pipeline: lấy span PhuongXa/QuanHuyen/TinhThanh từ mô hình rồi mới tra ở mức N2. Không huấn luyện lại.
+    · HEUR-JW: cấu hình đã khóa trong data/interim/modeling/sprint03/final_completion_20261005_v1/light_test_runs_v2/
+      heur-jw/model_config.json — adapter_kwargs: gazetteer_dir data/processed/gazetteer/s3_v4_nso_dual_snapshot
+      (bản KHÔNG phải release2; giữ nguyên như đã khóa), similarity_threshold 0.86, ambiguity_margin 0.02,
+      temporal_policy dual_snapshot. Chạy trong ~/.venv_dacn.
+    · CRF-INDEP: checkpoint data/processed/evaluation/sprint03/crf_followup_20261003_v1/ctx1_c10.1_c21/model.crfsuite
+      và model_metadata.json cùng thư mục (kiểm SHA-256 theo model_config.json của crf-indep). Suy luận phải chạy
+      thành tiến trình riêng trong runtime CRF (không có numpy/pandas), ghi spans ra JSONL, rồi bước tra bảng đọc lại.
+    · Thiếu span cấp nào thì tra với phần còn lại theo đúng luật STRICT (thường thành AMBIGUOUS/NO_MATCH) và đếm.
+
+Thứ tự ưu tiên (làm và báo theo tầng; tầng sau không được làm chậm tầng trước):
+- Tầng 1 (bắt buộc): STRICT, DEFAULT-MAIN, DEFAULT-FIRST × oracle-segmentation × N2 × hai chiều; E3; phân tích đồ thị.
+- Tầng 2 (bắt buộc): bảng độ nhạy N0/N1; T2-VNADMIN; T2-SINGLE-VERSION; tình huống C và D.
+- Tầng 3 (nên): điều kiện pipeline (HEUR-JW, CRF-INDEP); T2-STREET (E2). Chưa làm thì ghi NOT_RUN, không bỏ trống.
 
 Metric, tách theo chiều (cu_to_moi, moi_to_cu) × LoaiAnhXa × HinhThucSapNhap × hệ thống × điều kiện đầu vào:
 - accuracy đơn vị đích trên khóa đầy đủ đã chuẩn hóa (mới: tỉnh+phường, đối chiếu thêm MaPhuongXaMoi;
@@ -150,17 +221,24 @@ Metric, tách theo chiều (cu_to_moi, moi_to_cu) × LoaiAnhXa × HinhThucSapNha
 - coverage, abstain rate, candidate recall, số ứng viên trung bình/trung vị.
 - silent_error_rate = (trả lời sai và không có cảnh báo/abstain) / tổng số mẫu. Báo cả số tuyệt đối.
 - CI 95% cluster bootstrap (cụm = đơn vị nguồn của chiều đang xét), B=10.000, seed 20261014.
+- Ngoài accuracy theo cặp (micro), báo accuracy trung bình theo đơn vị nguồn (macro: mỗi đơn vị cũ/phường mới một
+  phiếu) vì 299 cặp M đến từ số ít đơn vị có 4 đích; nêu số đơn vị và số cặp của đơn vị lớn nhất.
 - E3: trên cùng 600 cặp, McNemar chính xác và paired bootstrap giữa hai chiều cho từng hệ thống.
-- E2: T2-LOOKUP-DEFAULT so với T2-STREET, ghép cặp, tách M (phía 1-nhiều) và B.
+- E2: T2-LOOKUP-DEFAULT-MAIN và T2-LOOKUP-DEFAULT-FIRST so với T2-STREET, ghép cặp, tách M (phía 1-nhiều) và B.
 
 Phân tích đồ thị toàn bộ edges.csv (không cần Data 07): phân phối fan-out theo khóa cũ và fan-in theo khóa mới,
 tỷ lệ khóa giải được tất định mỗi chiều, tách A/B/C/M, 5 chuyển đổi phi nguyên tử báo riêng. Ghi nhãn
 "cận cấu trúc"; không gọi là accuracy quan sát.
 
 Phần T2 của H5:
-- Tình huống C: đưa 600 chuỗi Data 06 (qua oracle-segmentation) vào T2-LOOKUP-STRICT, T2-LOOKUP-DEFAULT,
-  T2-SINGLE-VERSION theo cả hai giả định hệ nguồn; báo tỷ lệ NO_MATCH, trả lời sai im lặng, trả lời đúng.
-  Gold đích suy từ Span_He_Detail + bảng cạnh; dòng nào không suy được duy nhất thì loại khỏi mẫu số và đếm riêng.
+- Tình huống C: đưa 600 chuỗi Data 06 vào T2-LOOKUP-STRICT, T2-LOOKUP-DEFAULT-MAIN, T2-LOOKUP-DEFAULT-FIRST, T2-SINGLE-VERSION. Dùng các cột
+  PhuongXa/QuanHuyen/TinhThanh có sẵn làm phân đoạn oracle. Hệ thống KHÔNG được đọc Span_He_Detail hay KieuLai.
+  Gold chỉ định nghĩa cho đích hệ MỚI (tỉnh mới + phường mới): C1/C2 có phường đã là phường mới (540 dòng, đều tra
+  được), C3 có phường cũ với đúng một đích (59 dòng; 1 dòng không có đích -> loại khỏi mẫu số và đếm riêng).
+  Chiều về hệ cũ không có gold duy nhất (N-1) nên ghi NOT_EVALUABLE_NO_UNIQUE_GOLD.
+  Chạy hai giả định hệ nguồn mà một hệ thống tra bảng buộc phải chọn: "coi là cũ" và "coi là mới". Đã đo: 421/600
+  chuỗi lai vẫn KHỚP khi tra như một khóa cũ đầy đủ (tên phường mới trùng tên một phường cũ trong cùng huyện) — đây là
+  đường dẫn tới lỗi im lặng; với mỗi giả định báo: NO_MATCH, khớp-và-đúng, khớp-và-sai (im lặng), tách theo KieuLai.
 - Tình huống D: từ entities/edges, liệt kê tên phường xuất hiện ở cả hai hệ trong cùng tỉnh (sau quy đổi tỉnh)
   nhưng tập cạnh cho thấy phạm vi khác nhau; báo số lượng và tỷ lệ lỗi im lặng của T2-SINGLE-VERSION trên
   các cặp Data 07 thuộc nhóm này.
@@ -170,7 +248,8 @@ Phần T2 của H5:
 run_manifest.json.
 
 Test: phân loại quan hệ trên đồ thị nhỏ dựng tay (1-1, N-1, 1-N, M-N); luật mặc định tất định; STRICT abstain
-đúng khi nhiều ứng viên; silent error được đếm đúng; chặn geocoder hoạt động; T2-STREET không đọc ID của Data 07.
+đúng khi nhiều ứng viên; silent error được đếm đúng; chặn geocoder hoạt động; chỉ mục T2-STREET sau lọc không chứa chuỗi DiaChi_Moi nào của Data 07; ba mức N0/N1/N2
+cho đúng số khớp đã đo (N0 = 5/600, N1 = 535/600 ở phía cũ).
 
 Báo cáo 09: bảng T2 chính, bảng E3, bảng E2, bảng tình huống C/D, đoạn phân tích bất đối xứng (đối chiếu giả thuyết
 đề cương "chiều mới→cũ khó hơn"), và mục giới hạn nêu F1–F3 cùng việc mã cũ của gazetteer còn partial.
@@ -266,8 +345,7 @@ NHIỆM VỤ: (3a) khoảng tin cậy và kiểm định ghép cặp trên predi
 thí nghiệm đa seed 42/1337/2025 cho hai mô hình neural. Phụ thuộc: WP0.
 
 File bạn sở hữu: scripts/69_bootstrap_frozen_results.py, scripts/70_prepare_multiseed_kaggle.py,
-tests/test_group1_reliability.py, configs/modeling/sprint04/phobert_crf_seed{1337,2025}.json,
-configs/modeling/sprint04/proposed_dyn_seed{1337,2025}.json, configs/modeling/sprint04/proposed_no_constraint_seed*.json,
+tests/test_group1_reliability.py, src/modeling/cli.py (chỉ thêm --seed, xem 3b.1),
 data/processed/evaluation/sprint04/reliability_20261014_v1/, data/interim/modeling/sprint04/multiseed_20261015_v1/,
 docs/sprints/sprint_04/11_reliability_results.md.
 
@@ -296,11 +374,28 @@ Tính bằng src/evaluation/stats.py, B=10.000, seed 20261014:
 - Ghi chú độ nhạy: với 100 mẫu / 446 span, hiệu nhỏ nhất phát hiện được ước lượng từ độ rộng CI ghép cặp.
 
 3b — đa seed
-1. Tạo config overlay theo seed từ configs/modeling/sprint03/{phobert_crf_v1,proposed_dyn_v1,proposed_no_constraint_v1}.json
-   với ứng viên c02 đã khóa; chỉ đổi seed và run_id. src/modeling/cli.py không có --seed nên seed phải nằm trong config.
-   Test khẳng định overlay chỉ khác bản gốc ở seed/run_id.
+1. Seed. KHÔNG tạo file config mới chỉ khác seed/run_id: src/modeling/protocol.py::load_config từ chối mọi config có
+   canonical hash không nằm trong configs/modeling/sprint03/protocol_lock_v1.json (CONFIG_CHANGED_AFTER_PROTOCOL_LOCK),
+   dù validate_training_config cho phép seed 1337 và 2025. Không sửa protocol_lock_v1.json (hash của nó được
+   hardware profile ghim và nằm trong sổ hash bảo vệ). Hướng thực hiện: thêm tham số `--seed` (chỉ nhận 42/1337/2025)
+   vào src/modeling/cli.py, áp seed SAU load_config lên bản sao config trong bộ nhớ, ghi seed thực và hash config gốc
+   vào run_manifest.json; chỉ chạm cli.py/training.py ở mức tối thiểu và thêm test chứng minh (i) config gốc và lock
+   không đổi, (ii) seed ngoài danh sách bị từ chối, (iii) không đổi seed thì kết quả/hash như cũ. Nếu cách này đòi
+   sửa file ngoài danh sách sở hữu, dừng và hỏi chủ dự án. Dùng ứng viên c02 đã khóa.
+   Nơi chạy (Kaggle hay máy cục bộ) do chủ dự án quyết định sau khi đo phần cứng; hardware profile hiện có yêu cầu
+   cứng GPU >= 8 GiB, float32, torch 2.8.0 cu128 nên KHÔNG dùng được cho RTX 3050 4 GB. Chạy CPU dùng thẳng
+   `device: cpu` có sẵn trong config gốc, không cần hardware profile.
 2. Seed 42: dùng lại run đã khóa, không huấn luyện lại. CRF-INDEP: L-BFGS tất định -> DETERMINISTIC_SEED_INVARIANT,
    một dòng, không std. HEUR-JW: một cấu hình cố định.
+3a. NẾU chủ dự án chọn chạy cục bộ trên CPU (máy i7-12700H, 6 nhân P + 8 nhân E, WSL 7,6 GB RAM; đo ngày 13/10/2026):
+   - Bắt buộc đặt `OMP_NUM_THREADS=6 MKL_NUM_THREADS=6` và torch.set_num_threads(6) trước mọi lượt chạy. Đo thực tế:
+     6 luồng 1,05 s/bước, 10 luồng 1,23 s, 14 luồng 11,2 s (chậm gấp 10 lần do tranh chấp nhân). Không dùng mặc định.
+   - Chạy tuần tự từng lượt (mỗi tiến trình ~2,9 GB RSS); dùng runtime neural data/interim/modeling/sprint03/runtime_neural_d_v1
+     với device cpu có sẵn trong config, không dùng hardware profile CUDA (đòi VRAM >= 8 GiB).
+   - Chạy cả seed 42 cục bộ để ba seed cùng một môi trường; run Kaggle seed 42 của Sprint 3 báo thành hàng riêng
+     "độ nhạy phần cứng", không trộn vào mean ± std.
+   - Ước lượng thời gian: ~1 s mỗi micro-batch 4 mẫu, 60 micro-batch/epoch, tối đa 20 epoch (patience 5) => khoảng
+     15–30 phút/lượt. Đo thời gian epoch đầu thật rồi cập nhật ước lượng trước khi chạy hết.
 3. Dựng gói Kaggle bằng hạ tầng hiện có (scripts/50_kaggle_pipeline.py, 51_run_kaggle_remote.py, src/modeling/kaggle_*.py),
    mỗi model/seed một job tuần tự; DYN tắt ràng buộc dùng lại trọng số và calibration của DYN bật cùng seed.
    Ước lượng GPU-giờ từ log thời gian thực của các run c02 Sprint 3 và ghi vào kế hoạch chạy.

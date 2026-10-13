@@ -1,6 +1,6 @@
 # Kế hoạch chi tiết Nhóm 1 — Lấp khoảng trống khoa học
 
-**Ngày lập:** 13/10/2026. **Mốc đóng mục tiêu:** 18/10/2026 (hạn cứng 20/10).
+**Ngày lập:** 13/10/2026 (tuần 8/15 của đề cương). **Khung thời gian:** tuần 8–11, theo lịch của tài liệu 05 v2. Hạn 18–20/10 chỉ là hạn của Sprint 4, không phải hạn của Nhóm 1 hay của đồ án (chủ dự án xác nhận 13/10).
 **Nguồn yêu cầu:** mục 2, Nhóm 1 của [05_project_review_and_remaining_tasks.md](05_project_review_and_remaining_tasks.md).
 **Prompt cho agent:** [07_agent_prompts_group1.md](07_agent_prompts_group1.md).
 
@@ -12,9 +12,9 @@ Mọi con số ở mục 1 được đo trực tiếp trên repo ngày 13/10 (l�
 |---|---|---|
 | F1 | Data 07 có 600 cặp nhưng **chỉ có `M` (356) và `B` (244)**; không có `A`, không có `C`. Chỉ 23 mã phường mới, 69 đơn vị cũ; 441/600 ở Hà Nội, 151 Bắc Ninh, 8 TP.HCM. | Bảng "theo A/B/C/M" trên Data 07 chỉ điền được B và M; A và C phải ghi `NOT_EVALUABLE_NO_SUPPORT`. Bù bằng phân tích toàn bộ đồ thị cạnh (F2). CI phải bootstrap theo cụm đơn vị, không coi 600 cặp là độc lập. |
 | F2 | Gazetteer `s3_v4_nso_dual_snapshot_release2/edges.csv`: 10.597 cạnh = B 9.432, M 1.030, C 132, **A chỉ 3**. | Tình huống A thuần (1-N) gần như không tồn tại trong cải cách 2025; "một cũ → nhiều mới" thực tế nằm ở M. Phải nói rõ trong báo cáo, không ép M thành A. |
-| F3 | Data 07 được xác minh bằng chính CSV nguồn đã dựng nên `edges.csv`. | Tra bảng có candidate-recall ≈ 100% **do cấu trúc**. Accuracy T2 trên Data 07 đo khả năng **chọn đúng trong các ứng viên**, không đo độ phủ của bảng. Phải khai báo tính vòng lặp này. |
+| F3 | Data 07 được xác minh bằng chính CSV nguồn đã dựng nên `edges.csv`. Phía cũ của Data 07 là chuỗi OSM thô ("Hà Nội", "Ho Chi Minh City"): so chuỗi thô chỉ khớp 5/600 khóa cũ, qua chuẩn hóa của `AdministrativeMapping` khớp 535/600; phía mới khớp 600/600. Ở chiều cũ→mới, 343/600 cặp có nhiều ứng viên (299 cặp có 4 đích). | Với chuẩn hóa đủ mạnh, candidate-recall tiến tới 100% **do cấu trúc**; accuracy khi đó đo khả năng **chọn đúng trong các ứng viên**, không đo độ phủ của bảng. Mức chuẩn hóa tên (thô / chuẩn hóa / alias đã kiểm chứng) là một yếu tố thí nghiệm thật và phải báo riêng. |
 | F4 | Data 06: 600 dòng, **100% `Lai`, 100% loại `B`**, ba kiểu `C1` 420 / `C2` 120 / `C3` 60; khoảng 68% ở Bắc Ninh, 78 phường. Không có cột "tình huống A–D". | Chỉ đo được recall của `Lai`. Muốn có precision/F1 phải thêm tập đối chứng `moi` (Data 01) và `cu` (Data 03). "Tình huống A–D" phải được gán bằng quy tắc từ gazetteer (mục 3, WP2). |
-| F5 | Test Sprint 3 lấy đúng 20 mẫu từ mỗi tập Data 01/02/03/04/06 (khớp chuỗi chính xác: 20/21/20/21/20). 5 mẫu `Lai` của test đến từ Data 06. | Mọi huấn luyện dùng Data 04/06 phải loại mẫu trùng test/dev theo chuỗi chuẩn hóa **và** theo nhóm đơn vị hành chính. Tăng `Lai` F1 trên test bằng dữ liệu cùng generator chỉ chứng minh học được mẫu sinh, không chứng minh tổng quát. |
+| F5 | Test Sprint 3 lấy đúng 20 mẫu từ mỗi tập Data 01/02/03/04/06 (khớp chuỗi chính xác với toàn corpus, đã được WP0 tái lập: Data 01 = 20, 02 = 20, 03 = 21, 04 = 21 gồm 1 dòng trùng train, 06 = 20). 5 mẫu `Lai` của test đến từ Data 06. | Mọi huấn luyện dùng Data 04/06 phải loại mẫu trùng test/dev theo chuỗi chuẩn hóa **và** theo nhóm đơn vị hành chính. Tăng `Lai` F1 trên test bằng dữ liệu cùng generator chỉ chứng minh học được mẫu sinh, không chứng minh tổng quát. |
 | F6 | Train có 16 `Lai` / 119 `cu` / 71 `moi`; dev 8 `Lai`. DYN: đầu T1 tuyến tính trên CLS, `t1_loss_weight=0.5`, ngưỡng 0,7 / margin 0,2. HEUR-JW suy T1 từ hệ của span hành chính khớp gazetteer. | Giả thuyết làm việc (suy luận): DYN thua vì thiếu dữ liệu `Lai` và không có tri thức gazetteer, không phải vì kiến trúc đầu phân loại. WP2 thiết kế để tách hai nguyên nhân này. |
 | F7 | Dev có 8 `Lai` (< 10). | Theo protocol mục 7, hiệu chỉnh ngưỡng trên dev là `CALIBRATION_NOT_EVALUABLE`; muốn hiệu chỉnh phải dùng T1-dev tổng hợp tách nhóm và khai báo trước. |
 | F8 | Data 04 và Data 06 để ngõ/hẻm **bên trong** `TenDuong` (ví dụ "Ngách 1/88 Phạm Tuấn Tài"); gold Sprint 3 tách `Ngo/Hem` riêng. | Không được đưa thẳng các tập này vào huấn luyện T0: sẽ dạy sai quy ước nhãn. Phải lọc dòng có tiền tố ngõ/hẻm/ngách/kiệt hoặc tách theo quy tắc guideline rồi kiểm mẫu. |
@@ -33,7 +33,7 @@ Mọi con số ở mục 1 được đo trực tiếp trên repo ngày 13/10 (l�
 4. Biến thể mô hình mới (đầu T1 có dữ liệu lai tổng hợp, CRF huấn luyện kèm thiếu trường) được chọn **chỉ bằng dev / dev tổng hợp tách nhóm**; kết quả trên test Sprint 3 ghi nhãn `POST_HOC_SECONDARY` vì test đã bị quan sát ở Sprint 3.
 5. Mọi tập sinh tổng hợp dùng để huấn luyện/đánh giá thuộc **stress track**, báo riêng, không bù support quan sát.
 
-**Việc cần chủ dự án tự làm:** đọc quota GPU trên giao diện Kaggle trước WP3b; xác nhận cho phép upload gói train/dev tổng hợp lên dataset Kaggle private (Data 06/04 dẫn xuất từ OSM và CSV hành chính, cùng họ nguồn đã upload ở Sprint 3).
+**Nơi chạy huấn luyện (chốt 13/10 sau khi đo máy):** chạy cục bộ trên CPU là phương án chính (i7-12700H, 6 luồng: 1,05 s/bước; khoảng 15–30 phút/lượt); RTX 3050 4 GB không dùng được vì hardware profile đã khóa đòi tối thiểu 8 GiB VRAM. Kaggle chỉ là dự phòng; nếu dùng, chủ dự án đọc quota và đồng ý upload trước.
 
 ## 3. Các gói việc
 
@@ -56,12 +56,15 @@ Ký hiệu trạng thái đầu ra: `PASS`, `PARTIAL`, `NEGATIVE_RESULT` (thí n
 | ID | Mô tả | Chiều |
 |---|---|---|
 | `T2-LOOKUP-STRICT` | Tra khóa đầy đủ trên `edges.csv`; chỉ trả lời khi đúng một ứng viên, còn lại abstain kèm danh sách ứng viên | cả hai |
-| `T2-LOOKUP-DEFAULT` | Như trên nhưng luôn chọn một ứng viên theo luật mặc định khai báo trước: ưu tiên `merge_form` "Hợp nhất toàn bộ" → "Tách — nhập chủ yếu" → "Tách — một phần", hòa thì lấy `source_row` nhỏ nhất | cả hai |
+| `T2-LOOKUP-DEFAULT-MAIN` | Như trên nhưng luôn chọn một ứng viên: ưu tiên `merge_form` "Hợp nhất toàn bộ" → "Tách — nhập chủ yếu" → "Tách — một phần", hòa thì lấy `source_row` nhỏ nhất | cả hai |
+| `T2-LOOKUP-DEFAULT-FIRST` | Luôn chọn ứng viên có `source_row` nhỏ nhất. Báo cùng `DEFAULT-MAIN` vì 335/356 cặp M của Data 07 thuộc dạng "nhập chủ yếu", có lợi cho `DEFAULT-MAIN` | cả hai |
 | `T2-VNADMIN` | `vietnamadminunits.convert` qua adapter hiện có, **tắt geocoder mạng**, ghi nhánh fallback | cũ→mới; mới→cũ ghi `NOT_SUPPORTED` |
 | `T2-SINGLE-VERSION` | Khớp tên trên gazetteer chỉ một hệ (không biết phiên bản) | cả hai; dùng đo tình huống D |
-| `T2-STREET` (E2, [Nên]) | Chọn ứng viên bằng chỉ mục `tên đường → phường mới` dựng từ `osm_clean_addresses.csv`, loại mọi `ID_Node` của Data 07 | cũ→mới |
+| `T2-STREET` (E2, [Nên]) | Chọn ứng viên bằng chỉ mục `tên đường → phường mới` dựng từ Data 01 và `data/interim/osm/osm_latest_clean.csv`. Không nguồn nào có OSM ID nên chống rò rỉ bằng chuỗi (loại dòng trùng `DiaChi_Moi`, và biến thể nghiêm ngặt loại cả trùng số nhà + tên đường) | cũ→mới |
 
-**Điều kiện đầu vào:** (a) *oracle-segmentation*: tách theo dấu phẩy từ phải sang, kiểm 100% khớp khóa gazetteer, báo số dòng không tách được; (b) *pipeline*: span từ HEUR-JW và CRF-INDEP rồi mới tra.
+**Mức chuẩn hóa tên:** N0 chuỗi thô; N1 khóa chuẩn hóa của `administrative_mapping.py`; N2 thêm alias đã kiểm chứng. Bảng chính ở N2, N0/N1 là bảng độ nhạy. Dòng không khớp là `NO_MATCH` (thất bại có cảnh báo, không phải lỗi im lặng).
+
+**Điều kiện đầu vào:** (a) *oracle-segmentation*: tách theo dấu phẩy từ phải sang, báo số dòng không khớp khóa ở từng mức chuẩn hóa; (b) *pipeline*: span từ HEUR-JW và CRF-INDEP rồi mới tra.
 
 **Metric (tách theo chiều, theo `LoaiAnhXa`, theo `HinhThucSapNhap`):** accuracy đơn vị đích (khóa đầy đủ: mới = tỉnh + phường; cũ = tỉnh + huyện + phường); coverage và tỷ lệ abstain; **tỷ lệ lỗi im lặng** = số câu trả lời sai mà không có cảnh báo / tổng số mẫu; candidate-recall; số ứng viên trung bình. CI bootstrap theo cụm (cụm = đơn vị nguồn của chiều đang xét). E3: McNemar ghép cặp cũ→mới so với mới→cũ trên cùng 600 cặp.
 
@@ -83,7 +86,7 @@ Ký hiệu trạng thái đầu ra: `PASS`, `PARTIAL`, `NEGATIVE_RESULT` (thí n
 |---|---|---|---|
 | `T1-PIPE-<T0>` | Span của CRF-INDEP / PHOBERT-CRF / DYN + luật hệ quy chiếu của HEUR-JW trên gazetteer | CPU | Thiếu tri thức gazetteer có phải nguyên nhân chính? Đồng thời lấp ô `NOT_IMPLEMENTED` của CRF và PhoBERT-CRF |
 | `T1-FEAT` | Phân loại tuyến tính nhỏ trên đặc trưng bề mặt + thành viên gazetteer (viết bằng `numpy`) | CPU | Mốc học máy rẻ |
-| `DYN-T1-AUG` | Huấn luyện lại DYN c02 với train + dữ liệu lai tổng hợp tách nhóm | Kaggle GPU | Thiếu dữ liệu `Lai` có phải nguyên nhân? |
+| `DYN-T1-AUG` | Huấn luyện lại DYN c02 với train + dữ liệu lai tổng hợp tách nhóm | CPU cục bộ (Kaggle dự phòng) | Thiếu dữ liệu `Lai` có phải nguyên nhân? |
 
 **Dữ liệu lai tổng hợp:** sinh bằng `generate_hybrid_addresses` với seed mới; chia `t1_synth_train / t1_synth_dev / t1_synth_eval` theo **mã phường mới** (nhóm rời nhau); loại mọi nhóm xuất hiện trong test/dev Sprint 3; xử lý quy ước `Ngo/Hem` theo F8; cân bằng thêm mẫu `cu`/`moi` để không dạy mô hình "có huyện thì là lai".
 
@@ -95,7 +98,7 @@ Ký hiệu trạng thái đầu ra: `PASS`, `PARTIAL`, `NEGATIVE_RESULT` (thí n
 
 **3a — CI và kiểm định trên prediction đã freeze (CPU, làm ngay).** Cho 5 hệ: T0 micro P/R/F1, F1 từng nhãn, T1 accuracy và macro-F1, mỗi số kèm CI 95% bootstrap theo mẫu và theo `source_group`. Cặp so sánh: PCRF–DYN, DYN bật–tắt, PCRF–CRF, PCRF–HEUR, CRF–HEUR, mỗi cặp có ΔF1, CI ghép cặp, p-value hoán vị và McNemar trên exact-match cả địa chỉ. Lặp lại cho dev và cho track 5 trường (4.800 hàng; ghi rõ đây là track development). Xác minh hash prediction trước khi tính; tái lập đúng điểm số đã công bố ở `49_sprint3_final_results.md` trước khi báo CI.
 
-**3b — Đa seed (Kaggle).** PHOBERT-CRF c02 và PROPOSED-DYN c02 với seed 1337 và 2025 (seed 42 dùng lại run đã khóa): 4 lượt huấn luyện + suy luận; DYN tắt ràng buộc dùng lại trọng số DYN bật. Thứ tự ưu tiên khi thiếu quota: seed 1337 cho cả hai mô hình trước, rồi 2025; thiếu thì ghi `PARTIAL_SEEDS`. Chọn epoch theo quy tắc dev đã khóa. Báo từng seed và mean ± std (`ddof=1`, n = 3).
+**3b — Đa seed (cục bộ CPU; Kaggle dự phòng).** PHOBERT-CRF c02 và PROPOSED-DYN c02 với seed 1337 và 2025 (chạy cả seed 42 cục bộ để ba seed cùng môi trường; run Kaggle seed 42 của Sprint 3 báo thành hàng riêng). Seed truyền qua tham số `--seed` mới của `cli.py`, không tạo config mới vì `load_config` từ chối hash lạ: 4 lượt huấn luyện + suy luận; DYN tắt ràng buộc dùng lại trọng số DYN bật. Thứ tự ưu tiên khi thiếu quota: seed 1337 cho cả hai mô hình trước, rồi 2025; thiếu thì ghi `PARTIAL_SEEDS`. Chọn epoch theo quy tắc dev đã khóa. Báo từng seed và mean ± std (`ddof=1`, n = 3).
 
 **Đầu ra:** `scripts/69_bootstrap_frozen_results.py`, `scripts/70_prepare_multiseed_kaggle.py`, config overlay tại `configs/modeling/sprint04/`, `tests/test_group1_reliability.py`; `data/processed/evaluation/sprint04/reliability_20261014_v1/`; báo cáo `11_reliability_results.md`.
 
@@ -134,17 +137,17 @@ WP0 ─┬─ WP1 (T2)  ───────────────┐
      ├─ WP3a (CI) ───────────────┤
      ├─ WP4 (CPU) ───────────────┼─ WP6
      ├─ WP2-A ─ WP2-B ─┐         │
-     └─ WP3b (Kaggle) ─┴─ WP5 ───┘
+     └─ WP3b (đa seed) ─┴─ WP5 ───┘
 ```
 
-| Ngày | Việc | Cổng |
+| Tuần | Việc | Cổng |
 |---|---|---|
-| 13/10 | Xác nhận Amendment A2; WP0 | Test dùng chung PASS |
-| 14/10 | WP1; WP3a; bắt đầu WP4 | Tái lập đúng điểm Sprint 3 trước khi báo CI |
-| 15/10 | WP2-A; dựng dữ liệu WP2-B; đóng gói Kaggle cho WP3b và `DYN-T1-AUG`; xong WP4 | Chủ dự án đọc quota và đồng ý upload |
-| 16/10 | Chạy Kaggle; nhận artifact, kiểm hash; WP2-B | Chọn bằng dev xong trước khi chấm test |
-| 17/10 | WP5; WP6 | Bộ test đầy đủ PASS |
-| 18/10 | Dự phòng | — |
+| 8 (đang chạy) | WP0 — **đã nghiệm thu 13/10**; WP1 (T2) | Tái lập các số đã đo ở F1–F3 trước khi viết hệ thống |
+| 9 | WP2 (T1, H5); viết mục T2 của chương kết quả | Chọn biến thể bằng dev trước khi chấm test |
+| 10 | WP3: CI trên prediction đã freeze, rồi đa seed chạy **cục bộ trên CPU** (6 luồng, khoảng 15–30 phút/lượt, đo 13/10); Kaggle chỉ là dự phòng | Tái lập đúng điểm Sprint 3 trước khi báo CI |
+| 11 | WP4 (H2, H3, E1, H4); WP5; WP6 | Mốc giữa kỳ: T0/T1/T2 đều có bảng |
+
+WP3 phần CI chỉ cần CPU và không phụ thuộc WP1/WP2, nên có thể kéo lên tuần 8–9 nếu cần số có khoảng tin cậy sớm.
 
 Các agent ghi vào tập file riêng (bảng mục 3), không hai agent nào cùng sửa một file. Chỉ WP6 sửa `data_quality.md`, README và `AGENTS.md`.
 
@@ -162,7 +165,7 @@ Các agent ghi vào tập file riêng (bảng mục 3), không hai agent nào c�
 
 | Rủi ro | Xử lý |
 |---|---|
-| Quota Kaggle không đủ 4 lượt huấn luyện + `DYN-T1-AUG` | Ưu tiên: seed 1337 của hai mô hình → `DYN-T1-AUG` seed 42 → seed 2025. Phần thiếu ghi `PARTIAL_SEEDS` |
+| Huấn luyện CPU chậm hơn ước lượng | Đo epoch đầu rồi cập nhật; ưu tiên seed 1337 của hai mô hình → `DYN-T1-AUG` → seed 2025; chuyển Kaggle nếu một lượt vượt 1 giờ. Phần thiếu ghi `PARTIAL_SEEDS` |
 | T2 trên Data 07 quá dễ do F3 | Báo thêm điều kiện pipeline, chiều mới→cũ và phân tích đồ thị; nêu rõ tính vòng lặp |
 | `Lai` F1 tăng nhờ học mẫu sinh (F5) | Báo riêng `t1_synth_eval` tách nhóm; test Sprint 3 chỉ là số phụ |
 | CI rộng làm mất "người thắng" | Chấp nhận; viết kết luận theo CI |

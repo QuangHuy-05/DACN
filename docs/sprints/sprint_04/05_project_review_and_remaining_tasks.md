@@ -1,76 +1,110 @@
 # Rà soát toàn dự án, phản biện và việc còn lại (Sprint 1–4)
 
-**Ngày:** 13/10/2026. Cách đọc: mục 1 là phản biện; mục 2 là việc còn lại theo ưu tiên; mục 3 là gợi ý cắt phạm vi để kịp đóng đồ án. Mọi con số lấy từ `docs/data_quality.md`, `49_sprint3_final_results.md` và đề cương; các điểm tôi suy luận được gắn nhãn "suy luận".
+**Ngày:** 13/10/2026 — **tuần 8/15** của đề cương. **Phiên bản:** v2 (thay v1 cùng ngày).
+Nguồn số liệu: `docs/data_quality.md`, `49_sprint3_final_results.md`, `model_matrix.md`, đề cương và protocol Sprint 4. Điểm nào là suy luận của tôi, không phải số liệu đã đo, được gắn nhãn *(suy luận)*; điểm chưa kiểm chứng gắn *(chưa kiểm)*.
+
+## 0. Bối cảnh lịch
+
+- Đề cương 15 tuần; hiện mới tuần 8, còn khoảng 7 tuần. Hạn 18–20/10 trong protocol Sprint 4 chỉ là hạn riêng của Sprint 4, **không phải hạn đồ án**; cần amendment dời lịch (chưa làm).
+- Thứ tự thực hiện chủ dự án chọn: **Nhóm 1 (khoa học) → Nhóm 2 (dữ liệu) → Nhóm 3 (đóng sản phẩm)**. Đề cương đặt H2, H3, H5, E1, E3 ở tuần 11–14 nên thứ tự này khớp.
 
 ## 1. Phản biện: các điểm yếu của đồ án
 
-### A. Kết quả chính ít sức thuyết phục
+Mỗi điểm ghi mức nghiêm trọng đối với việc bảo vệ: **Cao** (hội đồng dễ hỏi và khó đáp), **Vừa**, **Thấp**.
 
-1. **Test chỉ 100 mẫu, 446 span, một seed.** PhoBERT-CRF 98,43% và PROPOSED-DYN 98,21% chênh nhau đúng 1 span. Không có khoảng tin cậy, không kiểm định ghép cặp, không đa seed, nên không kết luận được mô hình nào tốt hơn. Trần gần 98% cho thấy bộ test quá dễ để phân biệt mô hình.
-2. **"Mô hình đề xuất" thua chính baseline của nó ở T1.** DYN T1 accuracy 71,88%, macro-F1 56,26%, `Lai` F1 = 0; baseline luật HEUR-JW đạt 92,19% / 92,49%. T1 là điểm khác biệt về thời gian của đề tài, nên đây là điểm yếu lớn nhất. Ngoài ra bật ràng buộc còn **giảm** T0 F1 0,22 điểm so với tắt.
-3. **Mô hình đề xuất khác xa đề cương.** Đề cương hứa adapter đa phiên bản (H1: ablation gỡ từng adapter). Hiện chỉ có mask T0/T1 và giải mã theo confidence. H1 chưa thể kiểm chứng; đây là rủi ro bị hội đồng hỏi "đóng góp mô hình ở đâu".
-4. **Nhãn hiếm không đánh giá được.** `ToaNha/CanHo`, `MocDinhVi`, `HuongDi`, `GhiChu` có support 0 trong test (`Khac` chỉ 2). Tuyên bố "schema 11 nhãn" thực chất mới được kiểm trên 6–7 nhãn.
-5. **Giả thuyết còn bỏ ngỏ.** Trong 5 giả thuyết + 4 thí nghiệm phụ của đề cương: H2, H3, H4, H5, E1–E4 chưa có kết quả trong tài liệu hiện hành. (Suy luận: phần lớn có thể làm trên CPU với dữ liệu đã có.)
+### A. Kết quả chính
+
+| # | Điểm yếu | Bằng chứng | Mức |
+|---|---|---|---|
+| 1 | Test chỉ 100 mẫu (446 span), một seed, không có khoảng tin cậy; không phân biệt được các mô hình hàng đầu | PhoBERT-CRF 98,43% so với DYN 98,21%, chênh đúng 1 span; trần gần 98% | Cao |
+| 2 | Mô hình đề xuất thua baseline luật ở T1 | DYN T1 71,88% / macro-F1 56,26%, `Lai` F1 = 0 (support 5); HEUR-JW 92,19% / 92,49% | Cao |
+| 3 | Ràng buộc của mô hình đề xuất không giúp | Bật ràng buộc làm T0 F1 giảm 0,22 điểm, không đổi lỗi Quận (0/12) hoặc T1 | Vừa |
+| 4 | Mô hình đề xuất lệch đề cương: đề cương hứa adapter đa phiên bản (H1: ablation gỡ từng adapter), thực tế chỉ có mask T0/T1 và giải mã theo confidence | `model_matrix.md` (PROPOSED-DYN) | Cao |
+| 5 | Nhãn hiếm không đánh giá được: `ToaNha/CanHo`, `MocDinhVi`, `HuongDi`, `GhiChu` support 0; `Khac` chỉ 2 | Bảng support test | Vừa |
+| 6 | H2, H3, H4, H5, E1–E4 chưa có kết quả trong tài liệu hiện hành | Kết quả Sprint 3 chỉ báo T0/T1/5 trường | Cao |
 
 ### B. Dữ liệu và nhãn
 
-6. **Gold do một người gán, có AI hỗ trợ; IAA chưa đo.** Test là `AI_ASSISTED_HUMAN_REVIEW`. Rủi ro vòng lặp: gợi ý span sinh từ luật/heuristic (script 20) có thể thiên về các mẫu mà baseline luật bắt được. Chưa có bằng chứng ngược lại.
-7. **Tính đại diện thấp.** Train có 71 mẫu quan sát / 69 dẫn xuất / 100 tổng hợp; test có "provenance kết hợp chưa xác minh", không phải 100 địa chỉ thật. E4 (khoảng cách tổng hợp–thật) cần 130 chuỗi hóa đơn nhưng VQA đang HOLD. Kết quả vì thế phản ánh "địa chỉ sạch, có cấu trúc", chưa phải địa chỉ nhiễu người dùng thật.
-8. **Sprint 4 không giải quyết đúng chỗ yếu.** Nguồn đang thu (Thông báo 729 Hà Nội, 243 TP.HCM) là danh sách địa chỉ trụ sở theo mẫu cố định, chỉ hệ mới, không `QuanHuyen`, không `Lai`, không `HuongDi/MocDinhVi/GhiChu`. Holdout 50 mẫu từ hai tài liệu này sẽ **dễ** (cùng văn phong) và không bù được T1 `Lai` hay nhãn hiếm. Nếu không nói rõ, nó dễ bị đọc nhầm là "holdout đại diện".
-9. **Data 05 hoãn, VQA hold, Gazetteer mã cũ partial** (2.187 mã cũ chưa giải quyết; hai snapshot 30/06 và 01/07/2025 không phải lịch sử hiệu lực pháp lý). Đề cương nói gazetteer đa phiên bản có khoảng hiệu lực; thực tế mới là hai ảnh chụp.
+| # | Điểm yếu | Bằng chứng / suy luận | Mức |
+|---|---|---|---|
+| 7 | Gold do một người gán có AI hỗ trợ, IAA chưa đo; rủi ro vòng lặp nếu gợi ý sinh từ heuristic | Test `AI_ASSISTED_HUMAN_REVIEW`; script 20 gợi ý span từ text *(suy luận về thiên lệch)* | Cao |
+| 8 | Tính đại diện thấp: train 71 quan sát / 69 dẫn xuất / 100 tổng hợp; test có provenance kết hợp chưa xác minh | `data_quality.md`, protocol §3 | Cao |
+| 9 | E4 (khoảng cách tổng hợp–thật) bị kẹt vì VQA đang HOLD | `data_quality.md` | Vừa |
+| 10 | Dữ liệu Sprint 4 không giải quyết đúng chỗ yếu: TB729/TB243 là danh sách địa chỉ trụ sở theo mẫu cố định, chỉ hệ mới, không có `QuanHuyen`, `Lai` hay nhãn hiếm | Đã mở và đọc Phụ lục II; holdout từ hai tài liệu này sẽ dễ và không đại diện | Cao |
+| 11 | Gazetteer mã cũ còn partial (2.187 mã chưa giải quyết); hai snapshot 30/06 và 01/07/2025 chưa phải lịch sử hiệu lực pháp lý | `49_sprint3_final_results.md` §5 | Vừa |
+| 12 | Data 05 hoãn, VQA hold | `data_quality.md` | Thấp |
 
-### C. Phạm vi thiếu phần cốt lõi
+### C. Phạm vi và sản phẩm
 
-10. **T2 (ánh xạ cũ↔mới) chưa thực thi** dù đã có Data 07 (600 cặp) và gazetteer 10.597 cạnh. Đây là bài toán có giá trị thực tế nhất và là nền cho H5, E2, E3. Hiện nó là chỗ trống lớn nhất so với đề cương.
-11. **Baseline bị cắt:** Deepparse (2 cấu hình) bị chặn vì license checkpoint; đề cương còn liệt kê Libpostal và vietnamadminunits (không thấy trong bảng Sprint 3, suy luận có thể nằm ở baseline Sprint 2 — cần xác nhận). Thiếu một baseline "thế hệ LSTM" nên claim "phủ ba thế hệ" chưa đủ.
-12. **Sản phẩm bàn giao chưa đủ:** chưa có demo tối thiểu, chương kết quả/phân tích và slide cuối; slide hiện có là tổng kết Sprint 2 và Sprint 3.
+| # | Điểm yếu | Bằng chứng | Mức |
+|---|---|---|---|
+| 13 | T2 chưa thực thi dù đã có Data 07 (600 cặp) và gazetteer 10.597 cạnh; đây là bài toán thực tế nhất và là nền của H5, E2, E3 | `T2: NOT_EXECUTED` | Cao |
+| 14 | Baseline thế hệ LSTM bị chặn: Deepparse không có điều kiện sử dụng checkpoint rõ ràng | `DP-*: BLOCKED` | Vừa |
+| 15 | Libpostal và vietnamadminunits **có** adapter (`libpostal_adapter.py`, `vnadmin_adapter.py`) và nằm trong baseline Sprint 2 trên track 5 trường; **không** có trong track T0 11 span của Sprint 3. Cần ghi rõ để so sánh hợp lệ | Thư mục `src/evaluation/adapters/` | Thấp |
+| 16 | Chưa có demo tối thiểu, chương kết quả/phân tích, slide bảo vệ cuối (slide hiện có chỉ tổng kết Sprint 2 và 3) | Cây thư mục `docs/` | Cao |
 
 ### D. Quy trình và rủi ro vận hành
 
-13. **Quản trị quá nặng so với khoa học.** 64 script, 2.352 hash bảo vệ, hơn 270 test, tài liệu tổng kết 65 KB. Tác dụng phụ đã gặp ngay hôm nay: không dọn được file trùng vì bị hash khóa. Công sức vào bằng chứng/hợp thức hóa lớn hơn công sức vào thực nghiệm.
-14. **Lịch sử git trống cho cả Sprint 3 đến hôm nay** (đã commit lúc 13/10); hai file predictions 39 MB và 90 MB chưa được xử lý; trạng thái trong `AGENTS.md` vẫn dừng ở Sprint 3.
-15. **Hạn Sprint 4 không khả thi theo protocol:** vòng 1 chưa có thì gán lặp (intra) không thể xong trước 18–20/10; quota Kaggle chưa đo; 18 GPU-giờ chỉ là đề xuất.
-16. **Pháp lý chỉ là đánh giá dựa trên bằng chứng, không phải tư vấn.** Nguồn web (UEH, Từ Dũ) không có cho phép; OSM cần xử lý ODbL (attribution/share-alike) trước khi phát hành.
-
-## 2. Việc còn lại, xếp theo giá trị
-
-Ký hiệu: **[Bắt buộc]** nếu thiếu thì đồ án thiếu phần cốt lõi; **[Nên]**; **[Cắt được]**.
-
-### Nhóm 1 — Lấp khoảng trống khoa học (làm trước)
-
-| # | Việc | Dữ liệu/công cụ sẵn có | Đầu ra |
+| # | Điểm yếu | Bằng chứng | Mức |
 |---|---|---|---|
-| 1 | **[Bắt buộc]** T2 baseline: tra bảng cũ→mới và mới→cũ trên Data 07 (600 cặp), báo accuracy theo chiều, theo A/B/C/M và tỷ lệ lỗi im lặng; làm E2, E3 | Gazetteer `s3_v4…release2`, Data 07 | Bảng T2 + phân tích bất đối xứng |
-| 2 | **[Bắt buộc]** Sửa/đánh giá lại T1, nhất là `Lai`: báo theo tình huống A–D trên Data 06 (600 địa chỉ lai), thử đầu T1 huấn luyện bằng dữ liệu lai tổng hợp (tách khỏi test để không rò rỉ) | Data 06, HEUR-JW (92%) làm mốc | Bảng H5; `Lai` F1 > 0 hoặc giải thích âm |
-| 3 | **[Bắt buộc]** Tăng độ tin cậy kết quả T0/T1: bootstrap CI, kiểm định ghép cặp, đa seed (42, 1337, 2025) | Checkpoint + Kaggle | Bảng mean ± std, CI |
-| 4 | **[Nên]** Thí nghiệm rẻ trên CPU: H2 (huấn luyện kèm địa chỉ thiếu trường), H3 (xáo thứ tự trường), E1 (giữ/bỏ dấu phẩy và chữ hoa), H4 (nhóm mốc/đường) | Data 04, CRF-INDEP | 4 bảng nhỏ, kể cả kết quả âm |
-| 5 | **[Nên]** Ablation đề xuất thay cho adapter: so mask T0/T1 với ràng buộc, nêu rõ H1 không kiểm được | DYN on/off | Mục trung thực trong báo cáo |
+| 17 | Quản trị nặng hơn khoa học: 64 script, 2.352 hash bảo vệ, hơn 270 test; hash khóa chặn cả việc dọn file trùng | Phiên làm việc hôm nay | Vừa |
+| 18 | Lịch sử git trống cho Sprint 3 đến 13/10 (đã commit hôm nay); hai file predictions 39 MB và 90 MB chưa xử lý; `AGENTS.md` còn dừng ở Sprint 3 | `git log`, kích thước file | Vừa |
+| 19 | Lịch Sprint 4 không khả thi nếu giữ 18–20/10: vòng 1 chưa có nên gán lặp không đủ 168 giờ; quota Kaggle và 18 GPU-giờ chưa đo | Decision log v2 | Vừa (hết nếu dời lịch) |
+| 20 | Đánh giá quyền nguồn là suy luận dựa trên bằng chứng, không phải tư vấn pháp lý; OSM cần xử lý ODbL trước khi phát hành | Decision log v2 | Vừa |
 
-### Nhóm 2 — Dữ liệu (Sprint 4, thu hẹp lại)
+## 2. Việc còn lại, theo thứ tự thực hiện
+
+Ký hiệu: **[BB]** bắt buộc (thiếu là thiếu phần cốt lõi), **[N]** nên làm, **[C]** có thể cắt.
+
+### Nhóm 1 — Lấp khoảng trống khoa học (tuần 8–11)
+
+| # | Việc | Dữ liệu / công cụ sẵn có | Đầu ra | Tuần |
+|---|---|---|---|---|
+| 1.1 | **[BB]** T2 baseline: tra bảng cũ→mới và mới→cũ trên Data 07 (600 cặp); accuracy theo chiều và theo loại A/B/C/M; tỷ lệ lỗi im lặng; E2 và E3 | Gazetteer `s3_v4…release2`, Data 07 | Bảng T2 + phân tích bất đối xứng | 8 |
+| 1.2 | **[BB]** T1 và H5: báo T1 theo tình huống A–D trên Data 06 (600 địa chỉ lai tổng hợp); thử đầu T1 huấn luyện để `Lai` F1 > 0, tách dữ liệu huấn luyện khỏi test | Data 06, HEUR-JW làm mốc | Bảng H5; `Lai` F1 > 0 hoặc giải thích kết quả âm | 9 |
+| 1.3 | **[BB]** Độ tin cậy: bootstrap CI, kiểm định ghép cặp, 3 seed (42, 1337, 2025) | Checkpoint hiện có, Kaggle | Bảng mean ± std, CI | 10 |
+| 1.4 | **[N]** H2 (huấn luyện kèm địa chỉ thiếu trường), H3 (xáo thứ tự trường), E1 (giữ/bỏ dấu phẩy và chữ hoa), H4 (nhóm mốc/đường) | Data 04, CRF-INDEP (CPU) | 4 bảng nhỏ, kể cả kết quả âm | 11 |
+| 1.5 | **[N]** Ghi rõ H1 (adapter) không kiểm được; thay bằng ablation mask T0/T1 với ràng buộc | DYN on/off | Mục trung thực trong báo cáo | 11 |
+
+**Phụ thuộc cần lưu ý:** `Lai` trong test chỉ có support 5, nên 1.2 chỉ chứng minh được trên Data 06 (tổng hợp). Kết luận về `Lai` thật phải chờ dữ liệu ở Nhóm 2.
+
+### Nhóm 2 — Dữ liệu (Sprint 4, tuần 12)
 
 | # | Việc | Ghi chú |
 |---|---|---|
-| 6 | **[Bắt buộc]** Chủ dự án tự kiểm các đánh giá quyền nguồn theo hướng dẫn (mục 4 của tài liệu 04) và xác nhận | Mở decision log v3 nếu có thay đổi |
-| 7 | **[Nên]** Trích Phụ lục II (TB243), đếm đủ 168 dòng, loại số điện thoại; đối chiếu bản gốc | Ứng viên nhóm "out-of-domain, hệ mới" |
-| 8 | **[Nên]** Pilot 19 mẫu thủ công, đo thời gian; chốt guideline ca khó | Quyết định quy mô thực dựa trên phút/mẫu |
-| 9 | **[Nên]** Đổi tên đúng bản chất: bộ TB729/TB243 là **track địa chỉ cơ quan, hệ mới** (kiểm tra chuyển miền), không gọi là holdout đại diện; chỉ commit holdout khi đủ cổng | Tránh claim quá mức |
-| 10 | **[Cắt được]** Gán lặp intra-annotator | Không đủ 168 giờ; ghi `NOT_MEASURED` |
-| 11 | **[Cắt được]** Thu thêm nguồn cho `HuongDi/MocDinhVi/GhiChu` | Chỉ làm nếu có nguồn hợp pháp; nếu không, nêu rõ giới hạn |
+| 2.1 | **[BB]** Chủ dự án tự kiểm các đánh giá quyền nguồn theo hướng dẫn §4 của tài liệu 04; xác nhận hoặc yêu cầu decision log v3 | Có thể làm song song ngay từ bây giờ, không tốn công |
+| 2.2 | **[N]** Trích Phụ lục II (TB243), kiểm đếm đủ 168 dòng, loại số điện thoại, đối chiếu bản gốc | Mới đếm được ~166 dòng *(chưa kiểm)* |
+| 2.3 | **[N]** Pilot 19 mẫu thủ công, đo phút/mẫu; chốt guideline ca khó | Dùng để quyết định quy mô thật |
+| 2.4 | **[N]** Gọi bộ TB729/TB243 là **track địa chỉ cơ quan, hệ mới** (kiểm tra chuyển miền); chỉ commit holdout khi đủ cổng 50 mẫu / 20 site group / 2 document group | Tránh claim quá mức |
+| 2.5 | **[N]** Thu mẫu `Lai` thật và nhãn hiếm từ nguồn hợp pháp nếu tìm được | Nếu không, nêu rõ giới hạn thay vì sinh bù |
+| 2.6 | **[C]** Gán lặp intra-annotator | Chỉ còn khả thi nếu dời lịch; nếu không, ghi `NOT_MEASURED` |
+| 2.7 | **[N]** Amendment A3 dời lịch Sprint 4 sang khung tuần 8–15 (A2 đã dùng cho phạm vi Nhóm 1, tài liệu 08) | Tài liệu riêng, không sửa protocol đã hash |
 
-### Nhóm 3 — Đóng sản phẩm
+### Nhóm 3 — Đóng sản phẩm (viết dần từ tuần 9, hoàn tất tuần 13–15)
 
 | # | Việc | Ghi chú |
 |---|---|---|
-| 12 | **[Bắt buộc]** Chương kết quả và phân tích lỗi; evaluation card; mục "Giới hạn và đe dọa tính hợp lệ" gom các điểm A–D ở trên | |
-| 13 | **[Bắt buộc]** Slide bảo vệ cuối (slide hiện có chỉ là Sprint 2/3) | Dùng skill `hcmut-slide-designer` |
-| 14 | **[Nên]** Demo tối thiểu (CLI hoặc notebook): nhập chuỗi → span + hệ quy chiếu + ánh xạ | Theo đề cương ĐACN |
-| 15 | **[Nên]** Quyết định Deepparse: hoặc hỏi upstream về license weights, hoặc rút khỏi roster và ghi `OUT_OF_SCOPE_LICENSE` | Đừng để treo |
-| 16 | **[Nên]** Xử lý hai file predictions lớn (ignore hoặc LFS); cập nhật `AGENTS.md`/README sang trạng thái Sprint 4 | |
-| 17 | **[Cắt được]** Data 05, VQA, T3, RAG/API/Docker | Đã hoãn; chỉ liệt kê vào hướng phát triển/ĐATN |
+| 3.1 | **[BB]** Chương kết quả và phân tích lỗi; evaluation card; mục "Giới hạn và đe dọa tính hợp lệ" gom điểm A–D | Viết ngay sau mỗi việc ở Nhóm 1 |
+| 3.2 | **[BB]** Slide bảo vệ cuối | Dùng skill `hcmut-slide-designer` |
+| 3.3 | **[N]** Demo tối thiểu (CLI hoặc notebook): nhập chuỗi → span + hệ quy chiếu + ánh xạ | Theo đề cương ĐACN |
+| 3.4 | **[N]** Quyết định Deepparse: hỏi upstream về license weights, hoặc rút khỏi roster và ghi `OUT_OF_SCOPE_LICENSE` | Đừng để treo |
+| 3.5 | **[N]** Xử lý hai file predictions lớn (ignore hoặc LFS); cập nhật `AGENTS.md` và README sang trạng thái hiện hành | |
+| 3.6 | **[C]** Data 05, VQA, T3, RAG/API/Docker | Đưa vào hướng phát triển/ĐATN |
 
-## 3. Gợi ý cắt phạm vi để kịp đóng đồ án
+## 3. Lịch gợi ý (tuần 8–15)
 
-- **Ưu tiên theo thứ tự:** 1 → 2 → 3 → 12 → 13 → 4 → 14. Làm xong 1–3 là đồ án có đủ T0, T1, T2 và kết quả đáng tin; phần còn lại là phân tích và đóng gói.
-- **Chấp nhận kết quả âm.** DYN thua HEUR ở T1 và `Lai` F1 = 0 vẫn là kết quả trung thực; đề cương cũng nêu null result được chấp nhận (cần xác nhận với GVHD).
-- **Đừng đầu tư tiếp vào nghi thức:** không mở thêm lớp hash/audit mới; gom tài liệu Sprint 3 thành một báo cáo ngắn khi viết chương.
-- **Hạn 18–20/10:** chỉ khả thi với phạm vi "SCOPED_PARTIAL" (nhóm 1 + dữ liệu thu hẹp). Báo trước với GVHD nếu cần dời mốc T2/H-experiments sang tuần sau.
+| Tuần | Trọng tâm | Kết quả cuối tuần |
+|---|---|---|
+| 8 | 1.1 (T2) + 2.1 (tự kiểm quyền nguồn) | Bảng T2; xác nhận quyền nguồn |
+| 9 | 1.2 (T1, H5) + viết mục T2 | Bảng H5; mục T2 trong chương kết quả |
+| 10 | 1.3 (CI, 3 seed) + viết mục T1 | Kết quả có CI |
+| 11 | 1.4, 1.5 (H2, H3, E1, H4) | **Mốc kiểm tra giữa kỳ**: T0/T1/T2 đều có bảng; nếu không, báo GVHD thu hẹp phạm vi |
+| 12 | Nhóm 2 (2.2–2.5, 2.7) | Track địa chỉ cơ quan; số liệu thu mẫu thật |
+| 13–14 | Nhóm 3 (3.1, 3.3, 3.4, 3.5) | Bản nháp báo cáo đầy đủ, demo |
+| 15 | 3.2 (slide) + rà soát cuối | Báo cáo cuối, slide |
+
+**Nguyên tắc điều chỉnh:**
+- Chấp nhận kết quả âm (DYN thua HEUR ở T1, `Lai` F1 = 0 vẫn hợp lệ); cần xác nhận với GVHD rằng đề cương cho phép null result.
+- Không mở thêm lớp hash/audit mới; khi viết chương, gom tài liệu Sprint 3 thành một báo cáo ngắn.
+- Mỗi thí nghiệm mới dùng run ID mới và không tune trên test Sprint 3.
+- Nếu hết tuần 10 mà T1 hoặc T2 chưa ra bảng, ưu tiên T2 và giữ T1 ở mức đã có.
