@@ -12,7 +12,7 @@
 | Phân tích đồ thị toàn bộ cạnh | **PASS** (nhãn "cận cấu trúc") | `graph_analysis.json` |
 | Tầng 2: độ nhạy N0/N1, T2-VNADMIN, T2-SINGLE-VERSION, tình huống C và D | **PASS** | |
 | Tầng 3: điều kiện pipeline (HEUR-JW, CRF-INDEP) | **PASS** (đã chạy) | CRF chạy tiến trình riêng trong runtime CRF |
-| Tầng 3: T2-STREET (E2) | **PASS** về mặt chạy; **diễn giải có điều kiện** | tỷ lệ bằng chứng 89,0% (L1) / 42,1% (L2) ≥ 20%, nên không rơi vào `NOT_EVALUABLE_LOW_EVIDENCE`; xem mục 6 về rò rỉ hàng xóm |
+| Tầng 3: T2-STREET (E2) | **PASS** về mặt chạy; kết luận E2: **INCONCLUSIVE** | tỷ lệ bằng chứng 89,0% (L1) / 42,1% (L2) ≥ 20%, nên không rơi vào `NOT_EVALUABLE_LOW_EVIDENCE`; nhưng Data 07 không phân biệt được "tên đường giúp" với "nhớ đích của từng đơn vị" (mục 6) |
 | A và C trên Data 07 | `NOT_EVALUABLE_NO_SUPPORT` | Data 07 chỉ có B (244) và M (356) |
 | Chiều mới→cũ của VNADMIN và STREET | `NOT_SUPPORTED` | vẫn có dòng trong bảng |
 | Chiều về hệ cũ trên Data 06 | `NOT_EVALUABLE_NO_UNIQUE_GOLD` | quan hệ N-1 |
@@ -150,6 +150,8 @@ Ghép cặp T2-STREET với mặc định *cùng luật dự phòng* (khi không
 | L2, MAIN, riêng M (n=356, k=10) | 0,989 | 0,941 | +0,048 | 17 / 0 | 1,5e-5 | [0,000; 0,567] | 4 / 21 |
 | L2, MAIN, riêng B (n=244) | 1,000 | 1,000 | 0 | 0 / 0 | — | DEGENERATE | 0 / 0 |
 | L2, MAIN, chỉ dòng có bằng chứng quyết định (n=150) | 1,000 | 0,887 | +0,113 | 17 / 0 | 1,5e-5 | [0,000; 0,727] | 0 / 17 |
+
+**Kết luận E2: INCONCLUSIVE (không kết luận được).** Mỗi đơn vị cũ trong Data 07 chỉ có đúng một đích quan sát (trần của luật hằng-số-theo-đơn-vị = 1,000, mục 10), nên bất kỳ luật nào nhớ được đích của từng đơn vị cũng đạt 100% mà không cần hiểu tên đường. Chỉ mục tên đường làm đúng việc đó: các đường của một đơn vị cũ nằm trong cùng phường mới đã quan sát, và L1 đạt đúng 600/600. Vì vậy thí nghiệm này không cho biết tên đường có giúp phân biệt các đích *bên trong cùng một đơn vị cũ* hay không; muốn kiểm phải có dữ liệu mà một đơn vị cũ đi về ít nhất hai đích quan sát.
 
 Trên B không có gì để chọn (một ứng viên), nên mọi lợi ích nằm ở phía một-nhiều (M). Hướng của hiệu ứng nhất quán (không cặp nào STREET sai mà mặc định đúng), nhưng cận dưới của CI cụm bằng hoặc gần 0 (0,000–0,002) vì chỉ có 10 đơn vị cũ thuộc M, nên chưa đủ căn cứ khẳng định mức cải thiện. **Giới hạn bắt buộc:** hàng xóm cùng đường do cùng người đóng góp OSM vẫn nằm trong chỉ mục (L2 chỉ loại cặp số nhà trùng, không loại số nhà khác trên cùng đường), nên accuracy 0,992–0,993 của L2 nhiều khả năng cao hơn hiệu quả thật trên địa chỉ chưa từng thấy; đọc L2 là một *cận trên* của lợi ích của tên đường, không phải ước lượng độc lập. Đây là suy luận về cơ chế; mức rò rỉ còn lại không đo được.
 

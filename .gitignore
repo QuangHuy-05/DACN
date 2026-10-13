@@ -19,6 +19,8 @@ data/processed/evaluation/baseline_pilot_raw_responses.jsonl
 # Sprint 3 five-field prediction dumps (39 MB and 90 MB); metrics and manifests stay tracked
 data/processed/evaluation/sprint03/heur_jw_5field_20261002_v1/predictions.jsonl
 data/processed/evaluation/sprint03/heur_jw_followup_fivefield_20261003_v1/predictions.jsonl
+# Sprint 4 per-row prediction dumps are regenerable from the run script; metrics, tables and manifests stay tracked
+data/processed/evaluation/sprint04/**/predictions.jsonl
 
 # Third-party libraries / reference clones
 third_party/
