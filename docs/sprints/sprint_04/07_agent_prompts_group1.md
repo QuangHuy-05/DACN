@@ -53,8 +53,8 @@ Ràng buộc cứng:
    gom chung — Data 03: 879/1500 dòng, Data 04: 223/800, Data 06: 1/600, Data 01: 0. Mọi phép chia nhóm rời nhau chỉ
    được dùng các dòng có khóa ADM|...; dòng UNRESOLVED chỉ dùng cho đánh giá, không đưa vào huấn luyện, và phải đếm.
 
-Trước khi báo xong: chạy `python -m unittest discover -s tests -v` (toàn bộ; mốc đo ngày 13/10/2026 sau WP2
-trong ~/.venv_dacn là 374 test: 366 PASS / 8 SKIP / 0 FAIL — không được có FAIL và không được làm giảm số PASS cũ),
+Trước khi báo xong: chạy `python -m unittest discover -s tests -v` (toàn bộ; mốc đo ngày 14/10/2026 sau WP3b
+trong ~/.venv_dacn là 396 test: 388 PASS / 8 SKIP / 0 FAIL — không được có FAIL và không được làm giảm số PASS cũ),
 chạy script của bạn từ đầu trên thư mục đầu ra mới để chứng minh tái lập, kiểm số dòng/cột/encoding/bản ghi trùng
 của mọi CSV đầu ra.
 
@@ -560,6 +560,109 @@ Sprint 3 GPU không vào trung bình.
 
 XONG KHI: có đủ 6 lượt (hoặc PARTIAL_SEEDS / BLOCKED_LOCAL_TRAINING kèm lý do và số đo), prediction được khóa trước khi
 chấm, bảng và phần b của báo cáo 11 đã viết, đĩa đã dọn, bộ test đầy đủ không FAIL.
+```
+
+---
+
+## WP2b — Tầng 2 của WP2 trên checkpoint huấn luyện lại cục bộ
+
+```text
+NHIỆM VỤ: lấp các ô neural của bảng H5 (WP2) bằng ba checkpoint DYN và ba checkpoint PHOBERT-CRF mà WP3b đã huấn luyện
+trên CPU cục bộ: suy luận DYN và PHOBERT-CRF trên các tập T1 tổng hợp, T1-PIPE trên span của chúng, và probe tuyến tính
+trên vector CLS của encoder DYN đóng băng. Không huấn luyện mô hình neural. Phụ thuộc: WP2 (Tầng 1) và WP3b, đều đã
+review và commit.
+
+File bạn sở hữu: scripts/68c_run_t1_tier2_local.py, tests/test_t1_tier2_local.py,
+data/interim/modeling/sprint04/t1_tier2_local_20261016_v1/ (vector CLS, file .npy),
+data/processed/evaluation/sprint04/t1_h5_tier2_local_20261016_v1/ (prediction, metric, bảng, manifest),
+và MỘT mục mới ở cuối docs/sprints/sprint_04/10_t1_h5_results.md có tiêu đề "Tầng 2 trên checkpoint huấn luyện lại
+cục bộ (WP2b)". Không sửa phần còn lại của báo cáo 10 ngoài một câu dẫn tới mục mới ở mục Tầng 2 hiện có.
+KHÔNG sửa: scripts/68_run_t1_evaluation.py, scripts/68b_run_t1_neural_local.py, scripts/70_run_multiseed_local.py,
+src/evaluation/t1_pipeline.py, t1_situations.py, và mọi thứ trong src/modeling/, configs/, src/evaluation/adapters/.
+Các file đó chỉ được import/đọc. KHÔNG ghi vào data/processed/evaluation/sprint04/t1_h5_20261015_v1/.
+
+SỰ THẬT ĐÃ KIỂM (14/10/2026; bước đầu tiên là tái lập, lệch thì dừng và báo)
+- Sáu checkpoint: data/interim/modeling/sprint04/multiseed_20261015_v1/{pcrf,dyn}_seed{42,1337,2025}/checkpoints/best.pt.
+  SHA-256 rút gọn theo bản review độc lập (docs/sprints/sprint_04/reviews/review_wp3b_20261014.md): PCRF 5306980e… /
+  54f1136b… / bb4ee1b5…; DYN 62105473… / b70d0f7d… / fc41f407… (seed 42 / 1337 / 2025). Hash đầy đủ nằm trong
+  multiseed_train_summary.json và best.pt.json của từng lượt; kiểm khớp trước khi nạp.
+- Các checkpoint này nạp được trên CPU bằng mã khóa: xem scripts/70_run_multiseed_local.py::inference_config (dùng
+  src/evaluation/experiment_config.py::modeling_config với model_config.json của lượt, best.pt, và resource lock
+  data/interim/modeling/sprint03/task_01_06_20261003_v1/resource_lock_local_v1.json; DYN dùng decoder policy đã khóa
+  threshold 0,7 / margin 0,2, ràng buộc bật). Dựng adapter theo đúng cách đó (import hàm, không sao chép rồi sửa).
+- scripts/68b_run_t1_neural_local.py gắn cứng với checkpoint Kaggle của Sprint 3 (không nạp được trên CPU) nên KHÔNG
+  dùng lại nguyên script; tái dùng các phần độc lập với checkpoint của nó: ClsCapture (hook lấy đầu ra "cls" của
+  model.forward), use_project_java, cách đọc và kiểm hash tier2_inputs.
+- Đầu vào đã lưu, chỉ gồm {key, text}: data/processed/evaluation/sprint04/t1_h5_20261015_v1/tier2_inputs/ với
+  tier2_inputs.json ghi SHA-256 từng file: t1_synth_train 105, t1_synth_dev 273, synth_eval 2.195, data06 580,
+  s3_train 240, s3_dev 60, s3_test 100. Gold và thẻ chấm điểm của Tầng 1: tables/scoring_gold.csv cùng thư mục run
+  và data/interim/modeling/sprint04/t1_sets_20261015_v1/.
+- Prediction test của WP3b cho từng seed: data/interim/modeling/sprint04/multiseed_20261015_v1/<lượt>/test_dyn/,
+  test_dyn_off/, test_pcrf/ (predictions.jsonl; hash trong data/processed/evaluation/sprint04/multiseed_20261015_v1/
+  frozen_hashes.json). Dùng làm chuẩn cho bước smoke.
+- Adapter khóa đòi ít nhất 20 GiB đĩa trống trước khi suy luận (DISK_BELOW_TRAINING_ARTIFACT_BUDGET); ổ D còn khoảng
+  27 GB. Gói này ghi rất ít. Nếu đĩa dưới ngưỡng: DỪNG và báo; không xóa bất cứ thứ gì để lấy chỗ.
+- Tốc độ CPU: bắt buộc OMP_NUM_THREADS=6, MKL_NUM_THREADS=6, torch.set_num_threads(6) (14 luồng chậm gấp 10 lần).
+  Runtime neural: data/interim/modeling/sprint03/runtime_neural_d_v1/bin/python (có numpy, pandas; không có pycrfsuite).
+  Java cho VnCoreNLP: thêm data/interim/modeling/sprint03/resources_d_v1/java17/jdk-17.0.20.1+1-jre/bin vào PATH.
+- Kết quả WP3b cần biết khi diễn giải: accuracy T1 của DYN theo argmax ổn định giữa seed (55–57/64 trên test) nhưng
+  số mẫu bị từ chối dưới ngưỡng cố định thay đổi mạnh (15 / 2 / 16); chỉ seed 1337 xếp được Lai lên đầu (3/5).
+
+CÁC BƯỚC
+1. Smoke cho từng checkpoint (6 lần): dựng adapter, suy luận 100 mẫu s3_test, so với prediction test của WP3b cùng
+   seed: span giống hệt, predicted_system giống hệt, posterior chênh tối đa <= 1e-6. Không đạt ở checkpoint nào thì
+   ghi SMOKE_FAIL kèm chi tiết cho checkpoint đó và bỏ nó khỏi các bước sau; không đạt ở cả sáu thì ghi
+   BLOCKED_LOCAL_NEURAL và dừng. Đo thời gian 100 mẫu và ước lượng tổng (khoảng 3.550 chuỗi × 6 checkpoint); nếu ước
+   lượng vượt 5 giờ thì dừng và báo để chủ dự án quyết định cắt phần nào.
+2. Suy luận, mỗi checkpoint một tiến trình riêng trong runtime neural, ghi JSONL/NPY rồi thoát:
+   - DYN × 3 seed: trên synth_eval, data06, s3_dev, s3_test: span, predicted_system (ngưỡng đã khóa), posterior ba lớp.
+     Vector CLS cho cả bảy tập (t1_synth_train, t1_synth_dev, synth_eval, data06, s3_train, s3_dev, s3_test).
+   - PHOBERT-CRF × 3 seed: span trên synth_eval, data06, s3_test.
+   Ghi SHA-256 của từng file đầu ra TRƯỚC khi bước chấm đọc bất kỳ gold nào (file frozen_hashes.json riêng của gói).
+   Mẫu bị processor từ chối (không gọi được mô hình): đếm, giữ trong mẫu số như dự đoán khong_ro.
+3. Chấm (runtime chính ~/.venv_dacn), tái dùng hàm của src/evaluation/t1_pipeline.py (pipe_predict, load_locked_heur,
+   t1_metrics, select_l2 và bộ softmax tuyến tính, to_units, các statistic_fn) và src/evaluation/stats.py:
+   a. DYN (ngưỡng 0,7/0,2) và DYN argmax thuần (số chẩn đoán) trên synth_eval và data06.
+   b. T1-PIPE-PCRF và T1-PIPE-DYN: span hành chính của mô hình + luật hệ quy chiếu của HEUR-JW, đúng như Tầng 1 đã làm
+      cho T1-PIPE-CRF.
+   c. T1-HEAD-PROBE: softmax tuyến tính bằng numpy trên vector CLS của DYN cùng seed; huấn luyện trên t1_synth_train
+      (105 dòng) + các mẫu s3_train có nhãn T1; chọn L2 trong {0,01; 0,1; 1} bằng t1_synth_dev với cùng luật hòa như
+      Tầng 1; báo trên synth_eval, data06, và test Sprint 3 (64 eligible, nhãn POST_HOC_SECONDARY). Báo thêm biến thể
+      chỉ huấn luyện trên t1_synth_train để thấy đóng góp của s3_train. Chuẩn hóa đặc trưng (nếu có) chỉ ước lượng trên
+      tập huấn luyện.
+   d. Cùng mẫu số, cùng mask, cùng thẻ tình huống A–D, cùng lát cắt (KieuLai, tỉnh, nhóm ADM-only) như Tầng 1.
+      t1_data06_heldout chỉ có lớp Lai: báo recall Lai, macro-F1 = NOT_EVALUABLE_SINGLE_CLASS.
+4. Bảng: mỗi hệ × mỗi seed × {synth_eval, data06 (toàn bộ và phần nhóm chưa thấy trong train), test Sprint 3} với
+   accuracy, macro-F1, Lai P/R/F1 kèm support, coverage, abstain; và mean ± std qua ba seed (ddof = 1, ghi n). CI
+   cluster bootstrap theo admin_group_key cho từng seed (B = 10.000, seed 20261016). So sánh ghép cặp với HEUR-JW và
+   với T1-FEAT của Tầng 1 trên cùng tập mẫu (lấy dự đoán của hai hệ này từ kết quả Tầng 1; nếu Tầng 1 không lưu dự
+   đoán theo dòng thì chạy lại hai hệ CPU đó bằng hàm của t1_pipeline.py và kiểm rằng metric khớp bảng Tầng 1).
+5. Mục mới trong báo cáo 10: bảng trên; trả lời ba câu hỏi bằng số — (i) DYN trên tập tổng hợp có tách được Lai
+   không, theo từng seed; (ii) biểu diễn CLS có chứa đủ thông tin để một đầu tuyến tính tách Lai không khi có dữ liệu
+   Lai (T1-HEAD-PROBE so với đầu T1 gốc của cùng checkpoint); (iii) T1-PIPE với span neural so với HEUR-JW và
+   T1-PIPE-CRF. Cập nhật kết luận về hai vế của H5 nếu số liệu cho phép, hoặc ghi "không kết luận được" kèm lý do.
+
+PHẢI GHI RÕ
+- Mọi số của gói này mang nhãn LOCAL_CPU_RETRAINED: đây là checkpoint huấn luyện lại trên CPU cục bộ, không phải
+  checkpoint đã khóa của Sprint 3 (7a4a3d01…). Các ô BLOCKED_LOCAL_NEURAL của "DYN gốc" trong bảng H5 của Tầng 1 GIỮ
+  NGUYÊN; kết quả của bạn là các hàng mới trong bảng mới.
+- Báo cả ba seed và mean ± std; không báo riêng seed tốt nhất, không chọn seed theo kết quả. Seed 1337 là seed duy nhất
+  có Lai khác 0 trên test: nếu kết luận nào chỉ đứng trên seed này thì nói rõ.
+- SHA-256 đầy đủ của sáu best.pt trong run_manifest.json.
+- Lai của test, Data 06 và dữ liệu tổng hợp đến từ cùng một generator; probe huấn luyện trên 105 dòng tổng hợp;
+  ba giá trị L2 có thể hòa nhau trên dev (như Tầng 1) — nếu hòa thì ghi rõ việc chọn bằng dev không mang thông tin.
+- Probe là đầu tuyến tính trên đặc trưng đóng băng, không phải mô hình đề xuất được huấn luyện lại.
+
+TEST (tests/test_t1_tier2_local.py)
+- Hash của sáu best.pt và của các file tier2_inputs được kiểm trước khi dùng; sai hash thì dừng.
+- Bước chấm từ chối chạy nếu hash prediction khác frozen_hashes.json của gói.
+- Đường suy luận chỉ nhận {key, text}; probe không nhận cột gold của tập đánh giá.
+- mean ± std đúng trên ví dụ tay; hàm chọn L2 dùng đúng luật hòa của Tầng 1.
+- Script từ chối ghi vào thư mục đầu ra đã tồn tại và từ chối ghi vào t1_h5_20261015_v1.
+- Test cần file trong data/interim/ thì skipTest khi file vắng.
+
+XONG KHI: sáu checkpoint có kết quả smoke; các hệ có số hoặc trạng thái cho cả ba seed; chạy lại bước chấm cho cùng
+hash; mục mới của báo cáo 10 đã viết; bộ test đầy đủ không FAIL (mốc hiện tại 396 test, 388 PASS / 8 SKIP).
 ```
 
 ---

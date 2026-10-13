@@ -45,7 +45,7 @@ MÔI TRƯỜNG VÀ CÁC BẪY ĐÃ BIẾT
 - GIT: không dùng `git status`/`git diff` của WSL để kết luận. Git của WSL không có core.autocrlf nên báo khoảng 90
   file "bị sửa" giả (gold, gazetteer, tài liệu Sprint 3). Dùng git của Windows (Git Bash/PowerShell tại D:\DACN), và
   kiểm file được bảo vệ bằng SHA-256 theo manifest.json của từng thư mục.
-- Mốc test sau WP2 (13/10/2026): 374 test, 366 PASS / 8 SKIP / 0 FAIL trong ~/.venv_dacn. Số PASS chỉ được tăng.
+- Mốc test sau WP3b (14/10/2026): 396 test, 388 PASS / 8 SKIP / 0 FAIL trong ~/.venv_dacn. Số PASS chỉ được tăng.
 - Windows console mặc định cp1258: khi in tiếng Việt từ Python trên Windows, đặt PYTHONIOENCODING=utf-8.
 
 QUY TRÌNH REVIEW (làm đủ 8 bước, theo thứ tự)
