@@ -54,7 +54,9 @@ Làm theo thứ tự; mỗi bước nêu cách kiểm và kết quả đúng.
 Cổng: ≥ 50 mẫu hợp lệ, ≥ 20 site group, ≥ 2 document group, quyền nguồn đầy đủ, 0 overlap chưa xử lý.
 
 - TB729 có 126 đơn vị nên đủ site group, nhưng mới dùng 7 site; cần trích thêm (OCR trang scan có sẵn trong `readiness_20261007_v1/extracted/`). Các biến thể cũ/mới của một địa điểm phải cùng site group.
-- Holdout phải có **document group thứ hai**. Ứng viên tìm được qua tìm kiếm, chưa tải và chưa kiểm: Thông báo 243/TB-UBND (2025) của UBND TP.HCM, Phụ lục III (địa chỉ 38 chi nhánh Văn phòng đăng ký đất đai), qua [trang thuvienphapluat](https://thuvienphapluat.vn/phap-luat-nha-dat/cap-nhat-dia-chi-van-phong-dang-ky-dat-dai-tphcm-va-38-chi-nhanh-truc-thuoc-moi-nhat-9757.html). Cần bạn cho phép tải và xác nhận nó là văn bản hành chính trước khi tính.
+- Holdout phải có **document group thứ hai**. **Đã tải ngày 13/10 (chủ dự án đồng ý):** Thông báo 243/TB-UBND ngày 25/06/2025 của UBND TP.HCM và Phụ lục II (địa chỉ Trung tâm Phục vụ Hành chính công của 168 phường/xã/đặc khu), lưu tại `data/interim/annotation/sprint04/source_tb243_20261013_v1/` kèm `source_manifest.json` (URL, SHA-256). Đây là văn bản hành chính có số hiệu nên cùng căn cứ Điều 15(2). Phụ lục II có khoảng 166 dòng địa chỉ (đếm theo số điện thoại, chưa kiểm đủ 168). Chỉ tải thông báo chính và Phụ lục II, không tải Phụ lục I và III.
+  - Trạng thái: local research và annotation `APPROVED`; cloud/redistribution `PENDING` vì chưa kiểm điều khoản cổng. Bản Phụ lục II lấy từ website một sở khác, cần đối chiếu với bản ký số gốc. Địa chỉ chỉ thuộc hệ mới (không có `QuanHuyen`); không đưa số điện thoại hotline vào corpus.
+  - Cùng với TB729 (Hà Nội), đủ **2 document group** và dư site group cho cổng holdout, nhưng chưa có mẫu nào được trích/gán, nên holdout vẫn `HOLDOUT_NOT_COMMITTED`.
 - Giới hạn trung thực: các nguồn này không chứa `HuongDi`, `MocDinhVi`, `GhiChu` hay T1 `Lai`, nên holdout không đánh giá được các nhãn đó.
 
 ## 6. Amendment A1 (bổ sung, không sửa `s4-protocol-v1`)
