@@ -1,0 +1,6 @@
+torch==2.8.0
+transformers==4.57.1
+deepparse==0.11.0
+poutyne==1.17.4
+py-vncorenlp==0.1.4
+python-crfsuite==0.9.12

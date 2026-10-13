@@ -1,0 +1,2 @@
+# WSL Python 3.11 x86_64 wheel, inventoried before installation.
+python-crfsuite==0.9.12 --hash=sha256:5cd2b153bed935e4d6bd37d35f8cba9fcb73c01b539bbb63153589a10ac9fc6f
