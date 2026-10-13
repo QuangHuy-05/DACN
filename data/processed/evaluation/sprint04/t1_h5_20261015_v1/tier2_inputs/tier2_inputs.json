@@ -1,0 +1,35 @@
+{
+  "purpose": "text-only inputs of tier 2 (DYN inference, T1-PIPE-DYN/PCRF, T1-HEAD-PROBE CLS features)",
+  "files": {
+    "t1_synth_train": {
+      "rows": 105,
+      "sha256": "a045c77913b74d593c445255f19ee08c1a316b933cc50f53b30e65ef84bcb291"
+    },
+    "t1_synth_dev": {
+      "rows": 273,
+      "sha256": "2d7273f64b16bb1a7945ea181bc1bd32bbe653d849a1c547324fd6469523ff73"
+    },
+    "synth_eval": {
+      "rows": 2195,
+      "sha256": "ec617dd07e77e6be5c15f0ddc9dc9fa72280df6fc46be5291465ef57ea34614d"
+    },
+    "data06": {
+      "rows": 580,
+      "sha256": "75e7fb4775bd3c5a39619671c4d51a8a8ce3c41db653cad4b47713500400a9a4"
+    },
+    "s3_train": {
+      "rows": 240,
+      "sha256": "ba3bb469b621e6736491ddd7d1fc0df5c5879d1c3a1c35c651a36227842f4055"
+    },
+    "s3_dev": {
+      "rows": 60,
+      "sha256": "742f760efcb5b80fe7d8ef5fcae873ceac2788fea0aebc3dcc11217fe5dd18ca"
+    },
+    "s3_test": {
+      "rows": 100,
+      "sha256": "5bb64cec25623ce9ff2d2625f65683e28f197bff679c3c9781da3e3e20c4179f"
+    }
+  },
+  "checkpoint": "data/interim/modeling/sprint03/release_and_kaggle_20261005_v1/dyn_c02_selection_artifacts_v1/dacn_artifacts/dacn-s3-dyn-c02-20261005-v1/workspace/data/processed/evaluation/sprint03/dacn-s3-dyn-c02-20261005-v1_proposed_dyn_c02/checkpoints/best.pt",
+  "checkpoint_sha256": "7a4a3d01bff1222cd303cb5ff03872c5ee49b22cb67a0572833fa470f917a589"
+}

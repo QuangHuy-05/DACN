@@ -1,0 +1,5 @@
+﻿system,column,column_label,status,uses_gazetteer,n,n_clusters,correct,accuracy,accuracy_ci_low,accuracy_ci_high,accuracy_ci_status,macro_f1,macro_f1_ci_low,macro_f1_ci_high,lai_support,lai_predicted,lai_tp,lai_precision,lai_recall,lai_recall_ci_low,lai_recall_ci_high,lai_f1,lai_f1_ci_low,lai_f1_ci_high,coverage,abstain_count,abstain_rate,delta_acc_vs_heur,delta_acc_ci_low,delta_acc_ci_high,delta_acc_ci_status,delta_prop_le_0,mcnemar_b_sys_only_correct,mcnemar_c_heur_only_correct,mcnemar_p,mcnemar_status,randomization_p,randomization_status
+PROPOSED-DYN,t1_synth_eval_adm_only,STRESS_TRACK,BLOCKED_LOCAL_NEURAL,False,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+T1-PIPE-PCRF,t1_synth_eval_adm_only,STRESS_TRACK,BLOCKED_LOCAL_NEURAL,True,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+T1-PIPE-DYN,t1_synth_eval_adm_only,STRESS_TRACK,BLOCKED_LOCAL_NEURAL,True,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+T1-HEAD-PROBE,t1_synth_eval_adm_only,STRESS_TRACK,BLOCKED_LOCAL_NEURAL,False,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,

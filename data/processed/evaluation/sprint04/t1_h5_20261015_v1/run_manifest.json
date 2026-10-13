@@ -1,0 +1,295 @@
+{
+  "script_version": "t1-h5-run-v1",
+  "status": "TIER1_COMPLETE_TIER2_BLOCKED",
+  "declared_at": "2026-10-13T07:55:41+00:00",
+  "stage": "tier1",
+  "seeds": {
+    "ci_bootstrap": 20261015,
+    "classifier": 42,
+    "t1_sets": 20261015
+  },
+  "n_resamples": 10000,
+  "systems": {
+    "BASELINE-MAJORITY": {
+      "uses_gazetteer": false,
+      "definition": "always the majority T1 class of the Sprint 3 train split"
+    },
+    "BASELINE-ONE-FEATURE": {
+      "uses_gazetteer": true,
+      "definition": "class from one binary text feature (district sign: district prefix or a non-final segment equal to an old district name); value -> majority class of t1_synth_train"
+    },
+    "HEUR-JW": {
+      "uses_gazetteer": true,
+      "definition": "locked HEUR-JW (light_test_runs_v2/heur-jw/model_config.json)"
+    },
+    "PROPOSED-DYN": {
+      "uses_gazetteer": false,
+      "definition": "PROPOSED-DYN c02 T1 head with the locked threshold/margin"
+    },
+    "T1-PIPE-CRF": {
+      "uses_gazetteer": true,
+      "definition": "CRF-INDEP administrative spans + HEUR-JW _resolve + system rule"
+    },
+    "T1-PIPE-PCRF": {
+      "uses_gazetteer": true,
+      "definition": "PHOBERT-CRF administrative spans + HEUR-JW _resolve + system rule"
+    },
+    "T1-PIPE-DYN": {
+      "uses_gazetteer": true,
+      "definition": "PROPOSED-DYN administrative spans + HEUR-JW _resolve + system rule"
+    },
+    "T1-FEAT": {
+      "uses_gazetteer": true,
+      "definition": "numpy linear softmax on surface + gazetteer-membership features; trained on t1_synth_train, L2 chosen on t1_synth_dev"
+    },
+    "T1-FEAT-NOGAZ": {
+      "uses_gazetteer": false,
+      "definition": "T1-FEAT without the gazetteer feature group"
+    },
+    "T1-HEAD-PROBE": {
+      "uses_gazetteer": false,
+      "definition": "numpy linear softmax probe on the frozen DYN encoder CLS vector; trained on t1_synth_train + Sprint 3 train T1 labels, L2 chosen on t1_synth_dev; not a retrained model"
+    },
+    "DYN-T1-AUG": {
+      "uses_gazetteer": false,
+      "definition": "DYN retrained with hybrid data (outside this work package)"
+    }
+  },
+  "system_order": [
+    "BASELINE-MAJORITY",
+    "BASELINE-ONE-FEATURE",
+    "HEUR-JW",
+    "PROPOSED-DYN",
+    "T1-PIPE-CRF",
+    "T1-PIPE-PCRF",
+    "T1-PIPE-DYN",
+    "T1-FEAT",
+    "T1-FEAT-NOGAZ",
+    "T1-HEAD-PROBE",
+    "DYN-T1-AUG"
+  ],
+  "h5_columns": {
+    "s3_test_eligible": [
+      "s3_test",
+      null
+    ],
+    "t1_synth_eval": [
+      "synth_eval",
+      null
+    ],
+    "t1_data06_heldout": [
+      "data06",
+      null
+    ],
+    "t1_data06_heldout_unseen_groups": [
+      "data06",
+      "unseen_group"
+    ],
+    "t1_synth_eval_adm_only": [
+      "synth_eval",
+      "resolved_group"
+    ]
+  },
+  "column_labels": {
+    "s3_test_eligible": "POST_HOC_SECONDARY",
+    "t1_synth_eval": "STRESS_TRACK",
+    "t1_data06_heldout": "STRESS_TRACK",
+    "t1_data06_heldout_unseen_groups": "STRESS_TRACK",
+    "t1_synth_eval_adm_only": "STRESS_TRACK"
+  },
+  "rules": {
+    "t1_pipe": "administrative spans (PhuongXa/QuanHuyen/TinhThanh by T0 label) visited right to left; each is resolved with HeuristicJaroWinklerFollowup._resolve (locked arguments); cu+moi -> Lai, one system -> that system, none -> khong_ro",
+    "abstention": "khong_ro counts as wrong in accuracy and as a missed gold class in per-class recall",
+    "macro_f1": "mean F1 over cu/moi/Lai (Sprint 3 scorer convention); single-class sets -> NOT_EVALUABLE_SINGLE_CLASS",
+    "ci": "percentile cluster bootstrap over admin_group_key, B resamples, seed 20261015; per-cluster count matrices are resampled so every statistic is recomputed from summed counts",
+    "paired": "each system vs HEUR-JW on the same samples: cluster paired bootstrap of the accuracy difference, exact McNemar on correct/wrong, approximate randomization on accuracy",
+    "l2_selection": "grid {0.01, 0.1, 1}; dev macro-F1, then dev accuracy, then the larger L2; seed 42",
+    "majority_class": "majority T1 label of the Sprint 3 train split (ties: cu, moi, Lai)",
+    "situations": "t1-situations-v1 (see src/evaluation/t1_situations.py)"
+  },
+  "rule_versions": {
+    "t1_pipeline": "t1-pipeline-v1",
+    "t1_situations": "t1-situations-v1",
+    "leak_guard": "leak-guard-v1"
+  },
+  "l2_grid": [
+    0.01,
+    0.1,
+    1.0
+  ],
+  "inference_contract": "every system receives a frame with only key/text; gold_system, KieuLai, source, admin_group_key and spans stay on the scoring side",
+  "test_usage": "Sprint 3 test is POST_HOC_SECONDARY: no system, rule, seed or threshold was chosen on it",
+  "inputs_sha256": {
+    "data/interim/modeling/sprint03/final_completion_20261005_v1/all_test_predictions_frozen.json": "16f5315d635f9d6ebbd2e7f933a435d88d7509a1617b5458b1e0cb6243e3ec21",
+    "data/interim/modeling/sprint03/final_completion_20261005_v1/kaggle_final_output_v4/dacn_artifacts/dacn-s3-final-infer-20261005-v4/workspace/data/interim/modeling/sprint03/dacn-s3-final-infer-20261005-v4/dyn_test/predictions.jsonl": "237f3c64f2799cfda841a48b961f903e9c1dce3020af9751659469c02ac50120",
+    "data/interim/modeling/sprint03/final_completion_20261005_v1/kaggle_final_output_v4/dacn_artifacts/dacn-s3-final-infer-20261005-v4/workspace/data/interim/modeling/sprint03/dacn-s3-final-infer-20261005-v4/pcrf_test/predictions.jsonl": "59c9a554b88e0f083f96a892f405f3b95863ead553359d0541bb0211d1a4a7f8",
+    "data/interim/modeling/sprint03/final_completion_20261005_v1/light_test_runs_v2/crf-indep/model_config.json": "746401b84f8291cd415ccad4edda35d6dc07336c82bfb408775ad792130996df",
+    "data/interim/modeling/sprint03/final_completion_20261005_v1/light_test_runs_v2/crf-indep/predictions.jsonl": "72f893156d56555c2ca753ce25aaa896f3ec722c119939b056dd75511073e9f6",
+    "data/interim/modeling/sprint03/final_completion_20261005_v1/light_test_runs_v2/heur-jw/model_config.json": "236d4f69a788b0f8a525ea9a1712d0f7006cefe730bfca2c0ec02299c3f2da92",
+    "data/interim/modeling/sprint03/final_completion_20261005_v1/light_test_runs_v2/heur-jw/predictions.jsonl": "a88e04bd6fc10c734fee0dcbb632640376e2c158deabc52e38441494fb537063",
+    "data/interim/modeling/sprint03/release_and_kaggle_20261005_v1/dyn_c02_selection_artifacts_v1/dacn_artifacts/dacn-s3-dyn-c02-20261005-v1/workspace/data/processed/evaluation/sprint03/dacn-s3-dyn-c02-20261005-v1_proposed_dyn_c02/checkpoints/best.pt": "7a4a3d01bff1222cd303cb5ff03872c5ee49b22cb67a0572833fa470f917a589",
+    "data/interim/modeling/sprint03/release_and_kaggle_20261005_v1/dyn_c02_selection_artifacts_v1/dacn_artifacts/dacn-s3-dyn-c02-20261005-v1/workspace/data/processed/evaluation/sprint03/dacn-s3-dyn-c02-20261005-v1_proposed_dyn_c02_dev_proposed_no_constraint_v1/predictions.jsonl": "f1e57ba961a78a0d25ef86d0b9b24be9b30d55dd0db1ba2fa5293c1186885ffb",
+    "data/processed/annotation/sprint03/corpus_v1_release2/dev.jsonl": "c16e1f6ec81df2203cb9236a558785277beb424aba8f94f6aa00e0d9426eee5b",
+    "data/processed/annotation/sprint03/corpus_v1_release2/identity_registry.jsonl": "906df2ac8fd5121d8edc41a833feec6576421e1042a8f7c9947946c2631e879a",
+    "data/processed/annotation/sprint03/corpus_v1_release2/manifest.json": "0abd9f01ae0b298d0ef44161e65426f9769302ebb89b8c9aa45097722b09aea8",
+    "data/processed/annotation/sprint03/corpus_v1_release2/test_benchmark_t0.jsonl": "9418642ca5acf15a6b7e44cc816cf3986fc2832e469dedfa50c68c06f275ff5c",
+    "data/processed/annotation/sprint03/corpus_v1_release2/test_input.jsonl": "79a64e56db9a8511106a0d296863ab26e421dd8b8a10929bdd5a3539b0dc3ae9",
+    "data/processed/annotation/sprint03/corpus_v1_release2/train.jsonl": "283b494713bc68fa55961c809631df3db28fef39564187845215e507a201802c",
+    "data/processed/gazetteer/s3_v4_nso_dual_snapshot_release2/aliases.csv": "0147a68673990da0233586e11e2a423348eb1fc4f6140fbe68ef6219a79e6c06",
+    "data/processed/gazetteer/s3_v4_nso_dual_snapshot_release2/edges.csv": "f42c59d63254a243422b62cf5857b17d0dba995affb8180ee75373b19f4d43eb",
+    "data/processed/gazetteer/s3_v4_nso_dual_snapshot_release2/entities.csv": "90676aa996b760cce243f3032796a32febbb6ed7534fd3a93ef2a1dac070a666",
+    "data/processed/gazetteer/s3_v4_nso_dual_snapshot_release2/manifest.json": "35e42cff0d220121d0e6c8c815451ff6081369a74ca8dbca5cbb84ef61159d5e",
+    "data/processed/gazetteer/s3_v4_nso_dual_snapshot_release2/non_atomic_transitions.csv": "91fecdfa064e82e2dff07d5d22c64df597897bc4d4371d7fadda2fa6a12cc853",
+    "t1_sets/run_manifest.json": "5d813a1a6e304422efe43741d9972bb9643dbc2cfa8cf9c523f78e456f6bffea",
+    "t1_sets/t1_data06_heldout.csv": "86ad90a797896028dd911970c4b36b502bd97c731e8ccb9d9aa72554ed7d703c",
+    "t1_sets/t1_synth_dev.csv": "6709b117e930ebf6ec0da3ba23e1833ec59ccbe922c88de63dae9c642f09af60",
+    "t1_sets/t1_synth_eval.csv": "c5c377326690b8835522f6968e5b2cd7d6968784df8ff8a8c862a661465aa71b",
+    "t1_sets/t1_synth_train.csv": "b54ff244bb542cf7212e956ee62f079b05cc8225932a5e58cf3b17f70de70573"
+  },
+  "code_sha256": {
+    "scripts/68_run_t1_evaluation.py": "934315b5eb29fd2f3f22577c7d592433d4bfeb9c02b866a4d0d853c4296b572e",
+    "scripts/68b_run_t1_neural_local.py": "4eb58d02657fb704cdabf7dba78e85ea8ebf0f68f7cfcb5971bada95578a9a03",
+    "scripts/67_build_t1_sets.py": "a3c7b90d0495ba3102b87524e4e34b62d578533792a770a49b7e59f3fd16bb6b",
+    "src/evaluation/t1_pipeline.py": "101f0f6d0986f296128e7d0c6b7c325db093554c9dd943c55e2b1700f909e5d7",
+    "src/evaluation/t1_situations.py": "4c97366f455bf3a3fdc5f3b1a195e7eb17adbf604f9a39e6bc1966626df6a5b1",
+    "src/evaluation/t2_lookup.py": "16296f8ff9d98a509f6fe332f4579585533ccc67cff3bdbcf87776eb409e785d",
+    "src/evaluation/stats.py": "260c12c2aad92e5de3c6a81d05b05f7ae89bdf5e867e18f885399fc2d843b093",
+    "src/evaluation/leak_guard.py": "8dea9bf36261014a0a660e9784ebca4743b4f81606bfb56229098b197542ad33",
+    "src/evaluation/adapters/heur_jw_adapter.py": "d2cdbf8906e59de8c6026963fec3579f9feb54ffdbdc07eaced480108b4ed680",
+    "src/evaluation/adapters/heur_jw_followup.py": "f2b65233b7aa3516e2c990897646114cc2c332a7ef722ca45f05d2669b63ac5e",
+    "src/evaluation/adapters/crf_adapter.py": "e00258c9f5e602649534e743bb12ba7b7365d0f6c070192a5c0e7c9c627b388a",
+    "src/evaluation/span_features.py": "85d2f3b764d63f704b0f0037285ef58b1e1c9235384b08bdc09796a48b849a3a"
+  },
+  "python": "3.14.4",
+  "finished_at": "2026-10-13T07:56:51+00:00",
+  "rows_in": {
+    "s3_test": 100,
+    "synth_eval": 2195,
+    "data06": 580
+  },
+  "rows_scored": {
+    "s3_test_eligible": 64,
+    "t1_synth_eval": 2195,
+    "t1_data06_heldout": 580,
+    "t1_data06_heldout_unseen_groups": 553,
+    "t1_synth_eval_adm_only": 1325
+  },
+  "outputs": {
+    "tables/h5_main.csv": {
+      "rows": 44,
+      "columns": 39,
+      "duplicate_rows": 0,
+      "sha256": "edaaf883f9198ccdad0b630161f4b98189492493499d28cf9a82770ea1b5b5a2"
+    },
+    "tables/h5_synth_eval_adm_only.csv": {
+      "rows": 11,
+      "columns": 39,
+      "duplicate_rows": 0,
+      "sha256": "6db5bb2d7b4f5728f97238203d54e4bf7eb2222ad5f8499a6dfa14357af4b72e"
+    },
+    "tables/h5_by_kieu_lai.csv": {
+      "rows": 66,
+      "columns": 12,
+      "duplicate_rows": 0,
+      "sha256": "29355c88a72a054277fa7acae2f89a855dbfc3c797d432a4f9939da863bb7fdb"
+    },
+    "tables/h5_by_situation.csv": {
+      "rows": 264,
+      "columns": 12,
+      "duplicate_rows": 0,
+      "sha256": "7d153f7bbc20f5c14784705ec9d458756e5107cc0b9c1b17a04ced64a44442e2"
+    },
+    "tables/h5_by_province.csv": {
+      "rows": 198,
+      "columns": 12,
+      "duplicate_rows": 0,
+      "sha256": "71b559933112a170e80b475a5b05ac9b596684e35c7aa6a62b3e6d88d954b16e"
+    },
+    "tables/dyn_diagnosis_samples.csv": {
+      "rows": 117,
+      "columns": 15,
+      "duplicate_rows": 0,
+      "sha256": "bed918619bf9cd1b4a7f737a19e40f9b0497fc44ba1ed5a990f37e1377f707bc"
+    },
+    "tables/scoring_gold.csv": {
+      "rows": 2839,
+      "columns": 9,
+      "duplicate_rows": 0,
+      "sha256": "ab8bafd274bd1aeff73c527c071b7566ca71238ecb9a4ab1038a225cbdb75f39"
+    },
+    "predictions.jsonl": {
+      "rows": 17550,
+      "sha256": "a1dae726a7909d908d42734c1b81c28261670b96ba472cd1363dfeca0069dc12"
+    },
+    "metrics.json": {
+      "sha256": "312dfea7edde87eca6ab06f71e6d342cd2619276d210e888fb48155fc519f68e"
+    },
+    "dyn_diagnostics.json": {
+      "sha256": "b42121113c80816ad9fb016662968096af593a5949531c8408e4081a29f3ccf8"
+    }
+  },
+  "tier2": {
+    "status": "BLOCKED_LOCAL_NEURAL",
+    "scored_at": "2026-10-13T08:01:13+00:00",
+    "outputs": {
+      "tables/h5_main_tier2.csv": {
+        "rows": 16,
+        "columns": 39,
+        "duplicate_rows": 0,
+        "sha256": "a80d704f2569f6e542a7ec408a52d8bc2a3639d3b107687e209ef6f65ffb1201"
+      },
+      "tables/h5_main_combined.csv": {
+        "rows": 44,
+        "columns": 39,
+        "duplicate_rows": 0,
+        "sha256": "17f9c8e14af5da546d858553e0f257122e8bfcb929f422a1580b0474cc2802fa"
+      },
+      "tables/h5_synth_eval_adm_only_tier2.csv": {
+        "rows": 4,
+        "columns": 39,
+        "duplicate_rows": 0,
+        "sha256": "c8ff5a39808a3f164641f4e37ed8269fb1b906fa1ea4b43241e90c0e58cb6c4f"
+      },
+      "tables/h5_by_kieu_lai_tier2.csv": {
+        "rows": 24,
+        "columns": 12,
+        "duplicate_rows": 0,
+        "sha256": "010f5f2210a128b607b170fbba557e4592acc3088e5d2e908cb3cfdc04c6ff91"
+      },
+      "tables/h5_by_situation_tier2.csv": {
+        "rows": 96,
+        "columns": 12,
+        "duplicate_rows": 0,
+        "sha256": "cef2d578a36d0d28f22e27dc809cf66872ae382072ea3905a64897472ca1b016"
+      },
+      "tables/h5_by_province_tier2.csv": {
+        "rows": 72,
+        "columns": 12,
+        "duplicate_rows": 0,
+        "sha256": "ce6168de9eaae1e59fc6de6a335a82eeaefe69fc387e07e8b97ff221187df232"
+      },
+      "tier2/predictions_tier2.jsonl": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "tier2/metrics_tier2.json": {
+        "sha256": "13b7bb5704561fc7d81c10c09ba587f76657107c71909c5df9ffa593841b6d6e"
+      }
+    },
+    "status_file_sha256": "57aea7d4a2f5c09b755ed402608f188fbdea4bece7c13b0bef26c1368862e5c5",
+    "code_sha256": {
+      "scripts/68_run_t1_evaluation.py": "934315b5eb29fd2f3f22577c7d592433d4bfeb9c02b866a4d0d853c4296b572e",
+      "scripts/68b_run_t1_neural_local.py": "4eb58d02657fb704cdabf7dba78e85ea8ebf0f68f7cfcb5971bada95578a9a03",
+      "scripts/67_build_t1_sets.py": "a3c7b90d0495ba3102b87524e4e34b62d578533792a770a49b7e59f3fd16bb6b",
+      "src/evaluation/t1_pipeline.py": "101f0f6d0986f296128e7d0c6b7c325db093554c9dd943c55e2b1700f909e5d7",
+      "src/evaluation/t1_situations.py": "4c97366f455bf3a3fdc5f3b1a195e7eb17adbf604f9a39e6bc1966626df6a5b1",
+      "src/evaluation/t2_lookup.py": "16296f8ff9d98a509f6fe332f4579585533ccc67cff3bdbcf87776eb409e785d",
+      "src/evaluation/stats.py": "260c12c2aad92e5de3c6a81d05b05f7ae89bdf5e867e18f885399fc2d843b093",
+      "src/evaluation/leak_guard.py": "8dea9bf36261014a0a660e9784ebca4743b4f81606bfb56229098b197542ad33",
+      "src/evaluation/adapters/heur_jw_adapter.py": "d2cdbf8906e59de8c6026963fec3579f9feb54ffdbdc07eaced480108b4ed680",
+      "src/evaluation/adapters/heur_jw_followup.py": "f2b65233b7aa3516e2c990897646114cc2c332a7ef722ca45f05d2669b63ac5e",
+      "src/evaluation/adapters/crf_adapter.py": "e00258c9f5e602649534e743bb12ba7b7365d0f6c070192a5c0e7c9c627b388a",
+      "src/evaluation/span_features.py": "85d2f3b764d63f704b0f0037285ef58b1e1c9235384b08bdc09796a48b849a3a"
+    }
+  }
+}

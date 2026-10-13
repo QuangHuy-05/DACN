@@ -1,0 +1,73 @@
+﻿system,dataset,breakdown,value,status,n,correct,accuracy,lai_support,lai_tp,lai_recall,abstain_count
+PROPOSED-DYN,s3_test,province,Thành phố Hà Nội,OK,25,23,0.920000,2,0,0.000000,0
+T1-PIPE-PCRF,s3_test,province,Thành phố Hà Nội,OK,25,24,0.960000,2,2,1.000000,1
+T1-PIPE-DYN,s3_test,province,Thành phố Hà Nội,OK,25,24,0.960000,2,2,1.000000,1
+T1-HEAD-PROBE,s3_test,province,Thành phố Hà Nội,BLOCKED_LOCAL_NEURAL,25,,,,,,
+PROPOSED-DYN,s3_test,province,Tỉnh Bắc Ninh,OK,22,12,0.545455,1,0,0.000000,10
+T1-PIPE-PCRF,s3_test,province,Tỉnh Bắc Ninh,OK,22,22,1.000000,1,1,1.000000,0
+T1-PIPE-DYN,s3_test,province,Tỉnh Bắc Ninh,OK,22,22,1.000000,1,1,1.000000,0
+T1-HEAD-PROBE,s3_test,province,Tỉnh Bắc Ninh,BLOCKED_LOCAL_NEURAL,22,,,,,,
+PROPOSED-DYN,s3_test,province,Thành phố Hồ Chí Minh,OK,14,9,0.642857,2,0,0.000000,2
+T1-PIPE-PCRF,s3_test,province,Thành phố Hồ Chí Minh,OK,14,14,1.000000,2,2,1.000000,0
+T1-PIPE-DYN,s3_test,province,Thành phố Hồ Chí Minh,OK,14,14,1.000000,2,2,1.000000,0
+T1-HEAD-PROBE,s3_test,province,Thành phố Hồ Chí Minh,BLOCKED_LOCAL_NEURAL,14,,,,,,
+PROPOSED-DYN,s3_test,province,KHONG_XAC_DINH,OK,1,1,1.000000,0,0,NOT_EVALUABLE_NO_SUPPORT,0
+T1-PIPE-PCRF,s3_test,province,KHONG_XAC_DINH,OK,1,1,1.000000,0,0,NOT_EVALUABLE_NO_SUPPORT,0
+T1-PIPE-DYN,s3_test,province,KHONG_XAC_DINH,OK,1,1,1.000000,0,0,NOT_EVALUABLE_NO_SUPPORT,0
+T1-HEAD-PROBE,s3_test,province,KHONG_XAC_DINH,BLOCKED_LOCAL_NEURAL,1,,,,,,
+PROPOSED-DYN,s3_test,province,Thành phố Cần Thơ,OK,1,1,1.000000,0,0,NOT_EVALUABLE_NO_SUPPORT,0
+T1-PIPE-PCRF,s3_test,province,Thành phố Cần Thơ,OK,1,1,1.000000,0,0,NOT_EVALUABLE_NO_SUPPORT,0
+T1-PIPE-DYN,s3_test,province,Thành phố Cần Thơ,OK,1,1,1.000000,0,0,NOT_EVALUABLE_NO_SUPPORT,0
+T1-HEAD-PROBE,s3_test,province,Thành phố Cần Thơ,BLOCKED_LOCAL_NEURAL,1,,,,,,
+PROPOSED-DYN,s3_test,province,CON_LAI,OK,1,0,0.000000,0,0,NOT_EVALUABLE_NO_SUPPORT,0
+T1-PIPE-PCRF,s3_test,province,CON_LAI,OK,1,0,0.000000,0,0,NOT_EVALUABLE_NO_SUPPORT,1
+T1-PIPE-DYN,s3_test,province,CON_LAI,OK,1,0,0.000000,0,0,NOT_EVALUABLE_NO_SUPPORT,1
+T1-HEAD-PROBE,s3_test,province,CON_LAI,BLOCKED_LOCAL_NEURAL,1,,,,,,
+PROPOSED-DYN,synth_eval,province,Tỉnh Bắc Ninh,BLOCKED_LOCAL_NEURAL,709,,,,,,
+T1-PIPE-PCRF,synth_eval,province,Tỉnh Bắc Ninh,BLOCKED_LOCAL_NEURAL,709,,,,,,
+T1-PIPE-DYN,synth_eval,province,Tỉnh Bắc Ninh,BLOCKED_LOCAL_NEURAL,709,,,,,,
+T1-HEAD-PROBE,synth_eval,province,Tỉnh Bắc Ninh,BLOCKED_LOCAL_NEURAL,709,,,,,,
+PROPOSED-DYN,synth_eval,province,Thành phố Hồ Chí Minh,BLOCKED_LOCAL_NEURAL,597,,,,,,
+T1-PIPE-PCRF,synth_eval,province,Thành phố Hồ Chí Minh,BLOCKED_LOCAL_NEURAL,597,,,,,,
+T1-PIPE-DYN,synth_eval,province,Thành phố Hồ Chí Minh,BLOCKED_LOCAL_NEURAL,597,,,,,,
+T1-HEAD-PROBE,synth_eval,province,Thành phố Hồ Chí Minh,BLOCKED_LOCAL_NEURAL,597,,,,,,
+PROPOSED-DYN,synth_eval,province,Thành phố Hà Nội,BLOCKED_LOCAL_NEURAL,581,,,,,,
+T1-PIPE-PCRF,synth_eval,province,Thành phố Hà Nội,BLOCKED_LOCAL_NEURAL,581,,,,,,
+T1-PIPE-DYN,synth_eval,province,Thành phố Hà Nội,BLOCKED_LOCAL_NEURAL,581,,,,,,
+T1-HEAD-PROBE,synth_eval,province,Thành phố Hà Nội,BLOCKED_LOCAL_NEURAL,581,,,,,,
+PROPOSED-DYN,synth_eval,province,Thành phố Cần Thơ,BLOCKED_LOCAL_NEURAL,54,,,,,,
+T1-PIPE-PCRF,synth_eval,province,Thành phố Cần Thơ,BLOCKED_LOCAL_NEURAL,54,,,,,,
+T1-PIPE-DYN,synth_eval,province,Thành phố Cần Thơ,BLOCKED_LOCAL_NEURAL,54,,,,,,
+T1-HEAD-PROBE,synth_eval,province,Thành phố Cần Thơ,BLOCKED_LOCAL_NEURAL,54,,,,,,
+PROPOSED-DYN,synth_eval,province,Thành phố Đà Nẵng,BLOCKED_LOCAL_NEURAL,36,,,,,,
+T1-PIPE-PCRF,synth_eval,province,Thành phố Đà Nẵng,BLOCKED_LOCAL_NEURAL,36,,,,,,
+T1-PIPE-DYN,synth_eval,province,Thành phố Đà Nẵng,BLOCKED_LOCAL_NEURAL,36,,,,,,
+T1-HEAD-PROBE,synth_eval,province,Thành phố Đà Nẵng,BLOCKED_LOCAL_NEURAL,36,,,,,,
+PROPOSED-DYN,synth_eval,province,CON_LAI,BLOCKED_LOCAL_NEURAL,218,,,,,,
+T1-PIPE-PCRF,synth_eval,province,CON_LAI,BLOCKED_LOCAL_NEURAL,218,,,,,,
+T1-PIPE-DYN,synth_eval,province,CON_LAI,BLOCKED_LOCAL_NEURAL,218,,,,,,
+T1-HEAD-PROBE,synth_eval,province,CON_LAI,BLOCKED_LOCAL_NEURAL,218,,,,,,
+PROPOSED-DYN,data06,province,Tỉnh Bắc Ninh,BLOCKED_LOCAL_NEURAL,390,,,,,,
+T1-PIPE-PCRF,data06,province,Tỉnh Bắc Ninh,BLOCKED_LOCAL_NEURAL,390,,,,,,
+T1-PIPE-DYN,data06,province,Tỉnh Bắc Ninh,BLOCKED_LOCAL_NEURAL,390,,,,,,
+T1-HEAD-PROBE,data06,province,Tỉnh Bắc Ninh,BLOCKED_LOCAL_NEURAL,390,,,,,,
+PROPOSED-DYN,data06,province,Thành phố Hồ Chí Minh,BLOCKED_LOCAL_NEURAL,111,,,,,,
+T1-PIPE-PCRF,data06,province,Thành phố Hồ Chí Minh,BLOCKED_LOCAL_NEURAL,111,,,,,,
+T1-PIPE-DYN,data06,province,Thành phố Hồ Chí Minh,BLOCKED_LOCAL_NEURAL,111,,,,,,
+T1-HEAD-PROBE,data06,province,Thành phố Hồ Chí Minh,BLOCKED_LOCAL_NEURAL,111,,,,,,
+PROPOSED-DYN,data06,province,Thành phố Hà Nội,BLOCKED_LOCAL_NEURAL,50,,,,,,
+T1-PIPE-PCRF,data06,province,Thành phố Hà Nội,BLOCKED_LOCAL_NEURAL,50,,,,,,
+T1-PIPE-DYN,data06,province,Thành phố Hà Nội,BLOCKED_LOCAL_NEURAL,50,,,,,,
+T1-HEAD-PROBE,data06,province,Thành phố Hà Nội,BLOCKED_LOCAL_NEURAL,50,,,,,,
+PROPOSED-DYN,data06,province,Thành phố Đà Nẵng,BLOCKED_LOCAL_NEURAL,16,,,,,,
+T1-PIPE-PCRF,data06,province,Thành phố Đà Nẵng,BLOCKED_LOCAL_NEURAL,16,,,,,,
+T1-PIPE-DYN,data06,province,Thành phố Đà Nẵng,BLOCKED_LOCAL_NEURAL,16,,,,,,
+T1-HEAD-PROBE,data06,province,Thành phố Đà Nẵng,BLOCKED_LOCAL_NEURAL,16,,,,,,
+PROPOSED-DYN,data06,province,Tỉnh Cà Mau,BLOCKED_LOCAL_NEURAL,5,,,,,,
+T1-PIPE-PCRF,data06,province,Tỉnh Cà Mau,BLOCKED_LOCAL_NEURAL,5,,,,,,
+T1-PIPE-DYN,data06,province,Tỉnh Cà Mau,BLOCKED_LOCAL_NEURAL,5,,,,,,
+T1-HEAD-PROBE,data06,province,Tỉnh Cà Mau,BLOCKED_LOCAL_NEURAL,5,,,,,,
+PROPOSED-DYN,data06,province,CON_LAI,BLOCKED_LOCAL_NEURAL,8,,,,,,
+T1-PIPE-PCRF,data06,province,CON_LAI,BLOCKED_LOCAL_NEURAL,8,,,,,,
+T1-PIPE-DYN,data06,province,CON_LAI,BLOCKED_LOCAL_NEURAL,8,,,,,,
+T1-HEAD-PROBE,data06,province,CON_LAI,BLOCKED_LOCAL_NEURAL,8,,,,,,
