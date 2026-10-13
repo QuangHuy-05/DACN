@@ -124,6 +124,16 @@ scripts/
   19_build_temporal_gazetteer_v2.py          Build/lookup gazetteer s3_v2 độc lập, tách mã cũ candidate
   20_prepare_batch02_predictions.py           Gợi ý span từ text cho batch 02 train/dev; không dùng test
   21_prepare_source_reannotation.py           Gói candidate 68/232 có trace; output version riêng
+  22_review_and_package_train_dev.py          Review nội dung, audit frozen split, candidate có cách ly
+  23_run_span_dev.py                          Runner dev chỉ nhận text-only và corpus đã qua gate
+  24_score_span_dev.py                        Chấm T0/T1 dev riêng sau inference; kiểm hash/version
+  25_publish_train_dev.py                     Phát hành train/dev đã duyệt, kiểm hash, giữ ngoại lệ và từ chối ghi đè
+  30_prepare_model_training_data.py            Alignment/BIO dẫn xuất 240/60; không tải model hoặc train
+  31_train_deepparse_finetuned.py              Pipeline DP-FT-FT có resource/API gate; native integration pending
+  32_train_phobert_crf.py                      Pipeline encoder + CRF thật; Torch/processor integration pending
+  33_train_proposed_dynamic.py                 T0/T1 mask + giải mã confidence + cùng-checkpoint ablation
+  34_audit_modeling_artifacts.py               Audit read-only preparation/checkpoint/prediction và frozen hash
+  35_verify_gazetteer_sources.py               Reference verifier exact theo cha/ngày; không sửa s3_v2
 
 src/
   data/administrative_mapping.py            Nạp/kiểm tra đồ thị ánh xạ hành chính nguyên tử
@@ -138,6 +148,7 @@ src/
   data/synthetic/bidirectional.py           Sinh cặp ánh xạ với bằng chứng OSM hoặc đích duy nhất
   evaluation/                               Adapter, scorer, protocol và run manifest
   utils/text_normalize.py                   Chuẩn hóa văn bản và vùng miền
+  modeling/                                Alignment, BIO, trainer, CRF, T1, checkpoint, protocol và resource gate
 
 tests/
   test_data_pipeline.py                     Kiểm thử hồi quy pipeline
@@ -218,35 +229,12 @@ Repository hiện chưa có cấu hình linter/formatter Python riêng. Không t
 
 ## 9. Trạng thái thực hiện
 
-Đã có trong repository:
+**05/10/2026 — kết quả Sprint 3:** SPRINT3_PARTIAL_DP_BLOCKED. T0 test F1: HEUR-JW 0,9112; CRF-INDEP 0,9076; PhoBERT-CRF 0,9843; PROPOSED-DYN 0,9821; ablation không constraint 0,9843. DYN T1 accuracy 0,7188 / macro-F1 0,5626 / Lai F1=0; HEUR T1 accuracy 0,9219 / macro-F1 0,9249. Deepparse-ZS-FT và DP-FT-FT chưa chạy vì license checkpoint chưa được xác minh. Bộ test nghiệm thu 266 PASS / 8 SKIP / 0 FAIL; IAA chưa đo, VQA đang HOLD, Data05 deferred, T2 chưa thực thi, Gazetteer mã cũ còn partial.
 
-- Trích xuất snapshot OSM cũ và các thay đổi địa chỉ từ lịch sử OSM.
-- Lọc địa chỉ Viet-Receipt-VQA, khử trùng lặp và đo phân bố nhiễu để sinh Data 2 tổng hợp có ground truth.
-- Sinh benchmark hệ cũ/hệ mới, thiếu trường, địa chỉ lai và cặp ánh xạ có thể truy nguyên nguồn.
-- `baseline_v3_fuzzy` đã qua audit trong track benchmark 5 trường; `baseline_v2` được giữ frozen. Đây chưa phải kết quả T0 11 span hoặc T1.
-- Pilot gold T0 68 mẫu đã được duyệt ở `data/processed/annotation/sprint03/pilot_gold_v1.jsonl`, schema `s3-span-v1.1`; manifest lưu hash và người duyệt.
-- Batch 02 có 232 ứng viên train/dev, test hold có 100 mẫu benchmark. Import Label Studio chỉ chứa `sample_id` và `text`. Preflight phân bổ 240 train / 60 dev / 100 test, đăng ký 172 nguồn cha và yêu cầu phân xử 138 cặp gần giống. Prediction chỉ tạo cho batch 02 train/dev.
-- Gazetteer `data/processed/gazetteer/s3_v2/` gồm 14.149 entity, 10.597 cạnh cấp xã, 187 alias audit, và 5 chuyển đổi cấp huyện→đặc khu tra được qua lookup. 10.035 mã xã cũ vẫn là ứng viên bên thứ ba. Mã xã mới khớp bảng ánh xạ trong repo; xuất xứ và giấy phép bên ngoài của bảng còn cần xác minh. Trạng thái `PARTIAL_OLD_CODES_UNVERIFIED`.
-- Các kiểm thử Sprint 3 liên quan đã qua; bộ kiểm thử toàn repo cần chạy trong WSL có `osmium` và `vietnamadminunits`.
-- Ngày 01/10/2026, bộ kiểm thử toàn repo đạt 64/64 trong WSL. Gói `reannotation_v2_release1` giữ nguyên 68 + 232 ID/text, có 245 + 1.059 span và 473 mục review; một thành phần số nhà được abstain vì ranh giới. Chủ dự án chọn prediction cho cả 68 và 232, nên agreement độc lập `NOT_MEASURED`. Gói test-only có version/hash tại `docs/sprints/sprint_03/annotation_handoff/test100_v1/`, nhánh `print3_label100test`, sẵn sàng gán mù theo protocol v1.0 trong lần bàn giao do chủ dự án yêu cầu. 138 quyết định `distinct` có lý do/người duyệt Huy đã được áp dụng; preflight mới đạt `AUDIT_PASS_WITH_HUMAN_NEAR_DUP_REVIEW` trong `split_preflight_review_20261001/`.
+Kết quả, giới hạn và receipt được lưu tại:
+- docs/sprints/sprint_03/49_sprint3_final_results.md
+- docs/sprints/sprint_03/50_sprint3_reproduction_and_handoff.md
+- docs/sprints/sprint_03/53_sprint3_end_to_end_report_20261005.md
+- data/interim/modeling/sprint03/final_completion_20261005_v1/
 
-Chưa hoàn thiện hoặc chưa có nguồn đủ mạnh:
-
-- Corpus T0 train/dev/test hoàn chỉnh: lượt rà 68 pilot, Batch 02 (232 mẫu) và test benchmark (100 mẫu) đang chờ export/người duyệt trước khi ghép thành `corpus_v1/`; cổng 138 cặp gần giống đã qua preflight với quyết định người ngày 01/10, cần audit lại theo gold cuối khi đóng gói.
-- Agreement giữa người gán `NOT_MEASURED` vì mới có một người gán độc lập.
-- Rà soát PII/quyền sử dụng và ID tài liệu của VQA; không dùng VQA cho train/dev/test khi chưa qua clearance (trạng thái `HOLD`).
-- Data 05 địa chỉ thật có mốc và hướng đang tạm hoãn (`DEFERRED_BY_USER`); ví dụ tổng hợp không được tính là dữ liệu quan sát.
-- Danh mục mã hành chính cũ chính thức từ Nghị định/Quyết định Nhà nước (hiện chưa có nguồn chính thức trong repo; mã cũ đang ở trạng thái candidate).
-- Các baseline Sprint 3 còn lại, T1 tự động, T2 phân giải ngữ cảnh và T3 đối sánh qua thời gian.
-- Mô hình PhoBERT/adapters, tầng LLM + RAG và API FastAPI/Docker là phạm vi các giai đoạn tiếp theo.
-
-Đọc `docs/data_quality.md` trước khi lấy số lượng mẫu làm kết luận, vì các tập được sinh lại từ nguồn trung gian có thể thay đổi theo phiên bản dữ liệu.
-
-## 10. Checklist xử lý một yêu cầu mới
-
-1. Xác định yêu cầu đụng đến nguồn, dữ liệu trung gian, generator, hay tài liệu.
-2. Đọc schema CSV và các nơi đang sử dụng file trước khi sửa.
-3. Không suy diễn quan hệ hành chính khi thiếu bằng chứng từ bảng đối chiếu.
-4. Thực hiện thay đổi nhỏ nhất đáp ứng yêu cầu.
-5. Chạy kiểm thử phù hợp và kiểm tra đầu ra.
-6. Cập nhật tài liệu khi thay đổi hợp đồng dữ liệu, cấu trúc hoặc trạng thái dự án.
+Không mở lại nhãn, thay split, tune trên test, hoặc xóa/sửa raw, gold, split và evidence có hash. Tiếp tục Sprint 4 từ các manifest phát hành; chỉ xử lý Deepparse khi có bằng chứng điều kiện sử dụng checkpoint.

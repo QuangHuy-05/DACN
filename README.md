@@ -1,8 +1,14 @@
 # Vietnamese Address Benchmark (DACN)
 
-Dự án tạo dữ liệu địa chỉ tiếng Việt trước/sau thay đổi hành chính 2025.
+Dự án xây dựng benchmark địa chỉ tiếng Việt trước và sau thay đổi hành chính năm 2025.
 
-**Bàn giao gán nhãn Sprint 3 (01/10/2026):** chủ dự án theo [hướng dẫn 68/232 có prediction](docs/sprints/sprint_03/09_label_studio_400_step_by_step.md); partner nhận [gói 100 test mù có task/XML/guideline](docs/sprints/sprint_03/annotation_handoff/test100_v1/README.md) trên nhánh `print3_label100test`. GitHub cung cấp tệp; Label Studio chạy trên máy người gán. Gói test đã qua preflight với 138 quyết định người, sẵn sàng gán theo protocol v1.0; annotation vẫn cần QA và duyệt gold sau export.
+**Kết quả Sprint 3 (05/10/2026):** trạng thái SPRINT3_PARTIAL_DP_BLOCKED. Trên test 100 mẫu, T0 span F1: HEUR-JW 91,12%, CRF-INDEP 90,76%, PhoBERT-CRF 98,43%, PROPOSED-DYN 98,21%; ablation không constraint đạt 98,43%. DYN T1 macro-F1 56,26%, Lai F1 bằng 0; Deepparse chưa được chạy do chưa xác minh điều kiện sử dụng checkpoint. Bộ kiểm thử nghiệm thu có 266 PASS / 8 SKIP / 0 FAIL.
+
+- [Kết quả cuối và giới hạn](docs/sprints/sprint_03/49_sprint3_final_results.md)
+- [Tái lập inference, scoring và bàn giao](docs/sprints/sprint_03/50_sprint3_reproduction_and_handoff.md)
+- [Báo cáo tổng kết Sprint 3 và định hướng Sprint 4](docs/sprints/sprint_03/53_sprint3_end_to_end_report_20261005.md)
+- [Prompt đánh giá cuối Sprint 3](docs/sprints/sprint_03/48_agent_prompt_finish_sprint3_final_evaluation.md)
+- [Protocol Sprint 4 hiện hành](docs/sprints/sprint_04/02_s4_protocol_v1.md) — một người phụ trách, nguồn mới và holdout có điều kiện; hạn 20/10/2026. Dữ liệu/thực nghiệm Sprint 4 chưa thực hiện.
 
 ## Cấu trúc dự án
 
@@ -11,28 +17,36 @@ DACN/
 ├── configs/
 │   ├── noise_params.json                      Tham số và thống kê nhiễu hóa đơn
 │   ├── label_studio_span11.xml                Cấu hình gán nhãn T0 11 span
-│   └── span11_rare_seed_examples.json          Ví dụ tổng hợp có kiểm soát cho pilot
+│   ├── span11_rare_seed_examples.json          Ví dụ tổng hợp có kiểm soát cho pilot
+│   ├── annotation/sprint04/                   Protocol và source register Sprint 4
+│   ├── colab/, kaggle/                        Cấu hình chạy cloud Sprint 3
+│   ├── evaluation/, experiments/, modeling/   Cấu hình đánh giá, thí nghiệm và mô hình Sprint 3
+│   └── deepparse_native_mapping_v1.json       Ánh xạ nhãn Deepparse (chưa chạy)
 ├── data/
 │   ├── raw/                                  Dữ liệu nguồn OSM/Viet-Receipt-VQA; không chỉnh sửa
 │   ├── reference/administrative_units/       Bảng sáp nhập hành chính 2025
 │   ├── interim/osm/                          Snapshot cũ đầy đủ/cân bằng, dữ liệu hiện hành và lịch sử OSM
 │   ├── interim/vqa/                          Hóa đơn thật sau lọc, chỉ dùng đo phân bố nhiễu/kiểm tra ngoài
 │   ├── interim/annotation/sprint03/          Batch ứng viên T0, manifest và import pilot Label Studio
+│   ├── interim/modeling/sprint03/            Alignment, khóa lựa chọn và bằng chứng nghiệm thu Sprint 3
 │   └── processed/
 │       ├── osm/                              Địa chỉ sạch và OSM diff
 │       ├── benchmark/                        Các tập benchmark đầu ra (01–07; 05 chưa có nguồn)
-│       ├── annotation/sprint03/              Pilot gold T0 đã duyệt và manifest
+│       ├── annotation/sprint03/              Pilot gold và corpus/test release2 đã duyệt
 │       ├── gazetteer/s3_v1/                  Gazetteer đa phiên bản một phần
 │       ├── gazetteer/s3_v2/                  Gazetteer thời gian v2 (source register, phi nguyên tử)
+│       ├── gazetteer/s3_v4_nso_dual_snapshot_release2/ Gazetteer hai snapshot, mã cũ còn partial
 │       └── evaluation/                       Run và bảng đánh giá baseline
 ├── docs/
 │   ├── sprints/sprint_02/                   Tài liệu tổng kết Sprint 2
-│   ├── sprints/sprint_03/                   Hồ sơ, kế hoạch và hướng dẫn Sprint 3
+│   ├── sprints/sprint_03/                   Hồ sơ, kết quả và slide tổng kết Sprint 3
+│   ├── sprints/sprint_04/                   Protocol và kế hoạch đóng Sprint 4
 │   ├── proposal/                             Đề cương đồ án và tài liệu yêu cầu
 │   ├── data_quality.md                       Số lượng và giới hạn chất lượng dữ liệu
 │   ├── runs/<run_id>/                        Báo cáo, dashboard và tài liệu sinh từ một run
 │   └── VERSIONING.md                         Quy ước phiên bản và dọn output cũ
 ├── notebooks/exploration/                    Notebook kiểm tra dữ liệu
+├── notebooks/sprint03/                       Notebook/entry Colab và Kaggle của Sprint 3
 ├── scripts/
 │   ├── 01_extract_osm.py                     Trích xuất snapshot và OSM diff
 │   ├── 02_filter_vqa_receipts.py             Lọc địa chỉ từ Viet-Receipt-VQA
@@ -55,6 +69,15 @@ DACN/
 │   ├── 19_build_temporal_gazetteer_v2.py     Dựng/tra cứu gazetteer s3_v2 độc lập, tách mã cũ candidate
 │   ├── 20_prepare_batch02_predictions.py     Gợi ý span từ text cho batch 02 train/dev
 │   ├── 21_prepare_source_reannotation.py      Candidate 68/232 có trace nguồn và kiểm ranh giới
+│   ├── 22_review_and_package_train_dev.py     Log nội dung, audit split và candidate train/dev có cách ly
+│   ├── 23_run_span_dev.py                    Inference dev nhận text-only; từ chối corpus chưa duyệt
+│   ├── 24_score_span_dev.py                  Chấm T0/T1 dev riêng sau khi freeze prediction
+│   ├── 25_publish_train_dev.py               Phát hành version processed từ candidate đã duyệt, giữ hash và mask T1
+│   ├── 26–29                                 Sprint 3: CRF độc lập, sweep HEUR-JW, thí nghiệm 5 trường, audit thí nghiệm
+│   ├── 30–38                                 Sprint 3: dữ liệu huấn luyện, Deepparse/PhoBERT-CRF/DYN, audit artifact, kiểm tra Gazetteer
+│   ├── 39–48                                 Sprint 3: snapshot NSO, handoff Colab, nghiệm thu trước Colab
+│   ├── 49–62                                 Sprint 3: test100, Kaggle, chạy/chấm test và đánh giá cuối
+│   ├── 63–64                                 Sprint 4: chuẩn bị và rà soát pilot nguồn mới
 │   └── build_baseline_dashboard.py            Sinh dashboard theo run
 ├── src/
 │   ├── data/administrative_mapping.py       Đồ thị ánh xạ đơn vị hành chính 2025
@@ -63,7 +86,8 @@ DACN/
 │   ├── data/osm_extractor.py                 Đọc lịch sử OSM và làm sạch tag
 │   ├── data/noise_profiler.py                Thống kê dạng nhiễu địa chỉ
 │   ├── data/synthetic/                       Sinh dữ liệu thiếu, lai và cặp ánh xạ
-│   ├── evaluation/                            Adapter, contract, scorer và manifest run
+│   ├── evaluation/                            Adapter, contract, scorer, runner và manifest run
+│   ├── modeling/                              Alignment, BIO, CRF, PhoBERT-CRF, DYN và checkpoint
 │   └── utils/text_normalize.py                Chuẩn hóa văn bản và vùng miền
 ├── tests/                                     Kiểm thử pipeline, evaluation và span
 ├── third_party/                              Mã và bảng đơn vị hành chính bên thứ ba
@@ -294,7 +318,7 @@ Run `baseline_v2` là kết quả frozen theo protocol cũ. Để tạo kết qu
 
 Kiểm toán Sprint 3 đã xác nhận `baseline_v3_fuzzy` là mốc baseline 5 trường theo protocol này; `baseline_v2` vẫn frozen và chưa xác minh được toàn bộ snapshot mã lịch sử. Xem [báo cáo kiểm toán](docs/sprints/sprint_03/baseline_run_audit.md) và [ma trận mô hình Sprint 3](docs/sprints/sprint_03/model_matrix.md) trước khi so các cấu hình tiếp theo.
 
-Đối với T0, [hướng dẫn vận hành S3-01 đến S3-03](docs/sprints/sprint_03/03_s3_01_03_operations.md) mô tả pilot 68 mẫu trên Label Studio, cổng kiểm duyệt VQA/Data 05 và gói gazetteer đa phiên bản một phần. [Pilot gold T0 68 mẫu](data/processed/annotation/sprint03/pilot_gold_v1.jsonl) đã được duyệt ngày 29/09/2026 với [biên bản và hash](docs/sprints/sprint_03/pilot_gold_approval.md). 100 ứng viên test T0 vẫn giữ riêng và chưa gán nhãn; chưa thể báo F1 T0 trên test. Các script `11_convert_label_studio_pilot.py`, `12_prepare_vqa_review.py`, `13_build_temporal_gazetteer.py` lần lượt kiểm export, chuẩn bị queue VQA và dựng gazetteer. Data 05 quan sát vẫn chưa được duyệt.
+T0/T1 hiện dùng corpus và test gold release2: 240 train / 60 dev / 100 test; test giữ 446 span T0 và mask/null T1 theo manifest. Xem [kết quả cuối](docs/sprints/sprint_03/49_sprint3_final_results.md), [protocol nhãn](docs/sprints/sprint_03/span_11_annotation_guideline.md) và [mục lục Sprint 3](docs/sprints/sprint_03/README.md).
 
 ```bash
 python -m unittest discover -s tests -v
@@ -306,10 +330,11 @@ python -m scripts.08_generate_report_materials --run-id baseline_v3_fuzzy --mate
 
 Materials v4 xuất metric theo điều kiện/trường và hai bảng chẩn đoán tách biệt: strata cấu trúc `KieuThieu`/`KieuLai` và trace converter không gian Data 07. Đây không phải xác suất uncertainty, calibration/ECE hay bằng chứng gần ranh giới. Report v4 chỉ chạy với manifest mang scoring protocol mới; không ghi đè hoặc tái diễn giải run v2.
 
-## Bắt đầu theo dõi Sprint 3
+## Trạng thái Sprint 3
 
-Đọc [mục lục Sprint 3](docs/sprints/sprint_03/README.md) trước khi chạy script. Hiện đã có baseline `baseline_v3_fuzzy` trong track 5 trường, pilot gold T0 68 mẫu đã duyệt, batch 02 gồm 232 task train/dev và gazetteer `s3_v2` ở trạng thái một phần. Review split phát hiện 138 cặp gần giống cần người phân xử; 100 test T0 vẫn gán mù và chưa có F1 T0 trên test. [Báo cáo review và hướng dẫn bàn giao](docs/sprints/sprint_03/06_s3_04_s3_03_review_and_handover.md) ghi các bước gán, export, QA và giới hạn nguồn.
+Bản phát hành hiện hành là [corpus_v1_release2](data/processed/annotation/sprint03/corpus_v1_release2/manifest.json) và [test_gold_v1_release2](data/processed/annotation/sprint03/test_gold_v1_release2/manifest.json). Tập test có 100 địa chỉ, 446 span T0; T1 gồm 64 mẫu đủ điều kiện, 20 mẫu null và 16 mẫu được mask. Giữ toàn bộ đánh giá T0 và các ngoại lệ T1 theo manifest.
 
-Lưu ý vận hành: `scripts/10_prepare_span_annotation.py` và lệnh `build` của `scripts/13_build_temporal_gazetteer.py` ghi vào các đường dẫn cố định. Không chạy lại trên artifact hiện hành; kế hoạch Sprint 3 quy định tạo batch/gazetteer phiên bản mới. Việc thu thập địa chỉ mốc/hướng thật hiện được tạm hoãn.
+Gazetteer còn trạng thái một phần vì provenance/license của một số mã cũ chưa được xác minh. Agreement độc lập giữa người gán chưa đo; track 5 trường là development/compatibility; T2 chưa thực thi. Không mở lại nhãn, tune trên test hay suy rộng kết quả ngoài support đã báo cáo.
 
+Xem [mục lục Sprint 3](docs/sprints/sprint_03/README.md), [kết quả cuối](docs/sprints/sprint_03/49_sprint3_final_results.md) và [kế hoạch Sprint 4](docs/sprints/sprint_04/README.md).
 Đề cương: [docs/proposal/de-cuong-dacn-dia-chi-tieng-viet.pdf](docs/proposal/de-cuong-dacn-dia-chi-tieng-viet.pdf).
