@@ -1,0 +1,14 @@
+{
+  "changes": [
+    "add three dated official SOAP responses to source register",
+    "separate inherited new-only summary from dual-snapshot totals"
+  ],
+  "unchanged": {
+    "entities.csv": "90676aa996b760cce243f3032796a32febbb6ed7534fd3a93ef2a1dac070a666",
+    "aliases.csv": "0147a68673990da0233586e11e2a423348eb1fc4f6140fbe68ef6219a79e6c06",
+    "edges.csv": "f42c59d63254a243422b62cf5857b17d0dba995affb8180ee75373b19f4d43eb",
+    "non_atomic_transitions.csv": "91fecdfa064e82e2dff07d5d22c64df597897bc4d4371d7fadda2fa6a12cc853",
+    "code_evidence.csv": "1b57e7a634d2baa2be9935db95e840a264d6c5654170841fe24c9836d8879614"
+  },
+  "source_download_manifest_sha256": "dbddb24cc752901c7a57f829d287495da5da21bb85b2d478f0f228b160cf9e80"
+}

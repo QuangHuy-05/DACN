@@ -1,0 +1,36 @@
+{
+  "verified_by_system_level": {
+    "moi:province": 34,
+    "moi:ward": 3321,
+    "cu:district": 561,
+    "cu:province": 62,
+    "cu:ward": 7984
+  },
+  "old_unresolved": {
+    "district": 135,
+    "province": 1,
+    "ward": 2051
+  },
+  "graph_counts": {
+    "source_rows": 10602,
+    "atomic_edges": 10597,
+    "non_atomic_transitions": 5,
+    "entities": 14149,
+    "aliases": 187,
+    "relations": {
+      "B/N-1": 9432,
+      "C/1-1": 132,
+      "M/M-N": 1030,
+      "A/1-N": 3
+    },
+    "legacy_join_rows": {
+      "unique_name_join": 10597
+    },
+    "official_code_evidence_rows": 3355
+  },
+  "snapshot_dates_by_system": {
+    "cu": "2025-06-30",
+    "moi": "2025-07-01"
+  },
+  "license_status": "PUBLIC_PORTAL_TERMS_NOT_LOCATED"
+}

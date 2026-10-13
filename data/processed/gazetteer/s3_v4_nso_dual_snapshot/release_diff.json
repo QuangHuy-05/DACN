@@ -1,0 +1,15 @@
+{
+  "newly_verified_old": 8607,
+  "counts_by_level": {
+    "district": 561,
+    "province": 62,
+    "ward": 7984
+  },
+  "entities_ids_names_parents_unchanged": true,
+  "graph_alias_files_unchanged": [
+    "edges.csv",
+    "non_atomic_transitions.csv",
+    "aliases.csv"
+  ],
+  "source_evidence_dir": "data/interim/modeling/sprint03/pre_colab_20261003_resume_v1/u1_v4"
+}

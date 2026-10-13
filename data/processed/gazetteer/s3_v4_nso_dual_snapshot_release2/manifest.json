@@ -1,0 +1,118 @@
+{
+  "version": "s3-gazetteer-v4.2-nso-dual-snapshot-partial",
+  "effective_boundary": "2025-07-01",
+  "release_status": "PARTIAL_OLD_CODES_UNVERIFIED",
+  "build_script_sha256": "2767db27dd4c50f62bbaf7ca1a48838e61cc248b1e16053fea9225714e3bb407",
+  "source_files": {
+    "mapping": {
+      "path": "data\\reference\\administrative_units\\vietnam-sap-nhap-phuong-xa.csv",
+      "sha256": "22bd8278cf7b3f969f255e841271f33f63f6d9db1cdf02defcaaf7360a764e53",
+      "role": "official_mapping_authority"
+    },
+    "legacy_candidate": {
+      "path": "third_party\\vietnamadminunits\\data\\interim\\legacy_63-province-10040-ward_with_location_and_key.csv",
+      "sha256": "18cfb24f4381fa7e42b3c65fb99f4809c0b49a680d86dd2ca9de28cf8e36cf24",
+      "role": "candidate_old_codes_only"
+    },
+    "audited_aliases": {
+      "path": "src\\data\\administrative_alias.py",
+      "sha256": "93b5e6d374ff140ed0cb77b0712b688854b2a7b034946a97b74dee50db7c7755",
+      "role": "audited_aliases_authority"
+    }
+  },
+  "counts": {
+    "source_rows": 10602,
+    "atomic_edges": 10597,
+    "non_atomic_transitions": 5,
+    "entities": 14149,
+    "aliases": 187,
+    "relations": {
+      "B/N-1": 9432,
+      "C/1-1": 132,
+      "M/M-N": 1030,
+      "A/1-N": 3
+    },
+    "legacy_join_rows": {
+      "unique_name_join": 10597
+    },
+    "official_code_evidence_rows": 11962
+  },
+  "limitations": [
+    "All entity_id values are internal stable IDs, not official government codes.",
+    "No coordinates or geometry polygons are included.",
+    "Old valid_from date is unknown; old version valid_to ends on 2025-06-30.",
+    "5 island district-to-special-zone transitions are non-atomic and preserved in non_atomic_transitions.csv.",
+    "The repository does not document the external publication URL or reuse license of the mapping CSV; verified_source means verified against that CSV only.",
+    "New province and ward codes are verified against an official NSO export as of 2025-07-01.",
+    "The official portal is live and also includes later changes; only the 2025 comparison side was imported.",
+    "Official source spellings that differ from canonical project names are recorded by code; canonical names and aliases were not rewritten.",
+    "Public access was confirmed; explicit data reuse license terms were not located.",
+    "Old codes verified only on exact official full key/code/parent at 2025-06-30; unresolved codes remain unverified.",
+    "Two proven snapshots only: cu 2025-06-30 and moi 2025-07-01; no legal start date inferred."
+  ],
+  "output_sha256": {
+    "aliases.csv": "0147a68673990da0233586e11e2a423348eb1fc4f6140fbe68ef6219a79e6c06",
+    "code_evidence.csv": "1b57e7a634d2baa2be9935db95e840a264d6c5654170841fe24c9836d8879614",
+    "coverage_report.json": "187735bad6ba0595928a91133b20cd6d25154cb91a6379c57c93f1d9afe1c20b",
+    "edges.csv": "f42c59d63254a243422b62cf5857b17d0dba995affb8180ee75373b19f4d43eb",
+    "entities.csv": "90676aa996b760cce243f3032796a32febbb6ed7534fd3a93ef2a1dac070a666",
+    "lookup_examples.json": "a664b1353b8f10608b1bcecd6ceb5275c1b341bdfb115e6b88f2fc6c1cc32365",
+    "metadata_completion.json": "88a9ac8ce94d0aeec5b0fe2ee5744ff0c17e0a19b1b5c0a3571bbc0a5f8beb16",
+    "non_atomic_transitions.csv": "91fecdfa064e82e2dff07d5d22c64df597897bc4d4371d7fadda2fa6a12cc853",
+    "official_code_reference.csv": "a01e4d813887dcdfaf9c1e11782059121acaf2ffe50b71fe7451bb554b7ac852",
+    "official_code_reference_manifest.json": "8ad2718f6e3f3246a15a3b0d7cce89006be193401c5f3e979cad0da67774b046",
+    "old_code_reference_manifest.json": "473698d382ce697753499ef7ee6eb247f0bfb744b7d6af7386e5ea08cc5fb0c8",
+    "release_diff.json": "7348e1d12a289304f4eb7631c336ff9844109fe22a0af0d5724f58a409598597",
+    "source_register.csv": "fac261c10df427955cf58498777d7a66be28e7a3878ecd9b959aea7e9687beff"
+  },
+  "parent_version": "s3-gazetteer-v4-nso-dual-snapshot-partial",
+  "parent_manifest_sha256": "97f31ba60973c9f45249ace32157b8277bd4febd457cf1c60f7d9917e844f9a7",
+  "snapshot_only": true,
+  "snapshot_date": null,
+  "release_script_sha256": "2767db27dd4c50f62bbaf7ca1a48838e61cc248b1e16053fea9225714e3bb407",
+  "release_module_sha256": "1ee7668414a97148f7fe9fc7d67e3c8df29b6973cb545adcd82ff6ddce889ac2",
+  "code_verifier_sha256": "263c95021b1ef71828f34e117615dfe5ef517a46efcf9207f24d75b2cb07f659",
+  "parent_build_script_sha256": "c1be079cde953d48e70827212e82478fb7c688e436e74d45095f6ac1dbd727e8",
+  "snapshot_dates_by_system": {
+    "cu": "2025-06-30",
+    "moi": "2025-07-01"
+  },
+  "old_code_reference": {
+    "verified": 8607,
+    "counts": {
+      "district": 561,
+      "province": 62,
+      "ward": 7984
+    },
+    "reference_manifest_sha256": "473698d382ce697753499ef7ee6eb247f0bfb744b7d6af7386e5ea08cc5fb0c8"
+  },
+  "metadata_module_sha256": "48f080b47125f961bbf819549b55f6d7c51c9a3055be81cc2c54e3e282da8e78",
+  "parent_new_snapshot_summary": {
+    "source_id": "nso_portal_snapshot_2025_07_01",
+    "as_of": "2025-07-01",
+    "url": "https://danhmuchanhchinh.nso.gov.vn/Doi_Chieu_Moi.aspx",
+    "source_export_path": "data\\interim\\modeling\\sprint03\\nso_official_crosswalk_2025_20261003_v1\\nso_administrative_comparison_2025-06-30_to_2025-07-01.xls",
+    "source_export_sha256": "976f0aa4f40c97189dec7adc1bde0d6fa0058496b8912df9dba1ab94c9417f61",
+    "source_mapping_sha256": "22bd8278cf7b3f969f255e841271f33f63f6d9db1cdf02defcaaf7360a764e53",
+    "verified_new_provinces": 34,
+    "verified_new_wards": 3321,
+    "old_codes_verified": 0,
+    "owner_confirmed_mapping_origin": true,
+    "license_status": "PUBLIC_PORTAL_TERMS_NOT_LOCATED",
+    "selection_policy": "comparison-side rows with effective date 2025-07-01; live-side 2026 updates excluded",
+    "mapping_name_variants": 17,
+    "entity_name_variants": 17,
+    "companion_legal_document": {
+      "url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2025/7/19ttg.signed.pdf",
+      "path": "data\\interim\\modeling\\sprint03\\nso_official_crosswalk_2025_20261003_v1\\qdtg_19_2025_official_signed.pdf",
+      "sha256": "2fd391335947affbfb86fa2b9438f0fdca90694e80887e205266542c3236aea1",
+      "role": "legal provenance; not transcribed to create reference rows"
+    },
+    "reference_manifest_sha256": "8ad2718f6e3f3246a15a3b0d7cce89006be193401c5f3e979cad0da67774b046"
+  },
+  "verified_code_counts": {
+    "cu": 8607,
+    "moi": 3355,
+    "total": 11962
+  }
+}
