@@ -34,6 +34,8 @@ REVIEW_FLAGS = frozenset({
     "unreadable_ocr", "ambiguous_label", "temporal_ambiguity", "privacy_review"
 })
 TOKEN_PATTERN = re.compile(r"\w+|[^\w\s]", re.UNICODE)
+TEST_ROLE = "frozen_benchmark_test_hold"
+TEST_ANNOTATION_MODES = ("blind", "ai_assisted_human_review")
 
 
 def file_hash(path: Path) -> str:
@@ -64,6 +66,91 @@ def read_queue(path: Path, role: str | None = None) -> dict[str, dict[str, str]]
             raise ValueError(f"Duplicate sample_id in queue: {sample_id}")
         result[sample_id] = row
     return result
+
+
+def load_test_assistance(manifest_path: Path, queue: dict) -> tuple[dict, dict]:
+    """Allow only the declared, frozen suggestions for the authorized test QA."""
+    from src.data.test_assisted_annotation import MODEL_VERSION, TEST_HASH, read_locked_tasks
+
+    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    if (manifest.get("annotation_mode") != "AI_ASSISTED_HUMAN_REVIEW_PENDING" or
+            manifest.get("status") != "CANDIDATES_NOT_GOLD" or
+            not manifest.get("authorization") or manifest.get("model_version") != MODEL_VERSION or
+            manifest.get("test_input_sha256") != TEST_HASH or
+            manifest.get("count", {}).get("tasks") != 100):
+        raise ValueError("Invalid or unauthorized assisted-test manifest")
+    for field in ("benchmark_gold_read", "baseline_predictions_used", "training_tuning_scoring_on_test"):
+        if manifest.get(field) is not False:
+            raise ValueError(f"Assisted-test manifest requires {field}=false")
+
+    folder = manifest_path.parent
+    required_files = ("test100_text_only_import.json", "test100_import_with_predictions.json",
+                      "label_studio_span11.xml", "span_11_annotation_guideline.md")
+    for name in required_files:
+        expected_hash = manifest.get("files", {}).get(name, {}).get("sha256")
+        if not expected_hash or file_hash(folder / name) != expected_hash:
+            raise ValueError(f"Assisted-test resource hash mismatch: {name}")
+    if (file_hash(folder / "label_studio_span11.xml") != file_hash(LABEL_CONFIG) or
+            file_hash(folder / "span_11_annotation_guideline.md") != file_hash(GUIDELINE)):
+        raise ValueError("Assisted-test resources differ from the locked guideline/config")
+
+    locked = read_locked_tasks(folder / "test100_text_only_import.json", TEST_HASH, 100)
+    locked_texts = {task["data"]["sample_id"]: task["data"]["text"] for task in locked}
+    if locked_texts != {sid: row["text"] for sid, row in queue.items()}:
+        raise ValueError("Assisted-test queue differs from the frozen 100 ID/text pairs")
+    imports = json.loads((folder / "test100_import_with_predictions.json").read_text(encoding="utf-8"))
+    suggestions = {}
+    for task in imports:
+        data = task.get("data", {})
+        sid = data.get("sample_id")
+        predictions = task.get("predictions", [])
+        if (sid not in locked_texts or sid in suggestions or data != {"sample_id": sid, "text": locked_texts[sid]} or
+                len(predictions) != 1 or predictions[0].get("model_version") != MODEL_VERSION):
+            raise ValueError("Assisted-test import has unexpected IDs, text or prediction version")
+        suggestions[sid] = predictions[0]
+    if set(suggestions) != set(locked_texts):
+        raise ValueError("Assisted-test prediction IDs differ from the frozen input")
+    return suggestions, {
+        "mode": "AI_ASSISTED_HUMAN_REVIEW",
+        "manifest_sha256": file_hash(manifest_path),
+        "version": manifest["version"],
+        "model_version": MODEL_VERSION,
+        "test_input_sha256": TEST_HASH,
+        "agreement": "NOT_MEASURED",
+        "gold_approval": "PENDING_HUMAN_ADJUDICATION",
+    }
+
+
+def prediction_signature(results: list) -> str:
+    """Ignore UI-only metadata while preserving all proposed annotation values."""
+    if not isinstance(results, list) or any(not isinstance(item, dict) for item in results):
+        raise ValueError("Invalid prediction result list")
+    values = [{key: item.get(key) for key in ("id", "from_name", "to_name", "type", "value")}
+              for item in results]
+    values.sort(key=lambda item: (str(item["from_name"]), str(item["id"])))
+    return json.dumps(values, ensure_ascii=False, sort_keys=True)
+
+
+def verify_assisted_prediction(task: dict, selected: dict, suggestion: dict) -> None:
+    attached = task.get("predictions", [])
+    if not isinstance(attached, list):
+        raise ValueError("Invalid task prediction list")
+    sources = [item for item in attached if isinstance(item, dict)]
+    nested = selected.get("prediction")
+    if isinstance(nested, dict):
+        sources.append(nested)
+    expected = prediction_signature(suggestion["result"])
+    for source in sources:
+        if source.get("model_version") != suggestion["model_version"]:
+            raise ValueError("Undeclared test prediction model version")
+        if prediction_signature(source.get("result")) != expected:
+            raise ValueError("Test prediction differs from the frozen assisted suggestion")
+    source_ids = {source.get("id") for source in sources}
+    referenced_ids = {item for item in attached if type(item) is int}
+    if selected.get("parent_prediction") is not None:
+        referenced_ids.add(selected["parent_prediction"])
+    if not referenced_ids.issubset(source_ids) or (task.get("total_predictions") and not sources):
+        raise ValueError("Test prediction provenance is unresolved in the raw export")
 
 
 def single_choice(value: object, key: str, allowed: frozenset[str], context: str) -> str:
@@ -182,8 +269,24 @@ def convert_export(
     output_dir: Path,
     role: str | None = None,
     adjudication_map_path: Path | None = None,
+    test_annotation_mode: str = "blind",
+    assisted_manifest_path: Path | None = None,
 ) -> dict:
     queue = read_queue(queue_path, role=role)
+    if not queue:
+        raise ValueError("Queue/role selection contains no tasks")
+    if role != TEST_ROLE and any(row.get("planned_role") == TEST_ROLE for row in queue.values()):
+        raise ValueError("Test records require an explicit frozen_benchmark_test_hold role")
+    if test_annotation_mode not in TEST_ANNOTATION_MODES:
+        raise ValueError("Unknown test annotation mode")
+    suggestions = {}
+    annotation_protocol = {"mode": "BLIND" if role == TEST_ROLE else "NON_TEST_BATCH"}
+    if test_annotation_mode == "ai_assisted_human_review":
+        if role != TEST_ROLE or assisted_manifest_path is None:
+            raise ValueError("Assisted-test QA requires the test role and an assisted manifest")
+        suggestions, annotation_protocol = load_test_assistance(assisted_manifest_path, queue)
+    elif assisted_manifest_path is not None:
+        raise ValueError("An assisted manifest requires explicit ai_assisted_human_review mode")
     if not export_path.is_file():
         raise FileNotFoundError(export_path)
     pilot_manifest = json.loads((ROOT / "data/processed/annotation/sprint03/pilot_gold_v1_manifest.json").read_text(encoding="utf-8"))
@@ -243,7 +346,7 @@ def convert_export(
             issues.append(f"{sample_id}: text differs between queue and export")
             task_statuses[sample_id] = "text_mismatch"
             continue
-        if role == "frozen_benchmark_test_hold" and (task.get("predictions") or task.get("total_predictions")):
+        if role == TEST_ROLE and not suggestions and (task.get("predictions") or task.get("total_predictions")):
             issues.append(f"{sample_id}: test task contains predictions")
             task_statuses[sample_id] = "test_prediction_leakage"
             continue
@@ -269,12 +372,19 @@ def convert_export(
                 task_statuses[sample_id] = "adjudication_id_not_found"
                 continue
             selected_ann = matched[0]
-        if role == "frozen_benchmark_test_hold" and selected_ann.get("parent_prediction") is not None:
+        selected_results = selected_ann.get("result")
+        has_prediction_origin = isinstance(selected_results, list) and any(
+            item.get("origin") == "prediction" for item in selected_results if isinstance(item, dict))
+        if role == TEST_ROLE and not suggestions and (
+                selected_ann.get("parent_prediction") is not None or selected_ann.get("prediction") or
+                has_prediction_origin):
             issues.append(f"{sample_id}: test annotation derived from a prediction")
             task_statuses[sample_id] = "test_prediction_leakage"
             continue
 
         try:
+            if suggestions:
+                verify_assisted_prediction(task, selected_ann, suggestions[sample_id])
             converted = convert_annotation(selected_ann, expected["text"], sample_id)
         except Exception as exc:
             issues.append(f"{sample_id}: conversion error: {exc}")
@@ -310,6 +420,10 @@ def convert_export(
         if converted["review_flags"] or converted["review_note"]:
             review_items.append({
                 "sample_id": sample_id,
+                "task_id": task.get("id"),
+                "annotation_id": selected_ann.get("id"),
+                "project_id": task.get("project"),
+                "completed_by": selected_ann.get("completed_by"),
                 "text": expected["text"],
                 "review_flags": converted["review_flags"],
                 "review_note": converted["review_note"],
@@ -331,10 +445,12 @@ def convert_export(
 
     report = {
         "status": overall_status,
+        "annotation_protocol": annotation_protocol,
         "export_sha256": file_hash(export_path),
         "queue_sha256": file_hash(queue_path),
         "label_config_sha256": file_hash(LABEL_CONFIG),
         "guideline_sha256": file_hash(GUIDELINE),
+        "adjudication_map_sha256": file_hash(adjudication_map_path) if adjudication_map_path else None,
         "expected_tasks": len(queue),
         "task_statuses": task_statuses,
         "status_counts": dict(status_counts),
@@ -364,6 +480,8 @@ def main() -> None:
     parser.add_argument("--role", type=str, default=None, help="Planned role filter (optional)")
     parser.add_argument("--output-dir", type=Path, required=True, help="Output directory for QA and canonical candidate")
     parser.add_argument("--adjudication-map", type=Path, default=None, help="Optional adjudication map JSON")
+    parser.add_argument("--test-annotation-mode", choices=TEST_ANNOTATION_MODES, default="blind")
+    parser.add_argument("--assisted-manifest", type=Path, help="Frozen, authorized test suggestion manifest")
     args = parser.parse_args()
 
     report = convert_export(
@@ -372,11 +490,14 @@ def main() -> None:
         args.output_dir,
         role=args.role,
         adjudication_map_path=args.adjudication_map,
+        test_annotation_mode=args.test_annotation_mode,
+        assisted_manifest_path=args.assisted_manifest,
     )
     print(json.dumps({
         "status": report["status"],
         "converted": report["converted_tasks"],
         "expected": report["expected_tasks"],
+        "status_counts": report["status_counts"],
         "issues_count": len(report["issues"]),
     }, ensure_ascii=False, indent=2))
 
