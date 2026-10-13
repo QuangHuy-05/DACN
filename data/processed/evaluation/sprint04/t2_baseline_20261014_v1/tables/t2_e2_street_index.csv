@@ -1,0 +1,3 @@
+﻿distinct_street_ward_pairs,distinct_streets,dropped_pair_overlap,dropped_text_overlap,evidence_decisive_rows,evidence_evidence_rate_decisive,evidence_evidence_rate_over_all_600,evidence_multi_candidate_rows,evidence_narrowed_rows,evidence_rows_with_street_in_index,evidence_status,kept,kept_by_source,leak_filter,no_street,no_unique_new_ward,rows_in,strict_pair_filter
+656,591,0,184,317,0.890449,0.528333,356,317,531,OK,3406,"{""data01"": 816, ""osm"": 2590}",L1,0,7410,11000,False
+630,574,290,184,150,0.421348,0.250000,356,150,438,OK,3116,"{""data01"": 814, ""osm"": 2302}",L2,0,7410,11000,True

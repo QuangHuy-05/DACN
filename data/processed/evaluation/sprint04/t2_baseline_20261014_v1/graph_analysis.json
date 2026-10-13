@@ -1,0 +1,154 @@
+{
+  "atomic_edges": 10597,
+  "by_relation": {
+    "A": {
+      "edges": 3,
+      "fan_in_per_edge": {
+        "1": 3
+      },
+      "fan_out_per_edge": {
+        "2": 3
+      },
+      "share_new_key_deterministic": 1.0,
+      "share_old_key_deterministic": 0.0,
+      "status": "OK"
+    },
+    "B": {
+      "edges": 9432,
+      "fan_in_per_edge": {
+        "10": 14,
+        "11": 18,
+        "12": 40,
+        "14": 7,
+        "15": 9,
+        "2": 1471,
+        "3": 4337,
+        "4": 2088,
+        "5": 766,
+        "6": 359,
+        "7": 159,
+        "8": 113,
+        "9": 51
+      },
+      "fan_out_per_edge": {
+        "1": 9432
+      },
+      "share_new_key_deterministic": 0.0,
+      "share_old_key_deterministic": 1.0,
+      "status": "OK"
+    },
+    "C": {
+      "edges": 132,
+      "fan_in_per_edge": {
+        "1": 132
+      },
+      "fan_out_per_edge": {
+        "1": 132
+      },
+      "share_new_key_deterministic": 1.0,
+      "share_old_key_deterministic": 1.0,
+      "status": "OK"
+    },
+    "M": {
+      "edges": 1030,
+      "fan_in_per_edge": {
+        "10": 46,
+        "11": 15,
+        "12": 20,
+        "14": 7,
+        "15": 6,
+        "2": 41,
+        "3": 160,
+        "4": 176,
+        "5": 139,
+        "6": 163,
+        "7": 114,
+        "8": 95,
+        "9": 48
+      },
+      "fan_out_per_edge": {
+        "2": 791,
+        "3": 174,
+        "4": 60,
+        "5": 5
+      },
+      "share_new_key_deterministic": 0.0,
+      "share_old_key_deterministic": 0.0,
+      "status": "OK"
+    }
+  },
+  "ceiling_deterministic_pick_new_to_old": 0.3129187505897896,
+  "ceiling_deterministic_pick_old_to_new": 0.9469661224874965,
+  "fan_in_new_key": {
+    "1": 135,
+    "10": 6,
+    "11": 3,
+    "12": 5,
+    "14": 1,
+    "15": 1,
+    "2": 756,
+    "3": 1499,
+    "4": 566,
+    "5": 181,
+    "6": 87,
+    "7": 39,
+    "8": 26,
+    "9": 11
+  },
+  "fan_out_old_key": {
+    "1": 9564,
+    "2": 397,
+    "3": 58,
+    "4": 15,
+    "5": 1
+  },
+  "label": "near-structural (counts over all atomic edges); not observed accuracy",
+  "max_fan_in": 15,
+  "mean_fan_in": 3.195717732207479,
+  "mean_fan_out": 1.056003986048829,
+  "median_fan_in": 3.0,
+  "median_fan_out": 1,
+  "new_keys_deterministic": 135,
+  "new_units": 3316,
+  "non_atomic_transitions": {
+    "count": 5,
+    "rows": [
+      {
+        "new": "Đặc khu Bạch Long Vĩ, Thành phố Hải Phòng",
+        "old": "Huyện Bạch Long Vĩ, Thành phố Hải Phòng",
+        "status": "NON_ATOMIC_NOT_WARD_EDGE"
+      },
+      {
+        "new": "Đặc khu Côn Đảo, Thành phố Hồ Chí Minh",
+        "old": "Huyện Côn Đảo, Tỉnh Bà Rịa - Vũng Tàu",
+        "status": "NON_ATOMIC_NOT_WARD_EDGE"
+      },
+      {
+        "new": "Đặc khu Hoàng Sa, Thành phố Đà Nẵng",
+        "old": "Huyện Hoàng Sa, Thành phố Đà Nẵng",
+        "status": "NON_ATOMIC_NOT_WARD_EDGE"
+      },
+      {
+        "new": "Đặc khu Lý Sơn, Tỉnh Quảng Ngãi",
+        "old": "Huyện Lý Sơn, Tỉnh Quảng Ngãi",
+        "status": "NON_ATOMIC_NOT_WARD_EDGE"
+      },
+      {
+        "new": "Đặc khu Cồn Cỏ, Tỉnh Quảng Trị",
+        "old": "Huyện Cồn Cỏ, Tỉnh Quảng Trị",
+        "status": "NON_ATOMIC_NOT_WARD_EDGE"
+      }
+    ]
+  },
+  "old_keys_deterministic": 9564,
+  "old_units": 10035,
+  "relation_counts": {
+    "A": 3,
+    "B": 9432,
+    "C": 132,
+    "M": 1030
+  },
+  "relation_label_mismatch_vs_file": 0,
+  "share_new_keys_deterministic": 0.04071170084439083,
+  "share_old_keys_deterministic": 0.9530642750373692
+}

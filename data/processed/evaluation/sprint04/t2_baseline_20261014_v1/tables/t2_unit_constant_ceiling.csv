@@ -1,0 +1,17 @@
+﻿direction,slice_type,slice,n,unit_constant_ceiling,status,note
+cu_to_moi,ALL,ALL,600,1.000000,OK,best accuracy of any rule returning one fixed target per source unit on Data 07
+cu_to_moi,LoaiAnhXa,A,0,,NOT_EVALUABLE_NO_SUPPORT,best accuracy of any rule returning one fixed target per source unit on Data 07
+cu_to_moi,LoaiAnhXa,B,244,1.000000,OK,best accuracy of any rule returning one fixed target per source unit on Data 07
+cu_to_moi,LoaiAnhXa,C,0,,NOT_EVALUABLE_NO_SUPPORT,best accuracy of any rule returning one fixed target per source unit on Data 07
+cu_to_moi,LoaiAnhXa,M,356,1.000000,OK,best accuracy of any rule returning one fixed target per source unit on Data 07
+cu_to_moi,HinhThucSapNhap,Hợp nhất toàn bộ,244,1.000000,OK,best accuracy of any rule returning one fixed target per source unit on Data 07
+cu_to_moi,HinhThucSapNhap,Tách — nhập chủ yếu,335,1.000000,OK,best accuracy of any rule returning one fixed target per source unit on Data 07
+cu_to_moi,HinhThucSapNhap,Tách — một phần,21,1.000000,OK,best accuracy of any rule returning one fixed target per source unit on Data 07
+moi_to_cu,ALL,ALL,600,0.741667,OK,best accuracy of any rule returning one fixed target per source unit on Data 07
+moi_to_cu,LoaiAnhXa,A,0,,NOT_EVALUABLE_NO_SUPPORT,best accuracy of any rule returning one fixed target per source unit on Data 07
+moi_to_cu,LoaiAnhXa,B,244,0.635246,OK,best accuracy of any rule returning one fixed target per source unit on Data 07
+moi_to_cu,LoaiAnhXa,C,0,,NOT_EVALUABLE_NO_SUPPORT,best accuracy of any rule returning one fixed target per source unit on Data 07
+moi_to_cu,LoaiAnhXa,M,356,0.898876,OK,best accuracy of any rule returning one fixed target per source unit on Data 07
+moi_to_cu,HinhThucSapNhap,Hợp nhất toàn bộ,244,0.635246,OK,best accuracy of any rule returning one fixed target per source unit on Data 07
+moi_to_cu,HinhThucSapNhap,Tách — nhập chủ yếu,335,0.955224,OK,best accuracy of any rule returning one fixed target per source unit on Data 07
+moi_to_cu,HinhThucSapNhap,Tách — một phần,21,0.904762,OK,best accuracy of any rule returning one fixed target per source unit on Data 07

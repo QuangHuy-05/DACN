@@ -1,0 +1,9 @@
+﻿metric,value
+old_wards,10035
+old_wards_with_homonym,1989
+pairs,1989
+SAME_SCOPE,124
+D_SCOPE_DIFFERS,1708
+D_EDGE_ABSENT,157
+share_d,0.937657
+label,"gazetteer-level census of name collisions (structural), not observed error"
