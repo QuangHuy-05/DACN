@@ -86,7 +86,8 @@ Ký hiệu trạng thái đầu ra: `PASS`, `PARTIAL`, `NEGATIVE_RESULT` (thí n
 |---|---|---|---|
 | `T1-PIPE-<T0>` | Span của CRF-INDEP / PHOBERT-CRF / DYN + luật hệ quy chiếu của HEUR-JW trên gazetteer | CPU | Thiếu tri thức gazetteer có phải nguyên nhân chính? Đồng thời lấp ô `NOT_IMPLEMENTED` của CRF và PhoBERT-CRF |
 | `T1-FEAT` | Phân loại tuyến tính nhỏ trên đặc trưng bề mặt + thành viên gazetteer (viết bằng `numpy`) | CPU | Mốc học máy rẻ |
-| `DYN-T1-AUG` | Huấn luyện lại DYN c02 với train + dữ liệu lai tổng hợp tách nhóm | CPU cục bộ (Kaggle dự phòng) | Thiếu dữ liệu `Lai` có phải nguyên nhân? |
+| `T1-HEAD-PROBE` | Đầu softmax tuyến tính trên vector CLS của encoder DYN đã đóng băng, huấn luyện bằng dữ liệu lai tổng hợp tách nhóm | CPU cục bộ, cần nạp được checkpoint | Biểu diễn của encoder có đủ để tách `Lai` khi có đủ dữ liệu không? |
+| `DYN-T1-AUG` | Huấn luyện lại DYN với dữ liệu lai | **Hoãn** (`DEFERRED_NEEDS_TRAINING_PROTOCOL_CHANGE`): `load_corpus` và `load_config` ghim hash corpus và config, phải có protocol huấn luyện mới | — |
 
 **Dữ liệu lai tổng hợp:** sinh bằng `generate_hybrid_addresses` với seed mới; chia `t1_synth_train / t1_synth_dev / t1_synth_eval` theo **mã phường mới** (nhóm rời nhau); loại mọi nhóm xuất hiện trong test/dev Sprint 3; xử lý quy ước `Ngo/Hem` theo F8; cân bằng thêm mẫu `cu`/`moi` để không dạy mô hình "có huyện thì là lai".
 

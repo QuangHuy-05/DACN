@@ -53,8 +53,8 @@ Ràng buộc cứng:
    gom chung — Data 03: 879/1500 dòng, Data 04: 223/800, Data 06: 1/600, Data 01: 0. Mọi phép chia nhóm rời nhau chỉ
    được dùng các dòng có khóa ADM|...; dòng UNRESOLVED chỉ dùng cho đánh giá, không đưa vào huấn luyện, và phải đếm.
 
-Trước khi báo xong: chạy `python -m unittest discover -s tests -v` (toàn bộ; mốc đo ngày 13/10/2026 sau WP0
-trong ~/.venv_dacn là 319 test: 311 PASS / 8 SKIP / 0 FAIL — không được có FAIL và không được làm giảm số PASS cũ),
+Trước khi báo xong: chạy `python -m unittest discover -s tests -v` (toàn bộ; mốc đo ngày 13/10/2026 sau WP1
+trong ~/.venv_dacn là 349 test: 341 PASS / 8 SKIP / 0 FAIL — không được có FAIL và không được làm giảm số PASS cũ),
 chạy script của bạn từ đầu trên thư mục đầu ra mới để chứng minh tái lập, kiểm số dòng/cột/encoding/bản ghi trùng
 của mọi CSV đầu ra.
 
@@ -262,78 +262,145 @@ XONG KHI: mọi ô của bảng có số hoặc trạng thái NOT_EVALUABLE/NOT_
 ## WP2 — Đánh giá lại và sửa T1, bảng H5
 
 ```text
-NHIỆM VỤ: đo T1 (cu / moi / Lai) có hệ thống, tìm nguyên nhân Lai F1 = 0 của PROPOSED-DYN, thử ba biến thể,
-và lập bảng H5. Phụ thuộc: WP0.
+NHIỆM VỤ: đo T1 (cu / moi / Lai) có hệ thống, tìm nguyên nhân Lai F1 = 0 của PROPOSED-DYN bằng số liệu, thử các biến
+thể rẻ, và lập bảng H5. Phụ thuộc: WP0 (stats.py, leak_guard.py) và WP1 (t2_lookup.py — chỉ đọc/tái dùng, không sửa).
 
 File bạn sở hữu: src/evaluation/t1_pipeline.py, src/evaluation/t1_situations.py, scripts/67_build_t1_sets.py,
-scripts/68_run_t1_evaluation.py, tests/test_t1_group1.py, configs/modeling/sprint04/proposed_dyn_t1aug_v1.json,
+scripts/68_run_t1_evaluation.py, scripts/68b_run_t1_neural_local.py, tests/test_t1_group1.py,
 data/interim/modeling/sprint04/t1_sets_20261015_v1/, data/processed/evaluation/sprint04/t1_h5_20261015_v1/,
-docs/sprints/sprint_04/10_t1_h5_results.md.
+docs/sprints/sprint_04/10_t1_h5_results.md. Không sửa bất kỳ file nào trong src/modeling/ hay configs/.
 
-Bối cảnh đã kiểm (F4–F8 của kế hoạch):
-- Mốc: HEUR-JW test T1 accuracy 92,19% / macro-F1 92,49%; DYN 71,88% / 56,26%, Lai F1 = 0 (support 5), dev Lai F1 = 0.
-- Train có 16 Lai / 119 cu / 71 moi; dev 8 Lai. Đầu T1 của DYN là Linear trên CLS (src/modeling/proposed_dynamic.py),
-  quyết định qua structure_decision ngưỡng 0,7 / margin 0,2 (src/modeling/structural_decoder.py).
-- Data 06: 600 dòng đều Lai, đều loại B; KieuLai C1 420 / C2 120 / C3 60; khoảng 68% Bắc Ninh.
-- Test Sprint 3 chứa 20 mẫu lấy từ Data 06 và 20 từ mỗi Data 01/03/04.
-- Data 06 để ngõ/hẻm bên trong TenDuong; gold Sprint 3 tách Ngo/Hem. Không dùng thẳng làm nhãn T0.
+SỰ THẬT ĐÃ KIỂM TRÊN REPO NGÀY 13/10/2026 (bước đầu tiên của bạn là tái lập; số nào lệch thì dừng và báo)
+- Mốc test Sprint 3: HEUR-JW T1 accuracy 0,9219 / macro-F1 0,9249; DYN 0,7188 / 0,5626, Lai F1 = 0, support Lai = 5;
+  mask T1 trên test: 64 eligible / 20 null / 16 excluded (test_evaluation_exclusions trong manifest corpus_v1_release2;
+  dev dùng evaluation_exclusions, 17 ID).
+- T1 trong corpus (trước mask): train 119 cu / 71 moi / 16 Lai / 34 null; dev 31 / 15 / 8 / 6; test 49 / 25 / 6 / 20.
+- Data 06: 600 dòng đều Lai, đều loại B; sau leak_guard còn 580 (C1 410 / C2 115 / C3 55), 48 nhóm admin_group_key.
+  Test Sprint 3 chứa 20 dòng của Data 06 (và 20 dòng của mỗi Data 01/03/04).
+- Generator generate_hybrid_addresses(df_old_snapshot, mapping_path, target_size, seed)
+  (src/data/synthetic/hybrid_address.py) chỉ nhận đơn vị cũ có đúng một đích; hạn ngạch C1/C2/C3 = 70/20/10%.
+  Với data/interim/osm/osm_old_snapshot_full.csv (26.961 dòng; 5.258 dòng có đúng một đích; 753 phường mới) và
+  seed 20261015, target_size 3000: sinh đủ 3.000 dòng; 244 dòng TRÙNG NGUYÊN VĂN với Data 06; 20 dòng bị leak_guard
+  loại; 527 nhóm, 74 dòng UNRESOLVED; nhóm lớn nhất 10,6%; 135 dòng có TenDuong bắt đầu bằng ngõ/hẻm/ngách/kiệt;
+  tập trung ở TP.HCM và Bắc Ninh.
+- Nhóm hành chính của dev/test Sprint 3 phần lớn không tra được (dev 23/40, test 34/48 nhóm là UNRESOLVED) vì gold
+  ghi tên thiếu tiền tố. Chỉ loại theo admin_group_key là KHÔNG đủ: phải loại thêm theo cặp (tỉnh chuẩn hóa, tên
+  phường bỏ tiền tố loại đơn vị) trùng với bất kỳ mẫu dev/test nào.
+- Posterior T1 của DYN đã có sẵn trong prediction đã freeze: mỗi dòng predictions.jsonl của DYN có
+  trace.structure = {posterior{cu,moi,Lai}, confidence, margin_observed, threshold, margin_required, predicted_system,
+  t1_abstain, ban_district}. Phần chẩn đoán trên dev/test KHÔNG cần chạy mô hình.
+- Checkpoint DYN c02: data/interim/modeling/sprint03/release_and_kaggle_20261005_v1/dyn_c02_selection_artifacts_v1/
+  dacn_artifacts/dacn-s3-dyn-c02-20261005-v1/workspace/data/processed/evaluation/sprint03/
+  dacn-s3-dyn-c02-20261005-v1_proposed_dyn_c02/checkpoints/best.pt, SHA-256
+  7a4a3d01bff1222cd303cb5ff03872c5ee49b22cb67a0572833fa470f917a589 (đã kiểm). Chưa ai kiểm rằng checkpoint này nạp
+  được trên CPU cục bộ: PhoBERTCRFAdapter gọi load_checkpoint với hash của resource lock, và checkpoint được huấn luyện
+  trên Kaggle với resource lock của Kaggle.
+- Pipeline huấn luyện đã khóa KHÔNG nhận dữ liệu bổ sung: src/modeling/datasets.py::load_corpus ghim hash manifest,
+  src/modeling/protocol.py::load_config từ chối config có hash lạ. Vì vậy huấn luyện lại DYN với dữ liệu lai
+  (DYN-T1-AUG) nằm NGOÀI gói này; ghi trạng thái DEFERRED_NEEDS_TRAINING_PROTOCOL_CHANGE trong bảng, không tìm cách vòng.
+- Data 06 và generator để ngõ/hẻm bên trong TenDuong, gold Sprint 3 tách Ngo/Hem. Gói này chỉ dùng dữ liệu tổng hợp
+  cho T1 (nhãn cấp chuỗi), KHÔNG dùng làm nhãn T0, nên không cần tách; nhưng không được suy ra hay báo T0 từ chúng.
+- Prediction test đã freeze (đường dẫn và hash trong data/interim/modeling/sprint03/final_completion_20261005_v1/
+  all_test_predictions_frozen.json): HEUR-JW và CRF-INDEP ở light_test_runs_v2/; PHOBERT-CRF, DYN, DYN tắt ràng buộc ở
+  kaggle_final_output_v4/.../{pcrf_test,dyn_test,dyn_off_test}/. Prediction dev: lần theo selection_lock.json của từng run.
 
-BƯỚC A — đánh giá, không huấn luyện
-1. scripts/67 dựng t1_stress_v1.csv: Data 06 (Lai) + Data 01 (moi) + Data 03 (cu), qua leak_guard loại trùng
-   train/dev/test; giữ cột nguồn, KieuLai, tỉnh. Báo số dòng trước/sau lọc từng nguồn.
-2. t1_situations.py gán thẻ tình huống theo đề cương mục 1.2, chỉ từ gazetteer edges, dùng ở phía chấm:
-   A = mẫu cu có phường nguồn với nhiều đích; B = mẫu moi có phường đích gộp từ nhiều nguồn; C = mẫu Lai;
-   D = mẫu có tên phường trùng danh pháp giữa hai hệ trong cùng tỉnh. Một mẫu có thể mang nhiều thẻ;
-   mẫu không gán được ghi NONE. Ghi định nghĩa vận hành này vào báo cáo vì đề cương không cho định nghĩa máy đọc.
-3. Chạy HEUR-JW (cấu hình đã khóa) trên t1_stress_v1. Chạy DYN checkpoint c02 đã khóa
-   (data/interim/modeling/sprint03/release_and_kaggle_20261005_v1/dyn_c02_selection_artifacts_v1/.../checkpoints/best.pt,
-   SHA-256 phải bằng 7a4a3d01bff1222cd303cb5ff03872c5ee49b22cb67a0572833fa470f917a589) bằng CPU cục bộ nếu runtime
-   neural có sẵn; nếu không chạy được, ghi BLOCKED_LOCAL_RUNTIME và chuẩn bị danh sách đầu vào để gộp vào job Kaggle
-   của WP3b. Lưu posterior ba lớp của DYN cho từng mẫu.
-4. Báo: ma trận nhầm lẫn (kể cả khong_ro), P/R/F1 từng lớp, accuracy, macro-F1, coverage, abstain; tách theo KieuLai,
-   theo thẻ A–D, theo tỉnh; CI cluster bootstrap theo admin_group_key. Thêm chẩn đoán DYN: phân phối posterior của
-   lớp Lai trên mẫu Lai, số mẫu Lai có argmax = Lai nhưng bị ngưỡng/margin đẩy sang khong_ro.
+TẦNG 1 — BẮT BUỘC, CHỈ CPU (runtime chính ~/.venv_dacn; CRF qua runtime CRF thành tiến trình riêng)
 
-BƯỚC B — ba biến thể, chọn chỉ bằng dev Sprint 3 và t1_synth_dev
-1. T1-PIPE-<T0>: lấy span hành chính từ prediction T0 của CRF-INDEP / PHOBERT-CRF / DYN, tra hệ của từng span trên
-   gazetteer theo đúng luật của HEUR-JW (cu+moi -> Lai; một hệ -> hệ đó; không xác định -> khong_ro). Tái dùng mã
-   resolve của HeuristicJaroWinklerAdapter, không sao chép. Trên test dùng prediction đã freeze; không suy luận lại.
-2. T1-FEAT: phân loại softmax tuyến tính viết bằng numpy trên đặc trưng: có dấu hiệu cấp huyện, loại tiền tố đơn vị,
-   dạng tên tỉnh, thành viên gazetteer của từng đoạn (chỉ cu / chỉ moi / cả hai / không có). L2 cố định, seed 42.
-3. DYN-T1-AUG: config proposed_dyn_t1aug_v1.json = proposed_dyn_v1.json c02 đã khóa, chỉ đổi dữ liệu huấn luyện
-   (train + t1_synth_train). Không đổi siêu tham số khác. Chuẩn bị gói; KHÔNG submit Kaggle — bàn giao cho chủ dự án
-   chạy cùng lượt WP3b. Khi có artifact, chấm theo cùng kịch bản.
+1. scripts/67_build_t1_sets.py dựng trong data/interim/modeling/sprint04/t1_sets_20261015_v1/:
+   a. Nguồn Lai mới: generate_hybrid_addresses trên osm_old_snapshot_full.csv, seed 20261015, target_size 3000.
+      Loại: dòng trùng nguyên văn hoặc trùng sau chuẩn hóa với Data 06; dòng bị leak_guard loại (train/dev/test);
+      dòng có khóa UNRESOLVED. Báo số dòng còn lại sau từng bước.
+   b. Nguồn cu và moi: Data 03 (cu) và Data 01 (moi) qua leak_guard.
+   c. Gộp (a)+(b) thành một bể, gán admin_group_key. Chia theo NHÓM (seed 20261015) thành t1_synth_train /
+      t1_synth_dev / t1_synth_eval ≈ 60/20/20 số nhóm, phân tầng theo tỉnh mới. Chỉ dòng có khóa ADM| được vào
+      train/dev; dòng UNRESOLVED chỉ vào eval và được đánh cờ.
+   d. Loại khỏi train/dev mọi dòng có cặp (tỉnh chuẩn hóa, tên phường bỏ tiền tố) trùng một mẫu dev/test Sprint 3,
+      và mọi dòng cùng nhóm ADM với một mẫu dev/test tra được. Báo số dòng loại.
+   e. Cân bằng lớp trong t1_synth_train bằng cách lấy mẫu xuống theo seed (không nhân bản), báo tỷ lệ lớp cuối cùng
+      của cả ba phần. Không lớp nào được phép suy ra chỉ từ "có cấp huyện": kiểm bằng một phân loại một-đặc-trưng
+      (có/không có span cấp huyện) trên t1_synth_eval và báo accuracy của nó làm mốc tầm thường.
+   f. t1_data06_heldout = 580 dòng Data 06 sau leak_guard, kèm cờ group_seen_in_synth_train. Đây là tập đánh giá,
+      không bao giờ dùng để huấn luyện hay chọn tham số.
+   g. Mọi file có cột: text, gold_system, source, KieuLai (nếu có), admin_group_key, province_new. Ghi run_manifest.json.
 
-Dữ liệu lai tổng hợp (scripts/67):
-- Sinh bằng generate_hybrid_addresses (src/data/synthetic/hybrid_address.py) với seed mới 20261015; KHÔNG dùng lại
-  600 dòng Data 06 làm dữ liệu huấn luyện.
-- Chia t1_synth_train / t1_synth_dev / t1_synth_eval theo mã phường mới sao cho ba phần rời nhóm; loại mọi nhóm
-  hành chính và mọi chuỗi xuất hiện trong dev/test Sprint 3; phân tầng theo KieuLai và tỉnh.
-- Thêm mẫu cu và moi cùng nhóm địa lý (từ snapshot/địa chỉ sạch, qua leak_guard) để lớp không suy ra được chỉ từ
-  "có cấp huyện". Báo tỷ lệ lớp cuối cùng.
-- Nhãn T0 cho mẫu tổng hợp: loại dòng có tiền tố ngõ/hẻm/ngách/kiệt trong TenDuong, hoặc tách theo luật guideline
-  s3-span-v1.1 rồi kiểm tay 30 dòng ngẫu nhiên (seed cố định) và ghi kết quả kiểm. Căn offset bằng src/data/span_trace.py;
-  mẫu căn mơ hồ thì bỏ và đếm.
-- Hiệu chỉnh ngưỡng: dev Sprint 3 có 8 Lai (<10) nên CALIBRATION_NOT_EVALUABLE theo protocol. Nếu hiệu chỉnh,
-  chỉ dùng lưới 6 tổ hợp của protocol (threshold 0,7/0,8/0,9 × margin 0,1/0,2) trên t1_synth_dev, khai báo trước
-  trong run_manifest.json, và báo song song kết quả với ngưỡng gốc 0,7/0,2.
+2. src/evaluation/t1_situations.py — thẻ tình huống theo mục 1.2 của đề cương, chỉ từ edges.csv, dùng ở phía chấm:
+   A = mẫu cu có đơn vị nguồn với nhiều đích; B = mẫu moi có phường đích gộp từ nhiều nguồn; C = mẫu Lai;
+   D = mẫu có tên phường tồn tại ở cả hai hệ trong cùng tỉnh mới (tái dùng SingleVersionIndex.homonyms của
+   src/evaluation/t2_lookup.py). Một mẫu có thể mang nhiều thẻ; không gán được thì NONE. Ghi định nghĩa vận hành này
+   vào báo cáo vì đề cương không cho định nghĩa máy đọc.
 
-Bảng H5 (báo cáo 10): hàng = HEUR-JW, DYN gốc, T1-PIPE-CRF, T1-PIPE-PCRF, T1-PIPE-DYN, T1-FEAT, DYN-T1-AUG;
-cột = test Sprint 3 (64 eligible; nhãn POST_HOC_SECONDARY), t1_synth_eval, t1_stress_v1; mỗi ô có accuracy,
-macro-F1, Lai P/R/F1 kèm support, coverage, abstain. Kiểm định ghép cặp so với HEUR-JW bằng stats.py.
+3. Chẩn đoán DYN từ prediction đã freeze (dev và test, không chạy mô hình):
+   - Với mỗi mẫu T1 eligible: lớp gold, argmax của posterior, posterior của lớp gold, có vượt ngưỡng/margin không.
+   - Tách riêng mẫu Lai: bao nhiêu mẫu có argmax = Lai nhưng bị ngưỡng/margin đẩy sang khong_ro, bao nhiêu mẫu có
+     argmax là lớp khác (và lớp nào). Phân phối posterior(Lai) trên mẫu Lai so với mẫu cu/moi.
+   - Accuracy và macro-F1 nếu KHÔNG áp ngưỡng (argmax thuần) — ghi rõ đây là phân tích chẩn đoán trên test đã quan sát,
+     không phải cấu hình đề xuất. Mục đích: tách "đầu T1 không học được Lai" khỏi "ngưỡng quá chặt".
+   - Ghi chú đã kiểm: config ghi structural_policy threshold 0,8 nhưng báo cáo Sprint 3 nói calibration 0,7 / 0,2;
+     đọc threshold thực trong trace.structure và báo giá trị quan sát được.
 
-Phải viết rõ trong báo cáo:
-- Lai của test và dữ liệu tổng hợp cùng một generator: tăng Lai F1 trên test không chứng minh tổng quát sang địa chỉ
-  lai do người thật viết.
-- Đối chiếu với H5 của đề cương ("mô hình nhận biết phiên bản vượt trội ở lớp lai"): kết luận ủng hộ / không ủng hộ /
-  không kết luận được, theo CI.
-- Nếu Lai F1 vẫn bằng 0 ở biến thể nào: giải thích bằng số (posterior, ngưỡng, support), không suy đoán.
+4. Các hệ T1 chạy được trên CPU:
+   - HEUR-JW (cấu hình đã khóa: light_test_runs_v2/heur-jw/model_config.json; gazetteer s3_v4_nso_dual_snapshot,
+     threshold 0,86) trên t1_synth_eval và t1_data06_heldout.
+   - T1-PIPE-<T0>: span hành chính từ một mô hình T0 + luật hệ quy chiếu của HEUR-JW (cu+moi -> Lai; một hệ -> hệ đó;
+     không xác định -> khong_ro), tra hệ của từng span bằng đúng mã resolve của HeuristicJaroWinklerAdapter (tái dùng,
+     không sao chép logic). Trên test Sprint 3: dùng prediction đã freeze của CRF-INDEP, PHOBERT-CRF, DYN (không suy
+     luận lại) — việc này lấp ô T1 NOT_IMPLEMENTED của CRF-INDEP và PHOBERT-CRF. Trên t1_synth_eval và
+     t1_data06_heldout: chỉ T1-PIPE-CRF (suy luận CRF-INDEP bằng runtime CRF, checkpoint
+     data/processed/evaluation/sprint03/crf_followup_20261003_v1/ctx1_c10.1_c21/model.crfsuite, kiểm SHA-256).
+   - T1-FEAT: phân loại softmax tuyến tính viết bằng numpy, huấn luyện trên t1_synth_train, chọn hệ số L2 trong
+     {0,01; 0,1; 1} bằng t1_synth_dev, seed 42. Đặc trưng chỉ từ văn bản và gazetteer: có dấu hiệu cấp huyện, loại
+     tiền tố đơn vị của từng đoạn, dạng viết của tỉnh, thành viên gazetteer của từng đoạn (chỉ cu / chỉ moi / cả hai /
+     không có). Báo thêm một biến thể bỏ nhóm đặc trưng gazetteer để thấy đóng góp của tri thức gazetteer.
+   - Mốc tầm thường: luôn đoán lớp đa số; và phân loại một-đặc-trưng ở mục 1e.
 
-Test: chia nhóm rời nhau thật sự (không mã phường nào ở hai phần); không chuỗi nào của dev/test lọt vào tập tổng hợp;
-luật T1-PIPE cho đúng trên ví dụ dựng tay; thẻ A–D tất định.
+TẦNG 2 — NÊN, CẦN RUNTIME NEURAL CỤC BỘ (scripts/68b; chạy thành tiến trình riêng, OMP_NUM_THREADS=6)
 
-XONG KHI: Bước A có đủ bảng; Bước B có số cho các biến thể CPU; DYN-T1-AUG có số hoặc trạng thái PENDING_KAGGLE
-kèm gói sẵn sàng; test PASS.
+5. Smoke trước: dùng data/interim/modeling/sprint03/runtime_neural_d_v1/bin/python, dựng ProposedDynamicAdapter qua
+   src/evaluation/experiment_config.py::modeling_config + src/evaluation/dev_runner.py::build_adapter với checkpoint
+   trên, resource lock cục bộ (ứng viên: data/interim/modeling/sprint03/task_01_06_20261003_v1/resource_lock_local_v1.json
+   hoặc .../pre_colab_20261003_resume_v1/u3_v3/phobert_resource_lock_local.json) và decoder policy đã khóa (lấy đường
+   dẫn từ model_config.json của run dyn_test). Chạy 5 mẫu của test_input.jsonl và so span + predicted_system + posterior
+   với prediction đã freeze (sai khác posterior <= 1e-4 do khác phần cứng là chấp nhận; khác span thì KHÔNG).
+   Nếu nạp checkpoint thất bại hoặc kết quả lệch: ghi BLOCKED_LOCAL_NEURAL kèm nguyên văn lỗi, lưu danh sách đầu vào
+   của tầng 2 vào thư mục run, và DỪNG tầng 2. Không sửa mã đã khóa, không đổi hash, không vòng qua kiểm tra.
+6. Nếu smoke đạt: suy luận DYN (ngưỡng đã khóa) trên t1_synth_eval và t1_data06_heldout; lưu posterior. Thêm
+   T1-PIPE-DYN và T1-PIPE-PCRF trên hai tập này nếu PHOBERT-CRF cũng nạp được.
+7. T1-HEAD-PROBE (thay cho DYN-T1-AUG trong gói này): trích vector CLS của encoder DYN đã đóng băng (đầu ra "cls" của
+   model.forward) cho t1_synth_train / dev / eval, t1_data06_heldout, và dev/test Sprint 3; huấn luyện một đầu softmax
+   tuyến tính bằng numpy trên t1_synth_train (+ 190 mẫu train Sprint 3 có nhãn T1), chọn L2 bằng t1_synth_dev.
+   Câu hỏi nó trả lời: biểu diễn của encoder có chứa đủ thông tin để tách Lai không, khi có đủ dữ liệu Lai?
+   Ghi rõ đây là probe trên đặc trưng đóng băng, không phải mô hình đề xuất được huấn luyện lại.
+
+BẢNG H5 (báo cáo 10)
+- Hàng: mốc đa số; mốc một-đặc-trưng; HEUR-JW; DYN gốc; T1-PIPE-CRF; T1-PIPE-PCRF; T1-PIPE-DYN; T1-FEAT;
+  T1-FEAT không gazetteer; T1-HEAD-PROBE; DYN-T1-AUG (DEFERRED_NEEDS_TRAINING_PROTOCOL_CHANGE).
+- Cột: test Sprint 3 (64 eligible; ghi nhãn POST_HOC_SECONDARY); t1_synth_eval; t1_data06_heldout (toàn bộ và riêng
+  phần nhóm chưa thấy trong train). Mỗi ô: accuracy, macro-F1 ba lớp, Lai P/R/F1 kèm support, coverage, abstain;
+  ô không chạy được ghi trạng thái (NOT_RUN / BLOCKED_LOCAL_NEURAL / NOT_APPLICABLE), không bỏ trống.
+- t1_data06_heldout chỉ có lớp Lai: báo recall Lai và ghi macro-F1 = NOT_EVALUABLE_SINGLE_CLASS.
+- CI cluster bootstrap theo admin_group_key (B=10.000, seed 20261015), ghi số cụm. Kiểm định ghép cặp với HEUR-JW bằng
+  stats.py trên cùng tập mẫu.
+- Bảng phụ: theo KieuLai C1/C2/C3; theo thẻ tình huống A–D; theo tỉnh mới (5 tỉnh nhiều mẫu nhất + còn lại).
+
+PHẢI VIẾT RÕ TRONG BÁO CÁO
+- Lai của test, của Data 06 và của dữ liệu tổng hợp đến từ cùng một generator, cùng nguồn OSM: kết quả tốt trên các
+  tập này cho thấy học được mẫu sinh, không chứng minh tổng quát sang địa chỉ lai do người thật viết.
+- Kết quả chẩn đoán mục 3: Lai F1 = 0 do đầu T1 không tách được lớp, do ngưỡng, hay cả hai — trả lời bằng số.
+- Đối chiếu H5 của đề cương ("địa chỉ lai là lớp khó nhất và mô hình nhận biết phiên bản vượt trội rõ rệt ở lớp này"):
+  kết luận ủng hộ / không ủng hộ / không kết luận được, theo CI. Kết quả âm báo đúng như kết quả âm.
+- T1-FEAT và T1-HEAD-PROBE được chọn tham số bằng t1_synth_dev; số trên test Sprint 3 của chúng là POST_HOC_SECONDARY.
+- Nêu rõ biến thể nào dùng gazetteer (HEUR-JW, T1-PIPE-*, T1-FEAT) và biến thể nào không (DYN, T1-HEAD-PROBE).
+
+TEST (tests/test_t1_group1.py)
+- Ba phần synth rời nhóm (giao tập admin_group_key rỗng); không dòng UNRESOLVED nào trong train/dev.
+- Không chuỗi nào của train/dev/test Sprint 3 hay Data 06 nằm trong t1_synth_train/dev (so bằng normalize_for_overlap).
+- Không cặp (tỉnh, tên phường bỏ tiền tố) nào của dev/test Sprint 3 xuất hiện trong t1_synth_train/dev.
+- Luật T1-PIPE cho đúng trên ví dụ dựng tay cho cả bốn nhánh; thẻ A–D tất định; chia nhóm tất định theo seed.
+- Chẩn đoán đọc đúng posterior từ một dòng prediction mẫu; mask T1 test cho đúng 64/20/16.
+- Đường suy luận của mọi hệ không nhận các cột gold_system, KieuLai, source (test bằng cách truyền DataFrame chỉ có text).
+
+XONG KHI: tầng 1 có đủ bảng với số hoặc trạng thái; tầng 2 có số hoặc BLOCKED_LOCAL_NEURAL kèm lỗi và đầu vào đã lưu;
+tái chạy tầng 1 cho cùng hash; bộ test đầy đủ không FAIL.
 ```
 
 ---
