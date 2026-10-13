@@ -1,0 +1,76 @@
+{
+  "model_id": "HEUR-JW",
+  "run_id": "heur_jw_followup_20261003_v1_dev_t0.86",
+  "seed": 42,
+  "supported_labels": [
+    "SoNha",
+    "TenDuong",
+    "Ngo/Hem",
+    "PhuongXa",
+    "QuanHuyen",
+    "TinhThanh"
+  ],
+  "t1_implemented": true,
+  "adapter_factory": "src.evaluation.adapters.heur_jw_followup:HeuristicJaroWinklerFollowup",
+  "adapter_kwargs": {
+    "gazetteer_dir": "data/processed/gazetteer/s3_v4_nso_dual_snapshot",
+    "similarity_threshold": 0.86,
+    "ambiguity_margin": 0.02,
+    "temporal_policy": "dual_snapshot"
+  },
+  "resources": {
+    "entities.csv": {
+      "path": "data/processed/gazetteer/s3_v4_nso_dual_snapshot/entities.csv",
+      "sha256": "90676aa996b760cce243f3032796a32febbb6ed7534fd3a93ef2a1dac070a666",
+      "role": "gazetteer"
+    },
+    "aliases.csv": {
+      "path": "data/processed/gazetteer/s3_v4_nso_dual_snapshot/aliases.csv",
+      "sha256": "0147a68673990da0233586e11e2a423348eb1fc4f6140fbe68ef6219a79e6c06",
+      "role": "gazetteer"
+    },
+    "edges.csv": {
+      "path": "data/processed/gazetteer/s3_v4_nso_dual_snapshot/edges.csv",
+      "sha256": "f42c59d63254a243422b62cf5857b17d0dba995affb8180ee75373b19f4d43eb",
+      "role": "gazetteer"
+    },
+    "non_atomic_transitions.csv": {
+      "path": "data/processed/gazetteer/s3_v4_nso_dual_snapshot/non_atomic_transitions.csv",
+      "sha256": "91fecdfa064e82e2dff07d5d22c64df597897bc4d4371d7fadda2fa6a12cc853",
+      "role": "gazetteer"
+    },
+    "manifest.json": {
+      "path": "data/processed/gazetteer/s3_v4_nso_dual_snapshot/manifest.json",
+      "sha256": "97f31ba60973c9f45249ace32157b8277bd4febd457cf1c60f7d9917e844f9a7",
+      "role": "gazetteer"
+    },
+    "rules": {
+      "path": "src/evaluation/adapters/heur_jw_adapter.py",
+      "sha256": "d2cdbf8906e59de8c6026963fec3579f9feb54ffdbdc07eaced480108b4ed680",
+      "role": "rules"
+    },
+    "src/evaluation/adapters/heur_jw_followup.py": {
+      "path": "src/evaluation/adapters/heur_jw_followup.py",
+      "sha256": "f2b65233b7aa3516e2c990897646114cc2c332a7ef722ca45f05d2669b63ac5e",
+      "role": "rules"
+    },
+    "src/data/nso_dual_snapshot.py": {
+      "path": "src/data/nso_dual_snapshot.py",
+      "sha256": "1ee7668414a97148f7fe9fc7d67e3c8df29b6973cb545adcd82ff6ddce889ac2",
+      "role": "rules"
+    },
+    "src/data/administrative_code_verifier.py": {
+      "path": "src/data/administrative_code_verifier.py",
+      "sha256": "263c95021b1ef71828f34e117615dfe5ef517a46efcf9207f24d75b2cb07f659",
+      "role": "rules"
+    },
+    "code_evidence": {
+      "path": "data/processed/gazetteer/s3_v4_nso_dual_snapshot/code_evidence.csv",
+      "sha256": "1b57e7a634d2baa2be9935db95e840a264d6c5654170841fe24c9836d8879614",
+      "role": "gazetteer"
+    }
+  },
+  "candidate_blocking": "same first Unicode character; core-length ratio >=0.60; JW>=0.80",
+  "device": "cpu",
+  "rule_version": "heur_jw_compact_prefix_dual_snapshot_v4"
+}

@@ -1,0 +1,94 @@
+{
+  "run_id": "heur_jw_20261002_v2_dev_t0.98",
+  "model_id": "HEUR-JW",
+  "track": "T0_T1_DEV",
+  "split": "dev",
+  "stage": "inference",
+  "created_at_utc": "2026-10-02T10:38:49.819054+00:00",
+  "sample_count": 60,
+  "supported_labels": [
+    "SoNha",
+    "TenDuong",
+    "Ngo/Hem",
+    "PhuongXa",
+    "QuanHuyen",
+    "TinhThanh"
+  ],
+  "status_counts": {
+    "ok": 59,
+    "abstain": 1
+  },
+  "seed": 42,
+  "seed_scope": "Python random; adapter determinism must be specified in adapter config",
+  "resources": {
+    "entities.csv": {
+      "path": "data/processed/gazetteer/s3_v2/entities.csv",
+      "role": "gazetteer",
+      "sha256": "8f7d04d80a65e2a8a64495c7c36889aa82a06b09ff2012ad2835467ab060c6a4"
+    },
+    "aliases.csv": {
+      "path": "data/processed/gazetteer/s3_v2/aliases.csv",
+      "role": "gazetteer",
+      "sha256": "0147a68673990da0233586e11e2a423348eb1fc4f6140fbe68ef6219a79e6c06"
+    },
+    "edges.csv": {
+      "path": "data/processed/gazetteer/s3_v2/edges.csv",
+      "role": "gazetteer",
+      "sha256": "f42c59d63254a243422b62cf5857b17d0dba995affb8180ee75373b19f4d43eb"
+    },
+    "non_atomic_transitions.csv": {
+      "path": "data/processed/gazetteer/s3_v2/non_atomic_transitions.csv",
+      "role": "gazetteer",
+      "sha256": "91fecdfa064e82e2dff07d5d22c64df597897bc4d4371d7fadda2fa6a12cc853"
+    },
+    "manifest.json": {
+      "path": "data/processed/gazetteer/s3_v2/manifest.json",
+      "role": "gazetteer",
+      "sha256": "fb350c06b3a3d1dca9ceb6de65695fa533ac20ea3bda3f1abd8465951f8646d9"
+    },
+    "rules": {
+      "path": "src/evaluation/adapters/heur_jw_adapter.py",
+      "role": "rules",
+      "sha256": "d2cdbf8906e59de8c6026963fec3579f9feb54ffdbdc07eaced480108b4ed680"
+    }
+  },
+  "runtime": {
+    "python": "3.11.16",
+    "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.43",
+    "machine": "x86_64",
+    "cpu_count": 20,
+    "gpu": "NOT_INSPECTED",
+    "packages": {
+      "pip": "24.0",
+      "python-crfsuite": "0.9.12",
+      "setuptools": "79.0.1"
+    },
+    "git_commit": "7e89f34d6b8ee3b00cbfdede145e70601979f292",
+    "code_sha256": {
+      "src/evaluation/dev_runner.py": "e0842565e3455407314d9484f2ef9b92493cde434f1abd402843885358a617c0",
+      "src/evaluation/schema.py": "fe0f3525e0aa4024ea6936ce21395f6dfc454767e2346c0daeea0ac2ec68aa60",
+      "src/evaluation/span_scorer.py": "5d8677ccb89d411eb9943811460f0300bdbdefdb8aba9e8568da223ef2664058",
+      "src/evaluation/adapters/base.py": "d414135f231beec45f26f759ba0b01c0c189a0e28c9bd807891dd07c15c4e32e",
+      "scripts/23_run_span_dev.py": "1c3bb54535b768ec9d532f8b83248fa5c88569130c9100d6616655dbed4c2552",
+      "scripts/24_score_span_dev.py": "73d85e08fdd85b4f419e4ef4fdc42336aadae9fbb4867de46d6a9df0c52f62f4"
+    }
+  },
+  "adapter_code": {
+    "path": "/mnt/d/DACN/src/evaluation/adapters/heur_jw_adapter.py",
+    "sha256": "d2cdbf8906e59de8c6026963fec3579f9feb54ffdbdc07eaced480108b4ed680"
+  },
+  "inputs": {
+    "dev_input_sha256": "218b5246d3b59ae2aa18afd583b908759dc8a5ee590ca4418b5c0b5cbfb6e2e2",
+    "corpus_manifest_sha256": "9c91b77fa220e41b1b1067e5e99b216b7b4b2176181674b340f16dec134947bf"
+  },
+  "adapter_input_permission": "Original text only; runner attaches sample_id after parse_spans",
+  "output_sha256": {
+    "predictions.jsonl": "dac911638740bd4fcf4a2a2fb6e951b592135581a44484802162992e62ccd69f",
+    "model_config.json": "9c14adc83ac8633377e679d40064df5fa36dbabc69b6cc6ef163d84123b6cc05"
+  },
+  "latency_ms": {
+    "mean": 2.143583533082468,
+    "p50": 0.582808002945967,
+    "p95": 10.175659001106396
+  }
+}

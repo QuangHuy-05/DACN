@@ -1,0 +1,675 @@
+{
+  "metric_version": "s3-span-score-v3",
+  "sample_coverage": {
+    "gold_samples": 60,
+    "provided_predictions": 60,
+    "missing_prediction_ids": [],
+    "status_counts": {
+      "ok": 60
+    },
+    "abstain_samples": 0
+  },
+  "t0_exact_span": {
+    "micro": {
+      "precision": 0.8776,
+      "recall": 0.8838,
+      "f1": 0.8807,
+      "total_tp": 251,
+      "total_fp": 35,
+      "total_fn": 33
+    },
+    "macro": {
+      "precision": 0.6865,
+      "recall": 0.6965,
+      "f1": 0.6908,
+      "evaluated_labels_count": 9,
+      "definition": "Labels with gold support or predicted support; zero division returns 0"
+    },
+    "macro_all_11_labels": {
+      "f1": 0.5652,
+      "evaluated_labels_count": 11,
+      "definition": "All schema labels, including zero-support labels, with zero division returning 0"
+    },
+    "macro_gold_supported_labels": {
+      "f1": 0.6908,
+      "evaluated_labels_count": 9,
+      "definition": "Only labels with gold support > 0"
+    },
+    "per_label": {
+      "SoNha": {
+        "precision": 0.9808,
+        "recall": 0.9107,
+        "f1": 0.9444,
+        "tp": 51,
+        "fp": 1,
+        "fn": 5,
+        "support": 56
+      },
+      "TenDuong": {
+        "precision": 0.8197,
+        "recall": 0.8333,
+        "f1": 0.8264,
+        "tp": 50,
+        "fp": 11,
+        "fn": 10,
+        "support": 60
+      },
+      "Ngo/Hem": {
+        "precision": 0.7692,
+        "recall": 0.7692,
+        "f1": 0.7692,
+        "tp": 10,
+        "fp": 3,
+        "fn": 3,
+        "support": 13
+      },
+      "ToaNha/CanHo": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "support": 0
+      },
+      "PhuongXa": {
+        "precision": 0.8361,
+        "recall": 0.8361,
+        "f1": 0.8361,
+        "tp": 51,
+        "fp": 10,
+        "fn": 10,
+        "support": 61
+      },
+      "QuanHuyen": {
+        "precision": 0.7907,
+        "recall": 0.9189,
+        "f1": 0.85,
+        "tp": 34,
+        "fp": 9,
+        "fn": 3,
+        "support": 37
+      },
+      "TinhThanh": {
+        "precision": 0.9818,
+        "recall": 1.0,
+        "f1": 0.9908,
+        "tp": 54,
+        "fp": 1,
+        "fn": 0,
+        "support": 54
+      },
+      "MocDinhVi": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "support": 0
+      },
+      "HuongDi": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "support": 1
+      },
+      "GhiChu": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "tp": 0,
+        "fp": 0,
+        "fn": 1,
+        "support": 1
+      },
+      "Khac": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "tp": 0,
+        "fp": 0,
+        "fn": 1,
+        "support": 1
+      }
+    },
+    "diagnostics": {
+      "boundary_error_count": 5,
+      "label_error_count": 25,
+      "spurious_span_count": 0,
+      "missed_span_count": 0,
+      "boundary_errors_sample": [
+        {
+          "sample_id": "s3_1f97da2b16c1b045",
+          "label": "TenDuong",
+          "pred_range": [
+            13,
+            22
+          ],
+          "gold_range": [
+            5,
+            22
+          ],
+          "pred_text": "Hậu Giang",
+          "gold_text": "Hẻm 925 Hậu Giang"
+        },
+        {
+          "sample_id": "s3_47f6906cf20f4d8e",
+          "label": "TenDuong",
+          "pred_range": [
+            13,
+            25
+          ],
+          "gold_range": [
+            3,
+            25
+          ],
+          "pred_text": "Ngõ Xã Đàn 2",
+          "gold_text": "Ngách 129 Ngõ Xã Đàn 2"
+        },
+        {
+          "sample_id": "s3_54dcbae3fac34ca3",
+          "label": "SoNha",
+          "pred_range": [
+            0,
+            5
+          ],
+          "gold_range": [
+            0,
+            8
+          ],
+          "pred_text": "số 10",
+          "gold_text": "số 10,12"
+        },
+        {
+          "sample_id": "s3_64fde5c52bd1a7cd",
+          "label": "TenDuong",
+          "pred_range": [
+            4,
+            29
+          ],
+          "gold_range": [
+            10,
+            29
+          ],
+          "pred_text": "Ngõ 2 Phố Trần Bình Trọng",
+          "gold_text": "Phố Trần Bình Trọng"
+        },
+        {
+          "sample_id": "s3_74d264e09a7a5be3",
+          "label": "TenDuong",
+          "pred_range": [
+            10,
+            23
+          ],
+          "gold_range": [
+            4,
+            23
+          ],
+          "pred_text": "Phạm Tuấn Tài",
+          "gold_text": "Ngõ 1 Phạm Tuấn Tài"
+        }
+      ],
+      "label_errors_sample": [
+        {
+          "sample_id": "s3_235ca23103ece82d",
+          "start": 29,
+          "end": 41,
+          "pred_label": "PhuongXa",
+          "gold_label": "QuanHuyen",
+          "text": "Ngũ Hành Sơn"
+        },
+        {
+          "sample_id": "s3_2da71365970316f0",
+          "start": 0,
+          "end": 7,
+          "pred_label": "TenDuong",
+          "gold_label": "GhiChu",
+          "text": "Tầng B1"
+        },
+        {
+          "sample_id": "s3_2da71365970316f0",
+          "start": 9,
+          "end": 28,
+          "pred_label": "TenDuong",
+          "gold_label": "SoNha",
+          "text": "Crescent Mall - 101"
+        },
+        {
+          "sample_id": "s3_2da71365970316f0",
+          "start": 30,
+          "end": 42,
+          "pred_label": "PhuongXa",
+          "gold_label": "TenDuong",
+          "text": "Tôn Dật Tiên"
+        },
+        {
+          "sample_id": "s3_305f060b443b3865",
+          "start": 35,
+          "end": 37,
+          "pred_label": "QuanHuyen",
+          "gold_label": "PhuongXa",
+          "text": "25"
+        },
+        {
+          "sample_id": "s3_54dcbae3fac34ca3",
+          "start": 10,
+          "end": 16,
+          "pred_label": "PhuongXa",
+          "gold_label": "TenDuong",
+          "text": "422/11"
+        },
+        {
+          "sample_id": "s3_60931c369cbd85ef",
+          "start": 28,
+          "end": 35,
+          "pred_label": "QuanHuyen",
+          "gold_label": "PhuongXa",
+          "text": "Đống Đa"
+        },
+        {
+          "sample_id": "s3_61c8e7c247e6e2a1",
+          "start": 13,
+          "end": 21,
+          "pred_label": "QuanHuyen",
+          "gold_label": "TenDuong",
+          "text": "Nông Lâm"
+        },
+        {
+          "sample_id": "s3_61c8e7c247e6e2a1",
+          "start": 23,
+          "end": 32,
+          "pred_label": "QuanHuyen",
+          "gold_label": "PhuongXa",
+          "text": "Đông Ngạc"
+        },
+        {
+          "sample_id": "s3_b75f8f67a45cb2af",
+          "start": 37,
+          "end": 51,
+          "pred_label": "PhuongXa",
+          "gold_label": "QuanHuyen",
+          "text": "Thị xã Sơn Tây"
+        }
+      ]
+    }
+  },
+  "t1_address_system": {
+    "total_evaluated": 53,
+    "gold_label_coverage": 0.8833,
+    "gold_null_excluded": 6,
+    "declared_exception_excluded": 1,
+    "declared_exception_excluded_ids": [
+      "s3_60931c369cbd85ef"
+    ],
+    "total_unscored": 7,
+    "accepted_count": 0,
+    "accepted_coverage": 0.0,
+    "macro_f1_all_3_classes": 0.0,
+    "abstain_count": 53,
+    "abstain_rate": 1.0,
+    "overall_accuracy": 0.0,
+    "accepted_accuracy": 0.0,
+    "per_class": {
+      "cu": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 31
+      },
+      "moi": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 14
+      },
+      "Lai": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 8
+      }
+    },
+    "confusion_matrix": {
+      "moi": {
+        "khong_ro": 14
+      },
+      "cu": {
+        "khong_ro": 31
+      },
+      "Lai": {
+        "khong_ro": 8
+      }
+    },
+    "model_task_status": "NOT_IMPLEMENTED"
+  },
+  "structural_consistency": {
+    "new_system_sample_count": 14,
+    "definition": "Denominator: gold T1 moi with no gold QuanHuyen span",
+    "excluded_inconsistent_new_gold_count": 0,
+    "quan_huyen_hallucinations_on_new": 1,
+    "quan_huyen_false_positive_rate_on_new": 0.0714,
+    "quan_huyen_recall_on_old_or_hybrid": {
+      "cu": {
+        "tp": 26,
+        "support": 29,
+        "recall": 0.8966
+      },
+      "Lai": {
+        "tp": 6,
+        "support": 6,
+        "recall": 1.0
+      }
+    }
+  },
+  "supported_label_coverage": {
+    "labels": [
+      "GhiChu",
+      "HuongDi",
+      "Khac",
+      "MocDinhVi",
+      "Ngo/Hem",
+      "PhuongXa",
+      "QuanHuyen",
+      "SoNha",
+      "TenDuong",
+      "TinhThanh",
+      "ToaNha/CanHo"
+    ],
+    "gold_spans_in_supported_labels": 284,
+    "all_gold_spans": 284,
+    "fraction": 1.0,
+    "scoring_policy": "Full T0 metrics retain all 11 labels; unsupported gold spans count as missed"
+  },
+  "t0_supported_subset": {
+    "micro": {
+      "precision": 0.8776,
+      "recall": 0.8838,
+      "f1": 0.8807,
+      "total_tp": 251,
+      "total_fp": 35,
+      "total_fn": 33
+    },
+    "macro": {
+      "precision": 0.6865,
+      "recall": 0.6965,
+      "f1": 0.6908,
+      "evaluated_labels_count": 9,
+      "definition": "Labels with gold support or predicted support; zero division returns 0"
+    },
+    "macro_all_11_labels": {
+      "f1": 0.5652,
+      "evaluated_labels_count": 11,
+      "definition": "All schema labels, including zero-support labels, with zero division returning 0"
+    },
+    "macro_gold_supported_labels": {
+      "f1": 0.6908,
+      "evaluated_labels_count": 9,
+      "definition": "Only labels with gold support > 0"
+    },
+    "per_label": {
+      "SoNha": {
+        "precision": 0.9808,
+        "recall": 0.9107,
+        "f1": 0.9444,
+        "tp": 51,
+        "fp": 1,
+        "fn": 5,
+        "support": 56
+      },
+      "TenDuong": {
+        "precision": 0.8197,
+        "recall": 0.8333,
+        "f1": 0.8264,
+        "tp": 50,
+        "fp": 11,
+        "fn": 10,
+        "support": 60
+      },
+      "Ngo/Hem": {
+        "precision": 0.7692,
+        "recall": 0.7692,
+        "f1": 0.7692,
+        "tp": 10,
+        "fp": 3,
+        "fn": 3,
+        "support": 13
+      },
+      "ToaNha/CanHo": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "support": 0
+      },
+      "PhuongXa": {
+        "precision": 0.8361,
+        "recall": 0.8361,
+        "f1": 0.8361,
+        "tp": 51,
+        "fp": 10,
+        "fn": 10,
+        "support": 61
+      },
+      "QuanHuyen": {
+        "precision": 0.7907,
+        "recall": 0.9189,
+        "f1": 0.85,
+        "tp": 34,
+        "fp": 9,
+        "fn": 3,
+        "support": 37
+      },
+      "TinhThanh": {
+        "precision": 0.9818,
+        "recall": 1.0,
+        "f1": 0.9908,
+        "tp": 54,
+        "fp": 1,
+        "fn": 0,
+        "support": 54
+      },
+      "MocDinhVi": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "support": 0
+      },
+      "HuongDi": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "support": 1
+      },
+      "GhiChu": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "tp": 0,
+        "fp": 0,
+        "fn": 1,
+        "support": 1
+      },
+      "Khac": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "tp": 0,
+        "fp": 0,
+        "fn": 1,
+        "support": 1
+      }
+    },
+    "diagnostics": {
+      "boundary_error_count": 5,
+      "label_error_count": 25,
+      "spurious_span_count": 0,
+      "missed_span_count": 0,
+      "boundary_errors_sample": [
+        {
+          "sample_id": "s3_1f97da2b16c1b045",
+          "label": "TenDuong",
+          "pred_range": [
+            13,
+            22
+          ],
+          "gold_range": [
+            5,
+            22
+          ],
+          "pred_text": "Hậu Giang",
+          "gold_text": "Hẻm 925 Hậu Giang"
+        },
+        {
+          "sample_id": "s3_47f6906cf20f4d8e",
+          "label": "TenDuong",
+          "pred_range": [
+            13,
+            25
+          ],
+          "gold_range": [
+            3,
+            25
+          ],
+          "pred_text": "Ngõ Xã Đàn 2",
+          "gold_text": "Ngách 129 Ngõ Xã Đàn 2"
+        },
+        {
+          "sample_id": "s3_54dcbae3fac34ca3",
+          "label": "SoNha",
+          "pred_range": [
+            0,
+            5
+          ],
+          "gold_range": [
+            0,
+            8
+          ],
+          "pred_text": "số 10",
+          "gold_text": "số 10,12"
+        },
+        {
+          "sample_id": "s3_64fde5c52bd1a7cd",
+          "label": "TenDuong",
+          "pred_range": [
+            4,
+            29
+          ],
+          "gold_range": [
+            10,
+            29
+          ],
+          "pred_text": "Ngõ 2 Phố Trần Bình Trọng",
+          "gold_text": "Phố Trần Bình Trọng"
+        },
+        {
+          "sample_id": "s3_74d264e09a7a5be3",
+          "label": "TenDuong",
+          "pred_range": [
+            10,
+            23
+          ],
+          "gold_range": [
+            4,
+            23
+          ],
+          "pred_text": "Phạm Tuấn Tài",
+          "gold_text": "Ngõ 1 Phạm Tuấn Tài"
+        }
+      ],
+      "label_errors_sample": [
+        {
+          "sample_id": "s3_235ca23103ece82d",
+          "start": 29,
+          "end": 41,
+          "pred_label": "PhuongXa",
+          "gold_label": "QuanHuyen",
+          "text": "Ngũ Hành Sơn"
+        },
+        {
+          "sample_id": "s3_2da71365970316f0",
+          "start": 0,
+          "end": 7,
+          "pred_label": "TenDuong",
+          "gold_label": "GhiChu",
+          "text": "Tầng B1"
+        },
+        {
+          "sample_id": "s3_2da71365970316f0",
+          "start": 9,
+          "end": 28,
+          "pred_label": "TenDuong",
+          "gold_label": "SoNha",
+          "text": "Crescent Mall - 101"
+        },
+        {
+          "sample_id": "s3_2da71365970316f0",
+          "start": 30,
+          "end": 42,
+          "pred_label": "PhuongXa",
+          "gold_label": "TenDuong",
+          "text": "Tôn Dật Tiên"
+        },
+        {
+          "sample_id": "s3_305f060b443b3865",
+          "start": 35,
+          "end": 37,
+          "pred_label": "QuanHuyen",
+          "gold_label": "PhuongXa",
+          "text": "25"
+        },
+        {
+          "sample_id": "s3_54dcbae3fac34ca3",
+          "start": 10,
+          "end": 16,
+          "pred_label": "PhuongXa",
+          "gold_label": "TenDuong",
+          "text": "422/11"
+        },
+        {
+          "sample_id": "s3_60931c369cbd85ef",
+          "start": 28,
+          "end": 35,
+          "pred_label": "QuanHuyen",
+          "gold_label": "PhuongXa",
+          "text": "Đống Đa"
+        },
+        {
+          "sample_id": "s3_61c8e7c247e6e2a1",
+          "start": 13,
+          "end": 21,
+          "pred_label": "QuanHuyen",
+          "gold_label": "TenDuong",
+          "text": "Nông Lâm"
+        },
+        {
+          "sample_id": "s3_61c8e7c247e6e2a1",
+          "start": 23,
+          "end": 32,
+          "pred_label": "QuanHuyen",
+          "gold_label": "PhuongXa",
+          "text": "Đông Ngạc"
+        },
+        {
+          "sample_id": "s3_b75f8f67a45cb2af",
+          "start": 37,
+          "end": 51,
+          "pred_label": "PhuongXa",
+          "gold_label": "QuanHuyen",
+          "text": "Thị xã Sơn Tây"
+        }
+      ]
+    }
+  }
+}
