@@ -1,0 +1,6 @@
+﻿system,n_samples,n_exact,estimate,ci_low,ci_high,status,reason,n_nonfinite_resamples
+HEUR-JW,100,63,0.63,0.54,0.72,OK,,0
+CRF-INDEP,100,77,0.77,0.68,0.85,OK,,0
+PHOBERT-CRF,100,93,0.93,0.88,0.97,OK,,0
+PROPOSED-DYN,100,92,0.92,0.86,0.97,OK,,0
+PROPOSED-NO-CONSTRAINT,100,93,0.93,0.88,0.97,OK,,0

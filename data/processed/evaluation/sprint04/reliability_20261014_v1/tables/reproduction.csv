@@ -1,0 +1,6 @@
+﻿system,t0_P,t0_R,t0_F1,published_P,published_R,published_F1,t0_match,t1_eligible,t1_null_excluded,t1_declared_excluded,t1_accuracy,t1_macro_f1,published_t1,t1_match,t1_note
+HEUR-JW,0.9512,0.8744,0.9112,0.9512,0.8744,0.9112,True,64,20,16,0.9219,0.9249,"[0.9219, 0.9249]",True,
+CRF-INDEP,0.9234,0.8924,0.9076,0.9234,0.8924,0.9076,True,64,20,16,NOT_IMPLEMENTED,NOT_IMPLEMENTED,NOT_IMPLEMENTED,True,scorer returns 0.0/0.0 because every sample is khong_ro; not a result
+PHOBERT-CRF,0.9843,0.9843,0.9843,0.9843,0.9843,0.9843,True,64,20,16,NOT_IMPLEMENTED,NOT_IMPLEMENTED,NOT_IMPLEMENTED,True,scorer returns 0.0/0.0 because every sample is khong_ro; not a result
+PROPOSED-DYN,0.9821,0.9821,0.9821,0.9821,0.9821,0.9821,True,64,20,16,0.7188,0.5626,"[0.7188, 0.5626]",True,
+PROPOSED-NO-CONSTRAINT,0.9843,0.9843,0.9843,0.9843,0.9843,0.9843,True,64,20,16,0.7188,0.5626,"[0.7188, 0.5626]",True,
