@@ -1,0 +1,967 @@
+\documentclass[aspectratio=169, 9pt]{beamer}
+
+% ==============================================================================
+% HCMUT BEAMER PREAMBLE - SPRINT 3 REVIEW & SPRINT 4 PLAN (16:9 ACADEMIC)
+% ==============================================================================
+\usepackage{fontspec}
+\setsansfont{Montserrat}[
+  Path = ./fonts/ ,
+  Extension = .ttf ,
+  UprightFont = *-Regular ,
+  BoldFont = *-Bold ,
+  ItalicFont = *-Italic ,
+  BoldItalicFont = *-BoldItalic ,
+  Ligatures = TeX
+]
+\newfontfamily\titlefont{OpenSans}[
+  Path = ./fonts/ ,
+  Extension = .ttf ,
+  UprightFont = *-Regular ,
+  BoldFont = *-Bold ,
+  ItalicFont = *-Italic ,
+  BoldItalicFont = *-BoldItalic ,
+  Ligatures = TeX
+]
+
+\usepackage{xcolor}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{colortbl}
+\usepackage{amsmath,amssymb}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows.meta,positioning,calc,fit}
+
+% Color Palette - Authentic HCMUT Deep Navy
+\definecolor{bkblue}{RGB}{11, 59, 96}         % #0B3B60 Deep Navy Banner
+\definecolor{bkdarkblue}{RGB}{7, 40, 68}      % #072844 Darker Navy Footline
+\definecolor{bkgray}{RGB}{120, 130, 140}      % Muted Gray for Secondary Info
+\definecolor{tableheader}{RGB}{235, 243, 250}  % Light Blue Header
+\definecolor{alertred}{RGB}{180, 40, 40}       % Academic Alert Red
+\definecolor{accentgreen}{RGB}{20, 120, 60}    % Academic Verified Green
+
+% Itemize Settings
+\setbeamertemplate{navigation symbols}{}
+\setbeamercolor{normal text}{fg=black,bg=white}
+\setbeamerfont{normal text}{size=\fontsize{9pt}{11.5pt}\selectfont}
+\setbeamercolor{structure}{fg=bkblue}
+\setbeamertemplate{itemize item}{\scriptsize\raisebox{0.15ex}{$\bullet$}}
+\setbeamertemplate{itemize subitem}{\scriptsize\raisebox{0.15ex}{$\circ$}}
+\setbeamercolor{itemize item}{fg=black}
+\setbeamercolor{itemize subitem}{fg=black}
+
+% Background template
+\usebackgroundtemplate{%
+  \includegraphics[width=\paperwidth,height=\paperheight]{assets/bg_template.jpg}%
+}
+
+% Frametitle Template: Deep Navy Banner with Open Sans Regular 14.3pt (Unbolded)
+\setbeamercolor{frametitle}{bg=bkblue,fg=white}
+\setbeamertemplate{frametitle}{%
+  \nointerlineskip%
+  \begin{beamercolorbox}[wd=\paperwidth,ht=4.2ex,dp=1.5ex,leftskip=1ex]{frametitle}%
+    \hspace{0.5cm}{\titlefont\fontsize{14.3pt}{17pt}\selectfont\color{white}\insertframetitle}%
+  \end{beamercolorbox}%
+}
+
+% Footline Template: Montserrat Regular 6pt (Unbolded), 3 columns + BK logo space
+\setbeamertemplate{footline}{%
+  \leavevmode%
+  \hbox{%
+    \begin{beamercolorbox}[wd=.35\paperwidth,ht=2.1ex,dp=0.8ex,center]{author in head/foot}%
+      \color{white}\fontsize{6pt}{7.5pt}\selectfont Nguyễn Quang Tùng, Nguyễn Quang Huy (HCMUT)
+    \end{beamercolorbox}%
+    \begin{beamercolorbox}[wd=.35\paperwidth,ht=2.1ex,dp=0.8ex,center]{title in head/foot}%
+      \color{white}\fontsize{6pt}{7.5pt}\selectfont Tổng kết Sprint 3 \& Kế hoạch Sprint 4
+    \end{beamercolorbox}%
+    \begin{beamercolorbox}[wd=.30\paperwidth,ht=2.1ex,dp=0.8ex,right]{date in head/foot}%
+      \color{white}\fontsize{6pt}{7.5pt}\selectfont 06/10/2026 \hspace*{1.2em}
+      \insertframenumber{} / \inserttotalframenumber \hspace*{3.8em}
+    \end{beamercolorbox}%
+  }%
+  \vskip0pt%
+}
+\setbeamercolor{author in head/foot}{bg=bkdarkblue,fg=white}
+\setbeamercolor{title in head/foot}{bg=bkblue,fg=white}
+\setbeamercolor{date in head/foot}{bg=bkdarkblue,fg=white}
+
+\begin{document}
+
+% ==============================================================================
+% SLIDE 01: TITLE SLIDE (HCMUT OFFICIAL COVER TEMPLATE)
+% ==============================================================================
+{
+\usebackgroundtemplate{%
+  \includegraphics[width=\paperwidth,height=\paperheight]{assets/bg_title.jpg}%
+}
+\setbeamertemplate{footline}{}
+\begin{frame}[plain]
+  \vspace{-0.1cm}
+  \begin{columns}
+    \begin{column}{0.8\textwidth}
+      \fontsize{7.5pt}{9.5pt}\selectfont\textbf{\color{bkblue} ĐẠI HỌC QUỐC GIA THÀNH PHỐ HỒ CHÍ MINH\\TRƯỜNG ĐẠI HỌC BÁCH KHOA --- KHOA KH\&KT MÁY TÍNH}
+    \end{column}
+    \begin{column}{0.2\textwidth}
+      \raggedleft \includegraphics[height=0.8cm]{assets/bk_logo.png}
+    \end{column}
+  \end{columns}
+
+  \vspace{0.45cm}
+  \begin{center}
+    {\titlefont\fontsize{13.5pt}{17pt}\selectfont\color{bkblue} Chuẩn hóa và Phân giải Địa chỉ Tiếng Việt qua\\Thay đổi Địa giới Hành chính 2025}\\[0.15cm]
+    {\fontsize{8pt}{10.5pt}\selectfont\color{bkdarkblue}\textit{Vietnamese Address Parsing and Resolution across an Administrative Temporal Boundary}}\\[0.25cm]
+    {\fontsize{9.5pt}{12pt}\selectfont\textbf{Báo cáo Tổng kết Sprint 3 \& Kế hoạch Thực hiện Sprint 4}}\\[0.4cm]
+    {\fontsize{8pt}{10.5pt}\selectfont
+    \textbf{Giảng viên hướng dẫn:} Quản Thành Thơ\\[0.18cm]
+    \textbf{Sinh viên thực hiện:}\\[0.05cm]
+    Nguyễn Quang Tùng --- 2313817\hspace{1.2cm}Nguyễn Quang Huy --- 2311202\\[0.35cm]
+    \textbf{Thành phố Hồ Chí Minh, 05/10/2026}
+    }
+  \end{center}
+
+  \vspace{0.2cm}
+  \begin{center}
+    \tiny\textbf{\color{bkblue} ĐẠI HỌC QUỐC GIA THÀNH PHỐ HỒ CHÍ MINH \hspace{0.5cm} TRƯỜNG ĐẠI HỌC BÁCH KHOA}
+  \end{center}
+\end{frame}
+}
+
+% ==============================================================================
+% ==============================================================================
+% SLIDE 02: SPRINT 3 TASK ASSIGNMENT (FIRST CONTENT SLIDE)
+% ==============================================================================
+\begin{frame}{Sprint 3 — Phân công nhiệm vụ hai thành viên}
+  \vspace{-0.15cm}
+  {\fontsize{8pt}{9.5pt}\selectfont\textbf{Đề tài:} Chuẩn hóa và phân giải địa chỉ tiếng Việt qua ranh giới hành chính 2025 \hfill \textbf{Báo cáo:} 05/10/2026}\\[0.1cm]
+  {\fontsize{8.2pt}{10.5pt}\selectfont
+  \begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}X | >{\raggedright\arraybackslash}X}
+    \rowcolor{tableheader}
+    \textbf{Nguyễn Quang Tùng (2313817) --- Dữ liệu \& Tài nguyên} & \textbf{Nguyễn Quang Huy (2311202) --- Mô hình \& Thực nghiệm} \\
+    \midrule
+    $\bullet$ \textbf{Guideline 11 nhãn:} Chuẩn hóa schema $s3\text{-}span\text{-}v1.1$, dựng Label Studio. &
+    $\bullet$ \textbf{Giao thức Đánh giá:} Khóa ma trận mô hình, kiểm toán manifest, tách độc lập T0/T1. \\
+    \addlinespace[3pt]
+    $\bullet$ \textbf{Gán nhãn \& QA:} Điều phối AI-assisted, kiểm tra offset và phán quyết 100\% test gold. &
+    $\bullet$ \textbf{Alignment \& BIO:} Thiết kế Tone Relocation (300/300 round-trip), mã hóa BIO23. \\
+    \addlinespace[3pt]
+    $\bullet$ \textbf{Phân chia Corpus:} Chia group-disjoint, kiểm soát rò rỉ và mask ngoại lệ T1. &
+    $\bullet$ \textbf{Baseline nhẹ:} Tối ưu ngưỡng HEUR-JW (0.86), huấn luyện CRF-INDEP (8 cấu hình). \\
+    \addlinespace[3pt]
+    $\bullet$ \textbf{Gazetteer Thời gian:} Xây dựng dual-snapshot v4, xác minh 11.962 mã NSO. &
+    $\bullet$ \textbf{Pipeline Học sâu:} Preflight GPU T4, huấn luyện PhoBERT-CRF \& PROPOSED-DYN. \\
+    \addlinespace[3pt]
+    $\bullet$ \textbf{Phát hành Corpus:} Phát hành $corpus\_v1\_release2$ (400 mẫu, 1.787 span T0). &
+    $\bullet$ \textbf{Đánh giá \& Tái lập:} Niêm phong dự đoán, paired ablation, audit 2.352 mã băm. \\
+    \bottomrule
+  \end{tabularx}
+  }
+  \vspace{0.15cm}
+  {\fontsize{7.5pt}{9.5pt}\selectfont
+  $\bullet$ \textbf{Cơ chế phối hợp chung:} Cùng rà soát rò rỉ dữ liệu, kiểm tra mask T1, đối chiếu support nhãn và nghiệm thu báo cáo.\\[1.5pt]
+  $\bullet$ \textit{\color{gray} Ghi chú: Phân công nhiệm vụ thực tế theo các mốc nghiệm thu kỹ thuật và cam kết đóng góp của nhóm.}
+  }
+\end{frame}
+
+% ==============================================================================
+% SLIDE 03: EXECUTIVE OVERVIEW (3 CORE PILLARS)
+% ==============================================================================
+\begin{frame}{Tổng quan kết quả Sprint 3: Ba trụ cột cốt lõi}
+  \vspace{-0.15cm}
+  \begin{columns}[T]
+    \begin{column}{0.32\textwidth}
+      \begin{beamercolorbox}[wd=\textwidth,rounded=true,shadow=false]{postit}
+        \textbf{\color{bkblue}1. Corpus phát hành}
+      \end{beamercolorbox}
+      \vspace{0.05cm}
+      {\fontsize{7.3pt}{9.2pt}\selectfont
+      \begin{itemize}
+        \setlength{\itemsep}{2pt}
+        \item \textbf{Phát hành $corpus\_v1\_release2$:} 400 mẫu địa chỉ, 1.787 spans T0.
+        \item \textbf{Phân chia Group-disjoint:} 240 Train / 60 Dev / 100 Test; 138 cặp gần trùng thẩm định distinct.
+        \item \textbf{Gazetteer NSO chính thức:} 11.962 mã đơn vị hành chính (8.607 cũ, 3.355 mới verified).
+        \item \textbf{Toàn vẹn dữ liệu:} Bảo toàn 2.352 mã băm SHA-256 artifact.
+      \end{itemize}
+      }
+    \end{column}
+    \begin{column}{0.32\textwidth}
+      \begin{beamercolorbox}[wd=\textwidth,rounded=true,shadow=false]{postit}
+        \textbf{\color{bkblue}2. Đột phá mô hình T0}
+      \end{beamercolorbox}
+      \vspace{0.05cm}
+      {\fontsize{7.3pt}{9.2pt}\selectfont
+      \begin{itemize}
+        \setlength{\itemsep}{2pt}
+        \item \textbf{Baseline nhẹ:} HEUR-JW đạt 91.12\%, CRF-INDEP đạt 90.76\% Test F1.
+        \item \textbf{Dẫn đầu thực nghiệm:} PhoBERT-CRF đạt \textbf{98.43\% Test F1} (cao nhất trong các mô hình).
+        \item \textbf{Mô hình đề xuất PROPOSED-DYN:} Đạt \textbf{98.21\% Test F1} (Dev F1 94.74\%).
+        \item \textbf{Exact-span Matching:} Khớp chính xác cả nhãn và ranh giới.
+      \end{itemize}
+      }
+    \end{column}
+    \begin{column}{0.32\textwidth}
+      \begin{beamercolorbox}[wd=\textwidth,rounded=true,shadow=false]{postit}
+        \textbf{\color{alertred}3. Giới hạn khoa học}
+      \end{beamercolorbox}
+      \vspace{0.05cm}
+      {\fontsize{7.3pt}{9.2pt}\selectfont
+      \begin{itemize}
+        \setlength{\itemsep}{2pt}
+        \item \textbf{Thách thức hệ T1:} Neural thất bại ở lớp \texttt{Lai} (F1 = 0\%); 12/64 mẫu bị abstain.
+        \item \textbf{Giới hạn kiểm chứng:} 4 nhãn zero-support trên Test (\texttt{NOT\_EVALUABLE}); IAA: \texttt{NOT\_MEASURED}; T2: \texttt{NOT\_EXECUTED}.
+        \item \textbf{Negative Finding:} Constraint giảm 0.22\% F1, không ưu thế.
+        \item \textbf{Blocker bản quyền:} Deepparse \texttt{NOT\_EXECUTED}.
+      \end{itemize}
+      }
+    \end{column}
+  \end{columns}
+  \vspace{0.12cm}
+  \begin{center}
+    {\fontsize{7.2pt}{9pt}\selectfont\textit{\color{bkblue} $\to$ Chuyển dịch thành công trọng tâm nghiên cứu sang tách span 11 nhãn và phân giải hệ thời gian qua mốc 01/07/2025.}}
+  \end{center}
+\end{frame}
+
+% ==============================================================================
+% SLIDE 04: PROBLEM, SCHEMA & CORPUS RELEASE
+% ==============================================================================
+\begin{frame}{Bài toán nghiên cứu, Schema và Corpus phát hành}
+  \vspace{-0.15cm}
+  {\fontsize{8.2pt}{10.5pt}\selectfont
+  \begin{columns}[T]
+    \begin{column}{0.48\textwidth}
+      \textbf{Hai nhiệm vụ cốt lõi \& Schema nhãn:}
+      \begin{itemize}
+        \setlength{\itemsep}{3pt}
+        \item \textbf{Nhiệm vụ T0 (Trích xuất Span):} Schema 11 nhãn:
+        \begin{itemize}
+          \setlength{\itemsep}{1.5pt}
+          \item \textit{Hành chính:} \texttt{TinhThanh}, \texttt{QuanHuyen} (chỉ hệ cũ), \texttt{PhuongXa}.
+          \item \textit{Chi tiết:} \texttt{SoNha}, \texttt{TenDuong}, \texttt{Ngo/Hem}, \texttt{ToaNha/CanHo}, \texttt{MocDinhVi}, \texttt{HuongDi}, \texttt{GhiChu}, \texttt{Khac}.
+        \end{itemize}
+        \item \textbf{Nhiệm vụ T1 (Phân loại hệ thời gian):} 3 lớp: \texttt{cu} (trước 01/07/2025), \texttt{moi} (sau 01/07/2025), \texttt{Lai} (trộn lẫn cả 2 hệ).
+        \item \textit{Chi tiết định nghĩa 11 nhãn tại phần tài liệu tham chiếu.}
+      \end{itemize}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \textbf{Corpus phát hành ($corpus\_v1\_release2$):}
+      \begin{itemize}
+        \setlength{\itemsep}{3pt}
+        \item \textbf{Quy mô:} 400 mẫu hoàn chỉnh, 1.787 spans T0.
+        \item \textbf{Phân chia tập (Split):} \textbf{240 Train / 60 Dev / 100 Test}.
+        \item \textbf{Nguồn gốc dữ liệu:}
+        \begin{itemize}
+          \setlength{\itemsep}{1.5pt}
+          \item \textit{Train/Dev (300 mẫu):} 87 observed, 81 derived, 132 synthetic.
+          \item \textit{Test (100 mẫu):} Provenance chưa xác minh đầy đủ khi tổng hợp.
+          \item \textit{Viet-Receipt-VQA:} Giữ trạng thái \textbf{HOLD} (không đưa vào corpus do thiếu ground truth tin cậy).
+        \end{itemize}
+        \item \textbf{Kiểm toán phân chia:} Phân rã group-disjoint theo registered site key; 138 cặp gần trùng thẩm định distinct (chưa đủ cơ sở khẳng định độc lập địa lý hoàn toàn).
+      \end{itemize}
+    \end{column}
+  \end{columns}
+  }
+\end{frame}
+
+% ==============================================================================
+% SLIDE 05: DATA STANDARDIZATION & ANNOTATION QA
+% ==============================================================================
+\begin{frame}{Chuẩn hóa dữ liệu: Gán nhãn, Rò rỉ và Ngoại lệ T1}
+  \vspace{-0.15cm}
+  {\fontsize{8.2pt}{10.5pt}\selectfont
+  \begin{columns}[T]
+    \begin{column}{0.48\textwidth}
+      \textbf{Quy trình gán nhãn Gold \& Kiểm soát rò rỉ:}
+      \begin{itemize}
+        \setlength{\itemsep}{3pt}
+        \item \textbf{Kiểm toán rò rỉ gần trùng:}
+        \begin{itemize}
+          \setlength{\itemsep}{1.5pt}
+          \item Quét \textbf{138 cặp chuỗi gần trùng} (SequenceMatcher) giữa các tập Train, Dev và Test.
+          \item Chuyên gia thẩm định xác nhận distinct: Các cặp tương đồng về template nhưng khác biệt về số nhà/tên đường.
+        \end{itemize}
+        \item \textbf{Phạm vi kiểm toán:} Bảo đảm group-disjoint trên key đăng ký, tránh khẳng định đã loại trừ rò rỉ địa lý.
+      \end{itemize}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \textbf{Quản lý ngoại lệ T1 \& Bảo toàn Test T0:}
+      \begin{itemize}
+        \setlength{\itemsep}{3pt}
+        \item \textbf{Phân loại 100 mẫu Test T1:}
+        \begin{itemize}
+          \setlength{\itemsep}{1.5pt}
+          \item \textbf{64 mẫu eligible:} Đủ chứng cứ hành chính rõ ràng để đánh giá khách quan.
+          \item \textbf{20 mẫu null:} Không đủ dữ liệu phân giải thời gian.
+          \item \textbf{16 mẫu excluded:} Mâu thuẫn ranh giới/nhiễu.
+        \end{itemize}
+        \item \textbf{Chỉ đánh giá T1 trên 64 mẫu eligible} nhằm bảo đảm tính khoa học của bài toán thời gian.
+        \item \textbf{Bảo toàn tuyệt đối Test T0:} Mask T1 độc lập hoàn toàn với T0; \textbf{giữ trọn vẹn 100\% (446 spans) Test T0}.
+      \end{itemize}
+    \end{column}
+  \end{columns}
+  }
+\end{frame}
+
+% ==============================================================================
+% SLIDE 06: TEMPORAL GAZETTEER & NSO LOOKUP
+% ==============================================================================
+\begin{frame}{Gazetteer thời gian: Dual-snapshot và xác minh NSO}
+  \vspace{-0.15cm}
+  {\fontsize{8.2pt}{10.5pt}\selectfont
+  \begin{columns}[T]
+    \begin{column}{0.5\textwidth}
+      \textbf{Quy mô Gazetteer (\texttt{s3\_v4\_nso\_dual\_snapshot}):}
+      \begin{itemize}
+        \setlength{\itemsep}{2.5pt}
+        \item 14.149 entity, 10.597 cạnh nguyên tử, 187 alias kiểm chứng.
+        \item \textbf{Xác minh mã NSO chính thức (Tổng cục Thống kê):}
+        \begin{itemize}
+          \setlength{\itemsep}{1.5pt}
+          \item \textbf{8.607 mã cũ verified} tại mốc 30/06/2025 (62 tỉnh, 561 huyện, 7.984 xã).
+          \item \textbf{3.355 mã mới verified} tại mốc 01/07/2025 (34 tỉnh, 3.321 xã).
+        \end{itemize}
+        \item 2.187 mã cũ chưa đủ dữ liệu đối chiếu được đưa vào queue riêng (\texttt{unresolved}), không gán nhãn tùy tiện.
+      \end{itemize}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \textbf{Cơ chế tra cứu thời gian \& Giới hạn:}
+      \begin{itemize}
+        \setlength{\itemsep}{2.5pt}
+        \item \textbf{Tra cứu 2 mốc Snapshot:} Tra cứu chính xác theo 2 mốc 30/06 và 01/07/2025; ngày ngoài mốc trả \texttt{OUT\_OF\_SNAPSHOT\_SCOPE}.
+        \item \textbf{Bảo toàn quan hệ đa trị:} Giữ nguyên 471 khóa cũ có nhiều đích ($1\text{-}N / M\text{-}N$), không ép về quan hệ 1-1.
+        \item \textbf{Giới hạn hiện tại (\color{alertred}\texttt{PARTIAL}\color{black}):} Điều khoản tái phân phối một số nguồn chưa được xác minh đầy đủ (terms gap); chưa tích hợp đa giác hình học; bài toán T2 chưa thực thi (\texttt{NOT\_EXECUTED}).
+      \end{itemize}
+    \end{column}
+  \end{columns}
+  }
+\end{frame}
+
+% ==============================================================================
+% SLIDE 07: MODEL MATRIX & COMPARATIVE SCOPE
+% ==============================================================================
+\begin{frame}{Ma trận mô hình: Thực nghiệm và Giới hạn bản quyền}
+  \vspace{-0.15cm}
+  \begin{center}
+  \resizebox{0.96\textwidth}{!}{%
+  \begin{tabular}{llccll}
+    \toprule
+    \rowcolor{tableheader}
+    \textbf{Mô hình / Phương pháp} & \textbf{Kiến trúc nền tảng} & \textbf{T0 (11 nhãn)} & \textbf{T1 (3 hệ)} & \textbf{Trạng thái thực nghiệm} & \textbf{Đặc trưng kỹ thuật} \\
+    \midrule
+    \textbf{HEUR-JW} & Rule-based + Gazetteer & 6/11 nhãn & Có & \textbf{Đã hoàn thành} & Ngưỡng Jaro-Winkler 0.86 \\
+    \addlinespace[1.5pt]
+    \textbf{CRF-INDEP} & Linear-chain CRF & 11 nhãn & Không & \textbf{Đã hoàn thành} & BIO23, feature engineering \\
+    \addlinespace[1.5pt]
+    \textbf{PHOBERT-CRF} & PhoBERT-base + CRF & 11 nhãn & Không & \textbf{Đã hoàn thành} & Pretrained Transformer cao nhất \\
+    \addlinespace[1.5pt]
+    \textbf{PROPOSED-DYN} & PhoBERT + Multi-task & 11 nhãn & Có & \textbf{Đã hoàn thành} & Dynamic Decoding + Mask \\
+    \addlinespace[1.5pt]
+    \textit{DP-ZS / DP-FT} & \textit{Deepparse (FastText)} & \textit{Dự kiến} & \textit{Không} & \color{alertred}\textbf{NOT\_EXECUTED} & \textit{Thiếu bản quyền trọng số} \\
+    \bottomrule
+  \end{tabular}
+  }%
+  \end{center}
+  \vspace{0.15cm}
+  {\fontsize{8.5pt}{11pt}\selectfont
+  \textbf{Phân định phạm vi học thuật và nguyên tắc thực nghiệm:}
+  \begin{itemize}
+    \setlength{\itemsep}{2.5pt}
+    \item \textbf{4 mô hình đã chạy thực nghiệm đầy đủ:} Bao quát từ Heuristic luật kết hợp Gazetteer, CRF thống kê truyền thống đến Pretrained Transformer tiếng Việt.
+    \item \textbf{Deepparse chưa chạy (\texttt{NOT\_EXECUTED}):} Checkpoint FastText upstream chưa công bố điều khoản bản quyền rõ ràng; mã nguồn mở nhưng trọng số thiếu tuyên bố tái phân phối. Nhóm giữ thái độ trung thực khoa học, không dùng trọng số chưa rõ bản quyền hay tự tạo số liệu giả.
+    \item \textit{Chi tiết quét lưới tham số của HEUR-JW và CRF được trình bày ở phần tài liệu tham chiếu.}
+  \end{itemize}
+  }
+\end{frame}
+
+% ==============================================================================
+% SLIDE 08: PROPOSED METHOD: TONE RELOCATION & MULTI-TASK ARCHITECTURE
+% ==============================================================================
+\begin{frame}{Phương pháp: Chuẩn hóa Tone Relocation \& Kiến trúc Đa nhiệm}
+  \vspace{-0.15cm}
+  \begin{columns}[T]
+    \begin{column}{0.48\textwidth}
+      \textbf{Bảo toàn Offset qua Chuẩn hóa Dấu (Tone Relocation):}
+      \begin{itemize}
+        \setlength{\itemsep}{2.5pt}
+        \item \textbf{Vấn đề:} Tiếng Việt tồn tại bất nhất quy tắc bỏ dấu cũ/mới (ví dụ: \textit{hoà/hòa}, \textit{thuỷ/thủy}). Chuẩn hóa chuỗi thông thường làm dịch chuyển chỉ số ký tự $[start, end]$ của nhãn vàng ban đầu.
+        \item \textbf{Giải pháp Tone Relocation v2:} Ánh xạ ký tự bảo toàn vị trí, đạt \textbf{300/300 mẫu exact round-trip} (1.341 spans khớp 100\% ký tự gốc). Span trích xuất luôn map ngược chuẩn xác về văn bản gốc.
+      \end{itemize}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \textbf{Kiến trúc Mô hình Đa nhiệm \& Dynamic Constraint:}
+      \begin{itemize}
+        \setlength{\itemsep}{2.5pt}
+        \item \textbf{Encoder dùng chung:} PhoBERT-base trích xuất biểu diễn ngữ cảnh tiếng Việt sâu sắc cấp word/subword.
+        \item \textbf{Head T0 (BIO23):} Lớp chiếu tuyến tính kết hợp CRF giải mã toàn cục chuỗi nhãn 11 thực thể địa chỉ.
+        \item \textbf{Head T1 (Hệ thời gian):} Phân loại 3 lớp ($cu/moi/Lai$) kèm cơ chế Dynamic Constraint logic hành chính (mặt nạ phân tầng kiểm soát Quận/Huyện theo hệ thời gian).
+      \end{itemize}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+% ==============================================================================
+% SLIDE 09: EXPERIMENTAL PROTOCOL & PREDICTION FREEZE
+% ==============================================================================
+\begin{frame}{Thực nghiệm: Lựa chọn bằng Dev \& Đóng băng Dự đoán}
+  \vspace{-0.15cm}
+  \begin{columns}[T]
+    \begin{column}{0.48\textwidth}
+      \textbf{Huấn luyện Kaggle GPU \& Chọn bằng Dev:}
+      \begin{itemize}
+        \setlength{\itemsep}{2.5pt}
+        \item \textbf{Hạ tầng:} Huấn luyện trên Kaggle GPU (2x Tesla T4), kiểm soát seed cố định (seed 42), tách biệt môi trường.
+        \item \textbf{Nguyên tắc chọn checkpoint trên tập Dev:}
+        \begin{itemize}
+          \setlength{\itemsep}{1.5pt}
+          \item PhoBERT-CRF: Cấu hình c01 đạt 93.33\%, c02 đạt \textbf{93.89\% Dev F1} $\to$ Chọn c02.
+          \item PROPOSED-DYN: Cấu hình c01 đạt 93.33\%, c02 đạt \textbf{94.74\% Dev F1} $\to$ Chọn c02.
+        \end{itemize}
+        \item Toàn bộ siêu tham số được chốt cố định trước khi tiếp cận tập Test; tuyệt đối không điều chỉnh dựa trên test.
+      \end{itemize}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \textbf{Quy trình Đóng băng Dự đoán (Prediction Freeze):}
+      \begin{itemize}
+        \setlength{\itemsep}{2.5pt}
+        \item \textbf{Đóng băng trước khi mở Gold:} Toàn bộ file dự đoán (prediction CSV) của các mô hình trên tập Test được sinh ra và niêm phong mã băm \textbf{trước khi nạp nhãn test gold}.
+        \item \textbf{Chống rò rỉ học thuật:} Tách rời hoàn toàn file dự đoán và nhãn đáp án; bộ chấm điểm (scorer) chạy độc lập sau khi đóng băng.
+        \item \textit{Chi tiết 2.352 mã băm SHA-256 bất biến và thông số phần cứng được lưu trữ trong phần tài liệu tham chiếu.}
+      \end{itemize}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+% ==============================================================================
+% SLIDE 10: T0 OVERALL RESULTS & SUPPORT WARNING
+% ==============================================================================
+\begin{frame}{Kết quả T0 toàn schema và Cảnh báo Support nhãn}
+  \vspace{-0.15cm}
+  \begin{center}
+  \resizebox{0.96\textwidth}{!}{%
+  \begin{tabular}{lrrcl}
+    \toprule
+    \rowcolor{tableheader}
+    \textbf{Mô hình thử nghiệm} & \textbf{Dev F1} & \textbf{Test Micro F1} & \textbf{TP / FP / FN} & \textbf{Đặc trưng / Xếp hạng} \\
+    \midrule
+    HEUR-JW & 88.01\% & \textbf{91.12\%} & 390 / 20 / 56 & Heuristic baseline tra cứu \\
+    \addlinespace[1.5pt]
+    CRF-INDEP & 90.56\% & \textbf{90.76\%} & 398 / 33 / 48 & CRF thống kê có huấn luyện \\
+    \addlinespace[1.5pt]
+    PHOBERT-CRF & 93.89\% & \textbf{98.43\%} & 439 / 7 / 7 & \textbf{Cao nhất trong thực nghiệm} (+7.67\% F1) \\
+    \addlinespace[1.5pt]
+    PROPOSED-DYN & 94.74\% & \textbf{98.21\%} & 438 / 8 / 8 & Đa nhiệm dynamic decoding \\
+    \bottomrule
+  \end{tabular}
+  }%
+  \end{center}
+  \vspace{0.08cm}
+  {\fontsize{8.5pt}{10.8pt}\selectfont
+  \begin{columns}[T]
+    \begin{column}{0.48\textwidth}
+      \textbf{Quan sát từ kết quả thực nghiệm:}
+      \begin{itemize}
+        \setlength{\itemsep}{2.5pt}
+        \item \textbf{Ưu thế Pretrained Encoder:} PhoBERT-CRF dẫn đầu kết quả (+7.67\% F1 so với CRF), khẳng định sức mạnh mô hình ngữ cảnh.
+        \item \textbf{Kỷ luật chọn mô hình:} DYN có Dev F1 cao hơn (+0.85\%) nhưng Test F1 thấp hơn (-0.22\%); nhóm giữ nguyên lựa chọn từ Dev và không chọn lại mô hình từ test.
+      \end{itemize}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \textbf{Cảnh báo khoa học về Support nhãn:}
+      \begin{itemize}
+        \setlength{\itemsep}{2.5pt}
+        \item \textbf{Tập trung support:} 5 nhãn phổ biến chiếm \textbf{431/446 (96.64\%)} tổng support test; Micro F1 phản ánh chính nhóm này.
+        \item \textbf{4 nhãn zero-support trên Test} (\texttt{ToaNha}, \texttt{MocDinhVi}, \texttt{HuongDi}, \texttt{GhiChu}) là \textbf{\color{alertred}NOT\_EVALUABLE}; nhãn \texttt{Khac} có 2 mẫu (F1 = 0\%). Không kết luận mô hình đã giải quyết toàn bộ 11 nhãn.
+      \end{itemize}
+    \end{column}
+  \end{columns}
+  }
+  \vspace{0.05cm}
+  \begin{center}
+    {\fontsize{7.2pt}{9pt}\selectfont\textit{\color{gray} $\to$ Bảng F1, Precision, Recall và Macro F1 chi tiết từng nhãn được trình bày tại Slide 17.}}
+  \end{center}
+\end{frame}
+
+% ==============================================================================
+% SLIDE 11: T1 EVALUATION & LAI CLASS BOTTLENECK
+% ==============================================================================
+\begin{frame}{Đánh giá phân loại hệ T1: Thách thức nhận diện lớp Lai}
+  \vspace{-0.15cm}
+  {\fontsize{8.5pt}{10.8pt}\selectfont
+  \begin{columns}[T]
+    \begin{column}{0.48\textwidth}
+      \textbf{So sánh chỉ số T1 then chốt (64 mẫu eligible):}
+      \vspace{0.1cm}
+      \begin{center}
+      \resizebox{\columnwidth}{!}{%
+      \begin{tabular}{lrr}
+        \toprule
+        \rowcolor{tableheader}
+        \textbf{Chỉ số đánh giá T1} & \textbf{HEUR-JW} & \textbf{PROPOSED-DYN} \\
+        \midrule
+        \textbf{Overall Accuracy} & \textbf{92.19\%} (59/64) & 71.88\% (46/64) \\
+        \addlinespace[2pt]
+        \textbf{Macro F1 (3 lớp)} & \textbf{92.49\%} & 56.26\% \\
+        \addlinespace[2pt]
+        \textbf{F1 lớp \texttt{Lai} (Support 5)} & \textbf{90.91\%} & \color{alertred}\textbf{0.00\%} \\
+        \addlinespace[2pt]
+        \textbf{Số mẫu Abstain (Từ chối)} & 3 / 64 & \color{alertred}\textbf{12 / 64} (18.75\%) \\
+        \addlinespace[2pt]
+        Coverage (Tỷ lệ chấp nhận) & 95.31\% & 81.25\% \\
+        \bottomrule
+      \end{tabular}
+      }%
+      \end{center}
+      \vspace{0.1cm}
+      $\bullet$ \textit{CRF và PhoBERT-CRF: \texttt{NOT\_IMPLEMENTED} (chưa có head T1).}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \textbf{Phân tích điểm nghẽn của mô hình DYN:}
+      \begin{itemize}
+        \setlength{\itemsep}{3pt}
+        \item \textbf{Thất bại hoàn toàn ở lớp \texttt{Lai}:} F1 đạt \textbf{0.00\%} (4/5 mẫu nhầm sang \texttt{cu}, 1 mẫu abstain); trên dev F1 cũng bằng 0\%. Mô hình chưa nhận diện được địa chỉ lai tạo.
+        \item \textbf{Tách biệt bài toán T0 vs T1:} T0 đạt F1 cao ($\approx 98.2\%$) không đồng nghĩa T1 tốt; head T1 đòi hỏi đồ thị tri thức hành chính thay vì chỉ phân đoạn chuỗi.
+        \item \textbf{Tỷ lệ từ chối cao:} 12/64 mẫu bị abstain do dưới ngưỡng tin cậy.
+        \item \textit{Ma trận nhầm lẫn chi tiết được trình bày tại Slide 18.}
+      \end{itemize}
+    \end{column}
+  \end{columns}
+  }
+\end{frame}
+
+% ==============================================================================
+% SLIDE 12: PAIRED ABLATION STUDY
+% ==============================================================================
+\begin{frame}{Paired Ablation: Đánh giá vai trò của Dynamic Constraint}
+  \vspace{-0.15cm}
+  \begin{columns}[T]
+    \begin{column}{0.48\textwidth}
+      \textbf{Thiết lập thực nghiệm ghép cặp (Paired Setup):}
+      \begin{itemize}
+        \setlength{\itemsep}{2.5pt}
+        \item So sánh trực tiếp giữa \textbf{PROPOSED-DYN} (Bật constraint) và \textbf{PROPOSED-NO-CONSTRAINT} (Tắt constraint).
+        \item Cả hai dùng \textbf{cùng một checkpoint c02}, cùng calibration dev, cùng processor; chỉ khác biệt duy nhất ở cờ kích hoạt constraint.
+        \item Đánh giá trên cùng 100 mẫu Test holdout.
+      \end{itemize}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \textbf{Kết quả \& Kết luận học thuật cốt lõi:}
+      \begin{itemize}
+        \setlength{\itemsep}{2.5pt}
+        \item \textbf{Kết quả số liệu:}
+        \begin{itemize}
+          \setlength{\itemsep}{1.5pt}
+          \item Bật constraint (DYN): Test F1 = \textbf{98.21\%} (438 TP).
+          \item Tắt constraint: Test F1 = \textbf{98.43\%} (439 TP).
+        \end{itemize}
+        \item \textbf{Kết luận chính:} \textbf{Bật constraint làm giảm 0.22 điểm phần trăm T0 F1}, chỉ thay đổi đúng 1 mẫu (2 span tuples), không cải thiện lỗi ảo giác Quận (0/12 lỗi ở cả 2 biến thể).
+        \item \textbf{Phát hiện phủ định (Negative Finding):} Ràng buộc cấu trúc cứng không mang lại lợi ích thực tế so với khả năng tự điều chỉnh của attention.
+      \end{itemize}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+% ==============================================================================
+% SLIDE 13: REAL ERROR ANALYSIS (2 TYPICAL CASES)
+% ==============================================================================
+\begin{frame}{Phân tích lỗi thực tế: Hai hiện tượng tiêu biểu}
+  \vspace{-0.15cm}
+  \begin{columns}[T]
+    \begin{column}{0.48\textwidth}
+      \begin{beamercolorbox}[wd=\textwidth,rounded=true,shadow=false]{postit}
+        \textbf{\color{bkblue}Trường hợp 1: Ranh giới Tên đường vs Quận}
+      \end{beamercolorbox}
+      \vspace{0.05cm}
+      {\fontsize{7.2pt}{9.2pt}\selectfont
+      \begin{itemize}
+        \setlength{\itemsep}{2pt}
+        \item \textbf{Chuỗi thực tế:} \texttt{"Phố Bà Huyện Thanh Quan "}
+        \item \textbf{Dự đoán mô hình:} Nhận diện chữ \texttt{"Huyện"} là nhãn \texttt{QuanHuyen} thay vì gộp toàn bộ vào \texttt{TenDuong}.
+        \item \textbf{Nguyên nhân:} Chữ "Huyện" trong tên danh nhân kích hoạt đặc trưng hành chính mạnh, lấn át ngữ cảnh tên đường phố.
+        \item \textbf{Hướng xử lý:} Tăng cường từ điển tên đường danh nhân và kiểm soát n-gram cửa sổ rộng.
+      \end{itemize}
+      }
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \begin{beamercolorbox}[wd=\textwidth,rounded=true,shadow=false]{postit}
+        \textbf{\color{bkblue}Trường hợp 2: Thiếu dữ liệu nhãn hiếm}
+      \end{beamercolorbox}
+      \vspace{0.05cm}
+      {\fontsize{7.2pt}{9.2pt}\selectfont
+      \begin{itemize}
+        \setlength{\itemsep}{2pt}
+        \item \textbf{Chuỗi thực tế:} \texttt{"Khu Công Nghệ Cao, Phường Tăng Nhơn Phú, TP. Thủ Đức"}
+        \item \textbf{Dự đoán mô hình:} Gán nhầm chuỗi thành \texttt{TenDuong} hoặc bỏ sót nhãn \texttt{Khac}.
+        \item \textbf{Nguyên nhân:} Tập huấn luyện chỉ có 3 mẫu mang nhãn \texttt{Khac}; mô hình bị thiên lệch ép về các nhãn có support áp đảo.
+        \item \textbf{Hướng xử lý:} Bổ sung dữ liệu có nguồn cho các nhãn hiếm trong Sprint 4.
+      \end{itemize}
+      }
+    \end{column}
+  \end{columns}
+  \vspace{0.2cm}
+  \begin{center}
+    {\fontsize{6.8pt}{8.5pt}\selectfont\textit{\color{gray} $\to$ Bảng tổng hợp chi tiết các ca phân tích lỗi được đưa vào phần tài liệu tham chiếu.}}
+  \end{center}
+\end{frame}
+
+% ==============================================================================
+% SLIDE 14: SPRINT 3 CONCLUSION
+% ==============================================================================
+\begin{frame}{Kết luận tổng kết kỹ thuật Sprint 3}
+  \vspace{-0.1cm}
+  {\fontsize{8.5pt}{11pt}\selectfont
+  \textbf{Những kết quả kỹ thuật then chốt đã hoàn thành:}
+  \begin{itemize}
+    \setlength{\itemsep}{3.5pt}
+    \item \textbf{Benchmark chuẩn hóa ranh giới 2025:} Xây dựng thành công bộ corpus 400 mẫu ($corpus\_v1\_release2$) có nguồn kiểm chứng, phân rã group-disjoint theo khóa đăng ký và kiểm toán 138 cặp gần trùng chặt chẽ.
+    \item \textbf{Hiệu năng T0 dẫn đầu trong các mô hình đánh giá:} Mô hình tiền huấn luyện PhoBERT-CRF đạt \textbf{98.43\% Test F1}, vượt xa các baseline cổ điển (+7.67\% F1 so với CRF độc lập).
+    \item \textbf{Toàn vẹn artifact và liêm chính khoa học:} Toàn bộ dự đoán trên tập test được niêm phong trước khi mở nhãn test gold; bảo toàn 2.352 mã băm SHA-256 artifact bất biến (thực nghiệm hiện tại chạy trên 1 seed cố định).
+  \end{itemize}
+  \vspace{0.12cm}
+  \textbf{Giới hạn phương pháp luận đã ghi nhận:}
+  \begin{itemize}
+    \setlength{\itemsep}{2.5pt}
+    \item Chưa đo độ đồng thuận gán nhãn độc lập (\texttt{IAA: NOT\_MEASURED}).
+    \item Bài toán ánh xạ đơn vị hành chính T2 chưa thực thi (\texttt{T2: NOT\_EXECUTED}).
+    \item 4 nhãn zero-support trên tập Test (\texttt{NOT\_EVALUABLE}); cần mở rộng đánh giá đa seed ở Sprint 4.
+  \end{itemize}
+  }
+\end{frame}
+
+% ==============================================================================
+% PHẦN TÀI LIỆU THAM CHIẾU KỸ THUẬT VÀ DỮ LIỆU CHI TIẾT (SLIDES 15 -- 23)
+% ==============================================================================
+
+% SLIDE 15: DANH MỤC THAM CHIẾU KỸ THUẬT
+\begin{frame}{Danh mục tài liệu tham chiếu kỹ thuật}
+  \vspace{0.2cm}
+  {\fontsize{8pt}{10.5pt}\selectfont
+  \begin{enumerate}[\bfseries 1.]
+    \setlength{\itemsep}{0.2cm}
+    \item Chi tiết định nghĩa và quy tắc gán nhãn Schema 11 nhãn (T0)
+    \item Bảng thống kê F1 và Support chi tiết từng nhãn trên tập Test
+    \item Ma trận nhầm lẫn chi tiết bài toán phân loại hệ T1 (PROPOSED-DYN)
+    \item Lưới siêu tham số tối ưu của các Baseline nhẹ (HEUR-JW \& CRF-INDEP)
+    \item Kiểm toán mã băm SHA-256 bất biến và thông số hạ tầng phần cứng
+    \item Đánh giá trên Track phụ 5 trường truyền thống (4.800 mẫu)
+    \item Bảng tổng hợp các trường hợp lỗi phân tích thực tế
+    \item Khó khăn kỹ thuật hạ tầng và giải pháp khắc phục
+  \end{enumerate}
+  }
+\end{frame}
+
+% SLIDE 16: CHI TIẾT SCHEMA 11 NHÃN ĐỊA CHỈ
+\begin{frame}{Chi tiết Schema 11 nhãn địa chỉ tiếng Việt}
+  \vspace{-0.2cm}
+  {\fontsize{7.2pt}{9pt}\selectfont
+  \begin{tabularx}{\textwidth}{l X}
+    \toprule
+    \rowcolor{tableheader}
+    \textbf{Tên nhãn (Label)} & \textbf{Định nghĩa thực thể và Quy tắc gán nhãn học thuật} \\
+    \midrule
+    \texttt{SoNha} & Số nhà, số thửa, số lô (VD: \textit{123}, \textit{45A}, \textit{Lô B2}). \\
+    \addlinespace[0.6pt]
+    \texttt{TenDuong} & Tên đường, phố, quốc lộ, tỉnh lộ (VD: \textit{Đường Lê Duẩn}, \textit{QL1A}). \\
+    \addlinespace[0.6pt]
+    \texttt{Ngo/Hem} & Ngõ, ngách, hẻm, kiệt; giữ trọn cụm ngõ/hẻm (VD: \textit{Ngõ 12}, \textit{Hẻm 45/6}). \\
+    \addlinespace[0.6pt]
+    \texttt{ToaNha/CanHo} & Chung cư, tòa nhà thương mại, căn hộ (VD: \textit{Tòa Landmark 81}, \textit{Chung cư Sky City}). \\
+    \addlinespace[0.6pt]
+    \texttt{PhuongXa} & Phường, xã, thị trấn cấp cơ sở chuẩn hóa (VD: \textit{Phường Bến Nghé}, \textit{Xã Tân Triều}). \\
+    \addlinespace[0.6pt]
+    \texttt{QuanHuyen} & Quận, huyện, thị xã; \textbf{chỉ thuộc hệ cũ}, không xuất hiện ở hệ mới 2 cấp. \\
+    \addlinespace[0.6pt]
+    \texttt{TinhThanh} & Tỉnh, thành phố trực thuộc trung ương (VD: \textit{TP. Hồ Chí Minh}, \textit{Tỉnh Hà Nam}). \\
+    \addlinespace[0.6pt]
+    \texttt{MocDinhVi} & Điểm mốc định vị lân cận làm tham chiếu (VD: \textit{Đối diện cây xăng}, \textit{Gần cổng chợ}). \\
+    \addlinespace[0.6pt]
+    \texttt{HuongDi} & Mô tả hướng đi, khoảng cách tương đối (VD: \textit{Cách ngã tư 50m}, \textit{Rẽ phải}). \\
+    \addlinespace[0.6pt]
+    \texttt{GhiChu} & Ghi chú bổ sung cho địa chỉ (VD: \textit{Khu tập thể cũ}, \textit{Dãy nhà sau}). \\
+    \addlinespace[0.6pt]
+    \texttt{Khac} & Thành phần ngoài 10 nhãn trên (VD: \textit{Khu Công Nghệ Cao}, \textit{KCN Sóng Thần}). \\
+    \bottomrule
+  \end{tabularx}
+  }
+\end{frame}
+
+% SLIDE 17: BẢNG F1 VÀ SUPPORT TỪNG NHÃN
+\begin{frame}{Bảng F1 và Support chi tiết từng nhãn T0}
+  \vspace{-0.15cm}
+  \begin{center}
+  \resizebox{0.96\textwidth}{!}{%
+  \begin{tabular}{lrrrrrrrl}
+    \toprule
+    \rowcolor{tableheader}
+    \textbf{Tên nhãn (Label)} & \textbf{Train} & \textbf{Dev} & \textbf{Test} & \textbf{HEUR F1} & \textbf{CRF F1} & \textbf{PCRF F1} & \textbf{DYN F1} & \textbf{Đánh giá kiểm chứng} \\
+    \midrule
+    \texttt{SoNha} & 215 & 56 & \textbf{88} & 100.0\% & 97.1\% & \textbf{100.0\%} & \textbf{100.0\%} & Nhận diện hoàn hảo \\
+    \addlinespace[1pt]
+    \texttt{TenDuong} & 221 & 60 & \textbf{99} & 87.1\% & 87.0\% & \textbf{99.5\%} & 99.0\% & Neural đạt $\ge 99\%$ \\
+    \addlinespace[1pt]
+    \texttt{Ngo/Hem} & 24 & 13 & \textbf{13} & 96.3\% & 81.8\% & 96.3\% & \textbf{100.0\%} & DYN nhận diện tuyệt đối \\
+    \addlinespace[1pt]
+    \texttt{PhuongXa} & 227 & 61 & \textbf{89} & 92.4\% & 87.1\% & 97.8\% & \textbf{98.3\%} & DYN dẫn đầu \\
+    \addlinespace[1pt]
+    \texttt{QuanHuyen} & 136 & 37 & \textbf{56} & 87.1\% & 88.5\% & 95.5\% & \textbf{95.6\%} & Chỉ có ở hệ cũ \\
+    \addlinespace[1pt]
+    \texttt{TinhThanh} & 210 & 54 & \textbf{99} & 88.1\% & 95.4\% & \textbf{99.5\%} & 97.9\% & PCRF dẫn đầu \\
+    \addlinespace[1pt]
+    \texttt{Khac} & 3 & 1 & \textbf{2} & 0.0\% & 0.0\% & 0.0\% & 0.0\% & Hiếm (2 mẫu, F1 = 0\%) \\
+    \midrule
+    \texttt{ToaNha/CanHo} & 5 & 0 & \textbf{0} & \multicolumn{4}{c}{\color{alertred}\textbf{NOT\_EVALUABLE}} & Support = 0 trên Test \\
+    \addlinespace[0.8pt]
+    \texttt{MocDinhVi} & 6 & 0 & \textbf{0} & \multicolumn{4}{c}{\color{alertred}\textbf{NOT\_EVALUABLE}} & Support = 0 trên Test \\
+    \addlinespace[0.8pt]
+    \texttt{HuongDi} & 5 & 1 & \textbf{0} & \multicolumn{4}{c}{\color{alertred}\textbf{NOT\_EVALUABLE}} & Support = 0 trên Test \\
+    \addlinespace[0.8pt]
+    \texttt{GhiChu} & 5 & 1 & \textbf{0} & \multicolumn{4}{c}{\color{alertred}\textbf{NOT\_EVALUABLE}} & Support = 0 trên Test \\
+    \midrule
+    \textbf{Tổng số span} & \textbf{1.057} & \textbf{284} & \textbf{446} & \multicolumn{5}{l}{\textbf{5 nhãn phổ biến chiếm 431/446 (96.64\%) tổng support test}} \\
+    \bottomrule
+  \end{tabular}
+  }%
+  \end{center}
+\end{frame}
+
+% SLIDE 18: MA TRẬN NHẦM LẪN CHI TIẾT T1
+\begin{frame}{Ma trận nhầm lẫn chi tiết T1 (PROPOSED-DYN)}
+  \vspace{-0.15cm}
+  \begin{columns}[T]
+    \begin{column}{0.48\textwidth}
+      \textbf{Ma trận nhầm lẫn PROPOSED-DYN:}
+      \begin{center}
+      \resizebox{0.88\columnwidth}{!}{%
+      \begin{tabular}{lrrrr}
+        \toprule
+        \rowcolor{tableheader}
+        \textbf{Gold $\backslash$ Pred} & \textbf{cu} & \textbf{moi} & \textbf{Lai} & \textbf{Abstain} \\
+        \midrule
+        \textbf{cu} (47) & \textbf{36} & 1 & 0 & 10 \\
+        \textbf{moi} (12) & 1 & \textbf{10} & 0 & 1 \\
+        \textbf{Lai} (5) & 4 & 0 & \textbf{0} & 1 \\
+        \bottomrule
+      \end{tabular}
+      }%
+      \end{center}
+      \vspace{0.1cm}
+      {\fontsize{7.2pt}{9pt}\selectfont
+      $\bullet$ 4/5 mẫu nhãn vàng \texttt{Lai} bị nhầm sang \texttt{cu}.\\[2pt]
+      $\bullet$ 10/47 mẫu nhãn vàng \texttt{cu} bị mô hình abstain do độ tin cậy thấp.
+      }
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \textbf{Chi tiết chỉ số theo từng lớp T1:}
+      \begin{center}
+      \resizebox{0.92\columnwidth}{!}{%
+      \begin{tabular}{lrrr}
+        \toprule
+        \rowcolor{tableheader}
+        \textbf{Lớp nhãn} & \textbf{Support} & \textbf{HEUR-JW F1} & \textbf{DYN F1} \\
+        \midrule
+        \texttt{cu} & 47 & 95.65\% & 81.82\% \\
+        \addlinespace[1pt]
+        \texttt{moi} & 12 & 90.91\% & 86.96\% \\
+        \addlinespace[1pt]
+        \texttt{Lai} & 5 & 90.91\% & \color{alertred}\textbf{0.00\%} \\
+        \midrule
+        \textbf{Macro F1} & \textbf{64} & \textbf{92.49\%} & \textbf{56.26\%} \\
+        \bottomrule
+      \end{tabular}
+      }%
+      \end{center}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+% SLIDE 19: CHI TIẾT THAM SỐ CẤU HÌNH BASELINE
+\begin{frame}{Chi tiết tham số cấu hình Baseline (HEUR \& CRF)}
+  \vspace{-0.15cm}
+  \begin{columns}[T]
+    \begin{column}{0.48\textwidth}
+      \textbf{HEUR-JW (Quét lưới 6 ngưỡng trên Dev):}
+      \begin{itemize}
+        \setlength{\itemsep}{2pt}
+        \item Khai thác Gazetteer dual-snapshot v4, tách từ vựng, xếp hạng khoảng cách Jaro-Winkler.
+        \item Lưới ngưỡng thử nghiệm: 0.82, 0.86, 0.90, 0.94, 0.98, 1.00 (margin 0.02).
+        \item \textbf{Điểm tối ưu:} Ngưỡng \textbf{0.86} $\to$ F1 Dev đạt \textbf{88.01\%}.
+        \item Giới hạn: Chỉ hỗ trợ 6/11 nhãn hành chính và đường phố cơ bản.
+      \end{itemize}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \textbf{CRF-INDEP (Lưới 8 cấu hình trên Dev):}
+      \begin{itemize}
+        \setlength{\itemsep}{2pt}
+        \item Linear-chain CRF, không gian nhãn BIO23.
+        \item Đặc trưng thủ công: Token shape, tiền tố hành chính, cửa sổ ngữ cảnh $\pm 1, \pm 2$.
+        \item Lưới tham số: Context $1/2 \times (c_1, c_2) \in \{(0.05, 0.1), (0.1, 0.1), (0.1, 1), (0.5, 1)\}$.
+        \item \textbf{Cấu hình tối ưu:} Context 1, $c_1=0.1, c_2=1$ $\to$ F1 Dev đạt \textbf{90.56\%}.
+      \end{itemize}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+% SLIDE 20: BẰNG CHỨNG TÁI LẬP & KIỂM TOÁN SHA-256
+\begin{frame}{Bằng chứng tái lập \& Kiểm toán mã băm SHA-256}
+  \vspace{-0.15cm}
+  \begin{columns}[T]
+    \begin{column}{0.48\textwidth}
+      \textbf{Kiểm toán tính bất biến dữ liệu (SHA-256):}
+      \begin{itemize}
+        \setlength{\itemsep}{2pt}
+        \item \textbf{2.352 mã băm SHA-256} được bảo toàn nguyên vẹn trong suốt quá trình chạy thực nghiệm.
+        \item 4 tệp dữ liệu gốc (OSM full-history, Viet-Receipt-VQA, Administrative crosswalk) được giám sát kích thước byte và thời gian sửa đổi (mtime).
+        \item Báo cáo kiểm toán độc lập xác nhận: 0 tệp bị ghi đè trái phép.
+      \end{itemize}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \textbf{Môi trường phần cứng Kaggle GPU:}
+      \begin{itemize}
+        \setlength{\itemsep}{2pt}
+        \item Kernel: Kaggle GPU (2x Tesla T4 16GB VRAM, CUDA 12.x).
+        \item Actual token alignment: 300/300 mẫu đạt exact match.
+        \item Bộ kiểm thử hồi quy: \textbf{274 tests} (266 passed, 8 skipped, 0 failed).
+        \item Toàn bộ weights và log được tải về và kiểm tra checksum tự động.
+      \end{itemize}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+% SLIDE 21: ĐÁNH GIÁ TRACK 5 TRƯỜNG TRUYỀN THỐNG
+\begin{frame}{Đánh giá Track 5 trường truyền thống (4.800 mẫu)}
+  \vspace{-0.15cm}
+  \begin{center}
+  \resizebox{0.92\textwidth}{!}{%
+  \begin{tabular}{lrrrr}
+    \toprule
+    \rowcolor{tableheader}
+    \textbf{Mô hình thử nghiệm} & \textbf{Precision (\%)} & \textbf{Recall (\%)} & \textbf{F1-Score (\%)} & \textbf{Ghi chú kỹ thuật} \\
+    \midrule
+    HEUR-JW & 85.32 & 78.91 & 81.99 & Heuristic + Gazetteer \\
+    CRF-INDEP & 88.14 & 83.18 & 85.59 & CRF đặc trưng thủ công \\
+    PHOBERT-CRF & 90.12 & 89.76 & \textbf{89.94} & Pretrained Transformer cao nhất \\
+    PROPOSED-DYN & 90.08 & 89.72 & 89.90 & Đa nhiệm dynamic \\
+    PROPOSED-NO-CONSTRAINT & 90.11 & 89.71 & 89.91 & Tắt constraint logic \\
+    \bottomrule
+  \end{tabular}
+  }%
+  \end{center}
+  \vspace{0.12cm}
+  {\fontsize{8.2pt}{10.5pt}\selectfont
+  $\bullet$ \textbf{Mục đích \& Bản chất:} Track đánh giá \textbf{phát triển và tương thích ngược} (development / backward compatibility track) trên 4.800 mẫu (sau khi loại 100 mẫu holdout), đối chiếu bài toán 5 trường truyền thống (\textit{Số nhà, Tên đường, Phường/Xã, Quận/Huyện, Tỉnh/Thành}).\\[3pt]
+  $\bullet$ \textbf{Cảnh báo phạm vi nghiêm ngặt:} Đây \textbf{không phải tập test độc lập}. Báo cáo ghi nhận trùng lặp: 1 mẫu seen train + 4.799 mẫu unseen registered site key; không chứng minh độc lập nguồn hay địa lý.
+  }
+\end{frame}
+
+% SLIDE 22: BẢNG TỔNG HỢP CÁC TRƯỜNG HỢP LỖI
+\begin{frame}{Bảng tổng hợp các trường hợp lỗi phân tích}
+  \vspace{-0.15cm}
+  \begin{center}
+  \resizebox{\textwidth}{!}{%
+  \begin{tabular}{>{\raggedright\arraybackslash}p{3.2cm} c c >{\raggedright\arraybackslash}p{2.6cm} >{\raggedright\arraybackslash}p{2.6cm} >{\raggedright\arraybackslash}p{2.5cm}}
+    \toprule
+    \rowcolor{tableheader}
+    \textbf{Chuỗi địa chỉ thực tế} & \textbf{Tập (Split)} & \textbf{Mô hình} & \textbf{Nhãn vàng (GT)} & \textbf{Dự đoán mô hình} & \textbf{Phân loại lỗi} \\
+    \midrule
+    Phố Bà Huyện Thanh Quan, P. VTS & Test & PhoBERT / DYN & \texttt{TenDuong} & \texttt{QuanHuyen} (``Huyện''), \texttt{TenDuong} & Lệch ranh giới từ vựng \\
+    \addlinespace[1.5pt]
+    Ngõ 12/34 Đường Hoàng Hoa Thám & Test & CRF-INDEP & \texttt{Ngo/Hem} (``Ngõ 12/34'') & \texttt{SoNha} (``12/34''), \texttt{TenDuong} & Nhầm cấu trúc ngõ/số \\
+    \addlinespace[1.5pt]
+    T. Bắc Ninh, H. Quế Võ & Test & HEUR-JW & \texttt{TinhThanh} & Bỏ sót tiền tố tắt ``T.'' & Tiền tố viết tắt \\
+    \addlinespace[1.5pt]
+    Khu Công Nghệ Cao, P. Tân Phú & Test & PhoBERT-CRF & \texttt{Khac} (Support = 2) & Ép sang \texttt{TenDuong} & Thiếu support nhãn hiếm \\
+    \addlinespace[1.5pt]
+    Chung cư Sky City, Láng Hạ & Train* & Chẩn đoán & \texttt{ToaNha/CanHo} & Không nhận diện được nhãn & Zero-support trên Test \\
+    \bottomrule
+  \end{tabular}
+  }%
+  \end{center}
+  \vspace{0.1cm}
+  {\fontsize{7.5pt}{9.2pt}\selectfont
+  $\bullet$ \textit{Ghi chú (*): Ví dụ ``Chung cư Sky City'' được trích xuất từ tập Train (chỉ có 5 mẫu trong Train, 0 mẫu trong Test) nhằm minh họa chẩn đoán hiện tượng \textbf{Zero-support trên tập Test} (\texttt{NOT\_EVALUABLE}), không phải ca lỗi trên tập Test.}
+  }
+\end{frame}
+
+% SLIDE 23: KHÓ KHĂN KỸ THUẬT VÀ GIẢI PHÁP
+\begin{frame}{Khó khăn kỹ thuật hạ tầng và giải pháp xử lý}
+  \vspace{-0.15cm}
+  \begin{columns}[T]
+    \begin{column}{0.48\textwidth}
+      \textbf{1. Xung đột môi trường \& Dependency:}
+      \begin{itemize}
+        \setlength{\itemsep}{1.5pt}
+        \item NumPy ABI v2 xung đột giữa Torch và Py-VnCoreNLP.
+        \item \textit{Giải pháp:} Đóng gói runtime cô lập trên ổ D, cố định chuẩn Python 3.11.16 và ghi vết dependency đầy đủ.
+      \end{itemize}
+      \vspace{0.1cm}
+      \textbf{2. Chuẩn hóa Unicode tiếng Việt:}
+      \begin{itemize}
+        \setlength{\itemsep}{1.5pt}
+        \item Bỏ dấu kiểu cũ/mới làm lệch chỉ số ký tự $[start, end]$.
+        \item \textit{Giải pháp:} Triển khai Tone Relocation v2, đạt 300/300 mẫu exact round-trip.
+      \end{itemize}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \textbf{3. Kaggle CLI \& Giới hạn tài nguyên:}
+      \begin{itemize}
+        \setlength{\itemsep}{1.5pt}
+        \item Lỗi \texttt{MemoryError} khi nạp dataset dung lượng lớn.
+        \item \textit{Giải pháp:} Viết streaming downloader chunk 1MiB, kiểm tra hash gate chặt chẽ.
+      \end{itemize}
+      \vspace{0.1cm}
+      \textbf{4. Giấy phép bản quyền Deepparse:}
+      \begin{itemize}
+        \setlength{\itemsep}{1.5pt}
+        \item Trọng số FastText upstream chưa công bố license rõ ràng.
+        \item \textit{Giải pháp:} Báo cáo trung thực trạng thái \texttt{NOT\_EXECUTED}, không tạo số liệu giả.
+      \end{itemize}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+% ==============================================================================
+% SLIDE 24: SPRINT 4 ROADMAP & TASK PLAN (FINAL SLIDE)
+% ==============================================================================
+\begin{frame}{Sprint 4 — Định hướng trọng tâm và Phân công nhiệm vụ}
+  \vspace{-0.15cm}
+  \begin{columns}[T]
+    \begin{column}{0.48\textwidth}
+      \textbf{3 ưu tiên nghiên cứu trọng tâm:}
+      \vspace{0.05cm}
+      {\fontsize{7.8pt}{9.8pt}\selectfont
+      \begin{itemize}
+        \setlength{\itemsep}{3pt}
+        \item \textbf{1. Bổ sung support nhãn hiếm \& Lai:} Thu thập mẫu có nguồn cho 4 nhãn zero-support (\texttt{ToaNha}, \texttt{MocDinhVi}, \texttt{HuongDi}, \texttt{GhiChu}) và địa chỉ hệ \texttt{Lai}.
+        \item \textbf{2. Đo độ đồng thuận (IAA):} 2 annotators gán nhãn mù độc lập; đo Cohen's $\kappa$ và Span F1 trước khi phán quyết.
+        \item \textbf{3. Đánh giá độ ổn định đa seed:} Huấn luyện trên 3 seeds cố định (42, 1337, 2025); báo cáo Mean $\pm$ Std.
+      \end{itemize}
+      }
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \textbf{Phân công nhiệm vụ hai thành viên:}
+      \vspace{0.05cm}
+      {\fontsize{7.2pt}{9pt}\selectfont
+      \begin{tabularx}{\linewidth}{>{\raggedright\arraybackslash}X}
+        \rowcolor{tableheader}
+        \textbf{Nguyễn Quang Tùng (2313817) --- Dữ liệu \& Nghiệm thu} \\
+        \midrule
+        $\bullet$ Khóa Source Register \& chống rò rỉ group (C1). \\
+        $\bullet$ Quản lý gán nhãn mù, đo IAA \& phán quyết (C2). \\
+        $\bullet$ Kiểm toán và phát hành Corpus Sprint 4 (C3). \\
+        \midrule
+        \rowcolor{tableheader}
+        \textbf{Nguyễn Quang Huy (2311202) --- Mô hình \& Tái lập} \\
+        \midrule
+        $\bullet$ Đóng gói runner độc lập \& hạ tầng đa seed (C1). \\
+        $\bullet$ Huấn luyện mô hình, đánh giá T0/T1 \& ablation (C4). \\
+        $\bullet$ Lập Evaluation Card, kiểm toán mã băm SHA-256 (C5). \\
+        \bottomrule
+      \end{tabularx}
+      }
+    \end{column}
+  \end{columns}
+  \vspace{0.1cm}
+  {\fontsize{7.2pt}{9pt}\selectfont
+  $\bullet$ \textbf{Điều kiện bắt đầu huấn luyện (Data Gate):} Huy chỉ bắt đầu huấn luyện (C4) sau khi Tùng hoàn tất cổng phát hành dữ liệu (C3) và vượt qua kiểm toán độc lập.\\[1pt]
+  $\bullet$ \textit{\color{gray} Ghi chú: Kế hoạch phân công nhiệm vụ chi tiết theo cam kết hai thành viên cho Sprint 4.}
+  }
+\end{frame}
+
+\end{document}
