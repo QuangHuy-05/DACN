@@ -98,7 +98,7 @@ Ngưỡng quan sát trong `trace.structure`: **threshold 0,7 / margin 0,2 trên 
 
 Ma trận nhầm lẫn test, có ngưỡng: cu→cu 36, cu→moi 1, cu→`khong_ro` 10; moi→moi 10, moi→cu 1, moi→`khong_ro` 1; `Lai`→cu 4, `Lai`→`khong_ro` 1. Argmax thuần: cu→cu 44, cu→moi 3; moi→moi 11, moi→cu 1; `Lai`→cu 5.
 
-**Trả lời bằng số: `Lai` F1 = 0 là do đầu T1 không tách được lớp, không phải do ngưỡng.** Trên test, không mẫu `Lai` nào có `Lai` là lớp xác suất cao nhất (0/5); bỏ ngưỡng thì `Lai` F1 vẫn bằng 0. Phân phối posterior(`Lai`) của mẫu `Lai` chồng lên phân phối của mẫu cu. Ngưỡng chỉ gây thêm một loại lỗi khác: 10 mẫu cu bị đẩy sang `khong_ro`; bỏ ngưỡng thì accuracy tăng từ 0,7188 lên 0,8594. Dòng argmax là phân tích chẩn đoán trên dữ liệu đã quan sát, không phải cấu hình đề xuất.
+**Trả lời bằng số, *với checkpoint Kaggle seed 42 của Sprint 3*: `Lai` F1 = 0 là do đầu T1 không tách được lớp, không phải do ngưỡng.** (Phạm vi: chỉ checkpoint này. WP3b — `11_reliability_results.md`, phần b — cho thấy seed 42 và 2025 huấn luyện lại cục bộ lặp lại hiện tượng, argmax `Lai` 0/5; seed 1337 tách được một phần, argmax 3/5 kèm 5 mẫu cu bị gán `Lai`.) Trên test, không mẫu `Lai` nào có `Lai` là lớp xác suất cao nhất (0/5); bỏ ngưỡng thì `Lai` F1 vẫn bằng 0. Phân phối posterior(`Lai`) của mẫu `Lai` chồng lên phân phối của mẫu cu. Ngưỡng chỉ gây thêm một loại lỗi khác: 10 mẫu cu bị đẩy sang `khong_ro`; bỏ ngưỡng thì accuracy tăng từ 0,7188 lên 0,8594. Dòng argmax là phân tích chẩn đoán trên dữ liệu đã quan sát, không phải cấu hình đề xuất.
 
 ## 6. Bảng H5
 
@@ -212,7 +212,7 @@ Hai lần thử, đều qua `modeling_config` + `build_adapter`, checkpoint DYN 
 
 Cả hai là kiểm tra có chủ đích của mã đã khóa nên không tìm cách vòng. Resource lock không phải nguyên nhân: hash lock cục bộ trùng `resource_lock_sha256` trong metadata checkpoint (`621cb1db…`). Nguyên văn traceback: `tier2/status.json`. Đầu vào của tầng 2 (chỉ `key`, `text`) đã lưu tại `tier2_inputs/` (7 file: 105 / 273 / 2.195 / 580 / 240 / 60 / 100 dòng).
 
-Hệ quả: DYN gốc, T1-PIPE-PCRF, T1-PIPE-DYN trên hai tập stress và T1-HEAD-PROBE trên cả ba cột đều `BLOCKED_LOCAL_NEURAL`. Muốn mở cần một máy có CUDA (ví dụ gộp vào job Kaggle của WP3b) hoặc một quyết định protocol cho phép suy luận CPU với checkpoint này.
+Hệ quả: DYN gốc, T1-PIPE-PCRF, T1-PIPE-DYN trên hai tập stress và T1-HEAD-PROBE trên cả ba cột đều `BLOCKED_LOCAL_NEURAL`. Cập nhật sau WP3b: WP3b đã huấn luyện cục bộ trên CPU và các checkpoint đó nạp được trên CPU, nên Tầng 2 có thể chạy trên checkpoint huấn luyện lại cục bộ (một gói riêng, chưa chạy). Trạng thái `BLOCKED_LOCAL_NEURAL` vẫn đúng với "DYN gốc" (checkpoint Kaggle `7a4a3d01…`), vì checkpoint này vẫn không nạp được trên CPU.
 
 ## 8. Diễn giải
 
@@ -226,7 +226,7 @@ Hệ quả: DYN gốc, T1-PIPE-PCRF, T1-PIPE-DYN trên hai tập stress và T1-H
 
 **Đối chiếu H5 của đề cương** ("địa chỉ lai là lớp khó nhất và mô hình nhận biết phiên bản vượt trội rõ rệt ở lớp này"):
 
-- *Vế "mô hình đề xuất vượt trội ở lớp `Lai`"* — **không được ủng hộ** trên test Sprint 3: PROPOSED-DYN có `Lai` 0/5, accuracy thấp hơn HEUR-JW 0,203 (CI [−0,388; −0,057], McNemar p = 0,0044), và chẩn đoán cho thấy đầu T1 không xếp `Lai` lên đầu ở mẫu nào. Trên hai tập stress: **không kết luận được** (`BLOCKED_LOCAL_NEURAL`). Support test chỉ 5 mẫu và là `POST_HOC_SECONDARY`.
+- *Vế "mô hình đề xuất vượt trội ở lớp `Lai`"* — **không được ủng hộ** trên test Sprint 3: PROPOSED-DYN có `Lai` 0/5, accuracy thấp hơn HEUR-JW 0,203 (CI [−0,388; −0,057], McNemar p = 0,0044), và chẩn đoán cho thấy đầu T1 của checkpoint Kaggle seed 42 không xếp `Lai` lên đầu ở mẫu nào (phạm vi chỉ checkpoint này; xem `11_reliability_results.md` phần b cho ba seed huấn luyện lại cục bộ). Trên hai tập stress: **không kết luận được** (`BLOCKED_LOCAL_NEURAL`). Support test chỉ 5 mẫu và là `POST_HOC_SECONDARY`.
 - *Vế "`Lai` là lớp khó nhất"* — **không kết luận được ở dạng tổng quát**. Với DYN trên test, `Lai` là lớp duy nhất có recall 0. Với HEUR-JW trên `t1_synth_eval`, recall moi (10/329) còn thấp hơn recall `Lai` (259/879); cái khó đo được là trùng danh pháp giữa hai hệ (tình huống D), tác động lên cả moi và `Lai`.
 - Hệ có tri thức phiên bản qua gazetteer (HEUR-JW, T1-PIPE-*) hơn DYN ở lớp `Lai` trên test (5/5 so với 0/5), nhưng đó là baseline luật, không phải mô hình đề xuất, và ưu thế này mất ở các mẫu trùng danh pháp.
 
