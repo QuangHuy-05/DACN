@@ -1,0 +1,67 @@
+{
+  "version": "s4-wp3b-multiseed-v1",
+  "created_at": "2026-10-13T15:38:42.907278+00:00",
+  "seeds": [
+    42,
+    1337,
+    2025
+  ],
+  "run_order": [
+    [
+      "pcrf",
+      42
+    ],
+    [
+      "dyn",
+      42
+    ],
+    [
+      "pcrf",
+      1337
+    ],
+    [
+      "dyn",
+      1337
+    ],
+    [
+      "pcrf",
+      2025
+    ],
+    [
+      "dyn",
+      2025
+    ]
+  ],
+  "candidate": "c02",
+  "threads": 6,
+  "device": "cpu",
+  "decoder_policy": {
+    "threshold": 0.7,
+    "margin": 0.2,
+    "recalibrated_per_seed": false
+  },
+  "inputs": {
+    "config_sha256": {
+      "pcrf": "d1a0215a5124ba774a75f45ce807469af94a44dd27281cbb30593350d46fafb5",
+      "dyn": "5b4e9ee68b300b17e6c1696697f1bdc6bc23450ffb83eb062ff53e3a6f8c321d"
+    },
+    "protocol_lock_sha256": "df5ce44339b0a4d3ee102af0aa51e14fc7d5bab6a57a5de0341ed23aac9d0397",
+    "resource_lock_sha256": "621cb1dbf3d09a37327bc5c6ad79584104a36eb2adb3c2e421532133a4b94322",
+    "train_corpus_manifest_sha256": "9c91b77fa220e41b1b1067e5e99b216b7b4b2176181674b340f16dec134947bf",
+    "eval_corpus_manifest_sha256": "0abd9f01ae0b298d0ef44161e65426f9769302ebb89b8c9aa45097722b09aea8",
+    "train_dev_identical_in_both_corpora": {
+      "train.jsonl": true,
+      "dev.jsonl": true
+    },
+    "test_input_sha256": "79a64e56db9a8511106a0d296863ab26e421dd8b8a10929bdd5a3539b0dc3ae9"
+  },
+  "code_sha256": {
+    "scripts/70_run_multiseed_local.py": "87fd49e4d22e88290389e62d8a9dba2753b47daf49ecfd89ddf98f98b5775600",
+    "src/evaluation/frozen_reliability.py": "3d2a679b82cb5e69eb531916aa621986550d95c9abdac07f58020c8c25b2302b",
+    "src/evaluation/stats.py": "260c12c2aad92e5de3c6a81d05b05f7ae89bdf5e867e18f885399fc2d843b093",
+    "src/modeling/training.py": "4f5cca179838926740681a1a5bb489bbcc0bf6b3c5fcc43bc4536c5af51fa4d4",
+    "src/modeling/protocol.py": "1d7ef563faff5ddc1c3c1d0657c1abafa1bcf50211b05781acbc0c72ae32c8a9",
+    "src/modeling/structural_decoder.py": "2cbc2731832d0269523de9451b87c1050413d03fcc787e8368692fbf893b1bec"
+  },
+  "sprint3_gpu_rows_in_mean": false
+}

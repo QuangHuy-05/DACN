@@ -1,6 +1,6 @@
 # 11. Độ tin cậy T0/T1 trên prediction đã freeze — Phần a (WP3a)
 
-**Ngày chạy:** 13/10/2026. **Phạm vi:** chỉ đọc prediction đã freeze và gold; không chạy mô hình, không huấn luyện. Phần b (đa seed, WP3b) sẽ được thêm vào cuối tài liệu này bởi gói sau.
+**Ngày chạy:** 13/10/2026. **Phạm vi:** chỉ đọc prediction đã freeze và gold; không chạy mô hình, không huấn luyện. Phần b (đa seed, WP3b) nằm ở cuối tài liệu này.
 **Căn cứ:** Amendment A2 điểm 2 (phân tích thống kê hậu nghiệm). Test Sprint 3 là tập **đã bị quan sát**: mọi số dưới đây là báo độ bất định, không dùng để chọn hay chỉnh bất cứ gì.
 **Mã:** `src/evaluation/frozen_reliability.py`, `scripts/69_bootstrap_frozen_results.py`, `tests/test_group1_reliability.py`.
 **Đầu ra:** `data/processed/evaluation/sprint04/reliability_20261014_v1/` (`metrics.json`, `run_manifest.json`, `tables/*.csv` utf-8-sig).
@@ -160,3 +160,88 @@ python -m unittest tests.test_group1_reliability -v
 ```
 
 Chạy lại từ đầu trên thư mục mới cho SHA-256 giống hệt của cả 14 file đầu ra (đã kiểm).
+
+---
+
+# Phần b — Đa seed trên CPU cục bộ (WP3b)
+
+**Ngày chạy:** 13–14/10/2026. **Mã:** `scripts/70_run_multiseed_local.py`, `tests/test_group1_multiseed.py`. **Đầu ra:** `data/processed/evaluation/sprint04/multiseed_20261015_v1/` (`metrics.json`, `run_manifest.json`, `frozen_hashes.json`, `determinism_check.json`, `runs/`, `tables/per_seed.csv`); checkpoint/log/prediction ở `data/interim/modeling/sprint04/multiseed_20261015_v1/`.
+**Trạng thái:** PASS — đủ 6 lượt (PHOBERT-CRF và PROPOSED-DYN × seed 42 / 1337 / 2025), không `PARTIAL_SEEDS`.
+
+## b1. Cách chạy
+
+- Cấu hình c02 đã khóa, seed gán trên bản sao trong bộ nhớ; không sửa `src/modeling/`, `configs/` hay adapter (hash 2 file config và `protocol_lock_v1.json` khớp manifest sau khi chạy). Gọi thẳng `train_model`; corpus `corpus_train_dev_v2` (train.jsonl và dev.jsonl giống hệt `corpus_v1_release2`, đã so SHA-256). CPU, 6 luồng (`OMP/MKL_NUM_THREADS=6`, `torch.set_num_threads(6)`), Java qua PATH/JAVA_HOME của tiến trình con. Chọn epoch theo quy tắc dev có sẵn trong `train_model`.
+- Suy luận test chỉ nhận văn bản (`test_input.jsonl`, hash khớp manifest). **SHA-256 prediction được ghi vào `frozen_hashes.json` trước khi đọc gold**; bước chấm kiểm lại hash rồi mới mở gold, mask T1 64/20/16, mỗi seed chấm một lần.
+- DYN dùng đúng policy đã khóa: ngưỡng 0,7 / margin 0,2 cho mọi seed, không hiệu chỉnh lại (dev chỉ có 8 Lai). PROPOSED-NO-CONSTRAINT dùng lại `best.pt` của DYN cùng seed với ràng buộc tắt.
+- Thời gian: 20–29 phút huấn luyện mỗi lượt (đo từ lượt đầu; tổng ước tính dưới 6 giờ nên không phải dừng).
+- **Sự cố môi trường đã xử lý (không phải lỗi mã khóa):** adapter khóa đòi ≥ 20 GiB đĩa trống trước khi suy luận; lượt DYN-1337 (16 epoch) làm đĩa xuống dưới ngưỡng và suy luận dừng với `DISK_BELOW_TRAINING_ARTIFACT_BUDGET`. Tôi dọn `epoch_*.pt`, `resume_*.pt`, `last.pt` của chính lượt đó (giữ `best.pt`, mọi file `.json`, `training_log.jsonl`; hash và kích thước từng file đã xóa nằm trong `multiseed_run_done.json` / `cleanup_after_training.json` / `early_cleanup_before_inference.json`) rồi chạy tiếp. Từ đó script dọn ngay sau huấn luyện. Script được sửa sau khi lượt 1–3 chạy (vị trí dọn dẹp, lệnh `determinism`); logic huấn luyện/suy luận/chấm không đổi, nên hash mã trong `run_manifest.json` là của lần khởi động lại cuối.
+
+## b2. Bảng từng seed (test Sprint 3, 100 mẫu; T1 trên 64 eligible)
+
+| Seed | Mô hình | Dev T0 F1 (epoch tốt nhất) | Test T0 P / R / F1 | Exact-match | T1 acc | T1 macro-F1 | Lai-F1 (support 5) | Coverage | Epoch tốt nhất / đã chạy | Thời gian |
+|---|---|---|---|---|---|---|---|---|---|---|
+| 42 | PHOBERT-CRF | 0,9439 | 0,9775 / 0,9753 / 0,9764 | 90 | NOT_IMPLEMENTED | — | — | — | 6 / 11 | 1.416 s |
+| 42 | PROPOSED-DYN | 0,9404 | 0,9730 / 0,9686 / 0,9708 | 88 | 0,7031 | 0,5754 | 0,0000 | 0,7656 | 6 / 11 | 1.263 s |
+| 42 | DYN tắt ràng buộc | (cùng checkpoint) | 0,9730 / 0,9686 / 0,9708 | 88 | 0,7031 | 0,5754 | 0,0000 | 0,7656 | — | — |
+| 1337 | PHOBERT-CRF | 0,9455 | 0,9797 / 0,9753 / 0,9775 | 92 | NOT_IMPLEMENTED | — | — | — | 6 / 11 | 1.261 s |
+| 1337 | PROPOSED-DYN | 0,9422 | 0,9910 / 0,9910 / 0,9910 | 96 | 0,8438 | 0,7204 | 0,3333 | 0,9688 | 11 / 16 | 1.753 s |
+| 1337 | DYN tắt ràng buộc | (cùng checkpoint) | 0,9910 / 0,9910 / 0,9910 | 96 | 0,8438 | 0,7204 | 0,3333 | 0,9688 | — | — |
+| 2025 | PHOBERT-CRF | 0,9350 | 0,9821 / 0,9821 / 0,9821 | 92 | NOT_IMPLEMENTED | — | — | — | 7 / 12 | 1.411 s |
+| 2025 | PROPOSED-DYN | 0,9420 | 0,9752 / 0,9709 / 0,9730 | 89 | 0,6719 | 0,3891 | 0,0000 | 0,7500 | 6 / 11 | 1.213 s |
+| 2025 | DYN tắt ràng buộc | (cùng checkpoint) | 0,9752 / 0,9709 / 0,9730 | 89 | 0,6719 | 0,3891 | 0,0000 | 0,7500 | — | — |
+
+**Trung bình ± độ lệch chuẩn mẫu (ddof=1, n = 3 seed cục bộ):**
+
+| Hệ | Test T0 F1 | Exact-match (/100) | T1 acc | T1 macro-F1 | Lai-F1 | Coverage |
+|---|---|---|---|---|---|---|
+| PHOBERT-CRF | 0,9787 ± 0,0030 | 91,3 ± 1,2 | NOT_IMPLEMENTED | — | — | — |
+| PROPOSED-DYN | 0,9783 ± 0,0111 | 91,0 ± 4,4 | 0,7396 ± 0,0916 | 0,5616 ± 0,1661 | 0,1111 ± 0,1924 | 0,8281 ± 0,1221 |
+| DYN tắt ràng buộc | 0,9783 ± 0,0111 | 91,0 ± 4,4 | giống DYN | giống DYN | giống DYN | giống DYN |
+
+**Hàng riêng, không vào trung bình** — Sprint 3, GPU T4, seed 42 (Kaggle): PHOBERT-CRF test F1 0,9843; PROPOSED-DYN 0,9821, T1 0,7188 / 0,5626; NO-CONSTRAINT 0,9843. Khác cùng seed 42 cục bộ: −0,0079 (PCRF) và −0,0113 (DYN), tức khoảng 3–5 span trên 446. Khác biệt này gồm phần cứng/phép tính CPU–GPU và chuỗi số ngẫu nhiên; chưa tách được từng phần.
+**CRF-INDEP:** `DETERMINISTIC_SEED_INVARIANT` (L-BFGS), một dòng cố định: test F1 0,9076. **HEUR-JW:** một cấu hình cố định: test F1 0,9112, T1 acc 0,9219.
+
+**Chẩn đoán T1 argmax thuần** (không ngưỡng/margin; chẩn đoán trên test đã quan sát, không phải cấu hình đề xuất): acc 0,8906 / 0,8594 / 0,8906 và Lai-F1 0,0 / 0,4615 / 0,0 cho seed 42 / 1337 / 2025.
+
+## b3. Delta theo seed
+
+| Seed | PCRF − DYN (T0 F1) | CI ghép cặp | p hoán vị | McNemar b/c | DYN bật − tắt |
+|---|---|---|---|---|---|
+| 42 | +0,0056 | [−0,0034; +0,0167] | 0,50 | 3/1 | 0,0000 |
+| 1337 | −0,0135 | [−0,0276; −0,0011] | 0,09 | 1/5 | 0,0000 |
+| 2025 | +0,0091 | [−0,0044; +0,0231] | 0,28 | 5/2 | 0,0000 |
+| **Trung bình ± std** | **+0,0004 ± 0,0122** | | | | **0,0000 ± 0,0000** |
+
+(CI ghép cặp theo mẫu, B = 10.000, seed 20261014; không hiệu chỉnh đa so sánh ở bảng này; p hoán vị trên micro-F1.)
+
+## b4. Kiểm tất định (bước 5)
+
+Huấn luyện lại PHOBERT-CRF seed 42 lần hai trong thư mục riêng: **0/100 mẫu khác span, chênh emissions tối đa = 0,0, cùng epoch tốt nhất (6)** → `DETERMINISTIC_ON_CPU` ở mức prediction. SHA-256 file `best.pt` khác nhau giữa hai lần (`best_checkpoint_sha256_equal = false`) dù emissions giống hệt; có thể do metadata/RNG đi kèm trong payload nhưng tôi chưa kiểm nguyên nhân. Nghĩa là khác biệt giữa các seed không đến từ nhiễu phép tính cùng seed trên CPU; khác biệt với Kaggle seed 42 đến từ phần cứng/phép tính CPU–GPU hoặc môi trường.
+
+## b5. Diễn giải (theo số, không vượt dữ liệu)
+
+1. **PHOBERT-CRF vs PROPOSED-DYN (T0): không phân biệt được.** Δ trung bình +0,0004 với std giữa seed 0,0122; dấu đổi theo seed (+, −, +); CI ghép cặp của seed 1337 loại 0 nhưng p hoán vị = 0,09 và hai seed kia ngược chiều. Std giữa các seed của DYN (0,0111) và của Δ (0,0122) **lớn hơn** nửa-CI ghép cặp ở WP3a (~±0,011) và **lớn hơn nhiều** chênh lệch Kaggle seed 42 (0,0022). Chênh lệch 0,0022 của Sprint 3 nằm trong biến thiên seed; không dùng làm bằng chứng PCRF tốt hơn hay kém hơn.
+2. **PCRF ổn định hơn DYN giữa các seed** (std 0,0030 so với 0,0111; exact-match std 1,2 so với 4,4), nhưng với n = 3 độ lệch chuẩn là ước lượng rất thô; không kiểm định được.
+3. **Ràng buộc BIO không có tác dụng đo được ở cả ba seed:** DYN bật và tắt cho cùng điểm trên 100 mẫu ở mọi seed (Δ = 0; Kaggle seed 42 chênh 1 mẫu). Xem WP5 về "dư địa".
+4. **T1 của DYN phụ thuộc seed rất mạnh:** accuracy 0,67–0,84, macro-F1 0,39–0,72, Lai-F1 0,00–0,33 (seed 1337 coverage 0,97; hai seed kia 0,75–0,77). "Lai-F1 = 0" của Sprint 3 **không phải đặc tính cố định** của kiến trúc: 1/3 seed cục bộ cho Lai-F1 > 0, và T1 argmax thuần cho 0,46 ở seed 1337. Ở cả 3 seed accuracy T1 của DYN thấp hơn HEUR-JW (0,9219) trên cùng 64 mẫu. Lai support 5 nên mọi số Lai là `LOW_SUPPORT`.
+5. Chênh với Kaggle seed 42 (−0,008 đến −0,011 F1) cùng cỡ std giữa seed; không kết luận được phần cứng hay seed là nguyên nhân chính.
+
+## b6. Giới hạn (bổ sung cho mục 8 của phần a)
+
+- n = 3 seed; std ddof = 1 là ước lượng thô; không có kiểm định giữa các seed.
+- Test Sprint 3 đã bị quan sát: mọi số ở đây là độ bền hậu nghiệm, không dùng chọn cấu hình, seed hay checkpoint. Không báo riêng seed tốt nhất.
+- Cùng một bộ test 100 mẫu cho cả ba seed, nên ba seed không độc lập về mặt mẫu.
+- Huấn luyện CPU cục bộ khác Kaggle T4 (phần cứng, thư viện, thứ tự phép toán); seed 42 Kaggle chỉ để so, không vào trung bình.
+- Hash mã trong `run_manifest.json` ứng với lần khởi động lại cuối của script (xem b1).
+- Policy T1 khóa 0,7/0,2 cho mọi seed, không hiệu chỉnh lại.
+
+## b7. Lệnh tái lập
+
+```bash
+cd /mnt/d/DACN
+PY=data/interim/modeling/sprint03/runtime_neural_d_v1/bin/python
+$PY -m scripts.70_run_multiseed_local preflight
+$PY -m scripts.70_run_multiseed_local run-all        # tuần tự, resume được, dừng khi đĩa < 15 GB
+$PY -m scripts.70_run_multiseed_local aggregate
+$PY -m scripts.70_run_multiseed_local determinism    # huấn luyện lại PCRF-42 và so prediction
+```
