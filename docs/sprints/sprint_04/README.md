@@ -11,6 +11,7 @@ Tăng độ tin cậy của benchmark T0/T1 và xác định mức ổn định 
 ## Tài liệu chính
 
 - [Protocol Sprint 4 v1](02_s4_protocol_v1.md) — quyết định hiện hành, support, source register, gán lặp, split/holdout, Kaggle, lịch và nghiệm thu.
+- [Bước 1 — quyết định phạm vi, quyền nguồn và Amendment A1](04_step1_decision_and_protocol_amendment.md) — 13/10/2026, nhánh `SCOPED_PARTIAL`; [kế hoạch đóng sprint](03_execution_plan_before_20261019.md).
 - [Cấu hình protocol](../../../configs/annotation/sprint04/protocol_v1.json) và [nguồn ứng viên](../../../configs/annotation/sprint04/source_register_v1.csv).
 - [Snapshot Sprint 3 trước/sau nhiệm vụ 1](../../../data/interim/annotation/sprint04/protocol_v1/baseline_snapshot.json) — phạm vi hash được ghi rõ; raw kiểm size/mtime.
 - [Kế hoạch Sprint 4 ban đầu](01_sprint4_two_person_plan.md) — khung tham khảo; giả định hai người/IAA bắt buộc đã được protocol v1 thay thế.
