@@ -1,0 +1,12 @@
+﻿dataset,label,emission_model,n_rows,n_gold_moi,n_gold_moi_without_quan_huyen,n_gold_moi_t1_eligible,n_headroom,n_headroom_t1_eligible,n_headroom_removed_by_unconditional_ban,headroom_dyn_moi,headroom_dyn_cu,headroom_dyn_Lai,headroom_dyn_khong_ro,headroom_heur_moi,headroom_heur_cu,headroom_heur_Lai,headroom_heur_khong_ro,n_headroom_fixed_by_dyn_ban,harm_exposure_dyn_ban,harm_exposure_removed,status
+test_kaggle,SPRINT3_TEST_OBSERVED_POSTHOC,PROPOSED-DYN checkpoint,100,25,25,12,0,0,0,0,0,0,0,0,0,0,0,0,1,1,OK
+test_kaggle,SPRINT3_TEST_OBSERVED_POSTHOC,PHOBERT-CRF checkpoint,100,25,25,12,0,0,0,,,,,0,0,0,0,,,,OK
+test_seed42,LOCAL_CPU_RETRAINED__SPRINT3_TEST_OBSERVED_POSTHOC,PROPOSED-DYN checkpoint,100,25,25,12,0,0,0,0,0,0,0,0,0,0,0,0,0,0,OK
+test_seed42,LOCAL_CPU_RETRAINED__SPRINT3_TEST_OBSERVED_POSTHOC,PHOBERT-CRF checkpoint,100,25,25,12,0,0,0,,,,,0,0,0,0,,,,OK
+test_seed1337,LOCAL_CPU_RETRAINED__SPRINT3_TEST_OBSERVED_POSTHOC,PROPOSED-DYN checkpoint,100,25,25,12,1,0,1,0,1,0,0,0,0,0,1,0,0,0,OK
+test_seed1337,LOCAL_CPU_RETRAINED__SPRINT3_TEST_OBSERVED_POSTHOC,PHOBERT-CRF checkpoint,100,25,25,12,0,0,0,,,,,0,0,0,0,,,,OK
+test_seed2025,LOCAL_CPU_RETRAINED__SPRINT3_TEST_OBSERVED_POSTHOC,PROPOSED-DYN checkpoint,100,25,25,12,0,0,0,0,0,0,0,0,0,0,0,0,0,0,OK
+test_seed2025,LOCAL_CPU_RETRAINED__SPRINT3_TEST_OBSERVED_POSTHOC,PHOBERT-CRF checkpoint,100,25,25,12,0,0,0,,,,,0,0,0,0,,,,OK
+fivefield_kaggle,DEVELOPMENT_TRACK,PROPOSED-DYN checkpoint,4800,1861,1861,1861,168,168,168,4,147,0,17,7,3,1,157,4,1,1,OK
+dev_kaggle,SELECTION_SET,PROPOSED-DYN checkpoint,60,15,15,14,0,0,0,0,0,0,0,0,0,0,0,0,0,0,OK
+dev_kaggle,SELECTION_SET,PHOBERT-CRF checkpoint,60,15,15,14,1,0,1,,,,,0,0,0,1,,,,OK
