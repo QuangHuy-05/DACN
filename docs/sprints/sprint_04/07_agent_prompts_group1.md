@@ -53,8 +53,8 @@ Ràng buộc cứng:
    gom chung — Data 03: 879/1500 dòng, Data 04: 223/800, Data 06: 1/600, Data 01: 0. Mọi phép chia nhóm rời nhau chỉ
    được dùng các dòng có khóa ADM|...; dòng UNRESOLVED chỉ dùng cho đánh giá, không đưa vào huấn luyện, và phải đếm.
 
-Trước khi báo xong: chạy `python -m unittest discover -s tests -v` (toàn bộ; mốc đo ngày 14/10/2026 sau WP3b
-trong ~/.venv_dacn là 396 test: 388 PASS / 8 SKIP / 0 FAIL — không được có FAIL và không được làm giảm số PASS cũ),
+Trước khi báo xong: chạy `python -m unittest discover -s tests -v` (toàn bộ; mốc đo ngày 14/10/2026 sau WP2b
+trong ~/.venv_dacn là 406 test: 398 PASS / 8 SKIP / 0 FAIL — không được có FAIL và không được làm giảm số PASS cũ),
 chạy script của bạn từ đầu trên thư mục đầu ra mới để chứng minh tái lập, kiểm số dòng/cột/encoding/bản ghi trùng
 của mọi CSV đầu ra.
 
@@ -670,69 +670,111 @@ hash; mục mới của báo cáo 10 đã viết; bộ test đầy đủ không 
 ## WP4 — Thí nghiệm CPU: H2, H3, E1, H4
 
 ```text
-NHIỆM VỤ: bốn thí nghiệm chi phí thấp trên CPU với CRF-INDEP (và HEUR-JW ở các phép nhiễu lúc test). Bốn bảng nhỏ,
-kể cả kết quả âm. Phụ thuộc: WP0.
+NHIỆM VỤ: bốn thí nghiệm chi phí thấp với CRF-INDEP (và HEUR-JW ở các phép nhiễu lúc test). Bốn bảng nhỏ, kể cả kết quả
+âm. Phụ thuộc: WP0 (stats.py, leak_guard.py), WP3a (frozen_reliability.py). Các mô-đun đó chỉ được import, không sửa.
 
 File bạn sở hữu: src/evaluation/perturbations.py, scripts/71_run_cpu_hypothesis_experiments.py,
-tests/test_group1_cpu_experiments.py, data/processed/evaluation/sprint04/cpu_hypotheses_20261015_v1/,
+tests/test_group1_cpu_experiments.py, data/interim/modeling/sprint04/cpu_hypotheses_20261016_v1/ (checkpoint CRF,
+tập tăng cường, prediction), data/processed/evaluation/sprint04/cpu_hypotheses_20261016_v1/ (metric, bảng, manifest),
 docs/sprints/sprint_04/12_cpu_hypothesis_results.md.
 
-Nền chung:
-- Corpus: data/processed/annotation/sprint03/corpus_v1_release2 (240/60/100). Chỉ đọc.
-- CRF: tái dùng encode_gold/token_features/decode_bio (src/evaluation/span_features.py) và cách huấn luyện ở
-  scripts/26_train_independent_crf.py. Giữ NGUYÊN siêu tham số đã chọn ở Sprint 3 (đọc context/c1/c2/feature_version từ
-  .../final_completion_20261005_v1/light_test_runs_v2/crf-indep/model_config.json và metadata đi kèm) cho mọi điều kiện;
-  không dò lưới lại theo điều kiện. Bước kiểm đầu tiên: huấn luyện lại ở điều kiện gốc phải tái lập test T0 F1 0,9076;
-  nếu lệch, báo độ lệch và dùng run tái lập làm mốc ghép cặp.
-- Mọi so sánh dùng paired bootstrap và CI từ src/evaluation/stats.py; chấm bằng compute_exact_span_metrics.
-- Test Sprint 3 đã bị quan sát: mọi kết quả ở đây là phân tích độ bền hậu nghiệm, không dùng để chọn cấu hình.
+SỰ THẬT ĐÃ KIỂM NGÀY 14/10/2026 (bước đầu tiên là tái lập; lệch thì dừng và báo)
+- CRF tái lập HOÀN TOÀN: huấn luyện lại bằng pycrfsuite trong runtime CRF
+  (data/interim/evaluation/sprint03/runtime_py311/bin/python; có pycrfsuite, KHÔNG có numpy/pandas) với metadata
+  data/processed/evaluation/sprint03/crf_followup_20261003_v1/ctx1_c10.1_c21/model_metadata.json (context 1,
+  c1 0,1, c2 1,0, max_iterations 100, feature_version "surface_admin_segment_cue_v2"), train từ
+  data/processed/annotation/sprint03/corpus_train_dev_v2/train.jsonl: mất 1,9 giây, file mô hình có SHA-256 TRÙNG checkpoint
+  đã khóa (b4ff0d23…), và test T0 P/R/F1 = 0,9234 / 0,8924 / 0,9076. Dùng tokenize / encode_gold / token_features /
+  decode_bio của src/evaluation/span_features.py và compute_exact_span_metrics trong src/evaluation/span_scorer.py (chạy
+  được trong runtime CRF). Mọi huấn luyện/suy luận CRF là tiến trình riêng trong runtime CRF, ghi JSONL; thống kê chạy
+  trong ~/.venv_dacn.
+- Trên 400 mẫu train+dev+test: 0 mẫu có span chồng nhau; str.lower() không đổi độ dài ở mẫu nào; 28 mẫu không có dấu
+  phẩy nào; 58 mẫu có văn bản không trùng với "các span nối bằng ', '" (có ký tự ngoài span hoặc dấu phân cách khác).
+- H2, thiết kế ban đầu KHÔNG khả thi: nếu chỉ giữ dòng Data 04 có khóa nhóm tra được từ các cột bề mặt và loại mọi
+  lãnh thổ có trong dev/test, chỉ còn 8/800 dòng. Hai nguyên nhân: dòng thiếu phường không tra được nhóm từ bề mặt, và
+  Data 04 tập trung ở cùng các phường với test. Thiết kế sửa (dùng cho gói này):
+  · Khóa nhóm lãnh thổ của Data 04 lấy từ các cột GT_TinhThanh / GT_QuanHuyen / GT_PhuongXa bằng admin_group_key. Các cột
+    GT_* chỉ được dùng để chia nhóm và chống rò rỉ, KHÔNG bao giờ làm đặc trưng hay nhãn của mô hình; nhãn span đến từ
+    các cột bề mặt (SoNha, TenDuong, PhuongXa, QuanHuyen, TinhThanh) căn vào ChuoiDiaChi.
+  · Chống rò rỉ với Sprint 3 ở mức địa chỉ, cùng chuẩn với cách Sprint 3 chia train/test (theo source_group, không theo
+    lãnh thổ: 16/26 nhóm lãnh thổ của dev+test cũng có trong train Sprint 3): loại dòng bị leak_guard loại (trùng chuỗi
+    train/dev/test), và loại dòng có (số nhà, tên đường) GT trùng với một mẫu dev/test. KHÔNG đòi rời lãnh thổ với test;
+    ghi rõ điều này là giới hạn trong báo cáo.
+  · Đã đo: Data 04 → 779 sau leak_guard → 664 sau khi bỏ TenDuong bắt đầu bằng ngõ/hẻm/ngách/kiệt (bẫy nhãn: gold tách
+    Ngo/Hem) → 653 sau khi bỏ trùng địa chỉ với dev/test. Khóa GT: 463 ADM / 190 UNRESOLVED; 142 nhóm; nhóm lớn nhất 16,7%.
+    KieuThieu: drop_housenumber 293, drop_ward 198, drop_housenumber_ward 91, drop_district 71. HeQuyChieu: moi 351, cu 302.
+  · Bể địa chỉ đầy đủ cho đối chứng AUG-FULL sau cùng các bộ lọc: Data 01 880 dòng, Data 03 1.199 dòng.
+- Prediction test đã freeze và cách dựng biểu diễn theo mẫu đã có ở src/evaluation/frozen_reliability.py
+  (test_prediction_paths, verify_frozen_hashes, build_units, bootstrap, paired_comparison) — dùng lại cho H4.
+- Sáu checkpoint neural huấn luyện lại cục bộ của WP3b (data/interim/modeling/sprint04/multiseed_20261015_v1/
+  {pcrf,dyn}_seed{42,1337,2025}/checkpoints/best.pt) nạp được trên CPU, mỗi lần nạp 2–7 phút do đọc từ /mnt/d; cách dựng
+  adapter: scripts/68c_run_t1_tier2_local.py và scripts/70_run_multiseed_local.py::inference_config.
+
+TẦNG 1 — BẮT BUỘC (CRF-INDEP và HEUR-JW, chỉ CPU)
+
+0. Tái lập CRF ở điều kiện gốc (như trên) và dùng run tái lập làm mốc ghép cặp. Giữ NGUYÊN siêu tham số đó cho mọi điều
+   kiện; không dò lưới lại theo điều kiện.
 
 H3 — xáo thứ tự trường (perturbations.py: recompose_with_order)
-- Từ gold span của test, dựng lại chuỗi: nối văn bản các span bằng ", " theo (i) thứ tự gốc [đối chứng],
-  (ii) đảo ngược (lớn -> nhỏ), (iii) ba hoán vị ngẫu nhiên seed 42/1337/2025. Tính lại offset; kiểm
-  text[start:end] == nguyên văn span cho 100% span.
-- Văn bản ngoài span bị bỏ khi dựng lại: báo số ký tự/mẫu bị ảnh hưởng. Vì vậy mọi so sánh lấy (i) làm mốc,
-  không lấy chuỗi nguyên bản.
-- Chạy CRF-INDEP và HEUR-JW (chỉ suy luận). Ghi danh sách chuỗi đầu vào để phiên khác chạy mô hình neural nếu có GPU;
-  ô neural ghi NOT_RUN.
-- Báo F1 từng điều kiện, độ sụt so với (i), F1 từng nhãn. Đối chiếu Yassine et al. (rơi về 28% trên tiếng Hàn).
+- Từ gold span của 100 mẫu test, dựng lại chuỗi bằng cách nối văn bản các span bằng ", " theo: (i) thứ tự gốc [đối
+  chứng]; (ii) đảo ngược; (iii) ba hoán vị ngẫu nhiên seed 42 / 1337 / 2025. Tính lại offset; kiểm text[start:end] ==
+  nguyên văn span cho 100% span. Mọi so sánh lấy (i) làm mốc, không lấy chuỗi gốc; báo riêng 58 mẫu có văn bản ngoài span
+  (đếm lại trên test) và mức thay đổi khi dựng lại.
+- Chạy CRF-INDEP (mô hình gốc) và HEUR-JW (cấu hình đã khóa) trên năm điều kiện. Báo micro F1, độ sụt so với (i), F1 từng
+  nhãn, CI ghép cặp so với (i). Đối chiếu Yassine et al. (mô hình tiếng Hàn rơi về khoảng 28% khi xáo thứ tự).
 
 E1 — tiền xử lý 2×2: giữ/bỏ dấu phẩy × giữ/hạ chữ hoa
-- Biến đổi có ánh xạ offset khả nghịch (bỏ dấu phẩy: thay bằng khoảng trắng đơn rồi gộp; hạ chữ: str.lower giữ độ dài,
-  kiểm độ dài không đổi với tiếng Việt, mẫu đổi độ dài thì loại và đếm).
-- Hai chế độ: (a) chỉ nhiễu lúc test với mô hình gốc; (b) huấn luyện và test cùng điều kiện (4 lần huấn luyện CRF).
-- HEUR-JW chỉ ở chế độ (a). Báo bảng 2×2 cho từng chế độ.
+- Phép biến đổi có ánh xạ offset khả nghịch: bỏ dấu phẩy = thay mỗi dấu phẩy bằng khoảng trắng rồi gộp khoảng trắng liên
+  tiếp, dựng bảng ánh xạ offset; hạ chữ = str.lower (đã đo: không đổi độ dài). Kiểm khả nghịch trên toàn bộ 400 mẫu.
+- Chế độ (a): chỉ nhiễu lúc test, mô hình gốc — CRF-INDEP và HEUR-JW. Chế độ (b): huấn luyện và test cùng điều kiện —
+  CRF-INDEP, 4 lần huấn luyện (mỗi lần vài giây). Báo bảng 2×2 cho từng chế độ, CI ghép cặp so với điều kiện gốc.
+- Ghi chú bắt buộc: 28 mẫu không có dấu phẩy nên phép bỏ dấu phẩy không đổi gì ở các mẫu đó.
 
-H2 — huấn luyện kèm địa chỉ thiếu trường
-- Nguồn tăng cường: data/processed/benchmark/04_missing_fields_800.csv qua leak_guard (loại trùng dev/test theo chuỗi
-  và admin_group_key). Căn span bằng src/data/span_trace.py từ các cột bề mặt SoNha/TenDuong/PhuongXa/QuanHuyen/TinhThanh;
-  căn mơ hồ thì bỏ và đếm.
-- BẪY NHÃN: Data 04 để ngõ/hẻm trong TenDuong, gold tách Ngo/Hem. Loại mọi dòng có TenDuong bắt đầu bằng
-  ngõ/hẻm/ngách/kiệt khỏi tập tăng cường. Báo số dòng loại.
-- Chia Data 04 còn lại theo admin_group_key: aug_train và heldout_missing (rời nhóm). N tăng cường = 120 và 240.
-- Ba mô hình: BASE (240 train); AUG-MISSING (240 + N thiếu trường); AUG-FULL (240 + N địa chỉ đầy đủ cùng nguồn gốc,
-  lấy từ Data 01/03 qua cùng quy trình) để tách tác dụng "thêm dữ liệu" khỏi "thêm mẫu thiếu trường".
-- Đánh giá: (i) heldout_missing bằng scorer 5 trường (src/evaluation/scorer.py) với GT_* làm silver, tách theo KieuThieu;
-  (ii) 20 mẫu test có source_dataset = 04_missing (lấy từ identity_registry) và 80 mẫu còn lại, bằng scorer span;
-  (iii) dev để kiểm không suy giảm. Ghi rõ (i) là silver từ generator, (ii) chỉ có 20 mẫu.
-- Đối chiếu H2 của đề cương (tụt 20–40%, phục hồi sau khi thêm dữ liệu thiếu): báo có tụt không, có phục hồi không.
+H2 — huấn luyện kèm địa chỉ thiếu trường (thiết kế đã sửa ở trên)
+- Dựng tập Data 04 sau lọc (653 dòng); căn span bằng src/data/span_trace.py::align_unique với Component(field,
+  surface, source_value, construction_system) từ các cột bề mặt; mẫu căn mơ hồ hoặc thất bại thì bỏ và đếm.
+- Chia theo khóa nhóm GT (seed 20261016): heldout_missing ≈ 30% số nhóm ADM + toàn bộ dòng UNRESOLVED; aug_train = phần
+  ADM còn lại. Hai phần rời nhóm. Báo số dòng, số nhóm, phân bố KieuThieu của mỗi phần.
+- Ba mô hình × N ∈ {120, 240} (lấy mẫu từ aug_train theo seed, phân tầng theo KieuThieu; nếu aug_train không đủ 240 sau
+  căn span thì dùng tối đa có được và ghi N thực): BASE (240 train Sprint 3); AUG-MISSING (BASE + N dòng Data 04);
+  AUG-FULL (BASE + N địa chỉ đầy đủ từ bể Data 01/03 sau cùng bộ lọc, cân tỷ lệ cu/moi như phần Data 04 đã lấy). Chọn
+  epoch không áp dụng (CRF L-BFGS); siêu tham số giữ nguyên.
+- Đánh giá: (i) heldout_missing bằng scorer 5 trường (src/evaluation/scorer.py) với GT_* làm silver, tách theo KieuThieu —
+  đây là thước đo chính của H2; (ii) 20 mẫu test có source_dataset = 04_missing và 80 mẫu còn lại, bằng scorer span —
+  thước đo phụ, POST_HOC_SECONDARY, chỉ 20 mẫu; (iii) dev Sprint 3 để kiểm không suy giảm.
+- Đối chiếu H2 của đề cương (tụt 20–40% trên địa chỉ thiếu trường, phục hồi khi thêm dữ liệu thiếu): báo BASE có tụt
+  không (so heldout_missing với một tập địa chỉ đầy đủ cùng nguồn đã lọc), AUG-MISSING có phục hồi hơn AUG-FULL không.
 
 H4 — theo nhóm loại địa điểm (không huấn luyện)
-- Nhóm: hành chính = PhuongXa, QuanHuyen, TinhThanh; đường sá = SoNha, TenDuong, Ngo/Hem; mốc = MocDinhVi, HuongDi;
-  khác = ToaNha/CanHo, GhiChu, Khac. Đề cương nói "bốn nhóm loại địa điểm" nhưng không định nghĩa: ghi rõ đây là
-  định nghĩa vận hành của bạn.
-- Từ prediction test đã freeze của 5 hệ (đường dẫn như WP3): micro P/R/F1 từng nhóm + CI, và delta ghép cặp
-  hành chính − đường sá trong từng hệ.
-- Nhóm mốc: support test = 0 -> NOT_EVALUABLE_NO_GOLD_SUPPORT. Bổ sung số tham khảo bằng group k-fold (k=5, nhóm theo
-  source_group, seed 42) của CRF trên 240 train, ghi LOW_SUPPORT kèm support thực (5–6 span mỗi nhãn) và không kết luận.
+- Nhóm (định nghĩa vận hành của gói, vì đề cương không định nghĩa): hành chính = PhuongXa, QuanHuyen, TinhThanh; đường
+  sá = SoNha, TenDuong, Ngo/Hem; mốc = MocDinhVi, HuongDi; khác = ToaNha/CanHo, GhiChu, Khac.
+- Từ prediction test đã freeze của 5 hệ (frozen_reliability.py): micro P/R/F1 từng nhóm kèm CI, và delta ghép cặp hành
+  chính − đường sá trong từng hệ. Nhóm mốc: support test = 0 → NOT_EVALUABLE_NO_GOLD_SUPPORT.
+- Số tham khảo cho nhóm mốc: group k-fold (k = 5, nhóm theo source_group, seed 42) của CRF trên 240 mẫu train; ghi
+  LOW_SUPPORT kèm support thực và không kết luận.
 
-Báo cáo 12: bốn bảng, mỗi bảng có một dòng kết luận dạng "ủng hộ / không ủng hộ / không kết luận được" theo CI,
-và mục giới hạn. Không gộp thành một điểm tổng.
+TẦNG 2 — NÊN (neural, chỉ suy luận, không huấn luyện)
+- H3 và E1 chế độ (a) cho PHOBERT-CRF và PROPOSED-DYN với cả ba checkpoint WP3b (6 checkpoint × khoảng 9 điều kiện ×
+  100 mẫu). Mỗi checkpoint một tiến trình trong runtime neural (data/interim/modeling/sprint03/runtime_neural_d_v1),
+  OMP_NUM_THREADS=6, Java qua PATH như 68c. Smoke trước: 100 mẫu test gốc phải trùng prediction test của WP3b cùng seed.
+  Báo từng seed và mean ± std; nhãn LOCAL_CPU_RETRAINED. Không chạy được thì ghi NOT_RUN kèm lý do.
 
-Test: mọi phép biến đổi giữ đúng offset (property test trên toàn bộ train+dev); hoán vị tất định theo seed; dòng có
-ngõ/hẻm bị loại; aug_train và heldout_missing rời nhóm; không chuỗi dev/test nào trong tập tăng cường.
+BÁO CÁO 12
+- Bốn bảng (H3, E1, H2, H4) và phần Tầng 2 nếu có; mỗi bảng có một dòng kết luận "ủng hộ / không ủng hộ / không kết
+  luận được" theo CI. Không gộp thành một điểm tổng.
+- Giới hạn bắt buộc: test Sprint 3 đã bị quan sát (mọi số trên test là phân tích độ bền hậu nghiệm); nhãn Data 04 là
+  silver từ generator; tăng cường không rời lãnh thổ với test (cùng chuẩn với Sprint 3); chuỗi dựng lại ở H3 không còn
+  nguyên văn; nhóm mốc không có support.
 
-XONG KHI: bốn bảng có số hoặc trạng thái; tái chạy cho cùng số; test PASS.
+TEST
+- Mọi phép biến đổi giữ đúng offset (kiểm trên toàn bộ 400 mẫu train+dev+test); hoán vị tất định theo seed.
+- Dòng có TenDuong bắt đầu bằng ngõ/hẻm/ngách/kiệt bị loại; không chuỗi nào của train/dev/test Sprint 3 nằm trong tập
+  tăng cường; không (số nhà, tên đường) nào của dev/test nằm trong tập tăng cường; aug_train và heldout_missing rời nhóm.
+- Cột GT_* không đi vào đặc trưng: đường huấn luyện/suy luận chỉ nhận văn bản và span.
+- Tái lập CRF gốc cho đúng hash và F1 0,9076 (skipTest nếu runtime CRF vắng).
+
+XONG KHI: tầng 1 có bốn bảng với số hoặc trạng thái; tái chạy tầng 1 cho cùng hash; tầng 2 có số hoặc NOT_RUN; báo cáo 12
+đã viết; bộ test đầy đủ không FAIL (mốc hiện tại 406 test, 398 PASS / 8 SKIP).
 ```
 
 ---
