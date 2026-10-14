@@ -1,0 +1,190 @@
+{
+  "script_version": "t1-h5-tier2-local-v1",
+  "status": "SCORED",
+  "declared_at": "2026-10-14T05:54:01+00:00",
+  "label": "LOCAL_CPU_RETRAINED",
+  "note": "checkpoints retrained locally on CPU (WP3b), NOT the locked Sprint 3 checkpoint 7a4a3d01...; the BLOCKED_LOCAL_NEURAL cells of 'DYN gốc' in the tier-1 H5 table are unchanged",
+  "seeds": [
+    42,
+    1337,
+    2025
+  ],
+  "ci_seed": 20261016,
+  "n_resamples": 10000,
+  "threads": 6,
+  "systems_neural": [
+    "PROPOSED-DYN",
+    "DYN-ARGMAX-DIAGNOSTIC",
+    "T1-PIPE-PCRF",
+    "T1-PIPE-DYN",
+    "T1-HEAD-PROBE",
+    "T1-HEAD-PROBE-SYNTH-ONLY"
+  ],
+  "systems_reference_tier1": [
+    "HEUR-JW",
+    "T1-PIPE-CRF",
+    "T1-FEAT"
+  ],
+  "rules": {
+    "dyn": "locked decoder policy threshold 0.7 / margin 0.2 with constraint on (scripts/70 inference_config); processor-rejected texts stay in the denominator as khong_ro",
+    "dyn_argmax": "posterior argmax, tie -> lower class index (t1_pipeline.read_structure convention); diagnostic only",
+    "t1_pipe": "same rule as tier 1: administrative spans of the model + HEUR-JW _resolve + system rule",
+    "probe": "numpy softmax, standardised features (statistics from the training rows only); training rows = t1_synth_train + Sprint 3 train rows with a T1 label and a valid CLS; L2 in {0.01, 0.1, 1} by t1_synth_dev macro-F1, accuracy, then larger L2; synth-only variant uses t1_synth_train rows only",
+    "ci": "cluster bootstrap over admin_group_key, B = 10000, seed 20261016, per seed",
+    "mean_std": "over the three seeds, sample std (ddof = 1), n reported; no seed is selected",
+    "paired": "vs HEUR-JW (scripts/68 score_cell) and vs T1-FEAT of tier 1, same samples"
+  },
+  "l2_grid": [
+    0.01,
+    0.1,
+    1.0
+  ],
+  "checkpoints_sha256": {
+    "dyn_seed42": {
+      "path": "data/interim/modeling/sprint04/multiseed_20261015_v1/dyn_seed42/checkpoints/best.pt",
+      "sha256": "6210547365cad2b93674dcd007ed388a707bbc453e6b9b6824b96150953a14e4",
+      "best_epoch": 6,
+      "train_seconds": 1262.9449065229999
+    },
+    "pcrf_seed42": {
+      "path": "data/interim/modeling/sprint04/multiseed_20261015_v1/pcrf_seed42/checkpoints/best.pt",
+      "sha256": "5306980e10328c82241492da8503ed97feaf5ae472a9118958653b6688084abd",
+      "best_epoch": 6,
+      "train_seconds": 1415.954660054
+    },
+    "dyn_seed1337": {
+      "path": "data/interim/modeling/sprint04/multiseed_20261015_v1/dyn_seed1337/checkpoints/best.pt",
+      "sha256": "b70d0f7dd5091ddc9e7fd09b631f092f6c7b07b54b79c36d7a01639dcb41f034",
+      "best_epoch": 11,
+      "train_seconds": 1752.6585623930005
+    },
+    "pcrf_seed1337": {
+      "path": "data/interim/modeling/sprint04/multiseed_20261015_v1/pcrf_seed1337/checkpoints/best.pt",
+      "sha256": "54f1136b5e843626a0cbc58069fbb72d47d251e88a4c159706d0bc6acdb8c350",
+      "best_epoch": 6,
+      "train_seconds": 1261.1281770119995
+    },
+    "dyn_seed2025": {
+      "path": "data/interim/modeling/sprint04/multiseed_20261015_v1/dyn_seed2025/checkpoints/best.pt",
+      "sha256": "fc41f40702951dd13ddb906fb5b499eb78b185cd69a0e8eb4c481d50201f4695",
+      "best_epoch": 6,
+      "train_seconds": 1213.0176638779994
+    },
+    "pcrf_seed2025": {
+      "path": "data/interim/modeling/sprint04/multiseed_20261015_v1/pcrf_seed2025/checkpoints/best.pt",
+      "sha256": "bb4ee1b587a6adb36c1bc0f7612ecee3b9438b88406227c4a75bfda993032d54",
+      "best_epoch": 7,
+      "train_seconds": 1410.8377920169996
+    }
+  },
+  "tier2_inputs_sha256": {
+    "t1_synth_train": {
+      "rows": 105,
+      "sha256": "a045c77913b74d593c445255f19ee08c1a316b933cc50f53b30e65ef84bcb291"
+    },
+    "t1_synth_dev": {
+      "rows": 273,
+      "sha256": "2d7273f64b16bb1a7945ea181bc1bd32bbe653d849a1c547324fd6469523ff73"
+    },
+    "synth_eval": {
+      "rows": 2195,
+      "sha256": "ec617dd07e77e6be5c15f0ddc9dc9fa72280df6fc46be5291465ef57ea34614d"
+    },
+    "data06": {
+      "rows": 580,
+      "sha256": "75e7fb4775bd3c5a39619671c4d51a8a8ce3c41db653cad4b47713500400a9a4"
+    },
+    "s3_train": {
+      "rows": 240,
+      "sha256": "ba3bb469b621e6736491ddd7d1fc0df5c5879d1c3a1c35c651a36227842f4055"
+    },
+    "s3_dev": {
+      "rows": 60,
+      "sha256": "742f760efcb5b80fe7d8ef5fcae873ceac2788fea0aebc3dcc11217fe5dd18ca"
+    },
+    "s3_test": {
+      "rows": 100,
+      "sha256": "5bb64cec25623ce9ff2d2625f65683e28f197bff679c3c9781da3e3e20c4179f"
+    }
+  },
+  "tier1_run_manifest_sha256": "89f22168f5e40d924feb830d1e3d4ddfd612720bbaa4d91ad7ad2012553dc38d",
+  "tier1_predictions_sha256": "a1dae726a7909d908d42734c1b81c28261670b96ba472cd1363dfeca0069dc12",
+  "code_sha256": {
+    "scripts/68c_run_t1_tier2_local.py": "f5a3b69aa1880ee1030fa6e39dee4d835b10bc0f7edd774f514c0e67b0a2c33a",
+    "scripts/68_run_t1_evaluation.py": "934315b5eb29fd2f3f22577c7d592433d4bfeb9c02b866a4d0d853c4296b572e",
+    "scripts/68b_run_t1_neural_local.py": "4eb58d02657fb704cdabf7dba78e85ea8ebf0f68f7cfcb5971bada95578a9a03",
+    "scripts/70_run_multiseed_local.py": "c09960f75a6685d1d0df692ac2dff9b909763c0cecf1bc04aeca30705aebf9e4",
+    "src/evaluation/t1_pipeline.py": "101f0f6d0986f296128e7d0c6b7c325db093554c9dd943c55e2b1700f909e5d7",
+    "src/evaluation/t1_situations.py": "4c97366f455bf3a3fdc5f3b1a195e7eb17adbf604f9a39e6bc1966626df6a5b1",
+    "src/evaluation/stats.py": "260c12c2aad92e5de3c6a81d05b05f7ae89bdf5e867e18f885399fc2d843b093",
+    "src/evaluation/experiment_config.py": "a39ca472f68b548bb78efda6cc4fb131220bf7e852add1e3551180fcf5b29de5"
+  },
+  "free_bytes_at_prepare": 28014235648,
+  "scored_at": "2026-10-14T06:54:52+00:00",
+  "outputs": {
+    "tables/h5_tier2_local_per_seed.csv": {
+      "rows": 90,
+      "columns": 41,
+      "duplicate_rows": 0,
+      "sha256": "3e9760118b68c80e971b79f227b6f75a6712a51ff211bad62c2dc06b409b404d"
+    },
+    "tables/h5_tier2_local_mean_std.csv": {
+      "rows": 30,
+      "columns": 28,
+      "duplicate_rows": 0,
+      "sha256": "074b580c7a036d92bdb30e6b7042ca65ce40c8e5febd76f6840997fb482e81d3"
+    },
+    "tables/h5_tier2_local_by_kieu_lai.csv": {
+      "rows": 108,
+      "columns": 14,
+      "duplicate_rows": 0,
+      "sha256": "5844685b3b41d01f09f266bdf7c044404c86d40423dfc2331f88d766e094ac61"
+    },
+    "tables/h5_tier2_local_by_situation.csv": {
+      "rows": 432,
+      "columns": 14,
+      "duplicate_rows": 0,
+      "sha256": "6922142a1838577446e8c9ba145f8f39bb47fe9ed9985eddb6571e985946c062"
+    },
+    "tables/h5_tier2_local_by_province.csv": {
+      "rows": 324,
+      "columns": 14,
+      "duplicate_rows": 0,
+      "sha256": "01b52455835977f39605c0b5480ba3281f4ed55b113d5d637dbdc5ca909ef692"
+    },
+    "tables/paired_vs_heur_and_feat.csv": {
+      "rows": 144,
+      "columns": 15,
+      "duplicate_rows": 0,
+      "sha256": "e23b3a7a670eb88a12a19ec84827ba8f78cd640904f04482394c016cf6917932"
+    },
+    "tables/rejections.csv": {
+      "rows": 30,
+      "columns": 5,
+      "duplicate_rows": 0,
+      "sha256": "19b16e6708f0f8f47e58b0127b747fc4b84631cd843abfa04a0f44315f3a8086"
+    },
+    "tables/probe_selection.csv": {
+      "rows": 6,
+      "columns": 10,
+      "duplicate_rows": 0,
+      "sha256": "b63af239b518392f8d2c301c247fbf0fd44b2ac53bc806638999bd8fda53b413"
+    },
+    "predictions_tier2_local.jsonl": {
+      "rows": 51750,
+      "sha256": "58b779464683479b34f406706982a439c479ba71bff7445aa2f352e60358b97e"
+    },
+    "metrics.json": {
+      "sha256": "d828457b720791f6f6cd2d95ed9c8e4d864d24d8d8c9e866a3173b7cd11744bc"
+    }
+  },
+  "frozen_hashes_sha256": "9a4b29910501d2841cd6ee85cb198e19422bfb2a7ca0653c94ce4b4b70a637cc",
+  "rows_in": {
+    "s3_test": 100,
+    "synth_eval": 2195,
+    "data06": 580
+  },
+  "code_sha256_at_scoring": {
+    "scripts/68c_run_t1_tier2_local.py": "f5a3b69aa1880ee1030fa6e39dee4d835b10bc0f7edd774f514c0e67b0a2c33a"
+  }
+}

@@ -14,7 +14,7 @@
 | T1-PIPE-PCRF, T1-PIPE-DYN, DYN gốc trên test Sprint 3 (prediction đã freeze) | PASS |
 | Tầng 2: DYN gốc, T1-PIPE-PCRF, T1-PIPE-DYN trên hai tập stress; T1-HEAD-PROBE | **BLOCKED_LOCAL_NEURAL** (mục 7) |
 | DYN-T1-AUG | DEFERRED_NEEDS_TRAINING_PROTOCOL_CHANGE |
-| Giả thuyết H5 | **NEGATIVE_RESULT** cho mô hình đề xuất trên test Sprint 3; **không kết luận được** trên tập stress (mục 8) |
+| Giả thuyết H5 | **NEGATIVE_RESULT** cho mô hình đề xuất trên test Sprint 3; **không kết luận được** trên tập stress (mục 8) (với checkpoint Sprint 3 gốc; với checkpoint huấn luyện lại cục bộ: NEGATIVE_RESULT, xem 11.4) |
 
 ## 2. Tái lập các số đã kiểm trước khi viết hệ thống
 
@@ -212,7 +212,7 @@ Hai lần thử, đều qua `modeling_config` + `build_adapter`, checkpoint DYN 
 
 Cả hai là kiểm tra có chủ đích của mã đã khóa nên không tìm cách vòng. Resource lock không phải nguyên nhân: hash lock cục bộ trùng `resource_lock_sha256` trong metadata checkpoint (`621cb1db…`). Nguyên văn traceback: `tier2/status.json`. Đầu vào của tầng 2 (chỉ `key`, `text`) đã lưu tại `tier2_inputs/` (7 file: 105 / 273 / 2.195 / 580 / 240 / 60 / 100 dòng).
 
-Hệ quả: DYN gốc, T1-PIPE-PCRF, T1-PIPE-DYN trên hai tập stress và T1-HEAD-PROBE trên cả ba cột đều `BLOCKED_LOCAL_NEURAL`. Cập nhật sau WP3b: WP3b đã huấn luyện cục bộ trên CPU và các checkpoint đó nạp được trên CPU, nên Tầng 2 có thể chạy trên checkpoint huấn luyện lại cục bộ (một gói riêng, chưa chạy). Trạng thái `BLOCKED_LOCAL_NEURAL` vẫn đúng với "DYN gốc" (checkpoint Kaggle `7a4a3d01…`), vì checkpoint này vẫn không nạp được trên CPU.
+Hệ quả: DYN gốc, T1-PIPE-PCRF, T1-PIPE-DYN trên hai tập stress và T1-HEAD-PROBE trên cả ba cột đều `BLOCKED_LOCAL_NEURAL`. Cập nhật sau WP3b: WP3b đã huấn luyện cục bộ trên CPU và các checkpoint đó nạp được trên CPU, nên Tầng 2 có thể chạy trên checkpoint huấn luyện lại cục bộ (một gói riêng, chưa chạy). Trạng thái `BLOCKED_LOCAL_NEURAL` vẫn đúng với "DYN gốc" (checkpoint Kaggle `7a4a3d01…`), vì checkpoint này vẫn không nạp được trên CPU. Kết quả Tầng 2 trên checkpoint huấn luyện lại cục bộ: xem mục 11 (WP2b).
 
 ## 8. Diễn giải
 
@@ -259,3 +259,110 @@ python -m unittest discover -s tests -v
 Chạy lại `scripts/67` và tầng 1 của `scripts/68` vào thư mục mới cho cùng SHA-256 ở mọi CSV của tập dữ liệu và ở `predictions.jsonl`, `metrics.json`, `dyn_diagnostics.json`, các bảng `tables/*.csv`, span CRF và đầu vào tầng 2 (chỉ `run_manifest.json` khác vì có thời điểm).
 
 Đầu ra của run: `run_manifest.json` (hệ thống, luật, seed khai báo trước khi chấm; SHA-256 đầu vào và mã), `predictions.jsonl`, `metrics.json`, `dyn_diagnostics.json`, `tables/` (`h5_main.csv`, `h5_main_tier2.csv`, `h5_main_combined.csv`, `h5_synth_eval_adm_only.csv`, `h5_by_kieu_lai.csv`, `h5_by_situation.csv`, `h5_by_province.csv`, `dyn_diagnosis_samples.csv`, `scoring_gold.csv`), `tier2_inputs/`, `tier2/status.json`.
+
+## 11. Tầng 2 trên checkpoint huấn luyện lại cục bộ (WP2b)
+
+**Nhãn bắt buộc cho mọi số của mục này: `LOCAL_CPU_RETRAINED`.** Đây là sáu checkpoint WP3b huấn luyện lại trên CPU cục bộ (c02, seed 42 / 1337 / 2025), **không phải** checkpoint đã khóa của Sprint 3 (`7a4a3d01…`). Các ô `BLOCKED_LOCAL_NEURAL` của "DYN gốc" ở mục 6 giữ nguyên; mục này thêm các hàng mới. Run: `data/processed/evaluation/sprint04/t1_h5_tier2_local_20261016_v1/` (bảng trong `tables/`); đầu ra suy luận và vector CLS: `data/interim/modeling/sprint04/t1_tier2_local_20261016_v1/`. Mọi tập tổng hợp là stress track; test Sprint 3 là `POST_HOC_SECONDARY`; không chọn seed, checkpoint hay ngưỡng bằng test.
+
+### 11.1 Trạng thái và smoke
+
+| Đầu ra | Trạng thái |
+|---|---|
+| Smoke sáu checkpoint (100 mẫu `s3_test` so với prediction test của WP3b) | **PASS 6/6**: span, `predicted_system`, `abstain` giống hệt 100/100; posterior DYN lệch tối đa 0,0 (ngưỡng 1e-6); vector CLS hợp lệ 100/100 (768 chiều) |
+| Suy luận DYN × 3 (bảy tập, kèm CLS) và PHOBERT-CRF × 3 (ba tập) | PASS; mỗi checkpoint một tiến trình riêng; ≈ 123 s (DYN) và ≈ 99 s (PCRF) suy luận, chưa kể 140–390 s nạp |
+| Hash prediction/CLS khóa trước khi chấm (`frozen_hashes.json`, 54 file) | PASS |
+| Chấm: DYN, DYN argmax (chẩn đoán), T1-PIPE-PCRF, T1-PIPE-DYN, T1-HEAD-PROBE và biến thể chỉ-train-tổng-hợp × 3 seed × 5 cột | PASS (90 ô) |
+| Chấm lại cùng hash đóng băng vào thư mục mới | PASS: mọi bảng, `predictions_tier2_local.jsonl`, `metrics.json` trùng SHA-256 |
+| Ô tier-1 dùng làm tham chiếu (HEUR-JW, T1-PIPE-CRF, T1-FEAT) tính lại | PASS: 12/12 accuracy trùng bảng tầng 1 (`tier1_reference_check.csv`) |
+
+Thời gian smoke (nạp / 100 mẫu): DYN 386 s / 36,7 s (seed 42), 141 s / 20,6 s (1337), 142 s / 19,5 s (2025); PCRF 262 s / 21,0 s, 142 s / 19,9 s, 137 s / 18,3 s. Ước lượng tổng ≈ 1,6 giờ (dưới ngưỡng 5 giờ); suy luận thực tế nhanh hơn ước lượng. 2/2.195 mẫu `synth_eval` bị processor từ chối ở cả sáu checkpoint (cùng hai mẫu); giữ trong mẫu số như `khong_ro`. Không có mẫu bị từ chối ở `data06` và `s3_test`.
+
+SHA-256 đầy đủ sáu `best.pt` (epoch tốt nhất): DYN 42 `6210547365cad2b93674dcd007ed388a707bbc453e6b9b6824b96150953a14e4` (6); DYN 1337 `b70d0f7dd5091ddc9e7fd09b631f092f6c7b07b54b79c36d7a01639dcb41f034` (11); DYN 2025 `fc41f40702951dd13ddb906fb5b499eb78b185cd69a0e8eb4c481d50201f4695` (6); PCRF 42 `5306980e10328c82241492da8503ed97feaf5ae472a9118958653b6688084abd` (6); PCRF 1337 `54f1136b5e843626a0cbc58069fbb72d47d251e88a4c159706d0bc6acdb8c350` (6); PCRF 2025 `bb4ee1b587a6adb36c1bc0f7612ecee3b9438b88406227c4a75bfda993032d54` (7). Cũng có trong `run_manifest.json`.
+
+### 11.2 Bảng chính — theo seed (42 / 1337 / 2025) và mean ± std (n = 3, ddof = 1)
+
+CI cluster bootstrap từng seed (B = 10.000, seed 20261016) nằm trong `tables/h5_tier2_local_per_seed.csv`; mean ± std trong `h5_tier2_local_mean_std.csv`. "DYN thr." = ngưỡng đã khóa 0,7 / margin 0,2; "DYN argmax" = số chẩn đoán, không phải cấu hình. Tham chiếu tầng 1, ba số theo thứ tự accuracy test / accuracy `synth_eval` / `Lai` recall `data06`: HEUR-JW 0,9219 / 0,4980 / 0,2948; T1-PIPE-CRF 0,9375 / 0,4984 / 0,2948; T1-FEAT 0,7031 / 0,8925 / 0,5483.
+
+**Test Sprint 3 — 64 eligible, `Lai` support 5, `POST_HOC_SECONDARY`**
+
+| Hệ (`LOCAL_CPU_RETRAINED`) | Accuracy theo seed | Accuracy mean ± std | Macro-F1 mean ± std | `Lai` recall theo seed | Coverage mean |
+|---|---|---|---|---|---|
+| DYN thr. | 0,703 / 0,844 / 0,672 | 0,740 ± 0,092 | 0,562 ± 0,166 | 0 / 0,4 / 0 (chỉ seed 1337 dự đoán `Lai`: P 2/7) | 0,828 |
+| DYN argmax | 0,891 / 0,859 / 0,891 | 0,880 ± 0,018 | 0,663 ± 0,084 | 0 / 0,6 / 0 | 1,000 |
+| T1-PIPE-PCRF | 0,969 / 0,969 / 0,969 | 0,969 ± 0 | 0,982 ± 0 | 1 / 1 / 1 | 0,969 |
+| T1-PIPE-DYN | 0,969 / 0,969 / 0,969 | 0,969 ± 0 | 0,982 ± 0 | 1 / 1 / 1 | 0,969 |
+| T1-HEAD-PROBE (train tổng hợp + Sprint 3) | 0,859 / 0,828 / 0,859 | 0,849 ± 0,018 | 0,747 ± 0,015 | 0,6 / 0,8 / 0,4 (P 0,43 / 0,31 / 0,29) | 1,000 |
+| T1-HEAD-PROBE, chỉ train tổng hợp | 0,766 / 0,719 / 0,656 | 0,714 ± 0,055 | 0,643 ± 0,065 | 0,4 / 1,0 / 0,2 (P 0,17 / 0,23 / 0,06) | 1,000 |
+
+**`t1_synth_eval` — 2.195 mẫu (cu 987 / moi 329 / `Lai` 879), 365 cụm**
+
+| Hệ | Accuracy theo seed | Accuracy mean ± std | Macro-F1 mean ± std | `Lai` recall theo seed | `Lai` F1 mean ± std |
+|---|---|---|---|---|---|
+| DYN thr. | 0,555 / 0,623 / 0,445 | 0,541 ± 0,090 | 0,507 ± 0,157 | 0 / 0,080 / 0 | 0,049 ± 0,085 |
+| DYN argmax | 0,606 / 0,629 / 0,592 | 0,609 ± 0,019 | 0,583 ± 0,031 | 0,025 / 0,093 / 0 | 0,073 ± 0,088 |
+| T1-PIPE-PCRF | 0,489 / 0,493 / 0,499 | 0,494 ± 0,005 | 0,395 ± 0,003 | 0,290 / 0,296 / 0,299 | 0,454 ± 0,005 |
+| T1-PIPE-DYN | 0,488 / 0,495 / 0,489 | 0,491 ± 0,004 | 0,393 ± 0,002 | 0,290 / 0,296 / 0,294 | 0,451 ± 0,003 |
+| T1-HEAD-PROBE | 0,756 / 0,750 / 0,749 | 0,752 ± 0,004 | 0,778 ± 0,006 | 0,416 / 0,410 / 0,407 | 0,576 ± 0,003 |
+| T1-HEAD-PROBE, chỉ train tổng hợp | 0,818 / 0,881 / 0,810 | 0,836 ± 0,039 | 0,858 ± 0,038 | 0,634 / 0,845 / 0,636 | 0,776 ± 0,074 |
+
+**`t1_data06_heldout` — chỉ có `Lai` (580; 553 dòng thuộc nhóm chưa thấy trong train); macro-F1 = `NOT_EVALUABLE_SINGLE_CLASS`; số = recall `Lai`**
+
+| Hệ | Toàn bộ theo seed | Toàn bộ mean ± std | Nhóm chưa thấy mean ± std | Abstain theo seed (toàn bộ) |
+|---|---|---|---|---|
+| DYN thr. | 0 / 0,145 / 0 | 0,048 ± 0,084 | 0,047 ± 0,081 | 228 / 88 / 189 |
+| DYN argmax | 0,002 / 0,219 / 0 | 0,074 ± 0,126 | 0,072 ± 0,124 | 0 / 0 / 0 |
+| T1-PIPE-PCRF | 0,295 / 0,295 / 0,295 | 0,295 ± 0 | 0,271 ± 0 | 1 / 1 / 1 |
+| T1-PIPE-DYN | 0,295 / 0,295 / 0,295 | 0,295 ± 0 | 0,271 ± 0 | 1 / 1 / 1 |
+| T1-HEAD-PROBE | 0,152 / 0,405 / 0,169 | 0,242 ± 0,142 | 0,227 ± 0,143 | 0 / 0 / 0 |
+| T1-HEAD-PROBE, chỉ train tổng hợp | 0,255 / 0,779 / 0,247 | 0,427 ± 0,305 | 0,426 ± 0,310 | 0 / 0 / 0 |
+
+CI từng seed rộng ở các ô này (ví dụ DYN seed 1337 trên `data06`: 0,145 [0,031; 0,280]; probe chỉ-tổng-hợp seed 1337: 0,779 [0,618; 0,938] so với seed 42: 0,255 [0,153; 0,437]). Phần `t1_synth_eval_adm_only` nằm trong `h5_tier2_local_per_seed.csv`; bảng theo `KieuLai`, thẻ A–D và tỉnh: `tables/h5_tier2_local_by_*.csv`; ghép cặp với HEUR-JW và T1-FEAT: `tables/paired_vs_heur_and_feat.csv`.
+
+**Ghép cặp (Δ accuracy [CI cụm 95%]; trích)**
+
+| So sánh | seed 42 | seed 1337 | seed 2025 |
+|---|---|---|---|
+| DYN thr. − HEUR-JW, test | −0,218 [−0,411; −0,071], p 0,0025 | −0,078 [−0,253; 0,073], p 0,27 | −0,250 [−0,363; −0,081], p 0,0015 |
+| DYN thr. − HEUR-JW, `synth_eval` | +0,057 [−0,135; 0,194] | +0,125 [−0,032; 0,234] | −0,053 [−0,168; 0,046] |
+| DYN thr. − T1-FEAT, `synth_eval` | −0,337 [−0,450; −0,221] | −0,269 [−0,363; −0,169] | −0,447 [−0,571; −0,271] |
+| DYN thr. − HEUR-JW, `data06` | −0,294 [−0,597; −0,134] | −0,150 [−0,473; 0,063] | −0,294 [−0,597; −0,134] |
+| T1-PIPE-DYN − HEUR-JW, test | +0,047 [0,000; 0,103], p 0,25 | như seed 42 | như seed 42 |
+| T1-PIPE-DYN − HEUR-JW, `synth_eval` | −0,010 [−0,029; 0,000], p 0,0001 | −0,003 [−0,020; 0,010] | −0,008 [−0,030; 0,004] |
+| T1-HEAD-PROBE − HEUR-JW, `synth_eval` | +0,258 [0,138; 0,348] | +0,252 [0,141; 0,340] | +0,251 [0,120; 0,347] |
+| T1-HEAD-PROBE − T1-FEAT, `synth_eval` | −0,136 [−0,213; −0,039] | −0,142 [−0,239; −0,033] | −0,143 [−0,233; −0,049] |
+
+### 11.3 Ba câu hỏi
+
+**(i) DYN trên tập tổng hợp có tách được `Lai` không? Không ở seed 42 và 2025; seed 1337 tách được một phần nhỏ.** Với ngưỡng đã khóa, `Lai` recall trên `t1_synth_eval` là 0 / 0,080 / 0 (seed 42 / 1337 / 2025) và trên `data06` là 0 / 0,145 / 0; bỏ ngưỡng thì 0,025 / 0,093 / 0 và 0,002 / 0,219 / 0. Seed 1337 là seed duy nhất cho `Lai` khác 0 một cách đáng kể, đúng như WP3b trên test, nhưng recall vẫn thấp hơn HEUR-JW (0,295) trên `data06`, và Δ accuracy so với T1-FEAT là −0,27 đến −0,45 trên `synth_eval` ở mọi seed. Phần thua của DYN có ngưỡng so với argmax nằm ở abstain: 522 / 38 / 525 mẫu `synth_eval` và 228 / 88 / 189 mẫu `data06` bị đẩy sang `khong_ro`; mức này đổi mạnh theo seed (như WP3b báo trên test: 15 / 2 / 16). Trên `data06`, DYN không đạt mức HEUR-JW (0,295) ở cả ba seed; chỉ seed 1337 tách được một phần (`Lai` recall có ngưỡng 0,145, CI [0,031; 0,280]; CI ghép cặp với HEUR-JW [−0,473; 0,063] chứa 0). Kết luận "tách được một phần" chỉ đứng trên seed 1337.
+
+**(ii) Biểu diễn CLS có đủ thông tin để một đầu tuyến tính tách `Lai` khi có dữ liệu `Lai` không? Có một phần, phụ thuộc mạnh vào seed của encoder; không kết luận chắc được.** Trả lời bằng biến thể khai báo chính trong `run_manifest.json` (hàng "T1-HEAD-PROBE": train tổng hợp + `s3_train`): trên `synth_eval` kết quả ổn định giữa seed, `Lai` recall 0,416 / 0,410 / 0,407 (0,411 ± 0,005) và accuracy 0,752 ± 0,004, cao hơn nhiều so với argmax của đầu T1 gốc cùng checkpoint (0,025 / 0,093 / 0). Sự phụ thuộc vào seed nằm ở `data06`: recall `Lai` 0,152 / 0,405 / 0,169, thấp hơn HEUR-JW (0,295) ở seed 42 và 2025. Probe chính vẫn dưới T1-FEAT trên `synth_eval` (Δ accuracy −0,14, CI không chạm 0 ở cả ba seed; đây là số của biến thể chính). Phân tích bổ sung, biến thể chỉ-train-tổng-hợp (105 dòng, 35 `Lai`): `Lai` recall trên `synth_eval` 0,634 / 0,845 / 0,636, accuracy 0,836 ± 0,039; trên `data06` 0,255 / 0,779 / 0,247 (tách tốt ở seed 1337, hai seed còn lại không hơn HEUR-JW). Với biến thể này, seed 1337 có Δ accuracy so với T1-FEAT −0,012 [−0,062; 0,029], CI chứa 0. Biến thể chính (có nhãn T1 của `s3_train`) **kém hơn** biến thể chỉ-tổng-hợp trên `synth_eval` (0,752 so với 0,836) và `data06` (recall 0,242 so với 0,427), nhưng cao hơn trên test Sprint 3 (0,849 so với 0,714). Dev chọn L2 không hòa ở probe nào (`probe_selection.csv`) nên việc chọn có mang thông tin, nhưng dev chỉ có 8 mẫu cu. Giới hạn: CLS của `s3_train` lấy từ encoder đã được huấn luyện trên chính 240 mẫu đó, nên phần Sprint 3 của tập huấn luyện probe không "mới" với encoder; probe huấn luyện trên 105 dòng tổng hợp cùng generator với `synth_eval` và `data06`, nên số tốt ở seed 1337 chưa chứng minh tổng quát sang địa chỉ lai do người thật viết; std theo seed (0,305 trên `data06`) lớn hơn chênh lệch giữa hai biến thể.
+
+**(iii) T1-PIPE với span neural so với HEUR-JW và T1-PIPE-CRF.** Test Sprint 3: T1-PIPE-PCRF và T1-PIPE-DYN đều 0,9688 ở cả ba seed (std 0), `Lai` 5/5, bằng giá trị tầng 1 tính từ checkpoint Kaggle; so với HEUR-JW +0,047 [0,000; 0,103], McNemar p = 0,25 (không phân biệt được); so với T1-PIPE-CRF (0,9375) hơn 2 mẫu (62/64 so với 60/64). `data06`: 0,2948 ở mọi seed, giống hệt HEUR-JW và T1-PIPE-CRF (0 cặp lệch với HEUR-JW, b = c = 0). `synth_eval`: 0,494 ± 0,005 (PCRF) và 0,491 ± 0,004 (DYN) so với HEUR-JW 0,4980 và T1-PIPE-CRF 0,4984; chênh lệch so với HEUR-JW từ −0,010 đến +0,001. Thay span bằng span của mô hình neural huấn luyện lại, ở cả ba seed, **không đổi kết luận của tầng 1**: kết quả T1 của pipeline do bước tra gazetteer quyết định, không do mô hình tách span.
+
+### 11.4 Cập nhật kết luận H5
+
+- *Vế "mô hình đề xuất vượt trội ở lớp `Lai`"* — **không được ủng hộ** với các checkpoint huấn luyện lại cục bộ: trên test, accuracy DYN thấp hơn HEUR-JW ở cả ba seed (−0,218 / −0,078 / −0,250; hai trong ba CI không chạm 0) và `Lai` recall 0 / 0,4 / 0; trên `synth_eval` và `data06`, `Lai` recall của DYN ≤ 0,22 ở mọi seed, thấp hơn HEUR-JW (0,295) và T1-FEAT (0,548) trên `data06`. Phạm vi: các checkpoint huấn luyện lại cục bộ, không phải checkpoint Sprint 3; support `Lai` test chỉ 5; tập tổng hợp và `data06` cùng một generator (stress track). Trạng thái trên tập stress đổi từ "không kết luận được" sang `NEGATIVE_RESULT` cho các checkpoint huấn luyện lại cục bộ; với "DYN gốc" vẫn không kết luận được.
+- *Vế "`Lai` là lớp khó nhất"* — **vẫn không kết luận được ở dạng tổng quát**: với DYN, `Lai` là lớp có recall thấp nhất (≈ 0); với HEUR-JW và T1-PIPE trên `synth_eval`, recall moi (tầng 1: 10/329) thấp hơn recall `Lai`; với probe, bảng chính không tách recall từng lớp (xem `h5_tier2_local_per_seed.csv` cho macro-F1).
+
+### 11.5 Giới hạn và điểm suy luận
+
+1. Mọi số mang nhãn `LOCAL_CPU_RETRAINED`; DYN seed 42 cục bộ trên test (accuracy 0,7031) khớp T1 do WP3b báo, khác checkpoint Kaggle (0,7188).
+2. n = 3 seed: mean ± std là mô tả, không phải suy luận thống kê; CI từng seed là bootstrap theo cụm, không gộp seed.
+3. `Lai` của test (5 mẫu), `data06` và dữ liệu tổng hợp cùng generator; không chứng minh tổng quát sang địa chỉ lai do người thật viết.
+4. Probe là đầu tuyến tính trên đặc trưng đóng băng, không phải mô hình đề xuất được huấn luyện lại; `DYN-T1-AUG` vẫn `DEFERRED_NEEDS_TRAINING_PROTOCOL_CHANGE`.
+5. **Suy luận, không đo:** (a) probe có `s3_train` kém hơn probe chỉ-tổng-hợp trên `synth_eval` có thể do lệch phân phối nhãn/cách viết giữa dữ liệu Sprint 3 và dữ liệu tổng hợp (không có thí nghiệm cô lập); (b) seed 1337 là seed duy nhất tách được `Lai` ở cả đầu gốc lẫn probe, gợi ý encoder seed đó mã hóa phiên bản tốt hơn, nhưng với n = 3 không phân biệt được với biến thiên ngẫu nhiên.
+6. Script `68c` được thêm tùy chọn `--out` (chấm lại vào thư mục mới) sau lần chấm chính; hash mã trong `run_manifest.json` của run chính là hash trước thay đổi đó. Logic chấm không đổi (kiểm bằng việc mọi bảng trùng SHA-256 khi chấm lại).
+
+### 11.6 Tái lập
+
+```bash
+cd /mnt/d/DACN && source ~/.venv_dacn/bin/activate
+python -m scripts.68c_run_t1_tier2_local prepare              # từ chối ghi đè; kiểm hash 6 best.pt và 7 file đầu vào
+NEURAL=data/interim/modeling/sprint03/runtime_neural_d_v1/bin/python
+export OMP_NUM_THREADS=6 MKL_NUM_THREADS=6 PYTHONDONTWRITEBYTECODE=1
+$NEURAL -m scripts.68c_run_t1_tier2_local smoke-all           # smoke 6 checkpoint
+$NEURAL -m scripts.68c_run_t1_tier2_local infer-all           # suy luận, mỗi checkpoint một tiến trình
+python -m scripts.68c_run_t1_tier2_local freeze               # khóa hash trước khi chấm
+python -m scripts.68c_run_t1_tier2_local score                # chấm
+python -m scripts.68c_run_t1_tier2_local score --out <thư mục mới>   # chấm lại để kiểm tái lập
+```
