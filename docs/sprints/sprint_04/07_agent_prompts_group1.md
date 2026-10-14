@@ -53,8 +53,8 @@ Ràng buộc cứng:
    gom chung — Data 03: 879/1500 dòng, Data 04: 223/800, Data 06: 1/600, Data 01: 0. Mọi phép chia nhóm rời nhau chỉ
    được dùng các dòng có khóa ADM|...; dòng UNRESOLVED chỉ dùng cho đánh giá, không đưa vào huấn luyện, và phải đếm.
 
-Trước khi báo xong: chạy `python -m unittest discover -s tests -v` (toàn bộ; mốc đo ngày 14/10/2026 sau WP2b
-trong ~/.venv_dacn là 406 test: 398 PASS / 8 SKIP / 0 FAIL — không được có FAIL và không được làm giảm số PASS cũ),
+Trước khi báo xong: chạy `python -m unittest discover -s tests -v` (toàn bộ; đo lại mốc khi bắt đầu gói — số test tăng sau mỗi gói
+trong ~/.venv_dacn; không được có FAIL — không được có FAIL và không được làm giảm số PASS cũ),
 chạy script của bạn từ đầu trên thư mục đầu ra mới để chứng minh tái lập, kiểm số dòng/cột/encoding/bản ghi trùng
 của mọi CSV đầu ra.
 
@@ -782,45 +782,95 @@ XONG KHI: tầng 1 có bốn bảng với số hoặc trạng thái; tái chạy
 ## WP5 — Ablation ràng buộc và tuyên bố H1
 
 ```text
-NHIỆM VỤ: thay cho ablation adapter mà đề cương hứa (H1) bằng ablation trung thực của thứ đã được hiện thực:
-đầu T1 + giải mã có ràng buộc. Phụ thuộc: WP3 (CI, đa seed) và WP2 (T1 biến thể, t1_stress_v1).
+NHIỆM VỤ: thay cho ablation adapter mà đề cương hứa (H1) bằng ablation trung thực của thứ đã được hiện thực: đầu T1 +
+giải mã có ràng buộc (cấm nhãn QuanHuyen khi T1 tự tin dự đoán "moi"). Toàn bộ gói chạy trên CPU từ prediction đã lưu:
+giải mã lại bằng Viterbi thuần Python với emission đã lưu và tham số CRF đọc từ checkpoint. KHÔNG suy luận lại mô hình
+neural, KHÔNG dựng adapter khóa (adapter đòi 20 GiB đĩa trống, ổ D không đủ). Phụ thuộc: WP3a, WP3b, WP2, WP2b.
 
-File bạn sở hữu: scripts/72_run_constraint_ablation.py, tests/test_group1_constraint_ablation.py,
-data/processed/evaluation/sprint04/constraint_ablation_20261017_v1/, docs/sprints/sprint_04/13_constraint_ablation_and_h1.md.
+File bạn sở hữu: scripts/72_run_constraint_ablation.py, src/evaluation/constraint_ablation.py,
+tests/test_group1_constraint_ablation.py, data/interim/modeling/sprint04/constraint_ablation_20261017_v1/ (tham số CRF đã
+trích, kết quả giải mã lại theo dòng), data/processed/evaluation/sprint04/constraint_ablation_20261017_v1/ (metric, bảng,
+manifest), docs/sprints/sprint_04/13_constraint_ablation_and_h1.md. Mô-đun của các gói trước chỉ được import.
+KHÔNG sửa src/modeling/, configs/, src/evaluation/adapters/, src/modeling/structural_decoder.py.
 
-Bối cảnh đã kiểm: trên test, bật ràng buộc đổi 1 mẫu / 2 span (s3_224ae519b196f730: QuanHuyen -> PhuongXa), T0 F1
-giảm 0,22 điểm; lỗi QuanHuyen trên mẫu moi là 0/12 ở cả hai chế độ. Ràng buộc chỉ kích hoạt khi T1 tự tin dự đoán
-"moi" và khi đó cấm nhãn QuanHuyen (src/modeling/structural_decoder.py).
+SỰ THẬT ĐÃ KIỂM NGÀY 14/10/2026 (bước đầu tiên là tái lập; lệch thì dừng và báo)
+- Mỗi dòng prediction của DYN có: raw_output.emissions (ma trận số token × 23 nhãn BIO), trace.path_before_constraint,
+  trace.path_after_constraint, trace.spans_before_constraint, trace.alignment, trace.changed_unit_indices và
+  trace.structure (posterior cu/moi/Lai, threshold 0,7, margin 0,2, predicted_system, ban_district, constraint_enabled).
+  Đúng cho:
+  · Test Sprint 3, checkpoint Kaggle DYN c02 (SHA-256 7a4a3d01…): .../final_completion_20261005_v1/kaggle_final_output_v4/
+    dacn_artifacts/dacn-s3-final-infer-20261005-v4/workspace/data/interim/modeling/sprint03/dacn-s3-final-infer-20261005-v4/
+    {dyn_test, dyn_off_test}/predictions.jsonl (hash trong all_test_predictions_frozen.json). Đã biết: bật ràng buộc đổi
+    1 mẫu / 2 span (s3_224ae519b196f730, QuanHuyen → PhuongXa); lỗi QuanHuyen trên gold moi 0/12 ở cả hai chế độ.
+  · Track 5 trường, cùng checkpoint: cùng thư mục, {dyn_5field, dyn_off_5field}/predictions.jsonl (khoảng 54 MB mỗi
+    file; đọc theo dòng). Đã đếm: 4.800 dòng; ràng buộc kích hoạt (ban_district) ở 959 dòng; chỉ 5 dòng có
+    changed_unit_indices khác rỗng. Có thêm thư mục *_5field_raw: xác định nó là gì trước khi dùng, ghi vào báo cáo.
+    Đầu vào và gold của track: data/interim/modeling/sprint03/final_completion_20261005_v1/fivefield_input.jsonl
+    (sample_id, text, dataset, source_row) và fivefield_input.manifest.json; gold lấy theo dataset + source_row từ
+    data/processed/benchmark/ (HeQuyChieu, các cột trường và GT_*). Track này là DEVELOPMENT_TRACK.
+  · Test Sprint 3, ba checkpoint DYN huấn luyện lại cục bộ của WP3b: data/interim/modeling/sprint04/multiseed_20261015_v1/
+    dyn_seed{42,1337,2025}/{test_dyn, test_dyn_off}/predictions.jsonl. Đã biết (review WP3b): ràng buộc kích hoạt ở
+    28 / 31 / 3 mẫu nhưng không đổi đường giải mã nào. Nhãn LOCAL_CPU_RETRAINED.
+  · PHOBERT-CRF dùng cùng adapter nên prediction của nó (pcrf_test của Kaggle; test_pcrf của WP3b) cũng có emission —
+    kiểm trước khi dùng cho bảng 2×2.
+- Tham số CRF: src/modeling/crf.py::LinearChainCRF có start (23), end (23), transitions (23 × 23), cộng mặt nạ BIO từ
+  src/modeling/labels.py::bio_constraints. src/modeling/structural_decoder.py::viterbi_reference(emissions,
+  transitions, start_scores, end_scores, forbidden_tag_ids) là bản tham chiếu thuần Python đã dùng để kiểm decode của Torch.
+  Trích start/end/transitions của từng checkpoint cần dùng (DYN Kaggle 7a4a3d01…, PCRF Kaggle 19894a1e…, sáu best.pt
+  của WP3b) bằng torch.load(map_location="cpu") trong runtime neural (data/interim/modeling/sprint03/runtime_neural_d_v1/
+  bin/python), ghi ra JSON nhỏ kèm SHA-256 checkpoint, rồi mọi bước sau chạy trong ~/.venv_dacn. Đây là đọc tensor,
+  không dựng adapter và không suy luận. Tìm khóa trong state dict theo hậu tố "crf.start", "crf.end", "crf.transitions";
+  không đoán định dạng — in danh sách khóa nếu không thấy.
+- Dev: không có prediction dev của DYN có ràng buộc (chỉ có run không ràng buộc, xem review WP3a); nếu prediction dev
+  không ràng buộc có emission và posterior thì áp ràng buộc bằng giải mã lại; không có thì ghi NOT_FOUND.
 
-1. Ghép cặp bật/tắt (cùng checkpoint, cùng calibration, cùng đầu vào) trên: test, dev, track 5 trường (4.800 hàng),
-   từng seed của WP3b nếu có, và phần moi của t1_stress_v1. Dùng prediction có sẵn; chỉ suy luận thêm khi chưa có
-   và runtime cục bộ cho phép, nếu không ghi PENDING_INFERENCE kèm danh sách đầu vào.
-   Mỗi tập: số mẫu thay đổi, số span thay đổi, phân loại từng thay đổi (sửa đúng / làm sai / trung tính), delta F1
-   và CI ghép cặp (src/evaluation/stats.py), tỷ lệ kích hoạt ràng buộc.
-2. Dư địa: trên mỗi tập, đếm mẫu gold moi (không có gold QuanHuyen) mà chế độ tắt dự đoán QuanHuyen. Đây là số lỗi
-   tối đa ràng buộc có thể sửa. Nếu bằng 0, viết đúng như vậy: ràng buộc không có gì để sửa trên tập đó.
-3. Ablation nguồn T1 cho ràng buộc, áp ở bước hậu xử lý trên prediction tắt-ràng-buộc khi có đủ thông tin, hoặc bằng
-   giải mã lại nếu có emission: (a) T1 của DYN; (b) T1 của HEUR-JW; (c) T1 gold = ORACLE. Ghi nhãn (c) là cận trên,
-   không phải kết quả mô hình, không đưa vào bảng so sánh mô hình. Nếu chỉ làm được hậu xử lý (xóa/đổi nhãn span
-   QuanHuyen) thay vì Viterbi có ràng buộc, nêu rõ đây là xấp xỉ và khác gì.
-4. So mask T1 với ràng buộc: bảng 2×2 {có/không đầu T1 trong huấn luyện} × {có/không ràng buộc khi giải mã} từ các run
-   đã có: PHOBERT-CRF (không T1, không ràng buộc), PROPOSED-NO-CONSTRAINT (có T1, không ràng buộc), PROPOSED-DYN (có, có).
-   Ô (không T1, có ràng buộc) chỉ điền được với T1 ngoài (HEUR hoặc oracle) từ mục 3; ghi rõ nguồn.
-   Lưu ý: PCRF và DYN là hai lần huấn luyện khác nhau, nên chênh lệch giữa chúng gồm cả phương sai seed —
-   dùng std của WP3b để diễn giải.
+CỔNG KIỂM TRA BẮT BUỘC TRƯỚC MỌI PHÂN TÍCH
+- Với mỗi tập và mỗi checkpoint: giải mã lại không cấm nhãn nào phải ra đúng trace.path_before_constraint ở 100% dòng;
+  giải mã lại với đúng tập nhãn cấm mà DYN đã dùng (B-/I-QuanHuyen khi ban_district = true) phải ra đúng
+  trace.path_after_constraint ở 100% dòng. Lệch ở bất kỳ dòng nào thì DỪNG, ghi số dòng lệch và ví dụ, gửi câu hỏi cho
+  phiên điều phối. Không nới tiêu chí. Ghi cách xử lý hòa điểm (nếu có) và số dòng gặp hòa.
 
-Mục trung thực bắt buộc trong báo cáo 13:
-- H1 (type adapter / gazetteer adapter) = NOT_TESTABLE: không có adapter nào được hiện thực trong repo. Liệt kê cái
-  đề cương hứa (mục 4.1: PhoBERT + gazetteer adapter đa phiên bản + type adapter + global pointer) so với cái đã có
-  (PhoBERT + CRF + đầu T1 tuyến tính + ràng buộc giải mã theo confidence).
-- Ablation ở đây không phải bằng chứng ủng hộ hay bác bỏ H1.
-- Kết luận về ràng buộc theo đúng số: có lợi / có hại / không quan sát được tác dụng, kèm dư địa.
-- Hướng ĐATN: điều kiện cần để H1 kiểm được.
+PHÂN TÍCH (Tầng 1, bắt buộc)
+1. Ghép cặp bật/tắt cho mọi tập có sẵn (test Kaggle, track 5 trường, ba seed WP3b, dev nếu dựng được): số dòng kích
+   hoạt ràng buộc, số dòng đổi đường giải mã, số span đổi; phân loại từng thay đổi (sửa đúng / làm sai / trung tính) theo
+   gold; delta F1 kèm CI ghép cặp (src/evaluation/stats.py; test và seed: theo mẫu; track 5 trường: scorer 5 trường).
+2. Dư địa: trên mỗi tập, đếm mẫu gold "moi" (không có QuanHuyen trong gold) mà đường giải mã KHÔNG ràng buộc vẫn dự
+   đoán một span QuanHuyen — đó là số lỗi tối đa mà ràng buộc có thể sửa. Tách theo việc T1 của DYN có dự đoán đúng
+   "moi" không. Nếu dư địa bằng 0 thì viết đúng như vậy.
+3. Ablation nguồn T1 cho ràng buộc (giải mã lại trên emission của DYN, cùng quy tắc cấm QuanHuyen khi nguồn T1 nói "moi"):
+   (a) T1 của DYN (tái lập chế độ bật); (b) T1 của HEUR-JW cho cùng chuỗi (lấy predicted_system từ prediction đã freeze
+   của HEUR-JW: test ở light_test_runs_v2/heur-jw, track 5 trường ở data/processed/evaluation/sprint03/
+   heur_jw_followup_fivefield_20261003_v1 hoặc heur_jw_5field_20261002_v1 — xác định file nào khớp cấu hình đã khóa
+   threshold 0,86; đọc theo dòng, file 90 MB); (c) T1 gold làm ORACLE. (c) ghi nhãn ORACLE_UPPER_BOUND, không bao giờ đưa
+   vào bảng so sánh mô hình.
+4. Bảng 2×2 {có/không đầu T1 khi huấn luyện} × {có/không ràng buộc khi giải mã} trên test Sprint 3 (Kaggle):
+   PHOBERT-CRF (không T1, không ràng buộc); PROPOSED-NO-CONSTRAINT (có T1, không ràng buộc); PROPOSED-DYN (có, có); ô
+   (không T1, có ràng buộc) = giải mã lại emission của PHOBERT-CRF với nguồn T1 bên ngoài (HEUR-JW, và ORACLE ghi riêng).
+   Ghi rõ PCRF và DYN là hai lần huấn luyện khác nhau; dùng std giữa seed của WP3b (T0 F1 DYN 0,0111, PCRF 0,0030) để
+   diễn giải mọi chênh lệch giữa hàng.
+5. Nếu thời gian cho phép, lặp mục 1–3 cho ba seed WP3b (nhãn LOCAL_CPU_RETRAINED); báo từng seed, không chọn seed.
 
-Test: phân loại thay đổi đúng trên ví dụ dựng tay; oracle không bao giờ xuất hiện trong bảng mô hình; đếm dư địa
-tái lập 0/12 trên test.
+BÁO CÁO 13 — mục trung thực bắt buộc
+- H1 (type adapter / gazetteer adapter) = NOT_TESTABLE: không có adapter nào được hiện thực trong repo. Liệt kê cái đề
+  cương hứa (mục 4.1: PhoBERT + gazetteer adapter đa phiên bản + type adapter + global pointer) so với cái đã có
+  (PhoBERT + CRF + đầu T1 tuyến tính + ràng buộc giải mã theo confidence). Ablation ở đây không phải bằng chứng ủng hộ
+  hay bác bỏ H1.
+- Kết luận về ràng buộc theo đúng số: có lợi / có hại / không quan sát được tác dụng, kèm dư địa và kèm ORACLE (nếu ngay
+  cả T1 hoàn hảo cũng không giúp thì nói rõ).
+- Hướng ĐATN: điều kiện cần để H1 kiểm được (adapter nào, dữ liệu nào, support bao nhiêu).
+- Giới hạn: test 100 mẫu đã bị quan sát; track 5 trường là development; checkpoint Kaggle so với cục bộ; T1-PIPE của WP2
+  là một cách đưa gazetteer vào T1 nhưng KHÔNG phải adapter của H1.
 
-XONG KHI: bảng ghép cặp trên mọi tập có sẵn, bảng dư địa, bảng 2×2, mục H1; test PASS.
+TEST (tests/test_group1_constraint_ablation.py)
+- Giải mã lại tái lập đúng path trước/sau ràng buộc trên các dòng mẫu thật (skipTest khi file interim vắng) và trên ví
+  dụ dựng tay; Viterbi với tập cấm rỗng bằng không cấm.
+- Phân loại thay đổi (sửa đúng / làm sai / trung tính) đúng trên ví dụ dựng tay.
+- ORACLE không bao giờ xuất hiện trong bảng so sánh mô hình.
+- Dư địa trên test Kaggle tái lập 0/12.
+- Đường phân tích không nạp adapter và không gọi suy luận mô hình (kiểm import).
+
+XONG KHI: cổng kiểm tra đạt cho mọi tập được dùng; mục 1–4 có số hoặc trạng thái (mục 5 có số hoặc NOT_RUN); báo cáo 13
+đã viết; chạy lại cho cùng hash; bộ test đầy đủ không FAIL (mốc hiện tại: số test sau WP4, đo lại khi bắt đầu).
 ```
 
 ---
