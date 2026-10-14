@@ -1,0 +1,13 @@
+﻿experiment,system,condition,subset,control,n_samples,tp,fp,fn,precision,precision_ci_low,precision_ci_high,precision_status,recall,recall_ci_low,recall_ci_high,recall_status,f1,f1_ci_low,f1_ci_high,f1_status,delta_f1,delta_ci_low,delta_ci_high,delta_status,reading
+E1a_test_time_only,CRF-INDEP,commas_keep|case_keep,all,commas_keep|case_keep,100,398,33,48,0.9234,0.8889,0.9535,OK,0.8924,0.8441,0.9353,OK,0.9076,0.8671,0.9434,OK,0.0,0.0,0.0,OK,CONTROL
+E1a_test_time_only,CRF-INDEP,commas_drop|case_keep,all,commas_keep|case_keep,100,241,129,205,0.6514,0.6027,0.7015,OK,0.5404,0.4853,0.5991,OK,0.5907,0.5385,0.6451,OK,-0.317,-0.3676,-0.2637,OK,DROP_CI_EXCLUDES_0
+E1a_test_time_only,CRF-INDEP,commas_keep|case_lower,all,commas_keep|case_keep,100,390,42,56,0.9028,0.8662,0.9355,OK,0.8744,0.8259,0.9184,OK,0.8884,0.8466,0.9261,OK,-0.0193,-0.0379,-0.001,OK,DROP_CI_EXCLUDES_0
+E1a_test_time_only,CRF-INDEP,commas_drop|case_lower,all,commas_keep|case_keep,100,273,112,173,0.7091,0.6566,0.7597,OK,0.6121,0.5536,0.6713,OK,0.657,0.602,0.7119,OK,-0.2506,-0.3048,-0.1982,OK,DROP_CI_EXCLUDES_0
+E1a_test_time_only,HEUR-JW,commas_keep|case_keep,all,commas_keep|case_keep,100,390,20,56,0.9512,0.9205,0.9775,OK,0.8744,0.8333,0.9124,OK,0.9112,0.8763,0.9414,OK,0.0,0.0,0.0,OK,CONTROL
+E1a_test_time_only,HEUR-JW,commas_drop|case_keep,all,commas_keep|case_keep,100,307,37,139,0.8924,0.8506,0.9286,OK,0.6883,0.6294,0.7466,OK,0.7772,0.7259,0.8251,OK,-0.134,-0.172,-0.0982,OK,DROP_CI_EXCLUDES_0
+E1a_test_time_only,HEUR-JW,commas_keep|case_lower,all,commas_keep|case_keep,100,390,20,56,0.9512,0.9205,0.9775,OK,0.8744,0.8333,0.9124,OK,0.9112,0.8763,0.9414,OK,0.0,0.0,0.0,OK,NOT_SEPARABLE_CI_INCLUDES_0
+E1a_test_time_only,HEUR-JW,commas_drop|case_lower,all,commas_keep|case_keep,100,307,37,139,0.8924,0.8506,0.9286,OK,0.6883,0.6294,0.7466,OK,0.7772,0.7259,0.8251,OK,-0.134,-0.172,-0.0982,OK,DROP_CI_EXCLUDES_0
+E1b_train_and_test,CRF-INDEP,commas_keep|case_keep,all,commas_keep|case_keep,100,398,33,48,0.9234,0.8889,0.9535,OK,0.8924,0.8441,0.9353,OK,0.9076,0.8671,0.9434,OK,0.0,0.0,0.0,OK,CONTROL
+E1b_train_and_test,CRF-INDEP,commas_drop|case_keep,all,commas_keep|case_keep,100,382,71,64,0.8433,0.7909,0.8909,OK,0.8565,0.8081,0.9009,OK,0.8498,0.8,0.8948,OK,-0.0578,-0.0875,-0.0296,OK,DROP_CI_EXCLUDES_0
+E1b_train_and_test,CRF-INDEP,commas_keep|case_lower,all,commas_keep|case_keep,100,396,34,50,0.9209,0.884,0.9519,OK,0.8879,0.84,0.9303,OK,0.9041,0.8628,0.9404,OK,-0.0035,-0.0129,0.0054,OK,NOT_SEPARABLE_CI_INCLUDES_0
+E1b_train_and_test,CRF-INDEP,commas_drop|case_lower,all,commas_keep|case_keep,100,383,73,63,0.8399,0.7854,0.8904,OK,0.8587,0.8092,0.9031,OK,0.8492,0.7982,0.8956,OK,-0.0584,-0.0896,-0.0292,OK,DROP_CI_EXCLUDES_0

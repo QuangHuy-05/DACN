@@ -1,0 +1,15 @@
+{
+  "gt_fields_total": 1822,
+  "gt_fields_absent_from_text": 461,
+  "absent_share": 0.2530186608122942,
+  "max_recall_under_gt": 0.7469813391877058,
+  "base_surface_by_kieu": {
+    "drop_district": 0.9501,
+    "drop_housenumber": 0.8526,
+    "drop_housenumber_ward": 0.72,
+    "drop_ward": 0.9634
+  },
+  "max_abs_delta_shift": 0.001409982723545422,
+  "all_12_ci_contain_0": true,
+  "eval_full_rows_in_heldout": 16
+}
