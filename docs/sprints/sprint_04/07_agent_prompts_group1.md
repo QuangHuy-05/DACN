@@ -878,27 +878,83 @@ XONG KHI: cổng kiểm tra đạt cho mọi tập được dùng; mục 1–4 c
 ## WP6 — Tổng hợp và cập nhật tài liệu
 
 ```text
-NHIỆM VỤ: gom kết quả Nhóm 1 thành một báo cáo ngắn và cập nhật tài liệu trạng thái. Chạy sau khi WP1–WP5 đã báo xong
-(hoặc đã có trạng thái cuối cùng).
+NHIỆM VỤ: gom kết quả Nhóm 1 (WP0–WP5) thành một báo cáo tổng hợp ngắn, có thể dùng làm khung cho chương kết quả của
+đồ án, và cập nhật các tài liệu trạng thái đang lỗi thời. Không chạy thí nghiệm mới; mọi số phải truy được về một file
+kết quả đã commit.
 
-File bạn sở hữu: scripts/73_generate_group1_report.py, docs/sprints/sprint_04/14_group1_summary.md,
-docs/sprints/sprint_04/README.md, docs/data_quality.md, README.md, AGENTS.md (chỉ mục 5 phần danh sách script/module
-mới và mục 9 trạng thái).
+File bạn sở hữu: scripts/73_generate_group1_report.py, tests/test_group1_summary.py,
+data/processed/evaluation/sprint04/group1_summary_20261015_v1/ (bảng tổng hợp, manifest),
+docs/sprints/sprint_04/14_group1_summary.md, docs/sprints/sprint_04/README.md, docs/data_quality.md, README.md,
+AGENTS.md (CHỈ mục 5 phần danh sách script/module mới và mục 9 trạng thái), và mục 7 của
+docs/sprints/sprint_04/06_group1_science_gap_plan.md (chỉ cập nhật trạng thái, không viết lại kế hoạch).
+KHÔNG sửa các báo cáo 09–13, các bản review, mã hay kết quả của WP0–WP5, tài liệu Sprint 3.
 
-1. Script 73 đọc metrics.json và run_manifest.json của các run trong data/processed/evaluation/sprint04/ và sinh các
-   bảng của báo cáo 14. Không chép số bằng tay; mọi số trong báo cáo phải truy được về một file metrics.
-2. Kiểm chéo trước khi viết: mỗi số trong các báo cáo 09–13 khớp với metrics.json tương ứng; mọi run có run_manifest
-   với hash đầu vào còn khớp file hiện tại. Lệch thì ghi vào mục "Sai lệch phát hiện", không tự sửa báo cáo của WP khác.
-3. Báo cáo 14 (tối đa khoảng 2 trang):
-   - Bảng giả thuyết: H1–H5, E1–E4 × trạng thái (SUPPORTED / NOT_SUPPORTED / INCONCLUSIVE / NOT_TESTABLE / NOT_RUN) ×
-     bằng chứng (đường dẫn) × cỡ mẫu. E4 = NOT_RUN (VQA đang HOLD).
-   - Bảng T0/T1/T2 hợp nhất kèm CI và mean ± std.
-   - Mục "Đe dọa tính hợp lệ": test 100 mẫu đã bị quan sát; gold một người gán có AI hỗ trợ, IAA chưa đo; Data 07 chỉ có
-     B/M và tập trung Hà Nội; tính vòng lặp bảng–benchmark ở T2; dữ liệu lai cùng generator; nhãn hiếm không có support.
-   - Việc còn lại cho Nhóm 2 và 3.
-4. Cập nhật docs/data_quality.md (T2 không còn "chưa thực thi"; nêu giới hạn), README, mục 9 của AGENTS.md
-   (trạng thái Sprint 4 Nhóm 1, đường dẫn kết quả). Không sửa nội dung Sprint 3.
-5. Chạy toàn bộ bộ test và ghi số PASS/SKIP/FAIL vào báo cáo.
+ĐẦU VÀO (đều đã review độc lập và commit trên nhánh sprint4_group1)
+| Gói | Báo cáo | Run kết quả | Review |
+|---|---|---|---|
+| WP1 T2, E2, E3 | 09_t2_baseline_results.md | t2_baseline_20261014_v1 | (review trong phiên, không có file) |
+| WP2 T1, H5 | 10_t1_h5_results.md mục 1–10 | t1_h5_20261015_v1 | reviews/review_wp2_20261013.md |
+| WP2b Tầng 2 cục bộ | 10_t1_h5_results.md mục 11 | t1_h5_tier2_local_20261016_v1 | reviews/review_wp2b_20261014.md |
+| WP3a CI | 11_reliability_results.md phần a | reliability_20261014_v1 | reviews/review_wp3a_20261013.md |
+| WP3b đa seed | 11_reliability_results.md phần b | multiseed_20261015_v1 | reviews/review_wp3b_20261014.md |
+| WP4 H2, H3, E1, H4 | 12_cpu_hypothesis_results.md | cpu_hypotheses_20261016_v1 và _v2 | reviews/review_wp4_20261014.md |
+| WP5 ràng buộc, H1 | 13_constraint_ablation_and_h1.md | constraint_ablation_20261017_v1 | reviews/review_wp5_20261015.md |
+Run nằm dưới data/processed/evaluation/sprint04/. File predictions*.jsonl không được commit (có trên đĩa nếu cần).
+Đọc cả báo cáo VÀ bản review của từng gói: phán quyết cuối của một gói là báo cáo sau khi đã sửa theo review.
 
-Không commit. Kết thúc bằng danh sách file đã đổi để chủ dự án rà và tự commit.
+CÁC BƯỚC
+1. Kiểm chéo (scripts/73, runtime ~/.venv_dacn): với mỗi run, hash đầu ra trong run_manifest.json khớp file hiện tại;
+   chọn khoảng 5 con số tiêu đề mỗi báo cáo và đối chiếu với metrics.json hoặc bảng CSV của run. Lệch thì ghi vào mục
+   "Sai lệch phát hiện" của báo cáo 14, KHÔNG sửa báo cáo gốc. Script sinh các bảng của báo cáo 14 từ file kết quả
+   (không chép số bằng tay) và ghi manifest có hash đầu vào.
+2. Báo cáo 14 (khoảng 2–3 trang), gồm:
+   a. Bảng giả thuyết H1–H5, E1–E4 × trạng thái (SUPPORTED / PARTLY_SUPPORTED / NOT_SUPPORTED / INCONCLUSIVE /
+      NOT_TESTABLE / NOT_RUN) × một câu bằng chứng có số × cỡ mẫu × đường dẫn. Lấy trạng thái từ báo cáo đã sửa theo
+      review; nếu báo cáo dùng nhãn khác (ví dụ "ủng hộ một phần", NEGATIVE_RESULT) thì quy đổi và ghi nhãn gốc bên cạnh.
+      Ghi chú theo đề cương mục 6: H2, H3, H5, E1, E3 thuộc ĐACN; H1, H4, E2 thuộc ĐATN; E4 NOT_RUN (VQA đang HOLD).
+   b. Bảng T0 / T1 / T2 hợp nhất: điểm Sprint 3 kèm CI (WP3a), mean ± std ba seed cục bộ (WP3b, nhãn LOCAL_CPU_RETRAINED,
+      hàng Kaggle seed 42 tách riêng), T1 của các hệ thay thế (WP2, WP2b), T2 theo chiều (WP1).
+   c. Phát hiện xuyên gói, mỗi ý một đoạn ngắn có số và dẫn nguồn:
+      - T2: bất đối xứng hai chiều là cấu trúc của cải cách (95,3% khóa cũ giải tất định so với 4,1% khóa mới); chuẩn
+        hóa tên quan trọng hơn mọi luật chọn (0,008 / 0,860 / 0,965); 96,5% của luật mặc định là do cách lấy mẫu Data 07.
+      - Mô hình đề xuất không hơn PhoBERT-CRF ở T0 (không phân biệt được qua ba seed) và kém HEUR-JW ở T1; T1 tốt nhất
+        đến từ ghép span với gazetteer; biến thiên T1 của DYN giữa seed nằm ở tỷ lệ từ chối dưới ngưỡng cố định.
+      - Lớp CRF của PhoBERT-CRF và DYN gần như không được dùng (tham số dưới 0,07 so với khoảng cách emission trung vị
+        3,29): hành vi đến từ encoder (WP5, review WP5 Q2).
+      - Ràng buộc giải mã không có tác dụng trên dữ liệu sạch vì dư địa bằng 0; chỉ dữ liệu nhiễu có dư địa.
+      - H2: kết luận phụ thuộc thước đo (gt khoảng 32%, surface khoảng 6 điểm).
+   d. Mục "Giới hạn và đe dọa tính hợp lệ" (gom từ các báo cáo): test 100 mẫu đã bị quan sát; gold một người gán có AI
+      hỗ trợ, IAA chưa đo; Data 07 chỉ có B/M, tập trung Hà Nội, và có tính vòng lặp với bảng tra; dữ liệu lai cùng một
+      generator; nhãn hiếm và nhãn mốc không có support; checkpoint Kaggle so với cục bộ; ba seed là ước lượng thô.
+   e. Phần còn thiếu, xếp theo loại: (i) thiếu do dữ liệu, chuyển Nhóm 2 / ĐATN: loại A và C ở T2, E2, nhãn mốc, Lai
+      do người thật viết, Accuracy@161km (cần tọa độ); (ii) thiếu do môi trường: Tầng 2 của WP4 (H3, E1 trên mô hình
+      neural) NOT_RUN vì adapter khóa đòi 20 GiB đĩa trống; (iii) hoãn có chủ đích: DYN-T1-AUG (cần đổi protocol huấn
+      luyện), H1 (không có adapter); (iv) tùy chọn: CI track 5 trường (WP3a), ô PhoBERT-CRF track 5 trường (WP5).
+   f. Sai lệch phát hiện ở bước 1 (hoặc "không có").
+3. Cập nhật tài liệu trạng thái, ngắn, dẫn tới báo cáo 14 thay vì chép bảng:
+   - docs/data_quality.md: thêm mục kết quả Nhóm 1; sửa dòng "T2 chưa thực thi"; mốc test hiện tại.
+   - README.md: thêm dòng kết quả Nhóm 1 và liên kết; thêm scripts 65–73 vào cây thư mục/danh sách script. Không sửa
+     phần mô tả Sprint 3.
+   - AGENTS.md mục 5: thêm scripts 65–73 và các module mới (src/evaluation/leak_guard.py, stats.py, t2_lookup.py,
+     t2_scorer.py, t1_pipeline.py, t1_situations.py, frozen_reliability.py, perturbations.py, constraint_ablation.py)
+     mỗi dòng một câu; mục 9: trạng thái Nhóm 1 (thêm đoạn mới có ngày, giữ đoạn Sprint 3). Thêm vào mục 9 hai bẫy vận
+     hành đã gặp: git của WSL báo khoảng 90 file "bị sửa" giả do line ending (dùng git Windows); ba runtime tách biệt
+     (chính / CRF / neural) và OMP_NUM_THREADS=6.
+   - docs/sprints/sprint_04/README.md: thêm mục lục cho 05–14 và thư mục reviews; ghi rằng Amendment A2 (tài liệu 08) đã
+     đưa T2 vào phạm vi, nên câu "Không mở rộng Sprint 4 sang T2" không còn đúng cho Nhóm 1.
+   - Mục 7 của 06_group1_science_gap_plan.md: đánh dấu các bước đã xong kèm commit, thêm WP5 và WP6.
+4. Chạy toàn bộ bộ test (python -m unittest discover -s tests trong ~/.venv_dacn), ghi số PASS/SKIP/FAIL vào báo cáo 14.
+
+TEST (tests/test_group1_summary.py): script 73 dừng khi hash một run không khớp manifest; mọi ô số trong bảng sinh ra
+có đường dẫn nguồn; script từ chối ghi đè thư mục đầu ra đã tồn tại.
+
+PHẢI TRÁNH
+- Không nâng trạng thái của giả thuyết so với báo cáo gốc đã sửa theo review; không làm mềm kết quả âm.
+- Không trộn số Kaggle với số cục bộ trong cùng một trung bình.
+- Không viết lại kết luận của gói khác; nếu thấy hai báo cáo mâu thuẫn, ghi vào "Sai lệch phát hiện" và nêu bên nào
+  là bản sau review.
+
+Không commit, không push. Kết thúc bằng báo cáo cuối theo định dạng trong Khối chung và danh sách file đã đổi.
 ```
+
+---
