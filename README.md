@@ -8,7 +8,8 @@ Dự án xây dựng benchmark địa chỉ tiếng Việt trước và sau thay
 - [Tái lập inference, scoring và bàn giao](docs/sprints/sprint_03/50_sprint3_reproduction_and_handoff.md)
 - [Báo cáo tổng kết Sprint 3 và định hướng Sprint 4](docs/sprints/sprint_03/53_sprint3_end_to_end_report_20261005.md)
 - [Prompt đánh giá cuối Sprint 3](docs/sprints/sprint_03/48_agent_prompt_finish_sprint3_final_evaluation.md)
-- [Protocol Sprint 4 hiện hành](docs/sprints/sprint_04/02_s4_protocol_v1.md) — một người phụ trách, nguồn mới và holdout có điều kiện; hạn 20/10/2026. Dữ liệu/thực nghiệm Sprint 4 chưa thực hiện.
+- [Protocol Sprint 4 hiện hành](docs/sprints/sprint_04/02_s4_protocol_v1.md) — một người phụ trách, nguồn mới và holdout có điều kiện; hạn 20/10/2026. Dữ liệu mới của Sprint 4 chưa thực hiện; các thực nghiệm Nhóm 1 (lấp khoảng trống khoa học) đã chạy, xem ngay dưới.
+- **Kết quả Nhóm 1 (15/10/2026):** [báo cáo tổng hợp](docs/sprints/sprint_04/14_group1_summary.md) — T2 baseline đã thực thi (tra bảng cũ→mới đúng 96,5%, mới→cũ 7,7% với 92,3% lỗi im lặng, do cấu trúc của cải cách); T1/H5 và độ tin cậy (CI, ba seed cục bộ): mô hình đề xuất không phân biệt được với PhoBERT-CRF ở T0 và kém baseline luật ở T1; ablation ràng buộc: dư địa bằng 0 trên dữ liệu sạch; H1 `NOT_TESTABLE`, H3 và E3 được ủng hộ, E4 chưa chạy. Chi tiết theo gói: [09](docs/sprints/sprint_04/09_t2_baseline_results.md), [10](docs/sprints/sprint_04/10_t1_h5_results.md), [11](docs/sprints/sprint_04/11_reliability_results.md), [12](docs/sprints/sprint_04/12_cpu_hypothesis_results.md), [13](docs/sprints/sprint_04/13_constraint_ablation_and_h1.md).
 
 ## Cấu trúc dự án
 
@@ -36,11 +37,11 @@ DACN/
 │       ├── gazetteer/s3_v1/                  Gazetteer đa phiên bản một phần
 │       ├── gazetteer/s3_v2/                  Gazetteer thời gian v2 (source register, phi nguyên tử)
 │       ├── gazetteer/s3_v4_nso_dual_snapshot_release2/ Gazetteer hai snapshot, mã cũ còn partial
-│       └── evaluation/                       Run và bảng đánh giá baseline
+│       └── evaluation/                       Run và bảng đánh giá baseline; evaluation/sprint04/ là các run Nhóm 1
 ├── docs/
 │   ├── sprints/sprint_02/                   Tài liệu tổng kết Sprint 2
 │   ├── sprints/sprint_03/                   Hồ sơ, kết quả và slide tổng kết Sprint 3
-│   ├── sprints/sprint_04/                   Protocol và kế hoạch đóng Sprint 4
+│   ├── sprints/sprint_04/                   Protocol, kế hoạch, báo cáo 09–14 và review của Nhóm 1
 │   ├── proposal/                             Đề cương đồ án và tài liệu yêu cầu
 │   ├── data_quality.md                       Số lượng và giới hạn chất lượng dữ liệu
 │   ├── runs/<run_id>/                        Báo cáo, dashboard và tài liệu sinh từ một run
@@ -78,6 +79,14 @@ DACN/
 │   ├── 39–48                                 Sprint 3: snapshot NSO, handoff Colab, nghiệm thu trước Colab
 │   ├── 49–62                                 Sprint 3: test100, Kaggle, chạy/chấm test và đánh giá cuối
 │   ├── 63–64                                 Sprint 4: chuẩn bị và rà soát pilot nguồn mới
+│   ├── 65_prepare_group1_guards.py           Nhóm 1: báo cáo loại trừ rò rỉ (leak_guard)
+│   ├── 66_run_t2_baseline.py                 Nhóm 1: T2 baseline hai chiều, E2, E3
+│   ├── 67–68c                                Nhóm 1: tập T1 tổng hợp, đánh giá T1/H5, tầng 2 trên checkpoint cục bộ
+│   ├── 69_bootstrap_frozen_results.py        Nhóm 1: CI và kiểm định ghép cặp trên prediction đã freeze
+│   ├── 70_run_multiseed_local.py             Nhóm 1: đa seed trên CPU cục bộ
+│   ├── 71_run_cpu_hypothesis_experiments.py  Nhóm 1: H2, H3, E1, H4
+│   ├── 72_run_constraint_ablation.py         Nhóm 1: ablation ràng buộc bằng giải mã lại
+│   ├── 73_generate_group1_report.py          Nhóm 1: kiểm chéo hash/số tiêu đề và sinh bảng báo cáo 14
 │   └── build_baseline_dashboard.py            Sinh dashboard theo run
 ├── src/
 │   ├── data/administrative_mapping.py       Đồ thị ánh xạ đơn vị hành chính 2025
@@ -86,10 +95,10 @@ DACN/
 │   ├── data/osm_extractor.py                 Đọc lịch sử OSM và làm sạch tag
 │   ├── data/noise_profiler.py                Thống kê dạng nhiễu địa chỉ
 │   ├── data/synthetic/                       Sinh dữ liệu thiếu, lai và cặp ánh xạ
-│   ├── evaluation/                            Adapter, contract, scorer, runner và manifest run
+│   ├── evaluation/                            Adapter, contract, scorer, runner, manifest run; stats/leak_guard và T2/T1/ablation của Nhóm 1
 │   ├── modeling/                              Alignment, BIO, CRF, PhoBERT-CRF, DYN và checkpoint
 │   └── utils/text_normalize.py                Chuẩn hóa văn bản và vùng miền
-├── tests/                                     Kiểm thử pipeline, evaluation và span
+├── tests/                                     Kiểm thử pipeline, evaluation, span và các gói Nhóm 1 (test_group1_*, test_t1_*, test_t2_*)
 ├── third_party/                              Mã và bảng đơn vị hành chính bên thứ ba
 ├── requirements.txt                          Phụ thuộc Python
 └── README.md                                 Hướng dẫn dự án

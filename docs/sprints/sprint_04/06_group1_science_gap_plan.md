@@ -185,21 +185,29 @@ Vòng lặp cho mỗi gói: phiên điều phối rà prompt trên dữ liệu t
 | Hiện thực gói nặng thiết kế (WP5) | Opus 5.5 | Xem lại khi tới lượt |
 | **Mọi phiên review** | **Opus 5.5, mức medium** | Áp dụng từ review WP3b trở đi; review WP3a đã khởi động bằng Sonnet high trước quyết định này và không chạy lại |
 
-**Trạng thái đầu vào:** WP0, WP1, WP2 (Tầng 1) đã review và commit. WP3a commit `5748a1f`, review đang chạy. WP3b commit `59b3dad` (đủ 6 lượt trên CPU), **chưa review**. Bảy checkpoint `best.pt` huấn luyện trên CPU nằm ở `data/interim/modeling/sprint04/multiseed_20261015_v1/` (3,7 GB).
+**Cập nhật 15/10/2026:** bước 1–15 đã xong và commit (WP0 `05aba52`, WP1 `e199299`, WP2 `3c06f5b`, WP3a `5748a1f`, WP3b `59b3dad`, WP2b `71c48c2`, WP4 `7e12c70`, WP5 `d16e83e`); WP6 đã hiện thực (báo cáo `14_group1_summary.md`), chờ review độc lập. Cột "Trạng thái" trong bảng dưới ghi từng bước; phần còn lại của mục này giữ nguyên như lúc lập 14/10.
 
-| Bước | Việc | Phiên / mô hình | Điều kiện bắt đầu | Cổng của chủ dự án |
-|---|---|---|---|---|
-| 1 | Nhận phán quyết review WP3a; gửi danh sách sửa cho phiên WP3a nếu có | Điều phối | Review WP3a xong | Duyệt phán quyết |
-| 2 | Review độc lập WP3b | Review, Opus 5.5 medium | Có thể chạy song song với bước 1 (chỉ đọc) | Bấm thẻ khởi động |
-| 3 | Sửa theo review WP3b; commit | Phiên WP3 + điều phối | Bước 2 xong | Duyệt phán quyết |
-| 4 | Rà và viết prompt "WP2 Tầng 2 trên checkpoint cục bộ" | Điều phối | Bước 3 xong (cần biết WP3b đứng vững) | — |
-| 5 | Hiện thực WP2 Tầng 2 | Hiện thực, Sonnet 5.5 high | Bước 4 | Bấm thẻ khởi động |
-| 6 | Review WP2 Tầng 2 | Review, Opus 5.5 medium | Bước 5 xong | Bấm thẻ; duyệt phán quyết |
-| 7 | Cập nhật báo cáo 10 (bảng H5, câu về tính không ổn định theo seed của T1); commit | Phiên WP2 Tầng 2 + điều phối | Bước 6 | — |
-| 8 | Rà prompt WP4 trên dữ liệu thật | Điều phối | Bước 7 xong (một phiên ghi mã tại một thời điểm) | — |
-| 9 | Hiện thực WP4 (H2, H3, E1, H4) | Hiện thực, Sonnet 5.5 high | Bước 8 | Bấm thẻ khởi động |
-| 10 | Review WP4 | Review, Opus 5.5 medium | Bước 9 xong | Bấm thẻ; duyệt phán quyết |
-| 11 | Sửa theo review; commit | Phiên WP4 + điều phối | Bước 10 | — |
+**Trạng thái đầu vào (lúc lập 14/10):** WP0, WP1, WP2 (Tầng 1) đã review và commit. WP3a commit `5748a1f`, review đang chạy. WP3b commit `59b3dad` (đủ 6 lượt trên CPU), **chưa review**. Bảy checkpoint `best.pt` huấn luyện trên CPU nằm ở `data/interim/modeling/sprint04/multiseed_20261015_v1/` (3,7 GB).
+
+| Bước | Việc | Phiên / mô hình | Điều kiện bắt đầu | Cổng của chủ dự án | Trạng thái (15/10/2026) |
+|---|---|---|---|---|---|
+| 1 | Nhận phán quyết review WP3a; gửi danh sách sửa cho phiên WP3a nếu có | Điều phối | Review WP3a xong | Duyệt phán quyết | Xong — review WP3a `859c224`: chấp nhận có điều kiện |
+| 2 | Review độc lập WP3b | Review, Opus 5.5 medium | Có thể chạy song song với bước 1 (chỉ đọc) | Bấm thẻ khởi động | Xong — review WP3b, commit `70688a0` |
+| 3 | Sửa theo review WP3b; commit | Phiên WP3 + điều phối | Bước 2 xong | Duyệt phán quyết | Xong — sửa báo cáo 11 và 10, commit `70688a0` |
+| 4 | Rà và viết prompt "WP2 Tầng 2 trên checkpoint cục bộ" | Điều phối | Bước 3 xong (cần biết WP3b đứng vững) | — | Xong — prompt WP2b, commit `ab09687` |
+| 5 | Hiện thực WP2 Tầng 2 | Hiện thực, Sonnet 5.5 high | Bước 4 | Bấm thẻ khởi động | Xong — commit `71c48c2` |
+| 6 | Review WP2 Tầng 2 | Review, Opus 5.5 medium | Bước 5 xong | Bấm thẻ; duyệt phán quyết | Xong — chấp nhận có điều kiện, commit `71c48c2` |
+| 7 | Cập nhật báo cáo 10 (bảng H5, câu về tính không ổn định theo seed của T1); commit | Phiên WP2 Tầng 2 + điều phối | Bước 6 | — | Xong — báo cáo 10 mục 11, commit `71c48c2` |
+| 8 | Rà prompt WP4 trên dữ liệu thật | Điều phối | Bước 7 xong (một phiên ghi mã tại một thời điểm) | — | Xong — prompt WP4, commit `9e372e2` |
+| 9 | Hiện thực WP4 (H2, H3, E1, H4) | Hiện thực, Sonnet 5.5 high | Bước 8 | Bấm thẻ khởi động | Xong — commit `7e12c70` |
+| 10 | Review WP4 | Review, Opus 5.5 medium | Bước 9 xong | Bấm thẻ; duyệt phán quyết | Xong — chấp nhận có điều kiện, commit `7e12c70` |
+| 11 | Sửa theo review; commit | Phiên WP4 + điều phối | Bước 10 | — | Xong — sửa báo cáo 12, commit `7e12c70` |
+| 12 | Rà và viết prompt WP5 (ablation ràng buộc bằng giải mã lại) | Điều phối | Bước 11 xong | — | Xong — commit `9908769` |
+| 13 | Hiện thực WP5 | Hiện thực | Bước 12 | Bấm thẻ khởi động | Xong — commit `d16e83e` |
+| 14 | Review WP5 | Review, Opus 5.5 medium | Bước 13 xong | Bấm thẻ; duyệt phán quyết | Xong — chấp nhận có điều kiện (ba đoạn diễn giải đã sửa), commit `d16e83e` |
+| 15 | Rà và viết prompt WP6 | Điều phối | Bước 14 xong | — | Xong — commit `a348d1c` |
+| 16 | Hiện thực WP6 (báo cáo 14, script 73, cập nhật tài liệu trạng thái) | Hiện thực, Sonnet 5.5 high | Bước 15 | Bấm thẻ khởi động | Hiện thực xong 15/10/2026; chưa commit, chờ review |
+| 17 | Review WP6: đối chiếu báo cáo 14 với các báo cáo gốc | Review, Opus 5.5 medium | Bước 16 xong | Bấm thẻ; duyệt phán quyết | Chưa làm |
 
 **Nội dung của bước 4–5 (WP2 Tầng 2).** Dùng lại `scripts/68b_run_t1_neural_local.py` và đầu vào đã lưu ở `data/processed/evaluation/sprint04/t1_h5_20261015_v1/tier2_inputs/`, thay checkpoint Sprint 3 (không nạp được trên CPU) bằng `dyn_seed42/checkpoints/best.pt` và `pcrf_seed42/checkpoints/best.pt` của WP3b. Kết quả ghi vào thư mục run mới, không ghi đè `t1_h5_20261015_v1`. Báo cả ba seed của DYN nếu thời gian cho phép, vì WP3b cho thấy T1 của DYN phụ thuộc seed rất mạnh; nếu chỉ chạy seed 42 thì ghi rõ. Mọi số phải mang nhãn "checkpoint huấn luyện lại trên CPU cục bộ, không phải checkpoint đã khóa của Sprint 3". Điều cần rà ở bước 4: `68b` có nhận đường dẫn checkpoint qua tham số không hay phải sửa; adapter có nạp được checkpoint cục bộ với resource lock cục bộ không (WP3b đã suy luận test bằng chính các checkpoint này, nên kỳ vọng là được).
 

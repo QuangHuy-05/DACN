@@ -134,6 +134,15 @@ scripts/
   33_train_proposed_dynamic.py                 T0/T1 mask + giải mã confidence + cùng-checkpoint ablation
   34_audit_modeling_artifacts.py               Audit read-only preparation/checkpoint/prediction và frozen hash
   35_verify_gazetteer_sources.py               Reference verifier exact theo cha/ngày; không sửa s3_v2
+  65_prepare_group1_guards.py                  Nhóm 1/WP0: báo cáo loại trừ rò rỉ (leak_guard) cho các tập benchmark
+  66_run_t2_baseline.py                        Nhóm 1/WP1: T2 baseline hai chiều, E2, E3 (run t2_baseline_*)
+  67_build_t1_sets.py                          Nhóm 1/WP2: tập T1 tổng hợp tách nhóm và Data 06 held-out
+  68_run_t1_evaluation.py                      Nhóm 1/WP2: đánh giá T1/H5 tầng 1 (68b, 68c: tầng 2 neural trên checkpoint cục bộ)
+  69_bootstrap_frozen_results.py               Nhóm 1/WP3a: CI và kiểm định ghép cặp trên prediction đã freeze
+  70_run_multiseed_local.py                    Nhóm 1/WP3b: huấn luyện lại và chấm ba seed trên CPU cục bộ
+  71_run_cpu_hypothesis_experiments.py         Nhóm 1/WP4: H3, E1, H2, H4 bằng CRF-INDEP/HEUR-JW
+  72_run_constraint_ablation.py                Nhóm 1/WP5: ablation ràng buộc BIO bằng giải mã lại emission đã lưu; H1 NOT_TESTABLE
+  73_generate_group1_report.py                 Nhóm 1/WP6: kiểm hash run, đối chiếu số tiêu đề, sinh bảng báo cáo 14
 
 src/
   data/administrative_mapping.py            Nạp/kiểm tra đồ thị ánh xạ hành chính nguyên tử
@@ -147,6 +156,15 @@ src/
   data/synthetic/hybrid_address.py          Sinh địa chỉ lai từ cạnh có một đích xác minh
   data/synthetic/bidirectional.py           Sinh cặp ánh xạ với bằng chứng OSM hoặc đích duy nhất
   evaluation/                               Adapter, scorer, protocol và run manifest
+  evaluation/leak_guard.py                  Loại benchmark trùng train/dev/test; khóa nhóm hành chính (admin_group_key)
+  evaluation/stats.py                       Bootstrap theo mẫu/cụm, ghép cặp, hoán vị xấp xỉ, McNemar chính xác
+  evaluation/t2_lookup.py                   Tra bảng T2 hai chiều theo mức chuẩn hóa N0/N1/N2, STRICT/DEFAULT/SINGLE-VERSION/STREET
+  evaluation/t2_scorer.py                   Chấm T2: accuracy theo chiều, lỗi im lặng, CI cụm, E3
+  evaluation/t1_pipeline.py                 T1-PIPE (span của mô hình + luật gazetteer), T1-FEAT, T1-HEAD-PROBE
+  evaluation/t1_situations.py               Thẻ tình huống A–D của T1 từ gazetteer
+  evaluation/frozen_reliability.py          Biểu diễn theo mẫu của prediction đã freeze, CI T0/T1 và so sánh ghép cặp
+  evaluation/perturbations.py               Dựng lại chuỗi (đảo/xáo thứ tự, bỏ phẩy, hạ chữ) có ánh xạ offset khả nghịch
+  evaluation/constraint_ablation.py         Viterbi giải mã lại có/không cấm QuanHuyen; dư địa; ORACLE tách riêng
   utils/text_normalize.py                   Chuẩn hóa văn bản và vùng miền
   modeling/                                Alignment, BIO, trainer, CRF, T1, checkpoint, protocol và resource gate
 
@@ -154,6 +172,7 @@ tests/
   test_data_pipeline.py                     Kiểm thử hồi quy pipeline
   test_evaluation_pipeline.py                Kiểm thử protocol, manifest và báo cáo
   test_span_evaluation.py                    Kiểm thử scorer span T0
+  test_group1_*.py, test_t1_*.py, test_t2_baseline.py  Kiểm thử các gói Nhóm 1 (WP0–WP6)
 
 third_party/
   vietnamadminunits/                        Bảng đối chiếu đơn vị hành chính cũ/mới
@@ -238,3 +257,7 @@ Kết quả, giới hạn và receipt được lưu tại:
 - data/interim/modeling/sprint03/final_completion_20261005_v1/
 
 Không mở lại nhãn, thay split, tune trên test, hoặc xóa/sửa raw, gold, split và evidence có hash. Tiếp tục Sprint 4 từ các manifest phát hành; chỉ xử lý Deepparse khi có bằng chứng điều kiện sử dụng checkpoint.
+
+**15/10/2026 — Nhóm 1 Sprint 4 (lấp khoảng trống khoa học, nhánh `sprint4_group1`):** WP0–WP5 đã hiện thực, review độc lập và commit; WP6 gom lại ở `docs/sprints/sprint_04/14_group1_summary.md` (bảng giả thuyết, bảng T0/T1/T2, giới hạn, phần còn thiếu). Amendment A2 (`docs/sprints/sprint_04/08_amendment_a2_group1_scope.md`) đã đưa T2 vào phạm vi của Nhóm 1, nên "T2 chưa thực thi" ở đoạn Sprint 3 phía trên là mốc 05/10; T2 baseline đã chạy. Trạng thái giả thuyết (theo báo cáo đã sửa theo review): SUPPORTED H3, E3; PARTLY_SUPPORTED H2, E1; NOT_SUPPORTED H5; INCONCLUSIVE H4, E2; NOT_TESTABLE H1 (không có adapter); NOT_RUN E4 (VQA HOLD). Kết quả chính: T2 cũ→mới 0,965 và mới→cũ 0,077 với luật mặc định, chênh là cấu trúc của cải cách (95,3% khóa cũ giải tất định so với 4,1% khóa mới); mô hình đề xuất không phân biệt được với PhoBERT-CRF ở T0 (ba seed cục bộ 0,9783 ± 0,0111 so với 0,9787 ± 0,0030) và kém HEUR-JW ở T1; ràng buộc giải mã không có dư địa trên dữ liệu sạch. Còn thiếu: Tầng 2 neural của WP4 (cần ≥ 20 GiB ổ D: trống), DYN-T1-AUG, H1, E4, loại A/C của T2. Bộ test sau WP6: 453 test, 445 PASS / 8 SKIP / 0 FAIL (đo ngày 15/10/2026 trong `~/.venv_dacn`; 438 trước WP6 cộng 15 test của `tests/test_group1_summary.py`).
+
+Hai bẫy vận hành đã gặp: (1) `git status`/`git diff` của WSL báo khoảng 90 file "bị sửa" giả (gold, gazetteer, tài liệu Sprint 3) do khác ký tự xuống dòng vì WSL không có `core.autocrlf`; dùng git của Windows và kiểm file được bảo vệ bằng SHA-256 theo manifest. (2) Ba runtime tách biệt, không runtime nào đủ thư viện: chính `~/.venv_dacn` (không có `pycrfsuite`, `torch`, scipy, sklearn), CRF `data/interim/evaluation/sprint03/runtime_py311/bin/python` (không numpy/pandas), neural `data/interim/modeling/sprint03/runtime_neural_d_v1/bin/python` (không `pycrfsuite`); bước cần CRF hoặc neural chạy thành tiến trình riêng, đặt `OMP_NUM_THREADS=6` (cùng `MKL_NUM_THREADS=6`, `PYTHONDONTWRITEBYTECODE=1`) khi chạy neural trên CPU.
