@@ -1,0 +1,47 @@
+{
+  "model_id": "CRF-INDEP",
+  "run_id": "crf_indep_20261002_v1_dev_ctx1_c10.5_c21",
+  "seed": 42,
+  "supported_labels": [
+    "SoNha",
+    "TenDuong",
+    "Ngo/Hem",
+    "ToaNha/CanHo",
+    "PhuongXa",
+    "QuanHuyen",
+    "TinhThanh",
+    "MocDinhVi",
+    "HuongDi",
+    "GhiChu",
+    "Khac"
+  ],
+  "t1_implemented": false,
+  "device": "cpu",
+  "adapter_factory": "src.evaluation.adapters.crf_adapter:IndependentCRFAdapter",
+  "adapter_kwargs": {
+    "checkpoint_path": "data/processed/evaluation/sprint03/crf_indep_dev_20261002_v1/ctx1_c10.5_c21/model.crfsuite",
+    "metadata_path": "data/processed/evaluation/sprint03/crf_indep_dev_20261002_v1/ctx1_c10.5_c21/model_metadata.json"
+  },
+  "resources": {
+    "checkpoint": {
+      "path": "data/processed/evaluation/sprint03/crf_indep_dev_20261002_v1/ctx1_c10.5_c21/model.crfsuite",
+      "sha256": "adaf55c27c2f9fd655c0802bf4adae0817ff3b48298a813cd379fee072cb9729",
+      "role": "checkpoint"
+    },
+    "metadata": {
+      "path": "data/processed/evaluation/sprint03/crf_indep_dev_20261002_v1/ctx1_c10.5_c21/model_metadata.json",
+      "sha256": "a592e82c0817478c504bd6e93c7eb0e684a557c7e33b0a5489bf0ef39af9234e",
+      "role": "rules"
+    },
+    "features": {
+      "path": "src/evaluation/span_features.py",
+      "sha256": "880ff3c9a837735a2586628971839ebd06aa9d509b0e334ec38bcaab91f531c3",
+      "role": "tokenizer"
+    },
+    "adapter": {
+      "path": "src/evaluation/adapters/crf_adapter.py",
+      "sha256": "24893dc916b2bf6f53cb5e928afa385e6e06ea23f979d68612b2f1fa6237225f",
+      "role": "rules"
+    }
+  }
+}

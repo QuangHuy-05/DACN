@@ -1,0 +1,22 @@
+[
+  {"text": "gần cầu Sài Gòn", "candidate_rare": "MocDinhVi", "family": "cau_sai_gon"},
+  {"text": "cách cầu Sài Gòn 200 m", "candidate_rare": "MocDinhVi", "family": "cau_sai_gon"},
+  {"text": "phía trước cầu Sài Gòn", "candidate_rare": "MocDinhVi", "family": "cau_sai_gon"},
+  {"text": "đối diện chợ Bà Chiểu", "candidate_rare": "MocDinhVi", "family": "cho_ba_chieu"},
+  {"text": "bên cạnh chợ Bà Chiểu", "candidate_rare": "MocDinhVi", "family": "cho_ba_chieu"},
+  {"text": "gần ngã tư Hàng Xanh", "candidate_rare": "MocDinhVi", "family": "nga_tu_hang_xanh"},
+  {"text": "hướng Bình Thạnh", "candidate_rare": "HuongDi", "family": "huong_binh_thanh"},
+  {"text": "đi về hướng Bình Thạnh", "candidate_rare": "HuongDi", "family": "huong_binh_thanh"},
+  {"text": "theo hướng Bình Thạnh", "candidate_rare": "HuongDi", "family": "huong_binh_thanh"},
+  {"text": "rẽ trái", "candidate_rare": "HuongDi", "family": "huong_re_trai"},
+  {"text": "rẽ phải", "candidate_rare": "HuongDi", "family": "huong_re_phai"},
+  {"text": "đi thẳng", "candidate_rare": "HuongDi", "family": "huong_di_thang"},
+  {"text": "Căn A305, tầng 3, Tòa A", "candidate_rare": "ToaNha/CanHo", "family": "can_a305"},
+  {"text": "Tòa B, căn 1204", "candidate_rare": "ToaNha/CanHo", "family": "can_1204"},
+  {"text": "tầng 3, cổng sau", "candidate_rare": "GhiChu", "family": "ghi_chu_tang_cong"},
+  {"text": "lầu 2, lối giao hàng", "candidate_rare": "GhiChu", "family": "ghi_chu_lau_loi"},
+  {"text": "Khu phố 4, Phường 7", "candidate_rare": "Khac", "family": "khu_pho_4"},
+  {"text": "Ấp 2, Xã Bình Hưng", "candidate_rare": "Khac", "family": "ap_2"},
+  {"text": "Ngõ 42 Phố Trần Bình Trọng", "candidate_rare": "Ngo/Hem", "family": "ngo_42"},
+  {"text": "Hẻm 12/3 Đường Nguyễn Xí", "candidate_rare": "Ngo/Hem", "family": "hem_12_3"}
+]

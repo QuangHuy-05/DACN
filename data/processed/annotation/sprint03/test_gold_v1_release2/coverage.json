@@ -1,0 +1,72 @@
+{
+  "samples": 100,
+  "spans": 446,
+  "label_support": {
+    "SoNha": 88,
+    "TenDuong": 99,
+    "Ngo/Hem": 13,
+    "ToaNha/CanHo": 0,
+    "PhuongXa": 89,
+    "QuanHuyen": 56,
+    "TinhThanh": 99,
+    "MocDinhVi": 0,
+    "HuongDi": 0,
+    "GhiChu": 0,
+    "Khac": 2
+  },
+  "span_system": {
+    "cu": 77,
+    "moi": 18,
+    "khong_xac_dinh": 351
+  },
+  "t1": {
+    "cu": 49,
+    "moi": 25,
+    "Lai": 6,
+    "null": 20
+  },
+  "source_dataset": {
+    "01_new": 20,
+    "02_noisy": 20,
+    "03_old": 20,
+    "04_missing": 20,
+    "06_hybrid": 20
+  },
+  "source_kind": {
+    "unverified_provenance": 100
+  },
+  "derivation": {
+    "observed_or_existing_benchmark": 100
+  },
+  "stratum": {
+    "01_new": 20,
+    "02_noisy": 20,
+    "03_old": 20,
+    "04_missing": 20,
+    "06_hybrid": 20
+  },
+  "noise_type": {
+    "not_recorded": 100
+  },
+  "note": "Source kind comes from the declared queue derivation; a source OSM dataset alone does not make a child observed. Missing noise metadata stays not_recorded.",
+  "provenance_note": "observed_or_existing_benchmark is ambiguous and remains unverified_provenance; source_dataset and stratum are retained, without claiming all test rows were observed.",
+  "t1_eligible": 64,
+  "t1_excluded_ids": [
+    "s3_156b56e3b067f033",
+    "s3_193ee8bba9df8734",
+    "s3_224bae3f36763271",
+    "s3_35525b63dc71e55a",
+    "s3_406fc7891f05bc2a",
+    "s3_438e4e50f599cd2f",
+    "s3_4e5c8d58266fb206",
+    "s3_6816f0907984be0a",
+    "s3_7ec507813be1cede",
+    "s3_895748de4265665a",
+    "s3_8dd4536611f09a74",
+    "s3_9fe1a97170d5ce7d",
+    "s3_c653b940f299c3cf",
+    "s3_c9ceb4918634b3b6",
+    "s3_ce1215ffa66c136f",
+    "s3_e705dab3c4063df5"
+  ]
+}

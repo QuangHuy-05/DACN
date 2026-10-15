@@ -1,0 +1,199 @@
+﻿system,dataset,breakdown,value,status,n,correct,accuracy,lai_support,lai_tp,lai_recall,abstain_count
+BASELINE-MAJORITY,s3_test,province,Thành phố Hà Nội,OK,25,17,0.680000,2,0,0.000000,0
+BASELINE-ONE-FEATURE,s3_test,province,Thành phố Hà Nội,OK,25,21,0.840000,2,0,0.000000,0
+HEUR-JW,s3_test,province,Thành phố Hà Nội,OK,25,23,0.920000,2,2,1.000000,1
+PROPOSED-DYN,s3_test,province,Thành phố Hà Nội,OK,25,23,0.920000,2,0,0.000000,0
+T1-PIPE-CRF,s3_test,province,Thành phố Hà Nội,OK,25,24,0.960000,2,2,1.000000,1
+T1-PIPE-PCRF,s3_test,province,Thành phố Hà Nội,OK,25,24,0.960000,2,2,1.000000,1
+T1-PIPE-DYN,s3_test,province,Thành phố Hà Nội,OK,25,24,0.960000,2,2,1.000000,1
+T1-FEAT,s3_test,province,Thành phố Hà Nội,OK,25,21,0.840000,2,2,1.000000,0
+T1-FEAT-NOGAZ,s3_test,province,Thành phố Hà Nội,OK,25,19,0.760000,2,0,0.000000,0
+T1-HEAD-PROBE,s3_test,province,Thành phố Hà Nội,NOT_RUN,25,,,,,,
+DYN-T1-AUG,s3_test,province,Thành phố Hà Nội,DEFERRED_NEEDS_TRAINING_PROTOCOL_CHANGE,25,,,,,,
+BASELINE-MAJORITY,s3_test,province,Tỉnh Bắc Ninh,OK,22,18,0.818182,1,0,0.000000,0
+BASELINE-ONE-FEATURE,s3_test,province,Tỉnh Bắc Ninh,OK,22,21,0.954545,1,0,0.000000,0
+HEUR-JW,s3_test,province,Tỉnh Bắc Ninh,OK,22,22,1.000000,1,1,1.000000,0
+PROPOSED-DYN,s3_test,province,Tỉnh Bắc Ninh,OK,22,12,0.545455,1,0,0.000000,10
+T1-PIPE-CRF,s3_test,province,Tỉnh Bắc Ninh,OK,22,22,1.000000,1,1,1.000000,0
+T1-PIPE-PCRF,s3_test,province,Tỉnh Bắc Ninh,OK,22,22,1.000000,1,1,1.000000,0
+T1-PIPE-DYN,s3_test,province,Tỉnh Bắc Ninh,OK,22,22,1.000000,1,1,1.000000,0
+T1-FEAT,s3_test,province,Tỉnh Bắc Ninh,OK,22,15,0.681818,1,1,1.000000,0
+T1-FEAT-NOGAZ,s3_test,province,Tỉnh Bắc Ninh,OK,22,11,0.500000,1,1,1.000000,0
+T1-HEAD-PROBE,s3_test,province,Tỉnh Bắc Ninh,NOT_RUN,22,,,,,,
+DYN-T1-AUG,s3_test,province,Tỉnh Bắc Ninh,DEFERRED_NEEDS_TRAINING_PROTOCOL_CHANGE,22,,,,,,
+BASELINE-MAJORITY,s3_test,province,Thành phố Hồ Chí Minh,OK,14,10,0.714286,2,0,0.000000,0
+BASELINE-ONE-FEATURE,s3_test,province,Thành phố Hồ Chí Minh,OK,14,10,0.714286,2,0,0.000000,0
+HEUR-JW,s3_test,province,Thành phố Hồ Chí Minh,OK,14,12,0.857143,2,2,1.000000,2
+PROPOSED-DYN,s3_test,province,Thành phố Hồ Chí Minh,OK,14,9,0.642857,2,0,0.000000,2
+T1-PIPE-CRF,s3_test,province,Thành phố Hồ Chí Minh,OK,14,11,0.785714,2,2,1.000000,3
+T1-PIPE-PCRF,s3_test,province,Thành phố Hồ Chí Minh,OK,14,14,1.000000,2,2,1.000000,0
+T1-PIPE-DYN,s3_test,province,Thành phố Hồ Chí Minh,OK,14,14,1.000000,2,2,1.000000,0
+T1-FEAT,s3_test,province,Thành phố Hồ Chí Minh,OK,14,7,0.500000,2,2,1.000000,0
+T1-FEAT-NOGAZ,s3_test,province,Thành phố Hồ Chí Minh,OK,14,10,0.714286,2,0,0.000000,0
+T1-HEAD-PROBE,s3_test,province,Thành phố Hồ Chí Minh,NOT_RUN,14,,,,,,
+DYN-T1-AUG,s3_test,province,Thành phố Hồ Chí Minh,DEFERRED_NEEDS_TRAINING_PROTOCOL_CHANGE,14,,,,,,
+BASELINE-MAJORITY,s3_test,province,KHONG_XAC_DINH,OK,1,1,1.000000,0,0,NOT_EVALUABLE_NO_SUPPORT,0
+BASELINE-ONE-FEATURE,s3_test,province,KHONG_XAC_DINH,OK,1,1,1.000000,0,0,NOT_EVALUABLE_NO_SUPPORT,0
+HEUR-JW,s3_test,province,KHONG_XAC_DINH,OK,1,1,1.000000,0,0,NOT_EVALUABLE_NO_SUPPORT,0
+PROPOSED-DYN,s3_test,province,KHONG_XAC_DINH,OK,1,1,1.000000,0,0,NOT_EVALUABLE_NO_SUPPORT,0
+T1-PIPE-CRF,s3_test,province,KHONG_XAC_DINH,OK,1,1,1.000000,0,0,NOT_EVALUABLE_NO_SUPPORT,0
+T1-PIPE-PCRF,s3_test,province,KHONG_XAC_DINH,OK,1,1,1.000000,0,0,NOT_EVALUABLE_NO_SUPPORT,0
+T1-PIPE-DYN,s3_test,province,KHONG_XAC_DINH,OK,1,1,1.000000,0,0,NOT_EVALUABLE_NO_SUPPORT,0
+T1-FEAT,s3_test,province,KHONG_XAC_DINH,OK,1,1,1.000000,0,0,NOT_EVALUABLE_NO_SUPPORT,0
+T1-FEAT-NOGAZ,s3_test,province,KHONG_XAC_DINH,OK,1,1,1.000000,0,0,NOT_EVALUABLE_NO_SUPPORT,0
+T1-HEAD-PROBE,s3_test,province,KHONG_XAC_DINH,NOT_RUN,1,,,,,,
+DYN-T1-AUG,s3_test,province,KHONG_XAC_DINH,DEFERRED_NEEDS_TRAINING_PROTOCOL_CHANGE,1,,,,,,
+BASELINE-MAJORITY,s3_test,province,Thành phố Cần Thơ,OK,1,1,1.000000,0,0,NOT_EVALUABLE_NO_SUPPORT,0
+BASELINE-ONE-FEATURE,s3_test,province,Thành phố Cần Thơ,OK,1,0,0.000000,0,0,NOT_EVALUABLE_NO_SUPPORT,0
+HEUR-JW,s3_test,province,Thành phố Cần Thơ,OK,1,1,1.000000,0,0,NOT_EVALUABLE_NO_SUPPORT,0
+PROPOSED-DYN,s3_test,province,Thành phố Cần Thơ,OK,1,1,1.000000,0,0,NOT_EVALUABLE_NO_SUPPORT,0
+T1-PIPE-CRF,s3_test,province,Thành phố Cần Thơ,OK,1,1,1.000000,0,0,NOT_EVALUABLE_NO_SUPPORT,0
+T1-PIPE-PCRF,s3_test,province,Thành phố Cần Thơ,OK,1,1,1.000000,0,0,NOT_EVALUABLE_NO_SUPPORT,0
+T1-PIPE-DYN,s3_test,province,Thành phố Cần Thơ,OK,1,1,1.000000,0,0,NOT_EVALUABLE_NO_SUPPORT,0
+T1-FEAT,s3_test,province,Thành phố Cần Thơ,OK,1,0,0.000000,0,0,NOT_EVALUABLE_NO_SUPPORT,0
+T1-FEAT-NOGAZ,s3_test,province,Thành phố Cần Thơ,OK,1,0,0.000000,0,0,NOT_EVALUABLE_NO_SUPPORT,0
+T1-HEAD-PROBE,s3_test,province,Thành phố Cần Thơ,NOT_RUN,1,,,,,,
+DYN-T1-AUG,s3_test,province,Thành phố Cần Thơ,DEFERRED_NEEDS_TRAINING_PROTOCOL_CHANGE,1,,,,,,
+BASELINE-MAJORITY,s3_test,province,CON_LAI,OK,1,0,0.000000,0,0,NOT_EVALUABLE_NO_SUPPORT,0
+BASELINE-ONE-FEATURE,s3_test,province,CON_LAI,OK,1,1,1.000000,0,0,NOT_EVALUABLE_NO_SUPPORT,0
+HEUR-JW,s3_test,province,CON_LAI,OK,1,0,0.000000,0,0,NOT_EVALUABLE_NO_SUPPORT,0
+PROPOSED-DYN,s3_test,province,CON_LAI,OK,1,0,0.000000,0,0,NOT_EVALUABLE_NO_SUPPORT,0
+T1-PIPE-CRF,s3_test,province,CON_LAI,OK,1,1,1.000000,0,0,NOT_EVALUABLE_NO_SUPPORT,0
+T1-PIPE-PCRF,s3_test,province,CON_LAI,OK,1,0,0.000000,0,0,NOT_EVALUABLE_NO_SUPPORT,1
+T1-PIPE-DYN,s3_test,province,CON_LAI,OK,1,0,0.000000,0,0,NOT_EVALUABLE_NO_SUPPORT,1
+T1-FEAT,s3_test,province,CON_LAI,OK,1,1,1.000000,0,0,NOT_EVALUABLE_NO_SUPPORT,0
+T1-FEAT-NOGAZ,s3_test,province,CON_LAI,OK,1,1,1.000000,0,0,NOT_EVALUABLE_NO_SUPPORT,0
+T1-HEAD-PROBE,s3_test,province,CON_LAI,NOT_RUN,1,,,,,,
+DYN-T1-AUG,s3_test,province,CON_LAI,DEFERRED_NEEDS_TRAINING_PROTOCOL_CHANGE,1,,,,,,
+BASELINE-MAJORITY,synth_eval,province,Tỉnh Bắc Ninh,OK,709,51,0.071932,398,0,0.000000,0
+BASELINE-ONE-FEATURE,synth_eval,province,Tỉnh Bắc Ninh,OK,709,311,0.438646,398,0,0.000000,0
+HEUR-JW,synth_eval,province,Tỉnh Bắc Ninh,OK,709,52,0.073343,398,1,0.002513,260
+PROPOSED-DYN,synth_eval,province,Tỉnh Bắc Ninh,NOT_RUN,709,,,,,,
+T1-PIPE-CRF,synth_eval,province,Tỉnh Bắc Ninh,OK,709,52,0.073343,398,1,0.002513,261
+T1-PIPE-PCRF,synth_eval,province,Tỉnh Bắc Ninh,NOT_RUN,709,,,,,,
+T1-PIPE-DYN,synth_eval,province,Tỉnh Bắc Ninh,NOT_RUN,709,,,,,,
+T1-FEAT,synth_eval,province,Tỉnh Bắc Ninh,OK,709,561,0.791255,398,264,0.663317,0
+T1-FEAT-NOGAZ,synth_eval,province,Tỉnh Bắc Ninh,OK,709,538,0.758815,398,227,0.570352,0
+T1-HEAD-PROBE,synth_eval,province,Tỉnh Bắc Ninh,NOT_RUN,709,,,,,,
+DYN-T1-AUG,synth_eval,province,Tỉnh Bắc Ninh,DEFERRED_NEEDS_TRAINING_PROTOCOL_CHANGE,709,,,,,,
+BASELINE-MAJORITY,synth_eval,province,Thành phố Hồ Chí Minh,OK,597,222,0.371859,306,0,0.000000,0
+BASELINE-ONE-FEATURE,synth_eval,province,Thành phố Hồ Chí Minh,OK,597,278,0.465662,306,0,0.000000,0
+HEUR-JW,synth_eval,province,Thành phố Hồ Chí Minh,OK,597,400,0.670017,306,200,0.653595,90
+PROPOSED-DYN,synth_eval,province,Thành phố Hồ Chí Minh,NOT_RUN,597,,,,,,
+T1-PIPE-CRF,synth_eval,province,Thành phố Hồ Chí Minh,OK,597,394,0.659966,306,198,0.647059,94
+T1-PIPE-PCRF,synth_eval,province,Thành phố Hồ Chí Minh,NOT_RUN,597,,,,,,
+T1-PIPE-DYN,synth_eval,province,Thành phố Hồ Chí Minh,NOT_RUN,597,,,,,,
+T1-FEAT,synth_eval,province,Thành phố Hồ Chí Minh,OK,597,528,0.884422,306,305,0.996732,0
+T1-FEAT-NOGAZ,synth_eval,province,Thành phố Hồ Chí Minh,OK,597,500,0.837521,306,210,0.686275,0
+T1-HEAD-PROBE,synth_eval,province,Thành phố Hồ Chí Minh,NOT_RUN,597,,,,,,
+DYN-T1-AUG,synth_eval,province,Thành phố Hồ Chí Minh,DEFERRED_NEEDS_TRAINING_PROTOCOL_CHANGE,597,,,,,,
+BASELINE-MAJORITY,synth_eval,province,Thành phố Hà Nội,OK,581,576,0.991394,5,0,0.000000,0
+BASELINE-ONE-FEATURE,synth_eval,province,Thành phố Hà Nội,OK,581,572,0.984509,5,0,0.000000,0
+HEUR-JW,synth_eval,province,Thành phố Hà Nội,OK,581,522,0.898451,5,5,1.000000,56
+PROPOSED-DYN,synth_eval,province,Thành phố Hà Nội,NOT_RUN,581,,,,,,
+T1-PIPE-CRF,synth_eval,province,Thành phố Hà Nội,OK,581,527,0.907057,5,5,1.000000,51
+T1-PIPE-PCRF,synth_eval,province,Thành phố Hà Nội,NOT_RUN,581,,,,,,
+T1-PIPE-DYN,synth_eval,province,Thành phố Hà Nội,NOT_RUN,581,,,,,,
+T1-FEAT,synth_eval,province,Thành phố Hà Nội,OK,581,576,0.991394,5,5,1.000000,0
+T1-FEAT-NOGAZ,synth_eval,province,Thành phố Hà Nội,OK,581,568,0.977625,5,5,1.000000,0
+T1-HEAD-PROBE,synth_eval,province,Thành phố Hà Nội,NOT_RUN,581,,,,,,
+DYN-T1-AUG,synth_eval,province,Thành phố Hà Nội,DEFERRED_NEEDS_TRAINING_PROTOCOL_CHANGE,581,,,,,,
+BASELINE-MAJORITY,synth_eval,province,Thành phố Cần Thơ,OK,54,52,0.962963,2,0,0.000000,0
+BASELINE-ONE-FEATURE,synth_eval,province,Thành phố Cần Thơ,OK,54,52,0.962963,2,0,0.000000,0
+HEUR-JW,synth_eval,province,Thành phố Cần Thơ,OK,54,21,0.388889,2,2,1.000000,33
+PROPOSED-DYN,synth_eval,province,Thành phố Cần Thơ,NOT_RUN,54,,,,,,
+T1-PIPE-CRF,synth_eval,province,Thành phố Cần Thơ,OK,54,21,0.388889,2,2,1.000000,33
+T1-PIPE-PCRF,synth_eval,province,Thành phố Cần Thơ,NOT_RUN,54,,,,,,
+T1-PIPE-DYN,synth_eval,province,Thành phố Cần Thơ,NOT_RUN,54,,,,,,
+T1-FEAT,synth_eval,province,Thành phố Cần Thơ,OK,54,53,0.981481,2,2,1.000000,0
+T1-FEAT-NOGAZ,synth_eval,province,Thành phố Cần Thơ,OK,54,53,0.981481,2,2,1.000000,0
+T1-HEAD-PROBE,synth_eval,province,Thành phố Cần Thơ,NOT_RUN,54,,,,,,
+DYN-T1-AUG,synth_eval,province,Thành phố Cần Thơ,DEFERRED_NEEDS_TRAINING_PROTOCOL_CHANGE,54,,,,,,
+BASELINE-MAJORITY,synth_eval,province,Thành phố Đà Nẵng,OK,36,32,0.888889,4,0,0.000000,0
+BASELINE-ONE-FEATURE,synth_eval,province,Thành phố Đà Nẵng,OK,36,32,0.888889,4,0,0.000000,0
+HEUR-JW,synth_eval,province,Thành phố Đà Nẵng,OK,36,25,0.694444,4,3,0.750000,10
+PROPOSED-DYN,synth_eval,province,Thành phố Đà Nẵng,NOT_RUN,36,,,,,,
+T1-PIPE-CRF,synth_eval,province,Thành phố Đà Nẵng,OK,36,25,0.694444,4,3,0.750000,10
+T1-PIPE-PCRF,synth_eval,province,Thành phố Đà Nẵng,NOT_RUN,36,,,,,,
+T1-PIPE-DYN,synth_eval,province,Thành phố Đà Nẵng,NOT_RUN,36,,,,,,
+T1-FEAT,synth_eval,province,Thành phố Đà Nẵng,OK,36,36,1.000000,4,4,1.000000,0
+T1-FEAT-NOGAZ,synth_eval,province,Thành phố Đà Nẵng,OK,36,35,0.972222,4,4,1.000000,0
+T1-HEAD-PROBE,synth_eval,province,Thành phố Đà Nẵng,NOT_RUN,36,,,,,,
+DYN-T1-AUG,synth_eval,province,Thành phố Đà Nẵng,DEFERRED_NEEDS_TRAINING_PROTOCOL_CHANGE,36,,,,,,
+BASELINE-MAJORITY,synth_eval,province,CON_LAI,OK,218,54,0.247706,164,0,0.000000,0
+BASELINE-ONE-FEATURE,synth_eval,province,CON_LAI,OK,218,48,0.220183,164,0,0.000000,0
+HEUR-JW,synth_eval,province,CON_LAI,OK,218,73,0.334862,164,48,0.292683,22
+PROPOSED-DYN,synth_eval,province,CON_LAI,NOT_RUN,218,,,,,,
+T1-PIPE-CRF,synth_eval,province,CON_LAI,OK,218,75,0.344037,164,47,0.286585,31
+T1-PIPE-PCRF,synth_eval,province,CON_LAI,NOT_RUN,218,,,,,,
+T1-PIPE-DYN,synth_eval,province,CON_LAI,NOT_RUN,218,,,,,,
+T1-FEAT,synth_eval,province,CON_LAI,OK,218,205,0.940367,164,161,0.981707,0
+T1-FEAT-NOGAZ,synth_eval,province,CON_LAI,OK,218,212,0.972477,164,162,0.987805,0
+T1-HEAD-PROBE,synth_eval,province,CON_LAI,NOT_RUN,218,,,,,,
+DYN-T1-AUG,synth_eval,province,CON_LAI,DEFERRED_NEEDS_TRAINING_PROTOCOL_CHANGE,218,,,,,,
+BASELINE-MAJORITY,data06,province,Tỉnh Bắc Ninh,OK,390,0,0.000000,390,0,0.000000,0
+BASELINE-ONE-FEATURE,data06,province,Tỉnh Bắc Ninh,OK,390,0,0.000000,390,0,0.000000,0
+HEUR-JW,data06,province,Tỉnh Bắc Ninh,OK,390,32,0.082051,390,32,0.082051,0
+PROPOSED-DYN,data06,province,Tỉnh Bắc Ninh,NOT_RUN,390,,,,,,
+T1-PIPE-CRF,data06,province,Tỉnh Bắc Ninh,OK,390,32,0.082051,390,32,0.082051,0
+T1-PIPE-PCRF,data06,province,Tỉnh Bắc Ninh,NOT_RUN,390,,,,,,
+T1-PIPE-DYN,data06,province,Tỉnh Bắc Ninh,NOT_RUN,390,,,,,,
+T1-FEAT,data06,province,Tỉnh Bắc Ninh,OK,390,164,0.420513,390,164,0.420513,0
+T1-FEAT-NOGAZ,data06,province,Tỉnh Bắc Ninh,OK,390,136,0.348718,390,136,0.348718,0
+T1-HEAD-PROBE,data06,province,Tỉnh Bắc Ninh,NOT_RUN,390,,,,,,
+DYN-T1-AUG,data06,province,Tỉnh Bắc Ninh,DEFERRED_NEEDS_TRAINING_PROTOCOL_CHANGE,390,,,,,,
+BASELINE-MAJORITY,data06,province,Thành phố Hồ Chí Minh,OK,111,0,0.000000,111,0,0.000000,0
+BASELINE-ONE-FEATURE,data06,province,Thành phố Hồ Chí Minh,OK,111,0,0.000000,111,0,0.000000,0
+HEUR-JW,data06,province,Thành phố Hồ Chí Minh,OK,111,97,0.873874,111,97,0.873874,0
+PROPOSED-DYN,data06,province,Thành phố Hồ Chí Minh,NOT_RUN,111,,,,,,
+T1-PIPE-CRF,data06,province,Thành phố Hồ Chí Minh,OK,111,97,0.873874,111,97,0.873874,0
+T1-PIPE-PCRF,data06,province,Thành phố Hồ Chí Minh,NOT_RUN,111,,,,,,
+T1-PIPE-DYN,data06,province,Thành phố Hồ Chí Minh,NOT_RUN,111,,,,,,
+T1-FEAT,data06,province,Thành phố Hồ Chí Minh,OK,111,105,0.945946,111,105,0.945946,0
+T1-FEAT-NOGAZ,data06,province,Thành phố Hồ Chí Minh,OK,111,1,0.009009,111,1,0.009009,0
+T1-HEAD-PROBE,data06,province,Thành phố Hồ Chí Minh,NOT_RUN,111,,,,,,
+DYN-T1-AUG,data06,province,Thành phố Hồ Chí Minh,DEFERRED_NEEDS_TRAINING_PROTOCOL_CHANGE,111,,,,,,
+BASELINE-MAJORITY,data06,province,Thành phố Hà Nội,OK,50,0,0.000000,50,0,0.000000,0
+BASELINE-ONE-FEATURE,data06,province,Thành phố Hà Nội,OK,50,0,0.000000,50,0,0.000000,0
+HEUR-JW,data06,province,Thành phố Hà Nội,OK,50,27,0.540000,50,27,0.540000,0
+PROPOSED-DYN,data06,province,Thành phố Hà Nội,NOT_RUN,50,,,,,,
+T1-PIPE-CRF,data06,province,Thành phố Hà Nội,OK,50,27,0.540000,50,27,0.540000,0
+T1-PIPE-PCRF,data06,province,Thành phố Hà Nội,NOT_RUN,50,,,,,,
+T1-PIPE-DYN,data06,province,Thành phố Hà Nội,NOT_RUN,50,,,,,,
+T1-FEAT,data06,province,Thành phố Hà Nội,OK,50,29,0.580000,50,29,0.580000,0
+T1-FEAT-NOGAZ,data06,province,Thành phố Hà Nội,OK,50,3,0.060000,50,3,0.060000,0
+T1-HEAD-PROBE,data06,province,Thành phố Hà Nội,NOT_RUN,50,,,,,,
+DYN-T1-AUG,data06,province,Thành phố Hà Nội,DEFERRED_NEEDS_TRAINING_PROTOCOL_CHANGE,50,,,,,,
+BASELINE-MAJORITY,data06,province,Thành phố Đà Nẵng,OK,16,0,0.000000,16,0,0.000000,0
+BASELINE-ONE-FEATURE,data06,province,Thành phố Đà Nẵng,OK,16,0,0.000000,16,0,0.000000,0
+HEUR-JW,data06,province,Thành phố Đà Nẵng,OK,16,9,0.562500,16,9,0.562500,0
+PROPOSED-DYN,data06,province,Thành phố Đà Nẵng,NOT_RUN,16,,,,,,
+T1-PIPE-CRF,data06,province,Thành phố Đà Nẵng,OK,16,9,0.562500,16,9,0.562500,0
+T1-PIPE-PCRF,data06,province,Thành phố Đà Nẵng,NOT_RUN,16,,,,,,
+T1-PIPE-DYN,data06,province,Thành phố Đà Nẵng,NOT_RUN,16,,,,,,
+T1-FEAT,data06,province,Thành phố Đà Nẵng,OK,16,11,0.687500,16,11,0.687500,0
+T1-FEAT-NOGAZ,data06,province,Thành phố Đà Nẵng,OK,16,0,0.000000,16,0,0.000000,0
+T1-HEAD-PROBE,data06,province,Thành phố Đà Nẵng,NOT_RUN,16,,,,,,
+DYN-T1-AUG,data06,province,Thành phố Đà Nẵng,DEFERRED_NEEDS_TRAINING_PROTOCOL_CHANGE,16,,,,,,
+BASELINE-MAJORITY,data06,province,Tỉnh Cà Mau,OK,5,0,0.000000,5,0,0.000000,0
+BASELINE-ONE-FEATURE,data06,province,Tỉnh Cà Mau,OK,5,0,0.000000,5,0,0.000000,0
+HEUR-JW,data06,province,Tỉnh Cà Mau,OK,5,1,0.200000,5,1,0.200000,0
+PROPOSED-DYN,data06,province,Tỉnh Cà Mau,NOT_RUN,5,,,,,,
+T1-PIPE-CRF,data06,province,Tỉnh Cà Mau,OK,5,1,0.200000,5,1,0.200000,1
+T1-PIPE-PCRF,data06,province,Tỉnh Cà Mau,NOT_RUN,5,,,,,,
+T1-PIPE-DYN,data06,province,Tỉnh Cà Mau,NOT_RUN,5,,,,,,
+T1-FEAT,data06,province,Tỉnh Cà Mau,OK,5,3,0.600000,5,3,0.600000,0
+T1-FEAT-NOGAZ,data06,province,Tỉnh Cà Mau,OK,5,5,1.000000,5,5,1.000000,0
+T1-HEAD-PROBE,data06,province,Tỉnh Cà Mau,NOT_RUN,5,,,,,,
+DYN-T1-AUG,data06,province,Tỉnh Cà Mau,DEFERRED_NEEDS_TRAINING_PROTOCOL_CHANGE,5,,,,,,
+BASELINE-MAJORITY,data06,province,CON_LAI,OK,8,0,0.000000,8,0,0.000000,0
+BASELINE-ONE-FEATURE,data06,province,CON_LAI,OK,8,0,0.000000,8,0,0.000000,0
+HEUR-JW,data06,province,CON_LAI,OK,8,5,0.625000,8,5,0.625000,0
+PROPOSED-DYN,data06,province,CON_LAI,NOT_RUN,8,,,,,,
+T1-PIPE-CRF,data06,province,CON_LAI,OK,8,5,0.625000,8,5,0.625000,0
+T1-PIPE-PCRF,data06,province,CON_LAI,NOT_RUN,8,,,,,,
+T1-PIPE-DYN,data06,province,CON_LAI,NOT_RUN,8,,,,,,
+T1-FEAT,data06,province,CON_LAI,OK,8,6,0.750000,8,6,0.750000,0
+T1-FEAT-NOGAZ,data06,province,CON_LAI,OK,8,6,0.750000,8,6,0.750000,0
+T1-HEAD-PROBE,data06,province,CON_LAI,NOT_RUN,8,,,,,,
+DYN-T1-AUG,data06,province,CON_LAI,DEFERRED_NEEDS_TRAINING_PROTOCOL_CHANGE,8,,,,,,

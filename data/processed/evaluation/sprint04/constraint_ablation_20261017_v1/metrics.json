@@ -1,0 +1,3106 @@
+{
+  "rule_version": "constraint_ablation_v1",
+  "results": {
+    "test_kaggle": {
+      "label": "SPRINT3_TEST_OBSERVED_POSTHOC",
+      "kind": "span",
+      "n_rows": 100,
+      "sources": {
+        "DYN": {
+          "source": "DYN",
+          "n_rows": 100,
+          "n_ban_rows": 20,
+          "n_changed_rows": 1,
+          "n_span_changes": 2,
+          "correct_fix": 0,
+          "harm": 1,
+          "neutral": 0,
+          "changed_sample_ids": [
+            "s3_224ae519b196f730"
+          ],
+          "changed_by_gold_system": {
+            "cu:harm": 1
+          },
+          "f1_no_constraint": 0.984304932735426,
+          "f1_with_ban": 0.9820627802690582,
+          "exact_no_constraint": 93,
+          "exact_with_ban": 92,
+          "counts_no_constraint": [
+            439,
+            7,
+            7
+          ],
+          "counts_with_ban": [
+            438,
+            8,
+            8
+          ],
+          "paired": {
+            "f1_a": 0.9820627802690582,
+            "f1_b": 0.984304932735426,
+            "delta": -0.0022421524663677195,
+            "ci_low": -0.006849315068493178,
+            "ci_high": 0.0,
+            "status": "OK",
+            "prop_delta_le_0": 1.0
+          },
+          "ci_with_ban": {
+            "f1": 0.9820627802690582,
+            "ci_low": 0.9690949227373068,
+            "ci_high": 0.9932584269662922,
+            "status": "OK"
+          },
+          "label": "SPRINT3_TEST_OBSERVED_POSTHOC"
+        },
+        "HEUR-JW": {
+          "source": "HEUR-JW",
+          "n_rows": 100,
+          "n_ban_rows": 10,
+          "n_changed_rows": 0,
+          "n_span_changes": 0,
+          "correct_fix": 0,
+          "harm": 0,
+          "neutral": 0,
+          "changed_sample_ids": [],
+          "changed_by_gold_system": {},
+          "f1_no_constraint": 0.984304932735426,
+          "f1_with_ban": 0.984304932735426,
+          "exact_no_constraint": 93,
+          "exact_with_ban": 93,
+          "counts_no_constraint": [
+            439,
+            7,
+            7
+          ],
+          "counts_with_ban": [
+            439,
+            7,
+            7
+          ],
+          "paired": {
+            "f1_a": 0.984304932735426,
+            "f1_b": 0.984304932735426,
+            "delta": 0.0,
+            "ci_low": 0.0,
+            "ci_high": 0.0,
+            "status": "OK",
+            "prop_delta_le_0": 1.0
+          },
+          "ci_with_ban": {
+            "f1": 0.984304932735426,
+            "ci_low": 0.9724137931034482,
+            "ci_high": 0.9935068441277946,
+            "status": "OK"
+          },
+          "label": "SPRINT3_TEST_OBSERVED_POSTHOC"
+        },
+        "ORACLE_UPPER_BOUND": {
+          "source": "ORACLE_UPPER_BOUND",
+          "n_rows": 100,
+          "n_ban_rows": 25,
+          "n_changed_rows": 0,
+          "n_span_changes": 0,
+          "correct_fix": 0,
+          "harm": 0,
+          "neutral": 0,
+          "changed_sample_ids": [],
+          "changed_by_gold_system": {},
+          "f1_no_constraint": 0.984304932735426,
+          "f1_with_ban": 0.984304932735426,
+          "exact_no_constraint": 93,
+          "exact_with_ban": 93,
+          "counts_no_constraint": [
+            439,
+            7,
+            7
+          ],
+          "counts_with_ban": [
+            439,
+            7,
+            7
+          ],
+          "paired": {
+            "f1_a": 0.984304932735426,
+            "f1_b": 0.984304932735426,
+            "delta": 0.0,
+            "ci_low": 0.0,
+            "ci_high": 0.0,
+            "status": "OK",
+            "prop_delta_le_0": 1.0
+          },
+          "ci_with_ban": {
+            "f1": 0.984304932735426,
+            "ci_low": 0.9724137931034482,
+            "ci_high": 0.9935068441277946,
+            "status": "OK"
+          },
+          "label": "ORACLE_UPPER_BOUND"
+        }
+      },
+      "checks": {
+        "stored_ban_district_equals_dyn_source_flags": true,
+        "stored_path_after_equals_redecode_with_dyn_source": true,
+        "stored_on_counts_equal_redecoded": true,
+        "stored_off_counts_equal_redecoded": true
+      },
+      "headroom": {
+        "n_rows": 100,
+        "n_gold_moi": 25,
+        "n_gold_moi_without_quan_huyen": 25,
+        "n_gold_moi_t1_eligible": 12,
+        "n_headroom_t1_eligible": 0,
+        "n_headroom": 0,
+        "n_headroom_removed_by_unconditional_ban": 0,
+        "headroom_sample_ids": [],
+        "headroom_by_dyn_t1": {
+          "moi": 0,
+          "cu": 0,
+          "Lai": 0,
+          "khong_ro": 0
+        },
+        "gold_moi_by_dyn_t1": {
+          "moi": 15,
+          "cu": 4,
+          "Lai": 0,
+          "khong_ro": 6
+        },
+        "n_headroom_with_dyn_ban": 0,
+        "n_headroom_fixed_by_dyn_ban": 0,
+        "n_harm_exposure_gold_quan_huyen_with_dyn_ban": 1,
+        "n_harm_exposure_qh_removed_by_ban": 1,
+        "headroom_by_heur_t1": {
+          "moi": 0,
+          "cu": 0,
+          "Lai": 0,
+          "khong_ro": 0
+        },
+        "status": "OK",
+        "statement": "0/25 gold-new rows still get a QuanHuyen span from the unconstrained decode (upper bound of errors the constraint can fix)"
+      },
+      "stored_on_vs_off": {
+        "f1_a": 0.9820627802690582,
+        "f1_b": 0.984304932735426,
+        "delta": -0.0022421524663677195,
+        "ci_low": -0.006849315068493178,
+        "ci_high": 0.0,
+        "status": "OK",
+        "prop_delta_le_0": 1.0
+      },
+      "dyn_t0_f1": {
+        "free": 0.984304932735426,
+        "dyn": 0.9820627802690582
+      },
+      "pcrf_sources": {
+        "HEUR-JW": {
+          "source": "HEUR-JW",
+          "n_rows": 100,
+          "n_ban_rows": 10,
+          "n_changed_rows": 0,
+          "n_span_changes": 0,
+          "correct_fix": 0,
+          "harm": 0,
+          "neutral": 0,
+          "changed_sample_ids": [],
+          "changed_by_gold_system": {},
+          "f1_no_constraint": 0.984304932735426,
+          "f1_with_ban": 0.984304932735426,
+          "exact_no_constraint": 93,
+          "exact_with_ban": 93,
+          "counts_no_constraint": [
+            439,
+            7,
+            7
+          ],
+          "counts_with_ban": [
+            439,
+            7,
+            7
+          ],
+          "paired": {
+            "f1_a": 0.984304932735426,
+            "f1_b": 0.984304932735426,
+            "delta": 0.0,
+            "ci_low": 0.0,
+            "ci_high": 0.0,
+            "status": "OK",
+            "prop_delta_le_0": 1.0
+          },
+          "ci_with_ban": {
+            "f1": 0.984304932735426,
+            "ci_low": 0.9720263381478335,
+            "ci_high": 0.9935897435897436,
+            "status": "OK"
+          },
+          "label": "SPRINT3_TEST_OBSERVED_POSTHOC"
+        },
+        "ORACLE_UPPER_BOUND": {
+          "source": "ORACLE_UPPER_BOUND",
+          "n_rows": 100,
+          "n_ban_rows": 25,
+          "n_changed_rows": 0,
+          "n_span_changes": 0,
+          "correct_fix": 0,
+          "harm": 0,
+          "neutral": 0,
+          "changed_sample_ids": [],
+          "changed_by_gold_system": {},
+          "f1_no_constraint": 0.984304932735426,
+          "f1_with_ban": 0.984304932735426,
+          "exact_no_constraint": 93,
+          "exact_with_ban": 93,
+          "counts_no_constraint": [
+            439,
+            7,
+            7
+          ],
+          "counts_with_ban": [
+            439,
+            7,
+            7
+          ],
+          "paired": {
+            "f1_a": 0.984304932735426,
+            "f1_b": 0.984304932735426,
+            "delta": 0.0,
+            "ci_low": 0.0,
+            "ci_high": 0.0,
+            "status": "OK",
+            "prop_delta_le_0": 1.0
+          },
+          "ci_with_ban": {
+            "f1": 0.984304932735426,
+            "ci_low": 0.9720263381478335,
+            "ci_high": 0.9935897435897436,
+            "status": "OK"
+          },
+          "label": "ORACLE_UPPER_BOUND"
+        }
+      },
+      "pcrf_headroom": {
+        "n_rows": 100,
+        "n_gold_moi": 25,
+        "n_gold_moi_without_quan_huyen": 25,
+        "n_gold_moi_t1_eligible": 12,
+        "n_headroom_t1_eligible": 0,
+        "n_headroom": 0,
+        "n_headroom_removed_by_unconditional_ban": 0,
+        "headroom_sample_ids": [],
+        "headroom_by_heur_t1": {
+          "moi": 0,
+          "cu": 0,
+          "Lai": 0,
+          "khong_ro": 0
+        },
+        "status": "OK",
+        "statement": "0/25 gold-new rows still get a QuanHuyen span from the unconstrained decode (upper bound of errors the constraint can fix)"
+      },
+      "comparison_2x2": [
+        {
+          "cell": "PHOBERT-CRF",
+          "train_with_t1_head": false,
+          "decode_with_constraint": false,
+          "t1_source": "none",
+          "n_rows": 100,
+          "f1": 0.984304932735426,
+          "ci_low": 0.9720263381478335,
+          "ci_high": 0.9935897435897436,
+          "exact_rows": 93,
+          "tp": 439,
+          "fp": 7,
+          "fn": 7
+        },
+        {
+          "cell": "PROPOSED-NO-CONSTRAINT",
+          "train_with_t1_head": true,
+          "decode_with_constraint": false,
+          "t1_source": "none",
+          "n_rows": 100,
+          "f1": 0.984304932735426,
+          "ci_low": 0.9724137931034482,
+          "ci_high": 0.9935068441277946,
+          "exact_rows": 93,
+          "tp": 439,
+          "fp": 7,
+          "fn": 7
+        },
+        {
+          "cell": "PROPOSED-DYN",
+          "train_with_t1_head": true,
+          "decode_with_constraint": true,
+          "t1_source": "DYN head",
+          "n_rows": 100,
+          "f1": 0.9820627802690582,
+          "ci_low": 0.9690949227373068,
+          "ci_high": 0.9932584269662922,
+          "exact_rows": 92,
+          "tp": 438,
+          "fp": 8,
+          "fn": 8
+        },
+        {
+          "cell": "PHOBERT-CRF emissions + external T1",
+          "train_with_t1_head": false,
+          "decode_with_constraint": true,
+          "t1_source": "HEUR-JW (external, frozen)",
+          "n_rows": 100,
+          "f1": 0.984304932735426,
+          "ci_low": 0.9720263381478335,
+          "ci_high": 0.9935897435897436,
+          "exact_rows": 93,
+          "tp": 439,
+          "fp": 7,
+          "fn": 7
+        }
+      ],
+      "comparison_2x2_paired_vs_pcrf": {
+        "PROPOSED-NO-CONSTRAINT": {
+          "f1_a": 0.984304932735426,
+          "f1_b": 0.984304932735426,
+          "delta": 0.0,
+          "ci_low": -0.011210762331838597,
+          "ci_high": 0.011261261261261257,
+          "status": "OK",
+          "prop_delta_le_0": 0.5813
+        },
+        "PROPOSED-DYN": {
+          "f1_a": 0.9820627802690582,
+          "f1_b": 0.984304932735426,
+          "delta": -0.0022421524663677195,
+          "ci_low": -0.013698630136986356,
+          "ci_high": 0.009070294784580546,
+          "status": "OK",
+          "prop_delta_le_0": 0.7152
+        },
+        "PHOBERT-CRF emissions + external T1": {
+          "f1_a": 0.984304932735426,
+          "f1_b": 0.984304932735426,
+          "delta": 0.0,
+          "ci_low": 0.0,
+          "ci_high": 0.0,
+          "status": "OK",
+          "prop_delta_le_0": 1.0
+        },
+        "PROPOSED-DYN vs PROPOSED-NO-CONSTRAINT": {
+          "f1_a": 0.9820627802690582,
+          "f1_b": 0.984304932735426,
+          "delta": -0.0022421524663677195,
+          "ci_low": -0.006849315068493178,
+          "ci_high": 0.0,
+          "status": "OK",
+          "prop_delta_le_0": 1.0
+        }
+      },
+      "oracle_cells": {
+        "PHOBERT-CRF emissions + ORACLE_UPPER_BOUND": {
+          "source": "ORACLE_UPPER_BOUND",
+          "n_rows": 100,
+          "n_ban_rows": 25,
+          "n_changed_rows": 0,
+          "n_span_changes": 0,
+          "correct_fix": 0,
+          "harm": 0,
+          "neutral": 0,
+          "changed_sample_ids": [],
+          "changed_by_gold_system": {},
+          "f1_no_constraint": 0.984304932735426,
+          "f1_with_ban": 0.984304932735426,
+          "exact_no_constraint": 93,
+          "exact_with_ban": 93,
+          "counts_no_constraint": [
+            439,
+            7,
+            7
+          ],
+          "counts_with_ban": [
+            439,
+            7,
+            7
+          ],
+          "paired": {
+            "f1_a": 0.984304932735426,
+            "f1_b": 0.984304932735426,
+            "delta": 0.0,
+            "ci_low": 0.0,
+            "ci_high": 0.0,
+            "status": "OK",
+            "prop_delta_le_0": 1.0
+          },
+          "ci_with_ban": {
+            "f1": 0.984304932735426,
+            "ci_low": 0.9720263381478335,
+            "ci_high": 0.9935897435897436,
+            "status": "OK"
+          },
+          "label": "ORACLE_UPPER_BOUND"
+        },
+        "DYN emissions + ORACLE_UPPER_BOUND": {
+          "source": "ORACLE_UPPER_BOUND",
+          "n_rows": 100,
+          "n_ban_rows": 25,
+          "n_changed_rows": 0,
+          "n_span_changes": 0,
+          "correct_fix": 0,
+          "harm": 0,
+          "neutral": 0,
+          "changed_sample_ids": [],
+          "changed_by_gold_system": {},
+          "f1_no_constraint": 0.984304932735426,
+          "f1_with_ban": 0.984304932735426,
+          "exact_no_constraint": 93,
+          "exact_with_ban": 93,
+          "counts_no_constraint": [
+            439,
+            7,
+            7
+          ],
+          "counts_with_ban": [
+            439,
+            7,
+            7
+          ],
+          "paired": {
+            "f1_a": 0.984304932735426,
+            "f1_b": 0.984304932735426,
+            "delta": 0.0,
+            "ci_low": 0.0,
+            "ci_high": 0.0,
+            "status": "OK",
+            "prop_delta_le_0": 1.0
+          },
+          "ci_with_ban": {
+            "f1": 0.984304932735426,
+            "ci_low": 0.9724137931034482,
+            "ci_high": 0.9935068441277946,
+            "status": "OK"
+          },
+          "label": "ORACLE_UPPER_BOUND"
+        }
+      },
+      "matches_published_t0_f1": {
+        "PHOBERT-CRF": true,
+        "PROPOSED-NO-CONSTRAINT": true,
+        "PROPOSED-DYN": true
+      }
+    },
+    "test_seed42": {
+      "label": "LOCAL_CPU_RETRAINED__SPRINT3_TEST_OBSERVED_POSTHOC",
+      "kind": "span",
+      "n_rows": 100,
+      "sources": {
+        "DYN": {
+          "source": "DYN",
+          "n_rows": 100,
+          "n_ban_rows": 28,
+          "n_changed_rows": 0,
+          "n_span_changes": 0,
+          "correct_fix": 0,
+          "harm": 0,
+          "neutral": 0,
+          "changed_sample_ids": [],
+          "changed_by_gold_system": {},
+          "f1_no_constraint": 0.9707865168539326,
+          "f1_with_ban": 0.9707865168539326,
+          "exact_no_constraint": 88,
+          "exact_with_ban": 88,
+          "counts_no_constraint": [
+            432,
+            12,
+            14
+          ],
+          "counts_with_ban": [
+            432,
+            12,
+            14
+          ],
+          "paired": {
+            "f1_a": 0.9707865168539326,
+            "f1_b": 0.9707865168539326,
+            "delta": 0.0,
+            "ci_low": 0.0,
+            "ci_high": 0.0,
+            "status": "OK",
+            "prop_delta_le_0": 1.0
+          },
+          "ci_with_ban": {
+            "f1": 0.9707865168539326,
+            "ci_low": 0.9535962877030162,
+            "ci_high": 0.9856353591160221,
+            "status": "OK"
+          },
+          "label": "LOCAL_CPU_RETRAINED__SPRINT3_TEST_OBSERVED_POSTHOC"
+        },
+        "HEUR-JW": {
+          "source": "HEUR-JW",
+          "n_rows": 100,
+          "n_ban_rows": 10,
+          "n_changed_rows": 0,
+          "n_span_changes": 0,
+          "correct_fix": 0,
+          "harm": 0,
+          "neutral": 0,
+          "changed_sample_ids": [],
+          "changed_by_gold_system": {},
+          "f1_no_constraint": 0.9707865168539326,
+          "f1_with_ban": 0.9707865168539326,
+          "exact_no_constraint": 88,
+          "exact_with_ban": 88,
+          "counts_no_constraint": [
+            432,
+            12,
+            14
+          ],
+          "counts_with_ban": [
+            432,
+            12,
+            14
+          ],
+          "paired": {
+            "f1_a": 0.9707865168539326,
+            "f1_b": 0.9707865168539326,
+            "delta": 0.0,
+            "ci_low": 0.0,
+            "ci_high": 0.0,
+            "status": "OK",
+            "prop_delta_le_0": 1.0
+          },
+          "ci_with_ban": {
+            "f1": 0.9707865168539326,
+            "ci_low": 0.9535962877030162,
+            "ci_high": 0.9856353591160221,
+            "status": "OK"
+          },
+          "label": "LOCAL_CPU_RETRAINED__SPRINT3_TEST_OBSERVED_POSTHOC"
+        },
+        "ORACLE_UPPER_BOUND": {
+          "source": "ORACLE_UPPER_BOUND",
+          "n_rows": 100,
+          "n_ban_rows": 25,
+          "n_changed_rows": 0,
+          "n_span_changes": 0,
+          "correct_fix": 0,
+          "harm": 0,
+          "neutral": 0,
+          "changed_sample_ids": [],
+          "changed_by_gold_system": {},
+          "f1_no_constraint": 0.9707865168539326,
+          "f1_with_ban": 0.9707865168539326,
+          "exact_no_constraint": 88,
+          "exact_with_ban": 88,
+          "counts_no_constraint": [
+            432,
+            12,
+            14
+          ],
+          "counts_with_ban": [
+            432,
+            12,
+            14
+          ],
+          "paired": {
+            "f1_a": 0.9707865168539326,
+            "f1_b": 0.9707865168539326,
+            "delta": 0.0,
+            "ci_low": 0.0,
+            "ci_high": 0.0,
+            "status": "OK",
+            "prop_delta_le_0": 1.0
+          },
+          "ci_with_ban": {
+            "f1": 0.9707865168539326,
+            "ci_low": 0.9535962877030162,
+            "ci_high": 0.9856353591160221,
+            "status": "OK"
+          },
+          "label": "ORACLE_UPPER_BOUND"
+        }
+      },
+      "checks": {
+        "stored_ban_district_equals_dyn_source_flags": true,
+        "stored_path_after_equals_redecode_with_dyn_source": true,
+        "stored_on_counts_equal_redecoded": true,
+        "stored_off_counts_equal_redecoded": true
+      },
+      "headroom": {
+        "n_rows": 100,
+        "n_gold_moi": 25,
+        "n_gold_moi_without_quan_huyen": 25,
+        "n_gold_moi_t1_eligible": 12,
+        "n_headroom_t1_eligible": 0,
+        "n_headroom": 0,
+        "n_headroom_removed_by_unconditional_ban": 0,
+        "headroom_sample_ids": [],
+        "headroom_by_dyn_t1": {
+          "moi": 0,
+          "cu": 0,
+          "Lai": 0,
+          "khong_ro": 0
+        },
+        "gold_moi_by_dyn_t1": {
+          "moi": 19,
+          "cu": 4,
+          "Lai": 0,
+          "khong_ro": 2
+        },
+        "n_headroom_with_dyn_ban": 0,
+        "n_headroom_fixed_by_dyn_ban": 0,
+        "n_harm_exposure_gold_quan_huyen_with_dyn_ban": 0,
+        "n_harm_exposure_qh_removed_by_ban": 0,
+        "headroom_by_heur_t1": {
+          "moi": 0,
+          "cu": 0,
+          "Lai": 0,
+          "khong_ro": 0
+        },
+        "status": "OK",
+        "statement": "0/25 gold-new rows still get a QuanHuyen span from the unconstrained decode (upper bound of errors the constraint can fix)"
+      },
+      "stored_on_vs_off": {
+        "f1_a": 0.9707865168539326,
+        "f1_b": 0.9707865168539326,
+        "delta": 0.0,
+        "ci_low": 0.0,
+        "ci_high": 0.0,
+        "status": "OK",
+        "prop_delta_le_0": 1.0
+      },
+      "dyn_t0_f1": {
+        "free": 0.9707865168539326,
+        "dyn": 0.9707865168539326
+      },
+      "pcrf_sources": {
+        "HEUR-JW": {
+          "source": "HEUR-JW",
+          "n_rows": 100,
+          "n_ban_rows": 10,
+          "n_changed_rows": 0,
+          "n_span_changes": 0,
+          "correct_fix": 0,
+          "harm": 0,
+          "neutral": 0,
+          "changed_sample_ids": [],
+          "changed_by_gold_system": {},
+          "f1_no_constraint": 0.9764309764309764,
+          "f1_with_ban": 0.9764309764309764,
+          "exact_no_constraint": 90,
+          "exact_with_ban": 90,
+          "counts_no_constraint": [
+            435,
+            10,
+            11
+          ],
+          "counts_with_ban": [
+            435,
+            10,
+            11
+          ],
+          "paired": {
+            "f1_a": 0.9764309764309764,
+            "f1_b": 0.9764309764309764,
+            "delta": 0.0,
+            "ci_low": 0.0,
+            "ci_high": 0.0,
+            "status": "OK",
+            "prop_delta_le_0": 1.0
+          },
+          "ci_with_ban": {
+            "f1": 0.9764309764309764,
+            "ci_low": 0.9614112458654906,
+            "ci_high": 0.9889867841409692,
+            "status": "OK"
+          },
+          "label": "LOCAL_CPU_RETRAINED__SPRINT3_TEST_OBSERVED_POSTHOC"
+        },
+        "ORACLE_UPPER_BOUND": {
+          "source": "ORACLE_UPPER_BOUND",
+          "n_rows": 100,
+          "n_ban_rows": 25,
+          "n_changed_rows": 0,
+          "n_span_changes": 0,
+          "correct_fix": 0,
+          "harm": 0,
+          "neutral": 0,
+          "changed_sample_ids": [],
+          "changed_by_gold_system": {},
+          "f1_no_constraint": 0.9764309764309764,
+          "f1_with_ban": 0.9764309764309764,
+          "exact_no_constraint": 90,
+          "exact_with_ban": 90,
+          "counts_no_constraint": [
+            435,
+            10,
+            11
+          ],
+          "counts_with_ban": [
+            435,
+            10,
+            11
+          ],
+          "paired": {
+            "f1_a": 0.9764309764309764,
+            "f1_b": 0.9764309764309764,
+            "delta": 0.0,
+            "ci_low": 0.0,
+            "ci_high": 0.0,
+            "status": "OK",
+            "prop_delta_le_0": 1.0
+          },
+          "ci_with_ban": {
+            "f1": 0.9764309764309764,
+            "ci_low": 0.9614112458654906,
+            "ci_high": 0.9889867841409692,
+            "status": "OK"
+          },
+          "label": "ORACLE_UPPER_BOUND"
+        }
+      },
+      "pcrf_headroom": {
+        "n_rows": 100,
+        "n_gold_moi": 25,
+        "n_gold_moi_without_quan_huyen": 25,
+        "n_gold_moi_t1_eligible": 12,
+        "n_headroom_t1_eligible": 0,
+        "n_headroom": 0,
+        "n_headroom_removed_by_unconditional_ban": 0,
+        "headroom_sample_ids": [],
+        "headroom_by_heur_t1": {
+          "moi": 0,
+          "cu": 0,
+          "Lai": 0,
+          "khong_ro": 0
+        },
+        "status": "OK",
+        "statement": "0/25 gold-new rows still get a QuanHuyen span from the unconstrained decode (upper bound of errors the constraint can fix)"
+      },
+      "comparison_2x2": [
+        {
+          "cell": "PHOBERT-CRF",
+          "train_with_t1_head": false,
+          "decode_with_constraint": false,
+          "t1_source": "none",
+          "n_rows": 100,
+          "f1": 0.9764309764309764,
+          "ci_low": 0.9614112458654906,
+          "ci_high": 0.9889867841409692,
+          "exact_rows": 90,
+          "tp": 435,
+          "fp": 10,
+          "fn": 11
+        },
+        {
+          "cell": "PROPOSED-NO-CONSTRAINT",
+          "train_with_t1_head": true,
+          "decode_with_constraint": false,
+          "t1_source": "none",
+          "n_rows": 100,
+          "f1": 0.9707865168539326,
+          "ci_low": 0.9535962877030162,
+          "ci_high": 0.9856353591160221,
+          "exact_rows": 88,
+          "tp": 432,
+          "fp": 12,
+          "fn": 14
+        },
+        {
+          "cell": "PROPOSED-DYN",
+          "train_with_t1_head": true,
+          "decode_with_constraint": true,
+          "t1_source": "DYN head",
+          "n_rows": 100,
+          "f1": 0.9707865168539326,
+          "ci_low": 0.9535962877030162,
+          "ci_high": 0.9856353591160221,
+          "exact_rows": 88,
+          "tp": 432,
+          "fp": 12,
+          "fn": 14
+        },
+        {
+          "cell": "PHOBERT-CRF emissions + external T1",
+          "train_with_t1_head": false,
+          "decode_with_constraint": true,
+          "t1_source": "HEUR-JW (external, frozen)",
+          "n_rows": 100,
+          "f1": 0.9764309764309764,
+          "ci_low": 0.9614112458654906,
+          "ci_high": 0.9889867841409692,
+          "exact_rows": 90,
+          "tp": 435,
+          "fp": 10,
+          "fn": 11
+        }
+      ],
+      "comparison_2x2_paired_vs_pcrf": {
+        "PROPOSED-NO-CONSTRAINT": {
+          "f1_a": 0.9707865168539326,
+          "f1_b": 0.9764309764309764,
+          "delta": -0.005644459577043848,
+          "ci_low": -0.01670783691670015,
+          "ci_high": 0.0033617399786333574,
+          "status": "OK",
+          "prop_delta_le_0": 0.9105
+        },
+        "PROPOSED-DYN": {
+          "f1_a": 0.9707865168539326,
+          "f1_b": 0.9764309764309764,
+          "delta": -0.005644459577043848,
+          "ci_low": -0.01670783691670015,
+          "ci_high": 0.0033617399786333574,
+          "status": "OK",
+          "prop_delta_le_0": 0.9105
+        },
+        "PHOBERT-CRF emissions + external T1": {
+          "f1_a": 0.9764309764309764,
+          "f1_b": 0.9764309764309764,
+          "delta": 0.0,
+          "ci_low": 0.0,
+          "ci_high": 0.0,
+          "status": "OK",
+          "prop_delta_le_0": 1.0
+        },
+        "PROPOSED-DYN vs PROPOSED-NO-CONSTRAINT": {
+          "f1_a": 0.9707865168539326,
+          "f1_b": 0.9707865168539326,
+          "delta": 0.0,
+          "ci_low": 0.0,
+          "ci_high": 0.0,
+          "status": "OK",
+          "prop_delta_le_0": 1.0
+        }
+      },
+      "oracle_cells": {
+        "PHOBERT-CRF emissions + ORACLE_UPPER_BOUND": {
+          "source": "ORACLE_UPPER_BOUND",
+          "n_rows": 100,
+          "n_ban_rows": 25,
+          "n_changed_rows": 0,
+          "n_span_changes": 0,
+          "correct_fix": 0,
+          "harm": 0,
+          "neutral": 0,
+          "changed_sample_ids": [],
+          "changed_by_gold_system": {},
+          "f1_no_constraint": 0.9764309764309764,
+          "f1_with_ban": 0.9764309764309764,
+          "exact_no_constraint": 90,
+          "exact_with_ban": 90,
+          "counts_no_constraint": [
+            435,
+            10,
+            11
+          ],
+          "counts_with_ban": [
+            435,
+            10,
+            11
+          ],
+          "paired": {
+            "f1_a": 0.9764309764309764,
+            "f1_b": 0.9764309764309764,
+            "delta": 0.0,
+            "ci_low": 0.0,
+            "ci_high": 0.0,
+            "status": "OK",
+            "prop_delta_le_0": 1.0
+          },
+          "ci_with_ban": {
+            "f1": 0.9764309764309764,
+            "ci_low": 0.9614112458654906,
+            "ci_high": 0.9889867841409692,
+            "status": "OK"
+          },
+          "label": "ORACLE_UPPER_BOUND"
+        },
+        "DYN emissions + ORACLE_UPPER_BOUND": {
+          "source": "ORACLE_UPPER_BOUND",
+          "n_rows": 100,
+          "n_ban_rows": 25,
+          "n_changed_rows": 0,
+          "n_span_changes": 0,
+          "correct_fix": 0,
+          "harm": 0,
+          "neutral": 0,
+          "changed_sample_ids": [],
+          "changed_by_gold_system": {},
+          "f1_no_constraint": 0.9707865168539326,
+          "f1_with_ban": 0.9707865168539326,
+          "exact_no_constraint": 88,
+          "exact_with_ban": 88,
+          "counts_no_constraint": [
+            432,
+            12,
+            14
+          ],
+          "counts_with_ban": [
+            432,
+            12,
+            14
+          ],
+          "paired": {
+            "f1_a": 0.9707865168539326,
+            "f1_b": 0.9707865168539326,
+            "delta": 0.0,
+            "ci_low": 0.0,
+            "ci_high": 0.0,
+            "status": "OK",
+            "prop_delta_le_0": 1.0
+          },
+          "ci_with_ban": {
+            "f1": 0.9707865168539326,
+            "ci_low": 0.9535962877030162,
+            "ci_high": 0.9856353591160221,
+            "status": "OK"
+          },
+          "label": "ORACLE_UPPER_BOUND"
+        }
+      }
+    },
+    "test_seed1337": {
+      "label": "LOCAL_CPU_RETRAINED__SPRINT3_TEST_OBSERVED_POSTHOC",
+      "kind": "span",
+      "n_rows": 100,
+      "sources": {
+        "DYN": {
+          "source": "DYN",
+          "n_rows": 100,
+          "n_ban_rows": 31,
+          "n_changed_rows": 0,
+          "n_span_changes": 0,
+          "correct_fix": 0,
+          "harm": 0,
+          "neutral": 0,
+          "changed_sample_ids": [],
+          "changed_by_gold_system": {},
+          "f1_no_constraint": 0.9910313901345291,
+          "f1_with_ban": 0.9910313901345291,
+          "exact_no_constraint": 96,
+          "exact_with_ban": 96,
+          "counts_no_constraint": [
+            442,
+            4,
+            4
+          ],
+          "counts_with_ban": [
+            442,
+            4,
+            4
+          ],
+          "paired": {
+            "f1_a": 0.9910313901345291,
+            "f1_b": 0.9910313901345291,
+            "delta": 0.0,
+            "ci_low": 0.0,
+            "ci_high": 0.0,
+            "status": "OK",
+            "prop_delta_le_0": 1.0
+          },
+          "ci_with_ban": {
+            "f1": 0.9910313901345291,
+            "ci_low": 0.9815242494226328,
+            "ci_high": 0.9978118161925602,
+            "status": "OK"
+          },
+          "label": "LOCAL_CPU_RETRAINED__SPRINT3_TEST_OBSERVED_POSTHOC"
+        },
+        "HEUR-JW": {
+          "source": "HEUR-JW",
+          "n_rows": 100,
+          "n_ban_rows": 10,
+          "n_changed_rows": 0,
+          "n_span_changes": 0,
+          "correct_fix": 0,
+          "harm": 0,
+          "neutral": 0,
+          "changed_sample_ids": [],
+          "changed_by_gold_system": {},
+          "f1_no_constraint": 0.9910313901345291,
+          "f1_with_ban": 0.9910313901345291,
+          "exact_no_constraint": 96,
+          "exact_with_ban": 96,
+          "counts_no_constraint": [
+            442,
+            4,
+            4
+          ],
+          "counts_with_ban": [
+            442,
+            4,
+            4
+          ],
+          "paired": {
+            "f1_a": 0.9910313901345291,
+            "f1_b": 0.9910313901345291,
+            "delta": 0.0,
+            "ci_low": 0.0,
+            "ci_high": 0.0,
+            "status": "OK",
+            "prop_delta_le_0": 1.0
+          },
+          "ci_with_ban": {
+            "f1": 0.9910313901345291,
+            "ci_low": 0.9815242494226328,
+            "ci_high": 0.9978118161925602,
+            "status": "OK"
+          },
+          "label": "LOCAL_CPU_RETRAINED__SPRINT3_TEST_OBSERVED_POSTHOC"
+        },
+        "ORACLE_UPPER_BOUND": {
+          "source": "ORACLE_UPPER_BOUND",
+          "n_rows": 100,
+          "n_ban_rows": 25,
+          "n_changed_rows": 1,
+          "n_span_changes": 2,
+          "correct_fix": 1,
+          "harm": 0,
+          "neutral": 0,
+          "changed_sample_ids": [
+            "s3_9fe1a97170d5ce7d"
+          ],
+          "changed_by_gold_system": {
+            "moi:correct_fix": 1
+          },
+          "f1_no_constraint": 0.9910313901345291,
+          "f1_with_ban": 0.9932735426008968,
+          "exact_no_constraint": 96,
+          "exact_with_ban": 97,
+          "counts_no_constraint": [
+            442,
+            4,
+            4
+          ],
+          "counts_with_ban": [
+            443,
+            3,
+            3
+          ],
+          "paired": {
+            "f1_a": 0.9932735426008968,
+            "f1_b": 0.9910313901345291,
+            "delta": 0.0022421524663677195,
+            "ci_low": 0.0,
+            "ci_high": 0.006896551724137945,
+            "status": "OK",
+            "prop_delta_le_0": 0.3675
+          },
+          "ci_with_ban": {
+            "f1": 0.9932735426008968,
+            "ci_low": 0.9844444444444445,
+            "ci_high": 1.0,
+            "status": "OK"
+          },
+          "label": "ORACLE_UPPER_BOUND"
+        }
+      },
+      "checks": {
+        "stored_ban_district_equals_dyn_source_flags": true,
+        "stored_path_after_equals_redecode_with_dyn_source": true,
+        "stored_on_counts_equal_redecoded": true,
+        "stored_off_counts_equal_redecoded": true
+      },
+      "headroom": {
+        "n_rows": 100,
+        "n_gold_moi": 25,
+        "n_gold_moi_without_quan_huyen": 25,
+        "n_gold_moi_t1_eligible": 12,
+        "n_headroom_t1_eligible": 0,
+        "n_headroom": 1,
+        "n_headroom_removed_by_unconditional_ban": 1,
+        "headroom_sample_ids": [
+          "s3_9fe1a97170d5ce7d"
+        ],
+        "headroom_by_dyn_t1": {
+          "moi": 0,
+          "cu": 1,
+          "Lai": 0,
+          "khong_ro": 0
+        },
+        "gold_moi_by_dyn_t1": {
+          "moi": 21,
+          "cu": 3,
+          "Lai": 0,
+          "khong_ro": 1
+        },
+        "n_headroom_with_dyn_ban": 0,
+        "n_headroom_fixed_by_dyn_ban": 0,
+        "n_harm_exposure_gold_quan_huyen_with_dyn_ban": 0,
+        "n_harm_exposure_qh_removed_by_ban": 0,
+        "headroom_by_heur_t1": {
+          "moi": 0,
+          "cu": 0,
+          "Lai": 0,
+          "khong_ro": 1
+        },
+        "status": "OK",
+        "statement": "1/25 gold-new rows still get a QuanHuyen span from the unconstrained decode (upper bound of errors the constraint can fix)"
+      },
+      "stored_on_vs_off": {
+        "f1_a": 0.9910313901345291,
+        "f1_b": 0.9910313901345291,
+        "delta": 0.0,
+        "ci_low": 0.0,
+        "ci_high": 0.0,
+        "status": "OK",
+        "prop_delta_le_0": 1.0
+      },
+      "dyn_t0_f1": {
+        "free": 0.9910313901345291,
+        "dyn": 0.9910313901345291
+      },
+      "pcrf_sources": {
+        "HEUR-JW": {
+          "source": "HEUR-JW",
+          "n_rows": 100,
+          "n_ban_rows": 10,
+          "n_changed_rows": 0,
+          "n_span_changes": 0,
+          "correct_fix": 0,
+          "harm": 0,
+          "neutral": 0,
+          "changed_sample_ids": [],
+          "changed_by_gold_system": {},
+          "f1_no_constraint": 0.9775280898876404,
+          "f1_with_ban": 0.9775280898876404,
+          "exact_no_constraint": 92,
+          "exact_with_ban": 92,
+          "counts_no_constraint": [
+            435,
+            9,
+            11
+          ],
+          "counts_with_ban": [
+            435,
+            9,
+            11
+          ],
+          "paired": {
+            "f1_a": 0.9775280898876404,
+            "f1_b": 0.9775280898876404,
+            "delta": 0.0,
+            "ci_low": 0.0,
+            "ci_high": 0.0,
+            "status": "OK",
+            "prop_delta_le_0": 1.0
+          },
+          "ci_with_ban": {
+            "f1": 0.9775280898876404,
+            "ci_low": 0.9605411499436303,
+            "ci_high": 0.9912854030501089,
+            "status": "OK"
+          },
+          "label": "LOCAL_CPU_RETRAINED__SPRINT3_TEST_OBSERVED_POSTHOC"
+        },
+        "ORACLE_UPPER_BOUND": {
+          "source": "ORACLE_UPPER_BOUND",
+          "n_rows": 100,
+          "n_ban_rows": 25,
+          "n_changed_rows": 0,
+          "n_span_changes": 0,
+          "correct_fix": 0,
+          "harm": 0,
+          "neutral": 0,
+          "changed_sample_ids": [],
+          "changed_by_gold_system": {},
+          "f1_no_constraint": 0.9775280898876404,
+          "f1_with_ban": 0.9775280898876404,
+          "exact_no_constraint": 92,
+          "exact_with_ban": 92,
+          "counts_no_constraint": [
+            435,
+            9,
+            11
+          ],
+          "counts_with_ban": [
+            435,
+            9,
+            11
+          ],
+          "paired": {
+            "f1_a": 0.9775280898876404,
+            "f1_b": 0.9775280898876404,
+            "delta": 0.0,
+            "ci_low": 0.0,
+            "ci_high": 0.0,
+            "status": "OK",
+            "prop_delta_le_0": 1.0
+          },
+          "ci_with_ban": {
+            "f1": 0.9775280898876404,
+            "ci_low": 0.9605411499436303,
+            "ci_high": 0.9912854030501089,
+            "status": "OK"
+          },
+          "label": "ORACLE_UPPER_BOUND"
+        }
+      },
+      "pcrf_headroom": {
+        "n_rows": 100,
+        "n_gold_moi": 25,
+        "n_gold_moi_without_quan_huyen": 25,
+        "n_gold_moi_t1_eligible": 12,
+        "n_headroom_t1_eligible": 0,
+        "n_headroom": 0,
+        "n_headroom_removed_by_unconditional_ban": 0,
+        "headroom_sample_ids": [],
+        "headroom_by_heur_t1": {
+          "moi": 0,
+          "cu": 0,
+          "Lai": 0,
+          "khong_ro": 0
+        },
+        "status": "OK",
+        "statement": "0/25 gold-new rows still get a QuanHuyen span from the unconstrained decode (upper bound of errors the constraint can fix)"
+      },
+      "comparison_2x2": [
+        {
+          "cell": "PHOBERT-CRF",
+          "train_with_t1_head": false,
+          "decode_with_constraint": false,
+          "t1_source": "none",
+          "n_rows": 100,
+          "f1": 0.9775280898876404,
+          "ci_low": 0.9605411499436303,
+          "ci_high": 0.9912854030501089,
+          "exact_rows": 92,
+          "tp": 435,
+          "fp": 9,
+          "fn": 11
+        },
+        {
+          "cell": "PROPOSED-NO-CONSTRAINT",
+          "train_with_t1_head": true,
+          "decode_with_constraint": false,
+          "t1_source": "none",
+          "n_rows": 100,
+          "f1": 0.9910313901345291,
+          "ci_low": 0.9815242494226328,
+          "ci_high": 0.9978118161925602,
+          "exact_rows": 96,
+          "tp": 442,
+          "fp": 4,
+          "fn": 4
+        },
+        {
+          "cell": "PROPOSED-DYN",
+          "train_with_t1_head": true,
+          "decode_with_constraint": true,
+          "t1_source": "DYN head",
+          "n_rows": 100,
+          "f1": 0.9910313901345291,
+          "ci_low": 0.9815242494226328,
+          "ci_high": 0.9978118161925602,
+          "exact_rows": 96,
+          "tp": 442,
+          "fp": 4,
+          "fn": 4
+        },
+        {
+          "cell": "PHOBERT-CRF emissions + external T1",
+          "train_with_t1_head": false,
+          "decode_with_constraint": true,
+          "t1_source": "HEUR-JW (external, frozen)",
+          "n_rows": 100,
+          "f1": 0.9775280898876404,
+          "ci_low": 0.9605411499436303,
+          "ci_high": 0.9912854030501089,
+          "exact_rows": 92,
+          "tp": 435,
+          "fp": 9,
+          "fn": 11
+        }
+      ],
+      "comparison_2x2_paired_vs_pcrf": {
+        "PROPOSED-NO-CONSTRAINT": {
+          "f1_a": 0.9910313901345291,
+          "f1_b": 0.9775280898876404,
+          "delta": 0.013503300246888728,
+          "ci_low": 0.0011401895020575203,
+          "ci_high": 0.027617770062337232,
+          "status": "OK",
+          "prop_delta_le_0": 0.0192
+        },
+        "PROPOSED-DYN": {
+          "f1_a": 0.9910313901345291,
+          "f1_b": 0.9775280898876404,
+          "delta": 0.013503300246888728,
+          "ci_low": 0.0011401895020575203,
+          "ci_high": 0.027617770062337232,
+          "status": "OK",
+          "prop_delta_le_0": 0.0192
+        },
+        "PHOBERT-CRF emissions + external T1": {
+          "f1_a": 0.9775280898876404,
+          "f1_b": 0.9775280898876404,
+          "delta": 0.0,
+          "ci_low": 0.0,
+          "ci_high": 0.0,
+          "status": "OK",
+          "prop_delta_le_0": 1.0
+        },
+        "PROPOSED-DYN vs PROPOSED-NO-CONSTRAINT": {
+          "f1_a": 0.9910313901345291,
+          "f1_b": 0.9910313901345291,
+          "delta": 0.0,
+          "ci_low": 0.0,
+          "ci_high": 0.0,
+          "status": "OK",
+          "prop_delta_le_0": 1.0
+        }
+      },
+      "oracle_cells": {
+        "PHOBERT-CRF emissions + ORACLE_UPPER_BOUND": {
+          "source": "ORACLE_UPPER_BOUND",
+          "n_rows": 100,
+          "n_ban_rows": 25,
+          "n_changed_rows": 0,
+          "n_span_changes": 0,
+          "correct_fix": 0,
+          "harm": 0,
+          "neutral": 0,
+          "changed_sample_ids": [],
+          "changed_by_gold_system": {},
+          "f1_no_constraint": 0.9775280898876404,
+          "f1_with_ban": 0.9775280898876404,
+          "exact_no_constraint": 92,
+          "exact_with_ban": 92,
+          "counts_no_constraint": [
+            435,
+            9,
+            11
+          ],
+          "counts_with_ban": [
+            435,
+            9,
+            11
+          ],
+          "paired": {
+            "f1_a": 0.9775280898876404,
+            "f1_b": 0.9775280898876404,
+            "delta": 0.0,
+            "ci_low": 0.0,
+            "ci_high": 0.0,
+            "status": "OK",
+            "prop_delta_le_0": 1.0
+          },
+          "ci_with_ban": {
+            "f1": 0.9775280898876404,
+            "ci_low": 0.9605411499436303,
+            "ci_high": 0.9912854030501089,
+            "status": "OK"
+          },
+          "label": "ORACLE_UPPER_BOUND"
+        },
+        "DYN emissions + ORACLE_UPPER_BOUND": {
+          "source": "ORACLE_UPPER_BOUND",
+          "n_rows": 100,
+          "n_ban_rows": 25,
+          "n_changed_rows": 1,
+          "n_span_changes": 2,
+          "correct_fix": 1,
+          "harm": 0,
+          "neutral": 0,
+          "changed_sample_ids": [
+            "s3_9fe1a97170d5ce7d"
+          ],
+          "changed_by_gold_system": {
+            "moi:correct_fix": 1
+          },
+          "f1_no_constraint": 0.9910313901345291,
+          "f1_with_ban": 0.9932735426008968,
+          "exact_no_constraint": 96,
+          "exact_with_ban": 97,
+          "counts_no_constraint": [
+            442,
+            4,
+            4
+          ],
+          "counts_with_ban": [
+            443,
+            3,
+            3
+          ],
+          "paired": {
+            "f1_a": 0.9932735426008968,
+            "f1_b": 0.9910313901345291,
+            "delta": 0.0022421524663677195,
+            "ci_low": 0.0,
+            "ci_high": 0.006896551724137945,
+            "status": "OK",
+            "prop_delta_le_0": 0.3675
+          },
+          "ci_with_ban": {
+            "f1": 0.9932735426008968,
+            "ci_low": 0.9844444444444445,
+            "ci_high": 1.0,
+            "status": "OK"
+          },
+          "label": "ORACLE_UPPER_BOUND"
+        }
+      }
+    },
+    "test_seed2025": {
+      "label": "LOCAL_CPU_RETRAINED__SPRINT3_TEST_OBSERVED_POSTHOC",
+      "kind": "span",
+      "n_rows": 100,
+      "sources": {
+        "DYN": {
+          "source": "DYN",
+          "n_rows": 100,
+          "n_ban_rows": 3,
+          "n_changed_rows": 0,
+          "n_span_changes": 0,
+          "correct_fix": 0,
+          "harm": 0,
+          "neutral": 0,
+          "changed_sample_ids": [],
+          "changed_by_gold_system": {},
+          "f1_no_constraint": 0.9730337078651685,
+          "f1_with_ban": 0.9730337078651685,
+          "exact_no_constraint": 89,
+          "exact_with_ban": 89,
+          "counts_no_constraint": [
+            433,
+            11,
+            13
+          ],
+          "counts_with_ban": [
+            433,
+            11,
+            13
+          ],
+          "paired": {
+            "f1_a": 0.9730337078651685,
+            "f1_b": 0.9730337078651685,
+            "delta": 0.0,
+            "ci_low": 0.0,
+            "ci_high": 0.0,
+            "status": "OK",
+            "prop_delta_le_0": 1.0
+          },
+          "ci_with_ban": {
+            "f1": 0.9730337078651685,
+            "ci_low": 0.9568106312292359,
+            "ci_high": 0.9870703529672931,
+            "status": "OK"
+          },
+          "label": "LOCAL_CPU_RETRAINED__SPRINT3_TEST_OBSERVED_POSTHOC"
+        },
+        "HEUR-JW": {
+          "source": "HEUR-JW",
+          "n_rows": 100,
+          "n_ban_rows": 10,
+          "n_changed_rows": 0,
+          "n_span_changes": 0,
+          "correct_fix": 0,
+          "harm": 0,
+          "neutral": 0,
+          "changed_sample_ids": [],
+          "changed_by_gold_system": {},
+          "f1_no_constraint": 0.9730337078651685,
+          "f1_with_ban": 0.9730337078651685,
+          "exact_no_constraint": 89,
+          "exact_with_ban": 89,
+          "counts_no_constraint": [
+            433,
+            11,
+            13
+          ],
+          "counts_with_ban": [
+            433,
+            11,
+            13
+          ],
+          "paired": {
+            "f1_a": 0.9730337078651685,
+            "f1_b": 0.9730337078651685,
+            "delta": 0.0,
+            "ci_low": 0.0,
+            "ci_high": 0.0,
+            "status": "OK",
+            "prop_delta_le_0": 1.0
+          },
+          "ci_with_ban": {
+            "f1": 0.9730337078651685,
+            "ci_low": 0.9568106312292359,
+            "ci_high": 0.9870703529672931,
+            "status": "OK"
+          },
+          "label": "LOCAL_CPU_RETRAINED__SPRINT3_TEST_OBSERVED_POSTHOC"
+        },
+        "ORACLE_UPPER_BOUND": {
+          "source": "ORACLE_UPPER_BOUND",
+          "n_rows": 100,
+          "n_ban_rows": 25,
+          "n_changed_rows": 0,
+          "n_span_changes": 0,
+          "correct_fix": 0,
+          "harm": 0,
+          "neutral": 0,
+          "changed_sample_ids": [],
+          "changed_by_gold_system": {},
+          "f1_no_constraint": 0.9730337078651685,
+          "f1_with_ban": 0.9730337078651685,
+          "exact_no_constraint": 89,
+          "exact_with_ban": 89,
+          "counts_no_constraint": [
+            433,
+            11,
+            13
+          ],
+          "counts_with_ban": [
+            433,
+            11,
+            13
+          ],
+          "paired": {
+            "f1_a": 0.9730337078651685,
+            "f1_b": 0.9730337078651685,
+            "delta": 0.0,
+            "ci_low": 0.0,
+            "ci_high": 0.0,
+            "status": "OK",
+            "prop_delta_le_0": 1.0
+          },
+          "ci_with_ban": {
+            "f1": 0.9730337078651685,
+            "ci_low": 0.9568106312292359,
+            "ci_high": 0.9870703529672931,
+            "status": "OK"
+          },
+          "label": "ORACLE_UPPER_BOUND"
+        }
+      },
+      "checks": {
+        "stored_ban_district_equals_dyn_source_flags": true,
+        "stored_path_after_equals_redecode_with_dyn_source": true,
+        "stored_on_counts_equal_redecoded": true,
+        "stored_off_counts_equal_redecoded": true
+      },
+      "headroom": {
+        "n_rows": 100,
+        "n_gold_moi": 25,
+        "n_gold_moi_without_quan_huyen": 25,
+        "n_gold_moi_t1_eligible": 12,
+        "n_headroom_t1_eligible": 0,
+        "n_headroom": 0,
+        "n_headroom_removed_by_unconditional_ban": 0,
+        "headroom_sample_ids": [],
+        "headroom_by_dyn_t1": {
+          "moi": 0,
+          "cu": 0,
+          "Lai": 0,
+          "khong_ro": 0
+        },
+        "gold_moi_by_dyn_t1": {
+          "moi": 3,
+          "cu": 3,
+          "Lai": 0,
+          "khong_ro": 19
+        },
+        "n_headroom_with_dyn_ban": 0,
+        "n_headroom_fixed_by_dyn_ban": 0,
+        "n_harm_exposure_gold_quan_huyen_with_dyn_ban": 0,
+        "n_harm_exposure_qh_removed_by_ban": 0,
+        "headroom_by_heur_t1": {
+          "moi": 0,
+          "cu": 0,
+          "Lai": 0,
+          "khong_ro": 0
+        },
+        "status": "OK",
+        "statement": "0/25 gold-new rows still get a QuanHuyen span from the unconstrained decode (upper bound of errors the constraint can fix)"
+      },
+      "stored_on_vs_off": {
+        "f1_a": 0.9730337078651685,
+        "f1_b": 0.9730337078651685,
+        "delta": 0.0,
+        "ci_low": 0.0,
+        "ci_high": 0.0,
+        "status": "OK",
+        "prop_delta_le_0": 1.0
+      },
+      "dyn_t0_f1": {
+        "free": 0.9730337078651685,
+        "dyn": 0.9730337078651685
+      },
+      "pcrf_sources": {
+        "HEUR-JW": {
+          "source": "HEUR-JW",
+          "n_rows": 100,
+          "n_ban_rows": 10,
+          "n_changed_rows": 0,
+          "n_span_changes": 0,
+          "correct_fix": 0,
+          "harm": 0,
+          "neutral": 0,
+          "changed_sample_ids": [],
+          "changed_by_gold_system": {},
+          "f1_no_constraint": 0.9820627802690582,
+          "f1_with_ban": 0.9820627802690582,
+          "exact_no_constraint": 92,
+          "exact_with_ban": 92,
+          "counts_no_constraint": [
+            438,
+            8,
+            8
+          ],
+          "counts_with_ban": [
+            438,
+            8,
+            8
+          ],
+          "paired": {
+            "f1_a": 0.9820627802690582,
+            "f1_b": 0.9820627802690582,
+            "delta": 0.0,
+            "ci_low": 0.0,
+            "ci_high": 0.0,
+            "status": "OK",
+            "prop_delta_le_0": 1.0
+          },
+          "ci_with_ban": {
+            "f1": 0.9820627802690582,
+            "ci_low": 0.9688195991091314,
+            "ci_high": 0.9932885906040269,
+            "status": "OK"
+          },
+          "label": "LOCAL_CPU_RETRAINED__SPRINT3_TEST_OBSERVED_POSTHOC"
+        },
+        "ORACLE_UPPER_BOUND": {
+          "source": "ORACLE_UPPER_BOUND",
+          "n_rows": 100,
+          "n_ban_rows": 25,
+          "n_changed_rows": 0,
+          "n_span_changes": 0,
+          "correct_fix": 0,
+          "harm": 0,
+          "neutral": 0,
+          "changed_sample_ids": [],
+          "changed_by_gold_system": {},
+          "f1_no_constraint": 0.9820627802690582,
+          "f1_with_ban": 0.9820627802690582,
+          "exact_no_constraint": 92,
+          "exact_with_ban": 92,
+          "counts_no_constraint": [
+            438,
+            8,
+            8
+          ],
+          "counts_with_ban": [
+            438,
+            8,
+            8
+          ],
+          "paired": {
+            "f1_a": 0.9820627802690582,
+            "f1_b": 0.9820627802690582,
+            "delta": 0.0,
+            "ci_low": 0.0,
+            "ci_high": 0.0,
+            "status": "OK",
+            "prop_delta_le_0": 1.0
+          },
+          "ci_with_ban": {
+            "f1": 0.9820627802690582,
+            "ci_low": 0.9688195991091314,
+            "ci_high": 0.9932885906040269,
+            "status": "OK"
+          },
+          "label": "ORACLE_UPPER_BOUND"
+        }
+      },
+      "pcrf_headroom": {
+        "n_rows": 100,
+        "n_gold_moi": 25,
+        "n_gold_moi_without_quan_huyen": 25,
+        "n_gold_moi_t1_eligible": 12,
+        "n_headroom_t1_eligible": 0,
+        "n_headroom": 0,
+        "n_headroom_removed_by_unconditional_ban": 0,
+        "headroom_sample_ids": [],
+        "headroom_by_heur_t1": {
+          "moi": 0,
+          "cu": 0,
+          "Lai": 0,
+          "khong_ro": 0
+        },
+        "status": "OK",
+        "statement": "0/25 gold-new rows still get a QuanHuyen span from the unconstrained decode (upper bound of errors the constraint can fix)"
+      },
+      "comparison_2x2": [
+        {
+          "cell": "PHOBERT-CRF",
+          "train_with_t1_head": false,
+          "decode_with_constraint": false,
+          "t1_source": "none",
+          "n_rows": 100,
+          "f1": 0.9820627802690582,
+          "ci_low": 0.9688195991091314,
+          "ci_high": 0.9932885906040269,
+          "exact_rows": 92,
+          "tp": 438,
+          "fp": 8,
+          "fn": 8
+        },
+        {
+          "cell": "PROPOSED-NO-CONSTRAINT",
+          "train_with_t1_head": true,
+          "decode_with_constraint": false,
+          "t1_source": "none",
+          "n_rows": 100,
+          "f1": 0.9730337078651685,
+          "ci_low": 0.9568106312292359,
+          "ci_high": 0.9870703529672931,
+          "exact_rows": 89,
+          "tp": 433,
+          "fp": 11,
+          "fn": 13
+        },
+        {
+          "cell": "PROPOSED-DYN",
+          "train_with_t1_head": true,
+          "decode_with_constraint": true,
+          "t1_source": "DYN head",
+          "n_rows": 100,
+          "f1": 0.9730337078651685,
+          "ci_low": 0.9568106312292359,
+          "ci_high": 0.9870703529672931,
+          "exact_rows": 89,
+          "tp": 433,
+          "fp": 11,
+          "fn": 13
+        },
+        {
+          "cell": "PHOBERT-CRF emissions + external T1",
+          "train_with_t1_head": false,
+          "decode_with_constraint": true,
+          "t1_source": "HEUR-JW (external, frozen)",
+          "n_rows": 100,
+          "f1": 0.9820627802690582,
+          "ci_low": 0.9688195991091314,
+          "ci_high": 0.9932885906040269,
+          "exact_rows": 92,
+          "tp": 438,
+          "fp": 8,
+          "fn": 8
+        }
+      ],
+      "comparison_2x2_paired_vs_pcrf": {
+        "PROPOSED-NO-CONSTRAINT": {
+          "f1_a": 0.9730337078651685,
+          "f1_b": 0.9820627802690582,
+          "delta": -0.009029072403889726,
+          "ci_low": -0.023116372750396467,
+          "ci_high": 0.004405286343612369,
+          "status": "OK",
+          "prop_delta_le_0": 0.9236
+        },
+        "PROPOSED-DYN": {
+          "f1_a": 0.9730337078651685,
+          "f1_b": 0.9820627802690582,
+          "delta": -0.009029072403889726,
+          "ci_low": -0.023116372750396467,
+          "ci_high": 0.004405286343612369,
+          "status": "OK",
+          "prop_delta_le_0": 0.9236
+        },
+        "PHOBERT-CRF emissions + external T1": {
+          "f1_a": 0.9820627802690582,
+          "f1_b": 0.9820627802690582,
+          "delta": 0.0,
+          "ci_low": 0.0,
+          "ci_high": 0.0,
+          "status": "OK",
+          "prop_delta_le_0": 1.0
+        },
+        "PROPOSED-DYN vs PROPOSED-NO-CONSTRAINT": {
+          "f1_a": 0.9730337078651685,
+          "f1_b": 0.9730337078651685,
+          "delta": 0.0,
+          "ci_low": 0.0,
+          "ci_high": 0.0,
+          "status": "OK",
+          "prop_delta_le_0": 1.0
+        }
+      },
+      "oracle_cells": {
+        "PHOBERT-CRF emissions + ORACLE_UPPER_BOUND": {
+          "source": "ORACLE_UPPER_BOUND",
+          "n_rows": 100,
+          "n_ban_rows": 25,
+          "n_changed_rows": 0,
+          "n_span_changes": 0,
+          "correct_fix": 0,
+          "harm": 0,
+          "neutral": 0,
+          "changed_sample_ids": [],
+          "changed_by_gold_system": {},
+          "f1_no_constraint": 0.9820627802690582,
+          "f1_with_ban": 0.9820627802690582,
+          "exact_no_constraint": 92,
+          "exact_with_ban": 92,
+          "counts_no_constraint": [
+            438,
+            8,
+            8
+          ],
+          "counts_with_ban": [
+            438,
+            8,
+            8
+          ],
+          "paired": {
+            "f1_a": 0.9820627802690582,
+            "f1_b": 0.9820627802690582,
+            "delta": 0.0,
+            "ci_low": 0.0,
+            "ci_high": 0.0,
+            "status": "OK",
+            "prop_delta_le_0": 1.0
+          },
+          "ci_with_ban": {
+            "f1": 0.9820627802690582,
+            "ci_low": 0.9688195991091314,
+            "ci_high": 0.9932885906040269,
+            "status": "OK"
+          },
+          "label": "ORACLE_UPPER_BOUND"
+        },
+        "DYN emissions + ORACLE_UPPER_BOUND": {
+          "source": "ORACLE_UPPER_BOUND",
+          "n_rows": 100,
+          "n_ban_rows": 25,
+          "n_changed_rows": 0,
+          "n_span_changes": 0,
+          "correct_fix": 0,
+          "harm": 0,
+          "neutral": 0,
+          "changed_sample_ids": [],
+          "changed_by_gold_system": {},
+          "f1_no_constraint": 0.9730337078651685,
+          "f1_with_ban": 0.9730337078651685,
+          "exact_no_constraint": 89,
+          "exact_with_ban": 89,
+          "counts_no_constraint": [
+            433,
+            11,
+            13
+          ],
+          "counts_with_ban": [
+            433,
+            11,
+            13
+          ],
+          "paired": {
+            "f1_a": 0.9730337078651685,
+            "f1_b": 0.9730337078651685,
+            "delta": 0.0,
+            "ci_low": 0.0,
+            "ci_high": 0.0,
+            "status": "OK",
+            "prop_delta_le_0": 1.0
+          },
+          "ci_with_ban": {
+            "f1": 0.9730337078651685,
+            "ci_low": 0.9568106312292359,
+            "ci_high": 0.9870703529672931,
+            "status": "OK"
+          },
+          "label": "ORACLE_UPPER_BOUND"
+        }
+      }
+    },
+    "fivefield_kaggle": {
+      "label": "DEVELOPMENT_TRACK",
+      "kind": "five",
+      "n_rows": 4800,
+      "sources": {
+        "DYN": {
+          "source": "DYN",
+          "n_rows": 4800,
+          "n_ban_rows": 959,
+          "n_changed_rows": 5,
+          "n_span_changes": 10,
+          "correct_fix": 0,
+          "harm": 1,
+          "neutral": 4,
+          "changed_sample_ids": [
+            "D02_134",
+            "D02_189",
+            "D02_672",
+            "D02_808",
+            "D03_341"
+          ],
+          "changed_by_gold_system": {
+            "moi:neutral": 4,
+            "cu:harm": 1
+          },
+          "f1_no_constraint": 0.8990660408666382,
+          "f1_with_ban": 0.898992532890838,
+          "exact_no_constraint": 3347,
+          "exact_with_ban": 3346,
+          "counts_no_constraint": [
+            18964,
+            1970,
+            2288
+          ],
+          "counts_with_ban": [
+            18962,
+            1971,
+            2290
+          ],
+          "paired": {
+            "f1_a": 0.898992532890838,
+            "f1_b": 0.8990660408666382,
+            "delta": -7.350797580019108e-05,
+            "ci_low": -0.00022117884032706313,
+            "ci_high": 0.0,
+            "status": "OK",
+            "prop_delta_le_0": 1.0
+          },
+          "ci_with_ban": {
+            "f1": 0.898992532890838,
+            "ci_low": 0.8939502109670334,
+            "ci_high": 0.904012646306246,
+            "status": "OK"
+          },
+          "label": "DEVELOPMENT_TRACK"
+        },
+        "HEUR-JW": {
+          "source": "HEUR-JW",
+          "n_rows": 4800,
+          "n_ban_rows": 428,
+          "n_changed_rows": 12,
+          "n_span_changes": 24,
+          "correct_fix": 1,
+          "harm": 5,
+          "neutral": 6,
+          "changed_sample_ids": [
+            "D02_38",
+            "D02_41",
+            "D02_89",
+            "D02_187",
+            "D02_727",
+            "D02_763",
+            "D02_901",
+            "D03_1315",
+            "D03_1488",
+            "D04_641",
+            "D06_112",
+            "D06_190"
+          ],
+          "changed_by_gold_system": {
+            "moi:neutral": 6,
+            "cu:harm": 3,
+            "moi:correct_fix": 1,
+            "Lai:harm": 2
+          },
+          "f1_no_constraint": 0.8990660408666382,
+          "f1_with_ban": 0.8987932955596122,
+          "exact_no_constraint": 3347,
+          "exact_with_ban": 3345,
+          "counts_no_constraint": [
+            18964,
+            1970,
+            2288
+          ],
+          "counts_with_ban": [
+            18956,
+            1973,
+            2296
+          ],
+          "paired": {
+            "f1_a": 0.8987932955596122,
+            "f1_b": 0.8990660408666382,
+            "delta": -0.0002727453070260344,
+            "ci_low": -0.0006133185339065566,
+            "ci_high": -4.734136165571168e-06,
+            "status": "OK",
+            "prop_delta_le_0": 0.9796
+          },
+          "ci_with_ban": {
+            "f1": 0.8987932955596122,
+            "ci_low": 0.8937939030997817,
+            "ci_high": 0.9037984995838828,
+            "status": "OK"
+          },
+          "label": "DEVELOPMENT_TRACK"
+        },
+        "ORACLE_UPPER_BOUND": {
+          "source": "ORACLE_UPPER_BOUND",
+          "n_rows": 4800,
+          "n_ban_rows": 1861,
+          "n_changed_rows": 168,
+          "n_span_changes": 352,
+          "correct_fix": 50,
+          "harm": 4,
+          "neutral": 114,
+          "changed_sample_ids": [
+            "D02_0",
+            "D02_5",
+            "D02_12",
+            "D02_22",
+            "D02_29",
+            "D02_30",
+            "D02_38",
+            "D02_41",
+            "D02_43",
+            "D02_48",
+            "D02_58",
+            "D02_66",
+            "D02_76",
+            "D02_80",
+            "D02_89",
+            "D02_90",
+            "D02_102",
+            "D02_109",
+            "D02_132",
+            "D02_134",
+            "D02_138",
+            "D02_154",
+            "D02_184",
+            "D02_189",
+            "D02_194",
+            "D02_197",
+            "D02_207",
+            "D02_221",
+            "D02_235",
+            "D02_251",
+            "D02_252",
+            "D02_263",
+            "D02_271",
+            "D02_272",
+            "D02_278",
+            "D02_305",
+            "D02_306",
+            "D02_320",
+            "D02_321",
+            "D02_339",
+            "D02_341",
+            "D02_342",
+            "D02_348",
+            "D02_355",
+            "D02_366",
+            "D02_369",
+            "D02_373",
+            "D02_378",
+            "D02_386",
+            "D02_403"
+          ],
+          "changed_by_gold_system": {
+            "moi:neutral": 114,
+            "moi:harm": 4,
+            "moi:correct_fix": 50
+          },
+          "f1_no_constraint": 0.8990660408666382,
+          "f1_with_ban": 0.9009248280768318,
+          "exact_no_constraint": 3347,
+          "exact_with_ban": 3377,
+          "counts_no_constraint": [
+            18964,
+            1970,
+            2288
+          ],
+          "counts_with_ban": [
+            18996,
+            1922,
+            2256
+          ],
+          "paired": {
+            "f1_a": 0.9009248280768318,
+            "f1_b": 0.8990660408666382,
+            "delta": 0.0018587872101936131,
+            "ci_low": 0.0013035664971693145,
+            "ci_high": 0.002451232395995845,
+            "status": "OK",
+            "prop_delta_le_0": 0.0
+          },
+          "ci_with_ban": {
+            "f1": 0.9009248280768318,
+            "ci_low": 0.8959352975209485,
+            "ci_high": 0.9058726977529129,
+            "status": "OK"
+          },
+          "label": "ORACLE_UPPER_BOUND"
+        }
+      },
+      "checks": {
+        "stored_ban_district_equals_dyn_source_flags": true,
+        "stored_path_after_equals_redecode_with_dyn_source": true
+      },
+      "headroom": {
+        "n_rows": 4800,
+        "n_gold_moi": 1861,
+        "n_gold_moi_without_quan_huyen": 1861,
+        "n_gold_moi_t1_eligible": 1861,
+        "n_headroom_t1_eligible": 168,
+        "n_headroom": 168,
+        "n_headroom_removed_by_unconditional_ban": 168,
+        "headroom_sample_ids": [
+          "D02_0",
+          "D02_5",
+          "D02_12",
+          "D02_22",
+          "D02_29",
+          "D02_30",
+          "D02_38",
+          "D02_41",
+          "D02_43",
+          "D02_48",
+          "D02_58",
+          "D02_66",
+          "D02_76",
+          "D02_80",
+          "D02_89",
+          "D02_90",
+          "D02_102",
+          "D02_109",
+          "D02_132",
+          "D02_134",
+          "D02_138",
+          "D02_154",
+          "D02_184",
+          "D02_189",
+          "D02_194",
+          "D02_197",
+          "D02_207",
+          "D02_221",
+          "D02_235",
+          "D02_251",
+          "D02_252",
+          "D02_263",
+          "D02_271",
+          "D02_272",
+          "D02_278",
+          "D02_305",
+          "D02_306",
+          "D02_320",
+          "D02_321",
+          "D02_339",
+          "D02_341",
+          "D02_342",
+          "D02_348",
+          "D02_355",
+          "D02_366",
+          "D02_369",
+          "D02_373",
+          "D02_378",
+          "D02_386",
+          "D02_403"
+        ],
+        "headroom_by_dyn_t1": {
+          "moi": 4,
+          "cu": 147,
+          "Lai": 0,
+          "khong_ro": 17
+        },
+        "gold_moi_by_dyn_t1": {
+          "moi": 948,
+          "cu": 336,
+          "Lai": 0,
+          "khong_ro": 574
+        },
+        "n_headroom_with_dyn_ban": 4,
+        "n_headroom_fixed_by_dyn_ban": 4,
+        "n_harm_exposure_gold_quan_huyen_with_dyn_ban": 1,
+        "n_harm_exposure_qh_removed_by_ban": 1,
+        "headroom_by_heur_t1": {
+          "moi": 7,
+          "cu": 3,
+          "Lai": 1,
+          "khong_ro": 157
+        },
+        "headroom_by_source_dataset": {
+          "02_noisy": 134,
+          "04_missing": 34
+        },
+        "gold_moi_by_source_dataset": {
+          "01_new": 980,
+          "02_noisy": 490,
+          "04_missing": 391
+        },
+        "status": "OK",
+        "statement": "168/1861 gold-new rows still get a QuanHuyen span from the unconstrained decode (upper bound of errors the constraint can fix)"
+      }
+    },
+    "dev_kaggle": {
+      "label": "SELECTION_SET",
+      "kind": "span",
+      "n_rows": 60,
+      "sources": {
+        "DYN": {
+          "source": "DYN",
+          "n_rows": 60,
+          "n_ban_rows": 13,
+          "n_changed_rows": 0,
+          "n_span_changes": 0,
+          "correct_fix": 0,
+          "harm": 0,
+          "neutral": 0,
+          "changed_sample_ids": [],
+          "changed_by_gold_system": {},
+          "f1_no_constraint": 0.9473684210526315,
+          "f1_with_ban": 0.9473684210526315,
+          "exact_no_constraint": 51,
+          "exact_with_ban": 51,
+          "counts_no_constraint": [
+            270,
+            16,
+            14
+          ],
+          "counts_with_ban": [
+            270,
+            16,
+            14
+          ],
+          "paired": {
+            "f1_a": 0.9473684210526315,
+            "f1_b": 0.9473684210526315,
+            "delta": 0.0,
+            "ci_low": 0.0,
+            "ci_high": 0.0,
+            "status": "OK",
+            "prop_delta_le_0": 1.0
+          },
+          "ci_with_ban": {
+            "f1": 0.9473684210526315,
+            "ci_low": 0.9126559714795008,
+            "ci_high": 0.9784192001237719,
+            "status": "OK"
+          },
+          "label": "SELECTION_SET"
+        },
+        "HEUR-JW": {
+          "source": "HEUR-JW",
+          "n_rows": 60,
+          "n_ban_rows": 11,
+          "n_changed_rows": 0,
+          "n_span_changes": 0,
+          "correct_fix": 0,
+          "harm": 0,
+          "neutral": 0,
+          "changed_sample_ids": [],
+          "changed_by_gold_system": {},
+          "f1_no_constraint": 0.9473684210526315,
+          "f1_with_ban": 0.9473684210526315,
+          "exact_no_constraint": 51,
+          "exact_with_ban": 51,
+          "counts_no_constraint": [
+            270,
+            16,
+            14
+          ],
+          "counts_with_ban": [
+            270,
+            16,
+            14
+          ],
+          "paired": {
+            "f1_a": 0.9473684210526315,
+            "f1_b": 0.9473684210526315,
+            "delta": 0.0,
+            "ci_low": 0.0,
+            "ci_high": 0.0,
+            "status": "OK",
+            "prop_delta_le_0": 1.0
+          },
+          "ci_with_ban": {
+            "f1": 0.9473684210526315,
+            "ci_low": 0.9126559714795008,
+            "ci_high": 0.9784192001237719,
+            "status": "OK"
+          },
+          "label": "SELECTION_SET"
+        },
+        "ORACLE_UPPER_BOUND": {
+          "source": "ORACLE_UPPER_BOUND",
+          "n_rows": 60,
+          "n_ban_rows": 15,
+          "n_changed_rows": 0,
+          "n_span_changes": 0,
+          "correct_fix": 0,
+          "harm": 0,
+          "neutral": 0,
+          "changed_sample_ids": [],
+          "changed_by_gold_system": {},
+          "f1_no_constraint": 0.9473684210526315,
+          "f1_with_ban": 0.9473684210526315,
+          "exact_no_constraint": 51,
+          "exact_with_ban": 51,
+          "counts_no_constraint": [
+            270,
+            16,
+            14
+          ],
+          "counts_with_ban": [
+            270,
+            16,
+            14
+          ],
+          "paired": {
+            "f1_a": 0.9473684210526315,
+            "f1_b": 0.9473684210526315,
+            "delta": 0.0,
+            "ci_low": 0.0,
+            "ci_high": 0.0,
+            "status": "OK",
+            "prop_delta_le_0": 1.0
+          },
+          "ci_with_ban": {
+            "f1": 0.9473684210526315,
+            "ci_low": 0.9126559714795008,
+            "ci_high": 0.9784192001237719,
+            "status": "OK"
+          },
+          "label": "ORACLE_UPPER_BOUND"
+        }
+      },
+      "checks": {},
+      "headroom": {
+        "n_rows": 60,
+        "n_gold_moi": 15,
+        "n_gold_moi_without_quan_huyen": 15,
+        "n_gold_moi_t1_eligible": 14,
+        "n_headroom_t1_eligible": 0,
+        "n_headroom": 0,
+        "n_headroom_removed_by_unconditional_ban": 0,
+        "headroom_sample_ids": [],
+        "headroom_by_dyn_t1": {
+          "moi": 0,
+          "cu": 0,
+          "Lai": 0,
+          "khong_ro": 0
+        },
+        "gold_moi_by_dyn_t1": {
+          "moi": 13,
+          "cu": 2,
+          "Lai": 0,
+          "khong_ro": 0
+        },
+        "n_headroom_with_dyn_ban": 0,
+        "n_headroom_fixed_by_dyn_ban": 0,
+        "n_harm_exposure_gold_quan_huyen_with_dyn_ban": 0,
+        "n_harm_exposure_qh_removed_by_ban": 0,
+        "headroom_by_heur_t1": {
+          "moi": 0,
+          "cu": 0,
+          "Lai": 0,
+          "khong_ro": 0
+        },
+        "status": "OK",
+        "statement": "0/15 gold-new rows still get a QuanHuyen span from the unconstrained decode (upper bound of errors the constraint can fix)"
+      },
+      "dyn_t0_f1": {
+        "free": 0.9473684210526315,
+        "dyn": 0.9473684210526315
+      },
+      "pcrf_sources": {
+        "HEUR-JW": {
+          "source": "HEUR-JW",
+          "n_rows": 60,
+          "n_ban_rows": 11,
+          "n_changed_rows": 0,
+          "n_span_changes": 0,
+          "correct_fix": 0,
+          "harm": 0,
+          "neutral": 0,
+          "changed_sample_ids": [],
+          "changed_by_gold_system": {},
+          "f1_no_constraint": 0.9389179755671903,
+          "f1_with_ban": 0.9389179755671903,
+          "exact_no_constraint": 50,
+          "exact_with_ban": 50,
+          "counts_no_constraint": [
+            269,
+            20,
+            15
+          ],
+          "counts_with_ban": [
+            269,
+            20,
+            15
+          ],
+          "paired": {
+            "f1_a": 0.9389179755671903,
+            "f1_b": 0.9389179755671903,
+            "delta": 0.0,
+            "ci_low": 0.0,
+            "ci_high": 0.0,
+            "status": "OK",
+            "prop_delta_le_0": 1.0
+          },
+          "ci_with_ban": {
+            "f1": 0.9389179755671903,
+            "ci_low": 0.9024390243902439,
+            "ci_high": 0.9725103187018225,
+            "status": "OK"
+          },
+          "label": "SELECTION_SET"
+        },
+        "ORACLE_UPPER_BOUND": {
+          "source": "ORACLE_UPPER_BOUND",
+          "n_rows": 60,
+          "n_ban_rows": 15,
+          "n_changed_rows": 1,
+          "n_span_changes": 2,
+          "correct_fix": 1,
+          "harm": 0,
+          "neutral": 0,
+          "changed_sample_ids": [
+            "s3_60931c369cbd85ef"
+          ],
+          "changed_by_gold_system": {
+            "moi:correct_fix": 1
+          },
+          "f1_no_constraint": 0.9389179755671903,
+          "f1_with_ban": 0.9424083769633508,
+          "exact_no_constraint": 50,
+          "exact_with_ban": 51,
+          "counts_no_constraint": [
+            269,
+            20,
+            15
+          ],
+          "counts_with_ban": [
+            270,
+            19,
+            14
+          ],
+          "paired": {
+            "f1_a": 0.9424083769633508,
+            "f1_b": 0.9389179755671903,
+            "delta": 0.003490401396160525,
+            "ci_low": 0.0,
+            "ci_high": 0.010909090909090868,
+            "status": "OK",
+            "prop_delta_le_0": 0.3668
+          },
+          "ci_with_ban": {
+            "f1": 0.9424083769633508,
+            "ci_low": 0.9059233449477352,
+            "ci_high": 0.9759450171821306,
+            "status": "OK"
+          },
+          "label": "ORACLE_UPPER_BOUND"
+        }
+      },
+      "pcrf_headroom": {
+        "n_rows": 60,
+        "n_gold_moi": 15,
+        "n_gold_moi_without_quan_huyen": 15,
+        "n_gold_moi_t1_eligible": 14,
+        "n_headroom_t1_eligible": 0,
+        "n_headroom": 1,
+        "n_headroom_removed_by_unconditional_ban": 1,
+        "headroom_sample_ids": [
+          "s3_60931c369cbd85ef"
+        ],
+        "headroom_by_heur_t1": {
+          "moi": 0,
+          "cu": 0,
+          "Lai": 0,
+          "khong_ro": 1
+        },
+        "status": "OK",
+        "statement": "1/15 gold-new rows still get a QuanHuyen span from the unconstrained decode (upper bound of errors the constraint can fix)"
+      },
+      "comparison_2x2": [
+        {
+          "cell": "PHOBERT-CRF",
+          "train_with_t1_head": false,
+          "decode_with_constraint": false,
+          "t1_source": "none",
+          "n_rows": 60,
+          "f1": 0.9389179755671903,
+          "ci_low": 0.9024390243902439,
+          "ci_high": 0.9725103187018225,
+          "exact_rows": 50,
+          "tp": 269,
+          "fp": 20,
+          "fn": 15
+        },
+        {
+          "cell": "PROPOSED-NO-CONSTRAINT",
+          "train_with_t1_head": true,
+          "decode_with_constraint": false,
+          "t1_source": "none",
+          "n_rows": 60,
+          "f1": 0.9473684210526315,
+          "ci_low": 0.9126559714795008,
+          "ci_high": 0.9784192001237719,
+          "exact_rows": 51,
+          "tp": 270,
+          "fp": 16,
+          "fn": 14
+        },
+        {
+          "cell": "PROPOSED-DYN",
+          "train_with_t1_head": true,
+          "decode_with_constraint": true,
+          "t1_source": "DYN head",
+          "n_rows": 60,
+          "f1": 0.9473684210526315,
+          "ci_low": 0.9126559714795008,
+          "ci_high": 0.9784192001237719,
+          "exact_rows": 51,
+          "tp": 270,
+          "fp": 16,
+          "fn": 14
+        },
+        {
+          "cell": "PHOBERT-CRF emissions + external T1",
+          "train_with_t1_head": false,
+          "decode_with_constraint": true,
+          "t1_source": "HEUR-JW (external, frozen)",
+          "n_rows": 60,
+          "f1": 0.9389179755671903,
+          "ci_low": 0.9024390243902439,
+          "ci_high": 0.9725103187018225,
+          "exact_rows": 50,
+          "tp": 269,
+          "fp": 20,
+          "fn": 15
+        }
+      ],
+      "comparison_2x2_paired_vs_pcrf": {
+        "PROPOSED-NO-CONSTRAINT": {
+          "f1_a": 0.9473684210526315,
+          "f1_b": 0.9389179755671903,
+          "delta": 0.008450445485441271,
+          "ci_low": -0.011053641556703502,
+          "ci_high": 0.02887645071117965,
+          "status": "OK",
+          "prop_delta_le_0": 0.2225
+        },
+        "PROPOSED-DYN": {
+          "f1_a": 0.9473684210526315,
+          "f1_b": 0.9389179755671903,
+          "delta": 0.008450445485441271,
+          "ci_low": -0.011053641556703502,
+          "ci_high": 0.02887645071117965,
+          "status": "OK",
+          "prop_delta_le_0": 0.2225
+        },
+        "PHOBERT-CRF emissions + external T1": {
+          "f1_a": 0.9389179755671903,
+          "f1_b": 0.9389179755671903,
+          "delta": 0.0,
+          "ci_low": 0.0,
+          "ci_high": 0.0,
+          "status": "OK",
+          "prop_delta_le_0": 1.0
+        },
+        "PROPOSED-DYN vs PROPOSED-NO-CONSTRAINT": {
+          "f1_a": 0.9473684210526315,
+          "f1_b": 0.9473684210526315,
+          "delta": 0.0,
+          "ci_low": 0.0,
+          "ci_high": 0.0,
+          "status": "OK",
+          "prop_delta_le_0": 1.0
+        }
+      },
+      "oracle_cells": {
+        "PHOBERT-CRF emissions + ORACLE_UPPER_BOUND": {
+          "source": "ORACLE_UPPER_BOUND",
+          "n_rows": 60,
+          "n_ban_rows": 15,
+          "n_changed_rows": 1,
+          "n_span_changes": 2,
+          "correct_fix": 1,
+          "harm": 0,
+          "neutral": 0,
+          "changed_sample_ids": [
+            "s3_60931c369cbd85ef"
+          ],
+          "changed_by_gold_system": {
+            "moi:correct_fix": 1
+          },
+          "f1_no_constraint": 0.9389179755671903,
+          "f1_with_ban": 0.9424083769633508,
+          "exact_no_constraint": 50,
+          "exact_with_ban": 51,
+          "counts_no_constraint": [
+            269,
+            20,
+            15
+          ],
+          "counts_with_ban": [
+            270,
+            19,
+            14
+          ],
+          "paired": {
+            "f1_a": 0.9424083769633508,
+            "f1_b": 0.9389179755671903,
+            "delta": 0.003490401396160525,
+            "ci_low": 0.0,
+            "ci_high": 0.010909090909090868,
+            "status": "OK",
+            "prop_delta_le_0": 0.3668
+          },
+          "ci_with_ban": {
+            "f1": 0.9424083769633508,
+            "ci_low": 0.9059233449477352,
+            "ci_high": 0.9759450171821306,
+            "status": "OK"
+          },
+          "label": "ORACLE_UPPER_BOUND"
+        },
+        "DYN emissions + ORACLE_UPPER_BOUND": {
+          "source": "ORACLE_UPPER_BOUND",
+          "n_rows": 60,
+          "n_ban_rows": 15,
+          "n_changed_rows": 0,
+          "n_span_changes": 0,
+          "correct_fix": 0,
+          "harm": 0,
+          "neutral": 0,
+          "changed_sample_ids": [],
+          "changed_by_gold_system": {},
+          "f1_no_constraint": 0.9473684210526315,
+          "f1_with_ban": 0.9473684210526315,
+          "exact_no_constraint": 51,
+          "exact_with_ban": 51,
+          "counts_no_constraint": [
+            270,
+            16,
+            14
+          ],
+          "counts_with_ban": [
+            270,
+            16,
+            14
+          ],
+          "paired": {
+            "f1_a": 0.9473684210526315,
+            "f1_b": 0.9473684210526315,
+            "delta": 0.0,
+            "ci_low": 0.0,
+            "ci_high": 0.0,
+            "status": "OK",
+            "prop_delta_le_0": 1.0
+          },
+          "ci_with_ban": {
+            "f1": 0.9473684210526315,
+            "ci_low": 0.9126559714795008,
+            "ci_high": 0.9784192001237719,
+            "status": "OK"
+          },
+          "label": "ORACLE_UPPER_BOUND"
+        }
+      }
+    }
+  },
+  "seed_summary": {
+    "label": "LOCAL_CPU_RETRAINED__SPRINT3_TEST_OBSERVED_POSTHOC",
+    "per_seed": [
+      {
+        "seed": 42,
+        "PHOBERT-CRF": 0.9764309764309764,
+        "PROPOSED-NO-CONSTRAINT": 0.9707865168539326,
+        "PROPOSED-DYN": 0.9707865168539326,
+        "PHOBERT-CRF emissions + external T1": 0.9764309764309764,
+        "dyn_ban_delta": 0.0,
+        "heur_ban_delta": 0.0,
+        "oracle_ban_delta_ORACLE_UPPER_BOUND": 0.0
+      },
+      {
+        "seed": 1337,
+        "PHOBERT-CRF": 0.9775280898876404,
+        "PROPOSED-NO-CONSTRAINT": 0.9910313901345291,
+        "PROPOSED-DYN": 0.9910313901345291,
+        "PHOBERT-CRF emissions + external T1": 0.9775280898876404,
+        "dyn_ban_delta": 0.0,
+        "heur_ban_delta": 0.0,
+        "oracle_ban_delta_ORACLE_UPPER_BOUND": 0.0022421524663677195
+      },
+      {
+        "seed": 2025,
+        "PHOBERT-CRF": 0.9820627802690582,
+        "PROPOSED-NO-CONSTRAINT": 0.9730337078651685,
+        "PROPOSED-DYN": 0.9730337078651685,
+        "PHOBERT-CRF emissions + external T1": 0.9820627802690582,
+        "dyn_ban_delta": 0.0,
+        "heur_ban_delta": 0.0,
+        "oracle_ban_delta_ORACLE_UPPER_BOUND": 0.0
+      }
+    ],
+    "mean_std": {
+      "PHOBERT-CRF": {
+        "mean": 0.9786739488625583,
+        "std_ddof1": 0.0029856403350802824
+      },
+      "PROPOSED-NO-CONSTRAINT": {
+        "mean": 0.9782838716178768,
+        "std_ddof1": 0.01109670618289686
+      },
+      "PROPOSED-DYN": {
+        "mean": 0.9782838716178768,
+        "std_ddof1": 0.01109670618289686
+      },
+      "PHOBERT-CRF emissions + external T1": {
+        "mean": 0.9786739488625583,
+        "std_ddof1": 0.0029856403350802824
+      },
+      "dyn_ban_delta": {
+        "mean": 0.0,
+        "std_ddof1": 0.0
+      },
+      "heur_ban_delta": {
+        "mean": 0.0,
+        "std_ddof1": 0.0
+      }
+    },
+    "wp3b_reported_std_cross_check": {
+      "PHOBERT-CRF": {
+        "reported": 0.003,
+        "measured_here": 0.003
+      },
+      "PROPOSED-DYN": {
+        "reported": 0.0111,
+        "measured_here": 0.0111
+      }
+    }
+  },
+  "gate": [
+    {
+      "label": "test_kaggle/dyn_on",
+      "n_rows": 100,
+      "n_decodable": 100,
+      "n_no_emissions": 0,
+      "free_vs_before_mismatch": 0,
+      "ban_rows": 20,
+      "ban_vs_after_mismatch": 0,
+      "after_eq_before_on_nonban_mismatch": 0,
+      "stored_span_mismatch": 0,
+      "reference_disagree": 0,
+      "rows_with_tie_free": 0,
+      "rows_with_tie_ban": 0,
+      "examples": [],
+      "status": "PASS",
+      "tie_handling": "lowest tag index wins at every tie (same rule as viterbi_reference and torch .max); rows_with_tie_* count rows where any step had an exact tie among finite options",
+      "checkpoint": "kaggle_dyn",
+      "checkpoint_sha256": "7a4a3d01bff1222cd303cb5ff03872c5ee49b22cb67a0572833fa470f917a589",
+      "prediction_file": "data/interim/modeling/sprint03/final_completion_20261005_v1/kaggle_final_output_v4/dacn_artifacts/dacn-s3-final-infer-20261005-v4/workspace/data/interim/modeling/sprint03/dacn-s3-final-infer-20261005-v4/dyn_test/predictions.jsonl"
+    },
+    {
+      "label": "test_kaggle/dyn_off",
+      "n_rows": 100,
+      "n_decodable": 100,
+      "n_no_emissions": 0,
+      "free_vs_before_mismatch": 0,
+      "ban_rows": 0,
+      "ban_vs_after_mismatch": 0,
+      "after_eq_before_on_nonban_mismatch": 0,
+      "stored_span_mismatch": 0,
+      "reference_disagree": 0,
+      "rows_with_tie_free": 0,
+      "rows_with_tie_ban": 0,
+      "examples": [],
+      "status": "PASS",
+      "tie_handling": "lowest tag index wins at every tie (same rule as viterbi_reference and torch .max); rows_with_tie_* count rows where any step had an exact tie among finite options",
+      "checkpoint": "kaggle_dyn",
+      "checkpoint_sha256": "7a4a3d01bff1222cd303cb5ff03872c5ee49b22cb67a0572833fa470f917a589",
+      "prediction_file": "data/interim/modeling/sprint03/final_completion_20261005_v1/kaggle_final_output_v4/dacn_artifacts/dacn-s3-final-infer-20261005-v4/workspace/data/interim/modeling/sprint03/dacn-s3-final-infer-20261005-v4/dyn_off_test/predictions.jsonl"
+    },
+    {
+      "label": "test_kaggle/pcrf",
+      "n_rows": 100,
+      "n_decodable": 100,
+      "n_no_emissions": 0,
+      "free_vs_before_mismatch": 0,
+      "ban_rows": 0,
+      "ban_vs_after_mismatch": 0,
+      "after_eq_before_on_nonban_mismatch": 0,
+      "stored_span_mismatch": 0,
+      "reference_disagree": 0,
+      "rows_with_tie_free": 0,
+      "rows_with_tie_ban": 0,
+      "examples": [],
+      "status": "PASS",
+      "tie_handling": "lowest tag index wins at every tie (same rule as viterbi_reference and torch .max); rows_with_tie_* count rows where any step had an exact tie among finite options",
+      "checkpoint": "kaggle_pcrf",
+      "checkpoint_sha256": "19894a1e899a94c69c68bd33d091c348a7b049582090f41dc6d6a9f85b8a351e",
+      "prediction_file": "data/interim/modeling/sprint03/final_completion_20261005_v1/kaggle_final_output_v4/dacn_artifacts/dacn-s3-final-infer-20261005-v4/workspace/data/interim/modeling/sprint03/dacn-s3-final-infer-20261005-v4/pcrf_test/predictions.jsonl"
+    },
+    {
+      "label": "test_seed42/dyn_on",
+      "n_rows": 100,
+      "n_decodable": 100,
+      "n_no_emissions": 0,
+      "free_vs_before_mismatch": 0,
+      "ban_rows": 28,
+      "ban_vs_after_mismatch": 0,
+      "after_eq_before_on_nonban_mismatch": 0,
+      "stored_span_mismatch": 0,
+      "reference_disagree": 0,
+      "rows_with_tie_free": 0,
+      "rows_with_tie_ban": 0,
+      "examples": [],
+      "status": "PASS",
+      "tie_handling": "lowest tag index wins at every tie (same rule as viterbi_reference and torch .max); rows_with_tie_* count rows where any step had an exact tie among finite options",
+      "checkpoint": "seed42_dyn",
+      "checkpoint_sha256": "6210547365cad2b93674dcd007ed388a707bbc453e6b9b6824b96150953a14e4",
+      "prediction_file": "data/interim/modeling/sprint04/multiseed_20261015_v1/dyn_seed42/test_dyn/predictions.jsonl"
+    },
+    {
+      "label": "test_seed42/dyn_off",
+      "n_rows": 100,
+      "n_decodable": 100,
+      "n_no_emissions": 0,
+      "free_vs_before_mismatch": 0,
+      "ban_rows": 0,
+      "ban_vs_after_mismatch": 0,
+      "after_eq_before_on_nonban_mismatch": 0,
+      "stored_span_mismatch": 0,
+      "reference_disagree": 0,
+      "rows_with_tie_free": 0,
+      "rows_with_tie_ban": 0,
+      "examples": [],
+      "status": "PASS",
+      "tie_handling": "lowest tag index wins at every tie (same rule as viterbi_reference and torch .max); rows_with_tie_* count rows where any step had an exact tie among finite options",
+      "checkpoint": "seed42_dyn",
+      "checkpoint_sha256": "6210547365cad2b93674dcd007ed388a707bbc453e6b9b6824b96150953a14e4",
+      "prediction_file": "data/interim/modeling/sprint04/multiseed_20261015_v1/dyn_seed42/test_dyn_off/predictions.jsonl"
+    },
+    {
+      "label": "test_seed42/pcrf",
+      "n_rows": 100,
+      "n_decodable": 100,
+      "n_no_emissions": 0,
+      "free_vs_before_mismatch": 0,
+      "ban_rows": 0,
+      "ban_vs_after_mismatch": 0,
+      "after_eq_before_on_nonban_mismatch": 0,
+      "stored_span_mismatch": 0,
+      "reference_disagree": 0,
+      "rows_with_tie_free": 0,
+      "rows_with_tie_ban": 0,
+      "examples": [],
+      "status": "PASS",
+      "tie_handling": "lowest tag index wins at every tie (same rule as viterbi_reference and torch .max); rows_with_tie_* count rows where any step had an exact tie among finite options",
+      "checkpoint": "seed42_pcrf",
+      "checkpoint_sha256": "5306980e10328c82241492da8503ed97feaf5ae472a9118958653b6688084abd",
+      "prediction_file": "data/interim/modeling/sprint04/multiseed_20261015_v1/pcrf_seed42/test_pcrf/predictions.jsonl"
+    },
+    {
+      "label": "test_seed1337/dyn_on",
+      "n_rows": 100,
+      "n_decodable": 100,
+      "n_no_emissions": 0,
+      "free_vs_before_mismatch": 0,
+      "ban_rows": 31,
+      "ban_vs_after_mismatch": 0,
+      "after_eq_before_on_nonban_mismatch": 0,
+      "stored_span_mismatch": 0,
+      "reference_disagree": 0,
+      "rows_with_tie_free": 0,
+      "rows_with_tie_ban": 0,
+      "examples": [],
+      "status": "PASS",
+      "tie_handling": "lowest tag index wins at every tie (same rule as viterbi_reference and torch .max); rows_with_tie_* count rows where any step had an exact tie among finite options",
+      "checkpoint": "seed1337_dyn",
+      "checkpoint_sha256": "b70d0f7dd5091ddc9e7fd09b631f092f6c7b07b54b79c36d7a01639dcb41f034",
+      "prediction_file": "data/interim/modeling/sprint04/multiseed_20261015_v1/dyn_seed1337/test_dyn/predictions.jsonl"
+    },
+    {
+      "label": "test_seed1337/dyn_off",
+      "n_rows": 100,
+      "n_decodable": 100,
+      "n_no_emissions": 0,
+      "free_vs_before_mismatch": 0,
+      "ban_rows": 0,
+      "ban_vs_after_mismatch": 0,
+      "after_eq_before_on_nonban_mismatch": 0,
+      "stored_span_mismatch": 0,
+      "reference_disagree": 0,
+      "rows_with_tie_free": 0,
+      "rows_with_tie_ban": 0,
+      "examples": [],
+      "status": "PASS",
+      "tie_handling": "lowest tag index wins at every tie (same rule as viterbi_reference and torch .max); rows_with_tie_* count rows where any step had an exact tie among finite options",
+      "checkpoint": "seed1337_dyn",
+      "checkpoint_sha256": "b70d0f7dd5091ddc9e7fd09b631f092f6c7b07b54b79c36d7a01639dcb41f034",
+      "prediction_file": "data/interim/modeling/sprint04/multiseed_20261015_v1/dyn_seed1337/test_dyn_off/predictions.jsonl"
+    },
+    {
+      "label": "test_seed1337/pcrf",
+      "n_rows": 100,
+      "n_decodable": 100,
+      "n_no_emissions": 0,
+      "free_vs_before_mismatch": 0,
+      "ban_rows": 0,
+      "ban_vs_after_mismatch": 0,
+      "after_eq_before_on_nonban_mismatch": 0,
+      "stored_span_mismatch": 0,
+      "reference_disagree": 0,
+      "rows_with_tie_free": 0,
+      "rows_with_tie_ban": 0,
+      "examples": [],
+      "status": "PASS",
+      "tie_handling": "lowest tag index wins at every tie (same rule as viterbi_reference and torch .max); rows_with_tie_* count rows where any step had an exact tie among finite options",
+      "checkpoint": "seed1337_pcrf",
+      "checkpoint_sha256": "54f1136b5e843626a0cbc58069fbb72d47d251e88a4c159706d0bc6acdb8c350",
+      "prediction_file": "data/interim/modeling/sprint04/multiseed_20261015_v1/pcrf_seed1337/test_pcrf/predictions.jsonl"
+    },
+    {
+      "label": "test_seed2025/dyn_on",
+      "n_rows": 100,
+      "n_decodable": 100,
+      "n_no_emissions": 0,
+      "free_vs_before_mismatch": 0,
+      "ban_rows": 3,
+      "ban_vs_after_mismatch": 0,
+      "after_eq_before_on_nonban_mismatch": 0,
+      "stored_span_mismatch": 0,
+      "reference_disagree": 0,
+      "rows_with_tie_free": 0,
+      "rows_with_tie_ban": 0,
+      "examples": [],
+      "status": "PASS",
+      "tie_handling": "lowest tag index wins at every tie (same rule as viterbi_reference and torch .max); rows_with_tie_* count rows where any step had an exact tie among finite options",
+      "checkpoint": "seed2025_dyn",
+      "checkpoint_sha256": "fc41f40702951dd13ddb906fb5b499eb78b185cd69a0e8eb4c481d50201f4695",
+      "prediction_file": "data/interim/modeling/sprint04/multiseed_20261015_v1/dyn_seed2025/test_dyn/predictions.jsonl"
+    },
+    {
+      "label": "test_seed2025/dyn_off",
+      "n_rows": 100,
+      "n_decodable": 100,
+      "n_no_emissions": 0,
+      "free_vs_before_mismatch": 0,
+      "ban_rows": 0,
+      "ban_vs_after_mismatch": 0,
+      "after_eq_before_on_nonban_mismatch": 0,
+      "stored_span_mismatch": 0,
+      "reference_disagree": 0,
+      "rows_with_tie_free": 0,
+      "rows_with_tie_ban": 0,
+      "examples": [],
+      "status": "PASS",
+      "tie_handling": "lowest tag index wins at every tie (same rule as viterbi_reference and torch .max); rows_with_tie_* count rows where any step had an exact tie among finite options",
+      "checkpoint": "seed2025_dyn",
+      "checkpoint_sha256": "fc41f40702951dd13ddb906fb5b499eb78b185cd69a0e8eb4c481d50201f4695",
+      "prediction_file": "data/interim/modeling/sprint04/multiseed_20261015_v1/dyn_seed2025/test_dyn_off/predictions.jsonl"
+    },
+    {
+      "label": "test_seed2025/pcrf",
+      "n_rows": 100,
+      "n_decodable": 100,
+      "n_no_emissions": 0,
+      "free_vs_before_mismatch": 0,
+      "ban_rows": 0,
+      "ban_vs_after_mismatch": 0,
+      "after_eq_before_on_nonban_mismatch": 0,
+      "stored_span_mismatch": 0,
+      "reference_disagree": 0,
+      "rows_with_tie_free": 0,
+      "rows_with_tie_ban": 0,
+      "examples": [],
+      "status": "PASS",
+      "tie_handling": "lowest tag index wins at every tie (same rule as viterbi_reference and torch .max); rows_with_tie_* count rows where any step had an exact tie among finite options",
+      "checkpoint": "seed2025_pcrf",
+      "checkpoint_sha256": "bb4ee1b587a6adb36c1bc0f7612ecee3b9438b88406227c4a75bfda993032d54",
+      "prediction_file": "data/interim/modeling/sprint04/multiseed_20261015_v1/pcrf_seed2025/test_pcrf/predictions.jsonl"
+    },
+    {
+      "label": "fivefield_kaggle/dyn_on",
+      "n_rows": 4800,
+      "n_decodable": 4796,
+      "n_no_emissions": 4,
+      "free_vs_before_mismatch": 0,
+      "ban_rows": 959,
+      "ban_vs_after_mismatch": 0,
+      "after_eq_before_on_nonban_mismatch": 0,
+      "stored_span_mismatch": 0,
+      "reference_disagree": 0,
+      "rows_with_tie_free": 0,
+      "rows_with_tie_ban": 0,
+      "examples": [],
+      "status": "PASS",
+      "tie_handling": "lowest tag index wins at every tie (same rule as viterbi_reference and torch .max); rows_with_tie_* count rows where any step had an exact tie among finite options",
+      "checkpoint": "kaggle_dyn",
+      "checkpoint_sha256": "7a4a3d01bff1222cd303cb5ff03872c5ee49b22cb67a0572833fa470f917a589",
+      "prediction_file": "data/interim/modeling/sprint03/final_completion_20261005_v1/kaggle_final_output_v4/dacn_artifacts/dacn-s3-final-infer-20261005-v4/workspace/data/interim/modeling/sprint03/dacn-s3-final-infer-20261005-v4/dyn_5field/predictions.jsonl"
+    },
+    {
+      "label": "fivefield_kaggle/dyn_off",
+      "n_rows": 4800,
+      "n_decodable": 4796,
+      "n_no_emissions": 4,
+      "free_vs_before_mismatch": 0,
+      "ban_rows": 0,
+      "ban_vs_after_mismatch": 0,
+      "after_eq_before_on_nonban_mismatch": 0,
+      "stored_span_mismatch": 0,
+      "reference_disagree": 0,
+      "rows_with_tie_free": 0,
+      "rows_with_tie_ban": 0,
+      "examples": [],
+      "status": "PASS",
+      "tie_handling": "lowest tag index wins at every tie (same rule as viterbi_reference and torch .max); rows_with_tie_* count rows where any step had an exact tie among finite options",
+      "checkpoint": "kaggle_dyn",
+      "checkpoint_sha256": "7a4a3d01bff1222cd303cb5ff03872c5ee49b22cb67a0572833fa470f917a589",
+      "prediction_file": "data/interim/modeling/sprint03/final_completion_20261005_v1/kaggle_final_output_v4/dacn_artifacts/dacn-s3-final-infer-20261005-v4/workspace/data/interim/modeling/sprint03/dacn-s3-final-infer-20261005-v4/dyn_off_5field/predictions.jsonl"
+    },
+    {
+      "label": "dev_kaggle/dyn_off",
+      "n_rows": 60,
+      "n_decodable": 60,
+      "n_no_emissions": 0,
+      "free_vs_before_mismatch": 0,
+      "ban_rows": 0,
+      "ban_vs_after_mismatch": 0,
+      "after_eq_before_on_nonban_mismatch": 0,
+      "stored_span_mismatch": 0,
+      "reference_disagree": 0,
+      "rows_with_tie_free": 0,
+      "rows_with_tie_ban": 0,
+      "examples": [],
+      "status": "PASS",
+      "tie_handling": "lowest tag index wins at every tie (same rule as viterbi_reference and torch .max); rows_with_tie_* count rows where any step had an exact tie among finite options",
+      "checkpoint": "kaggle_dyn",
+      "checkpoint_sha256": "7a4a3d01bff1222cd303cb5ff03872c5ee49b22cb67a0572833fa470f917a589",
+      "prediction_file": "data/interim/modeling/sprint03/release_and_kaggle_20261005_v1/dyn_c02_selection_artifacts_v1/dacn_artifacts/dacn-s3-dyn-c02-20261005-v1/workspace/data/processed/evaluation/sprint03/dacn-s3-dyn-c02-20261005-v1_proposed_dyn_c02_dev_proposed_no_constraint_v1/predictions.jsonl"
+    },
+    {
+      "label": "dev_kaggle/pcrf",
+      "n_rows": 60,
+      "n_decodable": 60,
+      "n_no_emissions": 0,
+      "free_vs_before_mismatch": 0,
+      "ban_rows": 0,
+      "ban_vs_after_mismatch": 0,
+      "after_eq_before_on_nonban_mismatch": 0,
+      "stored_span_mismatch": 0,
+      "reference_disagree": 0,
+      "rows_with_tie_free": 0,
+      "rows_with_tie_ban": 0,
+      "examples": [],
+      "status": "PASS",
+      "tie_handling": "lowest tag index wins at every tie (same rule as viterbi_reference and torch .max); rows_with_tie_* count rows where any step had an exact tie among finite options",
+      "checkpoint": "kaggle_pcrf",
+      "checkpoint_sha256": "19894a1e899a94c69c68bd33d091c348a7b049582090f41dc6d6a9f85b8a351e",
+      "prediction_file": "data/interim/modeling/sprint03/release_and_kaggle_20261005_v1/pcrf_c02_selection_artifacts_v2/dacn_artifacts/dacn-s3-pcrf-c02-20261005-v1/workspace/data/processed/evaluation/sprint03/dacn-s3-pcrf-c02-20261005-v1_phobert_crf_c02_dev/predictions.jsonl"
+    },
+    {
+      "label": "dev_kaggle/dyn_on_reference",
+      "n_rows": 60,
+      "n_decodable": 60,
+      "n_no_emissions": 0,
+      "free_vs_before_mismatch": 0,
+      "ban_rows": 13,
+      "ban_vs_after_mismatch": 0,
+      "after_eq_before_on_nonban_mismatch": 0,
+      "stored_span_mismatch": 0,
+      "reference_disagree": 0,
+      "rows_with_tie_free": 0,
+      "rows_with_tie_ban": 0,
+      "examples": [],
+      "status": "PASS",
+      "tie_handling": "lowest tag index wins at every tie (same rule as viterbi_reference and torch .max); rows_with_tie_* count rows where any step had an exact tie among finite options",
+      "checkpoint": "kaggle_dyn",
+      "checkpoint_sha256": "7a4a3d01bff1222cd303cb5ff03872c5ee49b22cb67a0572833fa470f917a589",
+      "prediction_file": "data/interim/modeling/sprint03/release_and_kaggle_20261005_v1/dyn_c02_selection_artifacts_v1/dacn_artifacts/dacn-s3-dyn-c02-20261005-v1/workspace/data/processed/evaluation/sprint03/dacn-s3-dyn-c02-20261005-v1_proposed_dyn_c02_dev_proposed_dyn_v1/predictions.jsonl"
+    }
+  ]
+}

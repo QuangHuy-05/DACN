@@ -1,0 +1,58 @@
+{
+  "version": "s3-training-v1",
+  "selection": {
+    "primary": "exact_span_micro_f1_full_schema_dev",
+    "tie": [
+      "macro_f1_gold_supported_labels",
+      "earlier_epoch",
+      "earlier_candidate_order"
+    ]
+  },
+  "candidate_order": [
+    "c01",
+    "c02"
+  ],
+  "budget": {
+    "per_model_candidates": 2,
+    "max_epochs": 20,
+    "patience": 5,
+    "effective_batch_size": 16,
+    "max_sample_epochs_per_model": 9600
+  },
+  "seeds": {
+    "development": 42,
+    "stability_future": [
+      42,
+      1337,
+      2025
+    ],
+    "stability_executed": false
+  },
+  "ablation": {
+    "pair": [
+      "PROPOSED-DYN",
+      "PROPOSED-NO-CONSTRAINT"
+    ],
+    "same_checkpoint": true,
+    "selection_decoder": "unconstrained"
+  },
+  "t1": {
+    "classes": [
+      "cu",
+      "moi",
+      "Lai"
+    ],
+    "abstain": "khong_ro",
+    "threshold": 0.8,
+    "margin": 0.2,
+    "policy": "default_before_fixed_grid_dev_calibration",
+    "threshold_grid": [0.7, 0.8, 0.9],
+    "margin_grid": [0.1, 0.2],
+    "max_calibration_candidates": 6,
+    "calibration_selection": "macro_f1_gold_supported_then_accuracy_then_coverage_then_higher_threshold_margin",
+    "calibration_executed": false,
+    "mask": "manifest.evaluation_exclusions.t1 plus null"
+  },
+  "test100": "NOT_READ_NOT_USED",
+  "training": "TRAINING_DEFERRED_BY_USER"
+}

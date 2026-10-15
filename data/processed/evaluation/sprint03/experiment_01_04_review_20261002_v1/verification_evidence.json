@@ -1,0 +1,23 @@
+{
+  "full_repo_tests": {
+    "discovered": 101,
+    "passed": 100,
+    "skipped": 1,
+    "skip_reason": "pycrfsuite missing in primary runtime; corresponding real CRF test passes in isolated runtime",
+    "log_sha256": "c71ab34ba41ca7b98aaffd37ae1537cf76e78c9daff519f7bee2f38e92eefee3"
+  },
+  "crf_runtime_tests": {
+    "passed": 31,
+    "skipped": 0,
+    "log_sha256": "d4c78d11d7f893d7109f6f8e764d9e5bce6fa54822c398bec732c26d2cedc608"
+  },
+  "inventory_sha256": "664ee1c47dc9bb681601f06c1de7c58e63846ea8bb3cca9f64e43d3832abb95f",
+  "report_sha256": "d6a30c20beacce85a35b964f3ba7fdff1c3feffe044dc06df998571affef97a5",
+  "audit_sha256": "a93056961ce5cf0ca5b44d655922b289eada70b8ec3c2ebb6aa8cfb8ca7a87d1",
+  "blocked_model": {
+    "model_id": "DP-ZS-FT",
+    "status": "NOT_RUN",
+    "reason": "BLOCKED_INSUFFICIENT_RAM; pretrained resource license pending",
+    "mapping_sha256": "abeab44163ded4a28c06f75105454a1eeb152a7133e00186118c01b3ab2d49b5"
+  }
+}

@@ -1,0 +1,851 @@
+{
+  "s3_a66e21b407d25ee0": {
+    "task_id": 601,
+    "annotation_id": 600,
+    "label_studio_user_id": 1,
+    "annotation_sha256": "2906b80e0334c24544a701f8d67a4ddeb3ae4354b8f9aa2b2790043791afa2ac",
+    "review_flags": [],
+    "review_note": "GỢI Ý AI CHƯA DUYỆT.  Hệ phường/xã: Phường Ba Đình: EXACT_NEW_WARD_PROVINCE_SNAPSHOT. Hệ toàn câu moi là đề xuất theo đơn vị đủ bằng chứng, cần người duyệt xác nhận. Số nhà/đường và tên tỉnh trùng thời kỳ giữ khong_xac_dinh; không sao chép hệ toàn câu vào chúng."
+  },
+  "s3_7ec507813be1cede": {
+    "task_id": 602,
+    "annotation_id": 599,
+    "label_studio_user_id": 1,
+    "annotation_sha256": "de0b42dba60c27eba2383f681937753a8efcb57b0968f867113b7c34a7c7abeb",
+    "review_flags": [],
+    "review_note": "GỢI Ý AI CHƯA DUYỆT.  Hệ phường/xã: Phường Vũ Ninh: OLD_REFERENCE_PARENT_LINK_GAP. Chưa đủ bằng chứng chốt hệ toàn câu; đang để trống. Số nhà/đường và tên tỉnh trùng thời kỳ giữ khong_xac_dinh; không sao chép hệ toàn câu vào chúng."
+  },
+  "s3_156b56e3b067f033": {
+    "task_id": 603,
+    "annotation_id": 602,
+    "label_studio_user_id": 1,
+    "annotation_sha256": "aef6d57606b4bc2f7a4e48aa13760ec6dfd72a96f6be509dbcdaff5c3de484ed",
+    "review_flags": [],
+    "review_note": "GỢI Ý AI CHƯA DUYỆT.  Hệ phường/xã: Phường Hạp Lĩnh: OLD_REFERENCE_PARENT_LINK_GAP. Chưa đủ bằng chứng chốt hệ toàn câu; đang để trống. Số nhà/đường và tên tỉnh trùng thời kỳ giữ khong_xac_dinh; không sao chép hệ toàn câu vào chúng."
+  },
+  "s3_68696d10fe3860d8": {
+    "task_id": 604,
+    "annotation_id": 603,
+    "label_studio_user_id": 1,
+    "annotation_sha256": "d38203711b34459cf14b5d04ad2172220bc4c6a7815bfe6dd3f722b703f5a9cf",
+    "review_flags": [],
+    "review_note": "GỢI Ý AI CHƯA DUYỆT.  Hệ phường/xã: Phường Tân Sơn Nhất: EXACT_NEW_WARD_PROVINCE_SNAPSHOT. Hệ toàn câu moi là đề xuất theo đơn vị đủ bằng chứng, cần người duyệt xác nhận. Số nhà/đường và tên tỉnh trùng thời kỳ giữ khong_xac_dinh; không sao chép hệ toàn câu vào chúng."
+  },
+  "s3_1eee2933ccd21ad0": {
+    "task_id": 605,
+    "annotation_id": 604,
+    "label_studio_user_id": 1,
+    "annotation_sha256": "21e111e2cc93cd67aa405023b76c6512957a4518899a27e43626a242e4d3fd76",
+    "review_flags": [],
+    "review_note": "GỢI Ý AI CHƯA DUYỆT.  Hệ phường/xã: Phường Thuận Thành: EXACT_NEW_WARD_PROVINCE_SNAPSHOT. Hệ toàn câu moi là đề xuất theo đơn vị đủ bằng chứng, cần người duyệt xác nhận. Số nhà/đường và tên tỉnh trùng thời kỳ giữ khong_xac_dinh; không sao chép hệ toàn câu vào chúng."
+  },
+  "s3_3a0ea0e324d98283": {
+    "task_id": 606,
+    "annotation_id": 605,
+    "label_studio_user_id": 1,
+    "annotation_sha256": "8c21ee263e82224442613a8b21230a758117361d9b1ce69e1d743cbfd2a9386b",
+    "review_flags": [],
+    "review_note": "GỢI Ý AI CHƯA DUYỆT.  Hệ phường/xã: Phường Từ Sơn: EXACT_NEW_WARD_PROVINCE_SNAPSHOT. Hệ toàn câu moi là đề xuất theo đơn vị đủ bằng chứng, cần người duyệt xác nhận. Số nhà/đường và tên tỉnh trùng thời kỳ giữ khong_xac_dinh; không sao chép hệ toàn câu vào chúng."
+  },
+  "s3_7fe0e02ac7e41cdc": {
+    "task_id": 607,
+    "annotation_id": 606,
+    "label_studio_user_id": 1,
+    "annotation_sha256": "eb629cbfbbad22a10f64360501033483aacfe7a71ac1398f2d8d3e0183e4bab7",
+    "review_flags": [],
+    "review_note": "GỢI Ý AI CHƯA DUYỆT.  Hệ phường/xã: Phường Hoàn Kiếm: EXACT_NEW_WARD_PROVINCE_SNAPSHOT. Hệ toàn câu moi là đề xuất theo đơn vị đủ bằng chứng, cần người duyệt xác nhận. Số nhà/đường và tên tỉnh trùng thời kỳ giữ khong_xac_dinh; không sao chép hệ toàn câu vào chúng."
+  },
+  "s3_d864dd12a9c169d6": {
+    "task_id": 608,
+    "annotation_id": 607,
+    "label_studio_user_id": 1,
+    "annotation_sha256": "16ecc5597507c6d00b45b9eff67981112a485943df6875be332859d6321e69ee",
+    "review_flags": [],
+    "review_note": "GỢI Ý AI CHƯA DUYỆT.  Hệ phường/xã: Phường Ba Đình: EXACT_NEW_WARD_PROVINCE_SNAPSHOT. Hệ toàn câu moi là đề xuất theo đơn vị đủ bằng chứng, cần người duyệt xác nhận. Số nhà/đường và tên tỉnh trùng thời kỳ giữ khong_xac_dinh; không sao chép hệ toàn câu vào chúng."
+  },
+  "s3_406fc7891f05bc2a": {
+    "task_id": 609,
+    "annotation_id": 608,
+    "label_studio_user_id": 1,
+    "annotation_sha256": "8db9dc1eb8ab49083428c60697e84666885ee1b639efcdaf3d8b6e764fefa2bb",
+    "review_flags": [],
+    "review_note": "GỢI Ý AI CHƯA DUYỆT.  Hệ phường/xã: Phường Võ Cường: OLD_REFERENCE_PARENT_LINK_GAP. Chưa đủ bằng chứng chốt hệ toàn câu; đang để trống. Số nhà/đường và tên tỉnh trùng thời kỳ giữ khong_xac_dinh; không sao chép hệ toàn câu vào chúng."
+  },
+  "s3_f76f49f8d6885522": {
+    "task_id": 610,
+    "annotation_id": 609,
+    "label_studio_user_id": 1,
+    "annotation_sha256": "68dd5b6403a3aba5ebf2c9cd54d68aee7663236e71244a93f83303b1ea0ac182",
+    "review_flags": [],
+    "review_note": "GỢI Ý AI CHƯA DUYỆT.  Hệ phường/xã: Phường Ba Đình: EXACT_NEW_WARD_PROVINCE_SNAPSHOT. Hệ toàn câu moi là đề xuất theo đơn vị đủ bằng chứng, cần người duyệt xác nhận. Số nhà/đường và tên tỉnh trùng thời kỳ giữ khong_xac_dinh; không sao chép hệ toàn câu vào chúng."
+  },
+  "s3_6816f0907984be0a": {
+    "task_id": 611,
+    "annotation_id": 610,
+    "label_studio_user_id": 1,
+    "annotation_sha256": "e842f464584999c9c5b5eab3dac30fc83c75702bfd043b048df70762e1969658",
+    "review_flags": [],
+    "review_note": "GỢI Ý AI CHƯA DUYỆT.  Hệ phường/xã: Phường Hạp Lĩnh: OLD_REFERENCE_PARENT_LINK_GAP. Chưa đủ bằng chứng chốt hệ toàn câu; đang để trống. Số nhà/đường và tên tỉnh trùng thời kỳ giữ khong_xac_dinh; không sao chép hệ toàn câu vào chúng."
+  },
+  "s3_c68b1ca96c4f5be4": {
+    "task_id": 612,
+    "annotation_id": 611,
+    "label_studio_user_id": 1,
+    "annotation_sha256": "96902aa295c0e49ce63dadf337277117fb95230bf3ce9afbaab0b0892d9fd05a",
+    "review_flags": [],
+    "review_note": "GỢI Ý AI CHƯA DUYỆT.  Hệ phường/xã: Phường Tân Sơn Nhất: EXACT_NEW_WARD_PROVINCE_SNAPSHOT. Hệ toàn câu moi là đề xuất theo đơn vị đủ bằng chứng, cần người duyệt xác nhận. Số nhà/đường và tên tỉnh trùng thời kỳ giữ khong_xac_dinh; không sao chép hệ toàn câu vào chúng."
+  },
+  "s3_4e5c8d58266fb206": {
+    "task_id": 613,
+    "annotation_id": 612,
+    "label_studio_user_id": 1,
+    "annotation_sha256": "2d56e99f85a6d9824b39ae01a36d2bc5381278c5b719ba95710dfa69daad60b1",
+    "review_flags": [],
+    "review_note": "GỢI Ý AI CHƯA DUYỆT.  Hệ phường/xã: Phường Vũ Ninh: OLD_REFERENCE_PARENT_LINK_GAP. Chưa đủ bằng chứng chốt hệ toàn câu; đang để trống. Số nhà/đường và tên tỉnh trùng thời kỳ giữ khong_xac_dinh; không sao chép hệ toàn câu vào chúng."
+  },
+  "s3_5230a7d17ed4760a": {
+    "task_id": 614,
+    "annotation_id": 613,
+    "label_studio_user_id": 1,
+    "annotation_sha256": "fd3d74eaa35158dc3b4b851aa7fd2918bed9c6ded4d78aaabc98892b1733193a",
+    "review_flags": [],
+    "review_note": "GỢI Ý AI CHƯA DUYỆT.  Hệ phường/xã: Phường Phương Liễu: OLD_REFERENCE_PARENT_LINK_GAP. Chưa đủ bằng chứng chốt hệ toàn câu; đang để trống. Số nhà/đường và tên tỉnh trùng thời kỳ giữ khong_xac_dinh; không sao chép hệ toàn câu vào chúng."
+  },
+  "s3_438e4e50f599cd2f": {
+    "task_id": 615,
+    "annotation_id": 614,
+    "label_studio_user_id": 1,
+    "annotation_sha256": "14bc4c05ee19164b372b28841f47fcc0a3382613c0eb874631ed196388dbad96",
+    "review_flags": [],
+    "review_note": "GỢI Ý AI CHƯA DUYỆT.  Hệ phường/xã: Phường Phương Liễu: OLD_REFERENCE_PARENT_LINK_GAP. Chưa đủ bằng chứng chốt hệ toàn câu; đang để trống. Số nhà/đường và tên tỉnh trùng thời kỳ giữ khong_xac_dinh; không sao chép hệ toàn câu vào chúng."
+  },
+  "s3_ddbc91b9f3260d86": {
+    "task_id": 616,
+    "annotation_id": 615,
+    "label_studio_user_id": 1,
+    "annotation_sha256": "3fc823623b92bf1ae63fd65699064ec489f701b62bfb36d6acc7d493bdedc778",
+    "review_flags": [],
+    "review_note": "GỢI Ý AI CHƯA DUYỆT.  Hệ phường/xã: Phường Quế Võ: EXACT_NEW_WARD_PROVINCE_SNAPSHOT. Hệ toàn câu moi là đề xuất theo đơn vị đủ bằng chứng, cần người duyệt xác nhận. Số nhà/đường và tên tỉnh trùng thời kỳ giữ khong_xac_dinh; không sao chép hệ toàn câu vào chúng."
+  },
+  "s3_224bae3f36763271": {
+    "task_id": 617,
+    "annotation_id": 616,
+    "label_studio_user_id": 1,
+    "annotation_sha256": "8315245d4c5ab3881974862753f8469e1042ec888226901bf871a3fd8f06b508",
+    "review_flags": [],
+    "review_note": "GỢI Ý AI CHƯA DUYỆT.  Hệ phường/xã: Phường Nam Sơn: OLD_REFERENCE_PARENT_LINK_GAP. Chưa đủ bằng chứng chốt hệ toàn câu; đang để trống. Số nhà/đường và tên tỉnh trùng thời kỳ giữ khong_xac_dinh; không sao chép hệ toàn câu vào chúng."
+  },
+  "s3_7bfd74301b1fbda6": {
+    "task_id": 618,
+    "annotation_id": 617,
+    "label_studio_user_id": 1,
+    "annotation_sha256": "82a68fdc29966069098d0283449c32e91efe57b0f1ef37630f32e1917eee3ee2",
+    "review_flags": [],
+    "review_note": "GỢI Ý AI CHƯA DUYỆT.  Hệ phường/xã: Phường Ba Đình: EXACT_NEW_WARD_PROVINCE_SNAPSHOT. Hệ toàn câu moi là đề xuất theo đơn vị đủ bằng chứng, cần người duyệt xác nhận. Số nhà/đường và tên tỉnh trùng thời kỳ giữ khong_xac_dinh; không sao chép hệ toàn câu vào chúng."
+  },
+  "s3_dd14723b5bd3ca76": {
+    "task_id": 619,
+    "annotation_id": 618,
+    "label_studio_user_id": 1,
+    "annotation_sha256": "4894177c40e6704c5243662ffa2e8914b65bd2fac7fab4b8a3266c59f8a5723e",
+    "review_flags": [],
+    "review_note": "GỢI Ý AI CHƯA DUYỆT.  Hệ phường/xã: Phường Hoàn Kiếm: EXACT_NEW_WARD_PROVINCE_SNAPSHOT. Hệ toàn câu moi là đề xuất theo đơn vị đủ bằng chứng, cần người duyệt xác nhận. Số nhà/đường và tên tỉnh trùng thời kỳ giữ khong_xac_dinh; không sao chép hệ toàn câu vào chúng."
+  },
+  "s3_193ee8bba9df8734": {
+    "task_id": 620,
+    "annotation_id": 619,
+    "label_studio_user_id": 1,
+    "annotation_sha256": "dff8e13d5a92b75905c0b4e63153c5f1edca848988df079e309cd28a11c912fe",
+    "review_flags": [],
+    "review_note": "GỢI Ý AI CHƯA DUYỆT.  Hệ phường/xã: Phường Kinh Bắc: OLD_REFERENCE_PARENT_LINK_GAP. Chưa đủ bằng chứng chốt hệ toàn câu; đang để trống. Số nhà/đường và tên tỉnh trùng thời kỳ giữ khong_xac_dinh; không sao chép hệ toàn câu vào chúng."
+  },
+  "s3_ce1215ffa66c136f": {
+    "task_id": 621,
+    "annotation_id": 620,
+    "label_studio_user_id": 1,
+    "annotation_sha256": "b7610089bfb5bd2a3b8bb453c2f9ebe8ec1bf7d526ca28227b7034c7d0299a7d",
+    "review_flags": [],
+    "review_note": "GỢI Ý AI CHƯA DUYỆT.  Hệ phường/xã: P. Kinh Bắc: OLD_REFERENCE_PARENT_LINK_GAP. Chưa đủ bằng chứng chốt hệ toàn câu; đang để trống. Số nhà/đường và tên tỉnh trùng thời kỳ giữ khong_xac_dinh; không sao chép hệ toàn câu vào chúng."
+  },
+  "s3_7d9d2bd6ff632625": {
+    "task_id": 622,
+    "annotation_id": 701,
+    "label_studio_user_id": 1,
+    "annotation_sha256": "33c94cd464573cbdb4fbfa3aeeeddf0b9e01e0ee9069e145308fab26ea38e0c9",
+    "review_flags": [],
+    "review_note": "GỢI Ý AI CHƯA DUYỆT.  Hệ phường/xã: Dịch Vọng Hậu: EXACT_OLD_WARD_PARENT_SNAPSHOT. Hệ toàn câu cu là đề xuất theo đơn vị đủ bằng chứng, cần người duyệt xác nhận. Số nhà/đường và tên tỉnh trùng thời kỳ giữ khong_xac_dinh; không sao chép hệ toàn câu vào chúng."
+  },
+  "s3_9fe1a97170d5ce7d": {
+    "task_id": 623,
+    "annotation_id": 621,
+    "label_studio_user_id": 1,
+    "annotation_sha256": "7eb2790a04413d341c6837324577928568dd93ee909c705ff83542352cbcafc7",
+    "review_flags": [],
+    "review_note": "GỢI Ý AI CHƯA DUYỆT.  Hệ phường/xã: Kinh Bắc: OLD_REFERENCE_PARENT_LINK_GAP. Chưa đủ bằng chứng chốt hệ toàn câu; đang để trống. Số nhà/đường và tên tỉnh trùng thời kỳ giữ khong_xac_dinh; không sao chép hệ toàn câu vào chúng."
+  },
+  "s3_49069bc9cf530230": {
+    "task_id": 624,
+    "annotation_id": 622,
+    "label_studio_user_id": 1,
+    "annotation_sha256": "ff7902bdfe03f1664812fd8cbf3e9773a896d97bc62a52e04178aeba6b32f780",
+    "review_flags": [
+      "temporal_ambiguity"
+    ],
+    "review_note": "GỢI Ý AI CHƯA DUYỆT. Thành phố Bắc Ninh là thành phố cấp huyện trong cấu trúc này; Bắc Ninh cuối câu là tỉnh. Giữ nguyên chữ viết tắt. Hệ phường/xã: P.Tiền Ninh Vệ: OLD_REFERENCE_PARENT_LINK_GAP. Chưa đủ bằng chứng chốt hệ toàn câu; đang để trống. Số nhà/đường và tên tỉnh trùng thời kỳ giữ khong_xac_dinh; không sao chép hệ toàn câu vào chúng."
+  },
+  "s3_b489935e347b0113": {
+    "task_id": 625,
+    "annotation_id": 623,
+    "label_studio_user_id": 1,
+    "annotation_sha256": "60a589abe768a0f7465956137e62d0c7744176c5383cac610eafb54c522774b0",
+    "review_flags": [],
+    "review_note": "GỢI Ý AI CHƯA DUYỆT. 16 được đề xuất là PhuongXa theo vị trí giữa đường và Quận 8; thiếu chữ Phường nên người duyệt phải xác nhận, không coi số 16 là chắc chắn. Hệ phường/xã: 16: EXACT_OLD_WARD_PARENT_SNAPSHOT. Hệ toàn câu cu là đề xuất theo đơn vị đủ bằng chứng, cần người duyệt xác nhận. Số nhà/đường và tên tỉnh trùng thời kỳ giữ khong_xac_dinh; không sao chép hệ toàn câu vào chúng."
+  },
+  "s3_3dfc3828c9e52f8c": {
+    "task_id": 626,
+    "annotation_id": 624,
+    "label_studio_user_id": 1,
+    "annotation_sha256": "81e553b6ea59bf58dc58fd4c4f0c27b4d56e15efce30b4253b486093684c3d25",
+    "review_flags": [],
+    "review_note": "GỢI Ý AI CHƯA DUYỆT. An Hội không ghi loại đơn vị; đề xuất PhuongXa theo cấu trúc. Rà lại cấp và hệ; không suy hệ từ việc thiếu quận. Hệ phường/xã: An Hội: EXACT_NEW_WARD_PROVINCE_SNAPSHOT. Hệ toàn câu moi là đề xuất theo đơn vị đủ bằng chứng, cần người duyệt xác nhận. Số nhà/đường và tên tỉnh trùng thời kỳ giữ khong_xac_dinh; không sao chép hệ toàn câu vào chúng."
+  },
+  "s3_8469a2812a3c9768": {
+    "task_id": 627,
+    "annotation_id": 625,
+    "label_studio_user_id": 1,
+    "annotation_sha256": "54b4da512e2f4045c4b1ee8268bce47b7011edb74a8c9226f4f8e9792f662134",
+    "review_flags": [],
+    "review_note": "GỢI Ý AI CHƯA DUYỆT.  Hệ phường/xã: P.Tân Phú: NAME_PRESENT_IN_BOTH_SNAPSHOTS. Chưa đủ bằng chứng chốt hệ toàn câu; đang để trống. Số nhà/đường và tên tỉnh trùng thời kỳ giữ khong_xac_dinh; không sao chép hệ toàn câu vào chúng."
+  },
+  "s3_39dc8c823d62eb7d": {
+    "task_id": 628,
+    "annotation_id": 626,
+    "label_studio_user_id": 1,
+    "annotation_sha256": "b55a39ba5ff6833056245dc54ea59999d7725d7c7c90d9248a3109b8adb619bc",
+    "review_flags": [
+      "temporal_ambiguity"
+    ],
+    "review_note": "GỢI Ý AI CHƯA DUYỆT. Giữ Quan Ba Dinh nguyên văn; đề xuất QuanHuyen, không bổ sung dấu tiếng Việt vào span. Hệ phường/xã: Điện Biên: NO_UNIQUE_DATED_REFERENCE. Chưa đủ bằng chứng chốt hệ toàn câu; đang để trống. Số nhà/đường và tên tỉnh trùng thời kỳ giữ khong_xac_dinh; không sao chép hệ toàn câu vào chúng."
+  },
+  "s3_c653b940f299c3cf": {
+    "task_id": 629,
+    "annotation_id": 627,
+    "label_studio_user_id": 1,
+    "annotation_sha256": "6fe6a6d7b3a6e25947eb5f55c23169d08ff339323bfd7d12a173d8dfd860e6fb",
+    "review_flags": [],
+    "review_note": "GỢI Ý AI CHƯA DUYỆT. Giữ T Bac Ninh nguyên văn; loại tỉnh được nhận diện theo tiền tố và cấu trúc, hệ vẫn cần rà. Hệ phường/xã: P.Hạp Lĩnh: NO_EXACT_PROVINCE_CONTEXT. Chưa đủ bằng chứng chốt hệ toàn câu; đang để trống. Số nhà/đường và tên tỉnh trùng thời kỳ giữ khong_xac_dinh; không sao chép hệ toàn câu vào chúng."
+  },
+  "s3_e705dab3c4063df5": {
+    "task_id": 630,
+    "annotation_id": 628,
+    "label_studio_user_id": 1,
+    "annotation_sha256": "7a09e46adc639d5cfba788bd23606dae57ec7498bf541bf01568959c3bad1810",
+    "review_flags": [],
+    "review_note": "GỢI Ý AI CHƯA DUYỆT. Giữ P. Vo Cuong nguyên văn; không đoán hệ từ dạng bỏ dấu. Hệ phường/xã: P. Vo Cuong: NO_UNIQUE_DATED_REFERENCE. Chưa đủ bằng chứng chốt hệ toàn câu; đang để trống. Số nhà/đường và tên tỉnh trùng thời kỳ giữ khong_xac_dinh; không sao chép hệ toàn câu vào chúng."
+  },
+  "s3_e192f19b0b238432": {
+    "task_id": 631,
+    "annotation_id": 629,
+    "label_studio_user_id": 1,
+    "annotation_sha256": "f7c8ddde62177874f65f8c217b1fadeff123ff07036af3522e219a14a3a7095d",
+    "review_flags": [],
+    "review_note": "GỢI Ý AI CHƯA DUYỆT. SH02-07 có thể là mã lô/căn; tạm đề xuất SoNha. San Ho 2 tạm là TenDuong; rà cả hai nhãn và giữ nguyên cách viết. Gia Lâm được đề xuất cấp huyện theo cấu trúc. Hệ phường/xã: Đa Tốn: EXACT_OLD_WARD_PARENT_SNAPSHOT. Hệ toàn câu cu là đề xuất theo đơn vị đủ bằng chứng, cần người duyệt xác nhận. Số nhà/đường và tên tỉnh trùng thời kỳ giữ khong_xac_dinh; không sao chép hệ toàn câu vào chúng."
+  },
+  "s3_224ae519b196f730": {
+    "task_id": 632,
+    "annotation_id": 630,
+    "label_studio_user_id": 1,
+    "annotation_sha256": "3d0b1edef6d0385fb14a356ff37463e0bae05e63160f18b53d873715e8a75cad",
+    "review_flags": [],
+    "review_note": "GỢI Ý AI CHƯA DUYỆT. Tân Bình không ghi Quận; đề xuất cấp huyện theo cấu trúc sau Phường 13. Hệ phường/xã: Phường 13: EXACT_OLD_WARD_PARENT_SNAPSHOT. Hệ toàn câu cu là đề xuất theo đơn vị đủ bằng chứng, cần người duyệt xác nhận. Số nhà/đường và tên tỉnh trùng thời kỳ giữ khong_xac_dinh; không sao chép hệ toàn câu vào chúng."
+  },
+  "s3_35525b63dc71e55a": {
+    "task_id": 633,
+    "annotation_id": 631,
+    "label_studio_user_id": 1,
+    "annotation_sha256": "704e8e2ea762d4676110de40fc8a8491af6fc60d234bd31a44fe100e53a50f6f",
+    "review_flags": [],
+    "review_note": "GỢI Ý AI CHƯA DUYỆT. Giữ P. Kinh Bac nguyên văn; không dùng chuỗi sạch để sửa tên hoặc gán hệ. Hệ phường/xã: P. Kinh Bac: NO_UNIQUE_DATED_REFERENCE. Chưa đủ bằng chứng chốt hệ toàn câu; đang để trống. Số nhà/đường và tên tỉnh trùng thời kỳ giữ khong_xac_dinh; không sao chép hệ toàn câu vào chúng."
+  },
+  "s3_bba5eaeea86f9f12": {
+    "task_id": 634,
+    "annotation_id": 632,
+    "label_studio_user_id": 1,
+    "annotation_sha256": "b9e7e4662130e0b8b54708b83c662ae8c03732dad8435c37e97b74383f8f8571",
+    "review_flags": [],
+    "review_note": "GỢI Ý AI CHƯA DUYỆT.  Hệ phường/xã: Tân Phú: NAME_PRESENT_IN_BOTH_SNAPSHOTS. Chưa đủ bằng chứng chốt hệ toàn câu; đang để trống. Số nhà/đường và tên tỉnh trùng thời kỳ giữ khong_xac_dinh; không sao chép hệ toàn câu vào chúng."
+  },
+  "s3_9b9eccb66aa33520": {
+    "task_id": 635,
+    "annotation_id": 633,
+    "label_studio_user_id": 1,
+    "annotation_sha256": "6929505d88d1a9fd9f632dca70a316af56b8b6d0a79164c601458747d6eb7f73",
+    "review_flags": [
+      "temporal_ambiguity"
+    ],
+    "review_note": "GỢI Ý AI CHƯA DUYỆT. Giữ Bac Ninh nguyên văn, không thêm dấu; không suy hệ từ việc thiếu phường/quận. Chưa đủ bằng chứng chốt hệ toàn câu; đang để trống. Số nhà/đường và tên tỉnh trùng thời kỳ giữ khong_xac_dinh; không sao chép hệ toàn câu vào chúng."
+  },
+  "s3_b4c966dd68e1fd73": {
+    "task_id": 636,
+    "annotation_id": 634,
+    "label_studio_user_id": 1,
+    "annotation_sha256": "821ce176d3a405b11ef2857106cbfea1f3d80c4bc76eba113e7db44a903c9ae7",
+    "review_flags": [
+      "ambiguous_label",
+      "temporal_ambiguity"
+    ],
+    "review_note": "GỢI Ý AI CHƯA DUYỆT. Hẻm 640/20/12 là Ngo/Hem, không tự tạo số nhà. Gia Thuy được đề xuất cấp phường theo cấu trúc nhưng tên bỏ dấu cần rà; Long Biên đề xuất cấp huyện. Hệ phường/xã: Gia Thuy: NO_UNIQUE_DATED_REFERENCE. Chưa đủ bằng chứng chốt hệ toàn câu; đang để trống. Số nhà/đường và tên tỉnh trùng thời kỳ giữ khong_xac_dinh; không sao chép hệ toàn câu vào chúng."
+  },
+  "s3_218d3a425b8b0cee": {
+    "task_id": 637,
+    "annotation_id": 635,
+    "label_studio_user_id": 1,
+    "annotation_sha256": "6971c28a13d1980dc8a16b25a68f8520b617544f3e4e11ccc7cd0dc38e2a09b1",
+    "review_flags": [
+      "temporal_ambiguity"
+    ],
+    "review_note": "GỢI Ý AI CHƯA DUYỆT. Giữ Phuong Hap Linh nguyên văn; không suy thời kỳ từ chữ bỏ dấu. Hệ phường/xã: Phuong Hap Linh: NO_UNIQUE_DATED_REFERENCE. Chưa đủ bằng chứng chốt hệ toàn câu; đang để trống. Số nhà/đường và tên tỉnh trùng thời kỳ giữ khong_xac_dinh; không sao chép hệ toàn câu vào chúng."
+  },
+  "s3_ef1a4fc427e9e5da": {
+    "task_id": 638,
+    "annotation_id": 636,
+    "label_studio_user_id": 1,
+    "annotation_sha256": "96643b0f385cba42af9dd68b9930607e009b921c24d4fb66436de3aeb27acee1",
+    "review_flags": [
+      "temporal_ambiguity"
+    ],
+    "review_note": "GỢI Ý AI CHƯA DUYỆT. Thứ tự tỉnh trước phường được giữ nguyên; không chuyển vị trí span hoặc sửa P.Vo Cuong. Hệ phường/xã: P.Vo Cuong: NO_UNIQUE_DATED_REFERENCE. Chưa đủ bằng chứng chốt hệ toàn câu; đang để trống. Số nhà/đường và tên tỉnh trùng thời kỳ giữ khong_xac_dinh; không sao chép hệ toàn câu vào chúng."
+  },
+  "s3_7ec6e1bd932176ef": {
+    "task_id": 639,
+    "annotation_id": 637,
+    "label_studio_user_id": 1,
+    "annotation_sha256": "78ed23ab5a1128473af2bf124eae6bb64708ee5ce7d9e20f3d4cdd93d3679bc3",
+    "review_flags": [],
+    "review_note": "GỢI Ý AI CHƯA DUYỆT. Quan 7 được đề xuất QuanHuyen/cu theo tiền tố và cấu trúc; giữ nguyên cách viết. Hệ phường/xã: Tân Phú: NAME_PRESENT_IN_BOTH_SNAPSHOTS. Chưa đủ bằng chứng chốt hệ toàn câu; đang để trống. Số nhà/đường và tên tỉnh trùng thời kỳ giữ khong_xac_dinh; không sao chép hệ toàn câu vào chúng."
+  },
+  "s3_67e768989943548a": {
+    "task_id": 640,
+    "annotation_id": 638,
+    "label_studio_user_id": 1,
+    "annotation_sha256": "6c347b06f0844da9c95bf3c2def9d420d8e41281b4547918c5d1c296fa653fe3",
+    "review_flags": [
+      "temporal_ambiguity"
+    ],
+    "review_note": "GỢI Ý AI CHƯA DUYỆT.  Chưa đủ bằng chứng chốt hệ toàn câu; đang để trống. Số nhà/đường và tên tỉnh trùng thời kỳ giữ khong_xac_dinh; không sao chép hệ toàn câu vào chúng."
+  },
+  "s3_747c2f7b136f23cf": {
+    "task_id": 641,
+    "annotation_id": 639,
+    "label_studio_user_id": 1,
+    "annotation_sha256": "f779dc9fb1786804213b606b8027d0ead61f791f7546ab410d180b9d8f796fa7",
+    "review_flags": [],
+    "review_note": "GỢI Ý AI CHƯA DUYỆT. Cổ Bi trong tên đường và Cổ Bi sau dấu phẩy là hai lần nhắc khác nhau; không chọn substring bên trong tên đường làm span xã. Hệ phường/xã: Cổ Bi: EXACT_OLD_WARD_PARENT_SNAPSHOT. Hệ toàn câu cu là đề xuất theo đơn vị đủ bằng chứng, cần người duyệt xác nhận. Số nhà/đường và tên tỉnh trùng thời kỳ giữ khong_xac_dinh; không sao chép hệ toàn câu vào chúng."
+  },
+  "s3_22aeaf4ee2f0f604": {
+    "task_id": 642,
+    "annotation_id": 640,
+    "label_studio_user_id": 1,
+    "annotation_sha256": "de6102907e251cf9607f9fc54989908273f5a50981e30060830f7d0abc75c750",
+    "review_flags": [
+      "temporal_ambiguity"
+    ],
+    "review_note": "GỢI Ý AI CHƯA DUYỆT. Thành phố Bắc Ninh là cấp huyện; tên Võ Cường tồn tại qua hai snapshot nên không tự sao chép cu từ thành phố vào phường. Hệ phường/xã: Phường Võ Cường: OLD_REFERENCE_PARENT_LINK_GAP. Chưa đủ bằng chứng chốt hệ toàn câu; đang để trống. Số nhà/đường và tên tỉnh trùng thời kỳ giữ khong_xac_dinh; không sao chép hệ toàn câu vào chúng."
+  },
+  "s3_d0413145910c2af9": {
+    "task_id": 643,
+    "annotation_id": 641,
+    "label_studio_user_id": 1,
+    "annotation_sha256": "94c67a1cbab2b7e42fa3d2b03dd2f5c9bdf96a4f499b25b25c1402e3d5932666",
+    "review_flags": [],
+    "review_note": "GỢI Ý AI CHƯA DUYỆT. Hai lần Lê Đại Hành lần lượt là tên đường và tên phường; Hai Bà Trưng được đề xuất cấp huyện theo cấu trúc. Hệ phường/xã: Lê Đại Hành: EXACT_OLD_WARD_PARENT_SNAPSHOT. Hệ toàn câu cu là đề xuất theo đơn vị đủ bằng chứng, cần người duyệt xác nhận. Số nhà/đường và tên tỉnh trùng thời kỳ giữ khong_xac_dinh; không sao chép hệ toàn câu vào chúng."
+  },
+  "s3_a1426dafb034e5f6": {
+    "task_id": 644,
+    "annotation_id": 642,
+    "label_studio_user_id": 1,
+    "annotation_sha256": "07be6e8bb0db2ac2e765e23cee05d82c35a2602a50fa72fd209f78b24f52665e",
+    "review_flags": [],
+    "review_note": "GỢI Ý AI CHƯA DUYỆT.  Hệ phường/xã: Phường Dịch Vọng Hậu: EXACT_OLD_WARD_PARENT_SNAPSHOT. Hệ toàn câu cu là đề xuất theo đơn vị đủ bằng chứng, cần người duyệt xác nhận. Số nhà/đường và tên tỉnh trùng thời kỳ giữ khong_xac_dinh; không sao chép hệ toàn câu vào chúng."
+  },
+  "s3_878554ae9b7f8f0b": {
+    "task_id": 645,
+    "annotation_id": 643,
+    "label_studio_user_id": 1,
+    "annotation_sha256": "02539fcc31eb8cda622951d5862a6d38c0fe8e25ef3dc1a7af5add96d5db7392",
+    "review_flags": [],
+    "review_note": "GỢI Ý AI CHƯA DUYỆT. 237/4/66 là số nhà, Hẻm 237/4 là ngõ/hẻm khác span. Tân Phú ở vị trí cấp huyện sau Hiệp Tân; cần xác nhận không phải phường. Hệ phường/xã: Hiệp Tân: OLD_REFERENCE_PARENT_LINK_GAP. Chưa đủ bằng chứng chốt hệ toàn câu; đang để trống. Số nhà/đường và tên tỉnh trùng thời kỳ giữ khong_xac_dinh; không sao chép hệ toàn câu vào chúng."
+  },
+  "s3_c3abeb01e2e73e91": {
+    "task_id": 646,
+    "annotation_id": 644,
+    "label_studio_user_id": 1,
+    "annotation_sha256": "0e7468211dfd9dc91621859a47bb1b52b6cd39a71a5c7507710ed8f376e3faaa",
+    "review_flags": [
+      "ambiguous_label",
+      "temporal_ambiguity"
+    ],
+    "review_note": "GỢI Ý AI CHƯA DUYỆT. Gán cả hai Phường 11. Không biến Phường 11 cuối câu thành tỉnh hoặc thêm Hồ Chí Minh vì văn bản không có tỉnh; toàn câu để chưa xác định nếu thiếu bằng chứng. Hệ phường/xã: Phường 11: NO_EXACT_PROVINCE_CONTEXT; Phường 11: NO_EXACT_PROVINCE_CONTEXT. Chưa đủ bằng chứng chốt hệ toàn câu; đang để trống. Số nhà/đường và tên tỉnh trùng thời kỳ giữ khong_xac_dinh; không sao chép hệ toàn câu vào chúng."
+  },
+  "s3_1fe92bd0e0b5664f": {
+    "task_id": 647,
+    "annotation_id": 645,
+    "label_studio_user_id": 1,
+    "annotation_sha256": "b5c5e7507aaffafa4a92d1928cf6ca7df3795fd57daeee19d10c42cefbaf268a",
+    "review_flags": [],
+    "review_note": "GỢI Ý AI CHƯA DUYỆT.  Hệ phường/xã: Phường Điện Biên: EXACT_OLD_WARD_PARENT_SNAPSHOT. Hệ toàn câu cu là đề xuất theo đơn vị đủ bằng chứng, cần người duyệt xác nhận. Số nhà/đường và tên tỉnh trùng thời kỳ giữ khong_xac_dinh; không sao chép hệ toàn câu vào chúng."
+  },
+  "s3_134df3cb96064476": {
+    "task_id": 648,
+    "annotation_id": 646,
+    "label_studio_user_id": 1,
+    "annotation_sha256": "7357fd14c65f699060f24425a73dc5b5815109334b4df267827374b1a62a8de6",
+    "review_flags": [],
+    "review_note": "GỢI Ý AI CHƯA DUYỆT. Thành phố Bắc Ninh là cấp huyện; không suy thời kỳ của Võ Cường từ đơn vị cha. Hệ phường/xã: Phường Võ Cường: OLD_REFERENCE_PARENT_LINK_GAP. Chưa đủ bằng chứng chốt hệ toàn câu; đang để trống. Số nhà/đường và tên tỉnh trùng thời kỳ giữ khong_xac_dinh; không sao chép hệ toàn câu vào chúng."
+  },
+  "s3_3271d5524fc50164": {
+    "task_id": 649,
+    "annotation_id": 647,
+    "label_studio_user_id": 1,
+    "annotation_sha256": "6faf036a372d456e34bb6cf61b12eaf5034f457844442e5744a98111f4b7a287",
+    "review_flags": [],
+    "review_note": "GỢI Ý AI CHƯA DUYỆT. Công Trường Công Xã Paris tạm đề xuất TenDuong như tên tuyến/quảng trường trong địa chỉ; cần rà giữa TenDuong và MocDinhVi/Khac. Không bỏ từ số khỏi số 02. Hệ phường/xã: Bến Nghé: EXACT_OLD_WARD_PARENT_SNAPSHOT. Hệ toàn câu cu là đề xuất theo đơn vị đủ bằng chứng, cần người duyệt xác nhận. Số nhà/đường và tên tỉnh trùng thời kỳ giữ khong_xac_dinh; không sao chép hệ toàn câu vào chúng."
+  },
+  "s3_3293fb2944eae4f3": {
+    "task_id": 650,
+    "annotation_id": 648,
+    "label_studio_user_id": 1,
+    "annotation_sha256": "08c268985ddd198d59d22b44f16e7d572d8d5ec1a7a63fc579d41577e53bc68c",
+    "review_flags": [],
+    "review_note": "GỢI Ý AI CHƯA DUYỆT.  Hệ phường/xã: Phường Điện Biên: EXACT_OLD_WARD_PARENT_SNAPSHOT. Hệ toàn câu cu là đề xuất theo đơn vị đủ bằng chứng, cần người duyệt xác nhận. Số nhà/đường và tên tỉnh trùng thời kỳ giữ khong_xac_dinh; không sao chép hệ toàn câu vào chúng."
+  },
+  "s3_39a5dfd0ab38f906": {
+    "task_id": 651,
+    "annotation_id": 649,
+    "label_studio_user_id": 1,
+    "annotation_sha256": "8f5c0f01503dc4c99ffdc7d714a3f04197fbe9456a971285759c65f957bb6d99",
+    "review_flags": [],
+    "review_note": "GỢI Ý AI CHƯA DUYỆT. T2-4 có thể là mã lô nên SoNha cần rà. Khu Công Nghệ Cao là vùng/cụm địa điểm có nghĩa, tạm Khac; không mặc định là tòa nhà hoặc tên đường. Tân Phú trùng tên giữa hai thời kỳ. Hệ phường/xã: Phường Tân Phú: NAME_PRESENT_IN_BOTH_SNAPSHOTS. Chưa đủ bằng chứng chốt hệ toàn câu; đang để trống. Số nhà/đường và tên tỉnh trùng thời kỳ giữ khong_xac_dinh; không sao chép hệ toàn câu vào chúng."
+  },
+  "s3_9ee844c9de7c6718": {
+    "task_id": 652,
+    "annotation_id": 650,
+    "label_studio_user_id": 1,
+    "annotation_sha256": "11850abc5ebce8284d872f95677ce5670f6b8b45550ec8797531b56fba60460c",
+    "review_flags": [],
+    "review_note": "GỢI Ý AI CHƯA DUYỆT. Bình Tân không có tiền tố Quận; đề xuất cấp huyện theo cấu trúc sau Bình Trị Đông B. Hệ phường/xã: Bình Trị Đông B: EXACT_OLD_WARD_PARENT_SNAPSHOT. Hệ toàn câu cu là đề xuất theo đơn vị đủ bằng chứng, cần người duyệt xác nhận. Số nhà/đường và tên tỉnh trùng thời kỳ giữ khong_xac_dinh; không sao chép hệ toàn câu vào chúng."
+  },
+  "s3_c8b9e756db71e71e": {
+    "task_id": 653,
+    "annotation_id": 651,
+    "label_studio_user_id": 1,
+    "annotation_sha256": "ce957d91fcd3a213dbb824198f45c9ef5d035f3a482371161ba899939ab4b9ea",
+    "review_flags": [],
+    "review_note": "GỢI Ý AI CHƯA DUYỆT.  Hệ phường/xã: Phường Đội Cấn: EXACT_OLD_WARD_PARENT_SNAPSHOT. Hệ toàn câu cu là đề xuất theo đơn vị đủ bằng chứng, cần người duyệt xác nhận. Số nhà/đường và tên tỉnh trùng thời kỳ giữ khong_xac_dinh; không sao chép hệ toàn câu vào chúng."
+  },
+  "s3_813d3b0d62e9319c": {
+    "task_id": 654,
+    "annotation_id": 653,
+    "label_studio_user_id": 1,
+    "annotation_sha256": "637ab1ab525e8f16931c11ee4fe3524d1c248686893c47d1970a2eaabec52f02",
+    "review_flags": [],
+    "review_note": "GỢI Ý AI CHƯA DUYỆT. Hoàn Kiếm tạm là cấp huyện vì có Trần Hưng Đạo ở vị trí phường trước nó; Hoàn Kiếm cũng là tên phường mới nên cần rà, không chọn cấp từ tên đơn lẻ. Hệ phường/xã: Trần Hưng Đạo: OLD_REFERENCE_PARENT_LINK_GAP. Chưa đủ bằng chứng chốt hệ toàn câu; đang để trống. Số nhà/đường và tên tỉnh trùng thời kỳ giữ khong_xac_dinh; không sao chép hệ toàn câu vào chúng."
+  },
+  "s3_485eed351f54670e": {
+    "task_id": 655,
+    "annotation_id": 654,
+    "label_studio_user_id": 1,
+    "annotation_sha256": "5e285484fef23ddb2aff76b73a6c9b228ea83752d82892e3afd42ceb49456ef2",
+    "review_flags": [],
+    "review_note": "GỢI Ý AI CHƯA DUYỆT. Hai Bà Trưng được đề xuất cấp huyện theo vị trí sau Thanh Lương; không có tiền tố Quận nên cần rà. Hệ phường/xã: Thanh Lương: EXACT_OLD_WARD_PARENT_SNAPSHOT. Hệ toàn câu cu là đề xuất theo đơn vị đủ bằng chứng, cần người duyệt xác nhận. Số nhà/đường và tên tỉnh trùng thời kỳ giữ khong_xac_dinh; không sao chép hệ toàn câu vào chúng."
+  },
+  "s3_9dfd7906c1c267f5": {
+    "task_id": 656,
+    "annotation_id": 655,
+    "label_studio_user_id": 1,
+    "annotation_sha256": "f882a34c414d6e8226ec3e19f0c5adaa80f54472ffa6862059df5303caf96f47",
+    "review_flags": [],
+    "review_note": "GỢI Ý AI CHƯA DUYỆT.  Hệ phường/xã: Phường Võ Cường: OLD_REFERENCE_PARENT_LINK_GAP. Chưa đủ bằng chứng chốt hệ toàn câu; đang để trống. Số nhà/đường và tên tỉnh trùng thời kỳ giữ khong_xac_dinh; không sao chép hệ toàn câu vào chúng."
+  },
+  "s3_2a0462b435133743": {
+    "task_id": 657,
+    "annotation_id": 656,
+    "label_studio_user_id": 1,
+    "annotation_sha256": "f8e0379d01fcaa7487dfb84e09cd4a7c2385644a142264946269fad12d6506f1",
+    "review_flags": [],
+    "review_note": "GỢI Ý AI CHƯA DUYỆT.  Hệ phường/xã: Phường Cát Linh: EXACT_OLD_WARD_PARENT_SNAPSHOT. Hệ toàn câu cu là đề xuất theo đơn vị đủ bằng chứng, cần người duyệt xác nhận. Số nhà/đường và tên tỉnh trùng thời kỳ giữ khong_xac_dinh; không sao chép hệ toàn câu vào chúng."
+  },
+  "s3_2b4e0c5a974f6e81": {
+    "task_id": 658,
+    "annotation_id": 657,
+    "label_studio_user_id": 1,
+    "annotation_sha256": "887fdd0ae37b413bb28bfa347a519b11f8f8bd0d2eb66c94f4ff7f5fb4d52605",
+    "review_flags": [],
+    "review_note": "GỢI Ý AI CHƯA DUYỆT.  Hệ phường/xã: Phường Cổ Nhuế 1: EXACT_OLD_WARD_PARENT_SNAPSHOT. Hệ toàn câu cu là đề xuất theo đơn vị đủ bằng chứng, cần người duyệt xác nhận. Số nhà/đường và tên tỉnh trùng thời kỳ giữ khong_xac_dinh; không sao chép hệ toàn câu vào chúng."
+  },
+  "s3_0d4334f683047c72": {
+    "task_id": 659,
+    "annotation_id": 658,
+    "label_studio_user_id": 1,
+    "annotation_sha256": "4a4bfdef3dbfca4c3e6774473127a873319097f0fbcb9e12d6dc55392e02e59b",
+    "review_flags": [],
+    "review_note": "GỢI Ý AI CHƯA DUYỆT.  Hệ phường/xã: Phường Điện Biên: EXACT_OLD_WARD_PARENT_SNAPSHOT. Hệ toàn câu cu là đề xuất theo đơn vị đủ bằng chứng, cần người duyệt xác nhận. Số nhà/đường và tên tỉnh trùng thời kỳ giữ khong_xac_dinh; không sao chép hệ toàn câu vào chúng."
+  },
+  "s3_6651e65c6000214b": {
+    "task_id": 660,
+    "annotation_id": 659,
+    "label_studio_user_id": 1,
+    "annotation_sha256": "eebf46e2985d150f63f42267524a80f6cdf7b22a8fc6d316b527485c4e2a08a6",
+    "review_flags": [],
+    "review_note": "GỢI Ý AI CHƯA DUYỆT.  Hệ phường/xã: Phường Điện Biên: EXACT_OLD_WARD_PARENT_SNAPSHOT. Hệ toàn câu cu là đề xuất theo đơn vị đủ bằng chứng, cần người duyệt xác nhận. Số nhà/đường và tên tỉnh trùng thời kỳ giữ khong_xac_dinh; không sao chép hệ toàn câu vào chúng."
+  },
+  "s3_609083843fc9fad7": {
+    "task_id": 661,
+    "annotation_id": 660,
+    "label_studio_user_id": 1,
+    "annotation_sha256": "3d5f3b52eb60b4c14b73fc016362e3a18a28045b9e5bb3cdde793923c9788127",
+    "review_flags": [],
+    "review_note": "GỢI Ý AI CHƯA DUYỆT.  Hệ phường/xã: Giáp Bát: EXACT_OLD_WARD_PARENT_SNAPSHOT. Hệ toàn câu cu là đề xuất theo đơn vị đủ bằng chứng, cần người duyệt xác nhận. Số nhà/đường và tên tỉnh trùng thời kỳ giữ khong_xac_dinh; không sao chép hệ toàn câu vào chúng."
+  },
+  "s3_98d58db06330840b": {
+    "task_id": 662,
+    "annotation_id": 661,
+    "label_studio_user_id": 1,
+    "annotation_sha256": "0e030d939d8cf10a270753809bd7eb62805de8979032d9b9d25c795ade3bd7d4",
+    "review_flags": [
+      "ambiguous_label"
+    ],
+    "review_note": "GỢI Ý AI CHƯA DUYỆT. Khu dân cư số 9 tạm Khac vì là khu địa điểm, không có bằng chứng tên đường; rà nhãn này. Không thêm tên đường còn thiếu. Hệ phường/xã: Xuân Khánh: EXACT_OLD_WARD_PARENT_SNAPSHOT. Hệ toàn câu cu là đề xuất theo đơn vị đủ bằng chứng, cần người duyệt xác nhận. Số nhà/đường và tên tỉnh trùng thời kỳ giữ khong_xac_dinh; không sao chép hệ toàn câu vào chúng."
+  },
+  "s3_8dd4536611f09a74": {
+    "task_id": 663,
+    "annotation_id": 662,
+    "label_studio_user_id": 1,
+    "annotation_sha256": "10c850932c7a4f16fe802072525d7f3d0c625afc00a2d3b8e7ae680176c42372",
+    "review_flags": [],
+    "review_note": "GỢI Ý AI CHƯA DUYỆT.  Hệ phường/xã: Lê Đại Hành: EXACT_OLD_WARD_PARENT_SNAPSHOT. Hệ toàn câu cu là đề xuất theo đơn vị đủ bằng chứng, cần người duyệt xác nhận. Số nhà/đường và tên tỉnh trùng thời kỳ giữ khong_xac_dinh; không sao chép hệ toàn câu vào chúng."
+  },
+  "s3_895748de4265665a": {
+    "task_id": 664,
+    "annotation_id": 663,
+    "label_studio_user_id": 1,
+    "annotation_sha256": "dd3f92bb36d26cd78e0c8de7fbfe9987d0c0a4378e44f4da440a425c7ac9f6ec",
+    "review_flags": [],
+    "review_note": "GỢI Ý AI CHƯA DUYỆT.  Hệ phường/xã: P Dịch Vọng Hậu: EXACT_OLD_WARD_PARENT_SNAPSHOT. Hệ toàn câu cu là đề xuất theo đơn vị đủ bằng chứng, cần người duyệt xác nhận. Số nhà/đường và tên tỉnh trùng thời kỳ giữ khong_xac_dinh; không sao chép hệ toàn câu vào chúng."
+  },
+  "s3_c9ceb4918634b3b6": {
+    "task_id": 665,
+    "annotation_id": 664,
+    "label_studio_user_id": 1,
+    "annotation_sha256": "b63213e97eceb361e38d891d2c66d0a85bf5ef3f05ffa80aeebbda5099e96ebc",
+    "review_flags": [],
+    "review_note": "GỢI Ý AI CHƯA DUYỆT. Tân An có tên ở cả hai thời kỳ trong Cần Thơ; không chọn hệ chỉ vì địa chỉ không có quận. Hệ phường/xã: Tân An: OLD_REFERENCE_PARENT_LINK_GAP. Chưa đủ bằng chứng chốt hệ toàn câu; đang để trống. Số nhà/đường và tên tỉnh trùng thời kỳ giữ khong_xac_dinh; không sao chép hệ toàn câu vào chúng."
+  },
+  "s3_f5ce444c590a9470": {
+    "task_id": 666,
+    "annotation_id": 665,
+    "label_studio_user_id": 1,
+    "annotation_sha256": "de6d4f73acc3ea49cfd73d9b59158c4463eee807fda7e11e3504d20129005884",
+    "review_flags": [
+      "temporal_ambiguity"
+    ],
+    "review_note": "GỢI Ý AI CHƯA DUYỆT.  Hệ phường/xã: P. Võ Cường: OLD_REFERENCE_PARENT_LINK_GAP. Chưa đủ bằng chứng chốt hệ toàn câu; đang để trống. Số nhà/đường và tên tỉnh trùng thời kỳ giữ khong_xac_dinh; không sao chép hệ toàn câu vào chúng."
+  },
+  "s3_46fc075129e61ead": {
+    "task_id": 667,
+    "annotation_id": 666,
+    "label_studio_user_id": 1,
+    "annotation_sha256": "ba4cb502f23af3ebbe849740db97fb605d6bf9bb8033caeb57c5814951f7583c",
+    "review_flags": [
+      "temporal_ambiguity"
+    ],
+    "review_note": "GỢI Ý AI CHƯA DUYỆT.  Hệ phường/xã: Võ Cường: OLD_REFERENCE_PARENT_LINK_GAP. Chưa đủ bằng chứng chốt hệ toàn câu; đang để trống. Số nhà/đường và tên tỉnh trùng thời kỳ giữ khong_xac_dinh; không sao chép hệ toàn câu vào chúng."
+  },
+  "s3_d2f8365c992a0602": {
+    "task_id": 668,
+    "annotation_id": 667,
+    "label_studio_user_id": 1,
+    "annotation_sha256": "67a3f44e40453c017673a9199664ea2f0ace0f1e724928cdc3724820194cab3a",
+    "review_flags": [],
+    "review_note": "GỢI Ý AI CHƯA DUYỆT.  Hệ phường/xã: Mai Dịch: EXACT_OLD_WARD_PARENT_SNAPSHOT. Hệ toàn câu cu là đề xuất theo đơn vị đủ bằng chứng, cần người duyệt xác nhận. Số nhà/đường và tên tỉnh trùng thời kỳ giữ khong_xac_dinh; không sao chép hệ toàn câu vào chúng."
+  },
+  "s3_acf4b641c53cef77": {
+    "task_id": 669,
+    "annotation_id": 668,
+    "label_studio_user_id": 1,
+    "annotation_sha256": "fefde3ac738f0f4f1904c8ed11519f99fd1be08791be9c979ba1f1b92f93d79f",
+    "review_flags": [
+      "temporal_ambiguity"
+    ],
+    "review_note": "GỢI Ý AI CHƯA DUYỆT.  Hệ phường/xã: P.Hạp Lĩnh: OLD_REFERENCE_PARENT_LINK_GAP. Chưa đủ bằng chứng chốt hệ toàn câu; đang để trống. Số nhà/đường và tên tỉnh trùng thời kỳ giữ khong_xac_dinh; không sao chép hệ toàn câu vào chúng."
+  },
+  "s3_0c36533dbc209916": {
+    "task_id": 670,
+    "annotation_id": 669,
+    "label_studio_user_id": 1,
+    "annotation_sha256": "d2f40dcd380ba789d6ca08b9a0f1a1d24f5e96e43d3535798968533672d02bd8",
+    "review_flags": [
+      "temporal_ambiguity"
+    ],
+    "review_note": "GỢI Ý AI CHƯA DUYỆT. 44 là một phần tên đường Kinh Bắc 44, không tách thành số nhà. Hệ phường/xã: P.Kinh Bắc: OLD_REFERENCE_PARENT_LINK_GAP. Chưa đủ bằng chứng chốt hệ toàn câu; đang để trống. Số nhà/đường và tên tỉnh trùng thời kỳ giữ khong_xac_dinh; không sao chép hệ toàn câu vào chúng."
+  },
+  "s3_65c8148f6e5255cd": {
+    "task_id": 671,
+    "annotation_id": 670,
+    "label_studio_user_id": 1,
+    "annotation_sha256": "0257a22b62211f759b0cb994c0cf55055c5b0ff50b51b76142724019f13e211d",
+    "review_flags": [],
+    "review_note": "GỢI Ý AI CHƯA DUYỆT.  Hệ toàn câu cu là đề xuất theo đơn vị đủ bằng chứng, cần người duyệt xác nhận. Số nhà/đường và tên tỉnh trùng thời kỳ giữ khong_xac_dinh; không sao chép hệ toàn câu vào chúng."
+  },
+  "s3_d6c4799c4af226c5": {
+    "task_id": 672,
+    "annotation_id": 671,
+    "label_studio_user_id": 1,
+    "annotation_sha256": "ddfa1ff9bb671755376a909d7f50779d6c850c84e15a51dae82d94ca678b6dc6",
+    "review_flags": [
+      "temporal_ambiguity"
+    ],
+    "review_note": "GỢI Ý AI CHƯA DUYỆT.  Chưa đủ bằng chứng chốt hệ toàn câu; đang để trống. Số nhà/đường và tên tỉnh trùng thời kỳ giữ khong_xac_dinh; không sao chép hệ toàn câu vào chúng."
+  },
+  "s3_e5236850d0f001b7": {
+    "task_id": 673,
+    "annotation_id": 672,
+    "label_studio_user_id": 1,
+    "annotation_sha256": "961d8f644e5f2b7d0a15a296e52bedcb30a6fc57ea86cafd58802bc28b50bc2f",
+    "review_flags": [
+      "temporal_ambiguity"
+    ],
+    "review_note": "GỢI Ý AI CHƯA DUYỆT.  Chưa đủ bằng chứng chốt hệ toàn câu; đang để trống. Số nhà/đường và tên tỉnh trùng thời kỳ giữ khong_xac_dinh; không sao chép hệ toàn câu vào chúng."
+  },
+  "s3_36ce325b8153d921": {
+    "task_id": 674,
+    "annotation_id": 673,
+    "label_studio_user_id": 1,
+    "annotation_sha256": "a97438151124e291bc610deb7c0f7e2d143e4ca1aa37106ddc968b04e2eaa4ad",
+    "review_flags": [],
+    "review_note": "GỢI Ý AI CHƯA DUYỆT.  Hệ toàn câu cu là đề xuất theo đơn vị đủ bằng chứng, cần người duyệt xác nhận. Số nhà/đường và tên tỉnh trùng thời kỳ giữ khong_xac_dinh; không sao chép hệ toàn câu vào chúng."
+  },
+  "s3_d60e564cebfafcfa": {
+    "task_id": 675,
+    "annotation_id": 674,
+    "label_studio_user_id": 1,
+    "annotation_sha256": "7168741ff83e847a5dce25938759710dbcd7ebf57477e2e94a7d09064f9ea109",
+    "review_flags": [
+      "temporal_ambiguity"
+    ],
+    "review_note": "GỢI Ý AI CHƯA DUYỆT.  Chưa đủ bằng chứng chốt hệ toàn câu; đang để trống. Số nhà/đường và tên tỉnh trùng thời kỳ giữ khong_xac_dinh; không sao chép hệ toàn câu vào chúng."
+  },
+  "s3_876e4794db1a2ac5": {
+    "task_id": 676,
+    "annotation_id": 675,
+    "label_studio_user_id": 1,
+    "annotation_sha256": "08101c5aa792221eda92195a5f8a86acdc0774d8db366c53ea6e970a8088a2da",
+    "review_flags": [
+      "temporal_ambiguity"
+    ],
+    "review_note": "GỢI Ý AI CHƯA DUYỆT. Ngõ 71 là Ngo/Hem, không tự thêm SoNha khi không xuất hiện. Chưa đủ bằng chứng chốt hệ toàn câu; đang để trống. Số nhà/đường và tên tỉnh trùng thời kỳ giữ khong_xac_dinh; không sao chép hệ toàn câu vào chúng."
+  },
+  "s3_edc2f440402d8a1b": {
+    "task_id": 677,
+    "annotation_id": 676,
+    "label_studio_user_id": 1,
+    "annotation_sha256": "b058f8fec61cf97ed22f2323aa001d5980592f14c161231eaf0822458340503b",
+    "review_flags": [],
+    "review_note": "GỢI Ý AI CHƯA DUYỆT.  Hệ toàn câu cu là đề xuất theo đơn vị đủ bằng chứng, cần người duyệt xác nhận. Số nhà/đường và tên tỉnh trùng thời kỳ giữ khong_xac_dinh; không sao chép hệ toàn câu vào chúng."
+  },
+  "s3_1ab8c7508e67a681": {
+    "task_id": 678,
+    "annotation_id": 677,
+    "label_studio_user_id": 1,
+    "annotation_sha256": "09ff926de23e6fb883aedcd8024a1de52ca6bfc548889860c146e3f52f33a095",
+    "review_flags": [],
+    "review_note": "GỢI Ý AI CHƯA DUYỆT.  Hệ toàn câu cu là đề xuất theo đơn vị đủ bằng chứng, cần người duyệt xác nhận. Số nhà/đường và tên tỉnh trùng thời kỳ giữ khong_xac_dinh; không sao chép hệ toàn câu vào chúng."
+  },
+  "s3_436cbb10fbd8413e": {
+    "task_id": 679,
+    "annotation_id": 678,
+    "label_studio_user_id": 1,
+    "annotation_sha256": "fbce4c7419c6f121ffe9f889ffc8535179a33ff328c4036597f8cfbc6335c879",
+    "review_flags": [],
+    "review_note": "GỢI Ý AI CHƯA DUYỆT. Thị xã Quế Võ là cấp huyện cũ; không gán PhuongXa chỉ vì Quế Võ cũng có tên phường mới. Hệ toàn câu cu là đề xuất theo đơn vị đủ bằng chứng, cần người duyệt xác nhận. Số nhà/đường và tên tỉnh trùng thời kỳ giữ khong_xac_dinh; không sao chép hệ toàn câu vào chúng."
+  },
+  "s3_551f805f01393c90": {
+    "task_id": 680,
+    "annotation_id": 679,
+    "label_studio_user_id": 1,
+    "annotation_sha256": "4731d35a786a0eb6e9d448dd0695ef5f2a37f7942219693306309c43e7367ab8",
+    "review_flags": [
+      "temporal_ambiguity"
+    ],
+    "review_note": "GỢI Ý AI CHƯA DUYỆT.  Chưa đủ bằng chứng chốt hệ toàn câu; đang để trống. Số nhà/đường và tên tỉnh trùng thời kỳ giữ khong_xac_dinh; không sao chép hệ toàn câu vào chúng."
+  },
+  "s3_38b0ef3084056c55": {
+    "task_id": 681,
+    "annotation_id": 680,
+    "label_studio_user_id": 1,
+    "annotation_sha256": "789a8c70f21ecf70b4894944c4b8f638129e5ed3745791edec1bfb4c22eb0677",
+    "review_flags": [],
+    "review_note": "GỢI Ý AI CHƯA DUYỆT. Giữ riêng Phường Hoàn Kiếm và Quận Hoàn Kiếm; không xóa quận để làm địa chỉ hai cấp. Hệ phường/xã: Phường Hoàn Kiếm: EXACT_NEW_WARD_PROVINCE_SNAPSHOT. Hệ toàn câu Lai là đề xuất theo đơn vị đủ bằng chứng, cần người duyệt xác nhận. Số nhà/đường và tên tỉnh trùng thời kỳ giữ khong_xac_dinh; không sao chép hệ toàn câu vào chúng."
+  },
+  "s3_b67a4b92a2bc3594": {
+    "task_id": 682,
+    "annotation_id": 681,
+    "label_studio_user_id": 1,
+    "annotation_sha256": "43faf2e63e77f310c2c695d830647dcfd83e009f5e2bf00ce41386342a9349ed",
+    "review_flags": [],
+    "review_note": "GỢI Ý AI CHƯA DUYỆT. Không xóa Quận Bình Thạnh khi phường được xác nhận hệ mới; đề xuất Lai nếu đủ bằng chứng hai snapshot. Hệ phường/xã: Phường Bình Lợi Trung: EXACT_NEW_WARD_PROVINCE_SNAPSHOT. Hệ toàn câu Lai là đề xuất theo đơn vị đủ bằng chứng, cần người duyệt xác nhận. Số nhà/đường và tên tỉnh trùng thời kỳ giữ khong_xac_dinh; không sao chép hệ toàn câu vào chúng."
+  },
+  "s3_d56c59553ff6e798": {
+    "task_id": 683,
+    "annotation_id": 682,
+    "label_studio_user_id": 1,
+    "annotation_sha256": "96542d76616bdc03b3d53ba59e4d823e73187858e19534f92930cb74e5c2ccbe",
+    "review_flags": [
+      "privacy_review",
+      "temporal_ambiguity"
+    ],
+    "review_note": "GỢI Ý AI CHƯA DUYỆT. Tên phường có thể tồn tại cả cũ/mới; không lấy loại địa chỉ từ nguồn benchmark để quyết định. Hệ phường/xã: Phường Vũ Ninh: OLD_REFERENCE_PARENT_LINK_GAP. Chưa đủ bằng chứng chốt hệ toàn câu; đang để trống. Số nhà/đường và tên tỉnh trùng thời kỳ giữ khong_xac_dinh; không sao chép hệ toàn câu vào chúng."
+  },
+  "s3_b31fcec975e1a8f5": {
+    "task_id": 684,
+    "annotation_id": 683,
+    "label_studio_user_id": 1,
+    "annotation_sha256": "081f425acfe295585e753d1ba55c1eeb4251ffee1d310cc989ee40e0ad93769b",
+    "review_flags": [],
+    "review_note": "GỢI Ý AI CHƯA DUYỆT. Thành phố Từ Sơn là cấp huyện cũ, Phường Từ Sơn là thực thể riêng; giữ cả hai. Hệ phường/xã: Phường Từ Sơn: EXACT_NEW_WARD_PROVINCE_SNAPSHOT. Hệ toàn câu Lai là đề xuất theo đơn vị đủ bằng chứng, cần người duyệt xác nhận. Số nhà/đường và tên tỉnh trùng thời kỳ giữ khong_xac_dinh; không sao chép hệ toàn câu vào chúng."
+  },
+  "s3_50949186430b2944": {
+    "task_id": 685,
+    "annotation_id": 684,
+    "label_studio_user_id": 1,
+    "annotation_sha256": "2fd6f138ac2c46ec2a1c10040a9d58b9076b9901e1caac46785e49c2194aa67a",
+    "review_flags": [],
+    "review_note": "GỢI Ý AI CHƯA DUYỆT. Giữ riêng Phường Ba Đình và Quận Ba Đình; không nhập hai span hoặc xóa quận. Hệ phường/xã: Phường Ba Đình: EXACT_NEW_WARD_PROVINCE_SNAPSHOT. Hệ toàn câu Lai là đề xuất theo đơn vị đủ bằng chứng, cần người duyệt xác nhận. Số nhà/đường và tên tỉnh trùng thời kỳ giữ khong_xac_dinh; không sao chép hệ toàn câu vào chúng."
+  },
+  "s3_6a0b280666d42f74": {
+    "task_id": 686,
+    "annotation_id": 685,
+    "label_studio_user_id": 1,
+    "annotation_sha256": "2cc1edec299cb7bec898caa27ebc2d2944bb5cb6a3cb8dd7885ede2a3ea66b4f",
+    "review_flags": [
+      "temporal_ambiguity"
+    ],
+    "review_note": "GỢI Ý AI CHƯA DUYỆT. 10 thuộc tên Đường Võ Cường 10, không phải số nhà; hệ phường cần bằng chứng độc lập. Hệ phường/xã: Phường Võ Cường: OLD_REFERENCE_PARENT_LINK_GAP. Chưa đủ bằng chứng chốt hệ toàn câu; đang để trống. Số nhà/đường và tên tỉnh trùng thời kỳ giữ khong_xac_dinh; không sao chép hệ toàn câu vào chúng."
+  },
+  "s3_4f0e478a2150998f": {
+    "task_id": 687,
+    "annotation_id": 686,
+    "label_studio_user_id": 1,
+    "annotation_sha256": "fff8c51493b682edd7dfab66f7b7492efb1da402459063b34def3a2f3527ba80",
+    "review_flags": [],
+    "review_note": "GỢI Ý AI CHƯA DUYỆT.  Hệ phường/xã: Phường Kinh Bắc: OLD_REFERENCE_PARENT_LINK_GAP. Chưa đủ bằng chứng chốt hệ toàn câu; đang để trống. Số nhà/đường và tên tỉnh trùng thời kỳ giữ khong_xac_dinh; không sao chép hệ toàn câu vào chúng."
+  },
+  "s3_090d7550452b1e57": {
+    "task_id": 688,
+    "annotation_id": 687,
+    "label_studio_user_id": 1,
+    "annotation_sha256": "a38d6a5071f9065b447fe923ffe1b03b2ec75517fed529c0ebe4d6e0d1699292",
+    "review_flags": [],
+    "review_note": "GỢI Ý AI CHƯA DUYỆT.  Hệ phường/xã: Phường Phương Liễu: OLD_REFERENCE_PARENT_LINK_GAP. Chưa đủ bằng chứng chốt hệ toàn câu; đang để trống. Số nhà/đường và tên tỉnh trùng thời kỳ giữ khong_xac_dinh; không sao chép hệ toàn câu vào chúng."
+  },
+  "s3_63b0f7baf1789d3a": {
+    "task_id": 689,
+    "annotation_id": 688,
+    "label_studio_user_id": 1,
+    "annotation_sha256": "181f0b16139691f1ea8bf16ca5341b8598e3f794cdc93a0485d1bd8b72149f4d",
+    "review_flags": [],
+    "review_note": "GỢI Ý AI CHƯA DUYỆT. Không xóa Quận Tân Bình khi phường được xác nhận hệ mới; giữ span và xét Lai. Hệ phường/xã: Phường Tân Sơn Nhất: EXACT_NEW_WARD_PROVINCE_SNAPSHOT. Hệ toàn câu Lai là đề xuất theo đơn vị đủ bằng chứng, cần người duyệt xác nhận. Số nhà/đường và tên tỉnh trùng thời kỳ giữ khong_xac_dinh; không sao chép hệ toàn câu vào chúng."
+  },
+  "s3_60b94ebe212ff6f7": {
+    "task_id": 690,
+    "annotation_id": 689,
+    "label_studio_user_id": 1,
+    "annotation_sha256": "2e80138a306df156cf8d00611d70ea66d2dec875e973dd59ef611874c7b57591",
+    "review_flags": [
+      "temporal_ambiguity"
+    ],
+    "review_note": "GỢI Ý AI CHƯA DUYỆT.  Hệ phường/xã: Phường Vũ Ninh: OLD_REFERENCE_PARENT_LINK_GAP. Chưa đủ bằng chứng chốt hệ toàn câu; đang để trống. Số nhà/đường và tên tỉnh trùng thời kỳ giữ khong_xac_dinh; không sao chép hệ toàn câu vào chúng."
+  },
+  "s3_e64a931f475f80a7": {
+    "task_id": 691,
+    "annotation_id": 690,
+    "label_studio_user_id": 1,
+    "annotation_sha256": "325fbc9ce7a0a3e7077bd9a5ca2b9693dfac91bee779118b6a7d020cf22b8e2c",
+    "review_flags": [],
+    "review_note": "GỢI Ý AI CHƯA DUYỆT.  Hệ phường/xã: Phường Võ Cường: OLD_REFERENCE_PARENT_LINK_GAP. Chưa đủ bằng chứng chốt hệ toàn câu; đang để trống. Số nhà/đường và tên tỉnh trùng thời kỳ giữ khong_xac_dinh; không sao chép hệ toàn câu vào chúng."
+  },
+  "s3_c37e081c3cf296c2": {
+    "task_id": 692,
+    "annotation_id": 691,
+    "label_studio_user_id": 1,
+    "annotation_sha256": "8c8c11422fe7aef401aee9f8c840f8a8ed70c6de26726a87f4c54f875bc4b253",
+    "review_flags": [],
+    "review_note": "GỢI Ý AI CHƯA DUYỆT.  Hệ phường/xã: Phường Phương Liễu: OLD_REFERENCE_PARENT_LINK_GAP. Chưa đủ bằng chứng chốt hệ toàn câu; đang để trống. Số nhà/đường và tên tỉnh trùng thời kỳ giữ khong_xac_dinh; không sao chép hệ toàn câu vào chúng."
+  },
+  "s3_286f57285d727381": {
+    "task_id": 693,
+    "annotation_id": 692,
+    "label_studio_user_id": 1,
+    "annotation_sha256": "ba9f10314de197250c76f794ef0f75843c64b2dd86f127d10956bbc8af87d999",
+    "review_flags": [],
+    "review_note": "GỢI Ý AI CHƯA DUYỆT.  Hệ phường/xã: Phường Kinh Bắc: OLD_REFERENCE_PARENT_LINK_GAP. Chưa đủ bằng chứng chốt hệ toàn câu; đang để trống. Số nhà/đường và tên tỉnh trùng thời kỳ giữ khong_xac_dinh; không sao chép hệ toàn câu vào chúng."
+  },
+  "s3_e4d8bcc1bbebe2e4": {
+    "task_id": 694,
+    "annotation_id": 693,
+    "label_studio_user_id": 1,
+    "annotation_sha256": "dfa5a7de7e93c549b95aecbfeda7f7cfd823533bbfc0f11fcaa45c0bf9955533",
+    "review_flags": [],
+    "review_note": "GỢI Ý AI CHƯA DUYỆT.  Hệ phường/xã: Phường Vũ Ninh: OLD_REFERENCE_PARENT_LINK_GAP. Chưa đủ bằng chứng chốt hệ toàn câu; đang để trống. Số nhà/đường và tên tỉnh trùng thời kỳ giữ khong_xac_dinh; không sao chép hệ toàn câu vào chúng."
+  },
+  "s3_e7cca64b0cdaf324": {
+    "task_id": 695,
+    "annotation_id": 694,
+    "label_studio_user_id": 1,
+    "annotation_sha256": "e1c9737c43a403590d0b68e20ea9b48948f8051f244c8552094a9f1210af2803",
+    "review_flags": [
+      "temporal_ambiguity"
+    ],
+    "review_note": "GỢI Ý AI CHƯA DUYỆT.  Hệ phường/xã: Phường Vũ Ninh: OLD_REFERENCE_PARENT_LINK_GAP. Chưa đủ bằng chứng chốt hệ toàn câu; đang để trống. Số nhà/đường và tên tỉnh trùng thời kỳ giữ khong_xac_dinh; không sao chép hệ toàn câu vào chúng."
+  },
+  "s3_e51c371f88c1390a": {
+    "task_id": 696,
+    "annotation_id": 696,
+    "label_studio_user_id": 1,
+    "annotation_sha256": "adb7ed421c5cd6a162eae3ab7e3d48b1fce58b04d20caf44df0f6223334405b1",
+    "review_flags": [],
+    "review_note": "GỢI Ý AI CHƯA DUYỆT.  Hệ phường/xã: Phường Tiền Ninh Vệ: OLD_REFERENCE_PARENT_LINK_GAP. Chưa đủ bằng chứng chốt hệ toàn câu; đang để trống. Số nhà/đường và tên tỉnh trùng thời kỳ giữ khong_xac_dinh; không sao chép hệ toàn câu vào chúng."
+  },
+  "s3_de54eab9bef0ac8c": {
+    "task_id": 697,
+    "annotation_id": 697,
+    "label_studio_user_id": 1,
+    "annotation_sha256": "941521a0dca50325b78afbabca7f5e6d09d2ff5d26d1d2b6e9fd4807b5c78541",
+    "review_flags": [],
+    "review_note": "GỢI Ý AI CHƯA DUYỆT.  Hệ phường/xã: Phường Tiền Ninh Vệ: OLD_REFERENCE_PARENT_LINK_GAP. Chưa đủ bằng chứng chốt hệ toàn câu; đang để trống. Số nhà/đường và tên tỉnh trùng thời kỳ giữ khong_xac_dinh; không sao chép hệ toàn câu vào chúng."
+  },
+  "s3_d6c824a334a8c994": {
+    "task_id": 698,
+    "annotation_id": 698,
+    "label_studio_user_id": 1,
+    "annotation_sha256": "96f759273978e7556bdc4be042a3355d21103eb90768289b957063b4f8328b9a",
+    "review_flags": [],
+    "review_note": "GỢI Ý AI CHƯA DUYỆT.  Hệ phường/xã: Phường Phượng Mao: OLD_REFERENCE_PARENT_LINK_GAP. Chưa đủ bằng chứng chốt hệ toàn câu; đang để trống. Số nhà/đường và tên tỉnh trùng thời kỳ giữ khong_xac_dinh; không sao chép hệ toàn câu vào chúng."
+  },
+  "s3_8a678089c5da3fde": {
+    "task_id": 699,
+    "annotation_id": 699,
+    "label_studio_user_id": 1,
+    "annotation_sha256": "bdfe075d8deb8315d48f756f0d3e96f43208be8b88e6a0af2f7671fd74955dd6",
+    "review_flags": [],
+    "review_note": "GỢI Ý AI CHƯA DUYỆT.  Hệ phường/xã: Phường Tiền Ninh Vệ: OLD_REFERENCE_PARENT_LINK_GAP. Chưa đủ bằng chứng chốt hệ toàn câu; đang để trống. Số nhà/đường và tên tỉnh trùng thời kỳ giữ khong_xac_dinh; không sao chép hệ toàn câu vào chúng."
+  },
+  "s3_ba7418c98bb7cc84": {
+    "task_id": 700,
+    "annotation_id": 700,
+    "label_studio_user_id": 1,
+    "annotation_sha256": "9fe5b23871f8718935fbf3821fb3698f35a88f2d921f8e0442eb813b1a1a623d",
+    "review_flags": [],
+    "review_note": "GỢI Ý AI CHƯA DUYỆT.  Hệ phường/xã: Phường Tiền Ninh Vệ: OLD_REFERENCE_PARENT_LINK_GAP. Chưa đủ bằng chứng chốt hệ toàn câu; đang để trống. Số nhà/đường và tên tỉnh trùng thời kỳ giữ khong_xac_dinh; không sao chép hệ toàn câu vào chúng."
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "source": "data/interim/vqa/viet_receipt_raw_addresses.csv",
+  "source_sha256": "a21361afe956476a3bb7b164ba04a9a9fc4dd82842b8ab9f83963a9595a6198d",
+  "row_count": 146,
+  "landmark_cue_count": 10,
+  "direction_cue_count": 0,
+  "contact_cue_count": 0,
+  "source_document_id_available_in_interim_csv": false,
+  "privacy_reviewed_count": 0,
+  "reuse_rights_verified_count": 0,
+  "status": "HOLD",
+  "limitations": [
+    "Regex cues are only triage signals, not gold labels or full PII clearance.",
+    "The interim CSV has one column and cannot recover receipt/document IDs.",
+    "Do not place VQA in training or public exports until manual privacy and rights review is recorded."
+  ],
+  "review_queue": "data/interim/annotation/sprint03/vqa_review_queue.csv",
+  "review_queue_sha256": "6e441d03f8377a15c5f9966ac6c57ad8dd5c3771242df27f151550b8eddc94ba"
+}

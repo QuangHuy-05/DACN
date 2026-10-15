@@ -1,0 +1,10 @@
+﻿empty_or_error_rows,geocoder_status,n,rows,selection_path,share,slice,slice_type,status
+2,"{""empty"": 356, ""not_applicable"": 244}",600,356,divided_default_after_geocoder_unavailable,0.593333,ALL,ALL,OK
+2,"{""empty"": 356, ""not_applicable"": 244}",600,244,unique_dictionary_or_unresolved,0.406667,ALL,ALL,OK
+,,0,,,,A,LoaiAnhXa,NOT_EVALUABLE_NO_SUPPORT
+2,"{""not_applicable"": 244}",244,244,unique_dictionary_or_unresolved,1.000000,B,LoaiAnhXa,OK
+,,0,,,,C,LoaiAnhXa,NOT_EVALUABLE_NO_SUPPORT
+0,"{""empty"": 356}",356,356,divided_default_after_geocoder_unavailable,1.000000,M,LoaiAnhXa,OK
+2,"{""not_applicable"": 244}",244,244,unique_dictionary_or_unresolved,1.000000,Hợp nhất toàn bộ,HinhThucSapNhap,OK
+0,"{""empty"": 335}",335,335,divided_default_after_geocoder_unavailable,1.000000,Tách — nhập chủ yếu,HinhThucSapNhap,OK
+0,"{""empty"": 21}",21,21,divided_default_after_geocoder_unavailable,1.000000,Tách — một phần,HinhThucSapNhap,OK

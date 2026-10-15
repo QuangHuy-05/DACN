@@ -1,0 +1,51 @@
+﻿OldKeyNormalized,AdminGroup,Rows,RowsInData07,DistinctValidTargets,GazetteerFanOut,FanOutObservedShare,Relations,DistinctStreets,StreetDependence
+bắc ninh|thành phố bắc ninh|phường hạp lĩnh,ADM|bắc ninh|phường hạp lĩnh,1,1,1,1,1.0,B,1,NOT_APPLICABLE_SINGLE_TARGET
+bắc ninh|thành phố bắc ninh|phường khắc niệm,ADM|bắc ninh|phường hạp lĩnh,3,2,1,1,1.0,B,2,NOT_APPLICABLE_SINGLE_TARGET
+bắc ninh|thành phố bắc ninh|phường kim chân,ADM|bắc ninh|phường vũ ninh,1,1,1,1,1.0,B,1,NOT_APPLICABLE_SINGLE_TARGET
+bắc ninh|thành phố bắc ninh|phường kinh bắc,ADM|bắc ninh|phường kinh bắc,9,7,1,1,1.0,B,5,NOT_APPLICABLE_SINGLE_TARGET
+bắc ninh|thành phố bắc ninh|phường nam sơn,ADM|bắc ninh|phường nam sơn,4,2,1,1,1.0,B,2,NOT_APPLICABLE_SINGLE_TARGET
+bắc ninh|thành phố bắc ninh|phường suối hoa,ADM|bắc ninh|phường kinh bắc,36,35,1,1,1.0,B,12,NOT_APPLICABLE_SINGLE_TARGET
+bắc ninh|thành phố bắc ninh|phường thị cầu,ADM|bắc ninh|phường vũ ninh,5,4,1,1,1.0,B,3,NOT_APPLICABLE_SINGLE_TARGET
+bắc ninh|thành phố bắc ninh|phường tiền ninh vệ,ADM|bắc ninh|phường kinh bắc,15,13,1,1,1.0,B,7,NOT_APPLICABLE_SINGLE_TARGET
+bắc ninh|thành phố bắc ninh|phường vân dương,ADM|bắc ninh|phường nam sơn,3,3,1,1,1.0,B,3,NOT_APPLICABLE_SINGLE_TARGET
+bắc ninh|thành phố bắc ninh|phường võ cường,ADM|bắc ninh|phường võ cường,17,13,1,1,1.0,B,8,NOT_APPLICABLE_SINGLE_TARGET
+bắc ninh|thành phố bắc ninh|phường vũ ninh,ADM|bắc ninh|phường vũ ninh,20,20,1,1,1.0,B,6,NOT_APPLICABLE_SINGLE_TARGET
+bắc ninh|thành phố bắc ninh|phường vạn an,ADM|bắc ninh|phường kinh bắc,2,2,1,1,1.0,B,2,NOT_APPLICABLE_SINGLE_TARGET
+bắc ninh|thành phố bắc ninh|phường đáp cầu,ADM|bắc ninh|phường vũ ninh,1,1,1,1,1.0,B,1,NOT_APPLICABLE_SINGLE_TARGET
+bắc ninh|thành phố bắc ninh|phường đại phúc,ADM|bắc ninh|phường võ cường,16,14,1,1,1.0,B,8,NOT_APPLICABLE_SINGLE_TARGET
+bắc ninh|thành phố từ sơn|phường châu khê,ADM|bắc ninh|phường phù khê,1,1,1,1,1.0,B,1,NOT_APPLICABLE_SINGLE_TARGET
+bắc ninh|thành phố từ sơn|phường phù chẩn,ADM|bắc ninh|phường từ sơn,1,1,1,1,1.0,B,1,NOT_APPLICABLE_SINGLE_TARGET
+bắc ninh|thành phố từ sơn|phường tam sơn,ADM|bắc ninh|phường tam sơn,1,1,1,1,1.0,B,1,NOT_APPLICABLE_SINGLE_TARGET
+bắc ninh|thành phố từ sơn|phường trang hạ,ADM|bắc ninh|phường đồng nguyên,2,2,1,1,1.0,B,2,NOT_APPLICABLE_SINGLE_TARGET
+bắc ninh|thành phố từ sơn|phường tân hồng,ADM|bắc ninh|phường từ sơn,3,1,1,1,1.0,B,1,NOT_APPLICABLE_SINGLE_TARGET
+bắc ninh|thành phố từ sơn|phường đình bảng,ADM|bắc ninh|phường từ sơn,4,4,1,1,1.0,B,3,NOT_APPLICABLE_SINGLE_TARGET
+bắc ninh|thành phố từ sơn|phường đông ngàn,ADM|bắc ninh|phường từ sơn,1,1,1,1,1.0,B,1,NOT_APPLICABLE_SINGLE_TARGET
+bắc ninh|thành phố từ sơn|phường đồng kỵ,ADM|bắc ninh|phường đồng nguyên,1,1,1,1,1.0,B,1,NOT_APPLICABLE_SINGLE_TARGET
+bắc ninh|thị xã quế võ|phường phương liễu,ADM|bắc ninh|phường phương liễu,12,7,1,1,1.0,B,5,NOT_APPLICABLE_SINGLE_TARGET
+bắc ninh|thị xã quế võ|phường phượng mao,ADM|bắc ninh|phường phương liễu,4,4,1,1,1.0,B,4,NOT_APPLICABLE_SINGLE_TARGET
+bắc ninh|thị xã quế võ|phường phố mới,ADM|bắc ninh|phường quế võ,11,7,1,1,1.0,B,4,NOT_APPLICABLE_SINGLE_TARGET
+bắc ninh|thị xã quế võ|xã mộ đạo,ADM|bắc ninh|phường bồng lai,1,1,1,1,1.0,B,1,NOT_APPLICABLE_SINGLE_TARGET
+bắc ninh|thị xã quế võ|xã đào viên,ADM|bắc ninh|phường đào viên,2,1,1,1,1.0,B,1,NOT_APPLICABLE_SINGLE_TARGET
+bắc ninh|thị xã thuận thành|phường thanh khương,ADM|bắc ninh|phường trí quả,1,1,1,1,1.0,B,1,NOT_APPLICABLE_SINGLE_TARGET
+hà nội|quận ba đình|phường kim mã,ADM|hà nội|phường ba đình,3,2,1,3,0.3333,M,2,NOT_APPLICABLE_SINGLE_TARGET
+hà nội|quận ba đình|phường ngọc hà,ADM|hà nội|phường ba đình,10,8,1,2,0.5,M,3,NOT_APPLICABLE_SINGLE_TARGET
+hà nội|quận ba đình|phường quán thánh,ADM|hà nội|phường ba đình,13,12,1,1,1.0,B,7,NOT_APPLICABLE_SINGLE_TARGET
+hà nội|quận ba đình|phường trúc bạch,ADM|hà nội|phường ba đình,10,10,1,1,1.0,B,6,NOT_APPLICABLE_SINGLE_TARGET
+hà nội|quận ba đình|phường điện biên,ADM|hà nội|phường ba đình,375,299,1,4,0.25,M,23,NOT_APPLICABLE_SINGLE_TARGET
+hà nội|quận ba đình|phường đội cấn,ADM|hà nội|phường ba đình,22,19,1,2,0.5,M,3,NOT_APPLICABLE_SINGLE_TARGET
+hà nội|quận hoàn kiếm|phường cửa đông,ADM|hà nội|phường ba đình,4,3,1,2,0.5,M,3,NOT_APPLICABLE_SINGLE_TARGET
+hà nội|quận hoàn kiếm|phường hàng buồm,ADM|hà nội|phường ba đình,15,15,1,1,1.0,B,7,NOT_APPLICABLE_SINGLE_TARGET
+hà nội|quận hoàn kiếm|phường hàng bông,ADM|hà nội|phường ba đình,4,4,1,2,0.5,M,3,NOT_APPLICABLE_SINGLE_TARGET
+hà nội|quận hoàn kiếm|phường hàng bạc,ADM|hà nội|phường ba đình,3,3,1,1,1.0,B,1,NOT_APPLICABLE_SINGLE_TARGET
+hà nội|quận hoàn kiếm|phường hàng bồ,ADM|hà nội|phường ba đình,6,6,1,1,1.0,B,5,NOT_APPLICABLE_SINGLE_TARGET
+hà nội|quận hoàn kiếm|phường hàng gai,ADM|hà nội|phường ba đình,3,3,1,1,1.0,B,3,NOT_APPLICABLE_SINGLE_TARGET
+hà nội|quận hoàn kiếm|phường hàng mã,ADM|hà nội|phường ba đình,76,38,1,1,1.0,B,4,NOT_APPLICABLE_SINGLE_TARGET
+hà nội|quận hoàn kiếm|phường đồng xuân,ADM|hà nội|phường ba đình,40,18,1,2,0.5,M,4,NOT_APPLICABLE_SINGLE_TARGET
+hà nội|quận đống đa|phường ô chợ dừa,ADM|hà nội|phường ba đình,1,1,1,2,0.5,M,1,NOT_APPLICABLE_SINGLE_TARGET
+hồ chí minh|quận 10|phường 14,ADM|hồ chí minh|phường diên hồng,1,1,1,2,0.5,M,1,NOT_APPLICABLE_SINGLE_TARGET
+hồ chí minh|quận 8|phường 5,ADM|hồ chí minh|phường bình đông,1,1,1,2,0.5,M,1,NOT_APPLICABLE_SINGLE_TARGET
+hồ chí minh|quận phú nhuận|phường 1,ADM|hồ chí minh|phường cầu kiệu,1,1,1,1,1.0,B,1,NOT_APPLICABLE_SINGLE_TARGET
+hồ chí minh|quận phú nhuận|phường 8,ADM|hồ chí minh|phường cầu kiệu,2,0,1,1,1.0,B,1,NOT_APPLICABLE_SINGLE_TARGET
+hồ chí minh|quận tân bình|phường 13,ADM|hồ chí minh|phường tân bình,1,1,1,1,1.0,B,1,NOT_APPLICABLE_SINGLE_TARGET
+hồ chí minh|quận tân bình|phường 7,ADM|hồ chí minh|phường tân sơn nhất,1,1,1,1,1.0,B,1,NOT_APPLICABLE_SINGLE_TARGET
+hồ chí minh|thành phố thủ đức|phường thảo điền,ADM|hồ chí minh|phường an khánh,3,3,1,1,1.0,B,3,NOT_APPLICABLE_SINGLE_TARGET

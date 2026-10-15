@@ -1,0 +1,103 @@
+% ==============================================================================
+% BEAMER PREAMBLE TEMPLATE - HCMUT ACADEMIC STANDARD (16:9)
+% ==============================================================================
+% Requirements:
+% 1. Title Banner: Open Sans Regular 14.3pt (No bold), Deep Navy background
+% 2. Content Body: Montserrat Regular 9pt / 11.5pt line spacing, black round bullets
+% 3. Footline: Montserrat Regular 6pt (No bold), 3 columns + BK logo cube at bottom right
+% 4. Engine: XeLaTeX with fontspec
+% ==============================================================================
+
+\documentclass[aspectratio=169, 10pt]{beamer}
+
+% Core Packages
+\usepackage{fontspec}
+\usepackage{amsmath, amssymb, amsfonts}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{colortbl}
+\usepackage{tikz}
+\usetikzlibrary{shapes, arrows, positioning}
+
+% ------------------------------------------------------------------------------
+% Typography Configuration (fontspec)
+% ------------------------------------------------------------------------------
+% Uses local static TTF font files in fonts/ directory:
+\setmainfont{Montserrat}[
+  Path = fonts/,
+  Extension = .ttf,
+  UprightFont = Montserrat-Regular,
+  BoldFont = Montserrat-Bold,
+  ItalicFont = Montserrat-Italic,
+  BoldItalicFont = Montserrat-BoldItalic
+]
+
+\newfontfamily\titlefont{Open Sans}[
+  Path = fonts/,
+  Extension = .ttf,
+  UprightFont = OpenSans-Regular,
+  BoldFont = OpenSans-Bold,
+  ItalicFont = OpenSans-Italic,
+  BoldItalicFont = OpenSans-BoldItalic
+]
+
+% ------------------------------------------------------------------------------
+% Color Palette: Authentic HCMUT Deep Navy
+% ------------------------------------------------------------------------------
+\definecolor{bkblue}{RGB}{11, 59, 96}         % #0B3B60 Deep Navy Banner & Structure
+\definecolor{bkdarkblue}{RGB}{7, 40, 68}      % #072844 Darker Navy Footline Accent
+\definecolor{bkgray}{RGB}{200, 205, 210}      % Muted Gray for inactive TOC items
+\definecolor{tableheader}{RGB}{235, 243, 250}  % Light Blue for table headers
+
+% ------------------------------------------------------------------------------
+% Body Text & Itemize Configuration
+% ------------------------------------------------------------------------------
+\setbeamertemplate{navigation symbols}{}
+\setbeamercolor{normal text}{fg=black,bg=white}
+\setbeamerfont{normal text}{size=\fontsize{9pt}{11.5pt}\selectfont}
+\setbeamercolor{structure}{fg=bkblue}
+
+\setbeamertemplate{itemize item}{\scriptsize\raisebox{0.15ex}{$\bullet$}}
+\setbeamertemplate{itemize subitem}{\scriptsize\raisebox{0.15ex}{$\circ$}}
+\setbeamercolor{itemize item}{fg=black}
+\setbeamercolor{itemize subitem}{fg=black}
+
+% ------------------------------------------------------------------------------
+% Frametitle Template: Deep Navy Banner with Open Sans Regular 14.3pt
+% ------------------------------------------------------------------------------
+\setbeamercolor{frametitle}{bg=bkblue,fg=white}
+\setbeamertemplate{frametitle}{%
+  \nointerlineskip%
+  \begin{beamercolorbox}[wd=\paperwidth,ht=4.2ex,dp=1.5ex,leftskip=1ex]{frametitle}%
+    \hspace{0.5cm}{\titlefont\fontsize{14.3pt}{17pt}\selectfont\color{white}\insertframetitle}%
+  \end{beamercolorbox}%
+}
+
+% ------------------------------------------------------------------------------
+% Footline Template: Montserrat Regular 6pt with Authentic BK Cube Logo
+% ------------------------------------------------------------------------------
+\setbeamertemplate{footline}{%
+  \leavevmode%
+  \hbox{%
+    \begin{beamercolorbox}[wd=.38\paperwidth,ht=2.1ex,dp=0.8ex,center]{author in head/foot}%
+      \color{white}\fontsize{6pt}{7.5pt}\selectfont \insertshortauthor
+    \end{beamercolorbox}%
+    \begin{beamercolorbox}[wd=.26\paperwidth,ht=2.1ex,dp=0.8ex,center]{title in head/foot}%
+      \color{white}\fontsize{6pt}{7.5pt}\selectfont \insertshorttitle
+    \end{beamercolorbox}%
+    \begin{beamercolorbox}[wd=.36\paperwidth,ht=2.1ex,dp=0.8ex,right]{date in head/foot}%
+      \color{white}\fontsize{6pt}{7.5pt}\selectfont \insertshortdate \hspace*{1.2em}
+      \insertframenumber{} / \inserttotalframenumber \hspace*{3.8em}
+    \end{beamercolorbox}%
+  }%
+  \vskip0pt%
+}
+\setbeamercolor{author in head/foot}{bg=bkdarkblue,fg=white}
+\setbeamercolor{title in head/foot}{bg=bkblue,fg=white}
+\setbeamercolor{date in head/foot}{bg=bkdarkblue,fg=white}
+
+% Background template for content slides:
+\usebackgroundtemplate{%
+  \includegraphics[width=\paperwidth,height=\paperheight]{assets/bg_template.jpg}%
+}

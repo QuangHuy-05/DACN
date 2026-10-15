@@ -1,0 +1,148 @@
+{
+  "schema_version": "deepparse-resource-evidence-v1",
+  "status": "NON_EXECUTABLE_RESOURCE_EVIDENCE_CHECKPOINT_TERMS_PENDING",
+  "review_date_local": "2026-10-05",
+  "models": [
+    "DP-ZS-FT",
+    "DP-FT-FT"
+  ],
+  "is_active_resource_lock": false,
+  "may_start_pretrained_execution": false,
+  "scope": "Exact full FastText parser resources; official source review only",
+  "resources": {
+    "package": {
+      "name": "deepparse",
+      "version": "0.11.0",
+      "source_commit": "0c98e828688ab367bc3e61fb55fc74b3a5c48bbf",
+      "license_identifier_as_published": "LGPLv3",
+      "terms_status": "VERIFIED_FOR_LIBRARY_CODE",
+      "evidence": [
+        {
+          "name": "github_pinned_license",
+          "url": "https://raw.githubusercontent.com/GRAAL-Research/deepparse/0c98e828688ab367bc3e61fb55fc74b3a5c48bbf/LICENSE",
+          "path": "data/interim/modeling/sprint03/deepparse_terms_audit_20261005_v1/sources/github_pinned_license.txt",
+          "sha256": "e3a994d82e644b03a792a930f574002658412f62407f5fee083f2555c5f23118"
+        },
+        {
+          "name": "github_pinned_readme",
+          "url": "https://raw.githubusercontent.com/GRAAL-Research/deepparse/0c98e828688ab367bc3e61fb55fc74b3a5c48bbf/README.md",
+          "path": "data/interim/modeling/sprint03/deepparse_terms_audit_20261005_v1/sources/github_pinned_readme.txt",
+          "sha256": "3e871da406a2f83a573dba700d4af699681de36247e758eecfa6ad040941846a"
+        },
+        {
+          "name": "pypi_pinned_metadata",
+          "url": "https://pypi.org/pypi/deepparse/0.11.0/json",
+          "path": "data/interim/modeling/sprint03/deepparse_terms_audit_20261005_v1/sources/pypi_pinned_metadata.txt",
+          "sha256": "7b7c4ace925e58d52f3ff51f58ae63ca66b1cda023fcac35904be1d784cc3014"
+        }
+      ]
+    },
+    "base_checkpoint": {
+      "repository": "deepparse/fasttext-base",
+      "revision": "908f403d0432a8e650da41e08d01bd33d77ac47f",
+      "file": "model.safetensors",
+      "published_expected_sha256": "9cce032b1252c789ffaf7958f4d80d09c354f874095262259b397b5618c7691b",
+      "published_size_bytes": 38589364,
+      "locally_downloaded": false,
+      "local_sha256": null,
+      "attention_mechanism": false,
+      "download_url": "https://huggingface.co/deepparse/fasttext-base/resolve/908f403d0432a8e650da41e08d01bd33d77ac47f/model.safetensors",
+      "license_identifier": null,
+      "terms_status": "CHECKPOINT_LICENSE_UNDECLARED",
+      "license_candidate_context": "LGPLv3 is stated for the project/library, but explicit coverage of these weights was not found",
+      "evidence": [
+        {
+          "name": "hf_pinned_api",
+          "url": "https://huggingface.co/api/models/deepparse/fasttext-base/revision/908f403d0432a8e650da41e08d01bd33d77ac47f?blobs=true",
+          "path": "data/interim/modeling/sprint03/deepparse_terms_audit_20261005_v1/sources/hf_pinned_api.txt",
+          "sha256": "2bbab35f2a6b5ee301c8eeea441cda3790e4fb06b8bb7ebf854c2acbf90b6c38"
+        },
+        {
+          "name": "hf_pinned_tree",
+          "url": "https://huggingface.co/api/models/deepparse/fasttext-base/tree/908f403d0432a8e650da41e08d01bd33d77ac47f?recursive=true&expand=true",
+          "path": "data/interim/modeling/sprint03/deepparse_terms_audit_20261005_v1/sources/hf_pinned_tree.txt",
+          "sha256": "9a64752673baa023bbfafb9704581a12fd172cac9aa50c27f2afbac2804c2f9b"
+        },
+        {
+          "name": "hf_pinned_readme",
+          "url": "https://huggingface.co/deepparse/fasttext-base/raw/908f403d0432a8e650da41e08d01bd33d77ac47f/README.md",
+          "path": "data/interim/modeling/sprint03/deepparse_terms_audit_20261005_v1/sources/hf_pinned_readme.txt",
+          "sha256": "ec40d6b5978fe1ed22e92abe5f9033b5147fc474209dc245df3b4fb8d4dfbf4c"
+        },
+        {
+          "name": "hf_pinned_config",
+          "url": "https://huggingface.co/deepparse/fasttext-base/resolve/908f403d0432a8e650da41e08d01bd33d77ac47f/config.json",
+          "path": "data/interim/modeling/sprint03/deepparse_terms_audit_20261005_v1/sources/hf_pinned_config.txt",
+          "sha256": "e8734b80b981d7c02053ed1e12cf3829228af3f6b82f021c868f910ac6ecd992"
+        },
+        {
+          "name": "hf_commit_history",
+          "url": "https://huggingface.co/api/models/deepparse/fasttext-base/commits/908f403d0432a8e650da41e08d01bd33d77ac47f",
+          "path": "data/interim/modeling/sprint03/deepparse_terms_audit_20261005_v1/sources/hf_commit_history.txt",
+          "sha256": "1f11cab0ab6decd5adbc434c37c1cc3a791fb44503ad17286185029d998db88a"
+        }
+      ]
+    },
+    "embedding": {
+      "file": "cc.fr.300.bin",
+      "language": "fr",
+      "dimensions": 300,
+      "archive_url": "https://dl.fbaipublicfiles.com/fasttext/vectors-crawl/cc.fr.300.bin.gz",
+      "archive_size_bytes": 4496886212,
+      "etag": "\"3d752cc6822664b37bfeacc2ad0edc90-537\"",
+      "last_modified": "Fri, 18 Jan 2019 15:29:44 GMT",
+      "etag_is_not_sha256": true,
+      "locally_downloaded": false,
+      "archive_sha256": null,
+      "binary_sha256": null,
+      "uncompressed_size_bytes": null,
+      "license_identifier": "CC-BY-SA-3.0",
+      "terms_status": "VERIFIED_SOURCE_TERMS",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "notices": [
+        "Credit the FastText vector publisher and supplied authors/source",
+        "Include the CC-BY-SA-3.0 license link and retain supplied notices",
+        "Identify relevant modifications; apply ShareAlike when distributing adapted licensed material",
+        "Cite Grave et al. 2018 per the publisher's request"
+      ],
+      "evidence": [
+        {
+          "name": "fasttext_vectors_terms",
+          "url": "https://fasttext.cc/docs/en/crawl-vectors.html",
+          "path": "data/interim/modeling/sprint03/deepparse_terms_audit_20261005_v1/sources/fasttext_vectors_terms.txt",
+          "sha256": "809434cf819c2febe8b201dd89fe60b45e015463a24a2161d904e9a802f21076"
+        },
+        {
+          "name": "cc_by_sa_3_deed",
+          "url": "https://creativecommons.org/licenses/by-sa/3.0/",
+          "path": "data/interim/modeling/sprint03/deepparse_terms_audit_20261005_v1/sources/cc_by_sa_3_deed.txt",
+          "sha256": "9a17cd36de36b242cbe4234773116f2036f86a8ce4459af8b37fd120482ca931"
+        },
+        {
+          "name": "cc_by_sa_3_legalcode",
+          "url": "https://creativecommons.org/licenses/by-sa/3.0/legalcode",
+          "path": "data/interim/modeling/sprint03/deepparse_terms_audit_20261005_v1/sources/cc_by_sa_3_legalcode.txt",
+          "sha256": "c33d7ebdbcc5c8db073e69a794b2ac44805f5d7d9edcfb8b5181a71869a9b7d5"
+        },
+        {
+          "name": "github_pinned_download_tools",
+          "url": "https://raw.githubusercontent.com/GRAAL-Research/deepparse/0c98e828688ab367bc3e61fb55fc74b3a5c48bbf/deepparse/download_tools.py",
+          "path": "data/interim/modeling/sprint03/deepparse_terms_audit_20261005_v1/sources/github_pinned_download_tools.txt",
+          "sha256": "8fafad8b71027e02780a6ae395b854bbaa5c10eca6a3ed5234e48166b4773f16"
+        }
+      ]
+    }
+  },
+  "blockers": [
+    "BLOCKED_CHECKPOINT_LICENSE_UNDECLARED",
+    "WEIGHTS_AND_EMBEDDING_NOT_DOWNLOADED_OR_LOCALLY_HASHED"
+  ],
+  "remaining_before_active_lock": [
+    "Obtain an explicit applicable checkpoint license or official maintainer clarification covering this artifact/revision",
+    "Download declared resources after inventory and disk gate; compute real file hashes",
+    "Create a new active offline cache lock with actual files; pass resource and host RAM gates",
+    "Verify pretrained parser loading, native output and raw-offset alignment before accepting experimental results"
+  ],
+  "clarification_draft": "docs/sprints/sprint_03/52_deepparse_checkpoint_license_request.md",
+  "external_message_sent": false
+}

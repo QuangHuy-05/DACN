@@ -1,0 +1,38 @@
+{
+  "schema_version": "s3-official-code-reference-v1",
+  "source_id": "nso_portal_snapshot_2025_07_01",
+  "url": "https://danhmuchanhchinh.nso.gov.vn/Doi_Chieu_Moi.aspx",
+  "issuer": "Cục Thống kê (NSO), cổng Danh mục đơn vị hành chính",
+  "document_id": "Official portal comparison export: 2025-07-01 vs 2025-06-30; filter level=Xã",
+  "accessed_at": "2026-10-03T06:51:22.5881266Z",
+  "reference_sha256": "a01e4d813887dcdfaf9c1e11782059121acaf2ffe50b71fe7451bb554b7ac852",
+  "source_export_sha256": "976f0aa4f40c97189dec7adc1bde0d6fa0058496b8912df9dba1ab94c9417f61",
+  "authority_status": "OFFICIAL_PRIMARY_SOURCE",
+  "extraction_review_status": "AUTOMATED_VALIDATED",
+  "automated_validation": {
+    "status": "PASS",
+    "checks": [
+      "Official NSO portal URL and downloaded export SHA-256 match the download manifest",
+      "Comparison-side rows all have effective date 2025-07-01 and cite 2025 resolutions",
+      "3,321 unique new ward codes and 34 unique new province codes are present",
+      "All 3,321 ward codes join exactly once to the repository mapping and Gazetteer entities",
+      "All 3,321 ward-to-province parent links match the official comparison-side province",
+      "Official/canonical name differences are retained as explicit variants, not normalized away",
+      "Live-side 2026 portal changes are excluded from this snapshot"
+    ],
+    "row_count": 3355
+  },
+  "license_status": "PUBLIC_PORTAL_TERMS_NOT_LOCATED",
+  "effective_from": "2025-07-01",
+  "effective_to": "",
+  "table_as_of": "2025-07-01",
+  "change_history_verified_through": "2025-07-01",
+  "snapshot_only": true,
+  "source_selection": "dated comparison-side columns only; current/live-side rows excluded",
+  "row_counts": {
+    "new_wards": 3321,
+    "new_provinces": 34
+  },
+  "mapping_reconciliation_status": "EXACT_CODE_AND_PARENT_MATCH_WITH_NAME_VARIANTS",
+  "mapping_name_variant_count": 17
+}

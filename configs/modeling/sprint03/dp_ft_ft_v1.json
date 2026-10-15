@@ -1,0 +1,102 @@
+{
+  "protocol_version": "s3-training-v1",
+  "corpus_manifest_sha256": "9c91b77fa220e41b1b1067e5e99b216b7b4b2176181674b340f16dec134947bf",
+  "training_split": "train",
+  "selection_split": "dev",
+  "supported_labels": [
+    "SoNha",
+    "TenDuong",
+    "Ngo/Hem",
+    "ToaNha/CanHo",
+    "PhuongXa",
+    "QuanHuyen",
+    "TinhThanh",
+    "MocDinhVi",
+    "HuongDi",
+    "GhiChu",
+    "Khac"
+  ],
+  "label_map": {
+    "version": "s3-span-bio23-v1",
+    "schema": "s3-span-v1.1",
+    "span_labels": [
+      "SoNha",
+      "TenDuong",
+      "Ngo/Hem",
+      "ToaNha/CanHo",
+      "PhuongXa",
+      "QuanHuyen",
+      "TinhThanh",
+      "MocDinhVi",
+      "HuongDi",
+      "GhiChu",
+      "Khac"
+    ],
+    "bio_labels": [
+      "O",
+      "B-SoNha",
+      "I-SoNha",
+      "B-TenDuong",
+      "I-TenDuong",
+      "B-Ngo/Hem",
+      "I-Ngo/Hem",
+      "B-ToaNha/CanHo",
+      "I-ToaNha/CanHo",
+      "B-PhuongXa",
+      "I-PhuongXa",
+      "B-QuanHuyen",
+      "I-QuanHuyen",
+      "B-TinhThanh",
+      "I-TinhThanh",
+      "B-MocDinhVi",
+      "I-MocDinhVi",
+      "B-HuongDi",
+      "I-HuongDi",
+      "B-GhiChu",
+      "I-GhiChu",
+      "B-Khac",
+      "I-Khac"
+    ],
+    "t1_labels": [
+      "cu",
+      "moi",
+      "Lai"
+    ],
+    "t1_reject": "khong_ro"
+  },
+  "seed": 42,
+  "stability_seeds_planned": [
+    42,
+    1337,
+    2025
+  ],
+  "max_epochs": 20,
+  "patience": 5,
+  "effective_batch_size": 16,
+  "long_sequence_policy": "reject_no_truncation",
+  "device": "cpu",
+  "purpose": "development_experiment",
+  "pretrained": true,
+  "model_id": "DP-FT-FT",
+  "processor_version": "dp_surface_bio_v1",
+  "t1_implemented": false,
+  "embedding": "fasttext-full",
+  "seq2seq_params": null,
+  "package_versions": {
+    "torch": "2.8.0",
+    "deepparse": "0.11.0",
+    "poutyne": "1.17.4"
+  },
+  "candidates": [
+    {
+      "id": "c01",
+      "learning_rate": 0.01
+    },
+    {
+      "id": "c02",
+      "learning_rate": 0.005
+    }
+  ],
+  "optimizer": "SGD_native_deepparse",
+  "resume_policy": "optimizer_resume_unsupported_weights_new_run_only"
+}

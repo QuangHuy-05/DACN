@@ -1,0 +1,87 @@
+{
+  "version": "test_gold_v1",
+  "status": "TEST_GOLD_APPROVED",
+  "schema_version": "s3-span-v1.1",
+  "created_at": "2026-10-04T17:23:23.576154+00:00",
+  "sample_counts": {
+    "test": 100
+  },
+  "annotation_mode": "AI_ASSISTED_HUMAN_REVIEW",
+  "agreement": "NOT_MEASURED",
+  "quality_status": "APPROVED_WITH_DECLARED_EXCEPTIONS",
+  "evaluation_exclusions": {
+    "t1": [
+      "s3_156b56e3b067f033",
+      "s3_193ee8bba9df8734",
+      "s3_224bae3f36763271",
+      "s3_35525b63dc71e55a",
+      "s3_406fc7891f05bc2a",
+      "s3_438e4e50f599cd2f",
+      "s3_4e5c8d58266fb206",
+      "s3_6816f0907984be0a",
+      "s3_7ec507813be1cede",
+      "s3_895748de4265665a",
+      "s3_8dd4536611f09a74",
+      "s3_9fe1a97170d5ce7d",
+      "s3_c653b940f299c3cf",
+      "s3_c9ceb4918634b3b6",
+      "s3_ce1215ffa66c136f",
+      "s3_e705dab3c4063df5"
+    ]
+  },
+  "test_evaluation_exclusions": {
+    "t1": [
+      "s3_156b56e3b067f033",
+      "s3_193ee8bba9df8734",
+      "s3_224bae3f36763271",
+      "s3_35525b63dc71e55a",
+      "s3_406fc7891f05bc2a",
+      "s3_438e4e50f599cd2f",
+      "s3_4e5c8d58266fb206",
+      "s3_6816f0907984be0a",
+      "s3_7ec507813be1cede",
+      "s3_895748de4265665a",
+      "s3_8dd4536611f09a74",
+      "s3_9fe1a97170d5ce7d",
+      "s3_c653b940f299c3cf",
+      "s3_c9ceb4918634b3b6",
+      "s3_ce1215ffa66c136f",
+      "s3_e705dab3c4063df5"
+    ]
+  },
+  "test_approval_bindings": {
+    "export_sha256": "d51b69c981e775e0e51ac3ed5a3ef4c91d845f5e7a900c2f3d4c79f98ca758a4",
+    "queue_sha256": "f06f5889c03801afcddef928f01b55a90aa81ca50a6c2ae4df9a35a6f8348cac",
+    "guideline_sha256": "88dc2155d032f8052317e42c6f02f36c6cc9aee03579e9f3af76ebc12784673a",
+    "label_config_sha256": "5b765ef778afdc8abac288d8bae3a51e9b1f491e944d0b09814e888842d57562",
+    "assisted_manifest_sha256": "52229cc799636050896fd26742238b3d434f52851fc89903abed06cb6f3dea5a",
+    "hold_manifest_sha256": "7e77d73bec74b44044661ae858a7959c6849ee38bfdd14fdfda50794d3bf14e1",
+    "canonical_sha256": "236a38abe3a3699432dee3367ce642b445315a7fad8e48bd6377bd18a07fa6b6",
+    "selection_sha256": "d1818d8f3c1d8bb4d28431168a11fac50332f31268cb50182ae252d67651b4b5",
+    "manual_findings_sha256": "8b5fb1bdd5440d53dbabd7b376cb0bd4c54882461b7a403440d40d48b6698429"
+  },
+  "source_train_dev_manifest_sha256": "9c91b77fa220e41b1b1067e5e99b216b7b4b2176181674b340f16dec134947bf",
+  "approval_sha256": "183f1d5de37c3c56b43ed4e8da04381566a43e257e21a02900020d3cf0dc21a5",
+  "decisions_sha256": "beb0ca31049346c950f4b919e582460d4f78d8da0310718bb4fe39f180918825",
+  "split_source_sha256": {
+    "data/interim/annotation/sprint03/split_preflight_review_20261001/train_dev_split_assignments.csv": "a4052315b55ea16bc060b92fd0baf3afb63b0e17165aa6a8aa1fcbe8e7fba8d1",
+    "data/interim/annotation/sprint03/split_preflight_v1/near_duplicate_decisions.csv": "118afc7cd5d1bdb166482a8c0d77a2c26d8db0b8ae1ba20e9f0b5bcbcd892165"
+  },
+  "output_sha256": {
+    "approval_record.json": "183f1d5de37c3c56b43ed4e8da04381566a43e257e21a02900020d3cf0dc21a5",
+    "coverage.json": "295ccbd471eafb2bd4da1915e0d5656c95abe1172b3876257cc8b3a7d2c3e3eb",
+    "identity_registry.jsonl": "860bcadfa371db7a82b1cb8aefaa6634bca470b6ab6e367356b8717401838ab8",
+    "README.md": "3417c74a2aceba1e23f2fb6e1cd39bce695091a627a564db71d0c870ae29890c",
+    "review_decisions.json": "beb0ca31049346c950f4b919e582460d4f78d8da0310718bb4fe39f180918825",
+    "selected_annotations.json": "90b2b43d369735a48188ca834f93e2374c137933c9e145f821c2a5f109dad0f5",
+    "split_audit_report.json": "3471b592db63ca56728ebcb0dfc063dc5e202d2340b3b053ebeba9744ebe26f3",
+    "test_benchmark_t0.jsonl": "236a38abe3a3699432dee3367ce642b445315a7fad8e48bd6377bd18a07fa6b6",
+    "test_findings.json": "ac7c197a52f053c22b2f2b4ce86f978a2e884bc646c10a5cbeda528f3aa11ff2",
+    "test_input.jsonl": "5d1f0309e9c5f2a3b4db0375449bd5d8606f8b8449aca29523fc2db60a339f7b"
+  },
+  "code_sha256": {
+    "publisher": "467a66cf01309abd032222d23cc624e17b5bb60770cff3b4b5cf711fab854c17",
+    "converter": "e9edb81a8e94d3923ebe4cfbffbba23e81c28d36d01227cbcde81c4317783566"
+  },
+  "model_test_inference_scoring": "NOT_EXECUTED"
+}

@@ -1,0 +1,48 @@
+{
+  "status": "HUMAN_REVIEW_ATTESTED_WITH_EXCEPTIONS",
+  "attestation": {
+    "reviewed_sample_count": 300,
+    "reviewer": "quanghuy050816@gmail.com",
+    "label_studio_user_id": 1,
+    "reviewer_identity_source": "Existing pilot_gold_v1_manifest.json maps the Label Studio account chosen by the owner; current exports use completed_by=1.",
+    "attestation_date": "2026-10-02",
+    "evidence": "Owner previously answered 'Đã xem đủ cả 300 mẫu'; owner then corrected annotations in Label Studio and updated batch_assisted_round3.json. In the current turn, owner explicitly said '537 và 543 đã đúng theo ý tôi rồi k cần sửa thêm nữa bạn hãy hoàn thiện nốt các bước cuối cùng đu'. This confirms retention of those annotations, not independent evidence of their administrative time period.",
+    "scope": "68 assisted pilot plus 232 assisted batch; review of prediction-assisted annotations, not independent agreement measurement.",
+    "specific_unresolved_agent_findings": "Task 543's retained time conflict is recorded separately as a direct human exception and excluded from T1; raw annotations are never patched.",
+    "inter_annotator_agreement": "NOT_MEASURED",
+    "export_sha256": {
+      "pilot": "2fd36521009b0fe8e902a73c71d99c9fbb6c6d05ca19ec1371a1144c237615e1",
+      "batch": "e4d4f60b6c3586652bcbd22d20e38792f0f80ee02befa81b830a23f8406780d8"
+    }
+  },
+  "unresolved_sample_ids": [],
+  "specific_agent_findings_are_not_human_adjudications": true,
+  "human_adjudications": [
+    {
+      "sample_id": "s3_75cddb25620839e6",
+      "decision": "keep",
+      "reason": "Owner directly confirms retention of task 537 as PhuongXa/moi with whole-address moi. The administrative level/time interpretation is a human adjudication; it is not inferred from generated GT or the absence of a district. Generic export note is preserved.",
+      "accepted_finding_codes": [],
+      "exclude_from_t1": false,
+      "annotation_sha256": "a68d967ae856892ed930022d93f2c6c4e8cca8afc251ea9d668115c7375c265f",
+      "reviewer": "quanghuy050816@gmail.com",
+      "date": "2026-10-02",
+      "human_authorization_quote": "537 và 543 đã đúng theo ý tôi rồi k cần sửa thêm nữa bạn hãy hoàn thiện nốt các bước cuối cùng đu"
+    },
+    {
+      "sample_id": "s3_60931c369cbd85ef",
+      "decision": "keep_as_exception",
+      "reason": "Owner directly confirms retention of task 543. Raw annotation remains PhuongXa/cu for Đống Đa and whole-address moi. This contradiction is explicitly retained as an exception; keep T0 spans but exclude this sample from T1 training, T1 scoring and time-system structural diagnostics.",
+      "accepted_finding_codes": [
+        "address_span_system_conflict"
+      ],
+      "exclude_from_t1": true,
+      "annotation_sha256": "26bc19b1eeb959064cb2d3d095872f74868e6e89a326bbe3565b0a6bea735ca3",
+      "reviewer": "quanghuy050816@gmail.com",
+      "date": "2026-10-02",
+      "human_authorization_quote": "537 và 543 đã đúng theo ý tôi rồi k cần sửa thêm nữa bạn hãy hoàn thiện nốt các bước cuối cùng đu"
+    }
+  ],
+  "inter_annotator_agreement": "NOT_MEASURED",
+  "schema_version": "s3-span-v1.1"
+}

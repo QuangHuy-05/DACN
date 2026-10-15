@@ -1,0 +1,360 @@
+{
+  "dev": {
+    "mask": {
+      "eligible": 53,
+      "null": 6,
+      "excluded": 1
+    },
+    "observed_threshold_margin": {
+      "0.7/0.2": 60
+    },
+    "with_threshold": {
+      "n": 53,
+      "status": "OK",
+      "correct": 41,
+      "accuracy": 0.7735849056603774,
+      "macro_f1": 0.599594619495117,
+      "classes_with_support": 3,
+      "per_class": {
+        "cu": {
+          "support": 31,
+          "predicted": 36,
+          "tp": 28,
+          "precision": 0.7777777777777778,
+          "recall": 0.9032258064516129,
+          "f1": 0.835820895522388
+        },
+        "moi": {
+          "support": 14,
+          "predicted": 13,
+          "tp": 13,
+          "precision": 1.0,
+          "recall": 0.9285714285714286,
+          "f1": 0.9629629629629629
+        },
+        "Lai": {
+          "support": 8,
+          "predicted": 0,
+          "tp": 0,
+          "precision": null,
+          "recall": 0.0,
+          "f1": 0.0
+        }
+      },
+      "coverage": 0.9245283018867925,
+      "abstain_count": 4,
+      "abstain_rate": 0.07547169811320754,
+      "accepted_accuracy": 0.8367346938775511,
+      "confusion": {
+        "cu->cu": 28,
+        "cu->khong_ro": 3,
+        "moi->cu": 1,
+        "moi->moi": 13,
+        "Lai->cu": 7,
+        "Lai->khong_ro": 1
+      }
+    },
+    "argmax_only": {
+      "n": 53,
+      "status": "OK",
+      "correct": 44,
+      "accuracy": 0.8301886792452831,
+      "macro_f1": 0.6734529560616518,
+      "classes_with_support": 3,
+      "per_class": {
+        "cu": {
+          "support": 31,
+          "predicted": 38,
+          "tp": 30,
+          "precision": 0.7894736842105263,
+          "recall": 0.967741935483871,
+          "f1": 0.8695652173913043
+        },
+        "moi": {
+          "support": 14,
+          "predicted": 14,
+          "tp": 13,
+          "precision": 0.9285714285714286,
+          "recall": 0.9285714285714286,
+          "f1": 0.9285714285714286
+        },
+        "Lai": {
+          "support": 8,
+          "predicted": 1,
+          "tp": 1,
+          "precision": 1.0,
+          "recall": 0.125,
+          "f1": 0.2222222222222222
+        }
+      },
+      "coverage": 1.0,
+      "abstain_count": 0,
+      "abstain_rate": 0.0,
+      "accepted_accuracy": 0.8301886792452831,
+      "confusion": {
+        "cu->cu": 30,
+        "cu->moi": 1,
+        "moi->cu": 1,
+        "moi->moi": 13,
+        "Lai->cu": 7,
+        "Lai->Lai": 1
+      }
+    },
+    "lai": {
+      "support": 8,
+      "argmax_is_lai": 1,
+      "argmax_is_lai_but_rejected": 1,
+      "argmax_other_class": {
+        "cu": 7
+      },
+      "rejected_by_threshold_or_margin": 1,
+      "posterior_lai_on_lai": {
+        "n": 8,
+        "min": 0.07031619548797607,
+        "p25": 0.13133317977190018,
+        "median": 0.142686165869236,
+        "p75": 0.15587465092539787,
+        "max": 0.4020726680755615,
+        "mean": 0.16611242666840553
+      }
+    },
+    "posterior_lai_by_gold": {
+      "cu": {
+        "n": 31,
+        "min": 0.05666092410683632,
+        "p25": 0.0731198638677597,
+        "median": 0.08356395363807678,
+        "p75": 0.14405187219381332,
+        "max": 0.35839372873306274,
+        "mean": 0.11864706645569494
+      },
+      "moi": {
+        "n": 14,
+        "min": 0.016223764047026634,
+        "p25": 0.017889477778226137,
+        "median": 0.019477594643831253,
+        "p75": 0.024254112504422665,
+        "max": 0.09000097960233688,
+        "mean": 0.027353028766810894
+      },
+      "Lai": {
+        "n": 8,
+        "min": 0.07031619548797607,
+        "p25": 0.13133317977190018,
+        "median": 0.142686165869236,
+        "p75": 0.15587465092539787,
+        "max": 0.4020726680755615,
+        "mean": 0.16611242666840553
+      }
+    },
+    "posterior_gold_by_gold": {
+      "cu": {
+        "n": 31,
+        "min": 0.3603973686695099,
+        "p25": 0.8484047055244446,
+        "median": 0.9088733196258545,
+        "p75": 0.9201489388942719,
+        "max": 0.9404085874557495,
+        "mean": 0.8524641375387868
+      },
+      "moi": {
+        "n": 14,
+        "min": 0.02443709410727024,
+        "p25": 0.9712200909852982,
+        "median": 0.978105366230011,
+        "p75": 0.979978933930397,
+        "max": 0.9819152355194092,
+        "mean": 0.906127543986908
+      },
+      "Lai": {
+        "n": 8,
+        "min": 0.07031619548797607,
+        "p25": 0.13133317977190018,
+        "median": 0.142686165869236,
+        "p75": 0.15587465092539787,
+        "max": 0.4020726680755615,
+        "mean": 0.16611242666840553
+      }
+    }
+  },
+  "test": {
+    "mask": {
+      "eligible": 64,
+      "null": 20,
+      "excluded": 16
+    },
+    "observed_threshold_margin": {
+      "0.7/0.2": 100
+    },
+    "with_threshold": {
+      "n": 64,
+      "status": "OK",
+      "correct": 46,
+      "accuracy": 0.71875,
+      "macro_f1": 0.5625823451910409,
+      "classes_with_support": 3,
+      "per_class": {
+        "cu": {
+          "support": 47,
+          "predicted": 41,
+          "tp": 36,
+          "precision": 0.8780487804878049,
+          "recall": 0.7659574468085106,
+          "f1": 0.8181818181818182
+        },
+        "moi": {
+          "support": 12,
+          "predicted": 11,
+          "tp": 10,
+          "precision": 0.9090909090909091,
+          "recall": 0.8333333333333334,
+          "f1": 0.8695652173913043
+        },
+        "Lai": {
+          "support": 5,
+          "predicted": 0,
+          "tp": 0,
+          "precision": null,
+          "recall": 0.0,
+          "f1": 0.0
+        }
+      },
+      "coverage": 0.8125,
+      "abstain_count": 12,
+      "abstain_rate": 0.1875,
+      "accepted_accuracy": 0.8846153846153846,
+      "confusion": {
+        "cu->cu": 36,
+        "cu->moi": 1,
+        "cu->khong_ro": 10,
+        "moi->cu": 1,
+        "moi->moi": 10,
+        "moi->khong_ro": 1,
+        "Lai->cu": 4,
+        "Lai->khong_ro": 1
+      }
+    },
+    "argmax_only": {
+      "n": 64,
+      "status": "OK",
+      "correct": 55,
+      "accuracy": 0.859375,
+      "macro_f1": 0.584456780333069,
+      "classes_with_support": 3,
+      "per_class": {
+        "cu": {
+          "support": 47,
+          "predicted": 50,
+          "tp": 44,
+          "precision": 0.88,
+          "recall": 0.9361702127659575,
+          "f1": 0.9072164948453608
+        },
+        "moi": {
+          "support": 12,
+          "predicted": 14,
+          "tp": 11,
+          "precision": 0.7857142857142857,
+          "recall": 0.9166666666666666,
+          "f1": 0.8461538461538461
+        },
+        "Lai": {
+          "support": 5,
+          "predicted": 0,
+          "tp": 0,
+          "precision": null,
+          "recall": 0.0,
+          "f1": 0.0
+        }
+      },
+      "coverage": 1.0,
+      "abstain_count": 0,
+      "abstain_rate": 0.0,
+      "accepted_accuracy": 0.859375,
+      "confusion": {
+        "cu->cu": 44,
+        "cu->moi": 3,
+        "moi->cu": 1,
+        "moi->moi": 11,
+        "Lai->cu": 5
+      }
+    },
+    "lai": {
+      "support": 5,
+      "argmax_is_lai": 0,
+      "argmax_is_lai_but_rejected": 0,
+      "argmax_other_class": {
+        "cu": 5
+      },
+      "rejected_by_threshold_or_margin": 1,
+      "posterior_lai_on_lai": {
+        "n": 5,
+        "min": 0.10781524330377579,
+        "p25": 0.12534315884113312,
+        "median": 0.14749255776405334,
+        "p75": 0.19852788746356964,
+        "max": 0.3398279547691345,
+        "mean": 0.18380136042833328
+      }
+    },
+    "posterior_lai_by_gold": {
+      "cu": {
+        "n": 47,
+        "min": 0.06406919658184052,
+        "p25": 0.08997080847620964,
+        "median": 0.1101619303226471,
+        "p75": 0.22093690186738968,
+        "max": 0.37737295031547546,
+        "mean": 0.1534333179922814
+      },
+      "moi": {
+        "n": 12,
+        "min": 0.017124252393841743,
+        "p25": 0.02643050905317068,
+        "median": 0.033995154313743114,
+        "p75": 0.13427773490548134,
+        "max": 0.19834686815738678,
+        "mean": 0.07197670623039205
+      },
+      "Lai": {
+        "n": 5,
+        "min": 0.10781524330377579,
+        "p25": 0.12534315884113312,
+        "median": 0.14749255776405334,
+        "p75": 0.19852788746356964,
+        "max": 0.3398279547691345,
+        "mean": 0.18380136042833328
+      }
+    },
+    "posterior_gold_by_gold": {
+      "cu": {
+        "n": 47,
+        "min": 0.0350043922662735,
+        "p25": 0.7345273792743683,
+        "median": 0.8714938163757324,
+        "p75": 0.9030189216136932,
+        "max": 0.9336662292480469,
+        "mean": 0.7876167668307081
+      },
+      "moi": {
+        "n": 12,
+        "min": 0.0315806046128273,
+        "p25": 0.7751633822917938,
+        "median": 0.9597429931163788,
+        "p75": 0.9693510383367538,
+        "max": 0.9806936383247375,
+        "mean": 0.8317645968248447
+      },
+      "Lai": {
+        "n": 5,
+        "min": 0.10781524330377579,
+        "p25": 0.12534315884113312,
+        "median": 0.14749255776405334,
+        "p75": 0.19852788746356964,
+        "max": 0.3398279547691345,
+        "mean": 0.18380136042833328
+      }
+    }
+  },
+  "note": "argmax_only is a diagnostic on data that was already observed (dev was used for selection, test in Sprint 3); it is not a proposed configuration"
+}

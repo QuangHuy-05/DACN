@@ -1,0 +1,37 @@
+{
+  "status": "APPROVED_GOLD",
+  "gold_version": "pilot_gold_v1",
+  "schema_version": "s3-span-v1.1",
+  "approved_at": "2026-09-29T16:27:18+07:00",
+  "reviewer": "quanghuy050816@gmail.com",
+  "human_review_attestation": "Reviewer confirmed review of all 68 pilot tasks in this conversation",
+  "qa_status_before_human_approval": "READY_FOR_HUMAN_REVIEW",
+  "task_count": 68,
+  "flagged_decisions": 7,
+  "corrected_task_ids": [
+    1,
+    2,
+    3,
+    4
+  ],
+  "inter_annotator_agreement": "NOT_MEASURED",
+  "annotation_time_note": "No reliable independent session-time log; Label Studio lead_time is not used as annotation throughput",
+  "paths": {
+    "raw_export": "data/interim/annotation/sprint03/exports/pilot_approved_round2.json",
+    "queue": "data/interim/annotation/sprint03/annotation_queue_batch01.csv",
+    "label_config": "configs/label_studio_span11.xml",
+    "guideline": "docs/sprints/sprint_03/span_11_annotation_guideline.md",
+    "qa_report": "data/interim/annotation/sprint03/pilot_conversion/approved_round2/pilot_qa_report.json",
+    "decision_log": "docs/sprints/sprint_03/pilot_decision_log.csv",
+    "gold": "data/processed/annotation/sprint03/pilot_gold_v1.jsonl"
+  },
+  "sha256": {
+    "raw_export": "b23ef52e19a5b60623f4abee048a7c237afa9b63b19d5f818b2cc384df74f171",
+    "queue": "f06f5889c03801afcddef928f01b55a90aa81ca50a6c2ae4df9a35a6f8348cac",
+    "label_config": "5b765ef778afdc8abac288d8bae3a51e9b1f491e944d0b09814e888842d57562",
+    "guideline": "88dc2155d032f8052317e42c6f02f36c6cc9aee03579e9f3af76ebc12784673a",
+    "qa_report": "8a78d86d20c11cfe2993ef048f8a323f01993007b67a219969dafdbef2d53f80",
+    "decision_log": "2bf36127763bf7deeec40766bdd7773950a4ebb611280026478d6d72572dd703",
+    "gold": "48571230990ceec56a4f3e244775ad856e05931aeca7748f6407e8f06c96754d"
+  }
+}

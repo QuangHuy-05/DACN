@@ -1,0 +1,443 @@
+{
+  "cells": {
+    "PROPOSED-DYN|s3_test_eligible": {
+      "metrics": {
+        "n": 64,
+        "status": "OK",
+        "correct": 46,
+        "accuracy": 0.71875,
+        "macro_f1": 0.5625823451910409,
+        "classes_with_support": 3,
+        "per_class": {
+          "cu": {
+            "support": 47,
+            "predicted": 41,
+            "tp": 36,
+            "precision": 0.8780487804878049,
+            "recall": 0.7659574468085106,
+            "f1": 0.8181818181818182
+          },
+          "moi": {
+            "support": 12,
+            "predicted": 11,
+            "tp": 10,
+            "precision": 0.9090909090909091,
+            "recall": 0.8333333333333334,
+            "f1": 0.8695652173913043
+          },
+          "Lai": {
+            "support": 5,
+            "predicted": 0,
+            "tp": 0,
+            "precision": null,
+            "recall": 0.0,
+            "f1": 0.0
+          }
+        },
+        "coverage": 0.8125,
+        "abstain_count": 12,
+        "abstain_rate": 0.1875,
+        "accepted_accuracy": 0.8846153846153846,
+        "confusion": {
+          "cu->cu": 36,
+          "cu->moi": 1,
+          "cu->khong_ro": 10,
+          "moi->cu": 1,
+          "moi->moi": 10,
+          "moi->khong_ro": 1,
+          "Lai->cu": 4,
+          "Lai->khong_ro": 1
+        }
+      },
+      "ci": {
+        "accuracy": {
+          "method": "cluster_bootstrap_percentile",
+          "alpha": 0.05,
+          "n_resamples": 10000,
+          "n_units": 33,
+          "seed": 20261015,
+          "n_nonfinite_resamples": 0,
+          "n_clusters": 33,
+          "status": "OK",
+          "reason": null,
+          "estimate": 0.71875,
+          "ci_low": 0.5416666666666666,
+          "ci_high": 0.8461538461538461
+        },
+        "macro_f1": {
+          "method": "cluster_bootstrap_percentile",
+          "alpha": 0.05,
+          "n_resamples": 10000,
+          "n_units": 33,
+          "seed": 20261015,
+          "n_nonfinite_resamples": 0,
+          "n_clusters": 33,
+          "status": "OK",
+          "reason": null,
+          "estimate": 0.5625823451910409,
+          "ci_low": 0.375811520780561,
+          "ci_high": 0.6211673101081595
+        },
+        "lai_f1": {
+          "method": "cluster_bootstrap_percentile",
+          "alpha": 0.05,
+          "n_resamples": 10000,
+          "n_units": 33,
+          "seed": 20261015,
+          "n_nonfinite_resamples": 138,
+          "n_clusters": 33,
+          "status": "OK",
+          "reason": null,
+          "estimate": 0.0,
+          "ci_low": 0.0,
+          "ci_high": 0.0
+        }
+      },
+      "paired_vs_heur": {
+        "bootstrap": {
+          "method": "paired_bootstrap_delta_cluster",
+          "alpha": 0.05,
+          "n_resamples": 10000,
+          "n_units": 33,
+          "seed": 20261015,
+          "n_nonfinite_resamples": 0,
+          "n_clusters": 33,
+          "status": "OK",
+          "reason": null,
+          "estimate": -0.203125,
+          "ci_low": -0.38888888888888884,
+          "ci_high": -0.0576867816091955,
+          "prop_delta_le_0": 0.998
+        },
+        "mcnemar": {
+          "method": "mcnemar_exact_two_sided",
+          "b": 3,
+          "c": 16,
+          "n_discordant": 19,
+          "status": "OK",
+          "reason": null,
+          "p_value": 0.004425048828125
+        },
+        "randomization": {
+          "method": "approximate_randomization_two_sided",
+          "status": "OK",
+          "reason": null,
+          "observed_delta": -0.203125,
+          "p_value": 0.0035996400359964,
+          "n_permutations": 10000,
+          "n_units": 64,
+          "seed": 20261015
+        }
+      }
+    },
+    "PROPOSED-DYN|t1_synth_eval": {
+      "status": "BLOCKED_LOCAL_NEURAL"
+    },
+    "PROPOSED-DYN|t1_data06_heldout": {
+      "status": "BLOCKED_LOCAL_NEURAL"
+    },
+    "PROPOSED-DYN|t1_data06_heldout_unseen_groups": {
+      "status": "BLOCKED_LOCAL_NEURAL"
+    },
+    "PROPOSED-DYN|t1_synth_eval_adm_only": {
+      "status": "BLOCKED_LOCAL_NEURAL"
+    },
+    "T1-PIPE-PCRF|s3_test_eligible": {
+      "metrics": {
+        "n": 64,
+        "status": "OK",
+        "correct": 62,
+        "accuracy": 0.96875,
+        "macro_f1": 0.9819230169861305,
+        "classes_with_support": 3,
+        "per_class": {
+          "cu": {
+            "support": 47,
+            "predicted": 46,
+            "tp": 46,
+            "precision": 1.0,
+            "recall": 0.9787234042553191,
+            "f1": 0.989247311827957
+          },
+          "moi": {
+            "support": 12,
+            "predicted": 11,
+            "tp": 11,
+            "precision": 1.0,
+            "recall": 0.9166666666666666,
+            "f1": 0.9565217391304348
+          },
+          "Lai": {
+            "support": 5,
+            "predicted": 5,
+            "tp": 5,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          }
+        },
+        "coverage": 0.96875,
+        "abstain_count": 2,
+        "abstain_rate": 0.03125,
+        "accepted_accuracy": 1.0,
+        "confusion": {
+          "cu->cu": 46,
+          "cu->khong_ro": 1,
+          "moi->moi": 11,
+          "moi->khong_ro": 1,
+          "Lai->Lai": 5
+        }
+      },
+      "ci": {
+        "accuracy": {
+          "method": "cluster_bootstrap_percentile",
+          "alpha": 0.05,
+          "n_resamples": 10000,
+          "n_units": 33,
+          "seed": 20261015,
+          "n_nonfinite_resamples": 0,
+          "n_clusters": 33,
+          "status": "OK",
+          "reason": null,
+          "estimate": 0.96875,
+          "ci_low": 0.9056603773584906,
+          "ci_high": 1.0
+        },
+        "macro_f1": {
+          "method": "cluster_bootstrap_percentile",
+          "alpha": 0.05,
+          "n_resamples": 10000,
+          "n_units": 33,
+          "seed": 20261015,
+          "n_nonfinite_resamples": 0,
+          "n_clusters": 33,
+          "status": "OK",
+          "reason": null,
+          "estimate": 0.9819230169861305,
+          "ci_low": 0.8724779319041615,
+          "ci_high": 1.0
+        },
+        "lai_f1": {
+          "method": "cluster_bootstrap_percentile",
+          "alpha": 0.05,
+          "n_resamples": 10000,
+          "n_units": 33,
+          "seed": 20261015,
+          "n_nonfinite_resamples": 138,
+          "n_clusters": 33,
+          "status": "OK",
+          "reason": null,
+          "estimate": 1.0,
+          "ci_low": 1.0,
+          "ci_high": 1.0
+        }
+      },
+      "paired_vs_heur": {
+        "bootstrap": {
+          "method": "paired_bootstrap_delta_cluster",
+          "alpha": 0.05,
+          "n_resamples": 10000,
+          "n_units": 33,
+          "seed": 20261015,
+          "n_nonfinite_resamples": 0,
+          "n_clusters": 33,
+          "status": "OK",
+          "reason": null,
+          "estimate": 0.046875,
+          "ci_low": 0.0,
+          "ci_high": 0.10256410256410253,
+          "prop_delta_le_0": 0.0419
+        },
+        "mcnemar": {
+          "method": "mcnemar_exact_two_sided",
+          "b": 3,
+          "c": 0,
+          "n_discordant": 3,
+          "status": "OK",
+          "reason": null,
+          "p_value": 0.25
+        },
+        "randomization": {
+          "method": "approximate_randomization_two_sided",
+          "status": "OK",
+          "reason": null,
+          "observed_delta": 0.046875,
+          "p_value": 0.24577542245775422,
+          "n_permutations": 10000,
+          "n_units": 64,
+          "seed": 20261015
+        }
+      }
+    },
+    "T1-PIPE-PCRF|t1_synth_eval": {
+      "status": "BLOCKED_LOCAL_NEURAL"
+    },
+    "T1-PIPE-PCRF|t1_data06_heldout": {
+      "status": "BLOCKED_LOCAL_NEURAL"
+    },
+    "T1-PIPE-PCRF|t1_data06_heldout_unseen_groups": {
+      "status": "BLOCKED_LOCAL_NEURAL"
+    },
+    "T1-PIPE-PCRF|t1_synth_eval_adm_only": {
+      "status": "BLOCKED_LOCAL_NEURAL"
+    },
+    "T1-PIPE-DYN|s3_test_eligible": {
+      "metrics": {
+        "n": 64,
+        "status": "OK",
+        "correct": 62,
+        "accuracy": 0.96875,
+        "macro_f1": 0.9819230169861305,
+        "classes_with_support": 3,
+        "per_class": {
+          "cu": {
+            "support": 47,
+            "predicted": 46,
+            "tp": 46,
+            "precision": 1.0,
+            "recall": 0.9787234042553191,
+            "f1": 0.989247311827957
+          },
+          "moi": {
+            "support": 12,
+            "predicted": 11,
+            "tp": 11,
+            "precision": 1.0,
+            "recall": 0.9166666666666666,
+            "f1": 0.9565217391304348
+          },
+          "Lai": {
+            "support": 5,
+            "predicted": 5,
+            "tp": 5,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0
+          }
+        },
+        "coverage": 0.96875,
+        "abstain_count": 2,
+        "abstain_rate": 0.03125,
+        "accepted_accuracy": 1.0,
+        "confusion": {
+          "cu->cu": 46,
+          "cu->khong_ro": 1,
+          "moi->moi": 11,
+          "moi->khong_ro": 1,
+          "Lai->Lai": 5
+        }
+      },
+      "ci": {
+        "accuracy": {
+          "method": "cluster_bootstrap_percentile",
+          "alpha": 0.05,
+          "n_resamples": 10000,
+          "n_units": 33,
+          "seed": 20261015,
+          "n_nonfinite_resamples": 0,
+          "n_clusters": 33,
+          "status": "OK",
+          "reason": null,
+          "estimate": 0.96875,
+          "ci_low": 0.9056603773584906,
+          "ci_high": 1.0
+        },
+        "macro_f1": {
+          "method": "cluster_bootstrap_percentile",
+          "alpha": 0.05,
+          "n_resamples": 10000,
+          "n_units": 33,
+          "seed": 20261015,
+          "n_nonfinite_resamples": 0,
+          "n_clusters": 33,
+          "status": "OK",
+          "reason": null,
+          "estimate": 0.9819230169861305,
+          "ci_low": 0.8724779319041615,
+          "ci_high": 1.0
+        },
+        "lai_f1": {
+          "method": "cluster_bootstrap_percentile",
+          "alpha": 0.05,
+          "n_resamples": 10000,
+          "n_units": 33,
+          "seed": 20261015,
+          "n_nonfinite_resamples": 138,
+          "n_clusters": 33,
+          "status": "OK",
+          "reason": null,
+          "estimate": 1.0,
+          "ci_low": 1.0,
+          "ci_high": 1.0
+        }
+      },
+      "paired_vs_heur": {
+        "bootstrap": {
+          "method": "paired_bootstrap_delta_cluster",
+          "alpha": 0.05,
+          "n_resamples": 10000,
+          "n_units": 33,
+          "seed": 20261015,
+          "n_nonfinite_resamples": 0,
+          "n_clusters": 33,
+          "status": "OK",
+          "reason": null,
+          "estimate": 0.046875,
+          "ci_low": 0.0,
+          "ci_high": 0.10256410256410253,
+          "prop_delta_le_0": 0.0419
+        },
+        "mcnemar": {
+          "method": "mcnemar_exact_two_sided",
+          "b": 3,
+          "c": 0,
+          "n_discordant": 3,
+          "status": "OK",
+          "reason": null,
+          "p_value": 0.25
+        },
+        "randomization": {
+          "method": "approximate_randomization_two_sided",
+          "status": "OK",
+          "reason": null,
+          "observed_delta": 0.046875,
+          "p_value": 0.24577542245775422,
+          "n_permutations": 10000,
+          "n_units": 64,
+          "seed": 20261015
+        }
+      }
+    },
+    "T1-PIPE-DYN|t1_synth_eval": {
+      "status": "BLOCKED_LOCAL_NEURAL"
+    },
+    "T1-PIPE-DYN|t1_data06_heldout": {
+      "status": "BLOCKED_LOCAL_NEURAL"
+    },
+    "T1-PIPE-DYN|t1_data06_heldout_unseen_groups": {
+      "status": "BLOCKED_LOCAL_NEURAL"
+    },
+    "T1-PIPE-DYN|t1_synth_eval_adm_only": {
+      "status": "BLOCKED_LOCAL_NEURAL"
+    },
+    "T1-HEAD-PROBE|s3_test_eligible": {
+      "status": "BLOCKED_LOCAL_NEURAL"
+    },
+    "T1-HEAD-PROBE|t1_synth_eval": {
+      "status": "BLOCKED_LOCAL_NEURAL"
+    },
+    "T1-HEAD-PROBE|t1_data06_heldout": {
+      "status": "BLOCKED_LOCAL_NEURAL"
+    },
+    "T1-HEAD-PROBE|t1_data06_heldout_unseen_groups": {
+      "status": "BLOCKED_LOCAL_NEURAL"
+    },
+    "T1-HEAD-PROBE|t1_synth_eval_adm_only": {
+      "status": "BLOCKED_LOCAL_NEURAL"
+    }
+  },
+  "notes": {
+    "smoke": null,
+    "status": "BLOCKED_LOCAL_NEURAL"
+  }
+}

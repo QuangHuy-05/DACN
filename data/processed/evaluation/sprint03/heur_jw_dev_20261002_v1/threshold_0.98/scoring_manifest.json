@@ -1,0 +1,15 @@
+{
+  "metric_version": "s3-span-score-v3",
+  "split": "dev",
+  "gold_sha256": "c16e1f6ec81df2203cb9236a558785277beb424aba8f94f6aa00e0d9426eee5b",
+  "prediction_sha256": "e52f4965bcb1098c978c2983c0783197477c7d42bc97966ac5666f67c8a2f71f",
+  "corpus_manifest_sha256": "9c91b77fa220e41b1b1067e5e99b216b7b4b2176181674b340f16dec134947bf",
+  "scorer_sha256": "5d8677ccb89d411eb9943811460f0300bdbdefdb8aba9e8568da223ef2664058",
+  "t1_declared_exception_excluded_ids": [
+    "s3_60931c369cbd85ef"
+  ],
+  "output_sha256": {
+    "metrics.json": "41c715c5e07c44c4ba66740658cc67bc3c223cce394a2c189308756df2ec092a",
+    "error_analysis.jsonl": "401bf0926d0b55ef571399b965565fc0343aca2485d83ba9aac41fc5bb51f01b"
+  }
+}

@@ -26,6 +26,41 @@ from src.evaluation.scorer import evaluate_record
 
 BENCHMARK_DIR = ROOT / "data/processed/benchmark"
 MAPPING_PATH = ROOT / "data/reference/administrative_units/vietnam-sap-nhap-phuong-xa.csv"
+
+
+def _load_new_targets_by_code(mapping_path: Path) -> dict[str, tuple[str, str]]:
+    """Resolve official ward code to its canonical ward name and province."""
+    if not mapping_path.exists():
+        raise FileNotFoundError(mapping_path)
+    mapping = pd.read_csv(
+        mapping_path,
+        dtype=str,
+        keep_default_na=False,
+        encoding="utf-8-sig",
+    )
+    required = {
+        "Mã phường/xã mới",
+        "Phường/Xã mới (từ 1/7/2025)",
+        "Tỉnh/TP mới",
+    }
+    missing = required - set(mapping.columns)
+    if missing:
+        raise ValueError(f"Administrative mapping missing columns: {sorted(missing)}")
+
+    targets: dict[str, tuple[str, str]] = {}
+    for row in mapping.to_dict("records"):
+        code = str(row["Mã phường/xã mới"]).strip()
+        ward = str(row["Phường/Xã mới (từ 1/7/2025)"]).strip()
+        province = str(row["Tỉnh/TP mới"]).strip()
+        if not code or not ward or not province:
+            continue
+        target = (ward, province)
+        if code in targets and targets[code] != target:
+            raise ValueError(f"Conflicting official target values for ward code {code}")
+        targets[code] = target
+    return targets
+
+
 def run_full_evaluation(
     run_id: str,
     sample_per_dataset: int | None = None,
@@ -42,6 +77,7 @@ def run_full_evaluation(
         run_kind="pilot" if sample_per_dataset is not None else "full",
     )
     validate_benchmarks(BENCHMARK_DIR, manifest)
+    new_targets_by_code = _load_new_targets_by_code(MAPPING_PATH)
 
     vn_adapter = VietnamAdminUnitsAdapter()
     lp_adapter = LibpostalAdapter()
@@ -249,10 +285,14 @@ def run_full_evaluation(
         addr_old = r["DiaChi_Cu"]
         addr_new = r["DiaChi_Moi"]
 
-        parts = [p.strip() for p in addr_new.split(",") if p.strip()]
-        # Data 07's task is administrative conversion, not house/street parsing.
-        # The observed new ward and province are the two scored fields.
-        truth_new = {"PhuongXa": parts[-2], "TinhThanh": parts[-1]}
+        # Ground truth comes from the authoritative target code, not CSV text splitting.
+        target_code = str(r.get("MaPhuongXaMoi", "")).strip()
+        if target_code not in new_targets_by_code:
+            raise ValueError(
+                f"Data 07 target code {target_code!r} is missing from the official mapping"
+            )
+        target_ward, target_province = new_targets_by_code[target_code]
+        truth_new = {"PhuongXa": target_ward, "TinhThanh": target_province}
 
         scenario = scenario_for_dataset07(rel)
 

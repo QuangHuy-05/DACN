@@ -1,0 +1,493 @@
+{
+  "track": "FIVE_FIELDS_DEVELOPMENT",
+  "protocol_version": "2.0",
+  "mode": "TEXT_ONLY",
+  "projection": "Original span literals joined by comma for repeated fields; no canonical repair or field imputation",
+  "datasets": {
+    "01_new": {
+      "record_count": 980,
+      "exact_record_correct": 916,
+      "exact_record_match_rate": 0.9346938775510204,
+      "micro_mean_fuzzy_similarity": 0.992478092670992,
+      "fuzzy_scored_records": 980,
+      "fuzzy_scored_field_values": 3920,
+      "macro_mean_field_fuzzy_similarity": 0.992478092670992,
+      "micro_f1_scored_fields": 0.9822590938098277,
+      "macro_mean_field_f1": 0.7858080419476954,
+      "field_metrics": {
+        "SoNha": {
+          "exact_correct": 974,
+          "exact_n": 980,
+          "exact_match_rate": 0.9938775510204082,
+          "fuzzy_similarity_sum": 974.3764705882353,
+          "fuzzy_similarity_n": 980,
+          "mean_fuzzy_similarity": 0.9942617046818727,
+          "tp": 974,
+          "fp": 2,
+          "fn": 6,
+          "f1": 0.9959100204498977
+        },
+        "TenDuong": {
+          "exact_correct": 916,
+          "exact_n": 980,
+          "exact_match_rate": 0.9346938775510204,
+          "fuzzy_similarity_sum": 957.197234002504,
+          "fuzzy_similarity_n": 980,
+          "mean_fuzzy_similarity": 0.9767318714311266,
+          "tp": 916,
+          "fp": 63,
+          "fn": 64,
+          "f1": 0.9351710056151098
+        },
+        "PhuongXa": {
+          "exact_correct": 978,
+          "exact_n": 980,
+          "exact_match_rate": 0.9979591836734694,
+          "fuzzy_similarity_sum": 978.9404186795491,
+          "fuzzy_similarity_n": 980,
+          "mean_fuzzy_similarity": 0.9989187945709684,
+          "tp": 978,
+          "fp": 2,
+          "fn": 2,
+          "f1": 0.9979591836734694
+        },
+        "QuanHuyen": {
+          "exact_correct": 980,
+          "exact_n": 980,
+          "exact_match_rate": 1.0,
+          "fuzzy_similarity_sum": 0,
+          "fuzzy_similarity_n": 0,
+          "mean_fuzzy_similarity": null,
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "f1": 0.0
+        },
+        "TinhThanh": {
+          "exact_correct": 980,
+          "exact_n": 980,
+          "exact_match_rate": 1.0,
+          "fuzzy_similarity_sum": 980.0,
+          "fuzzy_similarity_n": 980,
+          "mean_fuzzy_similarity": 1.0,
+          "tp": 980,
+          "fp": 0,
+          "fn": 0,
+          "f1": 1.0
+        }
+      },
+      "status_counts": {
+        "ok": 980
+      },
+      "mode": "TEXT_ONLY"
+    },
+    "02_noisy": {
+      "record_count": 980,
+      "exact_record_correct": 82,
+      "exact_record_match_rate": 0.0836734693877551,
+      "micro_mean_fuzzy_similarity": 0.666707852072565,
+      "fuzzy_scored_records": 980,
+      "fuzzy_scored_field_values": 4423,
+      "macro_mean_field_fuzzy_similarity": 0.6484201039911265,
+      "micro_f1_scored_fields": 0.49407114624505927,
+      "macro_mean_field_f1": 0.4770122086187838,
+      "field_metrics": {
+        "SoNha": {
+          "exact_correct": 736,
+          "exact_n": 980,
+          "exact_match_rate": 0.7510204081632653,
+          "fuzzy_similarity_sum": 811.5997145366711,
+          "fuzzy_similarity_n": 980,
+          "mean_fuzzy_similarity": 0.8281629740170113,
+          "tp": 736,
+          "fp": 159,
+          "fn": 244,
+          "f1": 0.7850666666666667
+        },
+        "TenDuong": {
+          "exact_correct": 485,
+          "exact_n": 980,
+          "exact_match_rate": 0.49489795918367346,
+          "fuzzy_similarity_sum": 780.1772041683327,
+          "fuzzy_similarity_n": 980,
+          "mean_fuzzy_similarity": 0.7960991879268701,
+          "tp": 485,
+          "fp": 486,
+          "fn": 495,
+          "f1": 0.4971809328549462
+        },
+        "PhuongXa": {
+          "exact_correct": 232,
+          "exact_n": 980,
+          "exact_match_rate": 0.23673469387755103,
+          "fuzzy_similarity_sum": 496.64737827215333,
+          "fuzzy_similarity_n": 980,
+          "mean_fuzzy_similarity": 0.5067830390532176,
+          "tp": 232,
+          "fp": 455,
+          "fn": 748,
+          "f1": 0.27834433113377327
+        },
+        "QuanHuyen": {
+          "exact_correct": 633,
+          "exact_n": 980,
+          "exact_match_rate": 0.6459183673469387,
+          "fuzzy_similarity_sum": 240.8596833528321,
+          "fuzzy_similarity_n": 503,
+          "mean_fuzzy_similarity": 0.4788462889718332,
+          "tp": 156,
+          "fp": 151,
+          "fn": 334,
+          "f1": 0.39146800501882056
+        },
+        "TinhThanh": {
+          "exact_correct": 391,
+          "exact_n": 980,
+          "exact_match_rate": 0.3989795918367347,
+          "fuzzy_similarity_sum": 619.5648493869662,
+          "fuzzy_similarity_n": 980,
+          "mean_fuzzy_similarity": 0.6322090299867003,
+          "tp": 391,
+          "fp": 435,
+          "fn": 589,
+          "f1": 0.4330011074197121
+        }
+      },
+      "status_counts": {
+        "ok": 980
+      },
+      "mode": "TEXT_ONLY"
+    },
+    "03_old": {
+      "record_count": 1480,
+      "exact_record_correct": 1118,
+      "exact_record_match_rate": 0.7554054054054054,
+      "micro_mean_fuzzy_similarity": 0.9380299243080801,
+      "fuzzy_scored_records": 1480,
+      "fuzzy_scored_field_values": 7400,
+      "macro_mean_field_fuzzy_similarity": 0.9380299243080799,
+      "micro_f1_scored_fields": 0.9238996297819827,
+      "macro_mean_field_f1": 0.9238006543766858,
+      "field_metrics": {
+        "SoNha": {
+          "exact_correct": 1435,
+          "exact_n": 1480,
+          "exact_match_rate": 0.9695945945945946,
+          "fuzzy_similarity_sum": 1440.2985912155477,
+          "fuzzy_similarity_n": 1480,
+          "mean_fuzzy_similarity": 0.973174723794289,
+          "tp": 1435,
+          "fp": 15,
+          "fn": 45,
+          "f1": 0.9795221843003413
+        },
+        "TenDuong": {
+          "exact_correct": 1264,
+          "exact_n": 1480,
+          "exact_match_rate": 0.8540540540540541,
+          "fuzzy_similarity_sum": 1374.46808828355,
+          "fuzzy_similarity_n": 1480,
+          "mean_fuzzy_similarity": 0.9286946542456419,
+          "tp": 1264,
+          "fp": 207,
+          "fn": 216,
+          "f1": 0.8566587597424602
+        },
+        "PhuongXa": {
+          "exact_correct": 1288,
+          "exact_n": 1480,
+          "exact_match_rate": 0.8702702702702703,
+          "fuzzy_similarity_sum": 1320.4575741081676,
+          "fuzzy_similarity_n": 1480,
+          "mean_fuzzy_similarity": 0.8922010635865997,
+          "tp": 1288,
+          "fp": 87,
+          "fn": 192,
+          "f1": 0.902276707530648
+        },
+        "QuanHuyen": {
+          "exact_correct": 1300,
+          "exact_n": 1480,
+          "exact_match_rate": 0.8783783783783784,
+          "fuzzy_similarity_sum": 1351.595017852711,
+          "fuzzy_similarity_n": 1480,
+          "mean_fuzzy_similarity": 0.9132398769275074,
+          "tp": 1300,
+          "fp": 130,
+          "fn": 180,
+          "f1": 0.8934707903780069
+        },
+        "TinhThanh": {
+          "exact_correct": 1451,
+          "exact_n": 1480,
+          "exact_match_rate": 0.9804054054054054,
+          "fuzzy_similarity_sum": 1454.6021684198154,
+          "fuzzy_similarity_n": 1480,
+          "mean_fuzzy_similarity": 0.9828393029863617,
+          "tp": 1451,
+          "fp": 9,
+          "fn": 29,
+          "f1": 0.9870748299319728
+        }
+      },
+      "status_counts": {
+        "ok": 1480
+      },
+      "mode": "TEXT_ONLY"
+    },
+    "04_missing": {
+      "record_count": 780,
+      "exact_record_correct": 590,
+      "exact_record_match_rate": 0.7564102564102564,
+      "micro_mean_fuzzy_similarity": 0.9085997948088302,
+      "fuzzy_scored_records": 780,
+      "fuzzy_scored_field_values": 2658,
+      "macro_mean_field_fuzzy_similarity": 0.8926756780836014,
+      "micro_f1_scored_fields": 0.9011244668476154,
+      "macro_mean_field_f1": 0.9026145991601885,
+      "field_metrics": {
+        "SoNha": {
+          "exact_correct": 773,
+          "exact_n": 780,
+          "exact_match_rate": 0.9910256410256411,
+          "fuzzy_similarity_sum": 326.73426573426576,
+          "fuzzy_similarity_n": 333,
+          "mean_fuzzy_similarity": 0.9811839811839813,
+          "tp": 326,
+          "fp": 6,
+          "fn": 4,
+          "f1": 0.9848942598187311
+        },
+        "TenDuong": {
+          "exact_correct": 630,
+          "exact_n": 780,
+          "exact_match_rate": 0.8076923076923077,
+          "fuzzy_similarity_sum": 712.3666944953109,
+          "fuzzy_similarity_n": 780,
+          "mean_fuzzy_similarity": 0.9132906339683473,
+          "tp": 630,
+          "fp": 148,
+          "fn": 150,
+          "f1": 0.8087291399229781
+        },
+        "PhuongXa": {
+          "exact_correct": 686,
+          "exact_n": 780,
+          "exact_match_rate": 0.8794871794871795,
+          "fuzzy_similarity_sum": 370.6854329004329,
+          "fuzzy_similarity_n": 460,
+          "mean_fuzzy_similarity": 0.8058378976096368,
+          "tp": 366,
+          "fp": 40,
+          "fn": 71,
+          "f1": 0.8683274021352313
+        },
+        "QuanHuyen": {
+          "exact_correct": 710,
+          "exact_n": 780,
+          "exact_match_rate": 0.9102564102564102,
+          "fuzzy_similarity_sum": 237.52727272727273,
+          "fuzzy_similarity_n": 305,
+          "mean_fuzzy_similarity": 0.7787779433681074,
+          "tp": 235,
+          "fp": 16,
+          "fn": 60,
+          "f1": 0.8608058608058609
+        },
+        "TinhThanh": {
+          "exact_correct": 767,
+          "exact_n": 780,
+          "exact_match_rate": 0.9833333333333333,
+          "fuzzy_similarity_sum": 767.7445887445888,
+          "fuzzy_similarity_n": 780,
+          "mean_fuzzy_similarity": 0.9842879342879344,
+          "tp": 767,
+          "fp": 2,
+          "fn": 13,
+          "f1": 0.9903163331181407
+        }
+      },
+      "status_counts": {
+        "ok": 780
+      },
+      "mode": "TEXT_ONLY"
+    },
+    "06_hybrid": {
+      "record_count": 580,
+      "exact_record_correct": 530,
+      "exact_record_match_rate": 0.9137931034482759,
+      "micro_mean_fuzzy_similarity": 0.9887657929704025,
+      "fuzzy_scored_records": 580,
+      "fuzzy_scored_field_values": 2900,
+      "macro_mean_field_fuzzy_similarity": 0.9887657929704025,
+      "micro_f1_scored_fields": 0.9790982898600794,
+      "macro_mean_field_f1": 0.9790945301930257,
+      "field_metrics": {
+        "SoNha": {
+          "exact_correct": 570,
+          "exact_n": 580,
+          "exact_match_rate": 0.9827586206896551,
+          "fuzzy_similarity_sum": 570.3529411764706,
+          "fuzzy_similarity_n": 580,
+          "mean_fuzzy_similarity": 0.983367139959432,
+          "tp": 570,
+          "fp": 2,
+          "fn": 10,
+          "f1": 0.9895833333333334
+        },
+        "TenDuong": {
+          "exact_correct": 531,
+          "exact_n": 580,
+          "exact_match_rate": 0.9155172413793103,
+          "fuzzy_similarity_sum": 561.4945611738959,
+          "fuzzy_similarity_n": 580,
+          "mean_fuzzy_similarity": 0.9680940709894758,
+          "tp": 531,
+          "fp": 47,
+          "fn": 49,
+          "f1": 0.917098445595855
+        },
+        "PhuongXa": {
+          "exact_correct": 575,
+          "exact_n": 580,
+          "exact_match_rate": 0.9913793103448276,
+          "fuzzy_similarity_sum": 577.2575077901165,
+          "fuzzy_similarity_n": 580,
+          "mean_fuzzy_similarity": 0.9952715651553733,
+          "tp": 575,
+          "fp": 5,
+          "fn": 5,
+          "f1": 0.9913793103448276
+        },
+        "QuanHuyen": {
+          "exact_correct": 578,
+          "exact_n": 580,
+          "exact_match_rate": 0.996551724137931,
+          "fuzzy_similarity_sum": 578.3157894736842,
+          "fuzzy_similarity_n": 580,
+          "mean_fuzzy_similarity": 0.9970961887477313,
+          "tp": 578,
+          "fp": 1,
+          "fn": 2,
+          "f1": 0.997411561691113
+        },
+        "TinhThanh": {
+          "exact_correct": 580,
+          "exact_n": 580,
+          "exact_match_rate": 1.0,
+          "fuzzy_similarity_sum": 580.0,
+          "fuzzy_similarity_n": 580,
+          "mean_fuzzy_similarity": 1.0,
+          "tp": 580,
+          "fp": 0,
+          "fn": 0,
+          "f1": 1.0
+        }
+      },
+      "status_counts": {
+        "ok": 580
+      },
+      "mode": "TEXT_ONLY"
+    }
+  },
+  "overall": {
+    "record_count": 4800,
+    "exact_record_correct": 3236,
+    "exact_record_match_rate": 0.6741666666666667,
+    "micro_mean_fuzzy_similarity": 0.8949468779439028,
+    "fuzzy_scored_records": 4800,
+    "fuzzy_scored_field_values": 21301,
+    "macro_mean_field_fuzzy_similarity": 0.8906848445398227,
+    "micro_f1_scored_fields": 0.8558749758826935,
+    "macro_mean_field_f1": 0.8552453868297769,
+    "field_metrics": {
+      "SoNha": {
+        "exact_correct": 4488,
+        "exact_n": 4800,
+        "exact_match_rate": 0.935,
+        "fuzzy_similarity_sum": 4123.36198325119,
+        "fuzzy_similarity_n": 4353,
+        "mean_fuzzy_similarity": 0.9472460333680658,
+        "tp": 4041,
+        "fp": 184,
+        "fn": 309,
+        "f1": 0.9425072886297376
+      },
+      "TenDuong": {
+        "exact_correct": 3826,
+        "exact_n": 4800,
+        "exact_match_rate": 0.7970833333333334,
+        "fuzzy_similarity_sum": 4385.703782123594,
+        "fuzzy_similarity_n": 4800,
+        "mean_fuzzy_similarity": 0.9136882879424153,
+        "tp": 3826,
+        "fp": 951,
+        "fn": 974,
+        "f1": 0.7989975984128641
+      },
+      "PhuongXa": {
+        "exact_correct": 3759,
+        "exact_n": 4800,
+        "exact_match_rate": 0.783125,
+        "fuzzy_similarity_sum": 3743.9883117504196,
+        "fuzzy_similarity_n": 4480,
+        "mean_fuzzy_similarity": 0.8357116767300043,
+        "tp": 3439,
+        "fp": 589,
+        "fn": 1018,
+        "f1": 0.8106069534472599
+      },
+      "QuanHuyen": {
+        "exact_correct": 4201,
+        "exact_n": 4800,
+        "exact_match_rate": 0.8752083333333334,
+        "fuzzy_similarity_sum": 2408.2977634065,
+        "fuzzy_similarity_n": 2868,
+        "mean_fuzzy_similarity": 0.8397133066270921,
+        "tp": 2269,
+        "fp": 298,
+        "fn": 576,
+        "f1": 0.8385070214338507
+      },
+      "TinhThanh": {
+        "exact_correct": 4169,
+        "exact_n": 4800,
+        "exact_match_rate": 0.8685416666666667,
+        "fuzzy_similarity_sum": 4401.911606551371,
+        "fuzzy_similarity_n": 4800,
+        "mean_fuzzy_similarity": 0.9170649180315356,
+        "tp": 4169,
+        "fp": 446,
+        "fn": 631,
+        "f1": 0.8856080722251726
+      }
+    }
+  },
+  "supported_labels": [
+    "SoNha",
+    "TenDuong",
+    "Ngo/Hem",
+    "ToaNha/CanHo",
+    "PhuongXa",
+    "QuanHuyen",
+    "TinhThanh",
+    "MocDinhVi",
+    "HuongDi",
+    "GhiChu",
+    "Khac"
+  ],
+  "gold_field_support": {
+    "SoNha": 4350,
+    "TenDuong": 4800,
+    "PhuongXa": 4457,
+    "TinhThanh": 4800,
+    "QuanHuyen": 2845
+  },
+  "supported_field_coverage": 1.0,
+  "quan_huyen_diagnostic": {
+    "gold_new_without_district": 1861,
+    "false_positive_samples": 17,
+    "rate": 0.009134873723804407
+  },
+  "interpretation": "Existing benchmark development comparison, not final T0 test performance; all 100 hold rows excluded"
+}

@@ -1,0 +1,75 @@
+{
+  "checkpoint_sha256": {
+    "dyn_seed1337": "b70d0f7dd5091ddc9e7fd09b631f092f6c7b07b54b79c36d7a01639dcb41f034",
+    "dyn_seed2025": "fc41f40702951dd13ddb906fb5b499eb78b185cd69a0e8eb4c481d50201f4695",
+    "dyn_seed42": "6210547365cad2b93674dcd007ed388a707bbc453e6b9b6824b96150953a14e4",
+    "pcrf_seed1337": "54f1136b5e843626a0cbc58069fbb72d47d251e88a4c159706d0bc6acdb8c350",
+    "pcrf_seed2025": "bb4ee1b587a6adb36c1bc0f7612ecee3b9438b88406227c4a75bfda993032d54",
+    "pcrf_seed42": "5306980e10328c82241492da8503ed97feaf5ae472a9118958653b6688084abd"
+  },
+  "code_sha256": {
+    "scripts/71_run_cpu_hypothesis_experiments.py": "16e5d5b2424d6fedf69d294e59945077d8c0c7fac08ed1c859e829ee88ef3f00",
+    "src/data/span_trace.py": "2508cfb524ba5bfcf1708b18de0a5b89e44636f46fe0ca7cbe6192bd1931e13b",
+    "src/evaluation/adapters/crf_adapter.py": "e00258c9f5e602649534e743bb12ba7b7365d0f6c070192a5c0e7c9c627b388a",
+    "src/evaluation/frozen_reliability.py": "3d2a679b82cb5e69eb531916aa621986550d95c9abdac07f58020c8c25b2302b",
+    "src/evaluation/leak_guard.py": "8dea9bf36261014a0a660e9784ebca4743b4f81606bfb56229098b197542ad33",
+    "src/evaluation/perturbations.py": "af800c501e263997757ef16e8a1bfd50f43ea7f6511756ee12cdce5c4b68099d",
+    "src/evaluation/scorer.py": "ea439c543bc29212e1824a2620aa9895c883cdfdc73802df3dcbbe5d170b2cdb",
+    "src/evaluation/span_features.py": "85d2f3b764d63f704b0f0037285ef58b1e1c9235384b08bdc09796a48b849a3a",
+    "src/evaluation/span_scorer.py": "5d8677ccb89d411eb9943811460f0300bdbdefdb8aba9e8568da223ef2664058",
+    "src/evaluation/stats.py": "260c12c2aad92e5de3c6a81d05b05f7ae89bdf5e867e18f885399fc2d843b093"
+  },
+  "conditions": [
+    "original_text",
+    "recomposed_original_order",
+    "reverse",
+    "shuffle_seed42",
+    "shuffle_seed1337",
+    "shuffle_seed2025",
+    "commas_drop|case_keep",
+    "commas_keep|case_lower",
+    "commas_drop|case_lower"
+  ],
+  "controls": {
+    "E1": "commas_keep|case_keep",
+    "H3": "recomposed_original_order"
+  },
+  "created_at_utc": "2026-10-14T15:54:03.652045+00:00",
+  "decoder_policy": "locked WP3b inference_config (threshold 0.7, margin 0.2); no tuning",
+  "finished_at_utc": "2026-10-14T15:55:15.355567+00:00",
+  "input_sha256": {
+    "commas_drop|case_keep": "c993991ae72d97acbbe627b00731e1d601ee532ec6837e40515ec61c6e569e99",
+    "commas_drop|case_lower": "eef200497119441909a8efc0e7eac1efb50c63d3182389c2d79b3c03d1ba72eb",
+    "commas_keep|case_lower": "bef1ce757e2779912d3b227bcc3fafbc97bbfa3aae34aca493ae4e357d165f72",
+    "original_text": "5d1f0309e9c5f2a3b4db0375449bd5d8606f8b8449aca29523fc2db60a339f7b",
+    "recomposed_original_order": "4799e5fd4af4e0846463a78321707f06307fcf126ebd517a59ddacaae597182e",
+    "reverse": "d2df607978bc5bdd7acabf9e57d1d2d580055a4d169836bd6fe90c879f7a436d",
+    "shuffle_seed1337": "39e4be095bb395b6adbeba42e935c326a5efd1d2222d6c210fcdd86aa997ca21",
+    "shuffle_seed2025": "5e5131dccf4be659b2e4ae4e72041723eb5b8a1b0ced0f634c758830f9c5d082",
+    "shuffle_seed42": "5a181a1653bcb952b2df315b98b999fc28dff6c04b72f21d173b5ff99e1dfe30"
+  },
+  "label": "LOCAL_CPU_RETRAINED",
+  "models": {
+    "dyn": {
+      "system": "PROPOSED-DYN",
+      "variant": "dyn"
+    },
+    "pcrf": {
+      "system": "PHOBERT-CRF",
+      "variant": "pcrf"
+    }
+  },
+  "outputs_sha256": {
+    "tier2_metrics.json": "b0df5dc927569e6703b63fb862bd2803adaf74c32ba778ffc32e94349c4ab884"
+  },
+  "prediction_sha256": {},
+  "run_id": "tier2_local_neural",
+  "seeds": [
+    42,
+    1337,
+    2025
+  ],
+  "smoke_rule": "original_text predictions must equal the WP3b test prediction of the same checkpoint (spans and T1)",
+  "status": "NOT_RUN",
+  "test_status": "Sprint 3 test already observed: post-hoc robustness analysis only"
+}

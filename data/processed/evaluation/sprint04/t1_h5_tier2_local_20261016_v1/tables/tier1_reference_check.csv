@@ -1,0 +1,13 @@
+﻿system,column,n,accuracy_here,accuracy_tier1,match
+HEUR-JW,s3_test_eligible,64,0.921875,0.921875,True
+HEUR-JW,t1_synth_eval,2195,0.497950,0.497950,True
+HEUR-JW,t1_data06_heldout,580,0.294828,0.294828,True
+HEUR-JW,t1_data06_heldout_unseen_groups,553,0.271248,0.271248,True
+T1-PIPE-CRF,s3_test_eligible,64,0.937500,0.937500,True
+T1-PIPE-CRF,t1_synth_eval,2195,0.498405,0.498405,True
+T1-PIPE-CRF,t1_data06_heldout,580,0.294828,0.294828,True
+T1-PIPE-CRF,t1_data06_heldout_unseen_groups,553,0.271248,0.271248,True
+T1-FEAT,s3_test_eligible,64,0.703125,0.703125,True
+T1-FEAT,t1_synth_eval,2195,0.892483,0.892483,True
+T1-FEAT,t1_data06_heldout,580,0.548276,0.548276,True
+T1-FEAT,t1_data06_heldout_unseen_groups,553,0.531646,0.531646,True

@@ -1,0 +1,264 @@
+{
+  "run_name": "constraint_ablation_20261017_v1",
+  "stage": "COMPLETE",
+  "started_utc": "2026-10-14T17:33:26.608737+00:00",
+  "rule_version": "constraint_ablation_v1",
+  "rule": "ban B-/I-QuanHuyen in the Viterbi decode when the T1 source predicts 'moi'; T1 sources compared: DYN (own head, threshold 0.7 / margin 0.2 as stored), HEUR-JW (frozen predicted_system), ORACLE_UPPER_BOUND (gold system)",
+  "systems": [
+    "PHOBERT-CRF",
+    "PROPOSED-NO-CONSTRAINT",
+    "PROPOSED-DYN",
+    "DYN-emissions+HEUR-JW-T1",
+    "PCRF-emissions+HEUR-JW-T1"
+  ],
+  "oracle_systems": [
+    "DYN-emissions+ORACLE_UPPER_BOUND",
+    "PCRF-emissions+ORACLE_UPPER_BOUND"
+  ],
+  "datasets": {
+    "test_kaggle": {
+      "label": "SPRINT3_TEST_OBSERVED_POSTHOC",
+      "kind": "span",
+      "files": {
+        "dyn_on": "data/interim/modeling/sprint03/final_completion_20261005_v1/kaggle_final_output_v4/dacn_artifacts/dacn-s3-final-infer-20261005-v4/workspace/data/interim/modeling/sprint03/dacn-s3-final-infer-20261005-v4/dyn_test/predictions.jsonl",
+        "dyn_off": "data/interim/modeling/sprint03/final_completion_20261005_v1/kaggle_final_output_v4/dacn_artifacts/dacn-s3-final-infer-20261005-v4/workspace/data/interim/modeling/sprint03/dacn-s3-final-infer-20261005-v4/dyn_off_test/predictions.jsonl",
+        "pcrf": "data/interim/modeling/sprint03/final_completion_20261005_v1/kaggle_final_output_v4/dacn_artifacts/dacn-s3-final-infer-20261005-v4/workspace/data/interim/modeling/sprint03/dacn-s3-final-infer-20261005-v4/pcrf_test/predictions.jsonl"
+      }
+    },
+    "test_seed42": {
+      "label": "LOCAL_CPU_RETRAINED__SPRINT3_TEST_OBSERVED_POSTHOC",
+      "kind": "span",
+      "files": {
+        "dyn_on": "data/interim/modeling/sprint04/multiseed_20261015_v1/dyn_seed42/test_dyn/predictions.jsonl",
+        "dyn_off": "data/interim/modeling/sprint04/multiseed_20261015_v1/dyn_seed42/test_dyn_off/predictions.jsonl",
+        "pcrf": "data/interim/modeling/sprint04/multiseed_20261015_v1/pcrf_seed42/test_pcrf/predictions.jsonl"
+      }
+    },
+    "test_seed1337": {
+      "label": "LOCAL_CPU_RETRAINED__SPRINT3_TEST_OBSERVED_POSTHOC",
+      "kind": "span",
+      "files": {
+        "dyn_on": "data/interim/modeling/sprint04/multiseed_20261015_v1/dyn_seed1337/test_dyn/predictions.jsonl",
+        "dyn_off": "data/interim/modeling/sprint04/multiseed_20261015_v1/dyn_seed1337/test_dyn_off/predictions.jsonl",
+        "pcrf": "data/interim/modeling/sprint04/multiseed_20261015_v1/pcrf_seed1337/test_pcrf/predictions.jsonl"
+      }
+    },
+    "test_seed2025": {
+      "label": "LOCAL_CPU_RETRAINED__SPRINT3_TEST_OBSERVED_POSTHOC",
+      "kind": "span",
+      "files": {
+        "dyn_on": "data/interim/modeling/sprint04/multiseed_20261015_v1/dyn_seed2025/test_dyn/predictions.jsonl",
+        "dyn_off": "data/interim/modeling/sprint04/multiseed_20261015_v1/dyn_seed2025/test_dyn_off/predictions.jsonl",
+        "pcrf": "data/interim/modeling/sprint04/multiseed_20261015_v1/pcrf_seed2025/test_pcrf/predictions.jsonl"
+      }
+    },
+    "fivefield_kaggle": {
+      "label": "DEVELOPMENT_TRACK",
+      "kind": "five",
+      "files": {
+        "dyn_on": "data/interim/modeling/sprint03/final_completion_20261005_v1/kaggle_final_output_v4/dacn_artifacts/dacn-s3-final-infer-20261005-v4/workspace/data/interim/modeling/sprint03/dacn-s3-final-infer-20261005-v4/dyn_5field/predictions.jsonl",
+        "dyn_off": "data/interim/modeling/sprint03/final_completion_20261005_v1/kaggle_final_output_v4/dacn_artifacts/dacn-s3-final-infer-20261005-v4/workspace/data/interim/modeling/sprint03/dacn-s3-final-infer-20261005-v4/dyn_off_5field/predictions.jsonl"
+      }
+    },
+    "dev_kaggle": {
+      "label": "SELECTION_SET",
+      "kind": "span",
+      "files": {
+        "dyn_off": "data/interim/modeling/sprint03/release_and_kaggle_20261005_v1/dyn_c02_selection_artifacts_v1/dacn_artifacts/dacn-s3-dyn-c02-20261005-v1/workspace/data/processed/evaluation/sprint03/dacn-s3-dyn-c02-20261005-v1_proposed_dyn_c02_dev_proposed_no_constraint_v1/predictions.jsonl",
+        "pcrf": "data/interim/modeling/sprint03/release_and_kaggle_20261005_v1/pcrf_c02_selection_artifacts_v2/dacn_artifacts/dacn-s3-pcrf-c02-20261005-v1/workspace/data/processed/evaluation/sprint03/dacn-s3-pcrf-c02-20261005-v1_phobert_crf_c02_dev/predictions.jsonl"
+      }
+    }
+  },
+  "bootstrap": {
+    "seed": 20261014,
+    "n_resamples": 10000,
+    "unit": "row (sample / five-field row)"
+  },
+  "frozen_input_hashes": {
+    "test_kaggle": {
+      "HEUR-JW": {
+        "path": "data/interim/modeling/sprint03/final_completion_20261005_v1/light_test_runs_v2/heur-jw/predictions.jsonl",
+        "sha256": "a88e04bd6fc10c734fee0dcbb632640376e2c158deabc52e38441494fb537063",
+        "frozen_sha256": "a88e04bd6fc10c734fee0dcbb632640376e2c158deabc52e38441494fb537063"
+      },
+      "CRF-INDEP": {
+        "path": "data/interim/modeling/sprint03/final_completion_20261005_v1/light_test_runs_v2/crf-indep/predictions.jsonl",
+        "sha256": "72f893156d56555c2ca753ce25aaa896f3ec722c119939b056dd75511073e9f6",
+        "frozen_sha256": "72f893156d56555c2ca753ce25aaa896f3ec722c119939b056dd75511073e9f6"
+      },
+      "PHOBERT-CRF": {
+        "path": "data/interim/modeling/sprint03/final_completion_20261005_v1/kaggle_final_output_v4/dacn_artifacts/dacn-s3-final-infer-20261005-v4/workspace/data/interim/modeling/sprint03/dacn-s3-final-infer-20261005-v4/pcrf_test/predictions.jsonl",
+        "sha256": "59c9a554b88e0f083f96a892f405f3b95863ead553359d0541bb0211d1a4a7f8",
+        "frozen_sha256": "59c9a554b88e0f083f96a892f405f3b95863ead553359d0541bb0211d1a4a7f8"
+      },
+      "PROPOSED-DYN": {
+        "path": "data/interim/modeling/sprint03/final_completion_20261005_v1/kaggle_final_output_v4/dacn_artifacts/dacn-s3-final-infer-20261005-v4/workspace/data/interim/modeling/sprint03/dacn-s3-final-infer-20261005-v4/dyn_test/predictions.jsonl",
+        "sha256": "237f3c64f2799cfda841a48b961f903e9c1dce3020af9751659469c02ac50120",
+        "frozen_sha256": "237f3c64f2799cfda841a48b961f903e9c1dce3020af9751659469c02ac50120"
+      },
+      "PROPOSED-NO-CONSTRAINT": {
+        "path": "data/interim/modeling/sprint03/final_completion_20261005_v1/kaggle_final_output_v4/dacn_artifacts/dacn-s3-final-infer-20261005-v4/workspace/data/interim/modeling/sprint03/dacn-s3-final-infer-20261005-v4/dyn_off_test/predictions.jsonl",
+        "sha256": "14ec28c43e297e6ffd94a1eeb98c2d9034bbd90f478bcd221b7c6cbfba7b30b8",
+        "frozen_sha256": "14ec28c43e297e6ffd94a1eeb98c2d9034bbd90f478bcd221b7c6cbfba7b30b8"
+      }
+    },
+    "test_seed42": {
+      "dyn_on": {
+        "path": "data/interim/modeling/sprint04/multiseed_20261015_v1/dyn_seed42/test_dyn/predictions.jsonl",
+        "sha256": "a1ac1abbf567d93f15037917f5c11e1446a35594e31f1f1cb2bd264752321881"
+      },
+      "dyn_off": {
+        "path": "data/interim/modeling/sprint04/multiseed_20261015_v1/dyn_seed42/test_dyn_off/predictions.jsonl",
+        "sha256": "370fdb61c8dd3d48171fc49269ed04adbfa12d75120e23d3d86b17c9470db6de"
+      },
+      "pcrf": {
+        "path": "data/interim/modeling/sprint04/multiseed_20261015_v1/pcrf_seed42/test_pcrf/predictions.jsonl",
+        "sha256": "efb9f6bb7f64277650b73744c56c9bd4ccc3f153b4dfec0d59ca8de25c245ea8"
+      }
+    },
+    "test_seed1337": {
+      "dyn_on": {
+        "path": "data/interim/modeling/sprint04/multiseed_20261015_v1/dyn_seed1337/test_dyn/predictions.jsonl",
+        "sha256": "35b5c4afc853d683532dc0f0d834ffbaecdf06e061696ddb3892fe87248ed830"
+      },
+      "dyn_off": {
+        "path": "data/interim/modeling/sprint04/multiseed_20261015_v1/dyn_seed1337/test_dyn_off/predictions.jsonl",
+        "sha256": "05ac26f3910d8c2016922879ddf5e0fd3519ca5a119fa9f87470b0098d28518f"
+      },
+      "pcrf": {
+        "path": "data/interim/modeling/sprint04/multiseed_20261015_v1/pcrf_seed1337/test_pcrf/predictions.jsonl",
+        "sha256": "964e045adfebb5965e7518ad0e64c8216eb8cd47f6adeca2cf1f9232172f7ab7"
+      }
+    },
+    "test_seed2025": {
+      "dyn_on": {
+        "path": "data/interim/modeling/sprint04/multiseed_20261015_v1/dyn_seed2025/test_dyn/predictions.jsonl",
+        "sha256": "2f588611aa971cb585061590e12a315971fd7b998db8441a1dd4f6febe7db169"
+      },
+      "dyn_off": {
+        "path": "data/interim/modeling/sprint04/multiseed_20261015_v1/dyn_seed2025/test_dyn_off/predictions.jsonl",
+        "sha256": "21d12b8de4d14b6221eb100edeb916dfaadeb1498276500223e4c60dfa9527ba"
+      },
+      "pcrf": {
+        "path": "data/interim/modeling/sprint04/multiseed_20261015_v1/pcrf_seed2025/test_pcrf/predictions.jsonl",
+        "sha256": "0eb1f31752b5808e5182b9181626bcab30d0ea5989aa3ff11840fb440bc80b1d"
+      }
+    },
+    "fivefield_kaggle": {
+      "dyn_on": {
+        "path": "data/interim/modeling/sprint03/final_completion_20261005_v1/kaggle_final_output_v4/dacn_artifacts/dacn-s3-final-infer-20261005-v4/workspace/data/interim/modeling/sprint03/dacn-s3-final-infer-20261005-v4/dyn_5field/predictions.jsonl",
+        "sha256": "ca2fdb5c0246a9e33efa866b69f2c7379ed4f4d91271e7afe5d035adf042f2d5"
+      },
+      "dyn_off": {
+        "path": "data/interim/modeling/sprint03/final_completion_20261005_v1/kaggle_final_output_v4/dacn_artifacts/dacn-s3-final-infer-20261005-v4/workspace/data/interim/modeling/sprint03/dacn-s3-final-infer-20261005-v4/dyn_off_5field/predictions.jsonl",
+        "sha256": "3d5164e089d264293a87c23a62e521a80cbf1f9eb751a89aee2c54d7208e9e51"
+      },
+      "heur_followup_fivefield": {
+        "path": "data/processed/evaluation/sprint03/heur_jw_followup_fivefield_20261003_v1/predictions.jsonl",
+        "sha256": "31c1ac2bd236d945e78daa90918295cec37037bfcdd331f053e71fda2364ab28",
+        "note": "no freeze record; selected because its config equals the locked test config"
+      }
+    },
+    "dev_kaggle": {
+      "dyn_off": {
+        "path": "data/interim/modeling/sprint03/release_and_kaggle_20261005_v1/dyn_c02_selection_artifacts_v1/dacn_artifacts/dacn-s3-dyn-c02-20261005-v1/workspace/data/processed/evaluation/sprint03/dacn-s3-dyn-c02-20261005-v1_proposed_dyn_c02_dev_proposed_no_constraint_v1/predictions.jsonl",
+        "sha256": "f1e57ba961a78a0d25ef86d0b9b24be9b30d55dd0db1ba2fa5293c1186885ffb"
+      },
+      "pcrf": {
+        "path": "data/interim/modeling/sprint03/release_and_kaggle_20261005_v1/pcrf_c02_selection_artifacts_v2/dacn_artifacts/dacn-s3-pcrf-c02-20261005-v1/workspace/data/processed/evaluation/sprint03/dacn-s3-pcrf-c02-20261005-v1_phobert_crf_c02_dev/predictions.jsonl",
+        "sha256": "a8482c0ef2f702868e6fce9fdee0283d2d880167d670528615496d54e1ea9704"
+      },
+      "heur": {
+        "path": "data/processed/evaluation/sprint03/heur_jw_followup_20261003_v1/threshold_0.86/predictions.jsonl",
+        "sha256": "b1ffb2d715a39155c3880e6452c282423fba9a617109e16c5fd3781ac3ca71a0"
+      },
+      "dyn_on_reference": {
+        "path": "data/interim/modeling/sprint03/release_and_kaggle_20261005_v1/dyn_c02_selection_artifacts_v1/dacn_artifacts/dacn-s3-dyn-c02-20261005-v1/workspace/data/processed/evaluation/sprint03/dacn-s3-dyn-c02-20261005-v1_proposed_dyn_c02_dev_proposed_dyn_v1/predictions.jsonl",
+        "sha256": "cc24bd8a540f23669f4fd0540668df592dc818f72af906b10e6d0e2c7823ec38"
+      },
+      "note": "dyn_off, pcrf and heur are hash-verified by locate_dev_predictions against the selection locks; dyn_on_reference is the constrained dev run NOT in the selection evidence (gate reference only)"
+    }
+  },
+  "crf_checkpoints": {
+    "kaggle_dyn": {
+      "path": "data/interim/modeling/sprint03/release_and_kaggle_20261005_v1/dyn_c02_selection_artifacts_v1/dacn_artifacts/dacn-s3-dyn-c02-20261005-v1/workspace/data/processed/evaluation/sprint03/dacn-s3-dyn-c02-20261005-v1_proposed_dyn_c02/checkpoints/best.pt",
+      "sha256": "7a4a3d01bff1222cd303cb5ff03872c5ee49b22cb67a0572833fa470f917a589"
+    },
+    "kaggle_pcrf": {
+      "path": "data/interim/modeling/sprint03/release_and_kaggle_20261005_v1/pcrf_c02_selection_artifacts_v2/dacn_artifacts/dacn-s3-pcrf-c02-20261005-v1/workspace/data/processed/evaluation/sprint03/dacn-s3-pcrf-c02-20261005-v1_phobert_crf_c02/checkpoints/best.pt",
+      "sha256": "19894a1e899a94c69c68bd33d091c348a7b049582090f41dc6d6a9f85b8a351e"
+    },
+    "seed42_dyn": {
+      "path": "data/interim/modeling/sprint04/multiseed_20261015_v1/dyn_seed42/checkpoints/best.pt",
+      "sha256": "6210547365cad2b93674dcd007ed388a707bbc453e6b9b6824b96150953a14e4"
+    },
+    "seed42_pcrf": {
+      "path": "data/interim/modeling/sprint04/multiseed_20261015_v1/pcrf_seed42/checkpoints/best.pt",
+      "sha256": "5306980e10328c82241492da8503ed97feaf5ae472a9118958653b6688084abd"
+    },
+    "seed1337_dyn": {
+      "path": "data/interim/modeling/sprint04/multiseed_20261015_v1/dyn_seed1337/checkpoints/best.pt",
+      "sha256": "b70d0f7dd5091ddc9e7fd09b631f092f6c7b07b54b79c36d7a01639dcb41f034"
+    },
+    "seed1337_pcrf": {
+      "path": "data/interim/modeling/sprint04/multiseed_20261015_v1/pcrf_seed1337/checkpoints/best.pt",
+      "sha256": "54f1136b5e843626a0cbc58069fbb72d47d251e88a4c159706d0bc6acdb8c350"
+    },
+    "seed2025_dyn": {
+      "path": "data/interim/modeling/sprint04/multiseed_20261015_v1/dyn_seed2025/checkpoints/best.pt",
+      "sha256": "fc41f40702951dd13ddb906fb5b499eb78b185cd69a0e8eb4c481d50201f4695"
+    },
+    "seed2025_pcrf": {
+      "path": "data/interim/modeling/sprint04/multiseed_20261015_v1/pcrf_seed2025/checkpoints/best.pt",
+      "sha256": "bb4ee1b587a6adb36c1bc0f7612ecee3b9438b88406227c4a75bfda993032d54"
+    }
+  },
+  "gate_summary": {
+    "test_kaggle/dyn_on": "PASS",
+    "test_kaggle/dyn_off": "PASS",
+    "test_kaggle/pcrf": "PASS",
+    "test_seed42/dyn_on": "PASS",
+    "test_seed42/dyn_off": "PASS",
+    "test_seed42/pcrf": "PASS",
+    "test_seed1337/dyn_on": "PASS",
+    "test_seed1337/dyn_off": "PASS",
+    "test_seed1337/pcrf": "PASS",
+    "test_seed2025/dyn_on": "PASS",
+    "test_seed2025/dyn_off": "PASS",
+    "test_seed2025/pcrf": "PASS",
+    "fivefield_kaggle/dyn_on": "PASS",
+    "fivefield_kaggle/dyn_off": "PASS",
+    "dev_kaggle/dyn_off": "PASS",
+    "dev_kaggle/pcrf": "PASS",
+    "dev_kaggle/dyn_on_reference": "PASS"
+  },
+  "code_sha256": {
+    "src/evaluation/constraint_ablation.py": "5847a46938e840a9ef53fcf807a9b74172006d7a567a8993d7d554bb0466d006",
+    "scripts/72_run_constraint_ablation.py": "b45c11be39fbfaae302d46d10c58778d2b1b51b6b037c7d3f3f286255b68685c",
+    "src/modeling/structural_decoder.py": "2cbc2731832d0269523de9451b87c1050413d03fcc787e8368692fbf893b1bec",
+    "src/modeling/labels.py": "82462231e662ffa22d7f09032ebd98c1e9285e22cd888ffe20ba0b31fd6b34eb",
+    "src/evaluation/stats.py": "260c12c2aad92e5de3c6a81d05b05f7ae89bdf5e867e18f885399fc2d843b093",
+    "src/evaluation/frozen_reliability.py": "3d2a679b82cb5e69eb531916aa621986550d95c9abdac07f58020c8c25b2302b"
+  },
+  "no_neural_inference": "CRF tensors read with torch.load only; no adapter, no model forward pass",
+  "finished_utc": "2026-10-14T17:35:14.939653+00:00",
+  "pre_scoring_manifest_sha256": "f081489a5a63e59d10deb82927deae7f9abfb4cfec053812461c044003339f4d",
+  "outputs": {
+    "metrics.json": "9f7ac5c227efd44566c576665843cf4f4a8b86ffec6acfcf728b5edede40fea9",
+    "tables/gate.csv": "e9860b4bb51a3aecfb3db8e0d7e80688cc1832fcd464fd1a18ffa6cdd5308608",
+    "tables/headroom.csv": "a68eee9603136e0426dc39657864c63506b24c29ca9fc3a861027f9a3b74a605",
+    "tables/model_comparison_2x2.csv": "c43b580989cfae6b374eb611d05119d114807d0145238e04b49a10a6b2c820bd",
+    "tables/onoff_dyn_source.csv": "f9c39356081dd68e2f45feea49514b094cfb00ab98217d60aefe7420d97bbae6",
+    "tables/oracle_upper_bound.csv": "1fec7c6d19acbdaa55b4fcc5ae9d4049ab68d0c3b78bf78282c4a2c379675ff8",
+    "tables/seed_summary.csv": "9a2358b5f1856e5a7179452b69e1d1ebef35554439d4a9e4931e8ddd83e2b665",
+    "tables/t1_source_ablation.csv": "0c6b32089038d6167859245e7012b2d8628ebb8f0597fde8369de07bf41bf30f"
+  },
+  "row_counts": {
+    "test_kaggle": 100,
+    "test_seed42": 100,
+    "test_seed1337": 100,
+    "test_seed2025": 100,
+    "fivefield_kaggle": 4800,
+    "dev_kaggle": 60
+  }
+}

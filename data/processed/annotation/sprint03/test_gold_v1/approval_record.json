@@ -1,0 +1,45 @@
+{
+  "bindings": {
+    "export_sha256": "d51b69c981e775e0e51ac3ed5a3ef4c91d845f5e7a900c2f3d4c79f98ca758a4",
+    "queue_sha256": "f06f5889c03801afcddef928f01b55a90aa81ca50a6c2ae4df9a35a6f8348cac",
+    "guideline_sha256": "88dc2155d032f8052317e42c6f02f36c6cc9aee03579e9f3af76ebc12784673a",
+    "label_config_sha256": "5b765ef778afdc8abac288d8bae3a51e9b1f491e944d0b09814e888842d57562",
+    "assisted_manifest_sha256": "52229cc799636050896fd26742238b3d434f52851fc89903abed06cb6f3dea5a",
+    "hold_manifest_sha256": "7e77d73bec74b44044661ae858a7959c6849ee38bfdd14fdfda50794d3bf14e1",
+    "canonical_sha256": "236a38abe3a3699432dee3367ce642b445315a7fad8e48bd6377bd18a07fa6b6",
+    "selection_sha256": "d1818d8f3c1d8bb4d28431168a11fac50332f31268cb50182ae252d67651b4b5",
+    "manual_findings_sha256": "8b5fb1bdd5440d53dbabd7b376cb0bd4c54882461b7a403440d40d48b6698429"
+  },
+  "reviewed_sample_count": 100,
+  "reviewer": "quanghuy050816@gmail.com",
+  "label_studio_user_id": 1,
+  "reviewed_at": "2026-10-05T00:23:18.078448+07:00",
+  "human_authorization_quote": "test100_assisted_round2.json  tôi đã hàon thành chuẩn chỉ rồi và k cần thay đổi gì nữa, bạn hãy hiện thực các nhiệm vụ trên cho tôi\nbạn hãy tự cchínhaur đi và hoàn thiện trước đưa lên kaggle để chạy",
+  "authorization_context": "Owner quoted the two pending choices and delegated their resolution. Agent retains annotation694 and applies the proposed16 T1-only exceptions; all raw/T0 retained.",
+  "owner_authorization_sha256": "866adb7937855b62a60757262ec995b9fc25950e0ba371859c37bb990d531ac3",
+  "decision": "approve",
+  "evaluation_exclusions": {
+    "t1": [
+      "s3_156b56e3b067f033",
+      "s3_193ee8bba9df8734",
+      "s3_224bae3f36763271",
+      "s3_35525b63dc71e55a",
+      "s3_406fc7891f05bc2a",
+      "s3_438e4e50f599cd2f",
+      "s3_4e5c8d58266fb206",
+      "s3_6816f0907984be0a",
+      "s3_7ec507813be1cede",
+      "s3_895748de4265665a",
+      "s3_8dd4536611f09a74",
+      "s3_9fe1a97170d5ce7d",
+      "s3_c653b940f299c3cf",
+      "s3_c9ceb4918634b3b6",
+      "s3_ce1215ffa66c136f",
+      "s3_e705dab3c4063df5"
+    ]
+  },
+  "annotation_mode": "AI_ASSISTED_HUMAN_REVIEW",
+  "agreement": "NOT_MEASURED",
+  "annotation_edits": "NONE; use raw selected annotation; exceptions exclude T1/structure only, never T0",
+  "adjudication_executor": "Codex under explicit owner delegation"
+}

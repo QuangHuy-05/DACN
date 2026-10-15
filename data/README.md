@@ -4,8 +4,11 @@
 - `raw/viet_receipt_vqa`: ba shard Parquet gốc của Viet-Receipt-VQA.
 - `interim/osm`: dữ liệu OSM đã trích xuất hoặc cắt theo mốc thời gian.
 - `interim/vqa`: địa chỉ hóa đơn sau lọc và khử trùng lặp mờ; `interim/viet_receipt` là bản trích cũ chỉ giữ để đối chiếu.
+- `interim/annotation/sprint03`: queue/import/export Label Studio và báo cáo QA; đây là dữ liệu làm việc, có thể chứa chuỗi địa chỉ, không phát hành công khai.
 - `processed/osm`: tập địa chỉ sạch và cặp ánh xạ hai chiều.
 - `processed/benchmark`: các tập benchmark đã tạo lại bằng pipeline hiện tại. Tập 05 chưa có vì thiếu nguồn mốc.
+- `processed/annotation/sprint03`: pilot gold T0 68 mẫu đã duyệt và manifest; 100 test T0 vẫn đang được giữ riêng, chưa có gold.
+- `processed/gazetteer/s3_v1`: gói entity/edge/alias một phần với manifest/hash; mã cũ bên thứ ba là candidate chưa xác minh.
 - `reference/administrative_units`: bảng sáp nhập và ánh xạ đơn vị hành chính.
 
 Không chỉnh sửa trực tiếp dữ liệu trong `raw`; mọi kết quả dẫn xuất nên đi qua `interim` trước khi chuyển sang `processed`.

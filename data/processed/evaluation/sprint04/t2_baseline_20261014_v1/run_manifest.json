@@ -1,0 +1,387 @@
+{
+  "conditions": [
+    "oracle",
+    "pipeline:HEUR-JW",
+    "pipeline:CRF-INDEP"
+  ],
+  "created_at": "2026-10-13T04:59:25.359063+00:00",
+  "elapsed_seconds": 41.4,
+  "finished_at": "2026-10-13T05:00:04.746677+00:00",
+  "input_sha256": {
+    "data/interim/osm/osm_latest_clean.csv": "2e17fc1acdbb5e5157759f23cd63629391de194c631b6cf1ae5d0958b75e426d",
+    "data/processed/benchmark/01_full_address_new_verified.csv": "7e2afd47828d04d108c67d29f45cb50b6a5321ae8feef595cf2b67229796a60d",
+    "data/processed/benchmark/06_hybrid_addresses_600.csv": "6249b06941d6e89a8a731fc47d0b844ee89ed8dce5a902bfcaac13d2785ced8d",
+    "data/processed/benchmark/07_bidirectional_pairs_verified.csv": "3f11b0d02a05922662613c460014da34f89def7da1e7e1ba6ef496aa369245fc",
+    "data/processed/gazetteer/s3_v4_nso_dual_snapshot_release2/aliases.csv": "0147a68673990da0233586e11e2a423348eb1fc4f6140fbe68ef6219a79e6c06",
+    "data/processed/gazetteer/s3_v4_nso_dual_snapshot_release2/edges.csv": "f42c59d63254a243422b62cf5857b17d0dba995affb8180ee75373b19f4d43eb",
+    "data/processed/gazetteer/s3_v4_nso_dual_snapshot_release2/entities.csv": "90676aa996b760cce243f3032796a32febbb6ed7534fd3a93ef2a1dac070a666",
+    "data/processed/gazetteer/s3_v4_nso_dual_snapshot_release2/manifest.json": "35e42cff0d220121d0e6c8c815451ff6081369a74ca8dbca5cbb84ef61159d5e",
+    "data/processed/gazetteer/s3_v4_nso_dual_snapshot_release2/non_atomic_transitions.csv": "91fecdfa064e82e2dff07d5d22c64df597897bc4d4371d7fadda2fa6a12cc853"
+  },
+  "normalisation_levels": [
+    "N0",
+    "N1",
+    "N2"
+  ],
+  "output_sha256": {
+    "graph_analysis.json": "92ad0a097d13a5b61a068b00febdacdda81c450624f9d152e016a8bf2f259d35",
+    "metrics.json": "748a64cceb3e6d207a61a5ed8c752357e4b06f4f68fddb9d0120396eaf0d2b8e",
+    "pipeline/crf_indep_spans.jsonl": "757161e148ed941c452a85a4285627451053b7dbb1b60139be93bd432c3bb421",
+    "pipeline/heur_jw_spans.jsonl": "b517b89b756f601e8e133bd4d7bcddc46f45635af28c78028aa94d7ea87b75cc",
+    "pipeline/pipeline_inputs.jsonl": "3d83d897ec86a7ed20e506c591e4451da963da0c810d547c7bf7f51aa3eea7e2",
+    "predictions.jsonl": "fb577ecaaa09c36e0ec906d1a1e523103b9d60eb0b0dc1cc0b2f7e46d7bd164f",
+    "tables/t2_cluster_sensitivity.csv": "e033aefade5c47e8613e8e671d817bbff4930348b2c86e91af60571fbfae2ae6",
+    "tables/t2_e2_street.csv": "86982bea38fdc0dc8bd6c178f206b729233d70c04e3fa6cadaf9989b175f84fa",
+    "tables/t2_e2_street_index.csv": "fc038aede14e05e2ff7db1bd08f93ada20954b8c4864b8362c07ed267716d790",
+    "tables/t2_e3_asymmetry.csv": "a86aa6417d65a1595b4d53670a8691ceb0d791a39acea2277aae22c0d76b6b8b",
+    "tables/t2_fanout_data07.csv": "dc8c385f7079755e80df5fa520b582be921b5eeface6bc9be98d50e61fb5d418",
+    "tables/t2_graph_by_relation.csv": "1e57401ae571e8aae00081c69104dd0f2f52c74309ea7045eac229b1b7adbcff",
+    "tables/t2_graph_fanout.csv": "3f2e23c708b98c3984732c16972e3dcb1390a73b7e5277fb5c0d4e7a3623ed93",
+    "tables/t2_h5_situation_c.csv": "8fe69c145f09d8896b8cac5276bacb17b6e1ef483743f68dec44bc41f9726637",
+    "tables/t2_h5_situation_d_census.csv": "468318c89d11278674a5a36e6a8a02b31e20cf4b667dd8df7adaa756888e73d1",
+    "tables/t2_h5_situation_d_data07.csv": "94a5ffe53edd2a57da4143e7816bbc76be607b7a11ca2f0065e8878168ca1158",
+    "tables/t2_input_matching.csv": "37b0ed68633c19fed44aabc8c53af6564e6918327ac2066bd96b37d10b00be0e",
+    "tables/t2_main_oracle_n2.csv": "95e45878dda6ee8791a4f7342600ff920626d4126df3bfd73b568d05ebfdf821",
+    "tables/t2_metrics_all.csv": "76af900abb63b91cf73fb170b342dcb6e3fdf795514b3b3966f702c2898c094d",
+    "tables/t2_pipeline.csv": "00af9699fe68e680752b276c712bf8c967afe25e60f1bc872ab69d5f1aa38549",
+    "tables/t2_sensitivity_normalisation.csv": "8a1f4b2f4a06e3fec197a6dd22d313fe9a04a1064a51a26770fe481b103ed733",
+    "tables/t2_unit_constant_ceiling.csv": "f68602a80ecf461d129b665d911f300814814e7da7c1357e8c5226e553bace52",
+    "tables/t2_vnadmin_paths.csv": "0129185d0209c317c780bd84eca8715e0c3e36fb6835be8549c14ead2ae81ac6"
+  },
+  "pipeline": {
+    "crf_python": "3.11.16",
+    "missing_spans": {
+      "CRF-INDEP": {
+        "no_district_old": 1,
+        "no_province": 0,
+        "no_ward": 16,
+        "strings": 1200
+      },
+      "HEUR-JW": {
+        "no_district_old": 42,
+        "no_province": 149,
+        "no_ward": 0,
+        "strings": 1200
+      }
+    },
+    "span_files_sha256": {
+      "crf_indep_spans.jsonl": "757161e148ed941c452a85a4285627451053b7dbb1b60139be93bd432c3bb421",
+      "heur_jw_spans.jsonl": "b517b89b756f601e8e133bd4d7bcddc46f45635af28c78028aa94d7ea87b75cc",
+      "pipeline_inputs.jsonl": "3d83d897ec86a7ed20e506c591e4451da963da0c810d547c7bf7f51aa3eea7e2"
+    },
+    "status": "RUN"
+  },
+  "pipeline_models": {
+    "CRF-INDEP": {
+      "adapter_kwargs": {
+        "checkpoint_path": "data/processed/evaluation/sprint03/crf_followup_20261003_v1/ctx1_c10.1_c21/model.crfsuite",
+        "metadata_path": "data/processed/evaluation/sprint03/crf_followup_20261003_v1/ctx1_c10.1_c21/model_metadata.json"
+      },
+      "config": "data/interim/modeling/sprint03/final_completion_20261005_v1/light_test_runs_v2/crf-indep/model_config.json",
+      "config_sha256": "746401b84f8291cd415ccad4edda35d6dc07336c82bfb408775ad792130996df",
+      "mismatches": [],
+      "ok": true
+    },
+    "HEUR-JW": {
+      "adapter_kwargs": {
+        "ambiguity_margin": 0.02,
+        "gazetteer_dir": "data/processed/gazetteer/s3_v4_nso_dual_snapshot",
+        "similarity_threshold": 0.86,
+        "temporal_policy": "dual_snapshot"
+      },
+      "config": "data/interim/modeling/sprint03/final_completion_20261005_v1/light_test_runs_v2/heur-jw/model_config.json",
+      "config_sha256": "236d4f69a788b0f8a525ea9a1712d0f7006cefe730bfca2c0ec02299c3f2da92",
+      "mismatches": [],
+      "ok": true
+    }
+  },
+  "preflight_checks": {
+    "atomic_edges": {
+      "expected": 10597,
+      "observed": 10597,
+      "ok": true
+    },
+    "data06_full_old_key_match_N1": {
+      "expected": 421,
+      "observed": 421,
+      "ok": true
+    },
+    "data06_kieulai": {
+      "expected": {
+        "C1": 420,
+        "C2": 120,
+        "C3": 60
+      },
+      "observed": {
+        "C1": 420,
+        "C2": 120,
+        "C3": 60
+      },
+      "ok": true
+    },
+    "data06_rows": {
+      "expected": 600,
+      "observed": 600,
+      "ok": true
+    },
+    "data07_codes": {
+      "expected": 23,
+      "observed": 23,
+      "ok": true
+    },
+    "data07_ha_noi_rows": {
+      "expected": 441,
+      "observed": 441,
+      "ok": true
+    },
+    "data07_loai": {
+      "expected": {
+        "B": 244,
+        "M": 356
+      },
+      "observed": {
+        "B": 244,
+        "M": 356
+      },
+      "ok": true
+    },
+    "data07_m_main_form": {
+      "expected": 335,
+      "observed": 335,
+      "ok": true
+    },
+    "data07_old_parts": {
+      "expected": {
+        "4": 66,
+        "5": 532,
+        "6": 1,
+        "9": 1
+      },
+      "observed": {
+        "4": 66,
+        "5": 532,
+        "6": 1,
+        "9": 1
+      },
+      "ok": true
+    },
+    "data07_old_units_raw": {
+      "expected": 69,
+      "observed": 69,
+      "ok": true
+    },
+    "data07_rows": {
+      "expected": 600,
+      "observed": 600,
+      "ok": true
+    },
+    "edges_only_vs_mapping": {
+      "expected": 0,
+      "observed": 0,
+      "ok": true
+    },
+    "fanout_N1_B": {
+      "expected": {
+        "0": 52,
+        "1": 192
+      },
+      "observed": {
+        "0": 52,
+        "1": 192
+      },
+      "ok": true
+    },
+    "fanout_N1_M": {
+      "expected": {
+        "0": 13,
+        "2": 44,
+        "4": 299
+      },
+      "observed": {
+        "0": 13,
+        "2": 44,
+        "4": 299
+      },
+      "ok": true
+    },
+    "gold_pair_edge_exists": {
+      "expected": "recorded",
+      "observed": 600,
+      "ok": true
+    },
+    "mapping_only_edges": {
+      "expected": 5,
+      "observed": 5,
+      "ok": true
+    },
+    "merge_form_M": {
+      "expected": {
+        "Tách — một phần": 562,
+        "Tách — nhập chủ yếu": 468
+      },
+      "observed": {
+        "Tách — một phần": 562,
+        "Tách — nhập chủ yếu": 468
+      },
+      "ok": true
+    },
+    "multi_candidate_rows_N1": {
+      "expected": 343,
+      "observed": 343,
+      "ok": true
+    },
+    "new_match_N0": {
+      "expected": 600,
+      "observed": 600,
+      "ok": true
+    },
+    "new_match_N1_N2": {
+      "expected": "recorded, not asserted",
+      "observed": [
+        600,
+        600
+      ],
+      "ok": true
+    },
+    "old_match_N0": {
+      "expected": 5,
+      "observed": 5,
+      "ok": true
+    },
+    "old_match_N1": {
+      "expected": 535,
+      "observed": 535,
+      "ok": true
+    },
+    "old_match_N2": {
+      "expected": "recorded, not asserted",
+      "observed": 600,
+      "ok": true
+    },
+    "relation_counts": {
+      "expected": {
+        "A": 3,
+        "B": 9432,
+        "C": 132,
+        "M": 1030
+      },
+      "observed": {
+        "A": 3,
+        "B": 9432,
+        "C": 132,
+        "M": 1030
+      },
+      "ok": true
+    },
+    "relation_label_mismatch_vs_file": {
+      "expected": 0,
+      "observed": 0,
+      "ok": true
+    }
+  },
+  "python": "3.14.4",
+  "rows_in": {
+    "data06": 600,
+    "data07": 600
+  },
+  "rows_out": {
+    "metric_rows": 336,
+    "predictions": 27000,
+    "table:t2_cluster_sensitivity": 26,
+    "table:t2_e2_street": 20,
+    "table:t2_e2_street_index": 2,
+    "table:t2_e3_asymmetry": 35,
+    "table:t2_fanout_data07": 57,
+    "table:t2_graph_by_relation": 4,
+    "table:t2_graph_fanout": 19,
+    "table:t2_h5_situation_c": 34,
+    "table:t2_h5_situation_d_census": 8,
+    "table:t2_h5_situation_d_data07": 14,
+    "table:t2_input_matching": 18,
+    "table:t2_main_oracle_n2": 144,
+    "table:t2_metrics_all": 336,
+    "table:t2_pipeline": 96,
+    "table:t2_sensitivity_normalisation": 18,
+    "table:t2_unit_constant_ceiling": 16,
+    "table:t2_vnadmin_paths": 9
+  },
+  "rule_versions": {
+    "t2_lookup": "t2-lookup-v1"
+  },
+  "rules": {
+    "clusters": {
+      "bootstrap": "percentile cluster bootstrap, B and seed in manifest",
+      "e3_primary": "new ward code (23 clusters, the more conservative unit-based option)",
+      "primary": "source unit of the evaluated direction (old unit key for cu_to_moi; new ward code for moi_to_cu)",
+      "sensitivity": "leak_guard.admin_group_key(DiaChi_Cu)"
+    },
+    "gold": {
+      "abstain": "counts as not correct in accuracy; accepted accuracy reported separately",
+      "cu_to_moi": "new unit (province key + ward key) of DiaChi_Moi resolved at N2; code compared with MaPhuongXaMoi",
+      "moi_to_cu": "old unit (province, district, ward) of DiaChi_Cu resolved at N2 in edges.csv; unresolved gold counts as wrong",
+      "no_match": "failure WITH warning, never a silent error, always inside the denominator",
+      "silent_error": "answered AND wrong AND no warning/abstain, over all rows"
+    },
+    "main_table": "oracle segmentation, N2",
+    "normalisation_levels": {
+      "N0": "raw string after strip only",
+      "N1": "administrative_mapping keys (province_key / unit_key / resolve of old->new province)",
+      "N2": "N1; if no key matches, retry once with verified aliases from administrative_alias.py; no fuzzy match"
+    },
+    "oracle_segmentation": "comma split from the right: old = ward[-3], district[-2], province[-1]; new = ward[-2], province[-1]",
+    "pipeline_span_rule": "rightmost PhuongXa / QuanHuyen / TinhThanh span; absent level = wildcard, ward absent = NO_MATCH",
+    "situation_c": "Data 06 oracle fields; gold = new unit only; assume_old = cu_to_moi lookup, assume_new = identity check in the new table; moi_to_cu has no unique gold (NOT_EVALUABLE_NO_UNIQUE_GOLD)",
+    "situation_d": "ward name shared by an old and a new ward in the same new province; classes SAME_SCOPE / D_SCOPE_DIFFERS / D_OTHER_TARGET_EDGE_EXISTS / D_DISJOINT from edges",
+    "street": {
+      "L1": "drop rows whose normalised ChuoiDiaChi equals a Data 07 DiaChi_Moi",
+      "L2": "L1 plus drop rows sharing (house number, street_key) with any Data 07 address (empty house number counts as a value)",
+      "evidence": "decisive = index narrows the targets to exactly one; otherwise fall back to the default rule (flagged)",
+      "fallback_flag": "internal marker; not a user-facing warning, so wrong fallback answers are silent errors",
+      "index_rows": "Data 01 (PhuongXa new ward) + osm_latest_clean (exactly one of PhuongXa/QuanHuyen is a known new ward)",
+      "low_evidence_rule": "decisive/multi-candidate rows < 0.2 -> NOT_EVALUABLE_LOW_EVIDENCE",
+      "street_key": "normalize_for_overlap with a leading 'đường'/'phố' removed"
+    }
+  },
+  "script_version": "t2-baseline-run-v1",
+  "seeds": {
+    "bootstrap_resamples": 10000,
+    "bootstrap_seed": 20261014,
+    "sampling": "none (full Data 07 / Data 06, no sampling)"
+  },
+  "source_sha256": {
+    "scripts/66_run_t2_baseline.py": "d724cac45858e21ac0f8127dc2d2f797146393e6256a59d564e97995be7b4fab",
+    "src/data/administrative_alias.py": "93b5e6d374ff140ed0cb77b0712b688854b2a7b034946a97b74dee50db7c7755",
+    "src/data/administrative_mapping.py": "e69b23a4bfa2e31232d3e75c140ea1cbe1166d863058a54f09f837fd0e1e19ce",
+    "src/data/nso_dual_snapshot.py": "1ee7668414a97148f7fe9fc7d67e3c8df29b6973cb545adcd82ff6ddce889ac2",
+    "src/evaluation/adapters/crf_adapter.py": "e00258c9f5e602649534e743bb12ba7b7365d0f6c070192a5c0e7c9c627b388a",
+    "src/evaluation/adapters/heur_jw_adapter.py": "d2cdbf8906e59de8c6026963fec3579f9feb54ffdbdc07eaced480108b4ed680",
+    "src/evaluation/adapters/heur_jw_followup.py": "f2b65233b7aa3516e2c990897646114cc2c332a7ef722ca45f05d2669b63ac5e",
+    "src/evaluation/adapters/vnadmin_adapter.py": "569bbbdc138224382c8d805191b7342d27311d49299c0cff2bb9d8045275fc1a",
+    "src/evaluation/leak_guard.py": "8dea9bf36261014a0a660e9784ebca4743b4f81606bfb56229098b197542ad33",
+    "src/evaluation/schema.py": "fe0f3525e0aa4024ea6936ce21395f6dfc454767e2346c0daeea0ac2ec68aa60",
+    "src/evaluation/span_features.py": "85d2f3b764d63f704b0f0037285ef58b1e1c9235384b08bdc09796a48b849a3a",
+    "src/evaluation/stats.py": "260c12c2aad92e5de3c6a81d05b05f7ae89bdf5e867e18f885399fc2d843b093",
+    "src/evaluation/t2_lookup.py": "16296f8ff9d98a509f6fe332f4579585533ccc67cff3bdbcf87776eb409e785d",
+    "src/evaluation/t2_scorer.py": "f5d2a79feac8277cc565b7df4c25f64c430e513d2f8202b0923784b80c60fc80"
+  },
+  "stage": "completed",
+  "systems": {
+    "T2-LOOKUP-DEFAULT-FIRST": "always pick the target with smallest source_row; ignores merge_form; no warning",
+    "T2-LOOKUP-DEFAULT-MAIN": "always pick one target: merge_form priority 'Hợp nhất toàn bộ' > 'Tách — nhập chủ yếu' > 'Tách — một phần', ties by smallest source_row; no warning on ambiguity",
+    "T2-LOOKUP-STRICT": "full-key lookup in edges.csv; answer only when exactly one target; otherwise abstain with the candidate list and reason AMBIGUOUS / NO_MATCH / NON_ATOMIC",
+    "T2-SINGLE-VERSION": "version-blind name lookup in the target system inside the target province; one hit = answer, none = NO_MATCH (warned), homonyms = AMBIGUOUS abstain (warned)",
+    "T2-STREET-L1-FIRST": "street evidence, leak filter (i); fallback DEFAULT-FIRST",
+    "T2-STREET-L1-MAIN": "street evidence (street -> new wards) among several targets, leak filter (i); fallback DEFAULT-MAIN",
+    "T2-STREET-L2-FIRST": "street evidence, leak filters (i)+(ii) strict; fallback DEFAULT-FIRST",
+    "T2-STREET-L2-MAIN": "street evidence, leak filters (i)+(ii) strict; fallback DEFAULT-MAIN",
+    "T2-VNADMIN": "VietnamAdminUnitsAdapter.convert_to_2025 on the whole DiaChi_Cu string; geocoder replaced by a stub returning None before the adapter is created; old->new only (new->old NOT_SUPPORTED); compared by normalised (province, ward)"
+  },
+  "tiers": {
+    "tier1": "STRICT/MAIN/FIRST x oracle x N2 x both directions; E3; graph analysis",
+    "tier2": "N0/N1 sensitivity; T2-VNADMIN; T2-SINGLE-VERSION; situations C and D",
+    "tier3": {
+      "pipeline": "RUN",
+      "street": "RUN"
+    }
+  }
+}

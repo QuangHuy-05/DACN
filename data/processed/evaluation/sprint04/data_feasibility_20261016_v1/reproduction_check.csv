@@ -1,0 +1,19 @@
+﻿Item,Claimed_1510,Observed,Status,Note
+pairs_rows,1631,1631,MATCH,
+pairs_columns,18,18,MATCH,
+pairs_Nguon_values,"[""OSM Diff History (Real User Update)""]","[""OSM Diff History (Real User Update)""]",MATCH,
+data07_rows,600,600,MATCH,
+data07_LoaiAnhXa,"{""B"": 244, ""M"": 356}","{""B"": 244, ""M"": 356}",MATCH,
+raw_old_units,361,361,MATCH,raw key = province|district|ward cũ as stored
+raw_units_by_distinct_targets,"{""1"": 340, ""2"": 19, ""3"": 1, ""4"": 1}","{""1"": 340, ""2"": 19, ""3"": 1, ""4"": 1}",MATCH,raw target key = province|PhuongXa_Moi as stored
+raw_units_with_ge2_targets,21,21,MATCH,
+gazetteer_old_keys,10035,10035,MATCH,
+gazetteer_old_keys_ge2_new_codes,471,471,MATCH,
+raw_multi_units_also_ge2_in_gazetteer_units,5,1,MISMATCH,claimed 5 units / 7 rows; exact raw key reproduces fewer
+raw_multi_units_also_ge2_in_gazetteer_rows,7,2,MISMATCH,
+variant_blank_fields_as_wildcard_units,,4,INFO,diagnostic variant tried to explain the 5/7 claim; also does not give 5
+gazetteer_edges,10597,10597,MATCH,
+gazetteer_relations,"{""A"": 3, ""B"": 9432, ""C"": 132, ""M"": 1030}","{""A"": 3, ""B"": 9432, ""C"": 132, ""M"": 1030}",MATCH,
+non_atomic_transitions,5,5,MATCH,
+pairs_HinhHocCoDuLieu_all_True,true,true,MATCH,
+pairs_HinhHocThayDoi_True,287,287,MATCH,

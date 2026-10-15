@@ -1,0 +1,82 @@
+{
+  "version": "corpus_train_dev_v2",
+  "status": "TRAIN_DEV_APPROVED_TEST_PENDING",
+  "split": "train_dev",
+  "schema_version": "s3-span-v1.1",
+  "test_status": "TEST_PENDING",
+  "human_review_attested": 300,
+  "expected_sample_counts": {
+    "train": 240,
+    "dev": 60
+  },
+  "sample_counts": {
+    "train": 240,
+    "dev": 60
+  },
+  "quarantined_sample_count": 0,
+  "quarantined_sample_ids": [],
+  "quality_status": "APPROVED_WITH_DECLARED_EXCEPTIONS",
+  "adjudicated_exception_count": 1,
+  "evaluation_exclusions": {
+    "t1": [
+      "s3_60931c369cbd85ef"
+    ]
+  },
+  "t1_training_policy": "Mask evaluation_exclusions.t1 IDs from T1 training and system-consistency loss; original annotations remain unchanged. T0 retains all approved spans.",
+  "near_duplicate_decisions_count": 138,
+  "input_sha256": {
+    "data/interim/annotation/sprint03/review_latest_20261002_e4d4f60b/inputs/pilot_export.json": "2fd36521009b0fe8e902a73c71d99c9fbb6c6d05ca19ec1371a1144c237615e1",
+    "data/interim/annotation/sprint03/review_latest_20261002_e4d4f60b/pilot_qa/pilot_canonical_candidate.jsonl": "7e1359f8b388d87cb3819cefab35743fb03d0571cdc3bcd7c129d41503336735",
+    "data/interim/annotation/sprint03/review_latest_20261002_e4d4f60b/pilot_qa/pilot_qa_report.json": "ef4b97b9cabf3a56846318bdb92520513903088c00294beeaeda738389ee7eed",
+    "data/interim/annotation/sprint03/review_latest_20261002_e4d4f60b/inputs/batch_export.json": "e4d4f60b6c3586652bcbd22d20e38792f0f80ee02befa81b830a23f8406780d8",
+    "data/interim/annotation/sprint03/review_latest_20261002_e4d4f60b/batch_qa/canonical_candidate.jsonl": "842f2e2f86ddcfbf9b2f5fbc7df73f78576e34426934972ac3b47e1713a5b367",
+    "data/interim/annotation/sprint03/review_latest_20261002_e4d4f60b/batch_qa/qa_report.json": "12da4ad1aa5e7808ba9a26a1396ee534f49010863651db83b98c42d27d808ed9",
+    "data/interim/annotation/sprint03/review_latest_20261002_e4d4f60b/manual_content_review.json": "4a28947bf352772a73d6b326d2dc420669eb3143fde2f7230c3c1315454afea6",
+    "data/interim/annotation/sprint03/review_latest_20261002_e4d4f60b/human_adjudications.json": "06bc3e029ff257c3d14cc23e8276a51563b36b0e39494184a49db372bc613e63",
+    "data/interim/annotation/sprint03/split_preflight_review_20261001/train_dev_split_assignments.csv": "a4052315b55ea16bc060b92fd0baf3afb63b0e17165aa6a8aa1fcbe8e7fba8d1",
+    "data/interim/annotation/sprint03/split_preflight_v1/near_duplicate_decisions.csv": "118afc7cd5d1bdb166482a8c0d77a2c26d8db0b8ae1ba20e9f0b5bcbcd892165",
+    "data/interim/annotation/sprint03/split_preflight_review_20261001/source_parent_manifest.csv": "4ba9a53a1fa73a0ffd0d9fca82ca8a34845ce6f9a7beb4355714d23679b920d4",
+    "data/interim/annotation/sprint03/split_preflight_review_20261001/split_audit_report.json": "7fcaa9db5aa67ff4a29bb36cea4a15a7160198e8249ef4bce9b8a0c33efd9062",
+    "data/interim/annotation/sprint03/test_hold_manifest_v1.json": "7e77d73bec74b44044661ae858a7959c6849ee38bfdd14fdfda50794d3bf14e1",
+    "data/interim/annotation/sprint03/review_latest_20261002_e4d4f60b/human_review_attestation.json": "12fe682c17cbfe1a2f18e7ad37efa7b80562289d67c8f304f89004eb06852dec",
+    "docs/sprints/sprint_03/s3_04_input_snapshot_v1.json": "a72828097bbf853a917d8924a746d4a15da457d169c65d213d7f63c84cf01d3d",
+    "configs/label_studio_span11.xml": "5b765ef778afdc8abac288d8bae3a51e9b1f491e944d0b09814e888842d57562",
+    "docs/sprints/sprint_03/span_11_annotation_guideline.md": "88dc2155d032f8052317e42c6f02f36c6cc9aee03579e9f3af76ebc12784673a",
+    "data/interim/annotation/sprint03/annotation_queue_batch01.csv": "f06f5889c03801afcddef928f01b55a90aa81ca50a6c2ae4df9a35a6f8348cac",
+    "data/interim/annotation/sprint03/annotation_queue_batch02_train_dev.csv": "2361ffc3355c19d951d0b2522f67eb98a34f745b35bc95fe1392c08769d9aac0"
+  },
+  "output_sha256": {
+    "adjudicated_content_exceptions.json": "b32ae56c2ed583dc3ce851356714e47ec19384b05fe157643fa9d3419190bd83",
+    "approval_record.json": "fdbe3c6e75ff07fa1dec60b5b2fc672d16125b427f76b20a8a82cf82571d0d07",
+    "content_review_items.json": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+    "coverage.json": "78ac86c38df943561c14af6a6415f4d662cff9d2ead9fe120358b4e743583591",
+    "decision_log_v2.csv": "49c050df718452510bccd8a9777c50f9aa9ec69cfac7a6625b2af076fdfd61b3",
+    "dev.jsonl": "c16e1f6ec81df2203cb9236a558785277beb424aba8f94f6aa00e0d9426eee5b",
+    "dev_input.jsonl": "218b5246d3b59ae2aa18afd583b908759dc8a5ee590ca4418b5c0b5cbfb6e2e2",
+    "label_studio_correction_queue.csv": "5ddc8d573737486c0e712e1fc2c987924f877ff385a73c9e714f1880fe5952e6",
+    "quarantine.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "split_audit.json": "a20fe1f24ce0f7fefab47934be42ccd227383abe147cde0f452ee185a1d29e62",
+    "train.jsonl": "283b494713bc68fa55961c809631df3db28fef39564187845215e507a201802c"
+  },
+  "annotation_versions": [
+    "pilot_v2",
+    "batch_v2"
+  ],
+  "code_sha256": {
+    "src/data/annotation_release.py": "479874b2085fa3baa7263bdc166b4d692e5745866bc1a0c75cb9afaae439a31d",
+    "scripts/22_review_and_package_train_dev.py": "a210ad2cce1122d3a0c4bb88cd4e4a99a873f52e12a0d95686013dd27d2b8c68",
+    "scripts/25_publish_train_dev.py": "334ce4f43198a9ef92bed84c860037b881032262c626155c8365fa9cfb067443",
+    "scripts/11_convert_label_studio_pilot.py": "f781d11d600e01dedd00bc55520b9c63c4121f04cb2047b7ec36db843aa530bd",
+    "scripts/17_convert_span_annotation_batch.py": "efc3aefbd1131552b1c6d40da8225959ec043e243a2a2ff417de260f503dac2d",
+    "scripts/18_audit_corpus_split.py": "fb84b7432a3f73a8f7d3a9f7fa39736bf41a928f928ea12ca45a4bdefd519c41"
+  },
+  "inter_annotator_agreement": "NOT_MEASURED",
+  "inference_permission": "No real dev run until status TRAIN_DEV_APPROVED_TEST_PENDING; input must be sample_id/text only.",
+  "release_kind": "approved_train_dev_only",
+  "candidate_manifest": {
+    "path": "data/interim/annotation/sprint03/corpus_train_dev_v2_candidate/review_e4d4f60b/manifest.json",
+    "sha256": "390216459bd1277869f9d435dc1e752fc834cd6918fd9a3f07717928397a52f9"
+  },
+  "release_directory": "data/processed/annotation/sprint03/corpus_train_dev_v2",
+  "publication_policy": "Approved candidate bytes preserved; no test gold included; no output overwrite."
+}

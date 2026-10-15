@@ -1,0 +1,88 @@
+{
+  "run_id": "crf_followup_20261003_v1_dev_ctx2_c10.1_c21",
+  "model_id": "CRF-INDEP",
+  "track": "T0_T1_DEV",
+  "split": "dev",
+  "stage": "inference",
+  "created_at_utc": "2026-10-03T15:37:30.653281+00:00",
+  "sample_count": 60,
+  "supported_labels": [
+    "SoNha",
+    "TenDuong",
+    "Ngo/Hem",
+    "ToaNha/CanHo",
+    "PhuongXa",
+    "QuanHuyen",
+    "TinhThanh",
+    "MocDinhVi",
+    "HuongDi",
+    "GhiChu",
+    "Khac"
+  ],
+  "status_counts": {
+    "ok": 60
+  },
+  "seed": 42,
+  "seed_scope": "Python random; adapter determinism must be specified in adapter config",
+  "resources": {
+    "checkpoint": {
+      "path": "data/processed/evaluation/sprint03/crf_followup_20261003_v1/ctx2_c10.1_c21/model.crfsuite",
+      "role": "checkpoint",
+      "sha256": "a28e2a78dfc76c1da612307439aac52b27876fd8850b5edaee1cc37c5aa7f381"
+    },
+    "metadata": {
+      "path": "data/processed/evaluation/sprint03/crf_followup_20261003_v1/ctx2_c10.1_c21/model_metadata.json",
+      "role": "rules",
+      "sha256": "096e301dca6cf19e24726776b7a8108e3ab6b7496895bcdd0c6271f7e431e1dd"
+    },
+    "features": {
+      "path": "src/evaluation/span_features.py",
+      "role": "tokenizer",
+      "sha256": "85d2f3b764d63f704b0f0037285ef58b1e1c9235384b08bdc09796a48b849a3a"
+    },
+    "adapter": {
+      "path": "src/evaluation/adapters/crf_adapter.py",
+      "role": "rules",
+      "sha256": "e00258c9f5e602649534e743bb12ba7b7365d0f6c070192a5c0e7c9c627b388a"
+    }
+  },
+  "runtime": {
+    "python": "3.11.16",
+    "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.43",
+    "machine": "x86_64",
+    "cpu_count": 20,
+    "gpu": "NOT_INSPECTED",
+    "packages": {
+      "pip": "24.0",
+      "python-crfsuite": "0.9.12",
+      "setuptools": "79.0.1"
+    },
+    "git_commit": "7e89f34d6b8ee3b00cbfdede145e70601979f292",
+    "code_sha256": {
+      "src/evaluation/dev_runner.py": "e0842565e3455407314d9484f2ef9b92493cde434f1abd402843885358a617c0",
+      "src/evaluation/schema.py": "fe0f3525e0aa4024ea6936ce21395f6dfc454767e2346c0daeea0ac2ec68aa60",
+      "src/evaluation/span_scorer.py": "5d8677ccb89d411eb9943811460f0300bdbdefdb8aba9e8568da223ef2664058",
+      "src/evaluation/adapters/base.py": "d414135f231beec45f26f759ba0b01c0c189a0e28c9bd807891dd07c15c4e32e",
+      "scripts/23_run_span_dev.py": "1c3bb54535b768ec9d532f8b83248fa5c88569130c9100d6616655dbed4c2552",
+      "scripts/24_score_span_dev.py": "73d85e08fdd85b4f419e4ef4fdc42336aadae9fbb4867de46d6a9df0c52f62f4"
+    }
+  },
+  "adapter_code": {
+    "path": "/mnt/d/DACN/src/evaluation/adapters/crf_adapter.py",
+    "sha256": "e00258c9f5e602649534e743bb12ba7b7365d0f6c070192a5c0e7c9c627b388a"
+  },
+  "inputs": {
+    "dev_input_sha256": "218b5246d3b59ae2aa18afd583b908759dc8a5ee590ca4418b5c0b5cbfb6e2e2",
+    "corpus_manifest_sha256": "9c91b77fa220e41b1b1067e5e99b216b7b4b2176181674b340f16dec134947bf"
+  },
+  "adapter_input_permission": "Original text only; runner attaches sample_id after parse_spans",
+  "output_sha256": {
+    "predictions.jsonl": "77a82d8af96e2b2085ef7d1f9030ef246d2c8efb156a33c274cc01cb44521e8e",
+    "model_config.json": "b11710e629e91c0d0387925eb79bc8c6621a5af6f30f694663582c2e4b4dfeef"
+  },
+  "latency_ms": {
+    "mean": 0.27800413333333535,
+    "p50": 0.2827090000039334,
+    "p95": 0.4081559999917772
+  }
+}

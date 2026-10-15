@@ -1,0 +1,11 @@
+{
+  "status": "COMPLETE",
+  "note": "re-scoring of stored v1 predictions; no training or inference",
+  "script_sha256": "44f8e6d7efd705f492a38961209e9db04a83ab5291f8ad0366013c63bc8bdd8f",
+  "source_v1_manifest_sha256": "d51b8a1082f68bfd9c076dbba517f2b67d9f45e5fd4f40f3a201d1d68a2cfcf5",
+  "outputs_sha256": {
+    "h2_aug_full_overlap_check.csv": "36406cad08c4fa2bddb477c28abe06c7c5f79a297299a51567cda7af79f3ce64",
+    "h2_drop_vs_full_gt.csv": "77af9acc4e78149f21717060150dc8c67250d0971218e4eb274e192ef9202f7e",
+    "rescore_summary.json": "49fe6a575247e0d6caf74f30d39e4d0e56a43d28de649b7d7870c9eddbc3d7c3"
+  }
+}

@@ -1,0 +1,75 @@
+{
+  "version": "s3-gazetteer-v1-partial",
+  "effective_boundary": "2025-07-01",
+  "build_script_sha256": "d2c87096fed979955f2c5790faf25f685571bd9a35ea0f03472a0aa6d3f809fa",
+  "source_files": {
+    "mapping": {
+      "path": "data/reference/administrative_units/vietnam-sap-nhap-phuong-xa.csv",
+      "sha256": "22bd8278cf7b3f969f255e841271f33f63f6d9db1cdf02defcaaf7360a764e53",
+      "role": "only_authority_for_edges_and_new_ward_codes"
+    },
+    "legacy_candidate": {
+      "path": "third_party/vietnamadminunits/data/interim/legacy_63-province-10040-ward_with_location_and_key.csv",
+      "sha256": "18cfb24f4381fa7e42b3c65fb99f4809c0b49a680d86dd2ca9de28cf8e36cf24",
+      "role": "unverified_candidate_old_codes_only"
+    },
+    "audited_aliases": {
+      "path": "src/data/administrative_alias.py",
+      "sha256": "93b5e6d374ff140ed0cb77b0712b688854b2a7b034946a97b74dee50db7c7755",
+      "role": "audited_spelling_aliases_only"
+    }
+  },
+  "counts": {
+    "source_rows": 10602,
+    "usable_atomic_edges": 10597,
+    "skipped_rows": 5,
+    "entities": 14144,
+    "old_wards": 10035,
+    "new_wards": 3321,
+    "aliases": 187,
+    "relations": {
+      "B/N-1": 9432,
+      "M/M-N": 1030,
+      "C/1-1": 132,
+      "A/1-N": 3
+    },
+    "old_ward_candidate_codes": 10035,
+    "old_ward_missing_verified_codes": 10035,
+    "legacy_join_rows": {
+      "unique_name_join": 10597
+    }
+  },
+  "limitations": [
+    "All entity_id values are internal stable IDs, not government codes.",
+    "Old codes from third_party are candidate attributes until cross-checked with an authoritative source.",
+    "No coordinates or geometry are included; ambiguous names and multiple targets require context.",
+    "The old valid_from date is unknown; the old version ends on 2025-06-30."
+  ],
+  "skipped_mapping_rows": [
+    {
+      "source_row": 1230,
+      "reason": "no_old_ward_district_level_transition"
+    },
+    {
+      "source_row": 1989,
+      "reason": "no_old_ward_district_level_transition"
+    },
+    {
+      "source_row": 2158,
+      "reason": "no_old_ward_district_level_transition"
+    },
+    {
+      "source_row": 6973,
+      "reason": "no_old_ward_district_level_transition"
+    },
+    {
+      "source_row": 7441,
+      "reason": "no_old_ward_district_level_transition"
+    }
+  ],
+  "output_sha256": {
+    "entities.csv": "227a961ef65794a479f16c0ae89bb64477d121da4677d021ca5b0480c32e253d",
+    "edges.csv": "ca87f515fbef989eb267ca1642d06ff26c953a2eb0e8e3c5368dc8664cc8716f",
+    "aliases.csv": "7474f1eea897e211af7f3e3f859cdccb63fdf77377b1c6ea9500b536ecdb251c"
+  }
+}

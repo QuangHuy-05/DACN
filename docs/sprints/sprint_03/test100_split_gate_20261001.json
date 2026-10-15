@@ -1,0 +1,23 @@
+{
+  "verified_on": "2026-10-01",
+  "test_count": 100,
+  "split_counts": {
+    "train": 240,
+    "dev": 60,
+    "test": 100
+  },
+  "status": "AUDIT_PASS_WITH_HUMAN_NEAR_DUP_REVIEW",
+  "human_near_duplicate_decisions": {
+    "count": 138,
+    "decision": "distinct",
+    "reviewer": "Huy",
+    "sha256": "118afc7cd5d1bdb166482a8c0d77a2c26d8db0b8ae1ba20e9f0b5bcbcd892165"
+  },
+  "duplicate_sample_ids": [],
+  "group_collisions": {},
+  "benchmark_leakage_groups": [],
+  "exact_text_collisions_count": 0,
+  "normalized_text_collisions_count": 0,
+  "source_audit_report_sha256": "7fcaa9db5aa67ff4a29bb36cea4a15a7160198e8249ef4bce9b8a0c33efd9062",
+  "annotation_status": "NOT_YET_GOLD"
+}

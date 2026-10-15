@@ -1,0 +1,316 @@
+{
+  "row": {
+    "run": "dyn_seed1337",
+    "variant": "dyn_off",
+    "seed": 1337,
+    "model": "dyn",
+    "t0_precision": 0.991,
+    "t0_recall": 0.991,
+    "t0_f1": 0.991,
+    "t0_tp_fp_fn": [
+      442,
+      4,
+      4
+    ],
+    "exact_match": 96,
+    "n_samples": 100,
+    "t1": "IMPLEMENTED",
+    "t1_eligible": 64,
+    "t1_accuracy": 0.8438,
+    "t1_macro_f1": 0.7204,
+    "t1_lai_f1": 0.3333,
+    "t1_lai_support": 5,
+    "t1_coverage": 0.9688,
+    "t1_abstain": 2,
+    "t1_confusion": {
+      "moi": {
+        "moi": 11,
+        "khong_ro": 1
+      },
+      "cu": {
+        "cu": 41,
+        "moi": 1,
+        "Lai": 5
+      },
+      "Lai": {
+        "khong_ro": 1,
+        "cu": 2,
+        "Lai": 2
+      }
+    },
+    "t1_argmax_diagnostic": {
+      "accuracy": 0.859375,
+      "macro_f1": 0.7597680097680097,
+      "lai_f1": 0.46153846153846156,
+      "label": "DIAGNOSTIC_NOT_A_CONFIGURATION"
+    }
+  },
+  "scorer": {
+    "metric_version": "s3-span-score-v3",
+    "sample_coverage": {
+      "gold_samples": 100,
+      "provided_predictions": 100,
+      "missing_prediction_ids": [],
+      "status_counts": {
+        "ok": 100
+      },
+      "abstain_samples": 0
+    },
+    "t0_exact_span": {
+      "micro": {
+        "precision": 0.991,
+        "recall": 0.991,
+        "f1": 0.991,
+        "total_tp": 442,
+        "total_fp": 4,
+        "total_fn": 4
+      },
+      "macro": {
+        "precision": 0.9913,
+        "recall": 0.9239,
+        "f1": 0.9456,
+        "evaluated_labels_count": 7,
+        "definition": "Labels with gold support or predicted support; zero division returns 0"
+      },
+      "macro_all_11_labels": {
+        "f1": 0.6017,
+        "evaluated_labels_count": 11,
+        "definition": "All schema labels, including zero-support labels, with zero division returning 0"
+      },
+      "macro_gold_supported_labels": {
+        "f1": 0.9456,
+        "evaluated_labels_count": 7,
+        "definition": "Only labels with gold support > 0"
+      },
+      "per_label": {
+        "SoNha": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "tp": 88,
+          "fp": 0,
+          "fn": 0,
+          "support": 88
+        },
+        "TenDuong": {
+          "precision": 0.99,
+          "recall": 1.0,
+          "f1": 0.995,
+          "tp": 99,
+          "fp": 1,
+          "fn": 0,
+          "support": 99
+        },
+        "Ngo/Hem": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "tp": 13,
+          "fp": 0,
+          "fn": 0,
+          "support": 13
+        },
+        "ToaNha/CanHo": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "support": 0
+        },
+        "PhuongXa": {
+          "precision": 1.0,
+          "recall": 0.9775,
+          "f1": 0.9886,
+          "tp": 87,
+          "fp": 0,
+          "fn": 2,
+          "support": 89
+        },
+        "QuanHuyen": {
+          "precision": 0.9492,
+          "recall": 1.0,
+          "f1": 0.9739,
+          "tp": 56,
+          "fp": 3,
+          "fn": 0,
+          "support": 56
+        },
+        "TinhThanh": {
+          "precision": 1.0,
+          "recall": 0.9899,
+          "f1": 0.9949,
+          "tp": 98,
+          "fp": 0,
+          "fn": 1,
+          "support": 99
+        },
+        "MocDinhVi": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "support": 0
+        },
+        "HuongDi": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "support": 0
+        },
+        "GhiChu": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "support": 0
+        },
+        "Khac": {
+          "precision": 1.0,
+          "recall": 0.5,
+          "f1": 0.6667,
+          "tp": 1,
+          "fp": 0,
+          "fn": 1,
+          "support": 2
+        }
+      },
+      "diagnostics": {
+        "boundary_error_count": 0,
+        "label_error_count": 4,
+        "spurious_span_count": 0,
+        "missed_span_count": 0,
+        "boundary_errors_sample": [],
+        "label_errors_sample": [
+          {
+            "sample_id": "s3_9fe1a97170d5ce7d",
+            "start": 25,
+            "end": 33,
+            "pred_label": "QuanHuyen",
+            "gold_label": "PhuongXa",
+            "text": "Kinh Bắc"
+          },
+          {
+            "sample_id": "s3_218d3a425b8b0cee",
+            "start": 16,
+            "end": 31,
+            "pred_label": "QuanHuyen",
+            "gold_label": "PhuongXa",
+            "text": "Phuong Hap Linh"
+          },
+          {
+            "sample_id": "s3_ef1a4fc427e9e5da",
+            "start": 33,
+            "end": 46,
+            "pred_label": "QuanHuyen",
+            "gold_label": "TinhThanh",
+            "text": "Tỉnh Bắc Ninh"
+          },
+          {
+            "sample_id": "s3_39a5dfd0ab38f906",
+            "start": 16,
+            "end": 33,
+            "pred_label": "TenDuong",
+            "gold_label": "Khac",
+            "text": "Khu Công Nghệ Cao"
+          }
+        ]
+      }
+    },
+    "t1_address_system": {
+      "total_evaluated": 64,
+      "gold_label_coverage": 0.64,
+      "gold_null_excluded": 20,
+      "declared_exception_excluded": 16,
+      "declared_exception_excluded_ids": [
+        "s3_156b56e3b067f033",
+        "s3_193ee8bba9df8734",
+        "s3_224bae3f36763271",
+        "s3_35525b63dc71e55a",
+        "s3_406fc7891f05bc2a",
+        "s3_438e4e50f599cd2f",
+        "s3_4e5c8d58266fb206",
+        "s3_6816f0907984be0a",
+        "s3_7ec507813be1cede",
+        "s3_895748de4265665a",
+        "s3_8dd4536611f09a74",
+        "s3_9fe1a97170d5ce7d",
+        "s3_c653b940f299c3cf",
+        "s3_c9ceb4918634b3b6",
+        "s3_ce1215ffa66c136f",
+        "s3_e705dab3c4063df5"
+      ],
+      "total_unscored": 36,
+      "accepted_count": 62,
+      "accepted_coverage": 0.9688,
+      "macro_f1_all_3_classes": 0.7204,
+      "abstain_count": 2,
+      "abstain_rate": 0.0312,
+      "overall_accuracy": 0.8438,
+      "accepted_accuracy": 0.871,
+      "per_class": {
+        "cu": {
+          "precision": 0.9535,
+          "recall": 0.8723,
+          "f1": 0.9111,
+          "support": 47
+        },
+        "moi": {
+          "precision": 0.9167,
+          "recall": 0.9167,
+          "f1": 0.9167,
+          "support": 12
+        },
+        "Lai": {
+          "precision": 0.2857,
+          "recall": 0.4,
+          "f1": 0.3333,
+          "support": 5
+        }
+      },
+      "confusion_matrix": {
+        "moi": {
+          "moi": 11,
+          "khong_ro": 1
+        },
+        "cu": {
+          "cu": 41,
+          "moi": 1,
+          "Lai": 5
+        },
+        "Lai": {
+          "khong_ro": 1,
+          "cu": 2,
+          "Lai": 2
+        }
+      }
+    },
+    "structural_consistency": {
+      "new_system_sample_count": 12,
+      "definition": "Denominator: gold T1 moi with no gold QuanHuyen span",
+      "excluded_inconsistent_new_gold_count": 0,
+      "quan_huyen_hallucinations_on_new": 0,
+      "quan_huyen_false_positive_rate_on_new": 0.0,
+      "quan_huyen_recall_on_old_or_hybrid": {
+        "cu": {
+          "tp": 45,
+          "support": 45,
+          "recall": 1.0
+        },
+        "Lai": {
+          "tp": 5,
+          "support": 5,
+          "recall": 1.0
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,17 @@
+﻿system,column,column_label,status,uses_gazetteer,n,n_clusters,correct,accuracy,accuracy_ci_low,accuracy_ci_high,accuracy_ci_status,macro_f1,macro_f1_ci_low,macro_f1_ci_high,lai_support,lai_predicted,lai_tp,lai_precision,lai_recall,lai_recall_ci_low,lai_recall_ci_high,lai_f1,lai_f1_ci_low,lai_f1_ci_high,coverage,abstain_count,abstain_rate,delta_acc_vs_heur,delta_acc_ci_low,delta_acc_ci_high,delta_acc_ci_status,delta_prop_le_0,mcnemar_b_sys_only_correct,mcnemar_c_heur_only_correct,mcnemar_p,mcnemar_status,randomization_p,randomization_status
+PROPOSED-DYN,s3_test_eligible,POST_HOC_SECONDARY,OK,False,64,33,46,0.718750,0.541667,0.846154,OK,0.562582,0.375812,0.621167,5,0,0,NOT_EVALUABLE_NO_PREDICTION,0.000000,,,0.000000,0.000000,0.000000,0.812500,12,0.187500,-0.203125,-0.388889,-0.057687,OK,0.998000,3,16,0.004425,OK,0.003600,OK
+PROPOSED-DYN,t1_synth_eval,STRESS_TRACK,BLOCKED_LOCAL_NEURAL,False,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+PROPOSED-DYN,t1_data06_heldout,STRESS_TRACK,BLOCKED_LOCAL_NEURAL,False,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+PROPOSED-DYN,t1_data06_heldout_unseen_groups,STRESS_TRACK,BLOCKED_LOCAL_NEURAL,False,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+T1-PIPE-PCRF,s3_test_eligible,POST_HOC_SECONDARY,OK,True,64,33,62,0.968750,0.905660,1.000000,OK,0.981923,0.872478,1.000000,5,5,5,1.000000,1.000000,,,1.000000,1.000000,1.000000,0.968750,2,0.031250,0.046875,0.000000,0.102564,OK,0.041900,3,0,0.250000,OK,0.245775,OK
+T1-PIPE-PCRF,t1_synth_eval,STRESS_TRACK,BLOCKED_LOCAL_NEURAL,True,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+T1-PIPE-PCRF,t1_data06_heldout,STRESS_TRACK,BLOCKED_LOCAL_NEURAL,True,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+T1-PIPE-PCRF,t1_data06_heldout_unseen_groups,STRESS_TRACK,BLOCKED_LOCAL_NEURAL,True,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+T1-PIPE-DYN,s3_test_eligible,POST_HOC_SECONDARY,OK,True,64,33,62,0.968750,0.905660,1.000000,OK,0.981923,0.872478,1.000000,5,5,5,1.000000,1.000000,,,1.000000,1.000000,1.000000,0.968750,2,0.031250,0.046875,0.000000,0.102564,OK,0.041900,3,0,0.250000,OK,0.245775,OK
+T1-PIPE-DYN,t1_synth_eval,STRESS_TRACK,BLOCKED_LOCAL_NEURAL,True,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+T1-PIPE-DYN,t1_data06_heldout,STRESS_TRACK,BLOCKED_LOCAL_NEURAL,True,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+T1-PIPE-DYN,t1_data06_heldout_unseen_groups,STRESS_TRACK,BLOCKED_LOCAL_NEURAL,True,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+T1-HEAD-PROBE,s3_test_eligible,POST_HOC_SECONDARY,BLOCKED_LOCAL_NEURAL,False,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+T1-HEAD-PROBE,t1_synth_eval,STRESS_TRACK,BLOCKED_LOCAL_NEURAL,False,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+T1-HEAD-PROBE,t1_data06_heldout,STRESS_TRACK,BLOCKED_LOCAL_NEURAL,False,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+T1-HEAD-PROBE,t1_data06_heldout_unseen_groups,STRESS_TRACK,BLOCKED_LOCAL_NEURAL,False,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,

@@ -1,0 +1,134 @@
+{
+  "train": {
+    "samples": 240,
+    "spans": 1057,
+    "label_support": {
+      "SoNha": 215,
+      "TenDuong": 221,
+      "Ngo/Hem": 24,
+      "ToaNha/CanHo": 5,
+      "PhuongXa": 227,
+      "QuanHuyen": 136,
+      "TinhThanh": 210,
+      "MocDinhVi": 6,
+      "HuongDi": 5,
+      "GhiChu": 5,
+      "Khac": 3
+    },
+    "span_system": {
+      "cu": 187,
+      "moi": 71,
+      "khong_xac_dinh": 799
+    },
+    "t1": {
+      "cu": 119,
+      "moi": 71,
+      "Lai": 16,
+      "null": 34
+    },
+    "source_dataset": {
+      "controlled_rare_seed": 18,
+      "osm_new_pilot": 18,
+      "osm_old_pilot": 19,
+      "osm_old_snapshot_full": 185
+    },
+    "source_kind": {
+      "synthetic": 100,
+      "derived": 69,
+      "observed": 71
+    },
+    "derivation": {
+      "controlled_synthetic_example_no_geographic_pair_claim": 18,
+      "derived_verified_unique_admin_mapping": 69,
+      "observed_osm": 19,
+      "observed_verified_current_unit": 2,
+      "observed_verified_old_osm": 50,
+      "synthetic_noise_controlled": 29,
+      "synthetic_missing_controlled": 32,
+      "synthetic_hybrid_controlled": 21
+    },
+    "stratum": {
+      "pilot_rare_candidate": 18,
+      "osm_new_pilot": 18,
+      "osm_old_pilot": 19,
+      "osm_old_3tier": 50,
+      "osm_new_2tier": 53,
+      "synthetic_noise": 29,
+      "synthetic_missing": 32,
+      "synthetic_hybrid": 21
+    },
+    "noise_type": {
+      "not_recorded": 240
+    },
+    "note": "Source kind comes from the declared queue derivation; a source OSM dataset alone does not make a child observed. Missing noise metadata stays not_recorded.",
+    "t1_declared_exception_excluded_ids": [],
+    "t1_eligible_samples": 206
+  },
+  "dev": {
+    "samples": 60,
+    "spans": 284,
+    "label_support": {
+      "SoNha": 56,
+      "TenDuong": 60,
+      "Ngo/Hem": 13,
+      "ToaNha/CanHo": 0,
+      "PhuongXa": 61,
+      "QuanHuyen": 37,
+      "TinhThanh": 54,
+      "MocDinhVi": 0,
+      "HuongDi": 1,
+      "GhiChu": 1,
+      "Khac": 1
+    },
+    "span_system": {
+      "cu": 58,
+      "moi": 15,
+      "khong_xac_dinh": 211
+    },
+    "t1": {
+      "cu": 31,
+      "moi": 15,
+      "Lai": 8,
+      "null": 6
+    },
+    "source_dataset": {
+      "osm_old_pilot": 5,
+      "osm_new_pilot": 6,
+      "controlled_rare_seed": 2,
+      "osm_old_snapshot_full": 47
+    },
+    "source_kind": {
+      "observed": 16,
+      "derived": 12,
+      "synthetic": 32
+    },
+    "derivation": {
+      "observed_osm": 5,
+      "derived_verified_unique_admin_mapping": 12,
+      "observed_verified_current_unit": 1,
+      "controlled_synthetic_example_no_geographic_pair_claim": 2,
+      "observed_verified_old_osm": 10,
+      "synthetic_noise_controlled": 11,
+      "synthetic_missing_controlled": 8,
+      "synthetic_hybrid_controlled": 11
+    },
+    "stratum": {
+      "osm_old_pilot": 5,
+      "osm_new_pilot": 6,
+      "pilot_rare_candidate": 2,
+      "osm_old_3tier": 10,
+      "osm_new_2tier": 7,
+      "synthetic_noise": 11,
+      "synthetic_missing": 8,
+      "synthetic_hybrid": 11
+    },
+    "noise_type": {
+      "not_recorded": 60
+    },
+    "note": "Source kind comes from the declared queue derivation; a source OSM dataset alone does not make a child observed. Missing noise metadata stays not_recorded.",
+    "t1_declared_exception_excluded_ids": [
+      "s3_60931c369cbd85ef"
+    ],
+    "t1_eligible_samples": 53
+  }
+}

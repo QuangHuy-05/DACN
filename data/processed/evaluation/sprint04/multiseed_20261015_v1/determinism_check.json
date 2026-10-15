@@ -1,0 +1,96 @@
+{
+  "status": "DETERMINISTIC_ON_CPU",
+  "samples_with_different_spans": 0,
+  "differing_sample_count_of": 100,
+  "max_abs_emission_difference": 0.0,
+  "best_epoch_original": 6,
+  "best_epoch_rerun": 6,
+  "best_checkpoint_sha256_equal": false,
+  "cleanup": {
+    "removed": [
+      {
+        "file": "epoch_001.pt",
+        "bytes": 540151823,
+        "sha256": "88dd49e34c78fbd5a290d0eee4f67bc568be181cc019b3397dd5bb6c1afc7325"
+      },
+      {
+        "file": "epoch_002.pt",
+        "bytes": 540151823,
+        "sha256": "76f931fd8fcbea61e13617e2cbb46a3c9614b6e43e78d3ee9b4268f367ae7175"
+      },
+      {
+        "file": "epoch_003.pt",
+        "bytes": 540151823,
+        "sha256": "9a61ff1fba9be4614810d59ba4bde94bd3d2543f1927943c7ced73531f1cded9"
+      },
+      {
+        "file": "epoch_004.pt",
+        "bytes": 540151823,
+        "sha256": "e815ba0509c7f17cf2852f8bd16d52812207731b57a28becc119ab6f4f280821"
+      },
+      {
+        "file": "epoch_005.pt",
+        "bytes": 540151823,
+        "sha256": "b114815d8092de84b1bd8cb8ce67621de584fb38a1ad76342a42000acc17b34a"
+      },
+      {
+        "file": "epoch_006.pt",
+        "bytes": 540151823,
+        "sha256": "235fcb6861f189af0af634338a3ae08d66d8f6977df708f719221bbd5083c567"
+      },
+      {
+        "file": "epoch_007.pt",
+        "bytes": 540151823,
+        "sha256": "9fa0514b400345adcca7392f5f9da8e40f7b0c154a202027a9771f0dacf1c3e0"
+      },
+      {
+        "file": "epoch_008.pt",
+        "bytes": 540151823,
+        "sha256": "ccaf29876e71222c2a7d48add2f93924a9b98d9d8cb9cddd7b797e6826fe6db0"
+      },
+      {
+        "file": "epoch_009.pt",
+        "bytes": 540151823,
+        "sha256": "509ee8fe9ac3ceba584e5a7955de37dd3e66e77990743585d86b9db1533171c2"
+      },
+      {
+        "file": "epoch_010.pt",
+        "bytes": 540151823,
+        "sha256": "ef8f798fef59aad76c348db96b20f689d79de60cb5cb46cf44a9449627f3af8d"
+      },
+      {
+        "file": "epoch_011.pt",
+        "bytes": 540151823,
+        "sha256": "0baad5c91a5e4181e909abe8af58e92ff546aa3e66ae9ffbc1074c9ad43de5e9"
+      },
+      {
+        "file": "last.pt",
+        "bytes": 1615745826,
+        "sha256": "eade5d3caa4e1da0c9f8c3055052265e1fa987c7b1343f6c16bc92715d45224e"
+      },
+      {
+        "file": "resume_epoch_011.pt",
+        "bytes": 1615745826,
+        "sha256": "eade5d3caa4e1da0c9f8c3055052265e1fa987c7b1343f6c16bc92715d45224e"
+      }
+    ],
+    "kept": [
+      "best.pt",
+      "best.pt.json",
+      "epoch_001.pt.json",
+      "epoch_002.pt.json",
+      "epoch_003.pt.json",
+      "epoch_004.pt.json",
+      "epoch_005.pt.json",
+      "epoch_006.pt.json",
+      "epoch_007.pt.json",
+      "epoch_008.pt.json",
+      "epoch_009.pt.json",
+      "epoch_010.pt.json",
+      "epoch_011.pt.json",
+      "last.pt.json",
+      "resume_epoch_011.pt.json"
+    ]
+  },
+  "at": "2026-10-13T17:01:52.032932+00:00"
+}

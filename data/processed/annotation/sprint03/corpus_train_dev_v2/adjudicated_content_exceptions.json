@@ -1,0 +1,31 @@
+[
+  {
+    "sample_id": "s3_60931c369cbd85ef",
+    "decision": "keep_as_exception",
+    "reason": "Owner directly confirms retention of task 543. Raw annotation remains PhuongXa/cu for Đống Đa and whole-address moi. This contradiction is explicitly retained as an exception; keep T0 spans but exclude this sample from T1 training, T1 scoring and time-system structural diagnostics.",
+    "accepted_finding_codes": [
+      "address_span_system_conflict"
+    ],
+    "exclude_from_t1": true,
+    "annotation_sha256": "26bc19b1eeb959064cb2d3d095872f74868e6e89a326bbe3565b0a6bea735ca3",
+    "reviewer": "quanghuy050816@gmail.com",
+    "date": "2026-10-02",
+    "human_authorization_quote": "537 và 543 đã đúng theo ý tôi rồi k cần sửa thêm nữa bạn hãy hoàn thiện nốt các bước cuối cùng đu",
+    "findings": [
+      {
+        "sample_id": "s3_60931c369cbd85ef",
+        "code": "address_span_system_conflict",
+        "reason": "T1 moi conflicts with an administrative span explicitly marked cu; review both decisions using text evidence.",
+        "start": null,
+        "end": null,
+        "text": "77, Đường Nguyễn Chí Thanh, Đống Đa, Hà Nội",
+        "label_studio_task_id": 543,
+        "project_id": 6,
+        "annotation_id": 539,
+        "address_text": "77, Đường Nguyễn Chí Thanh, Đống Đa, Hà Nội",
+        "split": "dev"
+      }
+    ],
+    "split": "dev"
+  }
+]

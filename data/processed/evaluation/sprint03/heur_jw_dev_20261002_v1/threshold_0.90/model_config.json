@@ -1,0 +1,56 @@
+{
+  "model_id": "HEUR-JW",
+  "run_id": "heur_jw_20261002_v1_dev_t0.90",
+  "seed": 42,
+  "supported_labels": [
+    "SoNha",
+    "TenDuong",
+    "Ngo/Hem",
+    "PhuongXa",
+    "QuanHuyen",
+    "TinhThanh"
+  ],
+  "t1_implemented": true,
+  "adapter_factory": "src.evaluation.adapters.heur_jw_adapter:HeuristicJaroWinklerAdapter",
+  "adapter_kwargs": {
+    "gazetteer_dir": "data/processed/gazetteer/s3_v2",
+    "similarity_threshold": 0.9,
+    "ambiguity_margin": 0.02,
+    "temporal_policy": "dual_snapshot"
+  },
+  "resources": {
+    "entities.csv": {
+      "path": "data/processed/gazetteer/s3_v2/entities.csv",
+      "sha256": "8f7d04d80a65e2a8a64495c7c36889aa82a06b09ff2012ad2835467ab060c6a4",
+      "role": "gazetteer"
+    },
+    "aliases.csv": {
+      "path": "data/processed/gazetteer/s3_v2/aliases.csv",
+      "sha256": "0147a68673990da0233586e11e2a423348eb1fc4f6140fbe68ef6219a79e6c06",
+      "role": "gazetteer"
+    },
+    "edges.csv": {
+      "path": "data/processed/gazetteer/s3_v2/edges.csv",
+      "sha256": "f42c59d63254a243422b62cf5857b17d0dba995affb8180ee75373b19f4d43eb",
+      "role": "gazetteer"
+    },
+    "non_atomic_transitions.csv": {
+      "path": "data/processed/gazetteer/s3_v2/non_atomic_transitions.csv",
+      "sha256": "91fecdfa064e82e2dff07d5d22c64df597897bc4d4371d7fadda2fa6a12cc853",
+      "role": "gazetteer"
+    },
+    "manifest.json": {
+      "path": "data/processed/gazetteer/s3_v2/manifest.json",
+      "sha256": "fb350c06b3a3d1dca9ceb6de65695fa533ac20ea3bda3f1abd8465951f8646d9",
+      "role": "gazetteer"
+    },
+    "rules": {
+      "path": "src/evaluation/adapters/heur_jw_adapter.py",
+      "sha256": "5c9b17a3af8e9b0b8258031db2aa3c7e3e27e61a142cc6e5c3043696ec86fde0",
+      "role": "rules"
+    }
+  },
+  "candidate_blocking": "same first Unicode character; core-length ratio >=0.60; JW>=0.80",
+  "device": "cpu",
+  "rule_version": "heur_jw_temporal_reject_v2"
+}

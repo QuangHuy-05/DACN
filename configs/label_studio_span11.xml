@@ -1,0 +1,41 @@
+<View>
+  <Header value="Sprint 3 - T0: select literal spans; do not normalize OCR or inspect benchmark GT" />
+  <Header value="Sample ID" />
+  <Text name="sample_id_display" value="$sample_id" />
+  <Labels name="span_label" toName="address_text" choice="single">
+    <Label value="SoNha" background="#2563eb" />
+    <Label value="TenDuong" background="#0f766e" />
+    <Label value="Ngo/Hem" background="#0891b2" />
+    <Label value="ToaNha/CanHo" background="#7c3aed" />
+    <Label value="PhuongXa" background="#16a34a" />
+    <Label value="QuanHuyen" background="#ca8a04" />
+    <Label value="TinhThanh" background="#dc2626" />
+    <Label value="MocDinhVi" background="#c026d3" />
+    <Label value="HuongDi" background="#ea580c" />
+    <Label value="GhiChu" background="#64748b" />
+    <Label value="Khac" background="#4b5563" />
+  </Labels>
+  <Text name="address_text" value="$text" />
+  <View visibleWhen="region-selected">
+    <Header value="System of selected span" />
+    <Choices name="span_system" toName="address_text" perRegion="true" choice="single" required="true">
+      <Choice value="cu" />
+      <Choice value="moi" />
+      <Choice value="khong_xac_dinh" />
+    </Choices>
+  </View>
+  <Header value="Whole-address system, if clear" />
+  <Choices name="address_system" toName="address_text" choice="single">
+    <Choice value="cu" />
+    <Choice value="moi" />
+    <Choice value="Lai" />
+  </Choices>
+  <Header value="Review flags for difficult cases" />
+  <Choices name="review_flag" toName="address_text" choice="multiple">
+    <Choice value="unreadable_ocr" />
+    <Choice value="ambiguous_label" />
+    <Choice value="temporal_ambiguity" />
+    <Choice value="privacy_review" />
+  </Choices>
+  <TextArea name="review_note" toName="address_text" rows="2" placeholder="Explain any difficult decision" />
+</View>

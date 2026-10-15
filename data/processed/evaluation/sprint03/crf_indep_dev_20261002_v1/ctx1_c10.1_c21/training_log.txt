@@ -1,0 +1,933 @@
+Feature generation
+type: CRF1d
+feature.minfreq: 0.000000
+feature.possible_states: 1
+feature.possible_transitions: 1
+0....1....2....3....4....5....6....7....8....9....10
+Number of features: 78315
+Seconds required: 0.192
+
+L-BFGS optimization
+c1: 0.100000
+c2: 1.000000
+num_memories: 6
+max_iterations: 100
+epsilon: 0.000010
+stop: 10
+delta: 0.000010
+linesearch: MoreThuente
+linesearch.max_iterations: 20
+
+***** Iteration #1 *****
+Loss: 8290.614361
+Feature norm: 1.000000
+Error norm: 6993.826473
+Active features: 33402
+Line search trials: 1
+Line search step: 0.000127
+Seconds required for this iteration: 0.017
+
+***** Iteration #2 *****
+Loss: 7232.853041
+Feature norm: 1.242608
+Error norm: 6280.655897
+Active features: 36201
+Line search trials: 1
+Line search step: 1.000000
+Seconds required for this iteration: 0.011
+
+***** Iteration #3 *****
+Loss: 6499.678089
+Feature norm: 1.357282
+Error norm: 3813.758660
+Active features: 36586
+Line search trials: 1
+Line search step: 1.000000
+Seconds required for this iteration: 0.011
+
+***** Iteration #4 *****
+Loss: 5484.352637
+Feature norm: 1.864357
+Error norm: 2759.331222
+Active features: 35029
+Line search trials: 1
+Line search step: 1.000000
+Seconds required for this iteration: 0.009
+
+***** Iteration #5 *****
+Loss: 4675.098610
+Feature norm: 2.386834
+Error norm: 2263.762833
+Active features: 35651
+Line search trials: 1
+Line search step: 1.000000
+Seconds required for this iteration: 0.011
+
+***** Iteration #6 *****
+Loss: 3738.462046
+Feature norm: 3.323868
+Error norm: 1705.808363
+Active features: 33546
+Line search trials: 1
+Line search step: 1.000000
+Seconds required for this iteration: 0.010
+
+***** Iteration #7 *****
+Loss: 3061.352866
+Feature norm: 4.457366
+Error norm: 2699.125356
+Active features: 31393
+Line search trials: 1
+Line search step: 1.000000
+Seconds required for this iteration: 0.009
+
+***** Iteration #8 *****
+Loss: 2455.979162
+Feature norm: 5.532958
+Error norm: 1051.794146
+Active features: 29108
+Line search trials: 1
+Line search step: 1.000000
+Seconds required for this iteration: 0.013
+
+***** Iteration #9 *****
+Loss: 2125.471687
+Feature norm: 6.188084
+Error norm: 1190.900870
+Active features: 27584
+Line search trials: 1
+Line search step: 1.000000
+Seconds required for this iteration: 0.011
+
+***** Iteration #10 *****
+Loss: 1850.368562
+Feature norm: 7.119524
+Error norm: 1255.846126
+Active features: 25513
+Line search trials: 1
+Line search step: 1.000000
+Seconds required for this iteration: 0.010
+
+***** Iteration #11 *****
+Loss: 1619.151196
+Feature norm: 7.930490
+Error norm: 463.470945
+Active features: 24391
+Line search trials: 1
+Line search step: 1.000000
+Seconds required for this iteration: 0.010
+
+***** Iteration #12 *****
+Loss: 1426.517519
+Feature norm: 8.837295
+Error norm: 493.459418
+Active features: 22932
+Line search trials: 1
+Line search step: 1.000000
+Seconds required for this iteration: 0.010
+
+***** Iteration #13 *****
+Loss: 1213.039429
+Feature norm: 11.135220
+Error norm: 1612.171848
+Active features: 19033
+Line search trials: 1
+Line search step: 1.000000
+Seconds required for this iteration: 0.009
+
+***** Iteration #14 *****
+Loss: 1013.115976
+Feature norm: 12.192609
+Error norm: 835.536509
+Active features: 18084
+Line search trials: 1
+Line search step: 1.000000
+Seconds required for this iteration: 0.009
+
+***** Iteration #15 *****
+Loss: 932.664038
+Feature norm: 12.434394
+Error norm: 414.592105
+Active features: 17704
+Line search trials: 1
+Line search step: 1.000000
+Seconds required for this iteration: 0.011
+
+***** Iteration #16 *****
+Loss: 852.310708
+Feature norm: 12.501242
+Error norm: 524.257589
+Active features: 16916
+Line search trials: 1
+Line search step: 1.000000
+Seconds required for this iteration: 0.013
+
+***** Iteration #17 *****
+Loss: 791.392111
+Feature norm: 12.724190
+Error norm: 224.124976
+Active features: 15731
+Line search trials: 1
+Line search step: 1.000000
+Seconds required for this iteration: 0.011
+
+***** Iteration #18 *****
+Loss: 749.823304
+Feature norm: 12.788062
+Error norm: 256.128924
+Active features: 15067
+Line search trials: 1
+Line search step: 1.000000
+Seconds required for this iteration: 0.013
+
+***** Iteration #19 *****
+Loss: 702.177220
+Feature norm: 12.646369
+Error norm: 199.522948
+Active features: 14051
+Line search trials: 1
+Line search step: 1.000000
+Seconds required for this iteration: 0.009
+
+***** Iteration #20 *****
+Loss: 668.811641
+Feature norm: 12.890403
+Error norm: 285.113979
+Active features: 13512
+Line search trials: 1
+Line search step: 1.000000
+Seconds required for this iteration: 0.010
+
+***** Iteration #21 *****
+Loss: 641.244247
+Feature norm: 13.077799
+Error norm: 112.330775
+Active features: 13414
+Line search trials: 1
+Line search step: 1.000000
+Seconds required for this iteration: 0.010
+
+***** Iteration #22 *****
+Loss: 610.212487
+Feature norm: 13.451010
+Error norm: 96.093422
+Active features: 12569
+Line search trials: 1
+Line search step: 1.000000
+Seconds required for this iteration: 0.010
+
+***** Iteration #23 *****
+Loss: 580.401795
+Feature norm: 14.156535
+Error norm: 189.034006
+Active features: 11439
+Line search trials: 1
+Line search step: 1.000000
+Seconds required for this iteration: 0.009
+
+***** Iteration #24 *****
+Loss: 566.849517
+Feature norm: 14.426387
+Error norm: 323.879681
+Active features: 11120
+Line search trials: 1
+Line search step: 1.000000
+Seconds required for this iteration: 0.009
+
+***** Iteration #25 *****
+Loss: 550.191974
+Feature norm: 14.537102
+Error norm: 111.680922
+Active features: 11128
+Line search trials: 1
+Line search step: 1.000000
+Seconds required for this iteration: 0.010
+
+***** Iteration #26 *****
+Loss: 533.278713
+Feature norm: 14.746305
+Error norm: 65.937810
+Active features: 10774
+Line search trials: 1
+Line search step: 1.000000
+Seconds required for this iteration: 0.010
+
+***** Iteration #27 *****
+Loss: 513.656232
+Feature norm: 14.994655
+Error norm: 156.785256
+Active features: 10224
+Line search trials: 1
+Line search step: 1.000000
+Seconds required for this iteration: 0.008
+
+***** Iteration #28 *****
+Loss: 503.120073
+Feature norm: 15.145571
+Error norm: 253.837931
+Active features: 9869
+Line search trials: 1
+Line search step: 1.000000
+Seconds required for this iteration: 0.010
+
+***** Iteration #29 *****
+Loss: 493.569882
+Feature norm: 15.226720
+Error norm: 38.532188
+Active features: 9748
+Line search trials: 1
+Line search step: 1.000000
+Seconds required for this iteration: 0.010
+
+***** Iteration #30 *****
+Loss: 488.294365
+Feature norm: 15.305702
+Error norm: 45.095961
+Active features: 9600
+Line search trials: 1
+Line search step: 1.000000
+Seconds required for this iteration: 0.011
+
+***** Iteration #31 *****
+Loss: 480.515929
+Feature norm: 15.460922
+Error norm: 77.243442
+Active features: 9138
+Line search trials: 1
+Line search step: 1.000000
+Seconds required for this iteration: 0.008
+
+***** Iteration #32 *****
+Loss: 477.338549
+Feature norm: 15.424364
+Error norm: 87.991818
+Active features: 8894
+Line search trials: 1
+Line search step: 1.000000
+Seconds required for this iteration: 0.009
+
+***** Iteration #33 *****
+Loss: 475.276983
+Feature norm: 15.478300
+Error norm: 34.397378
+Active features: 8820
+Line search trials: 1
+Line search step: 1.000000
+Seconds required for this iteration: 0.008
+
+***** Iteration #34 *****
+Loss: 474.047534
+Feature norm: 15.503052
+Error norm: 26.874123
+Active features: 8736
+Line search trials: 1
+Line search step: 1.000000
+Seconds required for this iteration: 0.009
+
+***** Iteration #35 *****
+Loss: 471.799613
+Feature norm: 15.521842
+Error norm: 28.505839
+Active features: 8563
+Line search trials: 1
+Line search step: 1.000000
+Seconds required for this iteration: 0.009
+
+***** Iteration #36 *****
+Loss: 470.697126
+Feature norm: 15.571705
+Error norm: 187.343529
+Active features: 8172
+Line search trials: 1
+Line search step: 1.000000
+Seconds required for this iteration: 0.009
+
+***** Iteration #37 *****
+Loss: 468.079852
+Feature norm: 15.575967
+Error norm: 28.849258
+Active features: 8165
+Line search trials: 1
+Line search step: 1.000000
+Seconds required for this iteration: 0.008
+
+***** Iteration #38 *****
+Loss: 467.532304
+Feature norm: 15.582558
+Error norm: 18.921142
+Active features: 8102
+Line search trials: 1
+Line search step: 1.000000
+Seconds required for this iteration: 0.009
+
+***** Iteration #39 *****
+Loss: 466.021303
+Feature norm: 15.569537
+Error norm: 42.471940
+Active features: 7745
+Line search trials: 1
+Line search step: 1.000000
+Seconds required for this iteration: 0.008
+
+***** Iteration #40 *****
+Loss: 465.613543
+Feature norm: 15.560330
+Error norm: 129.215758
+Active features: 7482
+Line search trials: 1
+Line search step: 1.000000
+Seconds required for this iteration: 0.008
+
+***** Iteration #41 *****
+Loss: 464.143904
+Feature norm: 15.550353
+Error norm: 24.780157
+Active features: 7459
+Line search trials: 1
+Line search step: 1.000000
+Seconds required for this iteration: 0.008
+
+***** Iteration #42 *****
+Loss: 463.330314
+Feature norm: 15.535215
+Error norm: 24.832586
+Active features: 7367
+Line search trials: 1
+Line search step: 1.000000
+Seconds required for this iteration: 0.010
+
+***** Iteration #43 *****
+Loss: 462.312294
+Feature norm: 15.497086
+Error norm: 83.249832
+Active features: 7114
+Line search trials: 1
+Line search step: 1.000000
+Seconds required for this iteration: 0.010
+
+***** Iteration #44 *****
+Loss: 461.482192
+Feature norm: 15.485334
+Error norm: 81.209467
+Active features: 7037
+Line search trials: 1
+Line search step: 1.000000
+Seconds required for this iteration: 0.011
+
+***** Iteration #45 *****
+Loss: 460.747988
+Feature norm: 15.462667
+Error norm: 41.881975
+Active features: 6989
+Line search trials: 1
+Line search step: 1.000000
+Seconds required for this iteration: 0.008
+
+***** Iteration #46 *****
+Loss: 460.330680
+Feature norm: 15.454201
+Error norm: 58.576904
+Active features: 6920
+Line search trials: 1
+Line search step: 1.000000
+Seconds required for this iteration: 0.010
+
+***** Iteration #47 *****
+Loss: 459.909278
+Feature norm: 15.442898
+Error norm: 39.743215
+Active features: 6916
+Line search trials: 1
+Line search step: 1.000000
+Seconds required for this iteration: 0.012
+
+***** Iteration #48 *****
+Loss: 459.544224
+Feature norm: 15.433158
+Error norm: 45.676630
+Active features: 6892
+Line search trials: 1
+Line search step: 1.000000
+Seconds required for this iteration: 0.010
+
+***** Iteration #49 *****
+Loss: 459.233452
+Feature norm: 15.429390
+Error norm: 40.440514
+Active features: 6863
+Line search trials: 1
+Line search step: 1.000000
+Seconds required for this iteration: 0.009
+
+***** Iteration #50 *****
+Loss: 459.010915
+Feature norm: 15.420875
+Error norm: 45.089946
+Active features: 6826
+Line search trials: 1
+Line search step: 1.000000
+Seconds required for this iteration: 0.009
+
+***** Iteration #51 *****
+Loss: 458.624912
+Feature norm: 15.430504
+Error norm: 28.582227
+Active features: 6821
+Line search trials: 1
+Line search step: 1.000000
+Seconds required for this iteration: 0.009
+
+***** Iteration #52 *****
+Loss: 458.366471
+Feature norm: 15.423405
+Error norm: 32.997257
+Active features: 6799
+Line search trials: 1
+Line search step: 1.000000
+Seconds required for this iteration: 0.012
+
+***** Iteration #53 *****
+Loss: 458.151761
+Feature norm: 15.433276
+Error norm: 42.961851
+Active features: 6769
+Line search trials: 1
+Line search step: 1.000000
+Seconds required for this iteration: 0.013
+
+***** Iteration #54 *****
+Loss: 457.909827
+Feature norm: 15.425483
+Error norm: 45.975229
+Active features: 6753
+Line search trials: 1
+Line search step: 1.000000
+Seconds required for this iteration: 0.010
+
+***** Iteration #55 *****
+Loss: 457.614397
+Feature norm: 15.437002
+Error norm: 30.614316
+Active features: 6738
+Line search trials: 1
+Line search step: 1.000000
+Seconds required for this iteration: 0.009
+
+***** Iteration #56 *****
+Loss: 457.438661
+Feature norm: 15.435089
+Error norm: 37.849953
+Active features: 6728
+Line search trials: 1
+Line search step: 1.000000
+Seconds required for this iteration: 0.009
+
+***** Iteration #57 *****
+Loss: 457.225572
+Feature norm: 15.442384
+Error norm: 28.034280
+Active features: 6724
+Line search trials: 1
+Line search step: 1.000000
+Seconds required for this iteration: 0.011
+
+***** Iteration #58 *****
+Loss: 457.049572
+Feature norm: 15.444232
+Error norm: 35.534336
+Active features: 6698
+Line search trials: 1
+Line search step: 1.000000
+Seconds required for this iteration: 0.012
+
+***** Iteration #59 *****
+Loss: 456.857217
+Feature norm: 15.451227
+Error norm: 32.708115
+Active features: 6685
+Line search trials: 1
+Line search step: 1.000000
+Seconds required for this iteration: 0.011
+
+***** Iteration #60 *****
+Loss: 456.753521
+Feature norm: 15.456513
+Error norm: 44.867984
+Active features: 6674
+Line search trials: 1
+Line search step: 1.000000
+Seconds required for this iteration: 0.009
+
+***** Iteration #61 *****
+Loss: 456.542590
+Feature norm: 15.462679
+Error norm: 34.098616
+Active features: 6664
+Line search trials: 1
+Line search step: 1.000000
+Seconds required for this iteration: 0.009
+
+***** Iteration #62 *****
+Loss: 456.413113
+Feature norm: 15.464095
+Error norm: 37.795874
+Active features: 6655
+Line search trials: 1
+Line search step: 1.000000
+Seconds required for this iteration: 0.010
+
+***** Iteration #63 *****
+Loss: 456.260055
+Feature norm: 15.470443
+Error norm: 30.524762
+Active features: 6646
+Line search trials: 1
+Line search step: 1.000000
+Seconds required for this iteration: 0.009
+
+***** Iteration #64 *****
+Loss: 456.136715
+Feature norm: 15.472963
+Error norm: 30.594760
+Active features: 6633
+Line search trials: 1
+Line search step: 1.000000
+Seconds required for this iteration: 0.009
+
+***** Iteration #65 *****
+Loss: 456.015352
+Feature norm: 15.474938
+Error norm: 26.172909
+Active features: 6622
+Line search trials: 1
+Line search step: 1.000000
+Seconds required for this iteration: 0.012
+
+***** Iteration #66 *****
+Loss: 455.921326
+Feature norm: 15.474599
+Error norm: 30.152500
+Active features: 6608
+Line search trials: 1
+Line search step: 1.000000
+Seconds required for this iteration: 0.010
+
+***** Iteration #67 *****
+Loss: 455.834269
+Feature norm: 15.478364
+Error norm: 29.717098
+Active features: 6590
+Line search trials: 1
+Line search step: 1.000000
+Seconds required for this iteration: 0.009
+
+***** Iteration #68 *****
+Loss: 455.733148
+Feature norm: 15.476875
+Error norm: 28.332459
+Active features: 6588
+Line search trials: 1
+Line search step: 1.000000
+Seconds required for this iteration: 0.009
+
+***** Iteration #69 *****
+Loss: 455.639524
+Feature norm: 15.477579
+Error norm: 24.783798
+Active features: 6579
+Line search trials: 1
+Line search step: 1.000000
+Seconds required for this iteration: 0.010
+
+***** Iteration #70 *****
+Loss: 455.566389
+Feature norm: 15.477048
+Error norm: 29.161194
+Active features: 6571
+Line search trials: 1
+Line search step: 1.000000
+Seconds required for this iteration: 0.009
+
+***** Iteration #71 *****
+Loss: 455.484230
+Feature norm: 15.476072
+Error norm: 25.705413
+Active features: 6567
+Line search trials: 1
+Line search step: 1.000000
+Seconds required for this iteration: 0.009
+
+***** Iteration #72 *****
+Loss: 455.409753
+Feature norm: 15.475528
+Error norm: 29.620529
+Active features: 6565
+Line search trials: 1
+Line search step: 1.000000
+Seconds required for this iteration: 0.009
+
+***** Iteration #73 *****
+Loss: 455.326823
+Feature norm: 15.474408
+Error norm: 25.140053
+Active features: 6567
+Line search trials: 1
+Line search step: 1.000000
+Seconds required for this iteration: 0.008
+
+***** Iteration #74 *****
+Loss: 455.264194
+Feature norm: 15.472518
+Error norm: 30.894073
+Active features: 6561
+Line search trials: 1
+Line search step: 1.000000
+Seconds required for this iteration: 0.008
+
+***** Iteration #75 *****
+Loss: 455.174770
+Feature norm: 15.473570
+Error norm: 24.089258
+Active features: 6551
+Line search trials: 1
+Line search step: 1.000000
+Seconds required for this iteration: 0.008
+
+***** Iteration #76 *****
+Loss: 455.098408
+Feature norm: 15.470153
+Error norm: 28.412616
+Active features: 6536
+Line search trials: 1
+Line search step: 1.000000
+Seconds required for this iteration: 0.009
+
+***** Iteration #77 *****
+Loss: 455.005448
+Feature norm: 15.470061
+Error norm: 21.292241
+Active features: 6527
+Line search trials: 1
+Line search step: 1.000000
+Seconds required for this iteration: 0.010
+
+***** Iteration #78 *****
+Loss: 454.953890
+Feature norm: 15.463907
+Error norm: 34.333667
+Active features: 6517
+Line search trials: 1
+Line search step: 1.000000
+Seconds required for this iteration: 0.010
+
+***** Iteration #79 *****
+Loss: 454.855025
+Feature norm: 15.464991
+Error norm: 24.734798
+Active features: 6501
+Line search trials: 1
+Line search step: 1.000000
+Seconds required for this iteration: 0.010
+
+***** Iteration #80 *****
+Loss: 454.818012
+Feature norm: 15.459870
+Error norm: 36.297066
+Active features: 6491
+Line search trials: 1
+Line search step: 1.000000
+Seconds required for this iteration: 0.009
+
+***** Iteration #81 *****
+Loss: 454.701478
+Feature norm: 15.461393
+Error norm: 20.877507
+Active features: 6476
+Line search trials: 1
+Line search step: 1.000000
+Seconds required for this iteration: 0.010
+
+***** Iteration #82 *****
+Loss: 454.658998
+Feature norm: 15.456302
+Error norm: 30.413726
+Active features: 6475
+Line search trials: 1
+Line search step: 1.000000
+Seconds required for this iteration: 0.010
+
+***** Iteration #83 *****
+Loss: 454.571407
+Feature norm: 15.457530
+Error norm: 19.827037
+Active features: 6474
+Line search trials: 1
+Line search step: 1.000000
+Seconds required for this iteration: 0.009
+
+***** Iteration #84 *****
+Loss: 454.527576
+Feature norm: 15.456567
+Error norm: 26.930334
+Active features: 6476
+Line search trials: 1
+Line search step: 1.000000
+Seconds required for this iteration: 0.010
+
+***** Iteration #85 *****
+Loss: 454.454229
+Feature norm: 15.456077
+Error norm: 19.369973
+Active features: 6471
+Line search trials: 1
+Line search step: 1.000000
+Seconds required for this iteration: 0.009
+
+***** Iteration #86 *****
+Loss: 454.412761
+Feature norm: 15.452408
+Error norm: 25.451112
+Active features: 6477
+Line search trials: 1
+Line search step: 1.000000
+Seconds required for this iteration: 0.010
+
+***** Iteration #87 *****
+Loss: 454.350049
+Feature norm: 15.452809
+Error norm: 22.063126
+Active features: 6481
+Line search trials: 1
+Line search step: 1.000000
+Seconds required for this iteration: 0.009
+
+***** Iteration #88 *****
+Loss: 454.312885
+Feature norm: 15.449394
+Error norm: 26.780048
+Active features: 6482
+Line search trials: 1
+Line search step: 1.000000
+Seconds required for this iteration: 0.008
+
+***** Iteration #89 *****
+Loss: 454.247265
+Feature norm: 15.449269
+Error norm: 21.053559
+Active features: 6477
+Line search trials: 1
+Line search step: 1.000000
+Seconds required for this iteration: 0.010
+
+***** Iteration #90 *****
+Loss: 454.206600
+Feature norm: 15.448157
+Error norm: 23.937251
+Active features: 6472
+Line search trials: 1
+Line search step: 1.000000
+Seconds required for this iteration: 0.011
+
+***** Iteration #91 *****
+Loss: 454.155683
+Feature norm: 15.447959
+Error norm: 20.565930
+Active features: 6471
+Line search trials: 1
+Line search step: 1.000000
+Seconds required for this iteration: 0.011
+
+***** Iteration #92 *****
+Loss: 454.116703
+Feature norm: 15.445880
+Error norm: 23.264412
+Active features: 6476
+Line search trials: 1
+Line search step: 1.000000
+Seconds required for this iteration: 0.008
+
+***** Iteration #93 *****
+Loss: 454.069003
+Feature norm: 15.445220
+Error norm: 18.665975
+Active features: 6474
+Line search trials: 1
+Line search step: 1.000000
+Seconds required for this iteration: 0.008
+
+***** Iteration #94 *****
+Loss: 454.015846
+Feature norm: 15.441378
+Error norm: 19.005240
+Active features: 6483
+Line search trials: 1
+Line search step: 1.000000
+Seconds required for this iteration: 0.012
+
+***** Iteration #95 *****
+Loss: 453.984312
+Feature norm: 15.440148
+Error norm: 22.026249
+Active features: 6475
+Line search trials: 1
+Line search step: 1.000000
+Seconds required for this iteration: 0.010
+
+***** Iteration #96 *****
+Loss: 453.937800
+Feature norm: 15.436760
+Error norm: 22.599126
+Active features: 6472
+Line search trials: 1
+Line search step: 1.000000
+Seconds required for this iteration: 0.009
+
+***** Iteration #97 *****
+Loss: 453.898655
+Feature norm: 15.435289
+Error norm: 20.659125
+Active features: 6473
+Line search trials: 1
+Line search step: 1.000000
+Seconds required for this iteration: 0.010
+
+***** Iteration #98 *****
+Loss: 453.855405
+Feature norm: 15.432459
+Error norm: 21.383644
+Active features: 6471
+Line search trials: 1
+Line search step: 1.000000
+Seconds required for this iteration: 0.010
+
+***** Iteration #99 *****
+Loss: 453.820857
+Feature norm: 15.430213
+Error norm: 18.729679
+Active features: 6475
+Line search trials: 1
+Line search step: 1.000000
+Seconds required for this iteration: 0.009
+
+***** Iteration #100 *****
+Loss: 453.785234
+Feature norm: 15.427529
+Error norm: 21.169863
+Active features: 6476
+Line search trials: 1
+Line search step: 1.000000
+Seconds required for this iteration: 0.009
+
+L-BFGS terminated with the maximum number of iterations
+Total seconds required for training: 0.978
+
+Storing the model
+Number of active features: 6476 (78315)
+Number of active attributes: 1917 (3382)
+Number of active labels: 23 (23)
+Writing labels
+Writing attributes
+Writing feature references for transitions
+Writing feature references for attributes
+Seconds required: 0.005
+

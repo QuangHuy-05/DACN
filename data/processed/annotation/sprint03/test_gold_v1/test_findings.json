@@ -1,0 +1,159 @@
+[
+  {
+    "code": "t1_evidence_needs_review",
+    "reason": "Whole-address system needs a recorded temporal basis; unknown span systems do not establish it.",
+    "address_system": "moi",
+    "known_administrative_span_systems": [],
+    "sample_id": "s3_7ec507813be1cede"
+  },
+  {
+    "code": "t1_evidence_needs_review",
+    "reason": "Whole-address system needs a recorded temporal basis; unknown span systems do not establish it.",
+    "address_system": "moi",
+    "known_administrative_span_systems": [],
+    "sample_id": "s3_156b56e3b067f033"
+  },
+  {
+    "code": "t1_evidence_needs_review",
+    "reason": "Whole-address system needs a recorded temporal basis; unknown span systems do not establish it.",
+    "address_system": "moi",
+    "known_administrative_span_systems": [],
+    "sample_id": "s3_406fc7891f05bc2a"
+  },
+  {
+    "code": "t1_evidence_needs_review",
+    "reason": "Whole-address system needs a recorded temporal basis; unknown span systems do not establish it.",
+    "address_system": "moi",
+    "known_administrative_span_systems": [],
+    "sample_id": "s3_6816f0907984be0a"
+  },
+  {
+    "code": "t1_evidence_needs_review",
+    "reason": "Whole-address system needs a recorded temporal basis; unknown span systems do not establish it.",
+    "address_system": "moi",
+    "known_administrative_span_systems": [],
+    "sample_id": "s3_4e5c8d58266fb206"
+  },
+  {
+    "code": "t1_evidence_needs_review",
+    "reason": "Whole-address system needs a recorded temporal basis; unknown span systems do not establish it.",
+    "address_system": "moi",
+    "known_administrative_span_systems": [],
+    "sample_id": "s3_438e4e50f599cd2f"
+  },
+  {
+    "code": "t1_evidence_needs_review",
+    "reason": "Whole-address system needs a recorded temporal basis; unknown span systems do not establish it.",
+    "address_system": "moi",
+    "known_administrative_span_systems": [],
+    "sample_id": "s3_224bae3f36763271"
+  },
+  {
+    "code": "t1_evidence_needs_review",
+    "reason": "Whole-address system needs a recorded temporal basis; unknown span systems do not establish it.",
+    "address_system": "moi",
+    "known_administrative_span_systems": [],
+    "sample_id": "s3_193ee8bba9df8734"
+  },
+  {
+    "code": "t1_evidence_needs_review",
+    "reason": "Whole-address system needs a recorded temporal basis; unknown span systems do not establish it.",
+    "address_system": "moi",
+    "known_administrative_span_systems": [],
+    "sample_id": "s3_ce1215ffa66c136f"
+  },
+  {
+    "code": "t1_evidence_needs_review",
+    "reason": "Whole-address system needs a recorded temporal basis; unknown span systems do not establish it.",
+    "address_system": "moi",
+    "known_administrative_span_systems": [],
+    "sample_id": "s3_9fe1a97170d5ce7d"
+  },
+  {
+    "code": "t1_evidence_needs_review",
+    "reason": "Whole-address system needs a recorded temporal basis; unknown span systems do not establish it.",
+    "address_system": "cu",
+    "known_administrative_span_systems": [],
+    "sample_id": "s3_c653b940f299c3cf"
+  },
+  {
+    "code": "t1_evidence_needs_review",
+    "reason": "Whole-address system needs a recorded temporal basis; unknown span systems do not establish it.",
+    "address_system": "cu",
+    "known_administrative_span_systems": [],
+    "sample_id": "s3_e705dab3c4063df5"
+  },
+  {
+    "code": "t1_evidence_needs_review",
+    "reason": "Whole-address system needs a recorded temporal basis; unknown span systems do not establish it.",
+    "address_system": "moi",
+    "known_administrative_span_systems": [],
+    "sample_id": "s3_35525b63dc71e55a"
+  },
+  {
+    "code": "t1_evidence_needs_review",
+    "reason": "Whole-address system needs a recorded temporal basis; unknown span systems do not establish it.",
+    "address_system": "Lai",
+    "known_administrative_span_systems": [
+      "cu"
+    ],
+    "sample_id": "s3_895748de4265665a"
+  },
+  {
+    "code": "t1_evidence_needs_review",
+    "reason": "Whole-address system needs a recorded temporal basis; unknown span systems do not establish it.",
+    "address_system": "moi",
+    "known_administrative_span_systems": [],
+    "sample_id": "s3_c9ceb4918634b3b6"
+  },
+  {
+    "sample_id": "s3_8dd4536611f09a74",
+    "task_id": 663,
+    "code": "dated_reference_system_conflict",
+    "reason": "Selected ward Lê Đại Hành at Hà Nội marked moi, while audited old snapshot supports Hà Nội/cu; new homonym belongs to another province. No raw label changed.",
+    "source_sha256": {
+      "data/interim/modeling/sprint03/pre_colab_20261003_resume_v1/u1_v4/reference_old.jsonl": "a58ebd6019268321bd92cee5ded74b1af7162f6bb211cc0bf8500d2ba3c9ab00",
+      "data/processed/gazetteer/s3_v4_nso_dual_snapshot_release2/official_code_reference.csv": "a01e4d813887dcdfaf9c1e11782059121acaf2ffe50b71fe7451bb554b7ac852"
+    },
+    "old_matches": [
+      {
+        "level": "ward",
+        "system": "cu",
+        "official_name": "Phường Lê Đại Hành",
+        "official_code": "00256",
+        "province_code": "01",
+        "province_name": "Thành phố Hà Nội",
+        "district_code": "007",
+        "district_name": "Quận Hai Bà Trưng",
+        "unit_type": "Phường",
+        "as_of_date": "2025-06-30",
+        "source_id": "nso_soap_DanhMucPhuongXa_2025-06-30",
+        "source_hash": "96ffa1db5cc01e5f77bf2fc98f2d7d69635ea6c1082f63331639caaa7b0f7392",
+        "source_file": "old_ward.xml",
+        "source_locator": "old_ward.xml#TABLE[diffgr:id=TABLE81]",
+        "extraction_status": "PARSED_DIFFGRAM_TABLE_ROW",
+        "validation_status": "PARENT_CODE_LINK_PASS"
+      }
+    ],
+    "new_homonym_matches": [
+      {
+        "province": "Thành phố Hải Phòng",
+        "district": "",
+        "ward": "Phường Lê Đại Hành",
+        "level": "ward",
+        "system": "moi",
+        "code": "10603",
+        "valid_from": "2025-07-01",
+        "valid_to": "",
+        "source_id": "nso_portal_snapshot_2025_07_01",
+        "source_locator": "Sheet1!G1033:M1033",
+        "canonical_province": "Thành phố Hải Phòng",
+        "canonical_district": "",
+        "canonical_ward": "Phường Lê Đại Hành",
+        "official_province_name": "Thành phố Hải Phòng",
+        "official_ward_name": "Phường Lê Đại Hành",
+        "name_alignment": "EXACT"
+      }
+    ]
+  }
+]

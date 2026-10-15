@@ -1,0 +1,21 @@
+{
+  "run_id": "baseline_v3_fuzzy",
+  "parent_manifest_sha256": "14da842d270d2b0e2a31efd954c07d3a0f948cc7b3d7c8240687ae7a19a46fcb",
+  "selection_rule": "first error after sort(dataset, tool, LoaiLoi, ID), one record per group",
+  "output_hashes": {
+    "dataset_metrics.csv": "5cd1077d36db22c7b12f12300634919b3e3def05cd4b1b97aba9a3f0f8225146",
+    "dataset_field_metrics.csv": "e58cdfa7923da1c028e2b081572b9a1fbef01e6032d967fff3682494873f2d3b",
+    "structural_scenarios.csv": "8bf1dba640d0b6f785dbb15c337fde4f0a627345b3fa0da9ceb7af5dd664b9d0",
+    "spatial_trace_cases.csv": "42c4f5d4de0357d2d9f1f42083a3b8b0356c8d8bc38a1de6ecc93dfc0b8f64b1",
+    "spatial_trace_summary.csv": "a8cbdfe0b482ef53e9543f1d247acf44534c8caf39d3df86c2c58f41eabcfe49",
+    "data06_contract.csv": "ce4b08ba0cbb39e0a922677142c496e85d714e352e965d8a21d73594e6e0e993",
+    "data07_scope.csv": "60b5f30e18aeee276a4ea63b4324baff7392353b6e7870d5f997f66db9b944c2",
+    "case_studies.csv": "7efb5f36c81febc08d8c11e0537072dbb7eda013a2852f1219e58178f5498b5f",
+    "baseline_diagnostics_v4.md": "ca85c26e9c341bbced4e1e33a18554bb246c0a3aef88f1077a84a08390ba5b75",
+    "data_preparation_summary_v4.md": "8e05bfd6189c361c6b013eda9b9c95fe0747641d193a5e05c8bb83862dc5d1da",
+    "chapter_01_research_motivation_v4.md": "75789cb316b80740fa62c6b20c11865230286b58ae0ba84cabbe849704631645",
+    "chapter_02_theoretical_foundation_v4.md": "52eb0616194019127548a4d65677efb3ee1b8185f52a107b876191dfd7f30535",
+    "report_materials_index_v4.md": "a217e3c7939d32af62bf106cac561ef5f303f681624e6ec3e5fd40b29faf9643"
+  },
+  "derived_root": "data/processed/evaluation/derived/baseline_v3_fuzzy/v4_fuzzy"
+}

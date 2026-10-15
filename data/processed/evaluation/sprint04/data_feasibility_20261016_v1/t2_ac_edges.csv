@@ -1,0 +1,136 @@
+﻿SourceRow,Relation,OldProvince,OldDistrict,OldWard,NewProvince,NewWard,NameUnchanged,ObservedEligibleRows,OsmDiffRowsWithOldKeyAnyStatus,SnapshotFullRowsWithOldKey,SnapshotBalancedRowsWithOldKey
+3,C,Thành phố Cần Thơ,Huyện Cờ Đỏ,Xã Thạnh Phú,Thành phố Cần Thơ,Xã Thạnh Phú,True,0,0,0,0
+4,C,Thành phố Cần Thơ,Huyện Cờ Đỏ,Xã Thới Hưng,Thành phố Cần Thơ,Xã Thới Hưng,True,0,0,1,1
+17,C,Thành phố Cần Thơ,Huyện Phong Điền,Xã Trường Long,Thành phố Cần Thơ,Xã Trường Long,True,0,0,0,0
+79,C,Thành phố Cần Thơ,Quận Thốt Nốt,Phường Tân Lộc,Thành phố Cần Thơ,Phường Tân Lộc,True,0,0,3,3
+193,C,Tỉnh Sóc Trăng,Huyện Kế Sách,Xã Phong Nẫm,Thành phố Cần Thơ,Xã Phong Nẫm,True,0,0,0,0
+216,C,Tỉnh Sóc Trăng,Huyện Mỹ Tú,Xã Mỹ Phước,Thành phố Cần Thơ,Xã Mỹ Phước,True,0,0,0,0
+279,C,Tỉnh Sóc Trăng,Thị xã Vĩnh Châu,Xã Lai Hòa,Thành phố Cần Thơ,Xã Lai Hòa,True,0,0,0,0
+282,C,Tỉnh Sóc Trăng,Thị xã Vĩnh Châu,Xã Vĩnh Hải,Thành phố Cần Thơ,Xã Vĩnh Hải,True,0,0,0,0
+370,C,Thành phố Huế,Quận Thuận Hóa,Phường Dương Nỗ,Thành phố Huế,Phường Dương Nỗ,True,0,0,0,0
+1691,C,Thành phố Hồ Chí Minh,Huyện Cần Giờ,Xã Thạnh An,Thành phố Hồ Chí Minh,Xã Thạnh An,True,0,0,0,0
+1909,A,Thành phố Hồ Chí Minh,Quận Tân Bình,Phường 15,Thành phố Hồ Chí Minh,Phường Tân Sơn,False,0,0,11,11
+2003,C,Tỉnh Bà Rịa - Vũng Tàu,Huyện Xuyên Mộc,Xã Bình Châu,Thành phố Hồ Chí Minh,Xã Bình Châu,True,0,0,0,0
+2007,C,Tỉnh Bà Rịa - Vũng Tàu,Huyện Xuyên Mộc,Xã Hòa Hiệp,Thành phố Hồ Chí Minh,Xã Hòa Hiệp,True,0,0,0,0
+2050,C,Tỉnh Bà Rịa - Vũng Tàu,Thành phố Vũng Tàu,Xã Long Sơn,Thành phố Hồ Chí Minh,Xã Long Sơn,True,0,0,1,1
+2051,A,Tỉnh Bình Dương,Huyện Bàu Bàng,Thị trấn Lai Uyên,Thành phố Hồ Chí Minh,Xã Bàu Bàng,False,0,0,0,0
+2105,C,Tỉnh Bình Dương,Thành phố Bến Cát,Phường Thới Hòa,Thành phố Hồ Chí Minh,Phường Thới Hòa,True,0,0,0,0
+2243,C,Tỉnh Quảng Nam,Huyện Nam Giang,Thị trấn Thạnh Mỹ,Thành phố Đà Nẵng,Xã Thạnh Mỹ,False,0,0,0,0
+2271,C,Tỉnh Quảng Nam,Huyện Núi Thành,Xã Tam Hải,Thành phố Đà Nẵng,Xã Tam Hải,True,0,0,0,0
+2407,C,Tỉnh Quảng Nam,Thành phố Hội An,Xã Tân Hiệp,Thành phố Đà Nẵng,Xã Tân Hiệp,True,0,0,0,0
+2569,C,Tỉnh An Giang,Thành phố Long Xuyên,Xã Mỹ Hòa Hưng,Tỉnh An Giang,Xã Mỹ Hòa Hưng,True,0,0,0,0
+2666,C,Tỉnh Kiên Giang,Huyện Hòn Đất,Xã Bình Giang,Tỉnh An Giang,Xã Bình Giang,True,0,0,0,0
+2667,C,Tỉnh Kiên Giang,Huyện Hòn Đất,Xã Bình Sơn,Tỉnh An Giang,Xã Bình Sơn,True,0,0,0,0
+2687,C,Tỉnh Kiên Giang,Huyện Kiên Lương,Xã Hòn Nghệ,Tỉnh An Giang,Xã Hòn Nghệ,True,0,0,0,0
+2689,C,Tỉnh Kiên Giang,Huyện Kiên Lương,Xã Sơn Hải,Tỉnh An Giang,Xã Sơn Hải,True,0,0,0,0
+2721,C,Tỉnh Kiên Giang,Thành phố Hà Tiên,Xã Tiên Hải,Tỉnh An Giang,Xã Tiên Hải,True,0,0,0,0
+2730,C,Tỉnh Kiên Giang,Thành phố Phú Quốc,Xã Thổ Châu,Tỉnh An Giang,Đặc khu Thổ Châu,False,0,0,0,0
+2835,C,Tỉnh Bắc Giang,Huyện Sơn Động,Xã Tuấn Đạo,Tỉnh Bắc Ninh,Xã Tuấn Đạo,True,0,0,0,0
+3327,C,Tỉnh Cà Mau,Huyện Thới Bình,Xã Hồ Thị Kỷ,Tỉnh Cà Mau,Xã Hồ Thị Kỷ,True,0,0,0,0
+3498,A,Tỉnh Bình Định,Huyện Vân Canh,Xã Canh Liên,Tỉnh Gia Lai,Xã Canh Liên,True,0,0,0,0
+3523,C,Tỉnh Bình Định,Thành phố Quy Nhơn,Xã Nhơn Châu,Tỉnh Gia Lai,Xã Nhơn Châu,True,0,0,0,0
+3571,C,Tỉnh Gia Lai,Huyện Chư Prông,Xã Ia Mơ,Tỉnh Gia Lai,Xã Ia Mơ,True,0,0,0,0
+3576,C,Tỉnh Gia Lai,Huyện Chư Prông,Xã Ia Púch,Tỉnh Gia Lai,Xã Ia Púch,True,0,0,0,0
+3620,C,Tỉnh Gia Lai,Huyện Ia Grai,Xã Ia Chia,Tỉnh Gia Lai,Xã Ia Chia,True,0,0,0,0
+3626,C,Tỉnh Gia Lai,Huyện Ia Grai,Xã Ia O,Tỉnh Gia Lai,Xã Ia O,True,0,0,0,0
+3641,C,Tỉnh Gia Lai,Huyện KBang,Xã KRong,Tỉnh Gia Lai,Xã Krong,True,0,0,0,0
+3730,C,Tỉnh Gia Lai,Huyện Đức Cơ,Xã Ia Dom,Tỉnh Gia Lai,Xã Ia Dom,True,0,0,1,1
+3736,C,Tỉnh Gia Lai,Huyện Đức Cơ,Xã Ia Nan,Tỉnh Gia Lai,Xã Ia Nan,True,0,0,0,0
+3737,C,Tỉnh Gia Lai,Huyện Đức Cơ,Xã Ia Pnôn,Tỉnh Gia Lai,Xã Ia Pnôn,True,0,0,0,0
+3847,C,Tỉnh Hà Tĩnh,Huyện Hương Sơn,Xã Sơn Kim 1,Tỉnh Hà Tĩnh,Xã Sơn Kim 1,True,0,0,0,0
+3848,C,Tỉnh Hà Tĩnh,Huyện Hương Sơn,Xã Sơn Kim 2,Tỉnh Hà Tĩnh,Xã Sơn Kim 2,True,0,0,0,0
+4584,C,Tỉnh Lai Châu,Huyện Mường Tè,Xã Mù Cả,Tỉnh Lai Châu,Xã Mù Cả,True,0,0,0,0
+4590,C,Tỉnh Lai Châu,Huyện Mường Tè,Xã Tà Tổng,Tỉnh Lai Châu,Xã Tà Tổng,True,0,0,0,0
+4797,C,Tỉnh Lào Cai,Huyện Văn Bàn,Xã Nậm Xé,Tỉnh Lào Cai,Xã Nậm Xé,True,0,0,0,0
+4831,C,Tỉnh Lào Cai,Thị xã Sa Pa,Xã Ngũ Chỉ Sơn,Tỉnh Lào Cai,Xã Ngũ Chỉ Sơn,True,0,0,0,0
+4863,C,Tỉnh Yên Bái,Huyện Mù Căng Chải,Xã Chế Tạo,Tỉnh Lào Cai,Xã Chế Tạo,True,0,0,0,0
+4869,C,Tỉnh Yên Bái,Huyện Mù Căng Chải,Xã Lao Chải,Tỉnh Lào Cai,Xã Lao Chải,True,0,0,0,0
+4871,C,Tỉnh Yên Bái,Huyện Mù Căng Chải,Xã Nậm Có,Tỉnh Lào Cai,Xã Nậm Có,True,0,0,0,0
+4883,C,Tỉnh Yên Bái,Huyện Trạm Tấu,Xã Tà Si Láng,Tỉnh Lào Cai,Xã Tà Xi Láng,False,0,0,0,0
+4910,C,Tỉnh Yên Bái,Huyện Văn Chấn,Xã Cát Thịnh,Tỉnh Lào Cai,Xã Cát Thịnh,True,0,0,0,0
+4940,C,Tỉnh Yên Bái,Huyện Văn Yên,Xã Phong Dụ Thượng,Tỉnh Lào Cai,Xã Phong Dụ Thượng,True,0,0,0,0
+5205,C,Tỉnh Lâm Đồng,Huyện Đạ Huoai,Xã Bà Gia,Tỉnh Lâm Đồng,Xã Đạ Huoai 3,False,0,0,0,0
+5228,C,Tỉnh Lâm Đồng,Huyện Đức Trọng,Xã Ninh Gia,Tỉnh Lâm Đồng,Xã Ninh Gia,True,0,0,0,0
+5284,C,Tỉnh Đắk Nông,Huyện Tuy Đức,Xã Quảng Trực,Tỉnh Lâm Đồng,Xã Quảng Trực,True,0,0,0,0
+5290,C,Tỉnh Đắk Nông,Huyện Đăk Glong,Xã Quảng Hòa,Tỉnh Lâm Đồng,Xã Quảng Hòa,True,0,0,0,0
+5292,C,Tỉnh Đắk Nông,Huyện Đăk Glong,Xã Quảng Sơn,Tỉnh Lâm Đồng,Xã Quảng Sơn,True,0,0,0,0
+5552,C,Tỉnh Nghệ An,Huyện Con Cuông,Xã Bình Chuẩn,Tỉnh Nghệ An,Xã Bình Chuẩn,True,0,0,0,0
+5613,C,Tỉnh Nghệ An,Huyện Kỳ Sơn,Xã Bắc Lý,Tỉnh Nghệ An,Xã Bắc Lý,True,0,0,0,0
+5615,C,Tỉnh Nghệ An,Huyện Kỳ Sơn,Xã Huồi Tụ,Tỉnh Nghệ An,Xã Huồi Tụ,True,0,0,0,0
+5618,C,Tỉnh Nghệ An,Huyện Kỳ Sơn,Xã Keng Đu,Tỉnh Nghệ An,Xã Keng Đu,True,0,0,0,0
+5619,C,Tỉnh Nghệ An,Huyện Kỳ Sơn,Xã Mường Lống,Tỉnh Nghệ An,Xã Mường Lống,True,0,0,0,0
+5622,C,Tỉnh Nghệ An,Huyện Kỳ Sơn,Xã Mỹ Lý,Tỉnh Nghệ An,Xã Mỹ Lý,True,0,0,0,0
+5705,C,Tỉnh Nghệ An,Huyện Quỳ Châu,Xã Châu Bình,Tỉnh Nghệ An,Xã Châu Bình,True,0,0,0,0
+5812,C,Tỉnh Nghệ An,Huyện Tương Dương,Xã Hữu Khuông,Tỉnh Nghệ An,Xã Hữu Khuông,True,0,0,0,0
+5814,C,Tỉnh Nghệ An,Huyện Tương Dương,Xã Lượng Minh,Tỉnh Nghệ An,Xã Lượng Minh,True,0,0,0,0
+6640,C,Tỉnh Phú Thọ,Huyện Tân Sơn,Xã Thu Cúc,Tỉnh Phú Thọ,Xã Thu Cúc,True,0,0,0,0
+6660,C,Tỉnh Phú Thọ,Huyện Yên Lập,Xã Trung Sơn,Tỉnh Phú Thọ,Xã Trung Sơn,True,0,0,0,0
+6832,C,Tỉnh Kon Tum,Huyện Ia H'Drai,Xã Ia Đal,Tỉnh Quảng Ngãi,Xã Ia Đal,True,0,0,0,0
+6859,C,Tỉnh Kon Tum,Huyện Sa Thầy,Xã Mô Rai,Tỉnh Quảng Ngãi,Xã Mô Rai,True,0,0,0,0
+6860,C,Tỉnh Kon Tum,Huyện Sa Thầy,Xã Rờ Kơi,Tỉnh Quảng Ngãi,Xã Rờ Kơi,True,0,0,0,0
+6897,C,Tỉnh Kon Tum,Huyện Đắk Glei,Xã Đăk Long,Tỉnh Quảng Ngãi,Xã Đăk Long,True,0,0,0,0
+6948,C,Tỉnh Quảng Ngãi,Huyện Ba Tơ,Xã Ba Xa,Tỉnh Quảng Ngãi,Xã Ba Xa,True,0,0,0,0
+7123,C,Tỉnh Quảng Ninh,Huyện Hải Hà,Xã Cái Chiên,Tỉnh Quảng Ninh,Xã Cái Chiên,True,0,0,0,0
+7350,C,Tỉnh Quảng Bình,Huyện Minh Hóa,Xã Tân Thành,Tỉnh Quảng Trị,Xã Tân Thành,True,0,0,0,0
+7602,C,Tỉnh Sơn La,Huyện Mường La,Xã Ngọc Chiến,Tỉnh Sơn La,Xã Ngọc Chiến,True,0,0,0,0
+7622,C,Tỉnh Sơn La,Huyện Phù Yên,Xã Suối Tọ,Tỉnh Sơn La,Xã Suối Tọ,True,0,0,0,0
+7663,C,Tỉnh Sơn La,Huyện Sốp Cộp,Xã Mường Lèo,Tỉnh Sơn La,Xã Mường Lèo,True,0,0,0,0
+7664,C,Tỉnh Sơn La,Huyện Sốp Cộp,Xã Mường Lạn,Tỉnh Sơn La,Xã Mường Lạn,True,0,0,0,0
+7684,C,Tỉnh Sơn La,Huyện Thuận Châu,Xã Mường Bám,Tỉnh Sơn La,Xã Mường Bám,True,0,0,0,0
+7722,C,Tỉnh Sơn La,Huyện Yên Châu,Xã Phiêng Khoài,Tỉnh Sơn La,Xã Phiêng Khoài,True,0,0,0,0
+7751,C,Tỉnh Sơn La,Thị xã Mộc Châu,Xã Tân Yên,Tỉnh Sơn La,Xã Tân Yên,True,0,0,0,0
+7877,C,Tỉnh Thanh Hóa,Huyện Lang Chánh,Xã Yên Khương,Tỉnh Thanh Hóa,Xã Yên Khương,True,0,0,0,0
+7878,C,Tỉnh Thanh Hóa,Huyện Lang Chánh,Xã Yên Thắng,Tỉnh Thanh Hóa,Xã Yên Thắng,True,0,0,0,0
+7880,C,Tỉnh Thanh Hóa,Huyện Mường Lát,Thị trấn Mường Lát,Tỉnh Thanh Hóa,Xã Mường Lát,False,0,0,1,1
+7881,C,Tỉnh Thanh Hóa,Huyện Mường Lát,Xã Mường Chanh,Tỉnh Thanh Hóa,Xã Mường Chanh,True,0,0,0,0
+7882,C,Tỉnh Thanh Hóa,Huyện Mường Lát,Xã Mường Lý,Tỉnh Thanh Hóa,Xã Mường Lý,True,0,0,0,0
+7883,C,Tỉnh Thanh Hóa,Huyện Mường Lát,Xã Nhi Sơn,Tỉnh Thanh Hóa,Xã Nhi Sơn,True,0,0,0,0
+7884,C,Tỉnh Thanh Hóa,Huyện Mường Lát,Xã Pù Nhi,Tỉnh Thanh Hóa,Xã Pù Nhi,True,0,0,1,1
+7885,C,Tỉnh Thanh Hóa,Huyện Mường Lát,Xã Quang Chiểu,Tỉnh Thanh Hóa,Xã Quang Chiểu,True,0,0,0,0
+7886,C,Tỉnh Thanh Hóa,Huyện Mường Lát,Xã Tam Chung,Tỉnh Thanh Hóa,Xã Tam Chung,True,0,0,0,0
+7887,C,Tỉnh Thanh Hóa,Huyện Mường Lát,Xã Trung Lý,Tỉnh Thanh Hóa,Xã Trung Lý,True,0,0,0,0
+7944,C,Tỉnh Thanh Hóa,Huyện Như Thanh,Xã Xuân Thái,Tỉnh Thanh Hóa,Xã Xuân Thái,True,0,0,0,0
+8003,C,Tỉnh Thanh Hóa,Huyện Quan Hóa,Xã Phú Xuân,Tỉnh Thanh Hóa,Xã Phú Xuân,True,0,0,0,0
+8006,C,Tỉnh Thanh Hóa,Huyện Quan Hóa,Xã Trung Sơn,Tỉnh Thanh Hóa,Xã Trung Sơn,True,0,0,0,0
+8010,C,Tỉnh Thanh Hóa,Huyện Quan Sơn,Xã Mường Mìn,Tỉnh Thanh Hóa,Xã Mường Mìn,True,0,0,0,0
+8011,C,Tỉnh Thanh Hóa,Huyện Quan Sơn,Xã Na Mèo,Tỉnh Thanh Hóa,Xã Na Mèo,True,0,0,0,0
+8013,C,Tỉnh Thanh Hóa,Huyện Quan Sơn,Xã Sơn Thủy,Tỉnh Thanh Hóa,Xã Sơn Thủy,True,0,0,0,0
+8014,C,Tỉnh Thanh Hóa,Huyện Quan Sơn,Xã Sơn Điện,Tỉnh Thanh Hóa,Xã Sơn Điện,True,0,0,0,0
+8016,C,Tỉnh Thanh Hóa,Huyện Quan Sơn,Xã Tam Thanh,Tỉnh Thanh Hóa,Xã Tam Thanh,True,0,0,0,0
+8075,C,Tỉnh Thanh Hóa,Huyện Thường Xuân,Xã Bát Mọt,Tỉnh Thanh Hóa,Xã Bát Mọt,True,0,0,0,0
+8079,C,Tỉnh Thanh Hóa,Huyện Thường Xuân,Xã Lương Sơn,Tỉnh Thanh Hóa,Xã Lương Sơn,True,0,0,0,0
+8083,C,Tỉnh Thanh Hóa,Huyện Thường Xuân,Xã Vạn Xuân,Tỉnh Thanh Hóa,Xã Vạn Xuân,True,0,0,0,0
+8090,C,Tỉnh Thanh Hóa,Huyện Thường Xuân,Xã Yên Nhân,Tỉnh Thanh Hóa,Xã Yên Nhân,True,0,0,0,0
+8397,C,Tỉnh Bắc Kạn,Huyện Ngân Sơn,Xã Thượng Quan,Tỉnh Thái Nguyên,Xã Thượng Quan,True,0,0,0,0
+8464,C,Tỉnh Thái Nguyên,Huyện Võ Nhai,Xã Sảng Mộc,Tỉnh Thái Nguyên,Xã Sảng Mộc,True,0,0,0,0
+8595,C,Tỉnh Hà Giang,Huyện Bắc Mê,Xã Giáp Trung,Tỉnh Tuyên Quang,Xã Giáp Trung,True,0,0,0,0
+8598,C,Tỉnh Hà Giang,Huyện Bắc Mê,Xã Minh Sơn,Tỉnh Tuyên Quang,Xã Minh Sơn,True,0,0,0,0
+8678,C,Tỉnh Hà Giang,Huyện Quang Bình,Xã Tiên Nguyên,Tỉnh Tuyên Quang,Xã Tiên Nguyên,True,0,0,0,0
+8704,C,Tỉnh Hà Giang,Huyện Vị Xuyên,Xã Cao Bồ,Tỉnh Tuyên Quang,Xã Cao Bồ,True,0,0,0,0
+8709,C,Tỉnh Hà Giang,Huyện Vị Xuyên,Xã Minh Tân,Tỉnh Tuyên Quang,Xã Minh Tân,True,0,0,0,0
+8718,C,Tỉnh Hà Giang,Huyện Vị Xuyên,Xã Thuận Hòa,Tỉnh Tuyên Quang,Xã Thuận Hòa,True,0,0,0,0
+8719,C,Tỉnh Hà Giang,Huyện Vị Xuyên,Xã Thượng Sơn,Tỉnh Tuyên Quang,Xã Thượng Sơn,True,0,0,0,0
+8721,C,Tỉnh Hà Giang,Huyện Vị Xuyên,Xã Tùng Bá,Tỉnh Tuyên Quang,Xã Tùng Bá,True,0,0,0,0
+8738,C,Tỉnh Hà Giang,Huyện Xín Mần,Xã Quảng Nguyên,Tỉnh Tuyên Quang,Xã Quảng Nguyên,True,0,0,0,0
+8755,C,Tỉnh Hà Giang,Huyện Yên Minh,Xã Ngọc Long,Tỉnh Tuyên Quang,Xã Ngọc Long,True,0,0,0,0
+8805,C,Tỉnh Tuyên Quang,Huyện Chiêm Hóa,Xã Trung Hà,Tỉnh Tuyên Quang,Xã Trung Hà,True,0,0,0,0
+8818,C,Tỉnh Tuyên Quang,Huyện Hàm Yên,Xã Hùng Đức,Tỉnh Tuyên Quang,Xã Hùng Đức,True,0,0,0,0
+8891,C,Tỉnh Tuyên Quang,Huyện Yên Sơn,Xã Kiến Thiết,Tỉnh Tuyên Quang,Xã Kiến Thiết,True,0,0,0,0
+9385,C,Tỉnh Trà Vinh,Huyện Châu Thành,Xã Hòa Minh,Tỉnh Vĩnh Long,Xã Hòa Minh,True,0,0,0,0
+9388,C,Tỉnh Trà Vinh,Huyện Châu Thành,Xã Long Hòa,Tỉnh Vĩnh Long,Xã Long Hòa,True,0,0,0,0
+9439,C,Tỉnh Trà Vinh,Huyện Duyên Hải,Xã Long Vĩnh,Tỉnh Vĩnh Long,Xã Long Vĩnh,True,0,0,0,0
+9443,C,Tỉnh Trà Vinh,Huyện Duyên Hải,Xã Đông Hải,Tỉnh Vĩnh Long,Xã Đông Hải,True,0,0,0,0
+9843,C,Tỉnh Đắk Lắk,Huyện Buôn Đôn,Xã Krông Na,Tỉnh Đắk Lắk,Xã Buôn Đôn,False,0,0,0,0
+9875,C,Tỉnh Đắk Lắk,Huyện Ea H'leo,Xã Ea H'leo,Tỉnh Đắk Lắk,Xã Ea H'Leo,True,0,0,0,0
+9906,C,Tỉnh Đắk Lắk,Huyện Ea Súp,Xã Ia Lốp,Tỉnh Đắk Lắk,Xã Ia Lốp,True,0,0,0,0
+9907,C,Tỉnh Đắk Lắk,Huyện Ea Súp,Xã Ia RVê,Tỉnh Đắk Lắk,Xã Ia Rvê,True,0,0,0,0
+9964,C,Tỉnh Đắk Lắk,Huyện Krông Pắc,Xã Vụ Bổn,Tỉnh Đắk Lắk,Xã Vụ Bổn,True,0,0,0,0
+9970,C,Tỉnh Đắk Lắk,Huyện Lắk,Xã Krông Nô,Tỉnh Đắk Lắk,Xã Krông Nô,True,0,0,0,0
+9986,C,Tỉnh Đắk Lắk,Huyện M'Đrắk,Xã Ea Trang,Tỉnh Đắk Lắk,Xã Ea Trang,True,0,0,0,0
+10020,C,Tỉnh Bình Phước,Huyện Bù Gia Mập,Xã Bù Gia Mập,Tỉnh Đồng Nai,Xã Bù Gia Mập,True,0,0,0,0
+10025,C,Tỉnh Bình Phước,Huyện Bù Gia Mập,Xã Đak Ơ,Tỉnh Đồng Nai,Xã Đăk Ơ,False,0,0,0,0
+10211,C,Tỉnh Đồng Nai,Huyện Tân Phú,Xã Đắc Lua,Tỉnh Đồng Nai,Xã Đak Lua,False,0,0,0,0
+10215,C,Tỉnh Đồng Nai,Huyện Vĩnh Cửu,Xã Phú Lý,Tỉnh Đồng Nai,Xã Phú Lý,True,0,0,0,0
+10250,C,Tỉnh Đồng Nai,Huyện Định Quán,Xã Thanh Sơn,Tỉnh Đồng Nai,Xã Thanh Sơn,True,0,0,0,0
+10262,C,Tỉnh Đồng Nai,Thành phố Biên Hòa,Phường Phước Tân,Tỉnh Đồng Nai,Phường Phước Tân,True,0,0,2,2
+10265,C,Tỉnh Đồng Nai,Thành phố Biên Hòa,Phường Tam Phước,Tỉnh Đồng Nai,Phường Tam Phước,True,0,0,8,8

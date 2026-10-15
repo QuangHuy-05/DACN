@@ -1,8 +1,13 @@
 import tempfile
 import unittest
 import importlib.util
+import importlib
+import csv
+import json
+import sys
 from datetime import datetime, timezone
 from pathlib import Path
+from unittest.mock import patch
 
 import pandas as pd
 
@@ -18,6 +23,16 @@ from src.data.synthetic.missing_fields import (
     validate_missing_surface,
 )
 from src.data.synthetic.raw_noisy import generate_raw_noisy_addresses
+from src.data.span_trace import Component, align_unique, render_components
+from src.data.annotation_release import (
+    annotation_fingerprint, content_findings, coverage, file_hash,
+    load_human_adjudications, load_manual_findings,
+    publish_release, validate_canonical_annotation, write_json, write_jsonl,
+)
+from src.data.test_assisted_annotation import (
+    align_segments, build_candidates, file_hash as assisted_file_hash,
+    read_locked_tasks, ward_system, write_package,
+)
 
 
 class FakeElement:
@@ -29,6 +44,320 @@ class FakeElement:
 
 
 class DataPipelineTests(unittest.TestCase):
+    def test_test_annotation_review_conflict_is_read_only(self):
+        record = {"sample_id": "fictional-test-fixture", "text": "Quận A",
+                  "address_system": "moi", "spans": [
+                      {"start": 0, "end": 6, "label": "QuanHuyen", "system": "cu"}]}
+        original = json.dumps(record, ensure_ascii=False, sort_keys=True)
+        self.assertTrue(any(f["code"] == "new_address_contains_district" for f in content_findings(record)))
+        self.assertEqual(json.dumps(record, ensure_ascii=False, sort_keys=True), original)
+
+    def test_assisted_test_requires_explicit_amendment(self):
+        with self.assertRaisesRegex(ValueError, "ACKNOWLEDGE_ASSISTED_TEST_REQUIRED"):
+            write_package(Path("unused"), Path("unused"), acknowledge=False)
+
+    def test_assisted_test_rejects_hidden_metadata_and_duplicate_ids(self):
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / "input.json"
+            for tasks in (
+                [{"data": {"sample_id": "fixture", "text": "1", "GT_SoNha": "1"}}],
+                [{"data": {"sample_id": "fixture", "text": "1"}},
+                 {"data": {"sample_id": "fixture", "text": "2"}}],
+            ):
+                path.write_text(json.dumps(tasks), encoding="utf-8")
+                with self.assertRaises(ValueError):
+                    read_locked_tasks(path, assisted_file_hash(path), len(tasks))
+            with self.assertRaisesRegex(ValueError, "HASH_MISMATCH"):
+                read_locked_tasks(path, "0" * 64, 2)
+
+    def test_assisted_test_aligns_repeated_literal_without_repairing_raw_text(self):
+        text = "1, Đường A, Phường B, Quận C, Phường B"
+        spans = align_segments(text, [["house", "1"], ["road", "Đường A"],
+            ["ward", "Phường B"], ["district", "Quận C"], ["ward", "Phường B"]])
+        self.assertEqual(spans[-1]["start"], text.rindex("Phường B"))
+        self.assertEqual(spans[-2]["system"], "cu")
+        self.assertTrue(all(text[s["start"]:s["end"]] == s["text"] for s in spans))
+        with self.assertRaisesRegex(ValueError, "UNEXPLAINED_UNLABELED_CONTENT"):
+            align_segments("Đường A, Phường B", [["ward", "Phường B"]])
+
+    def test_assisted_test_shared_name_and_parent_gap_abstain(self):
+        old = [{"level": "ward", "official_name": "Phường A", "province_name": "Tỉnh B",
+                "district_name": "Quận C", "validation_status": "PARENT_CODE_LINK_PASS",
+                "official_code": "001"}]
+        new = [{"level": "ward", "province": "Tỉnh B", "canonical_ward": "Phường A",
+                "official_ward_name": "Phường A", "code": "002"}]
+        system, trace = ward_system("P. A", "Tỉnh B", "Quận C", old, new)
+        self.assertEqual(system, "khong_xac_dinh")
+        self.assertEqual(trace["reason"], "NAME_PRESENT_IN_BOTH_SNAPSHOTS")
+        old[0]["validation_status"] = "PARENT_CODE_LINK_FAIL"
+        system, trace = ward_system("Phường A", "Tỉnh B", "Quận C", old, new)
+        self.assertEqual(system, "khong_xac_dinh")
+        self.assertEqual(trace["reason"], "OLD_REFERENCE_PARENT_LINK_GAP")
+
+    def test_assisted_test_t1_separate_from_neutral_spans(self):
+        tasks = [{"data": {"sample_id": "fictional", "text": "1, Đường A, Phường B, Quận C, Hà Nội"}}]
+        proposals = {"rows": [["fictional", [["house", "1"], ["road", "Đường A"],
+                     ["ward", "Phường B"], ["district", "Quận C"], ["province", "Hà Nội"]], ""]]}
+        new = [{"level": "ward", "province": "Thành phố Hà Nội", "canonical_ward": "Phường B",
+                "official_ward_name": "Phường B", "code": "fixture", "source_id": "fixture",
+                "source_locator": "fixture"}]
+        record = build_candidates(tasks, proposals, [], new)[0]
+        self.assertEqual(record["address_system"], "Lai")
+        self.assertEqual(record["status"], "candidate_not_gold")
+        self.assertEqual([s["system"] for s in record["spans"]],
+                         ["khong_xac_dinh", "khong_xac_dinh", "moi", "cu", "khong_xac_dinh"])
+        proposals["rows"][0][0] = "not-the-frozen-id"
+        with self.assertRaisesRegex(ValueError, "PROPOSAL_IDS_DIFFER"):
+            build_candidates(tasks, proposals, [], new)
+
+    def test_annotation_review_road_prefix_and_repeated_ward(self):
+        text = "12, Tỉnh lộ 8, Phường 7, Phường 7"
+        road_start = text.index("Tỉnh")
+        ward_start = text.index("Phường")
+        record = {"sample_id": "fixture", "text": text, "address_system": None, "spans": [
+            {"start": 0, "end": 2, "label": "SoNha", "system": "khong_xac_dinh"},
+            {"start": road_start, "end": road_start + len("Tỉnh lộ 8"), "label": "TenDuong", "system": "khong_xac_dinh"},
+            {"start": ward_start, "end": ward_start + len("Phường 7"), "label": "PhuongXa", "system": "khong_xac_dinh"},
+        ]}
+        issues = content_findings(record)
+        self.assertFalse(any(i["code"] == "administrative_label_mismatch" for i in issues))
+        self.assertEqual(len(issues), 1)
+        self.assertEqual(issues[0]["start"], text.rindex("Phường"))
+        abbreviation = {"sample_id": "abbr", "text": "12, P.7", "address_system": None, "spans": [
+            {"start": 0, "end": 2, "label": "SoNha", "system": "khong_xac_dinh"}]}
+        self.assertEqual(content_findings(abbreviation)[0]["text"], "P.7")
+
+    def test_annotation_review_conflicting_t1_does_not_rewrite_span(self):
+        record = {"sample_id": "fixture", "text": "Quận 1", "address_system": "moi", "spans": [
+            {"start": 0, "end": 6, "label": "QuanHuyen", "system": "cu"}]}
+        issues = content_findings(record)
+        self.assertEqual(issues[0]["code"], "new_address_contains_district")
+        self.assertEqual(record["spans"][0]["label"], "QuanHuyen")
+
+    def test_annotation_review_unlabeled_numeric_parenthesis(self):
+        text = "8 (660/8), Đường A"
+        record = {"sample_id": "fixture", "text": text, "spans": [], "address_system": None}
+        self.assertTrue(any(i["code"] == "unannotated_leading_number" for i in content_findings(record)))
+
+    def test_annotation_review_span_t1_conflict_survives_district_relabeling(self):
+        record = {"sample_id": "fixture", "text": "Phường A", "address_system": "moi", "spans": [
+            {"start": 0, "end": 8, "label": "PhuongXa", "system": "cu"}]}
+        self.assertEqual(content_findings(record)[0]["code"], "address_span_system_conflict")
+        for system in (None, "Lai"):
+            record["address_system"] = system
+            self.assertEqual(content_findings(record), [])
+        record["address_system"] = "cu"
+        record["spans"][0]["system"] = "moi"
+        self.assertEqual(content_findings(record)[0]["code"], "address_span_system_conflict")
+
+    def test_annotation_review_subward_component_is_not_a_landmark(self):
+        text = "thôn A"
+        record = {"sample_id": "fixture", "text": text, "address_system": None, "spans": [
+            {"start": 0, "end": len(text), "label": "MocDinhVi", "system": "khong_xac_dinh"}]}
+        self.assertEqual(content_findings(record)[0]["code"], "subward_component_label")
+        record["spans"][0]["label"] = "Khac"
+        self.assertEqual(content_findings(record), [])
+        record["text"] = "gần thôn A"
+        record["spans"] = [{"start": 0, "end": len(record["text"]), "label": "MocDinhVi", "system": "khong_xac_dinh"}]
+        self.assertEqual(content_findings(record), [])
+    def test_manual_annotation_review_is_hash_bound_and_does_not_edit_gold(self):
+        with tempfile.TemporaryDirectory() as temp:
+            directory = Path(temp)
+            export = directory / "export.json"
+            export.write_text("[]", encoding="utf-8")
+            path = directory / "manual.json"
+            record = {"sample_id": "fixture", "text": "Trung tâm A", "spans": []}
+            review = {"export_sha256": {"batch": file_hash(export)}, "reviewer": "agent", "evidence": "text review",
+                      "findings": [{"sample_id": "fixture", "code": "manual_level_review", "reason": "Check place vs ward",
+                                    "start": 0, "end": 11, "text": "Trung tâm A"}]}
+            path.write_text(json.dumps(review), encoding="utf-8")
+            found = load_manual_findings(path, {"batch": export}, {"fixture": record})
+            self.assertEqual(len(found["fixture"]), 1)
+            self.assertEqual(record["spans"], [])
+            export.write_text("[{}]", encoding="utf-8")
+            with self.assertRaisesRegex(ValueError, "stale"):
+                load_manual_findings(path, {"batch": export}, {"fixture": record})
+            review["export_sha256"]["batch"] = file_hash(export)
+            review["findings"][0]["text"] = "wrong substring"
+            path.write_text(json.dumps(review), encoding="utf-8")
+            with self.assertRaisesRegex(ValueError, "round-trip"):
+                load_manual_findings(path, {"batch": export}, {"fixture": record})
+
+    def test_release_canonical_labels_cannot_be_patched_after_raw_qa(self):
+        span = {"start": 0, "end": 2, "label": "SoNha", "system": "khong_xac_dinh"}
+        record = {"sample_id": "fixture", "spans": [dict(span)], "address_system": None}
+        converted = {"spans": [{**span, "region_id": "r1", "text": "12"}], "address_system": None}
+        validate_canonical_annotation(record, converted)
+        record["spans"][0]["label"] = "TenDuong"
+        with self.assertRaisesRegex(ValueError, "differs"):
+            validate_canonical_annotation(record, converted)
+        record["spans"][0]["label"] = "SoNha"
+        record["address_system"] = "moi"
+        with self.assertRaisesRegex(ValueError, "differs"):
+            validate_canonical_annotation(record, converted)
+
+    def test_annotation_coverage_uses_derivation_not_parent_dataset(self):
+        records = [{"sample_id": name, "text": name, "spans": [], "address_system": None} for name in ("observed", "derived", "synthetic", "unknown")]
+        meta = {name: {"source_dataset": "osm_old_snapshot_full", "derivation": value} for name, value in (
+            ("observed", "observed_verified_old_osm"), ("derived", "derived_verified_unique_admin_mapping"),
+            ("synthetic", "synthetic_noise_controlled"), ("unknown", ""))}
+        result = coverage(records, meta)
+        self.assertEqual(result["source_kind"], {"observed": 1, "derived": 1, "synthetic": 1, "unverified_provenance": 1})
+        self.assertEqual(len(result["label_support"]), 11)
+
+    def make_publication_fixture(self, root):
+        candidate = root / "data/interim/annotation/sprint03/candidate_fixture"
+        candidate.mkdir(parents=True)
+        rows = [{"sample_id": f"fixture_{index}", "text": f"Mẫu {index}", "source_group": f"group_{index}",
+                 "spans": [], "address_system": None} for index in range(300)]
+        write_jsonl(candidate / "train.jsonl", rows[:240])
+        write_jsonl(candidate / "dev.jsonl", rows[240:])
+        write_jsonl(candidate / "dev_input.jsonl", [{"sample_id": row["sample_id"], "text": row["text"]} for row in rows[240:]])
+        write_jsonl(candidate / "quarantine.jsonl", [])
+        write_json(candidate / "content_review_items.json", [])
+        write_json(candidate / "adjudicated_content_exceptions.json", [])
+        write_json(candidate / "coverage.json", {"scope": "LOCAL_FIXTURE_ONLY"})
+        write_json(candidate / "split_audit.json", {"status": "AUDIT_PASS", "scope": "LOCAL_FIXTURE_ONLY"})
+        write_json(candidate / "approval_record.json", {"status": "HUMAN_REVIEW_ATTESTED", "unresolved_sample_ids": [],
+                   "attestation": {"reviewed_sample_count": 300, "reviewer": "fixture_reviewer"}})
+        (candidate / "label_studio_correction_queue.csv").write_text("sample_id,reason\n", encoding="utf-8-sig")
+        with (candidate / "decision_log_v2.csv").open("w", encoding="utf-8-sig", newline="") as stream:
+            writer = csv.DictWriter(stream, fieldnames=("sample_id", "decision", "reviewer", "reason"))
+            writer.writeheader()
+            writer.writerows({"sample_id": row["sample_id"], "decision": "keep", "reviewer": "fixture_reviewer",
+                             "reason": "Local fixture, not a human benchmark decision"} for row in rows)
+        (root / "input_fixture.txt").write_text("fixture input", encoding="utf-8")
+        (root / "code_fixture.py").write_text("# local fixture\n", encoding="utf-8")
+        manifest = {"status": "TRAIN_DEV_APPROVED_TEST_PENDING", "version": "candidate_fixture",
+                    "sample_counts": {"train": 240, "dev": 60}, "expected_sample_counts": {"train": 240, "dev": 60},
+                    "quarantined_sample_count": 0, "quarantined_sample_ids": [], "human_review_attested": 300,
+                    "test_status": "TEST_PENDING", "input_sha256": {"input_fixture.txt": file_hash(root / "input_fixture.txt")},
+                    "code_sha256": {"code_fixture.py": file_hash(root / "code_fixture.py")},
+                    "output_sha256": {path.name: file_hash(path) for path in candidate.iterdir()}}
+        write_json(candidate / "manifest.json", manifest)
+        return candidate, manifest
+
+    def test_publication_preserves_bytes_and_refuses_overwrite_or_blocked_status(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            candidate, manifest = self.make_publication_fixture(root)
+            output = root / "data/processed/annotation/sprint03/corpus_fixture_v2"
+            published = publish_release(root, candidate, output)
+            self.assertEqual(published["version"], "corpus_fixture_v2")
+            self.assertEqual(published["output_sha256"], manifest["output_sha256"])
+            self.assertEqual(published["candidate_manifest"]["sha256"], file_hash(candidate / "manifest.json"))
+            self.assertFalse((output / "test.jsonl").exists())
+            with self.assertRaises(FileExistsError):
+                publish_release(root, candidate, output)
+            manifest["status"] = "BLOCKED_CONTENT_REVIEW"
+            write_json(candidate / "manifest.json", manifest)
+            other_output = output.parent / "blocked_fixture"
+            with self.assertRaisesRegex(ValueError, "status"):
+                publish_release(root, candidate, other_output)
+            self.assertFalse(other_output.exists())
+
+    def test_publication_rejects_input_and_artifact_hash_drift_before_writing(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            candidate, manifest = self.make_publication_fixture(root)
+            output = root / "data/processed/annotation/sprint03/corpus_fixture_v2"
+            (root / "input_fixture.txt").write_text("changed", encoding="utf-8")
+            with self.assertRaisesRegex(ValueError, "drift"):
+                publish_release(root, candidate, output)
+            self.assertFalse(output.exists())
+            (root / "input_fixture.txt").write_text("fixture input", encoding="utf-8")
+            with (candidate / "dev.jsonl").open("a", encoding="utf-8") as stream:
+                stream.write("{}\n")
+            with self.assertRaisesRegex(ValueError, "artifact hash"):
+                publish_release(root, candidate, output)
+            self.assertFalse(output.exists())
+
+    def test_publication_rejects_wrong_input_projection_and_output_location(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            candidate, manifest = self.make_publication_fixture(root)
+            output = root / "data/processed/annotation/sprint03/corpus_fixture_v2"
+            write_jsonl(candidate / "dev_input.jsonl", [{"sample_id": "fixture_240", "text": "Mẫu 240", "GT_SoNha": "secret"}])
+            manifest["output_sha256"]["dev_input.jsonl"] = file_hash(candidate / "dev_input.jsonl")
+            write_json(candidate / "manifest.json", manifest)
+            with self.assertRaisesRegex(ValueError, "text-only"):
+                publish_release(root, candidate, output)
+            self.assertFalse(output.exists())
+            with self.assertRaisesRegex(ValueError, "version directory"):
+                publish_release(root, candidate, root / "data/raw/corpus_fixture")
+
+    def test_human_adjudication_binds_identity_export_and_annotation_without_editing(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            export, path = root / "export.json", root / "adjudication.json"
+            export.write_text("[]", encoding="utf-8")
+            record = {"sample_id": "fixture", "text": "Phường A", "address_system": "moi", "spans": [
+                {"start": 0, "end": 8, "label": "PhuongXa", "system": "cu"}]}
+            attestation = {"reviewer": "fixture_owner", "label_studio_user_id": 1}
+            review = {**attestation, "date": "2026-10-02", "human_authorization_quote": "Local fixture authorization",
+                      "export_sha256": {"batch": file_hash(export)}, "decisions": [{
+                          "sample_id": "fixture", "decision": "keep_as_exception", "reason": "Fixture retained contradiction",
+                          "annotation_sha256": annotation_fingerprint(record),
+                          "accepted_finding_codes": ["address_span_system_conflict"], "exclude_from_t1": True}]}
+            write_json(path, review)
+            decisions = load_human_adjudications(path, {"batch": export}, {"fixture": record}, attestation)
+            self.assertTrue(decisions["fixture"]["exclude_from_t1"])
+            self.assertEqual(record["spans"][0]["system"], "cu")
+            review["decisions"][0]["exclude_from_t1"] = False
+            write_json(path, review)
+            with self.assertRaisesRegex(ValueError, "excluded from T1"):
+                load_human_adjudications(path, {"batch": export}, {"fixture": record}, attestation)
+            review["decisions"][0]["exclude_from_t1"] = True
+            review["reviewer"] = "other_owner"
+            write_json(path, review)
+            with self.assertRaisesRegex(ValueError, "identity"):
+                load_human_adjudications(path, {"batch": export}, {"fixture": record}, attestation)
+            review["reviewer"] = "fixture_owner"
+            write_json(path, review)
+            record["address_system"] = "cu"
+            with self.assertRaisesRegex(ValueError, "fingerprint"):
+                load_human_adjudications(path, {"batch": export}, {"fixture": record}, attestation)
+
+    def test_publication_keeps_declared_exception_and_t1_mask(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            candidate, manifest = self.make_publication_fixture(root)
+            rows = [json.loads(line) for line in (candidate / "dev.jsonl").read_text(encoding="utf-8").splitlines()]
+            rows[0].update({"text": "Phường A", "address_system": "moi", "spans": [
+                {"start": 0, "end": 8, "label": "PhuongXa", "system": "cu"}]})
+            sid = rows[0]["sample_id"]
+            decision = {"sample_id": sid, "decision": "keep_as_exception", "reason": "Local fixture authorization",
+                        "annotation_sha256": annotation_fingerprint(rows[0]), "accepted_finding_codes": ["address_span_system_conflict"],
+                        "exclude_from_t1": True, "human_authorization_quote": "Keep fixture annotation"}
+            write_jsonl(candidate / "dev.jsonl", rows)
+            write_jsonl(candidate / "dev_input.jsonl", [{"sample_id": row["sample_id"], "text": row["text"]} for row in rows])
+            write_json(candidate / "adjudicated_content_exceptions.json", [decision])
+            approval = json.loads((candidate / "approval_record.json").read_text(encoding="utf-8"))
+            approval.update({"status": "HUMAN_REVIEW_ATTESTED_WITH_EXCEPTIONS", "human_adjudications": [decision]})
+            write_json(candidate / "approval_record.json", approval)
+            manifest.update({"adjudicated_exception_count": 1, "evaluation_exclusions": {"t1": [sid]}})
+            manifest["output_sha256"] = {name: file_hash(candidate / name) for name in manifest["output_sha256"]}
+            write_json(candidate / "manifest.json", manifest)
+            output = root / "data/processed/annotation/sprint03/corpus_fixture_v2"
+            release = publish_release(root, candidate, output)
+            self.assertEqual(release["evaluation_exclusions"]["t1"], [sid])
+            actual = json.loads((output / "dev.jsonl").read_text(encoding="utf-8").splitlines()[0])
+            self.assertEqual(actual["address_system"], "moi")
+            self.assertEqual(actual["spans"][0]["system"], "cu")
+
+    def test_gazetteer_v2_island_transitions_have_district_entities(self):
+        root = Path(__file__).resolve().parents[1]
+        package = root / "data/processed/gazetteer/s3_v2"
+        with (package / "entities.csv").open("r", encoding="utf-8-sig", newline="") as stream:
+            entities = {row["entity_id"]: row for row in csv.DictReader(stream)}
+        with (package / "non_atomic_transitions.csv").open("r", encoding="utf-8-sig", newline="") as stream:
+            transitions = list(csv.DictReader(stream))
+        self.assertEqual(len(transitions), 5)
+        for row in transitions:
+            self.assertEqual(entities[row["old_entity_id"]]["level"], "district")
+            self.assertEqual(entities[row["new_entity_id"]]["level"], "ward")
+            self.assertEqual(row["status"], "NOT_WARD_EDGE")
+
     def test_non_latin_rejected_and_street_tail_cleaned(self):
         self.assertEqual(clean_tag("Đường Số 10, "), "Đường Số 10")
         self.assertEqual(clean_tag("شارع السلام"), "")
@@ -513,6 +842,446 @@ class DataPipelineTests(unittest.TestCase):
         run1 = generate_missing_fields(old, new, target_size=10, seed=123)
         run2 = generate_missing_fields(old, new, target_size=10, seed=123)
         self.assertEqual(run1.to_csv(index=False), run2.to_csv(index=False))
+
+
+class SourceReannotationTests(unittest.TestCase):
+    def test_component_offsets_and_ambiguous_repeated_surface(self):
+        components = [Component("SoNha", "12", "12", "cu"),
+                      Component("TenDuong", "Đường 12", "Đường 12", "cu")]
+        text, placed = render_components(components)
+        self.assertEqual(text, "12, Đường 12")
+        self.assertEqual([(p["start"], p["end"]) for p in placed], [(0, 2), (4, 12)])
+        self.assertEqual(align_unique("Phường 7, Phường 7", [
+            Component("PhuongXa", "Phường 7", "Phường 7", "cu")])[1],
+            "ambiguous_or_missing_ordered_surface")
+
+    def test_frozen_reannotation_package_has_trace_and_no_leakage(self):
+        generator = importlib.import_module("scripts.21_prepare_source_reannotation")
+        prediction_import = importlib.import_module("scripts.15_import_pilot_predictions")
+        with tempfile.TemporaryDirectory() as folder:
+            output = Path(folder) / "v2"
+            with patch.object(sys, "argv", ["prepare", "--output-dir", str(output)]):
+                generator.main()
+            with patch.object(sys, "argv", ["prepare", "--output-dir", str(output)]):
+                with self.assertRaises(FileExistsError):
+                    generator.main()
+            pilot = json.loads((output / "pilot68_candidates.json").read_text(encoding="utf-8"))
+            batch = json.loads((output / "batch232_candidates.json").read_text(encoding="utf-8"))
+            self.assertEqual(len(pilot), 68)
+            self.assertEqual(len(batch), 232)
+            prediction_import.validate_candidates(output / "pilot68_candidates.json", 68)
+            prediction_import.validate_candidates(output / "batch232_candidates.json", 232)
+            trace = {row["sample_id"]: row for row in (
+                json.loads(line) for line in (output / "trace.jsonl").read_text(encoding="utf-8").splitlines())}
+            self.assertEqual(len(trace), 300)
+            frozen_test = {row["sample_id"] for row in json.loads(
+                (generator.BASE / "test_hold_manifest_v1.json").read_text(encoding="utf-8"))["samples"]}
+            self.assertFalse({record["sample_id"] for record in pilot + batch} & frozen_test)
+            for name, records in (("pilot68", pilot), ("batch232", batch)):
+                tasks = json.loads((output / f"{name}_import.json").read_text(encoding="utf-8"))
+                self.assertEqual([task["data"] for task in tasks], [
+                    {"sample_id": record["sample_id"], "text": record["text"]} for record in records])
+                self.assertTrue(all(set(task) == {"data"} and set(task["data"]) == {"sample_id", "text"}
+                                    for task in tasks))
+            for record in pilot + batch:
+                item_trace = trace[record["sample_id"]]
+                traced = {(part["start"], part["end"], part["field"]): part
+                          for part in item_trace["components"] if part["match_status"] == "exact"}
+                previous_end = 0
+                for span in record["spans"]:
+                    self.assertGreaterEqual(span["start"], previous_end)
+                    self.assertEqual(record["text"][span["start"]:span["end"]], span["text"])
+                    self.assertIn(span["label"], generator.LABELS)
+                    self.assertIn(span["system"], generator.SYSTEMS)
+                    if span["label"] in {"SoNha", "TenDuong"}:
+                        self.assertEqual(span["system"], "khong_xac_dinh")
+                    if span["label"] == "QuanHuyen":
+                        self.assertEqual(span["system"], "cu")
+                    part = traced[(span["start"], span["end"], span["label"])]
+                    self.assertEqual(part["span_system_candidate"], span["system"])
+                    self.assertIn("evidence", part)
+                    previous_end = span["end"]
+                if item_trace["stratum"] == "osm_new_2tier":
+                    self.assertNotIn("QuanHuyen", [span["label"] for span in record["spans"]])
+                if item_trace["stratum"] == "synthetic_missing":
+                    missing = [part["field"] for part in item_trace["components"]
+                               if part["match_status"] == "absent_by_generator"]
+                    self.assertEqual(len(missing), 1)
+                    self.assertNotIn(missing[0], [span["label"] for span in record["spans"]])
+
+
+class Sprint3BIODataContractTests(unittest.TestCase):
+    def test_modeling_gold_free_units_keep_adjacent_spans_separate(self):
+        from src.modeling.alignment import align_text, encode_gold, decode_tags
+        text = "A B"
+        alignment = align_text(text)
+        tags = encode_gold(alignment, [{"start": 0, "end": 1, "label": "Khac"},
+                                       {"start": 2, "end": 3, "label": "Khac"}])
+        self.assertEqual(tags, ["B-Khac", "B-Khac"])
+        self.assertEqual([s.text for s in decode_tags(alignment, tags)[0]], ["A", "B"])
+
+    def test_raw_unicode_bio_round_trip_keeps_delimiters_outside_spans(self):
+        from src.evaluation.span_features import encode_gold, decode_bio
+        text = "Số 12/3A, P.7, Hà Nội"
+        spans = [{"start": 0, "end": 8, "label": "SoNha"},
+                 {"start": 10, "end": 13, "label": "PhuongXa"},
+                 {"start": 15, "end": len(text), "label": "TinhThanh"}]
+        tokens, tags = encode_gold(text, spans)
+        decoded, repairs = decode_bio(text, tokens, tags)
+        self.assertEqual([span.text for span in decoded], ["Số 12/3A", "P.7", "Hà Nội"])
+        self.assertEqual(repairs, [])
+        self.assertEqual(len(set(tags)-{"O"}), 6)
+
+
+class SourceReconciliationDiagnosticTests(unittest.TestCase):
+    def test_phobert_nfd_gold_uses_original_cluster_offsets(self):
+        import unicodedata
+        from src.modeling.alignment import PhoBERTProcessor, encode_gold, decode_tags
+        class Tokenizer:
+            model_max_length = 256
+            unk_token = '<unk>'
+            def tokenize(self, value): return [value]
+            def convert_tokens_to_ids(self, pieces): return [3] * len(pieces)
+            def build_inputs_with_special_tokens(self, ids): return [0] + ids + [2]
+            def get_special_tokens_mask(self, ids, already_has_special_tokens=False): return [1] + [0] * len(ids) + [1]
+        class Segmenter:
+            def word_segment(self, value): return [value]
+        text = unicodedata.normalize('NFD', 'Hà Nội')
+        alignment = PhoBERTProcessor(Tokenizer(), Segmenter(), 256).align_text(text)
+        result = decode_tags(alignment, encode_gold(alignment, [{'start': 0, 'end': len(text), 'label': 'TinhThanh'}]))[0]
+        self.assertEqual(result[0].text, text)
+        self.assertEqual(result[0].end, len(text))
+
+    def test_checkpoint_uses_portable_temporary_basename(self):
+        from types import SimpleNamespace
+        from unittest.mock import patch
+        from src.modeling import checkpoints
+        recorded = []
+        def fake_save(payload, path):
+            recorded.append(path.name)
+            self.assertFalse(path.name.startswith('.'))
+            path.write_bytes(b'fixture-only')
+        with tempfile.TemporaryDirectory() as directory:
+            output = Path(directory) / 'fixture.pt'
+            with patch.dict('sys.modules', {'torch': SimpleNamespace(save=fake_save)}):
+                record = checkpoints.save_checkpoint(output, None, {}, native_payload={'fixture': True})
+            self.assertTrue(record['complete'])
+            self.assertTrue(recorded[0].endswith('.pt.tmp'))
+            self.assertEqual(output.read_bytes(), b'fixture-only')
+            self.assertEqual(sorted(p.name for p in output.parent.iterdir()), ['fixture.pt', 'fixture.pt.json'])
+
+    def test_diacritics_are_only_diagnostics_and_level_is_preserved(self):
+        from src.data.source_reconciliation import diagnostic_difference
+        self.assertEqual(diagnostic_difference('Tỉnh Hòa Bình', 'Tỉnh Hoà Bình'), 'DIACRITIC_OR_TONE_VARIATION')
+        self.assertEqual(diagnostic_difference('Phường A', 'Xã A'), 'UNIT_TYPE_MISMATCH')
+        self.assertEqual(diagnostic_difference('Phường A', 'Phường B'), 'NAME_MISMATCH_UNAUDITED')
+        self.assertEqual(diagnostic_difference('Phường A', 'P.A', ['P.A']), 'EXISTING_AUDITED_ALIAS')
+
+
+class DatedCatalogueRegression(unittest.TestCase):
+    def test_kaggle_remote_artifact_paths_cannot_escape(self):
+        from src.modeling.kaggle_artifacts import output_path
+        with self.assertRaises(ValueError):
+            output_path(Path.cwd(), "../outside_checkpoint.pt")
+
+    def test_mixed_benchmark_source_does_not_claim_observation(self):
+        from src.data.test_corpus_release import provenance_kind
+        self.assertEqual(provenance_kind({"derivation": "observed_or_existing_benchmark"}),
+                         "unverified_provenance")
+
+    def test_test_release_temporal_findings_are_not_silently_approved(self):
+        from src.data.test_corpus_release import validate_approval
+        with self.assertRaisesRegex(ValueError, "APPROVAL"):
+            validate_approval({}, {}, {"fixture": {}}, [], {})
+
+    def test_old_ward_without_district_is_not_verified(self):
+        from src.data.nso_soap_catalog import build_reference
+        entry = {"sha256": "fixture", "response_file": "fixture.xml"}
+        province = {"MaTinh": "01", "TenTinh": "Tỉnh A", "_diffgr_id": "p"}
+        ward = {"MaTinh": "01", "TenTinh": "Tỉnh A", "MaPhuongXa": "00001", "TenPhuongXa": "Xã B", "_diffgr_id": "w"}
+        rows, report = build_reference({"province": (entry, [province]), "ward": (entry, [ward])}, "2025-06-30", "cu")
+        self.assertEqual(rows[-1]["validation_status"], "PARENT_CODE_LINK_FAIL")
+        self.assertEqual(report["status"], "PARTIAL_PARENT_LINK_GAPS")
+
+
+class FinalInferenceSourceImmutabilityTests(unittest.TestCase):
+    def test_incomplete_inference_selection_preserves_benchmark_source_bytes(self):
+        from src.evaluation.benchmark_runner import BENCHMARKS
+        from src.evaluation.dev_runner import file_hash
+        from src.modeling.final_inference_handoff import prepare_fivefield_inputs
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            source = root / "data/processed/benchmark"
+            source.mkdir(parents=True)
+            for filename in BENCHMARKS.values():
+                with (source / filename).open("w", encoding="utf-8-sig", newline="") as stream:
+                    writer = csv.DictWriter(stream, fieldnames=("ChuoiDiaChi", "GT_SoNha"))
+                    writer.writeheader()
+                    writer.writerow({"ChuoiDiaChi": "12 Đường A", "GT_SoNha": "12"})
+            before = {p.name: file_hash(p) for p in source.iterdir()}
+            hold = root / "hold.json"
+            hold.write_text(json.dumps({"samples": []}))
+            output = root / "inference.jsonl"
+            with patch("src.modeling.final_inference_handoff.ROOT", root), patch(
+                "src.modeling.final_inference_handoff.reserved_rows", return_value={k: set() for k in BENCHMARKS}
+            ):
+                with self.assertRaisesRegex(ValueError, "UNEXPECTED_FIVEFIELD_COUNT"):
+                    prepare_fivefield_inputs(output, hold)
+            self.assertFalse(output.exists())
+            self.assertEqual(before, {p.name: file_hash(p) for p in source.iterdir()})
+
+
+class Sprint4PilotPreparationTests(unittest.TestCase):
+    def test_repeat_requires_seven_days_to_the_same_clock_time(self):
+        from src.data.sprint4_pilot import repeat_earliest_at
+        self.assertEqual(repeat_earliest_at("2026-10-10T20:00:00+07:00"), "2026-10-17T20:00:00+07:00")
+        with self.assertRaisesRegex(ValueError, "REPEAT_TIMESTAMP_NEEDS_TIMEZONE"):
+            repeat_earliest_at("2026-10-10T20:00:00")
+
+    def test_only_all_documented_near_matches_can_be_resolved(self):
+        from src.data.sprint4_pilot import resolved_overlap_samples
+        finding = {"sample_id": "new", "other_id": "old", "other_split": "train", "kind": "NEAR", "similarity": 0.9}
+        decision = {"sample_id": "new", "other_id": "old", "similarity": 0.9,
+                    "decision": "DISTINCT_LOCATION_DEVELOPMENT_ONLY", "basis": "Different street and house number."}
+        self.assertEqual(resolved_overlap_samples([finding], [decision]), {"new"})
+        second = {**finding, "other_id": "other"}
+        self.assertEqual(resolved_overlap_samples([finding, second], [decision]), set())
+        with self.assertRaisesRegex(ValueError, "INVALID_OVERLAP_DECISION"):
+            resolved_overlap_samples([{**finding, "kind": "EXACT"}], [decision])
+        with self.assertRaisesRegex(ValueError, "INVALID_OVERLAP_DECISION"):
+            resolved_overlap_samples([{**finding, "other_split": "test"}], [decision])
+
+    def test_document_and_site_links_are_transitive(self):
+        from src.data.sprint4_pilot import connected_groups
+        rows = [
+            {"sample_id": "a", "document_group": "doc1", "site_group": "site1"},
+            {"sample_id": "b", "document_group": "doc1", "site_group": "site2"},
+            {"sample_id": "c", "document_group": "doc2", "site_group": "site2"},
+            {"sample_id": "d", "document_group": "doc3", "site_group": "site3"},
+        ]
+        groups = connected_groups(rows)
+        self.assertEqual(groups["a"], groups["c"])
+        self.assertNotEqual(groups["a"], groups["d"])
+        self.assertEqual(groups, connected_groups(list(reversed(rows))))
+
+    def test_pending_rights_or_transcription_cannot_enter_annotation(self):
+        from src.data.sprint4_pilot import manual_tasks
+        sample = {"sample_id": "a", "text": "12 Đường A", "source_key": "source",
+                  "source_text_review": "HUMAN_VERIFIED", "privacy_review": "INSTITUTIONAL_NO_PERSONAL_ADDRESS",
+                  "overlap_review": "PASS"}
+        pending = {"source": {"local_research_clearance": "APPROVED", "annotation_clearance": "PENDING"}}
+        self.assertEqual(manual_tasks([sample], pending), [])
+        approved = {"source": {"local_research_clearance": "APPROVED", "annotation_clearance": "APPROVED"}}
+        sample["source_text_review"] = "HUMAN_REVIEW_REQUIRED"
+        self.assertEqual(manual_tasks([sample], approved), [])
+        sample["source_text_review"] = "HUMAN_VERIFIED"
+        self.assertEqual(manual_tasks([sample], approved), [{"data": {"sample_id": "a", "text": "12 Đường A"}}])
+
+    def test_overlap_flag_blocks_otherwise_approved_annotation(self):
+        from src.data.sprint4_pilot import annotation_ready
+        sample = {"source_text_review": "HUMAN_VERIFIED", "privacy_review": "INSTITUTIONAL_NO_PERSONAL_ADDRESS",
+                  "overlap_review": "REVIEW_REQUIRED"}
+        source = {"local_research_clearance": "APPROVED", "annotation_clearance": "APPROVED"}
+        self.assertFalse(annotation_ready(sample, source))
+
+    def test_source_hash_and_literal_substring_are_required(self):
+        from src.data.sprint4_pilot import file_hash, validate_candidate
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            source_path = root / "source.html"
+            text_path = root / "source.txt"
+            source_path.write_text("<p>12 Đường A</p>", encoding="utf-8")
+            text_path.write_text("12 Đường A", encoding="utf-8")
+            sources = {"source": {"path": "source.html", "sha256": file_hash(source_path),
+                        "text_path": "source.txt", "text_sha256": file_hash(text_path)}}
+            row = {"sample_id": "a", "text": "12 Đường A", "source_key": "source", "document_group": "doc",
+                   "site_group": "site", "source_block": "12 Đường A", "start": 0, "end": 10,
+                   "extraction_method": "HTML_LITERAL_SUBSTRING", "locator": {}}
+            validate_candidate(root, row, sources)
+            row["end"] = 9
+            with self.assertRaisesRegex(ValueError, "SOURCE_SUBSTRING_MISMATCH"):
+                validate_candidate(root, row, sources)
+            row["end"] = 10
+            source_path.write_text("changed", encoding="utf-8")
+            with self.assertRaisesRegex(ValueError, "SOURCE_HASH_MISMATCH"):
+                validate_candidate(root, row, sources)
+
+    def test_pdf_bounds_and_transform_cannot_be_omitted(self):
+        from src.data.sprint4_pilot import file_hash, validate_candidate
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            (root / "source.pdf").write_bytes(b"fixture-pdf")
+            (root / "image.png").write_bytes(b"fixture-image")
+            sources = {"source": {"path": "source.pdf", "sha256": file_hash(root / "source.pdf")}}
+            row = {"sample_id": "a", "text": "A", "source_key": "source", "document_group": "doc",
+                   "site_group": "site", "source_block": "A", "start": 0, "end": 1,
+                   "extraction_method": "AI_VISUAL_TRANSCRIPTION",
+                   "locator": {"page": 1, "image_path": "image.png", "image_sha256": file_hash(root / "image.png"),
+                               "bbox_normalized": [0.1, 0.2, 0.8, 0.9]}}
+            with self.assertRaisesRegex(ValueError, "TRANSCRIPTION_TRANSFORM_UNDECLARED"):
+                validate_candidate(root, row, sources)
+            row["transcription_transform"] = "VISUAL_LINES_JOINED_WITH_SINGLE_SPACE"
+            validate_candidate(root, row, sources)
+            row["locator"]["bbox_normalized"] = [0.8, 0.2, 0.1, 0.9]
+            with self.assertRaisesRegex(ValueError, "INVALID_IMAGE_BOUNDS"):
+                validate_candidate(root, row, sources)
+
+    def test_paths_and_existing_outputs_are_protected(self):
+        from src.data.sprint4_pilot import confined_path, write_new_json
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            with self.assertRaisesRegex(ValueError, "PATH_OUTSIDE_PROJECT"):
+                confined_path(root, "../outside")
+            output = root / "out.json"
+            write_new_json(output, {"original": True})
+            with self.assertRaises(FileExistsError):
+                write_new_json(output, {"replacement": True})
+            self.assertEqual(json.loads(output.read_text()), {"original": True})
+
+    def test_duplicate_audit_reports_ids_without_text_or_gold(self):
+        from src.data.sprint4_pilot import duplicate_pairs
+        findings = duplicate_pairs([{"sample_id": "new", "text": "12 Đường A"}],
+                                   [{"sample_id": "old", "text": "12 duong a", "split": "test"}])
+        self.assertEqual(findings[0]["kind"], "NORMALIZED")
+        self.assertEqual(findings[0]["other_split"], "test")
+        self.assertNotIn("text", findings[0])
+        self.assertNotIn("spans", findings[0])
+
+    def test_capacity_has_buffer_and_repeat_cost(self):
+        from src.data.sprint4_pilot import capacity_projection
+        self.assertEqual(capacity_projection(60, 6, 3, 30), 70)
+        self.assertEqual(capacity_projection(90, 6, 3, 30), 120)
+        with self.assertRaisesRegex(ValueError, "INVALID_CAPACITY_INPUT"):
+            capacity_projection(60, 6, 0, 30)
+
+
+class Sprint4PilotReviewTests(unittest.TestCase):
+    def timing_row(self, sample_id="sample", valid="true"):
+        return {"sample_id": sample_id, "source_review_seconds": "30", "annotation_started_at": "2026-10-09T20:00:00+07:00",
+                "annotation_finished_at": "2026-10-09T20:01:30+07:00", "annotation_seconds": "90",
+                "review_seconds": "30", "valid_sample": valid, "difficulty_note": "Rejected fixture" if valid == "false" else ""}
+
+    def task(self):
+        region = {"start": 0, "end": 2, "text": "12"}
+        return {"data": {"sample_id": "sample", "text": "12 Đường A"}, "annotations": [{"id": 1, "completed_by": 7,
+                "result": [{"id": "region", "from_name": "span_label", "value": {**region, "labels": ["SoNha"]}},
+                           {"id": "region", "from_name": "span_system", "value": {**region, "choices": ["khong_xac_dinh"]}}]}]}
+
+    def test_blank_timing_is_not_a_zero_time_measurement(self):
+        from src.data.sprint4_pilot_review import TIMING_FIELDS, timing_summary
+        row = {field: "" for field in TIMING_FIELDS}
+        row["sample_id"] = "sample"
+        report = timing_summary([row], {"sample"})
+        self.assertEqual(report["status"], "NOT_MEASURED")
+        self.assertIsNone(report["mean_minutes_per_attempt"])
+        self.assertFalse(report["complete_timing_required_for_projection"])
+
+    def test_rejected_attempts_contribute_to_usable_sample_cost(self):
+        from src.data.sprint4_pilot_review import timing_summary
+        report = timing_summary([self.timing_row("a"), self.timing_row("b", "false")], {"a", "b"})
+        self.assertEqual(report["status"], "COMPLETE")
+        self.assertEqual(report["valid_rate_on_timed_samples"], 0.5)
+        self.assertEqual(report["minutes_per_usable_sample_including_reject_cost"], 5)
+        self.assertTrue(report["complete_timing_required_for_projection"])
+
+    def test_partial_timing_cannot_commit_a_projection(self):
+        from src.data.sprint4_pilot_review import timing_summary
+        report = timing_summary([self.timing_row("a")], {"a", "b"})
+        self.assertEqual(report["status"], "PARTIAL")
+        self.assertEqual(report["pending_sample_ids"], ["b"])
+        self.assertFalse(report["complete_timing_required_for_projection"])
+
+    def test_invalid_times_nan_and_unknown_ids_are_rejected(self):
+        from src.data.sprint4_pilot_review import timing_summary
+        for value in ("-1", "nan", "inf", "1000", "0"):
+            report = timing_summary([{**self.timing_row(), "annotation_seconds": value}], {"sample"})
+            self.assertEqual(report["status"], "INVALID")
+        report = timing_summary([{**self.timing_row(), "annotation_started_at": "2026-10-09T20:00:00"}], {"sample"})
+        self.assertEqual(report["issues"][0]["reason"], "TIMESTAMP_NEEDS_TIMEZONE")
+        with self.assertRaisesRegex(ValueError, "UNKNOWN_OR_DUPLICATE_SAMPLE_ID"):
+            timing_summary([self.timing_row("outside")], {"sample"})
+
+    def test_workload_applies_actual_repeat_formula_and_buffer(self):
+        from src.data.sprint4_pilot_review import workload_projection, repeat_count
+        self.assertEqual(repeat_count(20), 20)
+        self.assertEqual(repeat_count(200), 30)
+        self.assertEqual(repeat_count(500), 60)
+        report = workload_projection(3, 60, 6)
+        self.assertEqual(report["train_dev_first_pass_samples_estimated"], 70)
+        self.assertEqual(report["repeat_samples_estimated"], 30)
+        self.assertEqual(report["estimated_required_minutes"], 360)
+        small = workload_projection(3, 60, 1)
+        self.assertEqual(small["train_dev_first_pass_samples_estimated"], 8)
+        self.assertEqual(small["repeat_samples_estimated"], 8)
+        with self.assertRaisesRegex(ValueError, "INVALID_CAPACITY_INPUT"):
+            workload_projection(float("nan"), 60, 6)
+
+    def test_repeat_checks_clock_time_split_and_manual_blinding(self):
+        from src.data.sprint4_pilot_review import repeat_summary
+        row = {"sample_id": "sample", "split": "dev", "round1_completed_at": "2026-10-10T20:00:00+07:00",
+               "round2_started_at": "2026-10-17T19:59:59+07:00", "round1_mode": "HUMAN_MANUAL",
+               "round2_mode": "HUMAN_MANUAL", "predictions_visible": "false", "prior_annotations_visible": "false"}
+        report = repeat_summary([row], {"sample"})
+        self.assertEqual(report["issues"][0]["reason"], "WASHOUT_LESS_THAN_168_HOURS")
+        row["round2_started_at"] = "2026-10-17T20:00:00+07:00"
+        self.assertEqual(repeat_summary([row], {"sample"})["timing_eligible_samples"], 1)
+        for field, value in (("split", "holdout"), ("round1_mode", "AI_ASSISTED"), ("prior_annotations_visible", "true")):
+            self.assertEqual(repeat_summary([{**row, field: value}], {"sample"})["timing_eligible_samples"], 0)
+
+    def test_export_qa_preserves_null_t1_and_does_not_release_gold(self):
+        from src.data.sprint4_pilot_review import annotation_summary
+        queue = {"sample": {"text": "12 Đường A"}}
+        report = annotation_summary([self.task()], queue)
+        self.assertEqual(report["structurally_valid_annotations"], 1)
+        self.assertEqual(report["t1_declared_counts"], {"NULL": 1})
+        self.assertEqual(report["gold_release"], "NOT_APPROVED")
+        self.assertFalse(report["counts_are_approved_gold_support"])
+
+    def test_export_text_offsets_unknown_label_and_predictions_are_blocked(self):
+        from src.data.sprint4_pilot_review import annotation_summary
+        queue = {"sample": {"text": "12 Đường A"}}
+        changed = self.task()
+        changed["data"]["text"] = "13 Đường A"
+        self.assertEqual(annotation_summary([changed], queue)["structurally_valid_annotations"], 0)
+        for value in ({"start": 0, "end": 3, "text": "12", "labels": ["SoNha"]},
+                      {"start": 0, "end": 2, "text": "12", "labels": ["UNKNOWN"]}):
+            task = self.task()
+            task["annotations"][0]["result"][0]["value"] = value
+            self.assertEqual(annotation_summary([task], queue)["structurally_valid_annotations"], 0)
+        for field, value in (("predictions", [{"result": []}]), ("total_predictions", 1)):
+            report = annotation_summary([{**self.task(), field: value}], queue)
+            self.assertEqual(report["issues"][0]["reason"], "MANUAL_PILOT_PREDICTION_PROVENANCE_FOUND")
+
+    def test_export_multiple_annotations_and_overlap_need_review(self):
+        from src.data.sprint4_pilot_review import annotation_summary
+        queue = {"sample": {"text": "12 Đường A"}}
+        task = self.task()
+        task["annotations"].append(dict(task["annotations"][0]))
+        self.assertEqual(annotation_summary([task], queue)["structurally_valid_annotations"], 0)
+        task = self.task()
+        region = {"start": 1, "end": 2, "text": "2"}
+        task["annotations"][0]["result"] += [
+            {"id": "other", "from_name": "span_label", "value": {**region, "labels": ["SoNha"]}},
+            {"id": "other", "from_name": "span_system", "value": {**region, "choices": ["khong_xac_dinh"]}}]
+        self.assertEqual(annotation_summary([task], queue)["structurally_valid_annotations"], 0)
+
+    def test_review_reader_rejects_missing_columns_and_package_hash_drift(self):
+        from src.data.sprint4_pilot_review import read_csv, read_package
+        from src.data.sprint4_pilot import file_hash
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            path = root / "timing.csv"
+            path.write_text("sample_id\na\n", encoding="utf-8-sig")
+            with self.assertRaisesRegex(ValueError, "CSV_MISSING_OR_DUPLICATE_COLUMNS"):
+                read_csv(path, {"sample_id", "annotation_seconds"})
+            queue = root / "source_review_queue.json"
+            queue.write_text(json.dumps([{"sample_id": "a", "text": "A"}]), encoding="utf-8")
+            (root / "manifest.json").write_text(json.dumps({"candidate_samples": 1,
+                 "output_sha256": {queue.name: file_hash(queue)}}), encoding="utf-8")
+            self.assertEqual(len(read_package(root)[1]), 1)
+            queue.write_text("[]", encoding="utf-8")
+            with self.assertRaisesRegex(ValueError, "PILOT_PACKAGE_HASH_MISMATCH"):
+                read_package(root)
 
 
 if __name__ == "__main__":

@@ -1,0 +1,10 @@
+{
+  "run_manifest_sha256": "f784d768027bceb983621fe6010a52f1bb48c632df7fd46748b1b70941dad86d",
+  "prediction_sha256": "3aeb7703e14b2124d936fa8ba64624fb192a4702618e671efd1d12dc3b71fcae",
+  "scorer_sha256": "ea439c543bc29212e1824a2620aa9895c883cdfdc73802df3dcbbe5d170b2cdb",
+  "benchmark_runner_sha256": "cca74b91deae2581e951c8d0c06a8f418aba2d13e92e5fe993199a408d01857c",
+  "output_sha256": {
+    "metrics.json": "570990fff5f83abed1747b58545a4e409eb55d73e7e9d879b37231de6988fe35",
+    "error_analysis.jsonl": "d66384ec74c0c27e1278ddf5de8ec8f28a352e6e8aa99dcdc5a176762515cfff"
+  }
+}

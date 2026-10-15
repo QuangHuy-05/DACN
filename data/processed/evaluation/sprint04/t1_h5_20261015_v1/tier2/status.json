@@ -1,0 +1,35 @@
+{
+  "status": "BLOCKED_LOCAL_NEURAL",
+  "python": "3.11.16",
+  "torch": "2.8.0+cpu",
+  "java": "/mnt/d/DACN/data/interim/modeling/sprint03/resources_d_v1/java17/jdk-17.0.20.1+1-jre/bin/java",
+  "cuda_available": false,
+  "threads": 6,
+  "inputs": {
+    "t1_synth_train": 105,
+    "t1_synth_dev": 273,
+    "synth_eval": 2195,
+    "data06": 580,
+    "s3_train": 240,
+    "s3_dev": 60,
+    "s3_test": 100
+  },
+  "models": {
+    "dyn": {
+      "model": "dyn",
+      "attempts": [
+        {
+          "path": "modeling_config+build_adapter, frozen training config",
+          "ok": false,
+          "error": "Traceback (most recent call last):\n  File \"/mnt/d/DACN/scripts/68b_run_t1_neural_local.py\", line 143, in load_adapter\n    adapter = build_prescribed(pieces, device)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/d/DACN/scripts/68b_run_t1_neural_local.py\", line 116, in build_prescribed\n    return build_adapter(config)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/d/DACN/src/evaluation/dev_runner.py\", line 303, in build_adapter\n    return getattr(importlib.import_module(module_name), class_name)(**config.get(\"adapter_kwargs\", {}))\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/d/DACN/src/evaluation/adapters/proposed_dynamic_adapter.py\", line 8, in __init__\n    super().__init__(*args, **kwargs)\n  File \"/mnt/d/DACN/src/evaluation/adapters/phobert_crf_adapter.py\", line 21, in __init__\n    raise RuntimeError(str(result[\"blockers\"]))\nRuntimeError: ['CUDA_NOT_AVAILABLE:no automatic CPU fallback']\n"
+        },
+        {
+          "path": "modeling_config+build_adapter, device=cpu in a config copy",
+          "ok": false,
+          "error": "Traceback (most recent call last):\n  File \"/mnt/d/DACN/scripts/68b_run_t1_neural_local.py\", line 143, in load_adapter\n    adapter = build_prescribed(pieces, device)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/d/DACN/scripts/68b_run_t1_neural_local.py\", line 116, in build_prescribed\n    return build_adapter(config)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/d/DACN/src/evaluation/dev_runner.py\", line 303, in build_adapter\n    return getattr(importlib.import_module(module_name), class_name)(**config.get(\"adapter_kwargs\", {}))\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/d/DACN/src/evaluation/adapters/proposed_dynamic_adapter.py\", line 8, in __init__\n    super().__init__(*args, **kwargs)\n  File \"/mnt/d/DACN/src/evaluation/adapters/phobert_crf_adapter.py\", line 24, in __init__\n    load_checkpoint(ROOT / checkpoint_path, config, config[\"corpus_manifest_sha256\"], file_hash(resource_path), model)\n  File \"/mnt/d/DACN/src/modeling/checkpoints.py\", line 91, in load_checkpoint\n    validate_checkpoint_metadata(meta, config, corpus_hash, resource_hash, resume)\n  File \"/mnt/d/DACN/src/modeling/checkpoints.py\", line 30, in validate_checkpoint_metadata\n    raise ValueError(\"RESUME_CONFIG_MISMATCH\")\nValueError: RESUME_CONFIG_MISMATCH\n"
+        }
+      ]
+    }
+  },
+  "reason": "DYN checkpoint could not be loaded locally; see models.dyn.attempts"
+}

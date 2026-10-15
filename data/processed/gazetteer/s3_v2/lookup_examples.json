@@ -1,0 +1,1240 @@
+[
+  {
+    "case": "unique_old_ward",
+    "result": {
+      "query": {
+        "name": "Phường Bến Nghé",
+        "level": "ward",
+        "as_of": "2025-06-30",
+        "system": null,
+        "province": "Thành phố Hồ Chí Minh",
+        "district": null
+      },
+      "entity_status": "UNIQUE_ENTITY",
+      "target_status": "UNIQUE_TARGET",
+      "candidate_count": 1,
+      "candidates": [
+        {
+          "entity_id": "cu:ward:1cf1021bdfcce6a343f8",
+          "canonical_name": "Phường Bến Nghé",
+          "level": "ward",
+          "system": "cu",
+          "province": "Thành phố Hồ Chí Minh",
+          "district": "Quận 1",
+          "official_code": "",
+          "candidate_code": "26740",
+          "code_status": "candidate_third_party_unverified",
+          "valid_from": "unknown_historical",
+          "valid_to": "2025-06-30",
+          "source_id": "official_mapping_2025",
+          "source_hash": "22bd8278cf7b3f969f255e841271f33f63f6d9db1cdf02defcaaf7360a764e53",
+          "transitions": [
+            {
+              "new_entity_id": "moi:ward:23a0462d5b83b59636f5",
+              "new_province": "Thành phố Hồ Chí Minh",
+              "new_ward": "Phường Sài Gòn",
+              "new_ward_code": "26740",
+              "relation": "B/N-1",
+              "merge_form": "Hợp nhất toàn bộ",
+              "source_row": "1732",
+              "source_id": "official_mapping_2025",
+              "source_hash": "22bd8278cf7b3f969f255e841271f33f63f6d9db1cdf02defcaaf7360a764e53",
+              "transition_kind": "WARD_EDGE"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "case": "duplicate_name_without_parent",
+    "result": {
+      "query": {
+        "name": "Phường 1",
+        "level": "ward",
+        "as_of": "2025-06-30",
+        "system": null,
+        "province": null,
+        "district": null
+      },
+      "entity_status": "AMBIGUOUS_ENTITY",
+      "target_status": "MULTIPLE_TARGETS",
+      "candidate_count": 33,
+      "candidates": [
+        {
+          "entity_id": "cu:ward:14a2f7560ed42f00fd38",
+          "canonical_name": "Phường 1",
+          "level": "ward",
+          "system": "cu",
+          "province": "Tỉnh Long An",
+          "district": "Thị xã Kiến Tường",
+          "official_code": "",
+          "candidate_code": "27787",
+          "code_status": "candidate_third_party_unverified",
+          "valid_from": "unknown_historical",
+          "valid_to": "2025-06-30",
+          "source_id": "official_mapping_2025",
+          "source_hash": "22bd8278cf7b3f969f255e841271f33f63f6d9db1cdf02defcaaf7360a764e53",
+          "transitions": [
+            {
+              "new_entity_id": "moi:ward:f40a7d4453ab54697c1f",
+              "new_province": "Tỉnh Tây Ninh",
+              "new_ward": "Phường Kiến Tường",
+              "new_ward_code": "27787",
+              "relation": "B/N-1",
+              "merge_form": "Hợp nhất toàn bộ",
+              "source_row": "9121",
+              "source_id": "official_mapping_2025",
+              "source_hash": "22bd8278cf7b3f969f255e841271f33f63f6d9db1cdf02defcaaf7360a764e53",
+              "transition_kind": "WARD_EDGE"
+            }
+          ]
+        },
+        {
+          "entity_id": "cu:ward:1ff7ca2e06a73ce9e1b8",
+          "canonical_name": "Phường 1",
+          "level": "ward",
+          "system": "cu",
+          "province": "Tỉnh Trà Vinh",
+          "district": "Thị xã Duyên Hải",
+          "official_code": "",
+          "candidate_code": "29512",
+          "code_status": "candidate_third_party_unverified",
+          "valid_from": "unknown_historical",
+          "valid_to": "2025-06-30",
+          "source_id": "official_mapping_2025",
+          "source_hash": "22bd8278cf7b3f969f255e841271f33f63f6d9db1cdf02defcaaf7360a764e53",
+          "transitions": [
+            {
+              "new_entity_id": "moi:ward:2f1767ce4e164339f3df",
+              "new_province": "Tỉnh Vĩnh Long",
+              "new_ward": "Phường Duyên Hải",
+              "new_ward_code": "29512",
+              "relation": "B/N-1",
+              "merge_form": "Hợp nhất toàn bộ",
+              "source_row": "9480",
+              "source_id": "official_mapping_2025",
+              "source_hash": "22bd8278cf7b3f969f255e841271f33f63f6d9db1cdf02defcaaf7360a764e53",
+              "transition_kind": "WARD_EDGE"
+            }
+          ]
+        },
+        {
+          "entity_id": "cu:ward:34b1bc563d2b7605ac55",
+          "canonical_name": "Phường 1",
+          "level": "ward",
+          "system": "cu",
+          "province": "Thành phố Hồ Chí Minh",
+          "district": "Quận Tân Bình",
+          "official_code": "",
+          "candidate_code": "26977",
+          "code_status": "candidate_third_party_unverified",
+          "valid_from": "unknown_historical",
+          "valid_to": "2025-06-30",
+          "source_id": "official_mapping_2025",
+          "source_hash": "22bd8278cf7b3f969f255e841271f33f63f6d9db1cdf02defcaaf7360a764e53",
+          "transitions": [
+            {
+              "new_entity_id": "moi:ward:4e341fb7f31e8dd094cd",
+              "new_province": "Thành phố Hồ Chí Minh",
+              "new_ward": "Phường Tân Sơn Hòa",
+              "new_ward_code": "26977",
+              "relation": "B/N-1",
+              "merge_form": "Hợp nhất toàn bộ",
+              "source_row": "1902",
+              "source_id": "official_mapping_2025",
+              "source_hash": "22bd8278cf7b3f969f255e841271f33f63f6d9db1cdf02defcaaf7360a764e53",
+              "transition_kind": "WARD_EDGE"
+            }
+          ]
+        },
+        {
+          "entity_id": "cu:ward:3f5b3b436cd0062e660a",
+          "canonical_name": "Phường 1",
+          "level": "ward",
+          "system": "cu",
+          "province": "Thành phố Hồ Chí Minh",
+          "district": "Quận 5",
+          "official_code": "",
+          "candidate_code": "27325",
+          "code_status": "candidate_third_party_unverified",
+          "valid_from": "unknown_historical",
+          "valid_to": "2025-06-30",
+          "source_id": "official_mapping_2025",
+          "source_hash": "22bd8278cf7b3f969f255e841271f33f63f6d9db1cdf02defcaaf7360a764e53",
+          "transitions": [
+            {
+              "new_entity_id": "moi:ward:e538c5d042ed583e5172",
+              "new_province": "Thành phố Hồ Chí Minh",
+              "new_ward": "Phường Chợ Quán",
+              "new_ward_code": "27301",
+              "relation": "B/N-1",
+              "merge_form": "Hợp nhất toàn bộ",
+              "source_row": "1803",
+              "source_id": "official_mapping_2025",
+              "source_hash": "22bd8278cf7b3f969f255e841271f33f63f6d9db1cdf02defcaaf7360a764e53",
+              "transition_kind": "WARD_EDGE"
+            }
+          ]
+        },
+        {
+          "entity_id": "cu:ward:45d418d77e5c3d7336e4",
+          "canonical_name": "Phường 1",
+          "level": "ward",
+          "system": "cu",
+          "province": "Thành phố Hồ Chí Minh",
+          "district": "Quận 11",
+          "official_code": "",
+          "candidate_code": "27247",
+          "code_status": "candidate_third_party_unverified",
+          "valid_from": "unknown_historical",
+          "valid_to": "2025-06-30",
+          "source_id": "official_mapping_2025",
+          "source_hash": "22bd8278cf7b3f969f255e841271f33f63f6d9db1cdf02defcaaf7360a764e53",
+          "transitions": [
+            {
+              "new_entity_id": "moi:ward:53c2ebbff605816b0865",
+              "new_province": "Thành phố Hồ Chí Minh",
+              "new_ward": "Phường Minh Phụng",
+              "new_ward_code": "27238",
+              "relation": "B/N-1",
+              "merge_form": "Hợp nhất toàn bộ",
+              "source_row": "1757",
+              "source_id": "official_mapping_2025",
+              "source_hash": "22bd8278cf7b3f969f255e841271f33f63f6d9db1cdf02defcaaf7360a764e53",
+              "transition_kind": "WARD_EDGE"
+            }
+          ]
+        },
+        {
+          "entity_id": "cu:ward:51c0e8554dd20241befb",
+          "canonical_name": "Phường 1",
+          "level": "ward",
+          "system": "cu",
+          "province": "Tỉnh Đồng Tháp",
+          "district": "Thành phố Cao Lãnh",
+          "official_code": "",
+          "candidate_code": "29869",
+          "code_status": "candidate_third_party_unverified",
+          "valid_from": "unknown_historical",
+          "valid_to": "2025-06-30",
+          "source_id": "official_mapping_2025",
+          "source_hash": "22bd8278cf7b3f969f255e841271f33f63f6d9db1cdf02defcaaf7360a764e53",
+          "transitions": [
+            {
+              "new_entity_id": "moi:ward:3be68ae1dbb7f890558c",
+              "new_province": "Tỉnh Đồng Tháp",
+              "new_ward": "Phường Cao Lãnh",
+              "new_ward_code": "29869",
+              "relation": "B/N-1",
+              "merge_form": "Hợp nhất toàn bộ",
+              "source_row": "10573",
+              "source_id": "official_mapping_2025",
+              "source_hash": "22bd8278cf7b3f969f255e841271f33f63f6d9db1cdf02defcaaf7360a764e53",
+              "transition_kind": "WARD_EDGE"
+            }
+          ]
+        },
+        {
+          "entity_id": "cu:ward:54bf49d59c8e19305730",
+          "canonical_name": "Phường 1",
+          "level": "ward",
+          "system": "cu",
+          "province": "Tỉnh Bà Rịa - Vũng Tàu",
+          "district": "Thành phố Vũng Tàu",
+          "official_code": "",
+          "candidate_code": "26506",
+          "code_status": "candidate_third_party_unverified",
+          "valid_from": "unknown_historical",
+          "valid_to": "2025-06-30",
+          "source_id": "official_mapping_2025",
+          "source_hash": "22bd8278cf7b3f969f255e841271f33f63f6d9db1cdf02defcaaf7360a764e53",
+          "transitions": [
+            {
+              "new_entity_id": "moi:ward:e795d7fa41d856c96f03",
+              "new_province": "Thành phố Hồ Chí Minh",
+              "new_ward": "Phường Vũng Tàu",
+              "new_ward_code": "26506",
+              "relation": "B/N-1",
+              "merge_form": "Hợp nhất toàn bộ",
+              "source_row": "2034",
+              "source_id": "official_mapping_2025",
+              "source_hash": "22bd8278cf7b3f969f255e841271f33f63f6d9db1cdf02defcaaf7360a764e53",
+              "transition_kind": "WARD_EDGE"
+            }
+          ]
+        },
+        {
+          "entity_id": "cu:ward:56cf9188b07ae46d1fb2",
+          "canonical_name": "Phường 1",
+          "level": "ward",
+          "system": "cu",
+          "province": "Tỉnh Long An",
+          "district": "Thành phố Tân An",
+          "official_code": "",
+          "candidate_code": "27694",
+          "code_status": "candidate_third_party_unverified",
+          "valid_from": "unknown_historical",
+          "valid_to": "2025-06-30",
+          "source_id": "official_mapping_2025",
+          "source_hash": "22bd8278cf7b3f969f255e841271f33f63f6d9db1cdf02defcaaf7360a764e53",
+          "transitions": [
+            {
+              "new_entity_id": "moi:ward:93b198f5b8d359d9b47a",
+              "new_province": "Tỉnh Tây Ninh",
+              "new_ward": "Phường Long An",
+              "new_ward_code": "27694",
+              "relation": "B/N-1",
+              "merge_form": "Hợp nhất toàn bộ",
+              "source_row": "9107",
+              "source_id": "official_mapping_2025",
+              "source_hash": "22bd8278cf7b3f969f255e841271f33f63f6d9db1cdf02defcaaf7360a764e53",
+              "transition_kind": "WARD_EDGE"
+            }
+          ]
+        },
+        {
+          "entity_id": "cu:ward:60a2e110951d633af368",
+          "canonical_name": "Phường 1",
+          "level": "ward",
+          "system": "cu",
+          "province": "Tỉnh Phú Yên",
+          "district": "Thành phố Tuy Hòa",
+          "official_code": "",
+          "candidate_code": "22015",
+          "code_status": "candidate_third_party_unverified",
+          "valid_from": "unknown_historical",
+          "valid_to": "2025-06-30",
+          "source_id": "official_mapping_2025",
+          "source_hash": "22bd8278cf7b3f969f255e841271f33f63f6d9db1cdf02defcaaf7360a764e53",
+          "transitions": [
+            {
+              "new_entity_id": "moi:ward:5c52ec4a1429e104a99d",
+              "new_province": "Tỉnh Đắk Lắk",
+              "new_ward": "Phường Tuy Hòa",
+              "new_ward_code": "22015",
+              "relation": "B/N-1",
+              "merge_form": "Hợp nhất toàn bộ",
+              "source_row": "9801",
+              "source_id": "official_mapping_2025",
+              "source_hash": "22bd8278cf7b3f969f255e841271f33f63f6d9db1cdf02defcaaf7360a764e53",
+              "transition_kind": "WARD_EDGE"
+            }
+          ]
+        },
+        {
+          "entity_id": "cu:ward:67e8bee6623957783c44",
+          "canonical_name": "Phường 1",
+          "level": "ward",
+          "system": "cu",
+          "province": "Tỉnh Trà Vinh",
+          "district": "Thành phố Trà Vinh",
+          "official_code": "",
+          "candidate_code": "29239",
+          "code_status": "candidate_third_party_unverified",
+          "valid_from": "unknown_historical",
+          "valid_to": "2025-06-30",
+          "source_id": "official_mapping_2025",
+          "source_hash": "22bd8278cf7b3f969f255e841271f33f63f6d9db1cdf02defcaaf7360a764e53",
+          "transitions": [
+            {
+              "new_entity_id": "moi:ward:00ae7a74c548753d3321",
+              "new_province": "Tỉnh Vĩnh Long",
+              "new_ward": "Phường Trà Vinh",
+              "new_ward_code": "29242",
+              "relation": "B/N-1",
+              "merge_form": "Hợp nhất toàn bộ",
+              "source_row": "9472",
+              "source_id": "official_mapping_2025",
+              "source_hash": "22bd8278cf7b3f969f255e841271f33f63f6d9db1cdf02defcaaf7360a764e53",
+              "transition_kind": "WARD_EDGE"
+            }
+          ]
+        },
+        {
+          "entity_id": "cu:ward:6ae4faab081e49fdd850",
+          "canonical_name": "Phường 1",
+          "level": "ward",
+          "system": "cu",
+          "province": "Tỉnh Bạc Liêu",
+          "district": "Thị xã Giá Rai",
+          "official_code": "",
+          "candidate_code": "31942",
+          "code_status": "candidate_third_party_unverified",
+          "valid_from": "unknown_historical",
+          "valid_to": "2025-06-30",
+          "source_id": "official_mapping_2025",
+          "source_hash": "22bd8278cf7b3f969f255e841271f33f63f6d9db1cdf02defcaaf7360a764e53",
+          "transitions": [
+            {
+              "new_entity_id": "moi:ward:0c39c1f939f8ea8938fe",
+              "new_province": "Tỉnh Cà Mau",
+              "new_ward": "Phường Giá Rai",
+              "new_ward_code": "31942",
+              "relation": "B/N-1",
+              "merge_form": "Hợp nhất toàn bộ",
+              "source_row": "3270",
+              "source_id": "official_mapping_2025",
+              "source_hash": "22bd8278cf7b3f969f255e841271f33f63f6d9db1cdf02defcaaf7360a764e53",
+              "transition_kind": "WARD_EDGE"
+            }
+          ]
+        },
+        {
+          "entity_id": "cu:ward:709b9d5a4339445b4e83",
+          "canonical_name": "Phường 1",
+          "level": "ward",
+          "system": "cu",
+          "province": "Tỉnh Quảng Trị",
+          "district": "Thị xã Quảng Trị",
+          "official_code": "",
+          "candidate_code": "19357",
+          "code_status": "candidate_third_party_unverified",
+          "valid_from": "unknown_historical",
+          "valid_to": "2025-06-30",
+          "source_id": "official_mapping_2025",
+          "source_hash": "22bd8278cf7b3f969f255e841271f33f63f6d9db1cdf02defcaaf7360a764e53",
+          "transitions": [
+            {
+              "new_entity_id": "moi:ward:6110b5fdb525bf3633d7",
+              "new_province": "Tỉnh Quảng Trị",
+              "new_ward": "Phường Quảng Trị",
+              "new_ward_code": "19360",
+              "relation": "B/N-1",
+              "merge_form": "Hợp nhất toàn bộ",
+              "source_row": "7548",
+              "source_id": "official_mapping_2025",
+              "source_hash": "22bd8278cf7b3f969f255e841271f33f63f6d9db1cdf02defcaaf7360a764e53",
+              "transition_kind": "WARD_EDGE"
+            }
+          ]
+        },
+        {
+          "entity_id": "cu:ward:71bcc88fc04a0bed46e5",
+          "canonical_name": "Phường 1",
+          "level": "ward",
+          "system": "cu",
+          "province": "Thành phố Hồ Chí Minh",
+          "district": "Quận 6",
+          "official_code": "",
+          "candidate_code": "27373",
+          "code_status": "candidate_third_party_unverified",
+          "valid_from": "unknown_historical",
+          "valid_to": "2025-06-30",
+          "source_id": "official_mapping_2025",
+          "source_hash": "22bd8278cf7b3f969f255e841271f33f63f6d9db1cdf02defcaaf7360a764e53",
+          "transitions": [
+            {
+              "new_entity_id": "moi:ward:def29c9f353a5886a6cf",
+              "new_province": "Thành phố Hồ Chí Minh",
+              "new_ward": "Phường Bình Tiên",
+              "new_ward_code": "27373",
+              "relation": "B/N-1",
+              "merge_form": "Hợp nhất toàn bộ",
+              "source_row": "1813",
+              "source_id": "official_mapping_2025",
+              "source_hash": "22bd8278cf7b3f969f255e841271f33f63f6d9db1cdf02defcaaf7360a764e53",
+              "transition_kind": "WARD_EDGE"
+            }
+          ]
+        },
+        {
+          "entity_id": "cu:ward:75aadf198c5d27ff868c",
+          "canonical_name": "Phường 1",
+          "level": "ward",
+          "system": "cu",
+          "province": "Tỉnh Tiền Giang",
+          "district": "Thành phố Gò Công",
+          "official_code": "",
+          "candidate_code": "28300",
+          "code_status": "candidate_third_party_unverified",
+          "valid_from": "unknown_historical",
+          "valid_to": "2025-06-30",
+          "source_id": "official_mapping_2025",
+          "source_hash": "22bd8278cf7b3f969f255e841271f33f63f6d9db1cdf02defcaaf7360a764e53",
+          "transitions": [
+            {
+              "new_entity_id": "moi:ward:d26cdfba31f217d0a71d",
+              "new_province": "Tỉnh Đồng Tháp",
+              "new_ward": "Phường Gò Công",
+              "new_ward_code": "28306",
+              "relation": "B/N-1",
+              "merge_form": "Hợp nhất toàn bộ",
+              "source_row": "10414",
+              "source_id": "official_mapping_2025",
+              "source_hash": "22bd8278cf7b3f969f255e841271f33f63f6d9db1cdf02defcaaf7360a764e53",
+              "transition_kind": "WARD_EDGE"
+            }
+          ]
+        },
+        {
+          "entity_id": "cu:ward:892a81ba71c2d29e8403",
+          "canonical_name": "Phường 1",
+          "level": "ward",
+          "system": "cu",
+          "province": "Tỉnh Lâm Đồng",
+          "district": "Thành phố Đà Lạt",
+          "official_code": "",
+          "candidate_code": "24784",
+          "code_status": "candidate_third_party_unverified",
+          "valid_from": "unknown_historical",
+          "valid_to": "2025-06-30",
+          "source_id": "official_mapping_2025",
+          "source_hash": "22bd8278cf7b3f969f255e841271f33f63f6d9db1cdf02defcaaf7360a764e53",
+          "transitions": [
+            {
+              "new_entity_id": "moi:ward:6f1715e0cc3af3611288",
+              "new_province": "Tỉnh Lâm Đồng",
+              "new_ward": "Phường Xuân Hương - Đà Lạt",
+              "new_ward_code": "24781",
+              "relation": "B/N-1",
+              "merge_form": "Hợp nhất toàn bộ",
+              "source_row": "5248",
+              "source_id": "official_mapping_2025",
+              "source_hash": "22bd8278cf7b3f969f255e841271f33f63f6d9db1cdf02defcaaf7360a764e53",
+              "transition_kind": "WARD_EDGE"
+            }
+          ]
+        },
+        {
+          "entity_id": "cu:ward:896c9da2487591daea8c",
+          "canonical_name": "Phường 1",
+          "level": "ward",
+          "system": "cu",
+          "province": "Tỉnh Tiền Giang",
+          "district": "Thành phố Mỹ Tho",
+          "official_code": "",
+          "candidate_code": "28261",
+          "code_status": "candidate_third_party_unverified",
+          "valid_from": "unknown_historical",
+          "valid_to": "2025-06-30",
+          "source_id": "official_mapping_2025",
+          "source_hash": "22bd8278cf7b3f969f255e841271f33f63f6d9db1cdf02defcaaf7360a764e53",
+          "transitions": [
+            {
+              "new_entity_id": "moi:ward:d592ffeaa425f7741f78",
+              "new_province": "Tỉnh Đồng Tháp",
+              "new_ward": "Phường Mỹ Tho",
+              "new_ward_code": "28261",
+              "relation": "B/N-1",
+              "merge_form": "Hợp nhất toàn bộ",
+              "source_row": "10424",
+              "source_id": "official_mapping_2025",
+              "source_hash": "22bd8278cf7b3f969f255e841271f33f63f6d9db1cdf02defcaaf7360a764e53",
+              "transition_kind": "WARD_EDGE"
+            }
+          ]
+        },
+        {
+          "entity_id": "cu:ward:9388051117261f21d140",
+          "canonical_name": "Phường 1",
+          "level": "ward",
+          "system": "cu",
+          "province": "Thành phố Hồ Chí Minh",
+          "district": "Quận 3",
+          "official_code": "",
+          "candidate_code": "27160",
+          "code_status": "candidate_third_party_unverified",
+          "valid_from": "unknown_historical",
+          "valid_to": "2025-06-30",
+          "source_id": "official_mapping_2025",
+          "source_hash": "22bd8278cf7b3f969f255e841271f33f63f6d9db1cdf02defcaaf7360a764e53",
+          "transitions": [
+            {
+              "new_entity_id": "moi:ward:c8f39c414a22a050fab2",
+              "new_province": "Thành phố Hồ Chí Minh",
+              "new_ward": "Phường Bàn Cờ",
+              "new_ward_code": "27154",
+              "relation": "B/N-1",
+              "merge_form": "Hợp nhất toàn bộ",
+              "source_row": "1779",
+              "source_id": "official_mapping_2025",
+              "source_hash": "22bd8278cf7b3f969f255e841271f33f63f6d9db1cdf02defcaaf7360a764e53",
+              "transition_kind": "WARD_EDGE"
+            }
+          ]
+        },
+        {
+          "entity_id": "cu:ward:abfbd2d422ed673e80fb",
+          "canonical_name": "Phường 1",
+          "level": "ward",
+          "system": "cu",
+          "province": "Tỉnh Tây Ninh",
+          "district": "Thành phố Tây Ninh",
+          "official_code": "",
+          "candidate_code": "25456",
+          "code_status": "candidate_third_party_unverified",
+          "valid_from": "unknown_historical",
+          "valid_to": "2025-06-30",
+          "source_id": "official_mapping_2025",
+          "source_hash": "22bd8278cf7b3f969f255e841271f33f63f6d9db1cdf02defcaaf7360a764e53",
+          "transitions": [
+            {
+              "new_entity_id": "moi:ward:eaa0820991a609aa00b7",
+              "new_province": "Tỉnh Tây Ninh",
+              "new_ward": "Phường Tân Ninh",
+              "new_ward_code": "25459",
+              "relation": "B/N-1",
+              "merge_form": "Hợp nhất toàn bộ",
+              "source_row": "9205",
+              "source_id": "official_mapping_2025",
+              "source_hash": "22bd8278cf7b3f969f255e841271f33f63f6d9db1cdf02defcaaf7360a764e53",
+              "transition_kind": "WARD_EDGE"
+            }
+          ]
+        },
+        {
+          "entity_id": "cu:ward:ac2619c06e7c44fff8fc",
+          "canonical_name": "Phường 1",
+          "level": "ward",
+          "system": "cu",
+          "province": "Tỉnh Bạc Liêu",
+          "district": "Thành phố Bạc Liêu",
+          "official_code": "",
+          "candidate_code": "31825",
+          "code_status": "candidate_third_party_unverified",
+          "valid_from": "unknown_historical",
+          "valid_to": "2025-06-30",
+          "source_id": "official_mapping_2025",
+          "source_hash": "22bd8278cf7b3f969f255e841271f33f63f6d9db1cdf02defcaaf7360a764e53",
+          "transitions": [
+            {
+              "new_entity_id": "moi:ward:dae29c7f0073f978115b",
+              "new_province": "Tỉnh Cà Mau",
+              "new_ward": "Phường Bạc Liêu",
+              "new_ward_code": "31825",
+              "relation": "B/N-1",
+              "merge_form": "Hợp nhất toàn bộ",
+              "source_row": "3260",
+              "source_id": "official_mapping_2025",
+              "source_hash": "22bd8278cf7b3f969f255e841271f33f63f6d9db1cdf02defcaaf7360a764e53",
+              "transition_kind": "WARD_EDGE"
+            }
+          ]
+        },
+        {
+          "entity_id": "cu:ward:ad00a4239775a917cea5",
+          "canonical_name": "Phường 1",
+          "level": "ward",
+          "system": "cu",
+          "province": "Tỉnh Cà Mau",
+          "district": "Thành phố Cà Mau",
+          "official_code": "",
+          "candidate_code": "32005",
+          "code_status": "candidate_third_party_unverified",
+          "valid_from": "unknown_historical",
+          "valid_to": "2025-06-30",
+          "source_id": "official_mapping_2025",
+          "source_hash": "22bd8278cf7b3f969f255e841271f33f63f6d9db1cdf02defcaaf7360a764e53",
+          "transitions": [
+            {
+              "new_entity_id": "moi:ward:df3890969c3c1ca4f7e7",
+              "new_province": "Tỉnh Cà Mau",
+              "new_ward": "Phường An Xuyên",
+              "new_ward_code": "32002",
+              "relation": "B/N-1",
+              "merge_form": "Hợp nhất toàn bộ",
+              "source_row": "3382",
+              "source_id": "official_mapping_2025",
+              "source_hash": "22bd8278cf7b3f969f255e841271f33f63f6d9db1cdf02defcaaf7360a764e53",
+              "transition_kind": "WARD_EDGE"
+            }
+          ]
+        },
+        {
+          "entity_id": "cu:ward:b6337efcdaedebcfbc88",
+          "canonical_name": "Phường 1",
+          "level": "ward",
+          "system": "cu",
+          "province": "Tỉnh Sóc Trăng",
+          "district": "Thành phố Sóc Trăng",
+          "official_code": "",
+          "candidate_code": "31522",
+          "code_status": "candidate_third_party_unverified",
+          "valid_from": "unknown_historical",
+          "valid_to": "2025-06-30",
+          "source_id": "official_mapping_2025",
+          "source_hash": "22bd8278cf7b3f969f255e841271f33f63f6d9db1cdf02defcaaf7360a764e53",
+          "transitions": [
+            {
+              "new_entity_id": "moi:ward:3dc09fe1e0bc65ef4f46",
+              "new_province": "Thành phố Cần Thơ",
+              "new_ward": "Phường Phú Lợi",
+              "new_ward_code": "31510",
+              "relation": "B/N-1",
+              "merge_form": "Hợp nhất toàn bộ",
+              "source_row": "255",
+              "source_id": "official_mapping_2025",
+              "source_hash": "22bd8278cf7b3f969f255e841271f33f63f6d9db1cdf02defcaaf7360a764e53",
+              "transition_kind": "WARD_EDGE"
+            }
+          ]
+        },
+        {
+          "entity_id": "cu:ward:b732aa1951738c40c09d",
+          "canonical_name": "Phường 1",
+          "level": "ward",
+          "system": "cu",
+          "province": "Thành phố Hồ Chí Minh",
+          "district": "Quận 4",
+          "official_code": "",
+          "candidate_code": "27298",
+          "code_status": "candidate_third_party_unverified",
+          "valid_from": "unknown_historical",
+          "valid_to": "2025-06-30",
+          "source_id": "official_mapping_2025",
+          "source_hash": "22bd8278cf7b3f969f255e841271f33f63f6d9db1cdf02defcaaf7360a764e53",
+          "transitions": [
+            {
+              "new_entity_id": "moi:ward:e9a510ec32cd8976b7b6",
+              "new_province": "Thành phố Hồ Chí Minh",
+              "new_ward": "Phường Vĩnh Hội",
+              "new_ward_code": "27286",
+              "relation": "B/N-1",
+              "merge_form": "Hợp nhất toàn bộ",
+              "source_row": "1790",
+              "source_id": "official_mapping_2025",
+              "source_hash": "22bd8278cf7b3f969f255e841271f33f63f6d9db1cdf02defcaaf7360a764e53",
+              "transition_kind": "WARD_EDGE"
+            }
+          ]
+        },
+        {
+          "entity_id": "cu:ward:be05bdb8e377efbddb4c",
+          "canonical_name": "Phường 1",
+          "level": "ward",
+          "system": "cu",
+          "province": "Tỉnh Lâm Đồng",
+          "district": "Thành phố Bảo Lộc",
+          "official_code": "",
+          "candidate_code": "24823",
+          "code_status": "candidate_third_party_unverified",
+          "valid_from": "unknown_historical",
+          "valid_to": "2025-06-30",
+          "source_id": "official_mapping_2025",
+          "source_hash": "22bd8278cf7b3f969f255e841271f33f63f6d9db1cdf02defcaaf7360a764e53",
+          "transitions": [
+            {
+              "new_entity_id": "moi:ward:f8d46ad871dd07bc074c",
+              "new_province": "Tỉnh Lâm Đồng",
+              "new_ward": "Phường 1 Bảo Lộc",
+              "new_ward_code": "24823",
+              "relation": "B/N-1",
+              "merge_form": "Hợp nhất toàn bộ",
+              "source_row": "5237",
+              "source_id": "official_mapping_2025",
+              "source_hash": "22bd8278cf7b3f969f255e841271f33f63f6d9db1cdf02defcaaf7360a764e53",
+              "transition_kind": "WARD_EDGE"
+            }
+          ]
+        },
+        {
+          "entity_id": "cu:ward:c767bb19b31e7ba036ca",
+          "canonical_name": "Phường 1",
+          "level": "ward",
+          "system": "cu",
+          "province": "Thành phố Hồ Chí Minh",
+          "district": "Quận Gò Vấp",
+          "official_code": "",
+          "candidate_code": "26890",
+          "code_status": "candidate_third_party_unverified",
+          "valid_from": "unknown_historical",
+          "valid_to": "2025-06-30",
+          "source_id": "official_mapping_2025",
+          "source_hash": "22bd8278cf7b3f969f255e841271f33f63f6d9db1cdf02defcaaf7360a764e53",
+          "transitions": [
+            {
+              "new_entity_id": "moi:ward:206e40155576659ee491",
+              "new_province": "Thành phố Hồ Chí Minh",
+              "new_ward": "Phường Hạnh Thông",
+              "new_ward_code": "26890",
+              "relation": "B/N-1",
+              "merge_form": "Hợp nhất toàn bộ",
+              "source_row": "1878",
+              "source_id": "official_mapping_2025",
+              "source_hash": "22bd8278cf7b3f969f255e841271f33f63f6d9db1cdf02defcaaf7360a764e53",
+              "transition_kind": "WARD_EDGE"
+            }
+          ]
+        },
+        {
+          "entity_id": "cu:ward:caeb8cca87ed94233de7",
+          "canonical_name": "Phường 1",
+          "level": "ward",
+          "system": "cu",
+          "province": "Thành phố Hồ Chí Minh",
+          "district": "Quận Phú Nhuận",
+          "official_code": "",
+          "candidate_code": "27058",
+          "code_status": "candidate_third_party_unverified",
+          "valid_from": "unknown_historical",
+          "valid_to": "2025-06-30",
+          "source_id": "official_mapping_2025",
+          "source_hash": "22bd8278cf7b3f969f255e841271f33f63f6d9db1cdf02defcaaf7360a764e53",
+          "transitions": [
+            {
+              "new_entity_id": "moi:ward:7e73861987a29ef83724",
+              "new_province": "Thành phố Hồ Chí Minh",
+              "new_ward": "Phường Cầu Kiệu",
+              "new_ward_code": "27058",
+              "relation": "B/N-1",
+              "merge_form": "Hợp nhất toàn bộ",
+              "source_row": "1890",
+              "source_id": "official_mapping_2025",
+              "source_hash": "22bd8278cf7b3f969f255e841271f33f63f6d9db1cdf02defcaaf7360a764e53",
+              "transition_kind": "WARD_EDGE"
+            }
+          ]
+        },
+        {
+          "entity_id": "cu:ward:d72ecda3a9431534c486",
+          "canonical_name": "Phường 1",
+          "level": "ward",
+          "system": "cu",
+          "province": "Tỉnh Tiền Giang",
+          "district": "Thị xã Cai Lậy",
+          "official_code": "",
+          "candidate_code": "28435",
+          "code_status": "candidate_third_party_unverified",
+          "valid_from": "unknown_historical",
+          "valid_to": "2025-06-30",
+          "source_id": "official_mapping_2025",
+          "source_hash": "22bd8278cf7b3f969f255e841271f33f63f6d9db1cdf02defcaaf7360a764e53",
+          "transitions": [
+            {
+              "new_entity_id": "moi:ward:a9ab94355ef0f2130bee",
+              "new_province": "Tỉnh Đồng Tháp",
+              "new_ward": "Phường Mỹ Phước Tây",
+              "new_ward_code": "28435",
+              "relation": "B/N-1",
+              "merge_form": "Hợp nhất toàn bộ",
+              "source_row": "10440",
+              "source_id": "official_mapping_2025",
+              "source_hash": "22bd8278cf7b3f969f255e841271f33f63f6d9db1cdf02defcaaf7360a764e53",
+              "transition_kind": "WARD_EDGE"
+            }
+          ]
+        },
+        {
+          "entity_id": "cu:ward:d7554bf2f3f57171e757",
+          "canonical_name": "Phường 1",
+          "level": "ward",
+          "system": "cu",
+          "province": "Tỉnh Vĩnh Long",
+          "district": "Thành phố Vĩnh Long",
+          "official_code": "",
+          "candidate_code": "29551",
+          "code_status": "candidate_third_party_unverified",
+          "valid_from": "unknown_historical",
+          "valid_to": "2025-06-30",
+          "source_id": "official_mapping_2025",
+          "source_hash": "22bd8278cf7b3f969f255e841271f33f63f6d9db1cdf02defcaaf7360a764e53",
+          "transitions": [
+            {
+              "new_entity_id": "moi:ward:ab7bb009cf5ea4a66547",
+              "new_province": "Tỉnh Vĩnh Long",
+              "new_ward": "Phường Long Châu",
+              "new_ward_code": "29551",
+              "relation": "B/N-1",
+              "merge_form": "Hợp nhất toàn bộ",
+              "source_row": "9576",
+              "source_id": "official_mapping_2025",
+              "source_hash": "22bd8278cf7b3f969f255e841271f33f63f6d9db1cdf02defcaaf7360a764e53",
+              "transition_kind": "WARD_EDGE"
+            }
+          ]
+        },
+        {
+          "entity_id": "cu:ward:dfc49b355247fb2c7489",
+          "canonical_name": "Phường 1",
+          "level": "ward",
+          "system": "cu",
+          "province": "Tỉnh Sóc Trăng",
+          "district": "Thị xã Vĩnh Châu",
+          "official_code": "",
+          "candidate_code": "31783",
+          "code_status": "candidate_third_party_unverified",
+          "valid_from": "unknown_historical",
+          "valid_to": "2025-06-30",
+          "source_id": "official_mapping_2025",
+          "source_hash": "22bd8278cf7b3f969f255e841271f33f63f6d9db1cdf02defcaaf7360a764e53",
+          "transitions": [
+            {
+              "new_entity_id": "moi:ward:a52937577c23de2840d6",
+              "new_province": "Thành phố Cần Thơ",
+              "new_ward": "Phường Vĩnh Châu",
+              "new_ward_code": "31783",
+              "relation": "B/N-1",
+              "merge_form": "Hợp nhất toàn bộ",
+              "source_row": "274",
+              "source_id": "official_mapping_2025",
+              "source_hash": "22bd8278cf7b3f969f255e841271f33f63f6d9db1cdf02defcaaf7360a764e53",
+              "transition_kind": "WARD_EDGE"
+            }
+          ]
+        },
+        {
+          "entity_id": "cu:ward:e6d76b4d978c8960d940",
+          "canonical_name": "Phường 1",
+          "level": "ward",
+          "system": "cu",
+          "province": "Thành phố Hồ Chí Minh",
+          "district": "Quận Bình Thạnh",
+          "official_code": "",
+          "candidate_code": "26944",
+          "code_status": "candidate_third_party_unverified",
+          "valid_from": "unknown_historical",
+          "valid_to": "2025-06-30",
+          "source_id": "official_mapping_2025",
+          "source_hash": "22bd8278cf7b3f969f255e841271f33f63f6d9db1cdf02defcaaf7360a764e53",
+          "transitions": [
+            {
+              "new_entity_id": "moi:ward:6d4dad63d10b252e71cf",
+              "new_province": "Thành phố Hồ Chí Minh",
+              "new_ward": "Phường Gia Định",
+              "new_ward_code": "26944",
+              "relation": "B/N-1",
+              "merge_form": "Hợp nhất toàn bộ",
+              "source_row": "1848",
+              "source_id": "official_mapping_2025",
+              "source_hash": "22bd8278cf7b3f969f255e841271f33f63f6d9db1cdf02defcaaf7360a764e53",
+              "transition_kind": "WARD_EDGE"
+            }
+          ]
+        },
+        {
+          "entity_id": "cu:ward:ecda7cc831ccd18004cd",
+          "canonical_name": "Phường 1",
+          "level": "ward",
+          "system": "cu",
+          "province": "Thành phố Hồ Chí Minh",
+          "district": "Quận 10",
+          "official_code": "",
+          "candidate_code": "27184",
+          "code_status": "candidate_third_party_unverified",
+          "valid_from": "unknown_historical",
+          "valid_to": "2025-06-30",
+          "source_id": "official_mapping_2025",
+          "source_hash": "22bd8278cf7b3f969f255e841271f33f63f6d9db1cdf02defcaaf7360a764e53",
+          "transitions": [
+            {
+              "new_entity_id": "moi:ward:523b7a3444df7cddf406",
+              "new_province": "Thành phố Hồ Chí Minh",
+              "new_ward": "Phường Vườn Lài",
+              "new_ward_code": "27190",
+              "relation": "B/N-1",
+              "merge_form": "Hợp nhất toàn bộ",
+              "source_row": "1745",
+              "source_id": "official_mapping_2025",
+              "source_hash": "22bd8278cf7b3f969f255e841271f33f63f6d9db1cdf02defcaaf7360a764e53",
+              "transition_kind": "WARD_EDGE"
+            }
+          ]
+        },
+        {
+          "entity_id": "cu:ward:f0d0c337a5a14e983b94",
+          "canonical_name": "Phường 1",
+          "level": "ward",
+          "system": "cu",
+          "province": "Tỉnh Quảng Trị",
+          "district": "Thành phố Đông Hà",
+          "official_code": "",
+          "candidate_code": "19333",
+          "code_status": "candidate_third_party_unverified",
+          "valid_from": "unknown_historical",
+          "valid_to": "2025-06-30",
+          "source_id": "official_mapping_2025",
+          "source_hash": "22bd8278cf7b3f969f255e841271f33f63f6d9db1cdf02defcaaf7360a764e53",
+          "transitions": [
+            {
+              "new_entity_id": "moi:ward:228a0b34c33a55dac7d1",
+              "new_province": "Tỉnh Quảng Trị",
+              "new_ward": "Phường Đông Hà",
+              "new_ward_code": "19333",
+              "relation": "B/N-1",
+              "merge_form": "Hợp nhất toàn bộ",
+              "source_row": "7539",
+              "source_id": "official_mapping_2025",
+              "source_hash": "22bd8278cf7b3f969f255e841271f33f63f6d9db1cdf02defcaaf7360a764e53",
+              "transition_kind": "WARD_EDGE"
+            }
+          ]
+        },
+        {
+          "entity_id": "cu:ward:f28662da6c0f7a2dbfc4",
+          "canonical_name": "Phường 1",
+          "level": "ward",
+          "system": "cu",
+          "province": "Tỉnh Sóc Trăng",
+          "district": "Thị xã Ngã Năm",
+          "official_code": "",
+          "candidate_code": "31732",
+          "code_status": "candidate_third_party_unverified",
+          "valid_from": "unknown_historical",
+          "valid_to": "2025-06-30",
+          "source_id": "official_mapping_2025",
+          "source_hash": "22bd8278cf7b3f969f255e841271f33f63f6d9db1cdf02defcaaf7360a764e53",
+          "transitions": [
+            {
+              "new_entity_id": "moi:ward:3cd778bbfeb99f6e0bbb",
+              "new_province": "Thành phố Cần Thơ",
+              "new_ward": "Phường Ngã Năm",
+              "new_ward_code": "31732",
+              "relation": "B/N-1",
+              "merge_form": "Hợp nhất toàn bộ",
+              "source_row": "264",
+              "source_id": "official_mapping_2025",
+              "source_hash": "22bd8278cf7b3f969f255e841271f33f63f6d9db1cdf02defcaaf7360a764e53",
+              "transition_kind": "WARD_EDGE"
+            }
+          ]
+        },
+        {
+          "entity_id": "cu:ward:fe5cf48d2b0c684265d9",
+          "canonical_name": "Phường 1",
+          "level": "ward",
+          "system": "cu",
+          "province": "Tỉnh Đồng Tháp",
+          "district": "Thành phố Sa Đéc",
+          "official_code": "",
+          "candidate_code": "29905",
+          "code_status": "candidate_third_party_unverified",
+          "valid_from": "unknown_historical",
+          "valid_to": "2025-06-30",
+          "source_id": "official_mapping_2025",
+          "source_hash": "22bd8278cf7b3f969f255e841271f33f63f6d9db1cdf02defcaaf7360a764e53",
+          "transitions": [
+            {
+              "new_entity_id": "moi:ward:7a5a47f0fcee5f29eb16",
+              "new_province": "Tỉnh Đồng Tháp",
+              "new_ward": "Phường Sa Đéc",
+              "new_ward_code": "29905",
+              "relation": "B/N-1",
+              "merge_form": "Hợp nhất toàn bộ",
+              "source_row": "10593",
+              "source_id": "official_mapping_2025",
+              "source_hash": "22bd8278cf7b3f969f255e841271f33f63f6d9db1cdf02defcaaf7360a764e53",
+              "transition_kind": "WARD_EDGE"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "case": "old_system_after_boundary",
+    "result": {
+      "query": {
+        "name": "Phường Bến Nghé",
+        "level": "ward",
+        "as_of": "2025-07-01",
+        "system": null,
+        "province": null,
+        "district": null
+      },
+      "entity_status": "NO_MATCH",
+      "target_status": "NO_TRANSITION",
+      "candidate_count": 0,
+      "candidates": []
+    }
+  },
+  {
+    "case": "new_system_before_boundary",
+    "result": {
+      "query": {
+        "name": "Phường Sài Gòn",
+        "level": "ward",
+        "as_of": "2025-06-30",
+        "system": null,
+        "province": null,
+        "district": null
+      },
+      "entity_status": "NO_MATCH",
+      "target_status": "NO_TRANSITION",
+      "candidate_count": 0,
+      "candidates": []
+    }
+  },
+  {
+    "case": "unknown_name",
+    "result": {
+      "query": {
+        "name": "Đơn vị không tồn tại DACN",
+        "level": "ward",
+        "as_of": "2025-07-01",
+        "system": null,
+        "province": null,
+        "district": null
+      },
+      "entity_status": "NO_MATCH",
+      "target_status": "NO_TRANSITION",
+      "candidate_count": 0,
+      "candidates": []
+    }
+  },
+  {
+    "case": "one_to_many",
+    "result": {
+      "query": {
+        "name": "Phường 15",
+        "level": "ward",
+        "as_of": "2025-06-30",
+        "system": null,
+        "province": "Thành phố Hồ Chí Minh",
+        "district": "Quận Tân Bình"
+      },
+      "entity_status": "UNIQUE_ENTITY",
+      "target_status": "MULTIPLE_TARGETS",
+      "candidate_count": 1,
+      "candidates": [
+        {
+          "entity_id": "cu:ward:f15d5d58eb93e10e615e",
+          "canonical_name": "Phường 15",
+          "level": "ward",
+          "system": "cu",
+          "province": "Thành phố Hồ Chí Minh",
+          "district": "Quận Tân Bình",
+          "official_code": "",
+          "candidate_code": "27007",
+          "code_status": "candidate_third_party_unverified",
+          "valid_from": "unknown_historical",
+          "valid_to": "2025-06-30",
+          "source_id": "official_mapping_2025",
+          "source_hash": "22bd8278cf7b3f969f255e841271f33f63f6d9db1cdf02defcaaf7360a764e53",
+          "transitions": [
+            {
+              "new_entity_id": "moi:ward:c3cdf7f23c80b51c9a66",
+              "new_province": "Thành phố Hồ Chí Minh",
+              "new_ward": "Phường Tân Bình",
+              "new_ward_code": "27004",
+              "relation": "M/M-N",
+              "merge_form": "Tách — một phần",
+              "source_row": "1908",
+              "source_id": "official_mapping_2025",
+              "source_hash": "22bd8278cf7b3f969f255e841271f33f63f6d9db1cdf02defcaaf7360a764e53",
+              "transition_kind": "WARD_EDGE"
+            },
+            {
+              "new_entity_id": "moi:ward:c75b26f8871be16b80ee",
+              "new_province": "Thành phố Hồ Chí Minh",
+              "new_ward": "Phường Tân Sơn",
+              "new_ward_code": "27007",
+              "relation": "A/1-N",
+              "merge_form": "Tách — nhập chủ yếu",
+              "source_row": "1909",
+              "source_id": "official_mapping_2025",
+              "source_hash": "22bd8278cf7b3f969f255e841271f33f63f6d9db1cdf02defcaaf7360a764e53",
+              "transition_kind": "WARD_EDGE"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "case": "many_to_many",
+    "result": {
+      "query": {
+        "name": "Xã Tân Thạnh",
+        "level": "ward",
+        "as_of": "2025-06-30",
+        "system": null,
+        "province": "Thành phố Cần Thơ",
+        "district": "Huyện Thới Lai"
+      },
+      "entity_status": "UNIQUE_ENTITY",
+      "target_status": "MULTIPLE_TARGETS",
+      "candidate_count": 1,
+      "candidates": [
+        {
+          "entity_id": "cu:ward:077c3721f87d52142156",
+          "canonical_name": "Xã Tân Thạnh",
+          "level": "ward",
+          "system": "cu",
+          "province": "Thành phố Cần Thơ",
+          "district": "Huyện Thới Lai",
+          "official_code": "",
+          "candidate_code": "31268",
+          "code_status": "candidate_third_party_unverified",
+          "valid_from": "unknown_historical",
+          "valid_to": "2025-06-30",
+          "source_id": "official_mapping_2025",
+          "source_hash": "22bd8278cf7b3f969f255e841271f33f63f6d9db1cdf02defcaaf7360a764e53",
+          "transitions": [
+            {
+              "new_entity_id": "moi:ward:a9f5f7fe2a48b28f13c4",
+              "new_province": "Thành phố Cần Thơ",
+              "new_ward": "Xã Trường Thành",
+              "new_ward_code": "31288",
+              "relation": "M/M-N",
+              "merge_form": "Tách — nhập chủ yếu",
+              "source_row": "28",
+              "source_id": "official_mapping_2025",
+              "source_hash": "22bd8278cf7b3f969f255e841271f33f63f6d9db1cdf02defcaaf7360a764e53",
+              "transition_kind": "WARD_EDGE"
+            },
+            {
+              "new_entity_id": "moi:ward:d35e563a49060acd03a5",
+              "new_province": "Thành phố Cần Thơ",
+              "new_ward": "Xã Tân Thạnh",
+              "new_ward_code": "31666",
+              "relation": "M/M-N",
+              "merge_form": "Tách — một phần",
+              "source_row": "27",
+              "source_id": "official_mapping_2025",
+              "source_hash": "22bd8278cf7b3f969f255e841271f33f63f6d9db1cdf02defcaaf7360a764e53",
+              "transition_kind": "WARD_EDGE"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "case": "district_to_special_zone",
+    "result": {
+      "query": {
+        "name": "Huyện Bạch Long Vĩ",
+        "level": "district",
+        "as_of": "2025-06-30",
+        "system": null,
+        "province": "Thành phố Hải Phòng",
+        "district": null
+      },
+      "entity_status": "UNIQUE_ENTITY",
+      "target_status": "UNIQUE_TARGET",
+      "candidate_count": 1,
+      "candidates": [
+        {
+          "entity_id": "cu:district:fd3f22f9e9f1e862dbb8",
+          "canonical_name": "Huyện Bạch Long Vĩ",
+          "level": "district",
+          "system": "cu",
+          "province": "Thành phố Hải Phòng",
+          "district": "Huyện Bạch Long Vĩ",
+          "official_code": "",
+          "candidate_code": "",
+          "code_status": "unverified_missing",
+          "valid_from": "unknown_historical",
+          "valid_to": "2025-06-30",
+          "source_id": "official_mapping_2025",
+          "source_hash": "22bd8278cf7b3f969f255e841271f33f63f6d9db1cdf02defcaaf7360a764e53",
+          "transitions": [
+            {
+              "new_entity_id": "moi:ward:180db10fca1053ba43db",
+              "new_province": "Thành phố Hải Phòng",
+              "new_ward": "Đặc khu Bạch Long Vĩ",
+              "new_ward_code": "11948",
+              "relation": "DISTRICT_TO_SPECIAL_ZONE",
+              "merge_form": "Hợp nhất toàn bộ",
+              "source_row": "1230",
+              "source_id": "official_mapping_2025",
+              "source_hash": "22bd8278cf7b3f969f255e841271f33f63f6d9db1cdf02defcaaf7360a764e53",
+              "transition_kind": "DISTRICT_TO_SPECIAL_ZONE"
+            }
+          ]
+        }
+      ]
+    }
+  }
+]

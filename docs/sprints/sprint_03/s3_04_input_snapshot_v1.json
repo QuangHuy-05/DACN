@@ -1,0 +1,323 @@
+{
+  "snapshot_id": "s3_04_input_snapshot_v1",
+  "timestamp": "2026-09-29T17:20:00+07:00",
+  "status": "INPUTS_LOCKED",
+  "roles_in_batch01": {
+    "pilot_train_pool": 68,
+    "frozen_benchmark_test_hold": 100,
+    "external_test_hold": 20
+  },
+  "total_benchmark_reserved_groups": 4017,
+  "guideline_version": "s3-span-v1.1",
+  "inputs": {
+    "data/processed/annotation/sprint03/pilot_gold_v1.jsonl": {
+      "sha256": "48571230990ceec56a4f3e244775ad856e05931aeca7748f6407e8f06c96754d",
+      "line_count": 68,
+      "headers": null
+    },
+    "data/processed/annotation/sprint03/pilot_gold_v1_manifest.json": {
+      "sha256": "108e119aa0a64e0856b48caca59e1d64061bb3aaf10a2353e3a77d78a02680d4",
+      "line_count": 37,
+      "headers": null
+    },
+    "data/interim/annotation/sprint03/annotation_queue_batch01.csv": {
+      "sha256": "f06f5889c03801afcddef928f01b55a90aa81ca50a6c2ae4df9a35a6f8348cac",
+      "line_count": 189,
+      "headers": [
+        "sample_id",
+        "text",
+        "source_dataset",
+        "source_row",
+        "source_ref",
+        "source_file_sha256",
+        "group_id",
+        "planned_role",
+        "stratum",
+        "candidate_rare",
+        "review_flag",
+        "derivation",
+        "parent_sample_id"
+      ]
+    },
+    "docs/sprints/sprint_03/annotation_batch01_manifest.json": {
+      "sha256": "c226f34d110c0f66f79eeec7d50ffc41b82e13a72f906b199c9ada8282be0ad9",
+      "line_count": 123,
+      "headers": null
+    },
+    "docs/sprints/sprint_03/span_11_annotation_guideline.md": {
+      "sha256": "88dc2155d032f8052317e42c6f02f36c6cc9aee03579e9f3af76ebc12784673a",
+      "line_count": 53,
+      "headers": null
+    },
+    "configs/label_studio_span11.xml": {
+      "sha256": "5b765ef778afdc8abac288d8bae3a51e9b1f491e944d0b09814e888842d57562",
+      "line_count": 41,
+      "headers": null
+    },
+    "data/processed/benchmark/01_full_address_new_verified.csv": {
+      "sha256": "7e2afd47828d04d108c67d29f45cb50b6a5321ae8feef595cf2b67229796a60d",
+      "line_count": 1001,
+      "headers": [
+        "SoNha",
+        "TenDuong",
+        "PhuongXa",
+        "QuanHuyen",
+        "TinhThanh",
+        "ChuoiDiaChi",
+        "HeQuyChieu"
+      ]
+    },
+    "data/processed/benchmark/02_raw_noisy_synthetic_1000.csv": {
+      "sha256": "bd425883f624c98e206d6ab197240b9642eb63352b56efd06723d04401751def",
+      "line_count": 1001,
+      "headers": [
+        "ID",
+        "ChuoiDiaChi",
+        "ChuoiDiaChiGoc",
+        "SoNha",
+        "TenDuong",
+        "PhuongXa",
+        "QuanHuyen",
+        "TinhThanh",
+        "GT_SoNha",
+        "GT_TenDuong",
+        "GT_PhuongXa",
+        "GT_QuanHuyen",
+        "GT_TinhThanh",
+        "HeQuyChieu",
+        "MucDoNhieu",
+        "LoaiNhieu",
+        "SoPhepBienDoi",
+        "Seed",
+        "Nguon"
+      ]
+    },
+    "data/processed/benchmark/03_real_address_old_1500.csv": {
+      "sha256": "d2748f4cedc498046100779a6f59fb1ef1e79c3049aeefe9d6d542afa79badda",
+      "line_count": 1501,
+      "headers": [
+        "OSM_Type",
+        "OSM_ID",
+        "SoNha",
+        "TenDuong",
+        "PhuongXa",
+        "QuanHuyen",
+        "TinhThanh",
+        "ChuoiDiaChi",
+        "HinhHoc",
+        "VungMien",
+        "HeQuyChieu"
+      ]
+    },
+    "data/processed/benchmark/04_missing_fields_800.csv": {
+      "sha256": "46305aac4821c2f2bc96913cfaf3a89f3087dd91216f5093dc7f89b8541fc021",
+      "line_count": 801,
+      "headers": [
+        "ChuoiDiaChi",
+        "SoNha",
+        "TenDuong",
+        "PhuongXa",
+        "QuanHuyen",
+        "TinhThanh",
+        "GT_SoNha",
+        "GT_TenDuong",
+        "GT_PhuongXa",
+        "GT_QuanHuyen",
+        "GT_TinhThanh",
+        "KieuThieu",
+        "HeQuyChieu"
+      ]
+    },
+    "data/processed/benchmark/06_hybrid_addresses_600.csv": {
+      "sha256": "6249b06941d6e89a8a731fc47d0b844ee89ed8dce5a902bfcaac13d2785ced8d",
+      "line_count": 601,
+      "headers": [
+        "ChuoiDiaChi",
+        "SoNha",
+        "TenDuong",
+        "PhuongXa",
+        "QuanHuyen",
+        "TinhThanh",
+        "KieuLai",
+        "HeQuyChieu",
+        "Span_He_Detail",
+        "LoaiAnhXa",
+        "QuanHe",
+        "HinhThucSapNhap",
+        "Nguon"
+      ]
+    },
+    "data/processed/benchmark/07_bidirectional_pairs_verified.csv": {
+      "sha256": "3f11b0d02a05922662613c460014da34f89def7da1e7e1ba6ef496aa369245fc",
+      "line_count": 601,
+      "headers": [
+        "ID_Node",
+        "DiaChi_Cu",
+        "DiaChi_Moi",
+        "LoaiAnhXa",
+        "QuanHe",
+        "HinhThucSapNhap",
+        "MaPhuongXaMoi",
+        "Nguon"
+      ]
+    },
+    "data/interim/osm/osm_old_snapshot_full.csv": {
+      "sha256": "f5dbea0d7315a7514a9d4259607e0c41293ca39e947b7db33f578c3843ee4a86",
+      "line_count": 26962,
+      "headers": [
+        "OSM_Type",
+        "OSM_ID",
+        "SoNha",
+        "TenDuong",
+        "PhuongXa",
+        "QuanHuyen",
+        "TinhThanh",
+        "ChuoiDiaChi",
+        "HinhHoc",
+        "VungMien"
+      ]
+    },
+    "data/interim/osm/osm_historical_2025.csv": {
+      "sha256": "0c0bb9acdf80e204b0431b9e12fbf1fab87c003b91ddf0ec90869603334d088f",
+      "line_count": 10001,
+      "headers": [
+        "SoNha",
+        "TenDuong",
+        "PhuongXa",
+        "QuanHuyen",
+        "TinhThanh",
+        "ChuoiDiaChi"
+      ]
+    },
+    "data/interim/osm/osm_latest_clean.csv": {
+      "sha256": "2e17fc1acdbb5e5157759f23cd63629391de194c631b6cf1ae5d0958b75e426d",
+      "line_count": 10001,
+      "headers": [
+        "SoNha",
+        "TenDuong",
+        "PhuongXa",
+        "QuanHuyen",
+        "TinhThanh",
+        "ChuoiDiaChi"
+      ]
+    },
+    "data/processed/gazetteer/s3_v1/entities.csv": {
+      "sha256": "227a961ef65794a479f16c0ae89bb64477d121da4677d021ca5b0480c32e253d",
+      "line_count": 14145,
+      "headers": [
+        "entity_id",
+        "level",
+        "system",
+        "canonical_name",
+        "parent_id",
+        "official_code",
+        "candidate_code",
+        "candidate_code_source_id",
+        "candidate_code_source_hash",
+        "code_status",
+        "valid_from",
+        "valid_to",
+        "source_id",
+        "source_hash",
+        "status"
+      ]
+    },
+    "data/processed/gazetteer/s3_v1/edges.csv": {
+      "sha256": "ca87f515fbef989eb267ca1642d06ff26c953a2eb0e8e3c5368dc8664cc8716f",
+      "line_count": 10598,
+      "headers": [
+        "old_entity_id",
+        "new_entity_id",
+        "old_province",
+        "old_district",
+        "old_ward",
+        "new_province",
+        "new_ward",
+        "new_ward_code",
+        "relation",
+        "merge_form",
+        "source_row",
+        "source_id",
+        "source_hash"
+      ]
+    },
+    "data/processed/gazetteer/s3_v1/aliases.csv": {
+      "sha256": "7474f1eea897e211af7f3e3f859cdccb63fdf77377b1c6ea9500b536ecdb251c",
+      "line_count": 188,
+      "headers": [
+        "entity_id",
+        "alias",
+        "system",
+        "level",
+        "source_id",
+        "source_hash"
+      ]
+    },
+    "data/processed/gazetteer/s3_v1/manifest.json": {
+      "sha256": "ba5a31c1d866375a60aaccad99c4569b8f96009a9d201141321e0a537c43d6db",
+      "line_count": 75,
+      "headers": null
+    },
+    "data/reference/administrative_units/vietnam-sap-nhap-phuong-xa.csv": {
+      "sha256": "22bd8278cf7b3f969f255e841271f33f63f6d9db1cdf02defcaaf7360a764e53",
+      "line_count": 10603,
+      "headers": [
+        "Phường/Xã cũ",
+        "Quận/Huyện cũ",
+        "Tỉnh/TP cũ (trước sáp nhập)",
+        "Tỉnh/TP mới",
+        "Phường/Xã mới (từ 1/7/2025)",
+        "Loại đơn vị mới",
+        "Mã phường/xã mới",
+        "Hình thức sáp nhập",
+        "Diện tích mới (km²)"
+      ]
+    },
+    "third_party/vietnamadminunits/data/interim/legacy_63-province-10040-ward_with_location_and_key.csv": {
+      "sha256": "18cfb24f4381fa7e42b3c65fb99f4809c0b49a680d86dd2ca9de28cf8e36cf24",
+      "line_count": 10041,
+      "headers": [
+        "province",
+        "district",
+        "ward",
+        "provinceShort",
+        "districtShort",
+        "wardShort",
+        "districtType",
+        "wardType",
+        "provinceCode",
+        "provinceLat",
+        "provinceLon",
+        "provinceBounds",
+        "provinceGeoAddress",
+        "districtCode",
+        "districtLat",
+        "districtLon",
+        "districtBounds",
+        "districtGeoAddress",
+        "wardCode",
+        "wardLat",
+        "wardLon",
+        "wardBounds",
+        "wardGeoAddress",
+        "districtShortDuplicated",
+        "wardShortDuplicated",
+        "provinceKey",
+        "provinceShortKey",
+        "districtKey",
+        "districtShortKey",
+        "wardKey",
+        "wardShortKey",
+        "districtShortKeyDuplicated",
+        "wardKeyDuplicated",
+        "wardShortKeyDuplicated",
+        "provinceAlias",
+        "districtAlias",
+        "wardAlias",
+        "provinceKeywords",
+        "districtKeywords",
+        "wardKeywords"
+      ]
+    }
+  }
+}
