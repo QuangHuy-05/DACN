@@ -1,0 +1,121 @@
+{
+  "declared_at_utc": "2026-10-15T03:11:00+00:00",
+  "finished_at_utc": "2026-10-15T03:11:04+00:00",
+  "gazetteer_s3_v2_edges_equal_active_release2": true,
+  "inputs": {
+    "administrative_mapping_csv": {
+      "path": "data/reference/administrative_units/vietnam-sap-nhap-phuong-xa.csv",
+      "sha256": "22bd8278cf7b3f969f255e841271f33f63f6d9db1cdf02defcaaf7360a764e53"
+    },
+    "corpus_dev": {
+      "path": "data/processed/annotation/sprint03/corpus_v1_release2/dev.jsonl",
+      "sha256": "c16e1f6ec81df2203cb9236a558785277beb424aba8f94f6aa00e0d9426eee5b"
+    },
+    "corpus_test": {
+      "path": "data/processed/annotation/sprint03/corpus_v1_release2/test_benchmark_t0.jsonl",
+      "sha256": "9418642ca5acf15a6b7e44cc816cf3986fc2832e469dedfa50c68c06f275ff5c"
+    },
+    "corpus_train": {
+      "path": "data/processed/annotation/sprint03/corpus_v1_release2/train.jsonl",
+      "sha256": "283b494713bc68fa55961c809631df3db28fef39564187845215e507a201802c"
+    },
+    "data07": {
+      "path": "data/processed/benchmark/07_bidirectional_pairs_verified.csv",
+      "sha256": "3f11b0d02a05922662613c460014da34f89def7da1e7e1ba6ef496aa369245fc"
+    },
+    "decisions": {
+      "path": "data/interim/annotation/sprint04/decision_log_20261013_v2/source_use_decisions.csv",
+      "sha256": "86ee71d31c340a7020f5a1f44bd6307d17ac13c95f42af9e7562a90f7e0a6e11"
+    },
+    "gazetteer_active_edges_s3_v4_release2": {
+      "path": "data/processed/gazetteer/s3_v4_nso_dual_snapshot_release2/edges.csv",
+      "sha256": "f42c59d63254a243422b62cf5857b17d0dba995affb8180ee75373b19f4d43eb"
+    },
+    "gazetteer_edges.csv": {
+      "path": "data/processed/gazetteer/s3_v2/edges.csv",
+      "sha256": "f42c59d63254a243422b62cf5857b17d0dba995affb8180ee75373b19f4d43eb"
+    },
+    "gazetteer_manifest.json": {
+      "path": "data/processed/gazetteer/s3_v2/manifest.json",
+      "sha256": "fb350c06b3a3d1dca9ceb6de65695fa533ac20ea3bda3f1abd8465951f8646d9"
+    },
+    "gazetteer_non_atomic_transitions.csv": {
+      "path": "data/processed/gazetteer/s3_v2/non_atomic_transitions.csv",
+      "sha256": "91fecdfa064e82e2dff07d5d22c64df597897bc4d4371d7fadda2fa6a12cc853"
+    },
+    "pairs": {
+      "path": "data/processed/osm/osm_real_bidirectional_pairs.csv",
+      "sha256": "ffd2cfe34292ccd31f5025cadc785281aa6046fb779fbfbb6808cd92475df1a5"
+    },
+    "register": {
+      "path": "configs/annotation/sprint04/source_register_v1.csv",
+      "sha256": "01818fab265d903affa7763db316f38681c2a32d95d077798a1ee162b3330fc4"
+    },
+    "snapshot_balanced": {
+      "path": "data/interim/osm/osm_old_snapshot_20250630.csv",
+      "sha256": "60b9d9f7bcad110b0b4a3475200d5d885ebb4f1dbfda6027606df5e148cace8f"
+    },
+    "snapshot_full": {
+      "path": "data/interim/osm/osm_old_snapshot_full.csv",
+      "sha256": "f5dbea0d7315a7514a9d4259607e0c41293ca39e947b7db33f578c3843ee4a86"
+    },
+    "tb243": {
+      "path": "data/interim/annotation/sprint04/source_tb243_20261013_v1/source_manifest.json",
+      "sha256": "509d43eb81afb7d7c3c46e3306bf92506f106ffbf519f9b9be674e7fa81be39a"
+    }
+  },
+  "out_dir": "/mnt/d/DACN/data/processed/evaluation/sprint04/data_feasibility_20261016_v1",
+  "outputs_sha256": {
+    "conclusions.csv": "371ddf80378a42bb09c4b90ec549fb764953d8c8fef67eb2fe8a08d5f306c2a9",
+    "e2_raw_multi_target_trace.csv": "142ba8e0b9d514420577e6e84c5e58702e516575498a4dbce6aa78363ee71b35",
+    "e2_unit_audit.csv": "b5ef8cd0544b71c356abd692affe8e9cabf6a98ed5b4244bbeb7d34b653bbbae",
+    "label_source_assessment.csv": "ec4211823ee0f17b8e1e3c6021557e365309c143959d1abc68f626e259442ec7",
+    "label_verdicts.csv": "3d19d206f78bd2f792f22735777e0fc411de43415f8d05304d30e96ae9e8cd9c",
+    "metrics.json": "16e6c329b47c3b82821251c78e5fcb69e7ac5a4d3c9151b342df5c0589715a89",
+    "osm_row_audit.csv": "2dad9832f7d1086b418c6d319e79737a4d35abc606c13a180efbf2a8d25ebf1f",
+    "reproduction_check.csv": "e074391bdeef1823dc2d8b08057e8d1bf9c2997d6c9b27f474eed126a7401d50",
+    "sprint3_gold_support.csv": "8b1da3033f57ed027e514765a54a4e8f1a78738e6740bc771d1922b6f279dbf9",
+    "t2_ac_edges.csv": "f5e87977d921523f455af770423b7edc6419bd5d81753587ea547da743446731"
+  },
+  "python": "3.14.4",
+  "rows_in": {
+    "data07": 600,
+    "gazetteer_edges": 10597,
+    "osm_pairs": 1631
+  },
+  "rows_out": {
+    "conclusions.csv": 9,
+    "e2_raw_multi_target_trace.csv": 21,
+    "e2_unit_audit.csv": 50,
+    "label_source_assessment.csv": 8,
+    "label_verdicts.csv": 5,
+    "osm_row_audit.csv": 1631,
+    "reproduction_check.csv": 18,
+    "sprint3_gold_support.csv": 39,
+    "t2_ac_edges.csv": 135
+  },
+  "rules": {
+    "derived_pairs": "B or C only when the old key has exactly one target; never A or M",
+    "label_status": "RUNNABLE_NOW means an annotation-APPROVED source names the label in its register description; it does not mean support exists (support unmeasured)",
+    "normalisation": "administrative_alias.normalize_diff_record then administrative_mapping keys (N2)",
+    "raw_key": "province|district|ward cũ and province|PhuongXa_Moi exactly as stored (coordinator's 15/10 key)",
+    "relation": "degrees of the atomic graph (s3_v2 edges.csv via T2Table.relations)",
+    "row_eligibility": "same filter order as generate_bidirectional_pairs: snapshot id (full) -> house number and street unchanged -> new target resolved -> old key in source -> observed target is an edge"
+  },
+  "script_version": "data-feasibility-g2-6-v1",
+  "seed": "NOT_USED_NO_SAMPLING",
+  "source_sha256": {
+    "scripts/74_audit_data_feasibility.py": "02697b352f7e0158aadacbf3a6cbd4598ab85ba1a308de8380b5b6a594df700e",
+    "src/data/administrative_alias.py": "93b5e6d374ff140ed0cb77b0712b688854b2a7b034946a97b74dee50db7c7755",
+    "src/data/administrative_mapping.py": "e69b23a4bfa2e31232d3e75c140ea1cbe1166d863058a54f09f837fd0e1e19ce",
+    "src/data/synthetic/bidirectional.py": "0d33697c78580c31e0e345860ca3f62cd88032c9dfa3a591c3b03916b7c8ed66",
+    "src/evaluation/leak_guard.py": "8dea9bf36261014a0a660e9784ebca4743b4f81606bfb56229098b197542ad33",
+    "src/evaluation/t2_lookup.py": "16296f8ff9d98a509f6fe332f4579585533ccc67cff3bdbcf87776eb409e785d"
+  },
+  "thresholds": {
+    "min_rows": 30,
+    "min_units": 10,
+    "rationale": "min_units = 10 old units/clusters: report 09 section 6 treated k = 10 as barely enough (M slice CI [0,000; 0,567]); min_rows = 30 rows so that an average unit contributes at least a few rows. CAVEAT: written after a preliminary look that already showed 0 units with two valid targets, so the thresholds are not blind; the E2 verdict is the same for every positive threshold.",
+    "status_rule": "RUNNABLE_NOW if observed rows >= min_rows and observed units >= min_units; else NEEDS_NEW_SOURCE if the whole gazetteer population of such units >= min_units; else NOT_FEASIBLE"
+  }
+}

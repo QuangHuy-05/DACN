@@ -1,0 +1,153 @@
+{
+  "derivable_pairs_in_memory": {
+    "derived_by_relation": {
+      "B": 3992,
+      "C": 16
+    },
+    "derived_c_old_units": 8,
+    "derived_rows": 4008,
+    "note": "computed in memory by generate_bidirectional_pairs(target_size=1e6); nothing written",
+    "observed_rows": 612
+  },
+  "e2": {
+    "admin_groups_of_those_units": 0,
+    "eligible_old_units": 50,
+    "eligible_units_with_gazetteer_fan_out_ge2": 10,
+    "gazetteer_old_units_with_fan_out_ge2": 471,
+    "observed_not_edge_rows": 3,
+    "observed_not_edge_units": 2,
+    "raw_multi_target_causes": {
+      "NO_ELIGIBLE_ROW": 15,
+      "OBSERVED_TARGET_NOT_AN_EDGE_PLUS_VALID_TARGET": 1,
+      "RAW_KEY_ARTEFACT_EMPTY_FIELD": 1,
+      "RAW_KEY_ARTEFACT_SPELLING_VARIANTS": 4
+    },
+    "raw_multi_target_units": 21,
+    "rows_in_those_units": 461,
+    "rows_in_units_with_ge2_valid_targets": 0,
+    "targets_observed_per_fan_out_unit": {
+      "1": 10
+    },
+    "units_with_ge2_valid_targets": 0
+  },
+  "labels": [
+    {
+      "ApprovedForAnnotation": "",
+      "Label": "MocDinhVi",
+      "SourcesNaming": "S4_SRC_UEH_CAMPUS",
+      "Status": "NEEDS_NEW_SOURCE",
+      "Support": "NOT_MEASURED"
+    },
+    {
+      "ApprovedForAnnotation": "",
+      "Label": "HuongDi",
+      "SourcesNaming": "S4_SRC_UEH_CAMPUS",
+      "Status": "NEEDS_NEW_SOURCE",
+      "Support": "NOT_MEASURED"
+    },
+    {
+      "ApprovedForAnnotation": "S4_SRC_HANOI_TB729|S4_SRC_QHKT_CURRENT",
+      "Label": "GhiChu",
+      "SourcesNaming": "S4_SRC_HANOI_TB729|S4_SRC_QHKT_CURRENT|S4_SRC_QHKT_2024|S4_SRC_UEH_EVENT",
+      "Status": "RIGHTS_OK_SUPPORT_UNMEASURED",
+      "Support": "NOT_MEASURED"
+    },
+    {
+      "ApprovedForAnnotation": "",
+      "Label": "ToaNha/CanHo",
+      "SourcesNaming": "S4_SRC_QHKT_2024|S4_SRC_UEH_EVENT",
+      "Status": "NEEDS_NEW_SOURCE",
+      "Support": "NOT_MEASURED"
+    },
+    {
+      "ApprovedForAnnotation": "",
+      "Label": "Lai_human_written",
+      "SourcesNaming": "S4_SRC_UEH_CAMPUS",
+      "Status": "NEEDS_NEW_SOURCE",
+      "Support": "NOT_MEASURED"
+    }
+  ],
+  "osm_rows": {
+    "data07_subset_of_eligible": true,
+    "eligible": 773,
+    "eligible_edge_found_in_gazetteer_table": 773,
+    "eligible_hinhhoc_changed": 149,
+    "eligible_in_data07": 600,
+    "eligible_not_in_data07": 173,
+    "eligible_relation_old_units": {
+      "B": 40,
+      "M": 10
+    },
+    "eligible_relation_rows": {
+      "B": 312,
+      "M": 461
+    },
+    "generator_observed_equals_eligible": false,
+    "generator_observed_rows": 612,
+    "status": {
+      "ELIGIBLE": 773,
+      "NEW_TARGET_UNRESOLVED": 414,
+      "OBSERVED_TARGET_NOT_AN_EDGE": 3,
+      "OLD_KEY_NOT_IN_SOURCE": 253,
+      "STREET_OR_HOUSENUMBER_CHANGED": 188
+    },
+    "sub_reason": {
+      "NEW_TARGET_UNRESOLVED/NEW_PROVINCE_UNRESOLVED": 27,
+      "NEW_TARGET_UNRESOLVED/NEW_WARD_BLANK": 89,
+      "NEW_TARGET_UNRESOLVED/NEW_WARD_NOT_A_KNOWN_UNIT": 298,
+      "OLD_KEY_NOT_IN_SOURCE/OLD_KEY_INCOMPLETE": 208,
+      "OLD_KEY_NOT_IN_SOURCE/OLD_NAME_NOT_FOUND": 45
+    },
+    "total": 1631
+  },
+  "reproduction": {
+    "match": 15,
+    "mismatch": [
+      "raw_multi_units_also_ge2_in_gazetteer_units",
+      "raw_multi_units_also_ge2_in_gazetteer_rows"
+    ]
+  },
+  "script_version": "data-feasibility-g2-6-v1",
+  "t2_a": {
+    "edges": 3,
+    "name_unchanged": 1,
+    "observed_eligible_rows": 0,
+    "old_units": 3,
+    "snapshot_full_rows": 11,
+    "with_observed_eligible_row": 0,
+    "with_osm_diff_row_any_status": 0,
+    "with_snapshot_full_row": 1
+  },
+  "t2_c": {
+    "edges": 132,
+    "name_unchanged": 124,
+    "observed_eligible_rows": 0,
+    "old_units": 132,
+    "snapshot_full_rows": 18,
+    "with_observed_eligible_row": 0,
+    "with_osm_diff_row_any_status": 0,
+    "with_snapshot_full_row": 8
+  },
+  "t2_c_name_changed": {
+    "edges": 8,
+    "name_unchanged": 0,
+    "observed_eligible_rows": 0,
+    "old_units": 8,
+    "snapshot_full_rows": 1,
+    "with_observed_eligible_row": 0,
+    "with_osm_diff_row_any_status": 0,
+    "with_snapshot_full_row": 1
+  },
+  "thresholds": {
+    "min_rows": 30,
+    "min_units": 10,
+    "rationale": "min_units = 10 old units/clusters: report 09 section 6 treated k = 10 as barely enough (M slice CI [0,000; 0,567]); min_rows = 30 rows so that an average unit contributes at least a few rows. CAVEAT: written after a preliminary look that already showed 0 units with two valid targets, so the thresholds are not blind; the E2 verdict is the same for every positive threshold.",
+    "status_rule": "RUNNABLE_NOW if observed rows >= min_rows and observed units >= min_units; else NEEDS_NEW_SOURCE if the whole gazetteer population of such units >= min_units; else NOT_FEASIBLE"
+  },
+  "verdict": {
+    "E2": "NEEDS_NEW_SOURCE",
+    "T2_A": "NOT_FEASIBLE",
+    "T2_C": "NEEDS_NEW_SOURCE",
+    "T2_C_NAME_CHANGED": "NOT_FEASIBLE"
+  }
+}

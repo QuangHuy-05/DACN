@@ -1,0 +1,9 @@
+﻿SourceId,DecisionKey,Publisher,InRegisterV1,RegisterLabelsListed,LandmarkLabelsListed,LaiMentionInRegister,LocalResearch,Annotation,CloudUpload,Redistribution,CollectedSamplesRegister,AnnotationReadyRegister,PilotSamplesDecisionLog
+S4_SRC_UEH_CAMPUS,ueh_campus,UEH,True,SoNha|TenDuong|PhuongXa|QuanHuyen|TinhThanh|HuongDi|MocDinhVi|Khac,HuongDi|MocDinhVi,old_new_parallel_mentions_require_review,PENDING,PENDING,PENDING,PENDING,0,0,0
+S4_SRC_HANOI_TB729,hanoi_tb729,UBND_Ha_Noi,True,SoNha|TenDuong|PhuongXa|TinhThanh|Khac|GhiChu,GhiChu,new_system_candidate_not_gold,APPROVED,APPROVED,APPROVED,APPROVED,0,0,14
+S4_SRC_QHKT_CURRENT,qhkt_current,So_QHKT_TPHCM,True,SoNha|TenDuong|PhuongXa|TinhThanh|GhiChu,GhiChu,new_system_candidate_not_gold,APPROVED,APPROVED,PENDING,PENDING,0,0,5
+S4_SRC_QHKT_2024,qhkt_notice_2024,So_QHKT_TPHCM,True,SoNha|TenDuong|PhuongXa|QuanHuyen|TinhThanh|ToaNha/CanHo|GhiChu,ToaNha/CanHo|GhiChu,old_system_candidate_not_gold,PENDING,BLOCKED,PENDING,PENDING,0,0,1
+S4_SRC_UEH_EVENT,ueh_event,UEH,True,SoNha|TenDuong|ToaNha/CanHo|GhiChu,ToaNha/CanHo|GhiChu,unknown_until_literal_block_review,PENDING,PENDING,PENDING,PENDING,0,0,0
+S4_SRC_TUDU_GUIDE,tudu_home,Benh_vien_Tu_Du,True,UNVERIFIED,,unknown,PENDING,PENDING,PENDING,PENDING,0,0,0
+S4_SRC_OSM_FALLBACK,osm_copyright,OpenStreetMap,True,UNVERIFIED,,unknown,PENDING,PENDING,PENDING,PENDING,0,0,0
+TB243_PHU_LUC_II,,UBND TP Ho Chi Minh (Thong bao 243/TB-UBND),False,,,NOT_APPLICABLE_NEW_SYSTEM_ONLY,APPROVED,APPROVED,PENDING_PORTAL_TERMS_NOT_CHECKED,PENDING_PORTAL_TERMS_NOT_CHECKED,,,

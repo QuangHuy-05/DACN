@@ -35,7 +35,7 @@ Dữ liệu (chỉ đọc):
 
 SỰ THẬT ĐÃ KIỂM (đo 15/10 bởi phiên điều phối, khóa đơn vị cũ = tỉnh|huyện|phường cũ theo chuỗi thô của osm_real_bidirectional_pairs; khóa đích = tỉnh|phường mới):
 - 361 đơn vị cũ; 340 có 1 đích, 19 có 2, 1 có 3, 1 có 4 → 21 đơn vị có ≥ 2 đích quan sát (chuỗi thô, chưa chuẩn hóa).
-- Gazetteer: 10.035 khóa cũ, 471 có ≥ 2 mã phường mới; chỉ 5 trong 21 đơn vị OSM ở trên (7 dòng) cũng có ≥ 2 đích trong gazetteer. Nghĩa là 16/21 đơn vị có ≥ 2 đích OSM nhưng gazetteer chỉ cho một đích: nghi do khóa thô trùng tên khác huyện/tỉnh, alias, hoặc nhãn OSM sai; CHƯA kiểm. Đây là điều bạn phải làm rõ trước khi kết luận.
+- Gazetteer: 10.035 khóa cũ, 471 có ≥ 2 mã phường mới. [ĐÍNH CHÍNH 15/10 sau review G2-6: số "5/21 đơn vị (7 dòng) cũng có ≥ 2 đích trong gazetteer" do điều phối đo ban đầu KHÔNG tái lập; tái lập độc lập bằng khóa thô đúng chuỗi cho 1 đơn vị / 2 dòng. Đừng dùng số 5/7.] Phần lớn đơn vị có ≥ 2 đích OSM nhưng gazetteer chỉ cho một đích: nghi do khóa thô trùng tên, alias, hoặc nhãn OSM sai; việc của bạn là làm rõ.
 - Quan hệ gazetteer: B/N-1 9.432, M/M-N 1.030, C/1-1 132, A/1-N 3 cạnh. Data 07 chỉ có B và M.
 - Mọi dòng OSM pairs có HinhHocCoDuLieu = True; 287/1.631 HinhHocThayDoi = True. AGENTS.md mục 6: không suy đích split/M-N khi thiếu hình học; cặp quan sát từ OSM chỉ hợp lệ khi số nhà và tên đường không đổi.
 
